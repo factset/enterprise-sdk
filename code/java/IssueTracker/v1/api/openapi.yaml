@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Issue Tracker API
-  version: 1.2.0
+  version: 1.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/issue-tracker-api
@@ -19,6 +19,8 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
+- description: Post or retrieve file attachments for Issue Tracker Subject or Comment
+  name: Attachment
 - description: Updating and retrieving issue data within the Issue Tracker
   name: Issue
 paths:
@@ -30,7 +32,7 @@ paths:
         content:
           application/json:
             examples:
-              Example 1:
+              Issue creation with simple content:
                 value:
                   data:
                     subject: This is sample subject of issue tracker issue
@@ -38,7 +40,21 @@ paths:
                       why we are creating issue.</p>
                     productId: "13273"
                     categoryId: "20589"
-                    isCritical: false
+                    severity: Medium
+              'Example: issue creation with attachments':
+                value:
+                  data:
+                    subject: issue creation with attachments
+                    description: <p>issue creation with attachments</p>
+                    productId: "13273"
+                    categoryId: "20589"
+                    attachments:
+                    - id: 139759297
+                      name: bulk rpd.csv
+                    - id: 139759295
+                      name: AI Helper.png
+                    - id: 139759294
+                      name: Book1.xlsx
             schema:
               $ref: '#/components/schemas/issueRequest'
       responses:
@@ -56,16 +72,48 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "400"
+                      title: Bad Request
+                      code: Bad Request
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
         "401":
+          content:
+            text/plain:
+              examples:
+                Example 1:
+                  value: Unauthorized
+              schema:
+                type: string
           description: Unauthorized
         "403":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "403"
+                      title: Forbidden
+                      code: Internal Ierver Error
+              schema:
+                $ref: '#/components/schemas/errorResponse'
           description: Forbidden
         "500":
           content:
             application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Internal Server Error
@@ -76,8 +124,10 @@ paths:
       x-accepts: application/json
   /issues/{id}:
     get:
-      description: Retrieve the information of the client with the matching issue
-        Id.
+      description: This endpoint allows retrieval of client information associated
+        with a specific issue ID. When an issue contains file attachments, the Issue
+        Tracker will return relative paths for these files. You can refer to the sample
+        responses given in the examples and API Overview.
       operationId: getIssue
       parameters:
       - description: ID of Issue Tracker issue
@@ -93,12 +143,12 @@ paths:
           content:
             application/json:
               examples:
-                Example 1:
+                Sample Issue Response:
                   value:
                     data:
                       id: 5c318d1c-61da-4d32-91ef-4ea65e53a551
                       subject: This is sample subject of issue tracker issue
-                      isCritical: false
+                      severity: Medium
                       internalId: 81195668
                       comments:
                       - id: 39d38193-2829-4e45-9825-61br87e59fe1
@@ -106,22 +156,106 @@ paths:
                           we are creating the issue.
                         createdAt: 2023-09-13T11:09:01.7274055Z
                         author: Sreenu Narra
+                Issue with Attachments:
+                  value:
+                    data:
+                      id: 171e57bf-982c-40a2-84c4-c164518b3d88
+                      subject: testing without cc
+                      comments:
+                      - id: d04ef9be-e252-48e8-9f5f-6c4fa19e1e0e
+                        content: |-
+                          <p>Testing attachment icon</p>
+                          <p> </p>
+                          <p> </p> <br><br><a href="attachments/135331941/Book1.xlsx" target="_self">Book1.xlsx</a>
+                        createdAt: 2024-10-07T13:53:01.7274055Z
+                        author: Sreenu Narra
+                      - id: 5e1ba452-41e1-4c88-b44d-7e61fdfecfc9
+                        content: |-
+                          <p>testing attachment</p>
+                          <p> </p>
+                          <p> </p> <br><br><a href="attachments/135571237/1.doc" target="_self">1.doc</a>
+                        createdAt: 2024-07-16T12:58:44.7274055Z
+                        author: Sreenu Narra
+                      - id: 122360c2-23ec-43f8-9679-495db5e6f65c
+                        content: <p>checking attachment links</p> <br><br><a href="attachments/135860448/1.doc"
+                          target="_self">1.doc</a>
+                        createdAt: 2024-07-23T05:09:36.7274055Z
+                        author: Sreenu Narra
+                      - id: 0f3d701c-2bed-42a3-b646-ada25b3f80d3
+                        content: <p>checking file icon</p> <br><br><a href="attachments/135996633/bulk%20rpd.csv"
+                          target="_self">bulk rpd.csv</a><br><a href="attachments/135996623/1.doc"
+                          target="_self">1.doc</a>
+                        createdAt: 2024-07-25T09:25:02.7274055Z
+                        author: Sreenu Narra
+                      - id: a1d075f2-a51d-4d55-b00f-5bd18bfaad03
+                        content: <p>testing mail</p> <br><br><a href="attachments/135997642/bulk%20rpd.csv"
+                          target="_self">bulk rpd.csv</a>
+                        createdAt: 2024-07-25T09:46:07.7274055Z
+                        author: Anmisha NULI
+                      - id: b5744c07-f43d-4e9a-94ba-9f73fe9afccd
+                        content: <p>this is a sample comment</p> <br><br><a href="attachments/138660322/3_Inline%20Powershell.log"
+                          target="_self">3_Inline Powershell.log</a>
+                        createdAt: 2024-09-23T10:48:45.7274055Z
+                        author: Sreenu Narra
+                      - id: 8609ab1f-4e98-4d92-940c-c5beff7c2324
+                        content: <p>test</p> <br><br><a href="attachments/138719352/3_inline%20powershell.log"
+                          target="_self">3_inline powershell.log</a>
+                        createdAt: 2024-09-24T12:18:19.7274055Z
+                        author: Sreenu Narra
+                      - id: 6e0d55ab-d7e0-47ce-ad8b-e89401aae4c7
+                        content: <p>test</p> <br><br><a href="attachments/139188600/1.doc"
+                          target="_self">1.doc</a>
+                        createdAt: 2024-10-04T11:14:11.7274055Z
+                        author: Sreenu Narra
+                      internalId: 111586147
               schema:
                 $ref: '#/components/schemas/issue'
           description: OK
         "401":
+          content:
+            text/plain:
+              examples:
+                Example 1:
+                  value: Unauthorized
+              schema:
+                type: string
           description: Unauthorized
         "403":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "403"
+                      title: Forbidden
+                      code: Forbidden
+              schema:
+                $ref: '#/components/schemas/errorResponse'
           description: Forbidden
         "404":
           content:
             application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Not Found
         "500":
           content:
             application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Internal Server Error
@@ -130,8 +264,8 @@ paths:
       - Issue
       x-accepts: application/json
     patch:
-      description: "User can update either `isCritical` with `subject` or `productId`\
-        \ with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `isCritical`\
+      description: "User can update either `severity` with `subject` or `productId`\
+        \ with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `severity`\
         \ with `productId` or `subject` with `productId`"
       operationId: patchIssue
       parameters:
@@ -151,7 +285,7 @@ paths:
                 value:
                   data:
                     subject: replace Title of ticket
-                    isCritical: false
+                    severity: Medium
               Sample request  to replace ProductId with CategoryId:
                 value:
                   data:
@@ -164,7 +298,7 @@ paths:
               Sample request to replace Severity alone:
                 value:
                   data:
-                    isCritical: true
+                    severity: Medium
               Sample request to replace ProductId alone:
                 value:
                   data:
@@ -173,14 +307,63 @@ paths:
               $ref: '#/components/schemas/updateIssueRequest'
       responses:
         "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: 28d38693-3454-4e45-9825-71br87e69fe3
+              schema:
+                $ref: '#/components/schemas/idResponse'
           description: OK
         "400":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "400"
+                      title: Bad Request
+                      code: Bad Request
+              schema:
+                $ref: '#/components/schemas/errorResponse'
           description: Bad Request
         "401":
+          content:
+            text/plain:
+              examples:
+                Example 1:
+                  value: Unauthorized
+              schema:
+                type: string
           description: Unauthorized
         "403":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "403"
+                      title: Forbidden
+                      code: Forbidden
+              schema:
+                $ref: '#/components/schemas/errorResponse'
           description: Forbidden
         "500":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
+              schema:
+                $ref: '#/components/schemas/errorResponse'
           description: Internal Server Error
       summary: Update severity and subject of issue or productId and categoryId of
         issue
@@ -205,36 +388,87 @@ paths:
         content:
           application/json:
             examples:
-              Example 1:
+              simple content:
                 value:
                   data:
                     content: <p>this is a sample comment</p>
+              'Example: Content with image attachment':
+                value:
+                  data:
+                    content: <p>reply with image</p>
+                    attachments:
+                    - id: 139759297
+                      name: bulk rpd.csv
+              'Example: reply response with multiple file attachments':
+                value:
+                  data:
+                    content: <p>reply with multiple attachments</p>
+                    attachments:
+                    - id: 139759297
+                      name: bulk rpd.csv
+                    - id: 139759295
+                      name: AI Helper.png
+                    - id: 139759294
+                      name: Book1.xlsx
             schema:
               $ref: '#/components/schemas/commentRequest'
       responses:
         "201":
           content:
             application/json:
-              example:
-                value:
-                  data:
-                    id: 28d38693-3454-4e45-9825-71br87e69fe3
+              examples:
+                Example 1:
+                  value:
+                    data:
+                      id: 28d38693-3454-4e45-9825-71br87e69fe3
               schema:
                 $ref: '#/components/schemas/idResponse'
           description: Created
         "400":
           content:
             application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "400"
+                      title: Bad Request
+                      code: Bad Request
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Bad Request
         "401":
+          content:
+            text/plain:
+              examples:
+                Example 1:
+                  value: Unauthorized
+              schema:
+                type: string
           description: Unauthorized
         "403":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "403"
+                      title: Forbidden
+                      code: Forbidden
+              schema:
+                $ref: '#/components/schemas/errorResponse'
           description: Forbidden
         "500":
           content:
             application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
               schema:
                 $ref: '#/components/schemas/errorResponse'
           description: Internal Server Error
@@ -243,21 +477,385 @@ paths:
       - Issue
       x-contentType: application/json
       x-accepts: application/json
+  /attachments:
+    post:
+      description: "\r\nThis endpoint upload file attachments into Issue Tracker and\
+        \ it allows only single file at a time. It will throws error when tries to\
+        \ upload multiple files in single call. \r\n\r\nFile size should not exceed\
+        \ 10Mb. More info provided in examples. It allows only few type of files for\
+        \ attachments. Please review \"attachments/file-extensions\" endpoint for\
+        \ list allowed file types."
+      operationId: postFileAttachment
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              attachment:
+                contentType: image/bmp, image/png, image/gif, image/jpeg, application/pdf,
+                  application/x-msdownload, application/octet-stream, text/html, application/xml,
+                  text/plain, text/csv, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                  application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+                  application/vnd.ms-word.document.macroenabled.12, application/vnd.ms-excel.sheet.macroenabled.12,
+                  application/vnd.ms-word.template.macroenabled.12, text/x-r-script,
+                  text/x-matlab, application/sql, application/vnd.ms-excel.charttemplate+xml,
+                  application/vnd.openxmlformats-officedocument.wordprocessingml.template,
+                  application/zip, application/vnd.openxmlformats-officedocument.presentationml.template,
+                  application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                  application/x-nql, text/tab-separated-values, text/x-include
+                style: form
+            examples:
+              'Example ':
+                value:
+                  file: Bulk_Data.xlsx
+            schema:
+              $ref: '#/components/schemas/inputAttachment'
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    data:
+                      id: 135997642
+                      name: Bulk_Data.xlsx
+              schema:
+                $ref: '#/components/schemas/attachmentResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              examples:
+                'Example: Upload File Attachment Count Restriction Error':
+                  value:
+                    errors:
+                    - id: "400"
+                      code: BadRequest
+                      title: '{ Message: Expected one file to be uploaded, instead
+                        got 2 }'
+                'Example: Disallowed File Type Issue':
+                  value:
+                    errors:
+                    - id: "400"
+                      code: BadRequest
+                      title: '{ Message: File extension ''.msg'' is not allowed to
+                        be uploaded. }'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "401":
+          content:
+            text/plain:
+              examples:
+                Example 1:
+                  value: Unauthorized
+              schema:
+                type: string
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "403"
+                      title: Forbidden
+                      code: Forbidden
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: Post file attachment to Issue Tracker Issue or comment
+      tags:
+      - Attachment
+      x-contentType: multipart/form-data
+      x-accepts: application/json
+  /attachments/{id}/{name}:
+    get:
+      description: "It retreive matched file. However, File read won't work until\
+        \ it used in any issue tracker issue/comment. \r\n\r\nNote: the Accept header\
+        \ gets ignored and the originally uploaded content-type is returned"
+      operationId: getFileAttachment
+      parameters:
+      - description: identity value of file attachment
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: name of the file
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            image/bmp:
+              schema:
+                format: binary
+                type: string
+            image/png:
+              schema:
+                format: binary
+                type: string
+            image/gif:
+              schema:
+                format: binary
+                type: string
+            image/jpeg:
+              schema:
+                format: binary
+                type: string
+            application/pdf:
+              schema:
+                format: binary
+                type: string
+            text/csv:
+              schema:
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.wordprocessingml.document:
+              schema:
+                format: binary
+                type: string
+            text/plain:
+              schema:
+                format: binary
+                type: string
+            application/vnd.ms-excel:
+              schema:
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                format: binary
+                type: string
+            text/x-r-source:
+              schema:
+                format: binary
+                type: string
+            application/x-dosexec:
+              schema:
+                format: binary
+                type: string
+            text/html:
+              schema:
+                format: binary
+                type: string
+            application/xml:
+              schema:
+                format: binary
+                type: string
+            application/sql:
+              schema:
+                format: binary
+                type: string
+            application/vnd.ms-officetheme:
+              schema:
+                format: binary
+                type: string
+            application/msword:
+              schema:
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.wordprocessingml.template:
+              schema:
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.presentationml.template:
+              schema:
+                format: binary
+                type: string
+            application/vnd.ms-powerpoint:
+              schema:
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+              schema:
+                format: binary
+                type: string
+            application/zip:
+              schema:
+                format: binary
+                type: string
+            application/x-7z-compressed:
+              schema:
+                format: binary
+                type: string
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+            text/tab-separated-values:
+              schema:
+                format: binary
+                type: string
+            application/x-iwork-keynote:
+              schema:
+                format: binary
+                type: string
+            application/vnd.ms-word.document.macroEnabled.12:
+              schema:
+                format: binary
+                type: string
+            application/vnd.ms-word.template.macroEnabled.12:
+              schema:
+                format: binary
+                type: string
+            application/vnd.ms-excel.sheet.macroEnabled.12:
+              schema:
+                format: binary
+                type: string
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "400"
+                      code: BadRequest
+                      title: '{Message:File does not linked to any Issue or Comment}'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "401":
+          content:
+            text/plain:
+              examples:
+                Example 1:
+                  value: Unauthorized
+              schema:
+                type: string
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "403"
+                      title: Forbidden
+                      code: Forbidden
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "404"
+                      title: Not Found
+                      code: Not Found
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: get the matched file attachment
+      tags:
+      - Attachment
+      x-accepts: application/json
+  /attachments/file-extensions:
+    get:
+      description: This will provide information about file extensions allowed to
+        attachments.
+      operationId: getFileExtensions
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                    - png
+                    - jpg
+              schema:
+                $ref: '#/components/schemas/fileExtension'
+          description: OK
+        "404":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - id: "404"
+                      title: Method Not Found
+                      code: Method Not Found
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              examples:
+                Example:
+                  value:
+                    errors:
+                    - id: "500"
+                      title: Internal Ierver Error
+                      code: Internal Ierver Error
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      summary: Allowed file types GET endpoint
+      tags:
+      - Attachment
+      x-accepts: application/json
 components:
   parameters: {}
   requestBodies: {}
   schemas:
     commentRequest:
+      description: input comment request details
       properties:
         data:
           $ref: '#/components/schemas/commentRequest_data'
       type: object
     issue:
+      description: issue response
       example:
         data:
           id: 28d38193-3454-4e45-9825-71br87e69fe3
           subject: This is sample subject of issue tracker issue
-          isCritical: false
+          severity: Medium
           comments:
           - id: 39d38193-2829-4e45-9825-61br87e59fe1
             content: Here we can provide a complete description of why we are creating
@@ -274,6 +872,7 @@ components:
           $ref: '#/components/schemas/issueRequest_data'
       type: object
     comment:
+      description: comment details
       example:
         id: 39d38193-2829-4e45-9825-61br87e59fe1
         content: Here we can provide a complete description of why we are creating
@@ -296,6 +895,7 @@ components:
           type: string
       type: object
     idResponse:
+      description: generated response of issue creation or comment addition.
       example:
         data:
           id: 28d38693-3454-4e45-9825-71br87e69fe3
@@ -304,6 +904,7 @@ components:
           $ref: '#/components/schemas/idResponse_data'
       type: object
     errorResponse:
+      description: error response when api call failed
       properties:
         errors:
           items:
@@ -311,16 +912,20 @@ components:
           type: array
       type: object
     error:
+      description: information for api call exception
       example:
         id: "500"
         title: Internal Ierver Error
         code: Internal Ierver Error
       properties:
         id:
+          description: id of the error
           type: string
         code:
+          description: error code
           type: string
         title:
+          description: complete description of errror
           type: string
       type: object
     updateIssueRequest:
@@ -328,18 +933,73 @@ components:
       example:
         data:
           subject: This is update subject of issue
-          isCritical: false
+          severity: Medium
       properties:
         data:
           $ref: '#/components/schemas/updateIssueRequest_data'
       type: object
+    attachment:
+      description: Attachment details like generated file id and name of the file
+        with extension
+      example:
+        name: name
+        id: 0
+      properties:
+        id:
+          description: generated id of attachment
+          type: integer
+        name:
+          description: name of the file
+          type: string
+      type: object
+    inputAttachment:
+      description: input attachment file path
+      properties:
+        file:
+          description: input file for upload
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    fileExtension:
+      description: list of file extensions allowed for upload
+      example:
+        data:
+        - data
+        - data
+      properties:
+        data:
+          description: file extensions array
+          items:
+            type: string
+          type: array
+      type: object
+    attachmentResponse:
+      example:
+        data:
+          name: name
+          id: 0
+      properties:
+        data:
+          $ref: '#/components/schemas/attachment'
+      title: attachmentResponse
+      type: object
     commentRequest_data:
+      description: input comment data
       properties:
         content:
           description: description for comment
           type: string
+        attachments:
+          items:
+            $ref: '#/components/schemas/attachment'
+          type: array
+      required:
+      - content
       type: object
     issue_data:
+      description: issue response
       properties:
         id:
           description: generated issue id for Issue Tracker
@@ -352,12 +1012,14 @@ components:
           items:
             $ref: '#/components/schemas/comment'
           type: array
-        isCritical:
-          type: boolean
+        severity:
+          description: severity of issue tracker ticket
+          type: string
         internalId:
           type: integer
       type: object
     issueRequest_data:
+      description: create issue request
       properties:
         subject:
           description: subject for new Issue Tracker issue
@@ -372,15 +1034,21 @@ components:
         categoryId:
           description: 'category of Factset Product. '
           type: string
-        isCritical:
-          description: severity of issue tracker ticket is critical or not
-          type: boolean
+        severity:
+          description: "severity of issue tracker ticket. Mainly it accepting three\
+            \ severities.\r\nCritical, High and Medium."
+          type: string
+        attachments:
+          items:
+            $ref: '#/components/schemas/attachment'
+          type: array
       required:
       - description
       - productId
       - subject
       type: object
     idResponse_data:
+      description: generated guid of issue or comment
       properties:
         id:
           description: The generated ID for either an issue or a comment varies depending
@@ -389,13 +1057,14 @@ components:
           type: string
       type: object
     updateIssueRequest_data:
+      description: update request infomration for issue
       properties:
         subject:
           description: subject of ticket
           type: string
-        isCritical:
-          description: severity of issue
-          type: boolean
+        severity:
+          description: severity of issue. Accepts Critical, High and Medium for severity.
+          type: string
         productId:
           description: ProductId that needs to be replaced
           type: string

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **standardDeviation** | **Double** | Standard deviation of estimates in consensus calculation. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114) |  [optional]
 **high** | **Double** | Highest estimate in consensus calculation. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114). |  [optional]
 **low** | **Double** | Lowest estimate in consensus calculation. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114) |  [optional]
-**estimateCount** | **Integer** | Count or NEST of estimates in consensus calculation. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114) |  [optional]
+**estimateCount** | **Integer** | Count or NEST of estimates in consensus calculation. Will be &#x60;null&#x60; when &#x60;periodicity&#x60; is &#x60;LTMA&#x60; or &#x60;NTMA&#x60;. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114) |  [optional]
 **up** | **Integer** | Number of Up Revisions within the consensus for the metric and period. The default window size is 100 days For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114). |  [optional]
 **down** | **Integer** | Number of Up Revisions within the consensus for the metric and period. The default window size is 100 days. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114). |  [optional]
 

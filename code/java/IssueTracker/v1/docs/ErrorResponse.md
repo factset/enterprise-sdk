@@ -2,6 +2,7 @@
 
 # ErrorResponse
 
+error response when api call failed
 
 ## Properties
 

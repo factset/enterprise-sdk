@@ -1,5 +1,6 @@
 # Comment
 
+comment details
 
 ## Properties
 Name | Type | Description | Notes

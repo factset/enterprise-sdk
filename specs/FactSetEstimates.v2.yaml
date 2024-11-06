@@ -1,23 +1,65 @@
 openapi: 3.0.0
 info:
-  version: 2.5.0
+  version: 2.6.0
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
     email: api@factset.com
   description: >
-    Gain access to 20+ years of comprehensive estimates and statistics of over
-    250+ estimated metrics, including financial statement items, product
-    segments, geosegments, and industry metrics. FactSet's consensus estimates
-    are aggregated from a wide base of over 800+ contributors and cover over
-    19,000 active companies across 90+ countries. Data returned can be accessed
-    on the data frequencies based on quarterly, fiscal years, and calendar
-    years. FactSet Estimates updates on a real time basis intraday (every 5
-    minutes). Updating times vary based on earning season vs. non-earning season
-    but the goal is to have the data available to the client within a few hours
-    that FactSet receives updated information. Often times updates times can be
-    much faster as FactSet has always been known as one of the fastest estimate
-    providers in the market.
+    With global coverage since 1999, the FactSet Estimates API provides you with
+    comprehensive estimates and statistics on a wide variety of financial
+    statement items as well as industry-specific metrics. The universe is
+    comprised of over 19,000 active companies across 90+ countries with the
+    following types of data included:
+     
+    - **Consensus**
+
+    - **Detail**
+
+    - **Ratings**
+
+    - **Surprise**
+
+    - **Segments**
+
+    - **New Estimates and Ratings Reports Endpoints**
+
+
+    For clients seeking  curated and relevant financial data, the FactSet
+    Estimates API now includes Estimates and Ratings Reports endpoints. These
+    powerful endpoints are designed for easy integration and consumption,
+    delivering a wide array of financial metrics, estimates, and critical
+    statistics in a highly accessible format suitable for both mobile and web
+    applications.
+     
+    Whether you are an analyst, investor, or financial professional, the
+    Estimates and Ratings Reports endpoints offer detailed and actionable
+    financial insights that can support thorough analyses and strategic
+    decision-making processes.
+     
+    The Estimates and Ratings Reports endpoints are especially valuable for
+    B2B2C  applications, empowering financial services firms, investment
+    companies, and corporate finance teams to:
+     
+    - **Elevate Client Engagement:** Enrich user experiences in client-facing
+    applications with comprehensive and up-to-date financial metrics.
+
+
+    - **Build Custom Reporting Tools:** Create tailored dashboards and analytics
+    tools that provide deep insights and foster better financial understanding.
+
+
+    By adopting the FactSet Estimates API with its enriched Estimates and
+    Ratings Reports endpoints, businesses can streamline their financial data
+    integration process, improve operational efficiency, and deliver superior
+    financial insights to their clients and end-users.
+        <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>
+
+    **Download API Specification**
+        
+      To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the "Download Spec" button beside the version information.
+      
+      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)
 servers:
   - url: https://api.factset.com/content
     description: Production
@@ -36,7 +78,7 @@ tags:
   - name: Ratings
     description: >-
       The Consensus and Broker-Level Ratings detail for Buy, Hold, Sell,
-      Overweight, Underweight.
+      overWeight, underWeight.
   - name: Surprise
     description: >-
       The Surprise Events reflecting the company's reported financials against
@@ -45,6 +87,10 @@ tags:
     description: The Product or Geographic Segment Estimates
   - name: Data Items
     description: Available Data Item Catalog to be used as input to the metrics parameters
+  - name: Estimates and Ratings Reports
+    description: >-
+      Get the analyst ratings for a requested identifier, forecasted estimates
+      and metadata for estimate types.
 paths:
   /factset-estimates/v2/rolling-consensus:
     get:
@@ -83,6 +129,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/consensusResponse'
+              examples:
+                Rolling Consensus response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/rollingConsensus'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -119,6 +168,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/rollingConsensusRequest'
+            examples:
+              Rolling Consensus response of FDS-US for SALES metrics:
+                $ref: '#/components/examples/postRollingConsensus'
       responses:
         '200':
           description: Rolling Conensus Estimate data items
@@ -126,6 +178,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/consensusResponse'
+              examples:
+                Rolling Consensus response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/rollingConsensus'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -170,6 +225,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/consensusResponse'
+              examples:
+                Fixed Consensus response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/fixedConsensus'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -201,6 +259,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/fixedConsensusRequest'
+            examples:
+              Fixed Consensus response of FDS-US for SALES metrics:
+                $ref: '#/components/examples/postFixedConsensus'
       responses:
         '200':
           description: Estimate data items
@@ -208,6 +269,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/consensusResponse'
+              examples:
+                Fixed Consensus response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/fixedConsensus'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -247,6 +311,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/detailResponse'
+              examples:
+                Rolling Detail response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/rollingDetail'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -274,6 +341,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/rollingDetailRequest'
+            examples:
+              Rolling Detail response of FDS-US for SALES metrics:
+                $ref: '#/components/examples/postRollingDetail'
       responses:
         '200':
           description: Estimate data items
@@ -281,6 +351,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/detailResponse'
+              examples:
+                Rolling Detail response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/rollingDetail'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -320,6 +393,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/detailResponse'
+              examples:
+                Fixed Detail response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/fixedDetail'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -347,6 +423,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/fixedDetailRequest'
+            examples:
+              Fixed Detail response of FDS-US for SALES metrics:
+                $ref: '#/components/examples/postFixedDetail'
       responses:
         '200':
           description: Estimate data items
@@ -354,6 +433,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/detailResponse'
+              examples:
+                Fixed Detail response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/fixedDetail'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -369,7 +451,7 @@ paths:
       tags:
         - Ratings
       summary: >-
-        Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight,
+        Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight,
         and Sell.
       operationId: getConsensusRatings
       description: >
@@ -388,6 +470,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/consensusRatingsResponse'
+              examples:
+                Consensus Ratings response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/consensusRatings'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -402,7 +487,7 @@ paths:
       tags:
         - Ratings
       summary: >-
-        Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight,
+        Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight,
         and Sell.
       description: >
         Returns ratings from the FactSet Estimates database for current and
@@ -416,6 +501,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/consensusRatingsRequest'
+            examples:
+              Consensus Ratings response of FDS-US for frequency 'AM':
+                $ref: '#/components/examples/postConsensusRatings'
       responses:
         '200':
           description: Estimate data items
@@ -423,6 +511,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/consensusRatingsResponse'
+              examples:
+                Consensus Ratings response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/consensusRatings'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -438,12 +529,12 @@ paths:
       tags:
         - Ratings
       summary: >-
-        Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and
+        Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and
         Sell.
       operationId: getDetailRatings
       description: >
         Retrieves the Broker Level ratings for the requested Id and date range.
-        Ratings include Buy, Hold, Sell, Overweight, and Underweight.
+        Ratings include Buy, Hold, Sell, overWeight, and underWeight.
 
         <p>The `startDate` and `endDate` parameters controls the range of
         perspective dates. By default, the service will return the range of
@@ -462,6 +553,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/detailRatingsResponse'
+              examples:
+                Detail Ratings response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/detailRating'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -476,11 +570,11 @@ paths:
       tags:
         - Ratings
       summary: >-
-        Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and
+        Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and
         Sell.
       description: >
         Retrieves the Broker Level ratings for the requested Id and date range.
-        Ratings include Buy, Hold, Sell, Overweight, and Underweight.
+        Ratings include Buy, Hold, Sell, overWeight, and underWeight.
 
         <p>The `startDate` and `endDate` parameters controls the range of
         perspective dates. By default, the service will return the range of
@@ -495,6 +589,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/detailRatingsRequest'
+            examples:
+              Detail Ratings response of FDS-US:
+                $ref: '#/components/examples/postDetailRating'
       responses:
         '200':
           description: Estimate Detail Ratings data items
@@ -502,6 +599,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/detailRatingsResponse'
+              examples:
+                Detail Ratings response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/detailRating'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -536,6 +636,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/surpriseResponse'
+              examples:
+                Surprise Example response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/surpriseExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -560,6 +663,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/surpriseRequest'
+            examples:
+              Surprise response of FDS-US for SALES metrics:
+                $ref: '#/components/examples/postSurpriseExample'
       responses:
         '200':
           description: Estimate data items
@@ -567,6 +673,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/surpriseResponse'
+              examples:
+                Surprise Example response of AAPL-USA for SALES metrics:
+                  $ref: '#/components/examples/surpriseExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -607,6 +716,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/segmentsResponse'
+              examples:
+                Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType:
+                  $ref: '#/components/examples/segments'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -635,6 +747,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/segmentsRequest'
+            examples:
+              Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType:
+                $ref: '#/components/examples/postSegments'
       responses:
         '200':
           description: Segments Estimate data items
@@ -642,6 +757,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/segmentsResponse'
+              examples:
+                Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType:
+                  $ref: '#/components/examples/segments'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -675,6 +793,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/metricsResponse'
+              examples:
+                Mertics response with 'FINANCIAL_STATEMENT' category and '--' subcategory:
+                  $ref: '#/components/examples/metricsExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -704,6 +825,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/metricsRequest'
+            examples:
+              Mertics response with 'FINANCIAL_STATEMENT' category and 'AIRLINES' subcategory:
+                $ref: '#/components/examples/postMetricsExample'
       responses:
         '200':
           description: List of Estimate metric Ids
@@ -711,12 +835,158 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/metricsResponse'
+              examples:
+                Metrics response with 'FINANCIAL_STATEMENT' category and '--' subcategory:
+                  $ref: '#/components/examples/metricsExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
           $ref: '#/components/responses/401'
         '403':
           $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/company-reports/analyst-ratings:
+    get:
+      tags:
+        - Estimates and Ratings Reports
+      summary: >-
+        Retrieves the historical monthly view of analyst ratings for a given
+        identifier.
+      description: >
+        Returns historical monthly view of analyst ratings for given identifier
+        upto a period of 12 months.
+      operationId: getAnalystRatings
+      x-factset-sdk-ignore: true
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Analyst-ratings data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalystRatingResponse'
+              examples:
+                Result of Single Company details:
+                  $ref: '#/components/examples/resultOfSingleId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/company-reports/forecast:
+    get:
+      tags:
+        - Estimates and Ratings Reports
+      summary: Returns forecasted estimates.
+      description: >
+        This endpoint returns up to 4 years of forecasted consensus estimates
+        made by analysts for various financial metrics such as EPS, Sales, and
+        more.
+
+
+        **Note :**
+          Due to variations in methodology, with the workstation using intra-day prices and our API using the previous day's closing prices, there may be some minor differences in the values of FactSet Estimates Valuation Items.
+      operationId: getEstimates
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+        - $ref: '#/components/parameters/estimateType'
+        - $ref: '#/components/parameters/periodicityForecast'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstimateResponse'
+              examples:
+                Result for a given identifier and estimate type:
+                  $ref: '#/components/examples/EstimatesResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/company-reports/estimate-types:
+    get:
+      tags:
+        - Estimates and Ratings Reports
+      summary: Returns a list of valid estimate types.
+      description: >
+        This endpoint retrieves a list of valid estimate types that can be used
+        in the /company-reports/forecast and /company-reports/surprise-history
+        end points.
+      operationId: getEstimateTypes
+      responses:
+        '200':
+          description: Estimate type data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstimateTypesResponse'
+              examples:
+                List of valid estimate types:
+                  $ref: '#/components/examples/EstimateTypesResponse'
+        '400':
+          $ref: '#/components/responses/EstimateTypesMeta400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/company-reports/surprise-history:
+    get:
+      tags:
+        - Estimates and Ratings Reports
+      summary: Surprise History
+      description: Returns surprise history for the given security
+      operationId: getSurpriseHistory
+      parameters:
+        - $ref: '#/components/parameters/identifier'
+        - $ref: '#/components/parameters/estimateType'
+        - $ref: '#/components/parameters/periodicityForecast'
+        - $ref: '#/components/parameters/_paginationLimit'
+        - $ref: '#/components/parameters/_paginationOffset'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SurpriseHistoryResponse'
+              examples:
+                Result for a given identifier and estimate type:
+                  $ref: '#/components/examples/SurpriseHistoryResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
         '415':
           $ref: '#/components/responses/415'
         '500':
@@ -733,6 +1003,55 @@ components:
       type: http
       scheme: basic
   parameters:
+    identifier:
+      name: id
+      in: query
+      schema:
+        type: string
+        example: IBM-US
+      required: true
+      description: >-
+        The requested security identifier. Accepted ID types include Market
+        Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.
+    estimateType:
+      name: estimateType
+      in: query
+      schema:
+        type: string
+        example: EPS
+      required: true
+      description: >-
+        The requested estimate type. Please use /meta/estimate-types to find all
+        allowed values for this parameter.
+    _paginationLimit:
+      name: _paginationLimit
+      in: query
+      description: Specifies the number of results to return per page.
+      required: false
+      schema:
+        type: integer
+        default: 50
+        maximum: 500
+    _paginationOffset:
+      name: _paginationOffset
+      in: query
+      description: >-
+        Specifies the starting point for pagination. This parameter is used to
+        identify the beginning of next set of results.
+      required: false
+      schema:
+        type: integer
+        default: 0
+    id:
+      name: id
+      in: query
+      schema:
+        type: string
+      required: true
+      description: >
+        The requested security identifier. Accepted ID types include Market
+        Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.
+      example: AAPL-US
     ids:
       name: ids
       in: query
@@ -812,7 +1131,7 @@ components:
         This is combined with the periodicity parameter to specify a relative
         estimate period. For example, set to 2 and periodicity to ANN to ask for
         relative Fiscal Year 1 (FY2).
-      example: 3
+      example: 2
     fiscalPeriodStart:
       name: fiscalPeriodStart
       in: query
@@ -859,6 +1178,21 @@ components:
           * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
           * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
           
+    periodicityForecast:
+      name: periodicity
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - ANN
+          - QTR
+        default: ANN
+      description: >
+        The periodicity for the estimates requested, allowing you to fetch
+        Quarterly and Annual Estimates.
+          * **ANN** - Annual
+          * **QTR** - Quarterly
     periodicityDetail:
       name: periodicity
       in: query
@@ -959,7 +1293,7 @@ components:
       schema:
         type: string
       description: End date for point in time of estimates expressed in YYYY-MM-DD format.
-      example: '2020-07-30'
+      example: '2019-08-30'
     frequency:
       name: frequency
       in: query
@@ -1113,6 +1447,318 @@ components:
           summary: GEO - Geographic Segments
           value: GEO
   schemas:
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: uuid
+          format: uuid
+          example: e8d9a8a7-bcf6-4d9d-9630-40a23fb6fc4d
+        code:
+          type: string
+          description: Common Error code
+          example: Bad Request
+        title:
+          type: string
+          description: Short error description
+          example: Invalid Parameter Format
+        detail:
+          type: string
+          description: Error details explanation
+          example: >-
+            The value provided for estimate type is wrong. Please use
+            meta/estimate-types to find valid estimate types.
+    EstimateTypesResponse:
+      type: object
+      title: Estimate Types Response
+      description: Array of valid estimate types.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EstimateType'
+    EstimateType:
+      type: object
+      properties:
+        type:
+          type: string
+          example: EPS
+        description:
+          type: string
+          example: Earnings Per Share
+    EstimateResponse:
+      type: object
+      title: Estimate Response
+      description: >-
+        Array of estimate objects for the given identifier, estimate type and
+        periodicity
+      properties:
+        data:
+          type: object
+          properties:
+            requestId:
+              type: string
+              description: Identifier that was used for the request.
+              example: IBM-US
+            fsymId:
+              type: string
+              description: >-
+                FactSet regional security identifier. Six alpha-numeric
+                characters, excluding vowels, with an -R suffix (XXXXXX-R).
+                Identifies the security's best regional security data series per
+                currency. For equities, all primary listings per region and
+                currency are allocated a regional-level permanent identifier.
+                The regional-level permanent identifier will be available once a
+                SEDOL representing the region/currency has been allocated and
+                the identifiers are on FactSet.
+              example: SJY281-R
+              nullable: true
+            periodicity:
+              type: string
+              description: Periodicity or frequency of the fiscal periods.
+              example: ANN
+            estimateType:
+              type: string
+              description: The requested estimate type
+              example: EPS
+            estimates:
+              type: array
+              description: Array of estimate
+              items:
+                $ref: '#/components/schemas/Estimate'
+    Estimate:
+      type: object
+      properties:
+        endDate:
+          type: string
+          description: >-
+            Fiscal period end date for which the consensus estimate is being
+            forecasted.
+          format: date
+          example: '2022-01-01'
+          nullable: true
+        currency:
+          type: string
+          description: >-
+            Currency used for calculations, majority currency in which the
+            analysts are contributing their estimates. For a list of supported
+            ISO currency codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          nullable: true
+        high:
+          type: number
+          description: >-
+            The highest estimate provided by the analysts for the specified
+            period.
+          format: double
+          example: 5.1
+          nullable: true
+        low:
+          type: number
+          description: >-
+            The lowest estimate provided by the analysts for the specified
+            period.
+          format: double
+          example: 1.5
+          nullable: true
+        up:
+          type: integer
+          description: Number of estimates revised upwards.
+          example: 1
+          nullable: true
+        down:
+          type: integer
+          description: Number of estimates revised downwards.
+          example: 1
+          nullable: true
+        analystCount:
+          type: integer
+          description: The number of analysts who provided estimates for the given period.
+          example: 10
+          nullable: true
+        mean:
+          type: number
+          description: >-
+            The average of all estimates provided by the analysts for the
+            specified period.
+          format: double
+          example: 3.1
+          nullable: true
+        median:
+          type: number
+          description: >-
+            The median of all estimates provided by the analysts for the
+            specified period.
+          format: double
+          example: 2.5
+          nullable: true
+        standardDeviation:
+          type: number
+          description: Measure of the dispersion of estimates around the consensus value.
+          format: double
+          example: 0.5
+          nullable: true
+    SurpriseHistoryResponse:
+      type: object
+      title: Surprise History Response
+      description: >-
+        Array of surprise history objects for the given identifier, estimate
+        type and periodicity.
+      properties:
+        data:
+          type: object
+          properties:
+            requestId:
+              type: string
+              description: Identifier that was used for the request.
+              example: IBM-US
+            fsymId:
+              type: string
+              description: >-
+                FactSet regional security identifier. Six alpha-numeric
+                characters, excluding vowels, with an -R suffix (XXXXXX-R).
+                Identifies the security's best regional security data series per
+                currency. For equities, all primary listings per region and
+                currency are allocated a regional-level permanent identifier.
+                The regional-level permanent identifier will be available once a
+                SEDOL representing the region/currency has been allocated and
+                the identifiers are on FactSet.
+              example: SJY281-R
+              nullable: true
+            periodicity:
+              type: string
+              description: Periodicity or frequency of the fiscal periods.
+              example: ANN
+            estimateType:
+              type: string
+              description: The requested estimate type
+              example: EPS
+            surpriseHistory:
+              type: array
+              items:
+                $ref: '#/components/schemas/SurpriseHistory'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    SurpriseHistory:
+      type: object
+      properties:
+        endDate:
+          type: string
+          description: >-
+            Fiscal period end date for which the consensus estimate is being
+            forecasted.
+          format: date
+          example: '2022-01-01'
+          nullable: true
+        currency:
+          type: string
+          description: >-
+            Currency used for calculations, majority currency in which the
+            analysts are contributing their estimates. For a list of supported
+            ISO currency codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          nullable: true
+        high:
+          type: number
+          description: >-
+            The highest estimate provided by the analysts for the specified
+            period.
+          format: double
+          example: 5.1
+          nullable: true
+        low:
+          type: number
+          description: >-
+            The lowest estimate provided by the analysts for the specified
+            period.
+          format: double
+          example: 0.7
+          nullable: true
+        up:
+          type: integer
+          description: Number of estimates revised upwards.
+          example: 1
+          nullable: true
+        down:
+          type: integer
+          description: Number of estimates revised downwards.
+          example: 1
+          nullable: true
+        analystCount:
+          type: integer
+          description: The number of analysts who provided estimates for the given period.
+          example: 10
+          nullable: true
+        mean:
+          type: number
+          description: >-
+            The average of all estimates provided by the analysts for the
+            specified period.
+          format: double
+          example: 3.12
+          nullable: true
+        median:
+          type: number
+          description: >-
+            The median of all estimates provided by the analysts for the
+            specified period.
+          format: double
+          example: 2.5
+          nullable: true
+        standardDeviation:
+          type: number
+          description: Measure of the dispersion of estimates around the consensus value.
+          format: double
+          example: 0.5
+          nullable: true
+        actual:
+          type: number
+          format: double
+          example: 0.6
+          nullable: true
+        surprisePercent:
+          type: number
+          description: >-
+            Percent difference between last consensus and actual. For more
+            details, visit [Online Assistant Page
+            #16145](https://oa.apps.factset.com/pages/16145).
+          format: double
+          example: 0.6
+          nullable: true
+    Meta:
+      title: Meta
+      description: Array of metadata objects.
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      title: Pagination
+      description: List of pagination objects
+      type: object
+      properties:
+        total:
+          description: Total number of records the API returns for a particular query.
+          type: integer
+        isEstimatedTotal:
+          description: >-
+            Boolean value that represents whether the total count of records
+            returned is exact or an estimate. This is defaulted to False as the
+            API should always return the exact count.
+          type: boolean
     rollingConsensusRequest:
       title: Rolling Consensus Request Body
       description: Request object for requesting rolling consensus estimates.
@@ -1291,8 +1937,9 @@ components:
           nullable: true
         estimateCount:
           description: >-
-            Count or NEST of estimates in consensus calculation. For more
-            details, visit [Online Assistant Page
+            Count or NEST of estimates in consensus calculation. Will be `null`
+            when `periodicity` is `LTMA` or `NTMA`. For more details, visit
+            [Online Assistant Page
             #16598](https://oa.apps.factset.com/pages/16114)
           type: integer
           example: 20
@@ -1783,7 +2430,7 @@ components:
           nullable: true
         overweightCount:
           description: >-
-            The number of Overweight ratings taken into account in the
+            The number of overweight ratings taken into account in the
             calculation of a consensus. This information is shown only for a
             100-day consensus.
           type: integer
@@ -1798,7 +2445,7 @@ components:
           nullable: true
         underweightCount:
           description: >-
-            The number of Underweight ratings taken into account in the
+            The number of underweight ratings taken into account in the
             calculation of a consensus. This information is shown only for a
             100-day consensus.
           type: integer
@@ -1832,11 +2479,11 @@ components:
 
             |1|Buy|
 
-            |1.5|Overweight|
+            |1.5|overWeight|
 
             |2|Hold|
 
-            |2.5|Underweight|
+            |2.5|underWeight|
 
             |3|Sell|
           type: number
@@ -1856,11 +2503,11 @@ components:
 
             |< 1.25|Buy|
 
-            |< 1.75|Overweight|
+            |< 1.75|overWeight|
 
             |< 2.25|Hold|
 
-            |< 2.75|Underweight|
+            |< 2.75|underWeight|
 
             |<= 3|Sell|
           type: string
@@ -1935,7 +2582,7 @@ components:
           description: >
             A textual representation of the analysts rating. Broker
             recommendations are divided into five main broad categories- **Buy,
-            Overweight, Hold, Underweight, and Sell**.<p>Additional
+            overWeight, Hold, underWeight, and Sell**.<p>Additional
             recommendations may be displayed for the below reasons - 
 
             * Without- A rating "Without" is displayed when a broker provides
@@ -1951,7 +2598,7 @@ components:
             * Most/Least- "Most" or "Least" favorable rating is displayed for
             top or bottom rating available for a particular security.
           type: string
-          example: overweight
+          example: overWeight
           nullable: true
         requestId:
           description: Identifier that was used for the request.
@@ -2018,7 +2665,7 @@ components:
           description: >-
             Factset Regional Security Identifier. Six alpha-numeric characters,
             excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security’s best regional security data series per currency. For
+            securityâ€™s best regional security data series per currency. For
             equities, all primary listings per region and currency are allocated
             a regional-level permanent identifier. The regional-level permanent
             identifier will be available once a SEDOL representing the
@@ -2513,6 +3160,156 @@ components:
           * **BUS** = Business
           * **GEO** = Geographic
       example: BUS
+    AnalystRatingResponse:
+      type: object
+      title: Analyst Rating Response
+      properties:
+        data:
+          description: Array of Analyst Rating Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalystRating'
+    AnalystRating:
+      title: Analyst Rating Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: DJC2TN-R
+          nullable: true
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: ADBE-US
+        asOfMonth:
+          description: Ending date for the period requested expressed in YYYY-MM format.
+          type: string
+          example: 2024-03
+        ratingsCount:
+          $ref: '#/components/schemas/RatingsCount'
+        meanRecommendation:
+          description: >-
+            Specifies the average recommendation for a given security identifier
+            for the period requested by the client. It represents the consensus
+            of various analyst ratings. The corresponding date of validity for
+            this data is detailed in the `asOfMonth` field.
+          type: string
+          enum:
+            - Buy
+            - Sell
+            - Hold
+            - overWeight
+            - underWeight
+          example: Hold
+        meanRecommendationScale:
+          description: >-
+            Mean recommendation scale for the period requested, calculated as an
+            average of all recommendations converted into numeric values (e.g.,
+            Buy=1, Sell=3, Hold=2, overWeight=1.5, underWeight=2.5) from various
+            analysts for the period.
+          type: number
+          format: double
+          example: 1.842105
+        targetPrice:
+          $ref: '#/components/schemas/TargetPrice'
+    RatingsCount:
+      title: Ratings Count Object
+      type: object
+      properties:
+        buy:
+          description: >-
+            Specifies the number of buy ratings received for a given security
+            identifier. Details on the date of validity for this data are
+            provided in the `asOfMonth` field.
+          type: integer
+          example: 5
+        overWeight:
+          description: >-
+            Specifies the number of overWeight ratings received for a given
+            security identifier. Details on the date of validity for this data
+            are provided in the `asOfMonth` field.
+          type: integer
+          example: 1
+        hold:
+          description: >-
+            Specifies the number of hold ratings received for a given security
+            identifier. Details on the date of validity for this data are
+            provided in the `asOfMonth` field.
+          type: integer
+          example: 10
+        underWeight:
+          description: >-
+            Specifies the number of underWeight ratings received for a given
+            security identifier. Details on the date of validity for this data
+            are provided in the `asOfMonth` field.
+          type: integer
+          example: 1
+        sell:
+          description: >-
+            Specifies the number of sell ratings received for a given security
+            identifier. Details on the date of validity for this data are
+            provided in the `asOfMonth` field.
+          type: integer
+          example: 2
+        total:
+          description: >-
+            Specifies the total number of ratings received across all categories
+            for a given security identifier. Details on the date of validity for
+            this data are provided in the `asOfMonth` field.
+          type: integer
+          example: 19
+    TargetPrice:
+      title: Target Price Object
+      type: object
+      properties:
+        high:
+          description: >-
+            Specifies the highest target price estimated for a given security
+            identifier. Details on the validity of this data are provided in the
+            `asOfMonth` field.
+          type: number
+          format: double
+          example: 210.01
+        low:
+          description: >-
+            Specifies the lowest target price estimated for a given security
+            identifier. Details on the validity of this data are provided in the
+            `asOfMonth` field.
+          type: number
+          format: double
+          example: 110.01
+        analystsCount:
+          description: >-
+            The number of analysts providing target price estimates for a given
+            security identifier. Details on the validity of this data are
+            provided in the `asOfMonth` field.
+          type: integer
+          example: 15
+        mean:
+          description: >-
+            Specifies the mean target price estimated by analysts for a given
+            security identifier. Details on the validity of this data are
+            provided in the `asOfMonth` field.
+          type: number
+          format: double
+          example: 151.933333
+        median:
+          description: >-
+            Specifies the median target price estimated by analysts for a given
+            security identifier. Details on the validity of this data are
+            provided in the `asOfMonth` field.
+          type: number
+          format: double
+          example: 146.01
   responses:
     '400':
       description: >-
@@ -2547,7 +3344,7 @@ components:
           schema:
             $ref: '#/components/schemas/errorResponse'
           examples:
-            Bad Request - Date Format:
+            Unauthenticated:
               $ref: '#/components/examples/unauthenticated'
     '403':
       description: >-
@@ -2560,8 +3357,17 @@ components:
           schema:
             $ref: '#/components/schemas/errorResponse'
           examples:
-            Bad Request - Date Format:
+            Forbidden:
               $ref: '#/components/examples/forbidden'
+    '404':
+      description: Not Found. The requested endpoint could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            EndpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
     '415':
       description: >-
         Unsupported Media Type. This error may be returned when the caller sends
@@ -2573,7 +3379,7 @@ components:
           schema:
             $ref: '#/components/schemas/errorResponse'
           examples:
-            Bad Request - Date Format:
+            UnsupportedMediaType:
               $ref: '#/components/examples/unsupportedMediaType'
     '500':
       description: Internal Server Error.
@@ -2586,7 +3392,702 @@ components:
               $ref: '#/components/examples/notWritable'
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
+    EstimateTypesMeta400:
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
   examples:
+    EstimatesResponse:
+      summary: Estimates Response
+      value:
+        data:
+          requestId: IBM-US
+          fsymId: SJY281-R
+          periodicity: ANN
+          estimateType: EPS
+          estimates:
+            - endDate: '2024-08-31'
+              currency: USD
+              high: 16.84
+              low: 15.71
+              up: 3
+              down: 1
+              analystsCount: 19
+              mean: 16.03633
+              median: 15.99
+              standardDeviation: 0.229748
+            - endDate: '2025-08-31'
+              currency: USD
+              high: 19.17
+              low: 17.1
+              up: 0
+              down: 4
+              analystsCount: 19
+              mean: 17.613407
+              median: 17.46
+              standardDeviation: 0.490445
+    EstimateTypesResponse:
+      summary: Estimate Types Response
+      value:
+        data:
+          - type: EPS
+            description: Earnings Per Share
+          - type: DPS
+            description: Declared Dividend Per Share
+          - type: EBITDA
+            description: Earnings Before Interest, Taxes, Depreciation, and Amortization
+    SurpriseHistoryResponse:
+      summary: Surprise History Response
+      value:
+        data:
+          requestId: IBM-US
+          fsymId: SJY281-R
+          periodicity: ANN
+          surpriseHistory:
+            - endDate: '2024-08-31'
+              currency: USD
+              high: 16.84
+              low: 15.71
+              up: 3
+              down: 1
+              analystsCount: 19
+              mean: 16.03633
+              median: 15.99
+              standardDeviation: 0.229748
+              actual: 0.543
+              surprisePercent: 0.765
+            - endDate: '2025-08-31'
+              currency: USD
+              high: 19.17
+              low: 17.1
+              up: 0
+              down: 4
+              analystsCount: 19
+              mean: 17.613407
+              median: 17.46
+              standardDeviation: 0.49044
+              actual: 0.544
+              surprisePercent: 0.657
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    resultOfSingleId:
+      summary: Result of Single Company details.
+      description: >
+        Results of the FDS-US analyst ratings data for the period 12 months with
+        the preliminary data Values.
+      value:
+        data:
+          - requestId: FDS-US,
+            fsymId: SQFMK3-R,
+            asOfMonth: 2024-03,
+            ratingsCount:
+              buy: 5
+              overWeight: 1
+              hold: 10
+              underWeight: 1
+              sell: 2
+              total: 19
+            meanRecommendation: Hold
+            meanRecommendationScale: 1.842105
+            targetPrice:
+              high: 210.01
+              low: 110.01
+              analystsCount: 15
+              mean: 151.933333
+              median: 146.01
+    postRollingConsensus:
+      summary: Rolling Consensus response of FDS-US for SALES metrics
+      description: >-
+        Rolling Consensus response of FDS-US for SALES metrics with frequency
+        set to 'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - FDS-US
+        metrics:
+          - SALES
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: AM
+        relativeFiscalStart: 1
+        relativeFiscalEnd: 3
+        periodicity: ANN
+        currency: USD
+    postFixedConsensus:
+      summary: Fixed Consensus response of FDS-US for SALES metrics
+      description: >-
+        Fixed Consensus response of FDS-US for SALES metrics with frequency set
+        to 'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - FDS-US
+        metrics:
+          - SALES
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: AM
+        fiscalPeriodStart: '2019'
+        fiscalPeriodEnd: '2020'
+        periodicity: ANN
+        currency: USD
+    postRollingDetail:
+      summary: Rolling Detail response of FDS-US for SALES metrics
+      description: >-
+        Rolling Detail response of FDS-US for SALES metrics with frequency set
+        to 'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - FDS-US
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: AM
+        includeAll: false
+        relativeFiscalStart: 1
+        relativeFiscalEnd: 3
+        periodicity: ANN
+        metrics:
+          - SALES
+        currency: USD
+    postFixedDetail:
+      summary: Fixed Detail response of FDS-US for SALES metrics
+      description: >-
+        Fixed Detail response of FDS-US for SALES metrics with frequency set to
+        'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - FDS-US
+        metrics:
+          - SALES
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: AM
+        includeAll: false
+        periodicity: ANN
+        fiscalPeriodStart: '2019'
+        fiscalPeriodEnd: '2019'
+        currency: USD
+    postConsensusRatings:
+      summary: Consensus Ratings response of FDS-US for frequency 'AM'
+      description: >-
+        Consensus Ratings response of FDS-US for SALES metrics with frequency
+        set to 'AM'.
+      value:
+        ids:
+          - FDS-US
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: AM
+    postDetailRating:
+      summary: Detail Ratings response of FDS-US
+      description: Detail Ratings response of FDS-US with includeAll set to 'false'
+      value:
+        ids:
+          - FDS-US
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        includeAll: false
+    postSurpriseExample:
+      summary: Surprise response of FDS-US for SALES metrics
+      description: >-
+        Surprise response of FDS-US for SALES metrics with frequency set to
+        'AM', periodicity to 'ANN' and statistic to 'MEDIAN'
+      value:
+        ids:
+          - FDS-US
+        metrics:
+          - SALES
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: AM
+        periodicity: ANN
+        currency: USD
+        statistic: MEDIAN
+    postSegments:
+      summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
+      description: >-
+        Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
+        with frequency set to 'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - FDS-US
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        relativeFiscalStart: 1
+        relativeFiscalEnd: 3
+        periodicity: ANN
+        frequency: AM
+        segmentType: BUS
+        metrics:
+          - SALES
+        currency: USD
+    postMetricsExample:
+      summary: >-
+        Metrics response with 'FINANCIAL_STATEMENT' category and 'AIRLINES'
+        subcategory
+      description: >-
+        Mertics response with 'FINANCIAL_STATEMENT' category and 'AIRLINES'
+        subcategory
+      value:
+        category: INDUSTRY_METRIC
+        subcategory: AIRLINES
+    rollingConsensus:
+      summary: Rolling Consensus response of AAPL-USA for SALES metrics
+      description: >-
+        Rolling Consensus response of AAPL-USA for SALES metrics with frequency
+        set to 'AM' and periodicity to 'ANN'
+      value:
+        data:
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2019'
+            fiscalEndDate: '2019-09-30'
+            relativePeriod: '1'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '256629.6101655929'
+            median: '256693.1640625'
+            standardDeviation: '1948.94388861674'
+            high: '260640.523'
+            low: '251090'
+            estimateCount: '38'
+            up: '1'
+            down: '1'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2020'
+            fiscalEndDate: '2020-09-30'
+            relativePeriod: '2'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '267142.4992489088'
+            median: '267945.609375'
+            standardDeviation: '7157.25620922742'
+            high: '284885'
+            low: '243322'
+            estimateCount: '38'
+            up: '1'
+            down: '6'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2021'
+            fiscalEndDate: '2021-09-30'
+            relativePeriod: '3'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '281087.5607509507'
+            median: '283433'
+            standardDeviation: '11537.6825677053'
+            high: '294417.182448'
+            low: '246185'
+            estimateCount: '16'
+            up: '0'
+            down: '1'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2019'
+            fiscalEndDate: '2019-09-30'
+            relativePeriod: '1'
+            estimateDate: '2019-08-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '258487.84629536633'
+            median: '258698.821417'
+            standardDeviation: '1206.23846551971'
+            high: '260025'
+            low: '253747'
+            estimateCount: '37'
+            up: '14'
+            down: '1'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2020'
+            fiscalEndDate: '2020-09-30'
+            relativePeriod: '2'
+            estimateDate: '2019-08-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '269488.52248613304'
+            median: '270109.2'
+            standardDeviation: '7646.820724671'
+            high: '285469'
+            low: '245500'
+            estimateCount: '37'
+            up: '11'
+            down: '4'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2021'
+            fiscalEndDate: '2021-09-30'
+            relativePeriod: '3'
+            estimateDate: '2019-08-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '283601.7986198889'
+            median: '283876'
+            standardDeviation: '11985.3110184169'
+            high: '299503'
+            low: '246185'
+            estimateCount: '18'
+            up: '7'
+            down: '1'
+    fixedConsensus:
+      summary: Fixed Consensus response of AAPL-USA for SALES metrics
+      description: >-
+        Fixed Consensus response of AAPL-USA for SALES metrics with frequency
+        set to 'AM' and periodicity to 'ANN'
+      value:
+        data:
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2019'
+            fiscalEndDate: '2019-09-30'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '256629.6101655929'
+            median: '256693.1640625'
+            standardDeviation: '1948.94388861674'
+            high: '260640.523'
+            low: '251090'
+            estimateCount: '38'
+            up: '1'
+            down: '1'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2020'
+            fiscalEndDate: '2020-09-30'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '267142.4992489088'
+            median: '267945.609375'
+            standardDeviation: '7157.25620922742'
+            high: '284885'
+            low: '243322'
+            estimateCount: '38'
+            up: '1'
+            down: '6'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2019'
+            fiscalEndDate: '2019-09-30'
+            estimateDate: '2019-08-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '258487.84629536633'
+            median: '258698.821417'
+            standardDeviation: '1206.23846551971'
+            high: '260025'
+            low: '253747'
+            estimateCount: '37'
+            up: '14'
+            down: '1'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalPeriod: '1'
+            fiscalYear: '2020'
+            fiscalEndDate: '2020-09-30'
+            estimateDate: '2019-08-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '269488.52248613304'
+            median: '270109.2'
+            standardDeviation: '7646.820724671'
+            high: '285469'
+            low: '245500'
+            estimateCount: '37'
+            up: '11'
+            down: '4'
+    rollingDetail:
+      summary: Rolling Detail response of AAPL-USA for SALES metrics
+      description: >-
+        Rolling Detail response of AAPL-USA for SALES metrics with frequency set
+        to 'AY' and periodicity to 'ANN'
+      value:
+        data:
+          - fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalYear: '2019'
+            fiscalPeriod: '1'
+            fiscalEndDate: '2019-09-30'
+            relativePeriod: '1'
+            currency: USD
+            estimateDate: '2019-07-30'
+            estimateValue: '257310'
+            analystId: null
+            analystName: null
+            brokerId: 0GRZY7-E
+            brokerName: Cascend Securities
+            lastModifiedDate: '2019-05-23'
+            prevEstimateDate: '2019-07-29'
+            prevEstimateValue: '257310'
+            section: Included
+            statusCode: '0'
+            statusText: null
+            requestId: AAPL-USA
+            inputDateTime: '2019-07-30T17:30:20'
+            securityCurrency: USD
+            brokerEstimateCurrency: USD
+            estimateCurrency: USD
+          - fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalYear: '2019'
+            fiscalPeriod: '1'
+            fiscalEndDate: '2019-09-30'
+            relativePeriod: '1'
+            currency: USD
+            estimateDate: '2019-07-30'
+            estimateValue: '256000'
+            analystId: 05YJNN-E
+            analystName: Amit Daryanani
+            brokerId: 09N0CH-E
+            brokerName: Evercore ISI
+            lastModifiedDate: '2019-06-04'
+            prevEstimateDate: '2019-07-26'
+            prevEstimateValue: '256000'
+            section: Included
+            statusCode: '0'
+            statusText: null
+            requestId: AAPL-USA
+            inputDateTime: '2019-07-29T19:49:34'
+            securityCurrency: USD
+            brokerEstimateCurrency: USD
+            estimateCurrency: USD
+    fixedDetail:
+      summary: Fixed Detail response of AAPL-USA for SALES metrics
+      description: >-
+        Fixed Detail response of AAPL-USA for SALES metrics with frequency set
+        to 'AM' and periodicity to 'ANN'
+      value:
+        data:
+          - fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalYear: '2019'
+            fiscalPeriod: '1'
+            fiscalEndDate: '2019-09-30'
+            relativePeriod: null
+            currency: USD
+            estimateDate: '2019-07-30'
+            estimateValue: '257310'
+            analystId: null
+            analystName: null
+            brokerId: 0GRZY7-E
+            brokerName: Cascend Securities
+            lastModifiedDate: '2019-05-23'
+            prevEstimateDate: '2019-07-29'
+            prevEstimateValue: '257310'
+            section: Included
+            statusCode: '0'
+            statusText: null
+            requestId: AAPL-USA
+            inputDateTime: '2019-07-30T17:30:20'
+            securityCurrency: USD
+            brokerEstimateCurrency: USD
+            estimateCurrency: USD
+          - fsymId: MH33D6-R
+            metric: SALES
+            periodicity: ANN
+            fiscalYear: '2019'
+            fiscalPeriod: '1'
+            fiscalEndDate: '2019-09-30'
+            relativePeriod: null
+            currency: USD
+            estimateDate: '2019-07-30'
+            estimateValue: '256000'
+            analystId: 05YJNN-E
+            analystName: Amit Daryanani
+            brokerId: 09N0CH-E
+            brokerName: Evercore ISI
+            lastModifiedDate: '2019-06-04'
+            prevEstimateDate: '2019-07-26'
+            prevEstimateValue: '256000'
+            section: Included
+            statusCode: '0'
+            statusText: null
+            requestId: AAPL-USA
+            inputDateTime: '2019-07-29T19:49:34'
+            securityCurrency: USD
+            brokerEstimateCurrency: USD
+            estimateCurrency: USD
+    consensusRatings:
+      summary: Consensus Ratings response of AAPL-USA for frequency 'AM'
+      description: >-
+        Consensus Ratings response of AAPL-USA for SALES metrics with frequency
+        set to 'AM'.
+      value:
+        data:
+          - fsymId: MH33D6-R
+            estimateDate: '2019-07-30'
+            buyCount: '18'
+            overweightCount: '3'
+            holdCount: '15'
+            underweightCount: '0'
+            sellCount: '4'
+            ratingsNestTotal: '40'
+            ratingsNote: '1.6125'
+            ratingsNoteText: OVERWEIGHT
+            requestId: AAPL-USA
+    detailRating:
+      summary: Detail Ratings response of AAPL-USA for SALES metrics
+      description: >-
+        Detail Ratings response of AAPL-USA for SALES metrics with frequency set
+        to 'AM' and periodicity to 'ANN'
+      value:
+        data:
+          - fsymId: MH33D6-R
+            estimateDate: '2019-07-26'
+            analystId: 05YJNN-E
+            analystName: Amit Daryanani
+            brokerId: 09N0CH-E
+            brokerName: Evercore ISI
+            ratingsNoteText: Buy
+            requestId: AAPL-USA
+            inputDateTime: '2019-07-29T19:49:34'
+            lastModifiedDate: '2019-06-04'
+    surpriseExample:
+      summary: Surprise response of AAPL-USA for SALES metrics
+      description: >-
+        Surprise response of AAPL-USA for SALES metrics with frequency set to
+        'AM', periodicity to 'ANN' and statistic to 'MEAN'
+      value:
+        data:
+          - fsymId: MH33D6-R
+            date: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            metric: SALES
+            statistic: MEAN
+            periodicity: ANN
+            fiscalEndDate: '2018-09-30'
+            fiscalYear: '2018'
+            fiscalPeriod: '1'
+            surpriseDate: '2018-11-02'
+            surpriseAmount: '1073.2432432432433'
+            surprisePercent: '0.40572966715556535'
+            surpriseBefore: '264521.75675675675'
+            surpriseAfter: '265595'
+            eventDescription: Results for 2018
+            eventFlag: '0'
+            requestId: AAPL-USA
+    segments:
+      summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
+      description: >-
+        Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
+        with frequency set to 'AM' and periodicity to 'ANN'
+      value:
+        data:
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            segmentType: BUS
+            metric: SALES
+            fiscalPeriod: '1'
+            fiscalYear: '2019'
+            segmentLabel: Wearables, Home and Accessories
+            segmentLevel: P
+            fiscalEndDate: '2019-09-30'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '22199.436625'
+            median: '22780'
+            standardDeviation: '2209.467173529'
+            high: '23859'
+            low: '14149'
+            estimateCount: '16'
+            up: '2'
+            down: '1'
+          - requestId: AAPL-USA
+            fsymId: MH33D6-R
+            segmentType: BUS
+            metric: SALES
+            fiscalPeriod: '1'
+            fiscalYear: '2019'
+            segmentLabel: Services
+            segmentLevel: P
+            fiscalEndDate: '2019-09-30'
+            estimateDate: '2019-07-30'
+            currency: USD
+            estimateCurrency: USD
+            mean: '46353.434571428574'
+            median: '46327'
+            standardDeviation: '492.839982772154'
+            high: '47206'
+            low: '45361'
+            estimateCount: '21'
+            up: '2'
+            down: '0'
+    metricsExample:
+      summary: >-
+        Mertics response with 'FINANCIAL_STATEMENT' category and '--'
+        subcategory
+      description: >-
+        Mertics response with 'FINANCIAL_STATEMENT' category and '--'
+        subcategory
+      value:
+        data:
+          - metric: ASSETS_CURR
+            name: Current Assets (ASSETS_CURR)
+            category: FINANCIAL_STATEMENT
+            subcategory: BALANCE_SHEET
+            OAurl: https://my.apps.factset.com/oa/pages/16283
+          - metric: CASH_ST
+            name: Cash and Cash Equivalents (CASH_ST)
+            category: FINANCIAL_STATEMENT
+            subcategory: BALANCE_SHEET
+            OAurl: https://my.apps.factset.com/oa/pages/16283
+          - metric: RECEIV_NET
+            name: Accounts Receivable (RECEIV_NET)
+            category: FINANCIAL_STATEMENT
+            subcategory: BALANCE_SHEET
+            OAurl: https://my.apps.factset.com/oa/pages/16283
+          - metric: INVEN
+            name: Inventories (INVEN)
+            category: FINANCIAL_STATEMENT
+            subcategory: BALANCE_SHEET
+            OAurl: https://my.apps.factset.com/oa/pages/16283
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-
@@ -2692,6 +4193,15 @@ components:
           USERNAME-SERIAL does not have permission to use
           /factset-estimates/v2/{endpoint}
         subErrors: null
+    endpointNotFound:
+      summary: Not Found
+      description: The requested endpoint could not be found.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+            code: Not Found
+            title: No endpoint found
+            detail: The requested endpoint does not exist.
     unsupportedMediaType:
       summary: Unsupported Media Type
       description: >-

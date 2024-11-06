@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Issue Tracker API",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "This API is used to file issues",
     "contact": {
       "name": "FactSet Research Systems",
@@ -20,6 +20,10 @@
     }
   ],
   "tags": [
+    {
+      "name": "Attachment",
+      "description": "Post or retrieve file attachments for Issue Tracker Subject or Comment"
+    },
     {
       "name": "Issue",
       "description": "Updating and retrieving issue data within the Issue Tracker"
@@ -59,15 +63,60 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "title": "Bad Request",
+                          "code": "Bad Request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": "Unauthorized"
+                  }
+                }
+              }
+            }
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "403",
+                          "title": "Forbidden",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error",
@@ -75,6 +124,19 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -88,14 +150,38 @@
                 "$ref": "#/components/schemas/issueRequest"
               },
               "examples": {
-                "Example 1": {
+                "Issue creation with simple content": {
                   "value": {
                     "data": {
                       "subject": "This is sample subject of issue tracker issue",
                       "description": "<p>Here we can provide a complete description of why we are creating issue.</p>",
                       "productId": "13273",
                       "categoryId": "20589",
-                      "isCritical": false
+                      "severity": "Medium"
+                    }
+                  }
+                },
+                "Example: issue creation with attachments": {
+                  "value": {
+                    "data": {
+                      "subject": "issue creation with attachments",
+                      "description": "<p>issue creation with attachments</p>",
+                      "productId": "13273",
+                      "categoryId": "20589",
+                      "attachments": [
+                        {
+                          "id": 139759297,
+                          "name": "bulk rpd.csv"
+                        },
+                        {
+                          "id": 139759295,
+                          "name": "AI Helper.png"
+                        },
+                        {
+                          "id": 139759294,
+                          "name": "Book1.xlsx"
+                        }
+                      ]
                     }
                   }
                 }
@@ -120,12 +206,12 @@
                   "$ref": "#/components/schemas/issue"
                 },
                 "examples": {
-                  "Example 1": {
+                  "Sample Issue Response": {
                     "value": {
                       "data": {
                         "id": "5c318d1c-61da-4d32-91ef-4ea65e53a551",
                         "subject": "This is sample subject of issue tracker issue",
-                        "isCritical": false,
+                        "severity": "Medium",
                         "internalId": 81195668,
                         "comments": [
                           {
@@ -137,16 +223,108 @@
                         ]
                       }
                     }
+                  },
+                  "Issue with Attachments": {
+                    "value": {
+                      "data": {
+                        "id": "171e57bf-982c-40a2-84c4-c164518b3d88",
+                        "subject": "testing without cc",
+                        "comments": [
+                          {
+                            "id": "d04ef9be-e252-48e8-9f5f-6c4fa19e1e0e",
+                            "content": "<p>Testing attachment icon</p>\n<p> </p>\n<p> </p> <br><br><a href=\"attachments/135331941/Book1.xlsx\" target=\"_self\">Book1.xlsx</a>",
+                            "createdAt": "2024-10-07T13:53:01.7274055Z",
+                            "author": "Sreenu Narra"
+                          },
+                          {
+                            "id": "5e1ba452-41e1-4c88-b44d-7e61fdfecfc9",
+                            "content": "<p>testing attachment</p>\n<p> </p>\n<p> </p> <br><br><a href=\"attachments/135571237/1.doc\" target=\"_self\">1.doc</a>",
+                            "createdAt": "2024-07-16T12:58:44.7274055Z",
+                            "author": "Sreenu Narra"
+                          },
+                          {
+                            "id": "122360c2-23ec-43f8-9679-495db5e6f65c",
+                            "content": "<p>checking attachment links</p> <br><br><a href=\"attachments/135860448/1.doc\" target=\"_self\">1.doc</a>",
+                            "createdAt": "2024-07-23T05:09:36.7274055Z",
+                            "author": "Sreenu Narra"
+                          },
+                          {
+                            "id": "0f3d701c-2bed-42a3-b646-ada25b3f80d3",
+                            "content": "<p>checking file icon</p> <br><br><a href=\"attachments/135996633/bulk%20rpd.csv\" target=\"_self\">bulk rpd.csv</a><br><a href=\"attachments/135996623/1.doc\" target=\"_self\">1.doc</a>",
+                            "createdAt": "2024-07-25T09:25:02.7274055Z",
+                            "author": "Sreenu Narra"
+                          },
+                          {
+                            "id": "a1d075f2-a51d-4d55-b00f-5bd18bfaad03",
+                            "content": "<p>testing mail</p> <br><br><a href=\"attachments/135997642/bulk%20rpd.csv\" target=\"_self\">bulk rpd.csv</a>",
+                            "createdAt": "2024-07-25T09:46:07.7274055Z",
+                            "author": "Anmisha NULI"
+                          },
+                          {
+                            "id": "b5744c07-f43d-4e9a-94ba-9f73fe9afccd",
+                            "content": "<p>this is a sample comment</p> <br><br><a href=\"attachments/138660322/3_Inline%20Powershell.log\" target=\"_self\">3_Inline Powershell.log</a>",
+                            "createdAt": "2024-09-23T10:48:45.7274055Z",
+                            "author": "Sreenu Narra"
+                          },
+                          {
+                            "id": "8609ab1f-4e98-4d92-940c-c5beff7c2324",
+                            "content": "<p>test</p> <br><br><a href=\"attachments/138719352/3_inline%20powershell.log\" target=\"_self\">3_inline powershell.log</a>",
+                            "createdAt": "2024-09-24T12:18:19.7274055Z",
+                            "author": "Sreenu Narra"
+                          },
+                          {
+                            "id": "6e0d55ab-d7e0-47ce-ad8b-e89401aae4c7",
+                            "content": "<p>test</p> <br><br><a href=\"attachments/139188600/1.doc\" target=\"_self\">1.doc</a>",
+                            "createdAt": "2024-10-04T11:14:11.7274055Z",
+                            "author": "Sreenu Narra"
+                          }
+                        ],
+                        "internalId": 111586147
+                      }
+                    }
                   }
                 }
               }
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": "Unauthorized"
+                  }
+                }
+              }
+            }
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Forbidden",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "403",
+                          "title": "Forbidden",
+                          "code": "Forbidden"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found",
@@ -154,6 +332,19 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -164,13 +355,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
           }
         },
         "operationId": "getIssue",
-        "description": "Retrieve the information of the client with the matching issue Id."
+        "description": "This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview."
       },
       "parameters": [
         {
@@ -190,19 +394,107 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/idResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": {
+                        "id": "28d38693-3454-4e45-9825-71br87e69fe3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "title": "Bad Request",
+                          "code": "Bad Request"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": "Unauthorized"
+                  }
+                }
+              }
+            }
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "403",
+                          "title": "Forbidden",
+                          "code": "Forbidden"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "operationId": "patchIssue",
@@ -218,7 +510,7 @@
                   "value": {
                     "data": {
                       "subject": "replace Title of ticket",
-                      "isCritical": false
+                      "severity": "Medium"
                     }
                   }
                 },
@@ -240,7 +532,7 @@
                 "Sample request to replace Severity alone": {
                   "value": {
                     "data": {
-                      "isCritical": true
+                      "severity": "Medium"
                     }
                   }
                 },
@@ -255,7 +547,7 @@
             }
           }
         },
-        "description": "User can update either `isCritical` with `subject` or `productId` with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`"
+        "description": "User can update either `severity` with `subject` or `productId` with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`"
       }
     },
     "/issues/{id}/comments": {
@@ -284,10 +576,12 @@
                 "schema": {
                   "$ref": "#/components/schemas/idResponse"
                 },
-                "example": {
-                  "value": {
-                    "data": {
-                      "id": "28d38693-3454-4e45-9825-71br87e69fe3"
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": {
+                        "id": "28d38693-3454-4e45-9825-71br87e69fe3"
+                      }
                     }
                   }
                 }
@@ -300,15 +594,60 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "title": "Bad Request",
+                          "code": "Bad Request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": "Unauthorized"
+                  }
+                }
+              }
+            }
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "403",
+                          "title": "Forbidden",
+                          "code": "Forbidden"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal Server Error",
@@ -316,6 +655,19 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -329,10 +681,44 @@
                 "$ref": "#/components/schemas/commentRequest"
               },
               "examples": {
-                "Example 1": {
+                "simple content": {
                   "value": {
                     "data": {
                       "content": "<p>this is a sample comment</p>"
+                    }
+                  }
+                },
+                "Example: Content with image attachment": {
+                  "value": {
+                    "data": {
+                      "content": "<p>reply with image</p>",
+                      "attachments": [
+                        {
+                          "id": 139759297,
+                          "name": "bulk rpd.csv"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "Example: reply response with multiple file attachments": {
+                  "value": {
+                    "data": {
+                      "content": "<p>reply with multiple attachments</p>",
+                      "attachments": [
+                        {
+                          "id": 139759297,
+                          "name": "bulk rpd.csv"
+                        },
+                        {
+                          "id": 139759295,
+                          "name": "AI Helper.png"
+                        },
+                        {
+                          "id": 139759294,
+                          "name": "Book1.xlsx"
+                        }
+                      ]
                     }
                   }
                 }
@@ -340,6 +726,562 @@
             }
           }
         }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "description": "issue guid",
+          "required": true
+        }
+      ]
+    },
+    "/attachments": {
+      "parameters": [],
+      "post": {
+        "summary": "Post file attachment to Issue Tracker Issue or comment",
+        "tags": [
+          "Attachment"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/attachmentResponse"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "data": {
+                        "id": 135997642,
+                        "name": "Bulk_Data.xlsx"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example: Upload File Attachment Count Restriction Error": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "code": "BadRequest",
+                          "title": "{ Message: Expected one file to be uploaded, instead got 2 }"
+                        }
+                      ]
+                    }
+                  },
+                  "Example: Disallowed File Type Issue": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "code": "BadRequest",
+                          "title": "{ Message: File extension '.msg' is not allowed to be uploaded. }"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": "Unauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "403",
+                          "title": "Forbidden",
+                          "code": "Forbidden"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "postFileAttachment",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/inputAttachment"
+              },
+              "encoding": {
+                "attachment": {
+                  "contentType": "image/bmp, image/png, image/gif, image/jpeg, application/pdf, application/x-msdownload, application/octet-stream, text/html, application/xml, text/plain, text/csv, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-word.document.macroenabled.12, application/vnd.ms-excel.sheet.macroenabled.12, application/vnd.ms-word.template.macroenabled.12, text/x-r-script, text/x-matlab, application/sql, application/vnd.ms-excel.charttemplate+xml, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/zip, application/vnd.openxmlformats-officedocument.presentationml.template, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/x-nql, text/tab-separated-values, text/x-include"
+                }
+              },
+              "examples": {
+                "Example ": {
+                  "value": {
+                    "file": "Bulk_Data.xlsx"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "\r\nThis endpoint upload file attachments into Issue Tracker and it allows only single file at a time. It will throws error when tries to upload multiple files in single call. \r\n\r\nFile size should not exceed 10Mb. More info provided in examples. It allows only few type of files for attachments. Please review \"attachments/file-extensions\" endpoint for list allowed file types."
+      }
+    },
+    "/attachments/{id}/{name}": {
+      "get": {
+        "summary": "get the matched file attachment",
+        "tags": [
+          "Attachment"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/gif": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.ms-excel": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/x-r-source": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/x-dosexec": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/sql": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.ms-officetheme": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/msword": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.template": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.presentationml.template": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.ms-powerpoint": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/zip": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/x-7z-compressed": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "text/tab-separated-values": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/x-iwork-keynote": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.ms-word.document.macroEnabled.12": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.ms-word.template.macroEnabled.12": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.ms-excel.sheet.macroEnabled.12": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "code": "BadRequest",
+                          "title": "{Message:File does not linked to any Issue or Comment}"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": "Unauthorized"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "403",
+                          "title": "Forbidden",
+                          "code": "Forbidden"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "404",
+                          "title": "Not Found",
+                          "code": "Not Found"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getFileAttachment",
+        "description": "It retreive matched file. However, File read won't work until it used in any issue tracker issue/comment. \r\n\r\nNote: the Accept header gets ignored and the originally uploaded content-type is returned"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "identity value of file attachment"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "name of the file"
+        }
+      ]
+    },
+    "/attachments/file-extensions": {
+      "get": {
+        "summary": "Allowed file types GET endpoint",
+        "tags": [
+          "Attachment"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fileExtension"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": [
+                        "png",
+                        "jpg"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "404",
+                          "title": "Method Not Found",
+                          "code": "Method Not Found"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "500",
+                          "title": "Internal Ierver Error",
+                          "code": "Internal Ierver Error"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getFileExtensions",
+        "description": "This will provide information about file extensions allowed to attachments."
       }
     }
   },
@@ -355,13 +1297,24 @@
     "schemas": {
       "commentRequest": {
         "type": "object",
+        "description": "input comment request details",
         "properties": {
           "data": {
             "type": "object",
+            "description": "input comment data",
+            "required": [
+              "content"
+            ],
             "properties": {
               "content": {
                 "type": "string",
                 "description": "description for comment"
+              },
+              "attachments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/attachment"
+                }
               }
             }
           }
@@ -373,7 +1326,7 @@
           "data": {
             "id": "28d38193-3454-4e45-9825-71br87e69fe3",
             "subject": "This is sample subject of issue tracker issue",
-            "isCritical": false,
+            "severity": "Medium",
             "comments": [
               {
                 "id": "39d38193-2829-4e45-9825-61br87e59fe1",
@@ -387,6 +1340,7 @@
         "properties": {
           "data": {
             "type": "object",
+            "description": "issue response",
             "properties": {
               "id": {
                 "type": "string",
@@ -403,21 +1357,24 @@
                   "$ref": "#/components/schemas/comment"
                 }
               },
-              "isCritical": {
-                "type": "boolean"
+              "severity": {
+                "type": "string",
+                "description": "severity of issue tracker ticket"
               },
               "internalId": {
                 "type": "integer"
               }
             }
           }
-        }
+        },
+        "description": "issue response"
       },
       "issueRequest": {
         "type": "object",
         "properties": {
           "data": {
             "type": "object",
+            "description": "create issue request",
             "required": [
               "subject",
               "description",
@@ -440,9 +1397,15 @@
                 "type": "string",
                 "description": "category of Factset Product. "
               },
-              "isCritical": {
-                "type": "boolean",
-                "description": "severity of issue tracker ticket is critical or not"
+              "severity": {
+                "type": "string",
+                "description": "severity of issue tracker ticket. Mainly it accepting three severities.\r\nCritical, High and Medium."
+              },
+              "attachments": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/attachment"
+                }
               }
             }
           }
@@ -474,7 +1437,8 @@
             "type": "string",
             "description": "author of the comment."
           }
-        }
+        },
+        "description": "comment details"
       },
       "idResponse": {
         "type": "object",
@@ -483,9 +1447,11 @@
             "id": "28d38693-3454-4e45-9825-71br87e69fe3"
           }
         },
+        "description": "generated response of issue creation or comment addition.",
         "properties": {
           "data": {
             "type": "object",
+            "description": "generated guid of issue or comment",
             "properties": {
               "id": {
                 "type": "string",
@@ -504,7 +1470,8 @@
               "$ref": "#/components/schemas/error"
             }
           }
-        }
+        },
+        "description": "error response when api call failed"
       },
       "error": {
         "type": "object",
@@ -515,36 +1482,41 @@
         },
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "id of the error"
           },
           "code": {
-            "type": "string"
+            "type": "string",
+            "description": "error code"
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "description": "complete description of errror"
           }
-        }
+        },
+        "description": "information for api call exception"
       },
       "updateIssueRequest": {
         "type": "object",
         "example": {
           "data": {
             "subject": "This is update subject of issue",
-            "isCritical": false
+            "severity": "Medium"
           }
         },
         "description": "Request object for update severity or subject of Issue",
         "properties": {
           "data": {
             "type": "object",
+            "description": "update request infomration for issue",
             "properties": {
               "subject": {
                 "type": "string",
                 "description": "subject of ticket"
               },
-              "isCritical": {
-                "type": "boolean",
-                "description": "severity of issue"
+              "severity": {
+                "type": "string",
+                "description": "severity of issue. Accepts Critical, High and Medium for severity."
               },
               "productId": {
                 "type": "string",
@@ -555,6 +1527,56 @@
                 "description": "Category that needs to be replaced"
               }
             }
+          }
+        }
+      },
+      "attachment": {
+        "type": "object",
+        "description": "Attachment details like generated file id and name of the file with extension",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "generated id of attachment"
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the file"
+          }
+        }
+      },
+      "inputAttachment": {
+        "type": "object",
+        "description": "input attachment file path",
+        "required": [
+          "file"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "description": "input file for upload"
+          }
+        }
+      },
+      "fileExtension": {
+        "type": "object",
+        "description": "list of file extensions allowed for upload",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "file extensions array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "attachmentResponse": {
+        "title": "attachmentResponse",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/attachment"
           }
         }
       }

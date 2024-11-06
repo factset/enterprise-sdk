@@ -281,6 +281,9 @@ export default class TranscriptsApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/Boolean} opts.primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (default to false)
      * @param {Array.<String>} opts.ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+     * @param {Date} opts.startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+     * @param {Date} opts.endDate End Date. Format is YYYY-MM-DD.
+     * @param {String} opts.searchText Restricts the search to include only document stories which include the text searched.
      * @param {Array.<String>} opts.reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
      * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
@@ -297,6 +300,9 @@ export default class TranscriptsApi {
       let queryParams = {
         'primaryId': opts['primaryId'],
         'ids': this.apiClient.buildCollectionParam(opts['ids'], 'csv'),
+        'startDate': opts['startDate'],
+        'endDate': opts['endDate'],
+        'searchText': opts['searchText'],
         'reportIds': this.apiClient.buildCollectionParam(opts['reportIds'], 'csv'),
         'categories': this.apiClient.buildCollectionParam(opts['categories'], 'csv'),
         '_sort': this.apiClient.buildCollectionParam(opts['sort'], 'csv'),
@@ -328,6 +334,9 @@ export default class TranscriptsApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/Boolean} opts.primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (default to false)
      * @param {Array.<String>} opts.ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+     * @param {Date} opts.startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+     * @param {Date} opts.endDate End Date. Format is YYYY-MM-DD.
+     * @param {String} opts.searchText Restricts the search to include only document stories which include the text searched.
      * @param {Array.<String>} opts.reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
      * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
      * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 

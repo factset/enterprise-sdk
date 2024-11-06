@@ -34,16 +34,27 @@ public class IssueApi {
   private static final Map<Integer, GenericType> getIssueResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIssueResponseTypeMap.put(200, new GenericType<Issue>(){});
+    getIssueResponseTypeMap.put(401, new GenericType<String>(){});
+    getIssueResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getIssueResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
     getIssueResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> patchIssueResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    patchIssueResponseTypeMap.put(200, new GenericType<IdResponse>(){});
+    patchIssueResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    patchIssueResponseTypeMap.put(401, new GenericType<String>(){});
+    patchIssueResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    patchIssueResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
 
   private static final Map<Integer, GenericType> postIssueResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postIssueResponseTypeMap.put(201, new GenericType<IdResponse>(){});
     postIssueResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postIssueResponseTypeMap.put(401, new GenericType<String>(){});
+    postIssueResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     postIssueResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -51,6 +62,8 @@ public class IssueApi {
   static {
     postReplyResponseTypeMap.put(201, new GenericType<IdResponse>(){});
     postReplyResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postReplyResponseTypeMap.put(401, new GenericType<String>(){});
+    postReplyResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     postReplyResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -77,7 +90,7 @@ public class IssueApi {
 
   /**
    * Get the matched issue details
-   * Retrieve the information of the client with the matching issue Id.
+   * This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview.
    * @param id ID of Issue Tracker issue (required)
    * @return Issue
    * @throws ApiException if fails to make API call
@@ -97,7 +110,7 @@ public class IssueApi {
 
   /**
    * Get the matched issue details
-   * Retrieve the information of the client with the matching issue Id.
+   * This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview.
    * @param id ID of Issue Tracker issue (required)
    * @return ApiResponse&lt;Issue&gt;
    * @throws ApiException if fails to make API call
@@ -134,7 +147,7 @@ public class IssueApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/json", "text/plain"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -159,9 +172,10 @@ public class IssueApi {
   }
   /**
    * Update severity and subject of issue or productId and categoryId of issue
-   * User can update either &#x60;isCritical&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;isCritical&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
+   * User can update either &#x60;severity&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;severity&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
    * @param id ID of Issue Tracker issue (required)
    * @param updateIssueRequest  (optional)
+   * @return IdResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -173,16 +187,16 @@ public class IssueApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public void patchIssue(String id, UpdateIssueRequest updateIssueRequest) throws ApiException {
-    patchIssueWithHttpInfo(id, updateIssueRequest);
+  public IdResponse patchIssue(String id, UpdateIssueRequest updateIssueRequest) throws ApiException {
+    return patchIssueWithHttpInfo(id, updateIssueRequest).getData();
   }
 
   /**
    * Update severity and subject of issue or productId and categoryId of issue
-   * User can update either &#x60;isCritical&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;isCritical&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
+   * User can update either &#x60;severity&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;severity&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
    * @param id ID of Issue Tracker issue (required)
    * @param updateIssueRequest  (optional)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;IdResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -194,7 +208,7 @@ public class IssueApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> patchIssueWithHttpInfo(String id, UpdateIssueRequest updateIssueRequest) throws ApiException {
+  public ApiResponse<IdResponse> patchIssueWithHttpInfo(String id, UpdateIssueRequest updateIssueRequest) throws ApiException {
     Object localVarPostBody = updateIssueRequest;
     
     // verify the required parameter 'id' is set
@@ -217,7 +231,7 @@ public class IssueApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json", "text/plain"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -230,7 +244,9 @@ public class IssueApi {
 
 
     ApiResponse<
-      Void
+        
+        IdResponse
+      
     > apiResponse = apiClient.invokeAPI("IssueApi.patchIssue", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, patchIssueResponseTypeMap, false);
@@ -291,7 +307,7 @@ public class IssueApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/json", "text/plain"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -375,7 +391,7 @@ public class IssueApi {
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "application/json", "text/plain"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 

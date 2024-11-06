@@ -3,7 +3,7 @@
 """
     FactSet Entity API
 
-    Using an entity centric data model, FactSet's Entity API provides access to FactSet's complete security and entity level symbology, comprehensive entity reference data, and all of the necessary relationships and connections to create a foundation that tightly correlates disparate sources of information to a master entity identifier. Use this API to quickly understand the full entity structure and related securities.   # noqa: E501
+    Using an entity centric data model, FactSet's Entity API provides access to FactSet's complete security and entity level symbology, comprehensive entity reference data, and all of the necessary relationships and connections to create a foundation that tightly correlates disparate sources of information to a master entity identifier. Use this API to quickly understand the full entity structure and related securities.<p><b>Rate limit is set to 10 requests per second</b>.</p>   # noqa: E501
 
     The version of the OpenAPI document: 1.4.0
     Contact: api@factset.com
@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.1.8"
+__version__ = "1.1.9"
 
 # import ApiClient
 from fds.sdk.FactSetEntity.api_client import ApiClient

@@ -116,7 +116,7 @@ class CompanyEventRequestDataUniverse(ModelNormal):
 
         Args:
             symbols ([str]): Companies to return in the response.   - Only Tickers type can support multiple entries. 
-            type (str): NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+            type (str): NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,7 +203,7 @@ class CompanyEventRequestDataUniverse(ModelNormal):
 
         Args:
             symbols ([str]): Companies to return in the response.   - Only Tickers type can support multiple entries. 
-            type (str): NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+            type (str): NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

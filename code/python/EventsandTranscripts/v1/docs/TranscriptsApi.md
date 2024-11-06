@@ -487,6 +487,9 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     primary_id = False # bool | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional) if omitted the server will use the default value of False
     ids = ["RTO-GB"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
+    start_date = dateutil_parser('2020-10-01').date() # date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)
+    end_date = dateutil_parser('2020-12-26').date() # date | End Date. Format is YYYY-MM-DD. (optional)
+    search_text = "Updates" # str | Restricts the search to include only document stories which include the text searched. (optional)
     report_ids = ["3022837"] # [str] | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)
     categories = ["CN:GB"] # [str] | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories. (optional)
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
@@ -497,7 +500,7 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
         # Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_transcripts_ids(primary_id=primary_id, ids=ids, report_ids=report_ids, categories=categories, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
+        api_response = api_instance.get_transcripts_ids(primary_id=primary_id, ids=ids, start_date=start_date, end_date=end_date, search_text=search_text, report_ids=report_ids, categories=categories, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
 
         pprint(api_response)
 
@@ -512,6 +515,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **primary_id** | **bool**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] if omitted the server will use the default value of False
  **ids** | **[str]**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional]
+ **start_date** | **date**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  | [optional]
+ **end_date** | **date**| End Date. Format is YYYY-MM-DD. | [optional]
+ **search_text** | **str**| Restricts the search to include only document stories which include the text searched. | [optional]
  **report_ids** | **[str]**| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional]
  **categories** | **[str]**| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]

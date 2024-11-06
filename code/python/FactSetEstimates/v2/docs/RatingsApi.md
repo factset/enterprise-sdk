@@ -4,17 +4,17 @@ All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_consensus_ratings**](RatingsApi.md#get_consensus_ratings) | **GET** /factset-estimates/v2/consensus-ratings | Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-[**get_consensus_ratings_for_list**](RatingsApi.md#get_consensus_ratings_for_list) | **POST** /factset-estimates/v2/consensus-ratings | Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-[**get_detail_ratings**](RatingsApi.md#get_detail_ratings) | **GET** /factset-estimates/v2/detail-ratings | Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-[**get_detail_ratings_for_list**](RatingsApi.md#get_detail_ratings_for_list) | **POST** /factset-estimates/v2/detail-ratings | Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+[**get_consensus_ratings**](RatingsApi.md#get_consensus_ratings) | **GET** /factset-estimates/v2/consensus-ratings | Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+[**get_consensus_ratings_for_list**](RatingsApi.md#get_consensus_ratings_for_list) | **POST** /factset-estimates/v2/consensus-ratings | Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+[**get_detail_ratings**](RatingsApi.md#get_detail_ratings) | **GET** /factset-estimates/v2/detail-ratings | Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+[**get_detail_ratings_for_list**](RatingsApi.md#get_detail_ratings_for_list) | **POST** /factset-estimates/v2/detail-ratings | Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
 
 
 # **get_consensus_ratings**
 > ConsensusRatingsResponse get_consensus_ratings(ids)
 
-Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
 Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
 
@@ -65,11 +65,11 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
     start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    end_date = "2020-07-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    end_date = "2019-08-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "D"
 
     try:
-        # Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_consensus_ratings(ids, start_date=start_date, end_date=end_date, frequency=frequency)
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 # **get_consensus_ratings_for_list**
 > ConsensusRatingsResponse get_consensus_ratings_for_list(consensus_ratings_request)
 
-Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
 Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
 
@@ -177,7 +177,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     ) # ConsensusRatingsRequest | Request object for Estimate Data Items.
 
     try:
-        # Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_consensus_ratings_for_list(consensus_ratings_request)
 
@@ -224,9 +224,9 @@ Name | Type | Description  | Notes
 # **get_detail_ratings**
 > DetailRatingsResponse get_detail_ratings(ids)
 
-Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
-Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
+Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
 
 ### Example
 
@@ -275,11 +275,11 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
     start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    end_date = "2020-07-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    end_date = "2019-08-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     include_all = False # bool | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (optional) if omitted the server will use the default value of False
 
     try:
-        # Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_detail_ratings(ids, start_date=start_date, end_date=end_date, include_all=include_all)
@@ -330,9 +330,9 @@ Name | Type | Description  | Notes
 # **get_detail_ratings_for_list**
 > DetailRatingsResponse get_detail_ratings_for_list(detail_ratings_request)
 
-Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
-Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
+Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
 
 ### Example
 
@@ -387,7 +387,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     ) # DetailRatingsRequest | Request object for Detail Reatings Data Items.
 
     try:
-        # Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_detail_ratings_for_list(detail_ratings_request)
 

@@ -400,6 +400,9 @@ class TranscriptsApi(object):
                 'all': [
                     'primary_id',
                     'ids',
+                    'start_date',
+                    'end_date',
+                    'search_text',
                     'report_ids',
                     'categories',
                     'sort',
@@ -451,6 +454,12 @@ class TranscriptsApi(object):
                         (bool,),
                     'ids':
                         ([str],),
+                    'start_date':
+                        (date,),
+                    'end_date':
+                        (date,),
+                    'search_text':
+                        (str,),
                     'report_ids':
                         ([str],),
                     'categories':
@@ -465,6 +474,9 @@ class TranscriptsApi(object):
                 'attribute_map': {
                     'primary_id': 'primaryId',
                     'ids': 'ids',
+                    'start_date': 'startDate',
+                    'end_date': 'endDate',
+                    'search_text': 'searchText',
                     'report_ids': 'reportIds',
                     'categories': 'categories',
                     'sort': '_sort',
@@ -474,6 +486,9 @@ class TranscriptsApi(object):
                 'location_map': {
                     'primary_id': 'query',
                     'ids': 'query',
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'search_text': 'query',
                     'report_ids': 'query',
                     'categories': 'query',
                     'sort': 'query',
@@ -1412,6 +1427,9 @@ class TranscriptsApi(object):
         Keyword Args:
             primary_id (bool): Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.. [optional] if omitted the server will use the default value of False
             ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** . [optional]
+            end_date (date): End Date. Format is YYYY-MM-DD.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
             report_ids ([str]): Requests Report IDs. This is a comma-separated list with a maximum limit of 1000. [optional]
             categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
@@ -1461,6 +1479,9 @@ class TranscriptsApi(object):
         Keyword Args:
             primary_id (bool): Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.. [optional] if omitted the server will use the default value of False
             ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** . [optional]
+            end_date (date): End Date. Format is YYYY-MM-DD.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
             report_ids ([str]): Requests Report IDs. This is a comma-separated list with a maximum limit of 1000. [optional]
             categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
@@ -1514,6 +1535,9 @@ class TranscriptsApi(object):
         Keyword Args:
             primary_id (bool): Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.. [optional] if omitted the server will use the default value of False
             ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** . [optional]
+            end_date (date): End Date. Format is YYYY-MM-DD.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
             report_ids ([str]): Requests Report IDs. This is a comma-separated list with a maximum limit of 1000. [optional]
             categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
@@ -1562,6 +1586,9 @@ class TranscriptsApi(object):
         Keyword Args:
             primary_id (bool): Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.. [optional] if omitted the server will use the default value of False
             ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** . [optional]
+            end_date (date): End Date. Format is YYYY-MM-DD.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
             report_ids ([str]): Requests Report IDs. This is a comma-separated list with a maximum limit of 1000. [optional]
             categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
             sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]

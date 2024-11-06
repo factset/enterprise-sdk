@@ -1,5 +1,6 @@
 # CommentRequest
 
+input comment request details
 
 ## Properties
 Name | Type | Description | Notes

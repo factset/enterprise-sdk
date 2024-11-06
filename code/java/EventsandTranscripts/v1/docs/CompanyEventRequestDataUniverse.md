@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbols** | **java.util.List&lt;String&gt;** | Companies to return in the response.   - Only Tickers type can support multiple entries.  | 
-**type** | [**TypeEnum**](#TypeEnum) | NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field.  | 
+**type** | [**TypeEnum**](#TypeEnum) | NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field.  | 
 
 
 

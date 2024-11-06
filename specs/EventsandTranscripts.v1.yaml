@@ -2137,8 +2137,9 @@ paths:
                         storyDateTime: '2023-03-07T19:40:26Z'
                         uploadDateTime: '2024-01-08T04:19:24Z'
                         eventType: ConferencePresentation
-                        categories: >-
-                          CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                        categories:
+                          - >-
+                            CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
                         transcriptsLink: >-
                           https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
                     meta:
@@ -2201,6 +2202,9 @@ paths:
       parameters:
         - $ref: '#/components/parameters/primaryId'
         - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/searchText'
         - $ref: '#/components/parameters/report_ids'
         - $ref: '#/components/parameters/categories'
         - $ref: '#/components/parameters/_sort'
@@ -2461,11 +2465,27 @@ components:
               $ref: '#/components/examples/postBodyOfSingleSymbol'
             Multiple symbols for the given period:
               $ref: '#/components/examples/postMultipleSymbols'
+            Single symbol for the given date range:
+              $ref: '#/components/examples/postBodyOfSingleSymbolDateRange'
+            Multiple symbols for the given date range:
+              $ref: '#/components/examples/postMultipleSymbolsDateRange'
       description: Company Event request body
       required: true
   examples:
     postBodyOfSingleSymbol:
       summary: Single symbol for the given period
+      description: Post body request example to fetch details of the AAPL-US
+      value:
+        data:
+          universe:
+            symbols:
+              - AAPL-US
+            type: Tickers
+          eventTypes:
+            - Earnings
+          lastModifiedWithin: Today
+    postBodyOfSingleSymbolDateRange:
+      summary: Single symbol for the given date range
       description: Post body request example to fetch details of the AAPL-US
       value:
         data:
@@ -2478,9 +2498,24 @@ components:
             type: Tickers
           eventTypes:
             - Earnings
-          lastModifiedWithin: Today
     postMultipleSymbols:
       summary: Multiple symbols for the given period
+      description: >-
+        Post body request example to fetch details of the AAPL-US, MSFT-US and
+        FDS-US
+      value:
+        data:
+          universe:
+            symbols:
+              - AAPL-US
+              - MSFT-US
+              - FDS-US
+            type: Tickers
+          eventTypes:
+            - Earnings
+          lastModifiedWithin: Today
+    postMultipleSymbolsDateRange:
+      summary: Multiple symbols for the given date range
       description: >-
         Post body request example to fetch details of the AAPL-US, MSFT-US and
         FDS-US
@@ -2497,7 +2532,6 @@ components:
             type: Tickers
           eventTypes:
             - Earnings
-          lastModifiedWithin: Today
     400Example:
       summary: Sample error Response
       value:
@@ -2677,6 +2711,7 @@ components:
           description: |
             Specifies the type of transcript. 
           enum:
+            - NearRealTime
             - Raw
             - Corrected
         headline:
@@ -2758,6 +2793,7 @@ components:
           description: |
             Specifies the type of transcript. 
           enum:
+            - NearRealTime
             - Raw
             - Corrected
         headline:
@@ -3164,6 +3200,7 @@ components:
           description: |
             Specifies the type of transcript. 
           enum:
+            - NearRealTime
             - Raw
             - Corrected
         headline:
@@ -3700,6 +3737,7 @@ components:
                   example: Tickers
                   description: |
                     NOTE:
+                     - SEDOLs and ISINs are supported with the type tickers.
                      - Etf: Requires additionl access to get the data. 
                      - AllCompanies: While using this, we should not pass any symbols in the symbols field.
             eventTypes:

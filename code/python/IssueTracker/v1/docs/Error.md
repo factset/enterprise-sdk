@@ -1,12 +1,13 @@
 # Error
 
+information for api call exception
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
-**code** | **str** |  | [optional] 
-**title** | **str** |  | [optional] 
+**id** | **str** | id of the error | [optional] 
+**code** | **str** | error code | [optional] 
+**title** | **str** | complete description of errror | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

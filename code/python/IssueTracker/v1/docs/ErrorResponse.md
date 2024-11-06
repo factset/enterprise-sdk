@@ -1,5 +1,6 @@
 # ErrorResponse
 
+error response when api call failed
 
 ## Properties
 Name | Type | Description | Notes

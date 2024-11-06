@@ -45,7 +45,7 @@ public class CompanyEventRequestDataUniverse implements Serializable {
   private java.util.List<String> symbols = new java.util.ArrayList<>();
 
   /**
-   * NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+   * NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
    */
   public enum TypeEnum {
     TICKERS("Tickers"),
@@ -136,11 +136,11 @@ public class CompanyEventRequestDataUniverse implements Serializable {
   }
 
    /**
-   * NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+   * NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
    * @return type
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "Tickers", required = true, value = "NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. ")
+  @ApiModelProperty(example = "Tickers", required = true, value = "NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -182,6 +182,12 @@ TranscriptObjectTimes.prototype['transcriptsLink'] = undefined;
 TranscriptObjectTimes['TranscriptTypeEnum'] = {
 
     /**
+     * value: "NearRealTime"
+     * @const
+     */
+    "NearRealTime": "NearRealTime",
+
+    /**
      * value: "Raw"
      * @const
      */

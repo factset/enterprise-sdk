@@ -3912,47 +3912,46 @@ components:
             \ shares) remains closely aligned to the NAV of the fund. Open-end funds\
             \ sell their own new shares to investors, stand ready to buy back their\
             \ old shares, and are not listed on exchanges. Open-end funds are so called\
-            \ because their capitalization is not fixed.|\n|MM|Bill/Discount Note\
-            \ |\n|MM|Money Market|\n|NVDR|Non-Voting Depositary Receipt- A Non-Voting\
-            \ Depository Receipt (NVDR) is a trading instrument issued by the Thai\
-            \ NVDR Company Limited, a subsidiary wholly owned by the Stock Exchange\
-            \ of Thailand (SET). Investment in NVDR eliminates foreign investment\
-            \ barriers. The only difference between investing in NVDRs and the company's\
-            \ shares is the voting right. NVDRs are automatically regarded as listed\
-            \ securities in the SET.|\n|PASS|Pass-Through |\n|PFD|Preferred |\n|PREF|Preferred-\
-            \ A type of stock that pays a fixed dividend regardless of corporate earnings,\
-            \ and which has priority over common stock in the payment of dividends.\
-            \ The main characteristics of preferred stocks is the fixed income stream\
-            \ and priority of payment at liquidation.|\n|PREFEQ|Preferred Equity-\
-            \ A security that has equity characteristics (i.e., ownership at liquidation,\
-            \ share in the profits in the company) rather than fixed redemption and\
-            \ trades as a common equity (i.e., is very liquid and its prices are quoted\
-            \ in a currency rather than percentage of par, which is a common characteristic\
-            \ of preferred stock). These securities are most commonly issued in Brazil,\
-            \ Canada, and many European markets (i.e., Russia, Germany, and Italy).\
-            \ Preferred equity has some priority rights over common stock. This category\
-            \ also includes Italian savings shares.|\n|RIGHT|Right- A right gives\
-            \ the holder an option to purchase additional shares of an underlying\
-            \ instrument at a pre-determined price on a specified date (typically\
-            \ at a discount from the market price). In most cases, right instruments\
-            \ must be exercised within a relatively short period.|\n|SHARE|Share/Common/Ordinary-\
-            \ Securities that represent an ownership interest in a corporation. If\
-            \ the company has also issued preferred stock, both common and preferred\
-            \ stockholders have ownership rights. Common stockholders assume the greater\
-            \ risk, but generally exercise greater control and may gain a larger award\
-            \ in the form of dividends and capital appreciation.|\n|STRUCT|Structured\
-            \ Products- Investment products that are based on an underlying security\
-            \ such as a single equity, a basket of stocks, an index, a commodity,\
-            \ a debt issuance, or a foreign currency.|\n|TEMP|Temporary- Securities\
-            \ that trade for a limited period of time (typically less than a year)\
-            \ and trade alongside the mainline security. Also included are securities\
-            \ that trade alongside the mainline and then assimilate to the mainline\
-            \ security after trading for few days/months. Examples of temporary instruments\
-            \ are parallel lines and assented lines.|\n|UNIT|Unit- An equity that\
-            \ consists of more than one equity instrument (i.e., security consisting\
-            \ of class A and B; 1 share and 1 warrant).|\n|WARRANT|Warrant- An instrument\
-            \ giving the holder a right to subscribe to an underlying instrument at\
-            \ a given price and date.|\n"
+            \ because their capitalization is not fixed.|\n|NVDR|Non-Voting Depositary\
+            \ Receipt- A Non-Voting Depository Receipt (NVDR) is a trading instrument\
+            \ issued by the Thai NVDR Company Limited, a subsidiary wholly owned by\
+            \ the Stock Exchange of Thailand (SET). Investment in NVDR eliminates\
+            \ foreign investment barriers. The only difference between investing in\
+            \ NVDRs and the company's shares is the voting right. NVDRs are automatically\
+            \ regarded as listed securities in the SET.|\n|PASS|Pass-Through |\n|PFD|Preferred\
+            \ |\n|PREF|Preferred- A type of stock that pays a fixed dividend regardless\
+            \ of corporate earnings, and which has priority over common stock in the\
+            \ payment of dividends. The main characteristics of preferred stocks is\
+            \ the fixed income stream and priority of payment at liquidation.|\n|PREFEQ|Preferred\
+            \ Equity- A security that has equity characteristics (i.e., ownership\
+            \ at liquidation, share in the profits in the company) rather than fixed\
+            \ redemption and trades as a common equity (i.e., is very liquid and its\
+            \ prices are quoted in a currency rather than percentage of par, which\
+            \ is a common characteristic of preferred stock). These securities are\
+            \ most commonly issued in Brazil, Canada, and many European markets (i.e.,\
+            \ Russia, Germany, and Italy). Preferred equity has some priority rights\
+            \ over common stock. This category also includes Italian savings shares.|\n\
+            |RIGHT|Right- A right gives the holder an option to purchase additional\
+            \ shares of an underlying instrument at a pre-determined price on a specified\
+            \ date (typically at a discount from the market price). In most cases,\
+            \ right instruments must be exercised within a relatively short period.|\n\
+            |SHARE|Share/Common/Ordinary- Securities that represent an ownership interest\
+            \ in a corporation. If the company has also issued preferred stock, both\
+            \ common and preferred stockholders have ownership rights. Common stockholders\
+            \ assume the greater risk, but generally exercise greater control and\
+            \ may gain a larger award in the form of dividends and capital appreciation.|\n\
+            |STRUCT|Structured Products- Investment products that are based on an\
+            \ underlying security such as a single equity, a basket of stocks, an\
+            \ index, a commodity, a debt issuance, or a foreign currency.|\n|TEMP|Temporary-\
+            \ Securities that trade for a limited period of time (typically less than\
+            \ a year) and trade alongside the mainline security. Also included are\
+            \ securities that trade alongside the mainline and then assimilate to\
+            \ the mainline security after trading for few days/months. Examples of\
+            \ temporary instruments are parallel lines and assented lines.|\n|UNIT|Unit-\
+            \ An equity that consists of more than one equity instrument (i.e., security\
+            \ consisting of class A and B; 1 share and 1 warrant).|\n|WARRANT|Warrant-\
+            \ An instrument giving the holder a right to subscribe to an underlying\
+            \ instrument at a given price and date.|\n"
           example: SHARE
           type: string
         name:

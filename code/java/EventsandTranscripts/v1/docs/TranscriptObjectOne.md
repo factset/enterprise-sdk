@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
+NEARREALTIME | &quot;NearRealTime&quot;
 RAW | &quot;Raw&quot;
 CORRECTED | &quot;Corrected&quot;
 

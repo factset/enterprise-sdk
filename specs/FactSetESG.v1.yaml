@@ -251,6 +251,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/sasbRanksRequest'
+            examples:
+              SASB Ranks for a Single Entity (AMZN-US):
+                $ref: '#/components/examples/postSasbRanksEx'
       responses:
         '200':
           description: The SASB Ranks response object.
@@ -4177,6 +4180,20 @@ components:
           requestId: EIX
           sasbCategory: MATERIALITY
           sasbRank: Laggard
+    postSasbRanksEx:
+      summary: SASB Ranks for a Single Entity (AMZN-US)
+      description: |
+        Results of all of Amazon.com's (AMZN-US) score types for all categories.
+      value:
+        ids:
+          - AAPL-USA
+        categories:
+          - ALLCATEGORIES
+          - MATERIALITY
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        frequency: D
+        calendar: FIVEDAY
     singleSasbScoresAll:
       summary: All SASB Score Types for a Single Entity (AMZN-US).
       description: |

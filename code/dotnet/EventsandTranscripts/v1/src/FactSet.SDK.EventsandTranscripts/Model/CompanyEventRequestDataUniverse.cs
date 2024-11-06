@@ -33,9 +33,9 @@ namespace FactSet.SDK.EventsandTranscripts.Model
     public partial class CompanyEventRequestDataUniverse : IEquatable<CompanyEventRequestDataUniverse>, IValidatableObject
     {
         /// <summary>
-        /// NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+        /// NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
         /// </summary>
-        /// <value>NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. </value>
+        /// <value>NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -67,9 +67,9 @@ namespace FactSet.SDK.EventsandTranscripts.Model
 
 
         /// <summary>
-        /// NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+        /// NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
         /// </summary>
-        /// <value>NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. </value>
+        /// <value>NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. </value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -81,7 +81,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// Initializes a new instance of the <see cref="CompanyEventRequestDataUniverse" /> class.
         /// </summary>
         /// <param name="symbols">Companies to return in the response.   - Only Tickers type can support multiple entries.  (required).</param>
-        /// <param name="type">NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field.  (required).</param>
+        /// <param name="type">NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field.  (required).</param>
         public CompanyEventRequestDataUniverse(List<string> symbols, TypeEnum type)
         {
             // to ensure "symbols" is required (not null)

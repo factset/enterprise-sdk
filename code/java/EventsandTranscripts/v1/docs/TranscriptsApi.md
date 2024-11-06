@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ## getTranscriptsIds
 
-> TranscriptsOne getTranscriptsIds(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset)
+> TranscriptsOne getTranscriptsIds(primaryId, ids, startDate, endDate, searchText, reportIds, categories, sort, paginationLimit, paginationOffset)
 
 Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
 
@@ -451,6 +451,7 @@ All transcripts originate from Factset Callstreet Transcripts.
 #### Example Code
 
 ```java
+import java.time.LocalDate;
 // Import classes:
 import com.factset.sdk.EventsandTranscripts.ApiClient;
 import com.factset.sdk.EventsandTranscripts.ApiException;
@@ -486,13 +487,16 @@ public class Example {
         TranscriptsApi apiInstance = new TranscriptsApi(defaultClient);
         Boolean primaryId = true; // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+        LocalDate startDate = LocalDate.parse("2020-10-01"); // LocalDate | Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+        LocalDate endDate = LocalDate.parse("2020-12-26"); // LocalDate | End Date. Format is YYYY-MM-DD.
+        String searchText = "Updates"; // String | Restricts the search to include only document stories which include the text searched.
         java.util.List<String> reportIds = Arrays.asList(); // java.util.List<String> | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
         java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
         Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
         Integer paginationOffset = 0; // Integer | Page number of the results to return.
         try {
-            TranscriptsOne result = apiInstance.getTranscriptsIds(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset);
+            TranscriptsOne result = apiInstance.getTranscriptsIds(primaryId, ids, startDate, endDate, searchText, reportIds, categories, sort, paginationLimit, paginationOffset);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -513,6 +517,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false] [enum: true, false]
  **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional]
+ **startDate** | **LocalDate**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  | [optional]
+ **endDate** | **LocalDate**| End Date. Format is YYYY-MM-DD. | [optional]
+ **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional]
  **reportIds** | **List&lt;String&gt;**| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional]
  **categories** | **List&lt;String&gt;**| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]

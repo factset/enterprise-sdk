@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Get the matched issue details
 
-Retrieve the information of the client with the matching issue Id.
+This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview.
 
 ### Example
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -110,11 +110,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_issue**
-> patch_issue(id)
+> IdResponse patch_issue(id)
 
 Update severity and subject of issue or productId and categoryId of issue
 
-User can update either `isCritical` with `subject` or `productId` with `categoryId`.    **Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`
+User can update either `severity` with `subject` or `productId` with `categoryId`.    **Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`
 
 ### Example
 
@@ -165,7 +165,7 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
     update_issue_request = UpdateIssueRequest(
         data=UpdateIssueRequestData(
             subject="subject_example",
-            is_critical=True,
+            severity="severity_example",
             product_id="product_id_example",
             category_id="category_id_example",
         ),
@@ -175,8 +175,9 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
         # Update severity and subject of issue or productId and categoryId of issue
         # example passing only required values which don't have defaults set
         # and optional values
-        api_instance.patch_issue(id, update_issue_request=update_issue_request)
+        api_response = api_instance.patch_issue(id, update_issue_request=update_issue_request)
 
+        pprint(api_response)
 
     except fds.sdk.IssueTracker.ApiException as e:
         print("Exception when calling IssueApi->patch_issue: %s\n" % e)
@@ -192,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**IdResponse**](IdResponse.md)
 
 ### Authorization
 
@@ -201,7 +202,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -274,7 +275,13 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
             description="description_example",
             product_id="product_id_example",
             category_id="category_id_example",
-            is_critical=True,
+            severity="severity_example",
+            attachments=[
+                Attachment(
+                    id=1,
+                    name="name_example",
+                ),
+            ],
         ),
     ) # IssueRequest |  (optional)
 
@@ -308,7 +315,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -379,6 +386,12 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
     comment_request = CommentRequest(
         data=CommentRequestData(
             content="content_example",
+            attachments=[
+                Attachment(
+                    id=1,
+                    name="name_example",
+                ),
+            ],
         ),
     ) # CommentRequest |  (optional)
 
@@ -413,7 +426,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details

@@ -57,6 +57,7 @@ class TranscriptObject(ModelNormal):
 
     allowed_values = {
         ('transcript_type',): {
+            'NEARREALTIME': "NearRealTime",
             'RAW': "Raw",
             'CORRECTED': "Corrected",
 

@@ -1,5 +1,6 @@
 # IdResponseData
 
+generated guid of issue or comment
 
 ## Properties
 Name | Type | Description | Notes

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Get the matched issue details
 
-Retrieve the information of the client with the matching issue Id.
+This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview.
 
 ### Example
 
@@ -87,16 +87,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 
 
 ## patchIssue
 
-> patchIssue(id, opts)
+> IdResponse patchIssue(id, opts)
 
 Update severity and subject of issue or productId and categoryId of issue
 
-User can update either &#x60;isCritical&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;isCritical&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
+User can update either &#x60;severity&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;severity&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
 
 ### Example
 
@@ -133,13 +133,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new IssueApi();
 const id = "id_example"; // String | ID of Issue Tracker issue
 const opts = {
-  'updateIssueRequest': {"data":{"subject":"replace Title of ticket","isCritical":false}} // UpdateIssueRequest | 
+  'updateIssueRequest': {"data":{"subject":"replace Title of ticket","severity":"Medium"}} // UpdateIssueRequest | 
 };
 
 // Call api endpoint
 apiInstance.patchIssue(id, opts).then(
-  () => {
-    console.log('API called successfully.');
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
   },
   error => {
     console.error(error);
@@ -159,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**IdResponse**](IdResponse.md)
 
 ### Authorization
 
@@ -168,7 +170,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json, text/plain
 
 
 ## postIssue
@@ -213,7 +215,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new IssueApi();
 const opts = {
-  'issueRequest': {"data":{"subject":"This is sample subject of issue tracker issue","description":"<p>Here we can provide a complete description of why we are creating issue.</p>","productId":"13273","categoryId":"20589","isCritical":false}} // IssueRequest | 
+  'issueRequest': {"data":{"subject":"This is sample subject of issue tracker issue","description":"<p>Here we can provide a complete description of why we are creating issue.</p>","productId":"13273","categoryId":"20589","severity":"Medium"}} // IssueRequest | 
 };
 
 // Call api endpoint
@@ -249,7 +251,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 
 
 ## postReply
@@ -332,5 +334,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 

@@ -1,4 +1,5 @@
 # FactSet.SDK.IssueTracker.Model.CommentRequest
+input comment request details
 
 ## Properties
 

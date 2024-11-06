@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**content** | **String** | description for comment | [optional] 
+**content** | **String** | description for comment | 
+**attachments** | [**[Attachment]**](Attachment.md) |  | [optional] 
 
 

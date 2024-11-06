@@ -40,16 +40,22 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         public enum TranscriptTypeEnum
         {
             /// <summary>
+            /// Enum NearRealTime for value: NearRealTime
+            /// </summary>
+            [EnumMember(Value = "NearRealTime")]
+            NearRealTime = 1,
+
+            /// <summary>
             /// Enum Raw for value: Raw
             /// </summary>
             [EnumMember(Value = "Raw")]
-            Raw = 1,
+            Raw = 2,
 
             /// <summary>
             /// Enum Corrected for value: Corrected
             /// </summary>
             [EnumMember(Value = "Corrected")]
-            Corrected = 2
+            Corrected = 3
 
         }
 

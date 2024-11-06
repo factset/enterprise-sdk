@@ -2486,6 +2486,38 @@ paths:
           maxItems: 1000
           type: array
         style: form
+      - description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
+          \ from 1999 onwards. Ensure that the provided Date falls within this range\
+          \ for accurate results.**\n"
+        example: 2020-10-01
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: End Date. Format is YYYY-MM-DD.
+        example: 2020-12-26
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Restricts the search to include only document stories which include
+          the text searched.
+        example: Updates
+        explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Requests Report IDs. This is a comma-separated list with a maximum
           limit of 1000
         examples:
@@ -2582,7 +2614,8 @@ paths:
                       storyDateTime: 2023-03-07T19:40:26Z
                       uploadDateTime: 2024-01-08T04:19:24Z
                       eventType: ConferencePresentation
-                      categories: CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
                       transcriptsLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
                     meta:
                       pagination:
@@ -2938,6 +2971,18 @@ components:
       summary: Single symbol for the given period
       value:
         data:
+          universe:
+            symbols:
+            - AAPL-US
+            type: Tickers
+          eventTypes:
+          - Earnings
+          lastModifiedWithin: Today
+    postBodyOfSingleSymbolDateRange:
+      description: Post body request example to fetch details of the AAPL-US
+      summary: Single symbol for the given date range
+      value:
+        data:
           dateTime:
             start: 2022-12-01T00:00:00Z
             end: 2022-12-31T22:59:02Z
@@ -2947,11 +2992,25 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
-          lastModifiedWithin: Today
     postMultipleSymbols:
       description: Post body request example to fetch details of the AAPL-US, MSFT-US
         and FDS-US
       summary: Multiple symbols for the given period
+      value:
+        data:
+          universe:
+            symbols:
+            - AAPL-US
+            - MSFT-US
+            - FDS-US
+            type: Tickers
+          eventTypes:
+          - Earnings
+          lastModifiedWithin: Today
+    postMultipleSymbolsDateRange:
+      description: Post body request example to fetch details of the AAPL-US, MSFT-US
+        and FDS-US
+      summary: Multiple symbols for the given date range
       value:
         data:
           dateTime:
@@ -2965,7 +3024,6 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
-          lastModifiedWithin: Today
     "400Example":
       summary: Sample error Response
       value:
@@ -3458,6 +3516,10 @@ components:
               $ref: '#/components/examples/postBodyOfSingleSymbol'
             Multiple symbols for the given period:
               $ref: '#/components/examples/postMultipleSymbols'
+            Single symbol for the given date range:
+              $ref: '#/components/examples/postBodyOfSingleSymbolDateRange'
+            Multiple symbols for the given date range:
+              $ref: '#/components/examples/postMultipleSymbolsDateRange'
           schema:
             $ref: '#/components/schemas/CompanyEventRequest'
       description: Company Event request body
@@ -3471,7 +3533,7 @@ components:
           reportId: reportId
           eventType: Earnings
           uploadDateTime: 2000-01-23T04:56:07.000+00:00
-          transcriptType: Raw
+          transcriptType: NearRealTime
           transcriptsLink: transcriptsLink
           versionId: versionId
           primaryIds:
@@ -3490,7 +3552,7 @@ components:
           reportId: reportId
           eventType: Earnings
           uploadDateTime: 2000-01-23T04:56:07.000+00:00
-          transcriptType: Raw
+          transcriptType: NearRealTime
           transcriptsLink: transcriptsLink
           versionId: versionId
           primaryIds:
@@ -3526,7 +3588,7 @@ components:
           reportId: reportId
           eventType: Earnings
           uploadDateTime: 2000-01-23T04:56:07.000+00:00
-          transcriptType: Raw
+          transcriptType: NearRealTime
           transcriptsLink: transcriptsLink
           versionId: versionId
           primaryIds:
@@ -3546,7 +3608,7 @@ components:
           reportId: reportId
           eventType: Earnings
           uploadDateTime: 2000-01-23T04:56:07.000+00:00
-          transcriptType: Raw
+          transcriptType: NearRealTime
           transcriptsLink: transcriptsLink
           versionId: versionId
           primaryIds:
@@ -3639,7 +3701,7 @@ components:
         reportId: reportId
         eventType: Earnings
         uploadDateTime: 2000-01-23T04:56:07.000+00:00
-        transcriptType: Raw
+        transcriptType: NearRealTime
         transcriptsLink: transcriptsLink
         versionId: versionId
         primaryIds:
@@ -3684,6 +3746,7 @@ components:
         transcriptType:
           description: "Specifies the type of transcript. \n"
           enum:
+          - NearRealTime
           - Raw
           - Corrected
           type: string
@@ -3729,7 +3792,7 @@ components:
         reportId: reportId
         eventType: Earnings
         uploadDateTime: 2000-01-23T04:56:07.000+00:00
-        transcriptType: Raw
+        transcriptType: NearRealTime
         transcriptsLink: transcriptsLink
         versionId: versionId
         primaryIds:
@@ -3779,6 +3842,7 @@ components:
         transcriptType:
           description: "Specifies the type of transcript. \n"
           enum:
+          - NearRealTime
           - Raw
           - Corrected
           type: string
@@ -4166,7 +4230,7 @@ components:
           reportId: reportId
           eventType: Earnings
           uploadDateTime: 2000-01-23T04:56:07.000+00:00
-          transcriptType: Raw
+          transcriptType: NearRealTime
           transcriptsLink: transcriptsLink
           versionId: versionId
           primaryIds:
@@ -4185,7 +4249,7 @@ components:
           reportId: reportId
           eventType: Earnings
           uploadDateTime: 2000-01-23T04:56:07.000+00:00
-          transcriptType: Raw
+          transcriptType: NearRealTime
           transcriptsLink: transcriptsLink
           versionId: versionId
           primaryIds:
@@ -4219,7 +4283,7 @@ components:
         reportId: reportId
         eventType: Earnings
         uploadDateTime: 2000-01-23T04:56:07.000+00:00
-        transcriptType: Raw
+        transcriptType: NearRealTime
         transcriptsLink: transcriptsLink
         versionId: versionId
         primaryIds:
@@ -4264,6 +4328,7 @@ components:
         transcriptType:
           description: "Specifies the type of transcript. \n"
           enum:
+          - NearRealTime
           - Raw
           - Corrected
           type: string
@@ -5129,9 +5194,9 @@ components:
             type: string
           type: array
         type:
-          description: "NOTE:\n - Etf: Requires additionl access to get the data.\
-            \ \n - AllCompanies: While using this, we should not pass any symbols\
-            \ in the symbols field.\n"
+          description: "NOTE:\n - SEDOLs and ISINs are supported with the type tickers.\n\
+            \ - Etf: Requires additionl access to get the data. \n - AllCompanies:\
+            \ While using this, we should not pass any symbols in the symbols field.\n"
           enum:
           - Tickers
           - Index

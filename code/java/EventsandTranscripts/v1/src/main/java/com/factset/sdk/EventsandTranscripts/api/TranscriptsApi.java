@@ -469,6 +469,9 @@ public class TranscriptsApi {
    * Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
    * @param primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)
    * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
+   * @param startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)
+   * @param endDate End Date. Format is YYYY-MM-DD. (optional)
+   * @param searchText Restricts the search to include only document stories which include the text searched. (optional)
    * @param reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)
    * @param categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
@@ -486,8 +489,8 @@ public class TranscriptsApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public TranscriptsOne getTranscriptsIds(Boolean primaryId, java.util.List<String> ids, java.util.List<String> reportIds, java.util.List<String> categories, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
-    return getTranscriptsIdsWithHttpInfo(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset).getData();
+  public TranscriptsOne getTranscriptsIds(Boolean primaryId, java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String searchText, java.util.List<String> reportIds, java.util.List<String> categories, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getTranscriptsIdsWithHttpInfo(primaryId, ids, startDate, endDate, searchText, reportIds, categories, sort, paginationLimit, paginationOffset).getData();
   }
 
   /**
@@ -495,6 +498,9 @@ public class TranscriptsApi {
    * Returns the transcripts documents within FactSet coverage along with other response fields.   All transcripts originate from Factset Callstreet Transcripts. 
    * @param primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)
    * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
+   * @param startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)
+   * @param endDate End Date. Format is YYYY-MM-DD. (optional)
+   * @param searchText Restricts the search to include only document stories which include the text searched. (optional)
    * @param reportIds Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)
    * @param categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
@@ -512,7 +518,7 @@ public class TranscriptsApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TranscriptsOne> getTranscriptsIdsWithHttpInfo(Boolean primaryId, java.util.List<String> ids, java.util.List<String> reportIds, java.util.List<String> categories, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+  public ApiResponse<TranscriptsOne> getTranscriptsIdsWithHttpInfo(Boolean primaryId, java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String searchText, java.util.List<String> reportIds, java.util.List<String> categories, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -526,6 +532,9 @@ public class TranscriptsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "primaryId", primaryId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "searchText", searchText));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "reportIds", reportIds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "categories", categories));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));

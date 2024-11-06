@@ -92,7 +92,7 @@ public class RatingsApi {
   }
 
   /**
-   * Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+   * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -116,7 +116,7 @@ public class RatingsApi {
   }
 
   /**
-   * Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+   * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -185,7 +185,7 @@ public class RatingsApi {
 
   }
   /**
-   * Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+   * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
    * @param consensusRatingsRequest Request object for Estimate Data Items. (required)
    * @return ConsensusRatingsResponse
@@ -206,7 +206,7 @@ public class RatingsApi {
   }
 
   /**
-   * Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+   * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
    * @param consensusRatingsRequest Request object for Estimate Data Items. (required)
    * @return ApiResponse&lt;ConsensusRatingsResponse&gt;
@@ -268,8 +268,8 @@ public class RatingsApi {
 
   }
   /**
-   * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
+   * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -292,8 +292,8 @@ public class RatingsApi {
   }
 
   /**
-   * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
+   * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -361,8 +361,8 @@ public class RatingsApi {
 
   }
   /**
-   * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
+   * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
    * @param detailRatingsRequest Request object for Detail Reatings Data Items. (required)
    * @return DetailRatingsResponse
    * @throws ApiException if fails to make API call
@@ -382,8 +382,8 @@ public class RatingsApi {
   }
 
   /**
-   * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
-   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
+   * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
+   * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
    * @param detailRatingsRequest Request object for Detail Reatings Data Items. (required)
    * @return ApiResponse&lt;DetailRatingsResponse&gt;
    * @throws ApiException if fails to make API call

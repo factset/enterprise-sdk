@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Get the matched issue details
 
-Retrieve the information of the client with the matching issue Id.
+This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview.
 
 ### Example
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -115,11 +115,11 @@ Name | Type | Description  | Notes
 
 <a name="patchissue"></a>
 # **PatchIssue**
-> void PatchIssue (string id, UpdateIssueRequest updateIssueRequest = null)
+> IdResponse PatchIssue (string id, UpdateIssueRequest updateIssueRequest = null)
 
 Update severity and subject of issue or productId and categoryId of issue
 
-User can update either `isCritical` with `subject` or `productId` with `categoryId`.    **Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`
+User can update either `severity` with `subject` or `productId` with `categoryId`.    **Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`
 
 ### Example
 
@@ -171,7 +171,8 @@ namespace Example
             try
             {
                 // Update severity and subject of issue or productId and categoryId of issue
-                apiInstance.PatchIssue(id, updateIssueRequest);
+                IdResponse result = apiInstance.PatchIssue(id, updateIssueRequest);
+                Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
@@ -192,7 +193,7 @@ Name | Type | Description  | Notes
  **updateIssueRequest** | [**UpdateIssueRequest**](UpdateIssueRequest.md)|  | [optional] 
 
 ### Return type
-void (empty response body)
+[**IdResponse**](IdResponse.md)
 
 ### Authorization
 
@@ -201,7 +202,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -303,7 +304,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details
@@ -407,7 +408,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 ### HTTP response details

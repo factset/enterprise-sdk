@@ -15,7 +15,8 @@ info:
     correlates disparate sources of
 
     information to a master entity identifier. Use this API to quickly
-    understand the full entity structure and related securities.
+    understand the full entity structure and related securities.<p><b>Rate limit
+    is set to 10 requests per second</b>.</p>
 servers:
   - url: https://api.factset.com/content
     description: Production
@@ -57,6 +58,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entityReferenceResponse'
+              examples:
+                Entity References response for id AAPL-US:
+                  $ref: '#/components/examples/entityReferencesExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -83,6 +87,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/entityReferenceRequest'
+            examples:
+              Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US:
+                $ref: '#/components/examples/postEntityReferencesExample'
       responses:
         '200':
           description: Entity Reference data items
@@ -90,6 +97,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entityReferenceResponse'
+              examples:
+                Entity References response for id AAPL-US:
+                  $ref: '#/components/examples/entityReferencesExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -121,6 +131,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entitySecuritiesResponse'
+              examples:
+                Entity Securities response for id AAPL-US:
+                  $ref: '#/components/examples/entitySecuritiesExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -148,6 +161,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/entitySecuritiesRequest'
+            examples:
+              Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US:
+                $ref: '#/components/examples/postEntitySecuritiesExample'
       responses:
         '200':
           description: Successful Response producing an array of Entity Security Objects
@@ -155,6 +171,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entitySecuritiesResponse'
+              examples:
+                Entity Securities response for id AAPL-US:
+                  $ref: '#/components/examples/entitySecuritiesExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -186,6 +205,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entityStructureResponse'
+              examples:
+                Entity Structures response for id AAPL-US:
+                  $ref: '#/components/examples/entityStructuresExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -211,6 +233,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/entityStructureRequest'
+            examples:
+              Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US:
+                $ref: '#/components/examples/postEntityStructuresExample'
       responses:
         '200':
           description: Entity Structure data items
@@ -218,6 +243,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entityStructureResponse'
+              examples:
+                Entity Structures response for id AAPL-US:
+                  $ref: '#/components/examples/entityStructuresExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -251,6 +279,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ultimateEntityStructureResponse'
+              examples:
+                Ultimate Entity Structures response for id AAPL-US:
+                  $ref: '#/components/examples/ultimateEntityStructuresExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -278,6 +309,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ultimateEntityStructureRequest'
+            examples:
+              Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US:
+                $ref: '#/components/examples/postUltimateEntityStructuresExample'
       responses:
         '200':
           description: Ultimate Entity Structure data items
@@ -285,6 +319,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ultimateEntityStructureResponse'
+              examples:
+                Ultimate Entity Structures response for id AAPL-US:
+                  $ref: '#/components/examples/ultimateEntityStructuresExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -314,6 +351,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entityReferenceChiResponse'
+              examples:
+                Entity Reference Chi response for id AAPL-US:
+                  $ref: '#/components/examples/entityReferenceChiExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -340,6 +380,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/entityReferenceChiRequest'
+            examples:
+              Entity Reference Chi request for ids 05X6LC-E and 062T6N-E:
+                $ref: '#/components/examples/postEntityReferenceChiExample'
       responses:
         '200':
           description: Fetches Entity Reference data in Chinese for a list of ids.
@@ -347,6 +390,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/entityReferenceChiResponse'
+              examples:
+                Entity Reference Chi response for id AAPL-US:
+                  $ref: '#/components/examples/entityReferenceChiExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -385,6 +431,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/creditParentResponse'
+              examples:
+                Historical Credit Parent response for id AAPL-US:
+                  $ref: '#/components/examples/histCreditParentExample'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -419,6 +468,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/creditParentRequest'
+            examples:
+              Historical Credit Parent request for id AAPL-US:
+                $ref: '#/components/examples/postHistCreditParentExample'
       responses:
         '200':
           description: Credit parent data items
@@ -1413,6 +1465,223 @@ components:
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
   examples:
+    postEntityReferencesExample:
+      summary: Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US
+      description: Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US.
+      value:
+        ids:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+    postEntitySecuritiesExample:
+      summary: Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US
+      description: >-
+        Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US and
+        security type 'EQ'
+      value:
+        ids:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+        securityType: EQ
+    postEntityStructuresExample:
+      summary: Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US
+      description: >-
+        Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US with
+        level as '-1' and active as '-1'
+      value:
+        ids:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+        level: -1
+        active: 1
+    postUltimateEntityStructuresExample:
+      summary: Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US
+      description: >-
+        Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US
+        with level as '-1' and active as '-1'
+      value:
+        ids:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+        level: -1
+        active: 1
+    postEntityReferenceChiExample:
+      summary: Entity Reference Chi request for ids 05X6LC-E and 062T6N-E
+      description: Entity Reference Chi request for ids 05X6LC-E and 062T6N-E
+      value:
+        ids:
+          - 05X6LC-E
+          - 062T6N-E
+    postHistCreditParentExample:
+      summary: Historical Credit Parent request for id AAPL-US
+      description: >-
+        Historical Credit Parent request for id AAPL-US and asOfDate as
+        '2020-01-01'
+      value:
+        ids:
+          - CYQYNL-S
+          - G17920AA0
+          - US40434YTB38
+        asOfDate: '2020-06-30'
+    entityReferencesExample:
+      summary: Entity References response for id AAPL-US
+      description: Entity References response for id AAPL-US.
+      value:
+        data:
+          - fsymId: 000C7F-E
+            entityProperName: Apple Inc.
+            fsymEntityId: 000C7F-E
+            ultimateParentId: 000C7F-E
+            ultimateParentName: Apple Inc.
+            creditParentId: 000C7F-E
+            parentEquityId: MH33D6-R
+            privateEntityFlag: '0'
+            publicEntityFlag: '1'
+            securityType: SHARE
+            website: http://www.apple.com
+            incorporationDate: '1977-01-03'
+            countryOfRisk: US
+            incorporationCountry: US
+            businessDescription: >-
+              Apple, Inc. engages in the design, manufacture, and sale of
+              smartphones, personal computers, tablets, wearables and
+              accessories, and other varieties of related services. It operates
+              through the following geographical segments: Americas, Europe,
+              Greater China, Japan, and Rest of Asia Pacific. The Americas
+              segment includes North and South America. The Europe segment
+              consists of European countries, as well as India, the Middle East,
+              and Africa. The Greater China segment comprises China, Hong Kong,
+              and Taiwan. The Rest of Asia Pacific segment includes Australia
+              and Asian countries. Its products and services include iPhone,
+              Mac, iPad, AirPods, Apple TV, Apple Watch, Beats products,
+              AppleCare, iCloud, digital content stores, streaming, and
+              licensing services. The company was founded by Steven Paul Jobs,
+              Ronald Gerald Wayne, and Stephen G. Wozniak in April 1976 and is
+              headquartered in Cupertino, CA.
+            phone: +1.408.996.1010
+            headquartersStreet: One Apple Park Way
+            headquartersCity: Cupertino
+            headquartersState: CA
+            headquartersZip: 95014-2083
+            headquartersCountry: US
+            emailIR: null
+            websiteIR: http://investor.apple.com/investor-relations/default.aspx
+            requestId: AAPL-US
+    entitySecuritiesExample:
+      summary: Entity Securities response for id AAPL-US
+      description: Entity Securities response for id AAPL-US and security type 'EQ'
+      value:
+        data:
+          - fsymId: 000C7F-E
+            fsymSecurityId: R85KLC-S
+            fsymListingId: C0S0SK-L
+            securityType: SHARE
+            listingExchange: NAS
+            securityName: Apple Inc.
+            fsymEntityId: 000C7F-E
+            fsymTickerExchange: AAPL-NAS
+            fsymTickerRegion: AAPL-US
+            activeFlag: '1'
+            requestId: AAPL-US
+          - fsymId: 000C7F-E
+            fsymSecurityId: R85KLC-S
+            fsymListingId: X4KTQX-L
+            securityType: SHARE
+            listingExchange: NAS
+            securityName: Apple Inc.
+            fsymEntityId: 000C7F-E
+            fsymTickerExchange: AAPL-ADF
+            fsymTickerRegion: AAPL-US
+            activeFlag: '1'
+            requestId: AAPL-US
+    entityStructuresExample:
+      summary: Entity Structures response for id AAPL-US
+      description: >-
+        Entity Structures response for id AAPL-US with level as '-1' and active
+        as '-1'
+      value:
+        data:
+          - fsymId: 000C7F-E
+            fsymEntityId: 000C7F-E
+            ultimateParentId: 000C7F-E
+            parentEntityId: null
+            level: '1'
+            inactive: '0'
+            description: Apple Inc. (Public Company)
+            requestId: AAPL-US
+          - fsymId: 000C7F-E
+            fsymEntityId: 0YZXC6-E
+            ultimateParentId: 000C7F-E
+            parentEntityId: 000C7F-E
+            level: '2'
+            inactive: '0'
+            description: Avolonte Health LLC (Subsidiary)
+            requestId: AAPL-US
+          - fsymId: 000C7F-E
+            fsymEntityId: 0YKKNM-E
+            ultimateParentId: 000C7F-E
+            parentEntityId: 000C7F-E
+            level: '2'
+            inactive: '0'
+            description: Rare Light, Inc. (Subsidiary)
+            requestId: AAPL-US
+    ultimateEntityStructuresExample:
+      summary: Ultimate Entity Structures response for id AAPL-US
+      description: >-
+        Ultimate Entity Structures response for id AAPL-US with level as '-1'
+        and active as '-1'
+      value:
+        data:
+          - fsymId: 000C7F-E
+            fsymEntityId: 000C7F-E
+            ultimateParentId: 000C7F-E
+            parentEntityId: null
+            level: '1'
+            inactive: '0'
+            description: Apple Inc. (Public Company)
+            requestId: AAPL-US
+          - fsymId: 000C7F-E
+            fsymEntityId: 0YZXC6-E
+            ultimateParentId: 000C7F-E
+            parentEntityId: 000C7F-E
+            level: '2'
+            inactive: '0'
+            description: Avolonte Health LLC (Subsidiary)
+            requestId: AAPL-US
+    entityReferenceChiExample:
+      summary: Entity Reference Chi response for id AAPL-US
+      description: Entity Reference Chi response for id AAPL-US
+      value:
+        data:
+          - fsymId: 000C7F-E
+            fsymEntityId: 000C7F-E
+            simplifiedChineseName: 苹果公司
+            traditionalChineseName: 蘋果公司
+            entityProperName: Apple Inc.
+            simplifiedChineseDescription: >-
+              苹果公司从事智能手机、个人电脑、平板电脑、可穿戴设备和配件的设计、制造和销售，以及其他各种相关服务。它通过以下地理部分运营:美洲，欧洲，大中华区，日本和亚太其他地区。美洲部分包括北美和南美。欧洲部分包括欧洲国家，以及印度、中东和非洲。大中华区包括中国大陆、香港和台湾。亚太地区的其他部分包括澳大利亚和亚洲国家。其产品和服务包括iPhone、Mac、iPad、AirPods、Apple
+              TV、Apple Watch、Beats产品、AppleCare、iCloud、数字内容商店、流媒体和授权服务。
+            traditionalChineseDescription: >-
+              蘋果公司從事智能手機、個人電腦、平板電腦、可穿戴設備和配件的設計、製造和銷售，以及其他各種相關服務。它通過以下地理部分運營:美洲，歐洲，大中華區，日本和亞太其他地區。美洲部分包括北美和南美。歐洲部分包括歐洲國家，以及印度、中東和非洲。大中華區包括中國大陸、香港和臺灣。亞太地區的其他部分包括澳大利亞和亞洲國家。其產品和服務包括iPhone、Mac、iPad、AirPods、Apple
+              TV、Apple Watch、Beats產品、AppleCare、iCloud、數字內容商店、流媒體和授權服務。
+            requestId: AAPL-US
+    histCreditParentExample:
+      summary: Historical Credit Parent response for id AAPL-US
+      description: >-
+        Historical Credit Parent response for id AAPL-US and asOfDate as
+        '2020-01-01'
+      value:
+        data:
+          - fsymId: R85KLC-S
+            requestId: AAPL-US
+            entityProperName: null
+            factsetCreditParentId: null
+            asOfDate: '2020-01-01'
+            effectiveStartDate: null
+            effectiveEndDate: null
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

@@ -2,6 +2,7 @@
 
 # IdResponseData
 
+generated guid of issue or comment
 
 ## Properties
 

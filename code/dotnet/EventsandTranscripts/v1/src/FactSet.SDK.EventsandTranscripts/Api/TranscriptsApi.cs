@@ -147,13 +147,16 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
         /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>TranscriptsOne</returns>
-        TranscriptsOne GetTranscriptsIds(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+        TranscriptsOne GetTranscriptsIds(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
         /// <summary>
         /// Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
@@ -164,13 +167,16 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
         /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of TranscriptsOne</returns>
-        ApiResponse<TranscriptsOne> GetTranscriptsIdsWithHttpInfo(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+        ApiResponse<TranscriptsOne> GetTranscriptsIdsWithHttpInfo(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
         /// Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
         /// </summary>
@@ -355,6 +361,9 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
@@ -362,7 +371,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TranscriptsOne</returns>
-        System.Threading.Tasks.Task<TranscriptsOne> GetTranscriptsIdsAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TranscriptsOne> GetTranscriptsIdsAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
@@ -373,6 +382,9 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
@@ -380,7 +392,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TranscriptsOne)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TranscriptsOne>> GetTranscriptsIdsWithHttpInfoAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TranscriptsOne>> GetTranscriptsIdsWithHttpInfoAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
         /// </summary>
@@ -1471,15 +1483,18 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
         /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>TranscriptsOne</returns>
-        public TranscriptsOne GetTranscriptsIds(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        public TranscriptsOne GetTranscriptsIds(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
-            var localVarResponse = GetTranscriptsIdsWithHttpInfo(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset);
+            var localVarResponse = GetTranscriptsIdsWithHttpInfo(primaryId, ids, startDate, endDate, searchText, reportIds, categories, sort, paginationLimit, paginationOffset);
             return localVarResponse.Data;
         }
 
@@ -1489,13 +1504,16 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
         /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <returns>ApiResponse of TranscriptsOne</returns>
-        public ApiResponse<TranscriptsOne> GetTranscriptsIdsWithHttpInfo(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        public ApiResponse<TranscriptsOne> GetTranscriptsIdsWithHttpInfo(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
             FactSet.SDK.EventsandTranscripts.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.EventsandTranscripts.Client.RequestOptions();
 
@@ -1526,6 +1544,18 @@ namespace FactSet.SDK.EventsandTranscripts.Api
             if (ids != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "searchText", searchText));
             }
             if (reportIds != null)
             {
@@ -1590,6 +1620,9 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
@@ -1597,9 +1630,9 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TranscriptsOne</returns>
-        public async System.Threading.Tasks.Task<TranscriptsOne>GetTranscriptsIdsAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TranscriptsOne>GetTranscriptsIdsAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetTranscriptsIdsWithHttpInfoAsync(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetTranscriptsIdsWithHttpInfoAsync(primaryId, ids, startDate, endDate, searchText, reportIds, categories, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1609,6 +1642,9 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="primaryId">Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)</param>
         /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional)</param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
         /// <param name="reportIds">Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional)</param>
         /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
         /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
@@ -1617,7 +1653,7 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TranscriptsOne)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<TranscriptsOne>> GetTranscriptsIdsWithHttpInfoAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<TranscriptsOne>> GetTranscriptsIdsWithHttpInfoAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.EventsandTranscripts.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.EventsandTranscripts.Client.RequestOptions();
@@ -1649,6 +1685,18 @@ namespace FactSet.SDK.EventsandTranscripts.Api
             if (ids != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "searchText", searchText));
             }
             if (reportIds != null)
             {

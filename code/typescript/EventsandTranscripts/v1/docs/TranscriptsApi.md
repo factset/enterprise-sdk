@@ -404,6 +404,9 @@ const apiInstance = new TranscriptsApi();
 const opts = {
   'primaryId': false, // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
   'ids': ["RTO-GB"], // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+  'startDate': 2020-10-01, // Date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+  'endDate': 2020-12-26, // Date | End Date. Format is YYYY-MM-DD.
+  'searchText': Updates, // String | Restricts the search to include only document stories which include the text searched.
   'reportIds': ["3022837"], // [String] | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000
   'categories': ["CN:GB"], // [String] | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
@@ -433,6 +436,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
  **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional] 
+ **startDate** | **Date**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  | [optional] 
+ **endDate** | **Date**| End Date. Format is YYYY-MM-DD. | [optional] 
+ **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional] 
  **reportIds** | [**[String]**](String.md)| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional] 
  **categories** | [**[String]**](String.md)| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 

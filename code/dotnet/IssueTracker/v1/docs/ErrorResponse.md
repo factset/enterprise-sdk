@@ -1,4 +1,5 @@
 # FactSet.SDK.IssueTracker.Model.ErrorResponse
+error response when api call failed
 
 ## Properties
 

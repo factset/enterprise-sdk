@@ -80,6 +80,8 @@ public class TranscriptObjectOne implements Serializable {
    * Specifies the type of transcript.  
    */
   public enum TranscriptTypeEnum {
+    NEARREALTIME("NearRealTime"),
+    
     RAW("Raw"),
     
     CORRECTED("Corrected");

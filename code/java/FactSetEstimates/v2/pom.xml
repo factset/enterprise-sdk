@@ -5,7 +5,7 @@
     <artifactId>factsetestimates</artifactId>
     <packaging>jar</packaging>
     <name>factsetestimates</name>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Estimates client library for Java</description>
     <scm>

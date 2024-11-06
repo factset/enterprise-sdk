@@ -1,11 +1,12 @@
 # FactSet.SDK.IssueTracker.Model.UpdateIssueRequestData
+update request infomration for issue
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Subject** | **string** | subject of ticket | [optional] 
-**IsCritical** | **bool** | severity of issue | [optional] 
+**Severity** | **string** | severity of issue. Accepts Critical, High and Medium for severity. | [optional] 
 **ProductId** | **string** | ProductId that needs to be replaced | [optional] 
 **CategoryId** | **string** | Category that needs to be replaced | [optional] 
 

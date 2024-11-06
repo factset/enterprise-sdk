@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Get the matched issue details
 
-Retrieve the information of the client with the matching issue Id.
+This endpoint allows retrieval of client information associated with a specific issue ID. When an issue contains file attachments, the Issue Tracker will return relative paths for these files. You can refer to the sample responses given in the examples and API Overview.
 
 ### Example
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -108,13 +108,13 @@ Name | Type | Description  | Notes
 
 ## patchIssue
 
-> patchIssue(id, updateIssueRequest)
+> IdResponse patchIssue(id, updateIssueRequest)
 
 Update severity and subject of issue or productId and categoryId of issue
 
-User can update either `isCritical` with `subject` or `productId` with `categoryId`.
+User can update either `severity` with `subject` or `productId` with `categoryId`.
 
-**Note:** Users are not allowed to update `isCritical` with `productId` or `subject` with `productId`
+**Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`
 
 ### Example
 
@@ -160,7 +160,8 @@ public class Example {
         String id = "id_example"; // String | ID of Issue Tracker issue
         UpdateIssueRequest updateIssueRequest = new UpdateIssueRequest(); // UpdateIssueRequest | 
         try {
-            apiInstance.patchIssue(id, updateIssueRequest);
+            IdResponse result = apiInstance.patchIssue(id, updateIssueRequest);
+            System.out.println(result);
 
         } catch (ApiException e) {
             System.err.println("Exception when calling IssueApi#patchIssue");
@@ -183,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**IdResponse**](IdResponse.md)
 
 ### Authorization
 
@@ -192,7 +193,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json, text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -287,7 +288,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -384,7 +385,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |

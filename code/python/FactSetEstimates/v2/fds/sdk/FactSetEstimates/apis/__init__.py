@@ -17,6 +17,7 @@
 from fds.sdk.FactSetEstimates.api.broker_detail_api import BrokerDetailApi
 from fds.sdk.FactSetEstimates.api.consensus_api import ConsensusApi
 from fds.sdk.FactSetEstimates.api.data_items_api import DataItemsApi
+from fds.sdk.FactSetEstimates.api.estimates_and_ratings_reports_api import EstimatesAndRatingsReportsApi
 from fds.sdk.FactSetEstimates.api.ratings_api import RatingsApi
 from fds.sdk.FactSetEstimates.api.segments_api import SegmentsApi
 from fds.sdk.FactSetEstimates.api.surprise_api import SurpriseApi

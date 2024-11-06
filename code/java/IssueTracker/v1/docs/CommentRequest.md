@@ -2,6 +2,7 @@
 
 # CommentRequest
 
+input comment request details
 
 ## Properties
 

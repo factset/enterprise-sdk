@@ -9,11 +9,14 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.IssueTracker.model.attachment import Attachment
+from fds.sdk.IssueTracker.model.attachment_response import AttachmentResponse
 from fds.sdk.IssueTracker.model.comment import Comment
 from fds.sdk.IssueTracker.model.comment_request import CommentRequest
 from fds.sdk.IssueTracker.model.comment_request_data import CommentRequestData
 from fds.sdk.IssueTracker.model.error import Error
 from fds.sdk.IssueTracker.model.error_response import ErrorResponse
+from fds.sdk.IssueTracker.model.file_extension import FileExtension
 from fds.sdk.IssueTracker.model.id_response import IdResponse
 from fds.sdk.IssueTracker.model.id_response_data import IdResponseData
 from fds.sdk.IssueTracker.model.issue import Issue

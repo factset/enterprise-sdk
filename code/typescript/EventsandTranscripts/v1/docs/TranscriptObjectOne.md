@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 ## Enum: TranscriptTypeEnum
 
 
+* `NearRealTime` (value: `"NearRealTime"`)
+
 * `Raw` (value: `"Raw"`)
 
 * `Corrected` (value: `"Corrected"`)

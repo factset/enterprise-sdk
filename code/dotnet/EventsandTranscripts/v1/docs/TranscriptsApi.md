@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 <a name="gettranscriptsids"></a>
 # **GetTranscriptsIds**
-> TranscriptsOne GetTranscriptsIds (bool? primaryId = null, List<string> ids = null, List<string> reportIds = null, List<string> categories = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
+> TranscriptsOne GetTranscriptsIds (bool? primaryId = null, List<string> ids = null, DateTime? startDate = null, DateTime? endDate = null, string searchText = null, List<string> reportIds = null, List<string> categories = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
 
 Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
 
@@ -500,6 +500,9 @@ namespace Example
 
             var primaryId = true;  // bool? | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional)  (default to false)
             var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional) 
+            var startDate = DateTime.Parse("2020-10-01");  // DateTime? | Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (optional) 
+            var endDate = DateTime.Parse("2020-12-26");  // DateTime? | End Date. Format is YYYY-MM-DD. (optional) 
+            var searchText = "Updates";  // string | Restricts the search to include only document stories which include the text searched. (optional) 
             var reportIds = new List<string>(); // List<string> | Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 (optional) 
             var categories = new List<string>(); // List<string> | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories. (optional) 
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) 
@@ -509,7 +512,7 @@ namespace Example
             try
             {
                 // Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
-                TranscriptsOne result = apiInstance.GetTranscriptsIds(primaryId, ids, reportIds, categories, sort, paginationLimit, paginationOffset);
+                TranscriptsOne result = apiInstance.GetTranscriptsIds(primaryId, ids, startDate, endDate, searchText, reportIds, categories, sort, paginationLimit, paginationOffset);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -529,6 +532,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **primaryId** | **bool?**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
  **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional] 
+ **startDate** | **DateTime?**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  | [optional] 
+ **endDate** | **DateTime?**| End Date. Format is YYYY-MM-DD. | [optional] 
+ **searchText** | **string**| Restricts the search to include only document stories which include the text searched. | [optional] 
  **reportIds** | [**List&lt;string&gt;**](string.md)| Requests Report IDs. This is a comma-separated list with a maximum limit of 1000 | [optional] 
  **categories** | [**List&lt;string&gt;**](string.md)| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 

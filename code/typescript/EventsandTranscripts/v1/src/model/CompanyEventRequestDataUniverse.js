@@ -22,7 +22,7 @@ class CompanyEventRequestDataUniverse {
      * Constructs a new <code>CompanyEventRequestDataUniverse</code>.
      * @alias module:model/CompanyEventRequestDataUniverse
      * @param symbols {Array.<String>} Companies to return in the response.   - Only Tickers type can support multiple entries. 
-     * @param type {module:model/CompanyEventRequestDataUniverse.TypeEnum} NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+     * @param type {module:model/CompanyEventRequestDataUniverse.TypeEnum} NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
      */
     constructor(symbols, type) { 
         
@@ -70,7 +70,7 @@ class CompanyEventRequestDataUniverse {
 CompanyEventRequestDataUniverse.prototype['symbols'] = undefined;
 
 /**
- * NOTE:  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
+ * NOTE:  - SEDOLs and ISINs are supported with the type tickers.  - Etf: Requires additionl access to get the data.   - AllCompanies: While using this, we should not pass any symbols in the symbols field. 
  * @member {module:model/CompanyEventRequestDataUniverse.TypeEnum} type
  */
 CompanyEventRequestDataUniverse.prototype['type'] = undefined;

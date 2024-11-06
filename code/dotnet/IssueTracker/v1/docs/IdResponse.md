@@ -1,4 +1,5 @@
 # FactSet.SDK.IssueTracker.Model.IdResponse
+generated response of issue creation or comment addition.
 
 ## Properties
 
