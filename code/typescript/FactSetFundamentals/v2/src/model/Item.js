@@ -49,6 +49,9 @@ class Item {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('ffCode')) {
+                obj['ffCode'] = ApiClient.convertToType(data['ffCode'], 'String');
+            }
             if (data.hasOwnProperty('displayLevel')) {
                 obj['displayLevel'] = ApiClient.convertToType(data['displayLevel'], 'String');
             }
@@ -70,6 +73,12 @@ class Item {
  * @member {String} name
  */
 Item.prototype['name'] = undefined;
+
+/**
+ * FactSet Fundamental code representing the corresponding financial metric
+ * @member {String} ffCode
+ */
+Item.prototype['ffCode'] = undefined;
 
 /**
  * Describes the level of displaying the item

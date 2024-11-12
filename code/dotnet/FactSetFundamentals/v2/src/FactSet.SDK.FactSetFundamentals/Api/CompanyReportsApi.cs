@@ -50,26 +50,59 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>ApiResponse of ProfileResponse</returns>
         ApiResponse<ProfileResponse> GetFdsProfilesWithHttpInfo(List<string> ids);
         /// <summary>
+        /// Returns company financial data.
+        /// </summary>
+        /// <remarks>
+        /// Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <returns>FinancialResponse</returns>
+        FinancialResponse GetFinancials(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?));
+
+        /// <summary>
+        /// Returns company financial data.
+        /// </summary>
+        /// <remarks>
+        /// Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <returns>ApiResponse of FinancialResponse</returns>
+        ApiResponse<FinancialResponse> GetFinancialsWithHttpInfo(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?));
+        /// <summary>
         /// Returns company fundamentals for a given list of identifiers.
         /// </summary>
         /// <remarks>
-        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>CompanyFundamentalsResponse</returns>
-        CompanyFundamentalsResponse GetFundamentals(List<string> ids);
+        CompanyFundamentalsResponse GetFundamentals(List<string> ids, string currency = default(string));
 
         /// <summary>
         /// Returns company fundamentals for a given list of identifiers.
         /// </summary>
         /// <remarks>
-        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>ApiResponse of CompanyFundamentalsResponse</returns>
-        ApiResponse<CompanyFundamentalsResponse> GetFundamentalsWithHttpInfo(List<string> ids);
+        ApiResponse<CompanyFundamentalsResponse> GetFundamentalsWithHttpInfo(List<string> ids, string currency = default(string));
         #endregion Synchronous Operations
     }
 
@@ -103,28 +136,63 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>Task of ApiResponse (ProfileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ProfileResponse>> GetFdsProfilesWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Returns company financial data.
+        /// </summary>
+        /// <remarks>
+        /// Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FinancialResponse</returns>
+        System.Threading.Tasks.Task<FinancialResponse> GetFinancialsAsync(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Returns company financial data.
+        /// </summary>
+        /// <remarks>
+        /// Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FinancialResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FinancialResponse>> GetFinancialsWithHttpInfoAsync(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Returns company fundamentals for a given list of identifiers.
         /// </summary>
         /// <remarks>
-        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyFundamentalsResponse</returns>
-        System.Threading.Tasks.Task<CompanyFundamentalsResponse> GetFundamentalsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CompanyFundamentalsResponse> GetFundamentalsAsync(List<string> ids, string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns company fundamentals for a given list of identifiers.
         /// </summary>
         /// <remarks>
-        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyFundamentalsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CompanyFundamentalsResponse>> GetFundamentalsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CompanyFundamentalsResponse>> GetFundamentalsWithHttpInfoAsync(List<string> ids, string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -148,6 +216,15 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsProfilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ProfileResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFinancialsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FinancialResponse) },
             { (HttpStatusCode)400, typeof(ErrorResponse) },
             { (HttpStatusCode)401, typeof(ErrorResponse) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
@@ -450,24 +527,275 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns company financial data. Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
-        /// <returns>CompanyFundamentalsResponse</returns>
-        public CompanyFundamentalsResponse GetFundamentals(List<string> ids)
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <returns>FinancialResponse</returns>
+        public FinancialResponse GetFinancials(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?))
         {
-            var localVarResponse = GetFundamentalsWithHttpInfo(ids);
+            var localVarResponse = GetFinancialsWithHttpInfo(statementType, id, periodicity, currency, updateType, limit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns company financial data. Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <returns>ApiResponse of FinancialResponse</returns>
+        public ApiResponse<FinancialResponse> GetFinancialsWithHttpInfo(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?))
+        {
+            // verify the required parameter 'statementType' is set
+            if (statementType == null)
+            {
+                throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'statementType' when calling CompanyReportsApi->GetFinancials");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'id' when calling CompanyReportsApi->GetFinancials");
+            }
+
+            // verify the required parameter 'periodicity' is set
+            if (periodicity == null)
+            {
+                throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'periodicity' when calling CompanyReportsApi->GetFinancials");
+            }
+
+            FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "statementType", statementType));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "periodicity", periodicity));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (updateType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "updateType", updateType));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FinancialResponse>("/company-reports/financial-statement", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFinancials", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns company financial data. Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FinancialResponse</returns>
+        public async System.Threading.Tasks.Task<FinancialResponse>GetFinancialsAsync(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFinancialsWithHttpInfoAsync(statementType, id, periodicity, currency, updateType, limit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns company financial data. Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statementType">The type of financial statement being requested.</param>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.</param>
+        /// <param name="periodicity">Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **SEMI_R** &#x3D; Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  &#x3D; Last Twelve Months,   * **YTD** &#x3D; Year-to-date.   &lt;br&gt;  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.&lt;br&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <param name="updateType">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
+        /// <param name="limit">The time period for the returned data. Within range of 1 to 100. If not specified default will be 4. (optional, default to 4)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FinancialResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<FinancialResponse>> GetFinancialsWithHttpInfoAsync(string statementType, string id, string periodicity, string currency = default(string), string updateType = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'statementType' is set
+            if (statementType == null)
+            {
+                throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'statementType' when calling CompanyReportsApi->GetFinancials");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'id' when calling CompanyReportsApi->GetFinancials");
+            }
+
+            // verify the required parameter 'periodicity' is set
+            if (periodicity == null)
+            {
+                throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'periodicity' when calling CompanyReportsApi->GetFinancials");
+            }
+
+
+            FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "statementType", statementType));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "periodicity", periodicity));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (updateType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "updateType", updateType));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FinancialResponse>("/company-reports/financial-statement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFinancials", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
+        /// <returns>CompanyFundamentalsResponse</returns>
+        public CompanyFundamentalsResponse GetFundamentals(List<string> ids, string currency = default(string))
+        {
+            var localVarResponse = GetFundamentalsWithHttpInfo(ids, currency);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>ApiResponse of CompanyFundamentalsResponse</returns>
-        public ApiResponse<CompanyFundamentalsResponse> GetFundamentalsWithHttpInfo(List<string> ids)
+        public ApiResponse<CompanyFundamentalsResponse> GetFundamentalsWithHttpInfo(List<string> ids, string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -498,6 +826,10 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -536,27 +868,29 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyFundamentalsResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyFundamentalsResponse>GetFundamentalsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyFundamentalsResponse>GetFundamentalsAsync(List<string> ids, string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetFundamentalsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundamentalsWithHttpInfoAsync(ids, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute. 
+        /// Returns company fundamentals for a given list of identifiers. Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; </param>
+        /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyFundamentalsResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<CompanyFundamentalsResponse>> GetFundamentalsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyFundamentalsResponse>> GetFundamentalsWithHttpInfoAsync(List<string> ids, string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -588,6 +922,10 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

@@ -1,0 +1,1029 @@
+openapi: 3.0.0
+info:
+  description: API endpoints for managing and downloading FactSet Invoices
+  title: Invoice and Billing Endpoints
+  version: 1K
+servers:
+- url: https://api-sandbox.factset.com/procuretopay/invoice-and-billing/
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: Invoice and Billing
+paths:
+  /listInvoices:
+    get:
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/listInvoices'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+          description: Requested Resource not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Throttle Limit Reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api-sandbox.factset.com/procuretopay/invoice-and-billing/
+      summary: Returns all available invoices
+      tags:
+      - Invoice and Billing
+      x-accepts: application/json; charset=utf-8,text/plain
+  /invoiceDetails:
+    get:
+      parameters:
+      - description: Invoice code to query. See /listInvoices endpoint for list of
+          available invoices to query.
+        example: 11963874
+        explode: true
+        in: query
+        name: invoiceId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/invoiceDetails'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+          description: Requested Resource not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Throttle Limit Reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api-sandbox.factset.com/procuretopay/invoice-and-billing/
+      summary: Returns details on specific invoice.
+      tags:
+      - Invoice and Billing
+      x-accepts: application/json; charset=utf-8,text/plain
+  /getInvoice:
+    get:
+      description: A .PDF File
+      parameters:
+      - description: Invoice code you wish to download
+        example: 11963874
+        explode: true
+        in: query
+        name: invoiceId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            appliction/pdf:
+              schema:
+                $ref: '#/components/schemas/getInvoice'
+          description: OK - PDF File download offered
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+          description: Requested Resource not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Throttle Limit Reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api-sandbox.factset.com/procuretopay/invoice-and-billing/
+      summary: Returns PDF of specific invoice
+      tags:
+      - Invoice and Billing
+      x-accepts: application/json; charset=utf-8,appliction/pdf,text/plain
+  /getFitsReport:
+    get:
+      parameters:
+      - description: FITSID can be determined by concatenating the AccountNumber +
+          two-digit year (e.g 21 for 2021) and two-digit month (e.g. 01 for January).
+          Available AccountNumbers are available from the /listInvoices endpoint.
+        example: AB2C2101
+        explode: true
+        in: query
+        name: fitsID
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/getFitsReport'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Unauthenticated
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: Unauthorized
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+          description: Requested Resource not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          content:
+            text/plain:
+              example: Retry After X-Seconds
+              schema:
+                type: string
+          description: Throttle Limit Reached
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      security:
+      - basicAuth: []
+      servers:
+      - url: https://api-sandbox.factset.com/procuretopay/invoice-and-billing/
+      summary: Returns Fits report by given FITSID
+      tags:
+      - Invoice and Billing
+      x-accepts: application/json; charset=utf-8,text/plain
+components:
+  responses:
+    AuthHeaders:
+      description: FactSet's request key header
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    throttleControl:
+      content:
+        text/plain:
+          example: Retry After X-Seconds
+          schema:
+            type: string
+      description: Throttle Limit Reached
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "202Accepted":
+      content:
+        application/json; charset=utf-8:
+          schema:
+            example: 'transactionCode: 492c81b9af7c4b0196e10061786a3594 '
+            type: string
+      description: Accepted
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "200Accepted":
+      content:
+        application/json; charset=utf-8:
+          schema:
+            example: 'transactionCode: 492c81b9af7c4b0196e10061786a3594 '
+            type: string
+      description: Accepted
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "401Unauthenticated":
+      description: Unauthenticated
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "403Unauthorized":
+      description: Unauthorized
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet's request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+  schemas:
+    listInvoices:
+      example:
+      - AccountNumber: AZX1
+        invoiceId: 11814903
+        Description: Invoice for Buy Side
+        Attn: <Staked individual>
+      items:
+        properties:
+          AccountNumber:
+            type: string
+          Invoice:
+            type: string
+          Description:
+            type: string
+          Attn:
+            type: string
+        type: object
+      type: array
+    getFitsReport:
+      example:
+      - ProductGroup: Content & Technology Solutions
+        Products:
+        - ProductId: 3516
+          ProductName: Content & Technology Solutions (CTS) Machine Serial
+          ProductSubGroup: Other - Base
+          Quantity: "1"
+          PriceTotal: "712.58"
+          DiscountTotal: "0.00"
+          Recurring: true
+          Products:
+          - Username: TGS_MGMT
+            Serial: "12345"
+            User: TGS_MGMT, CTS
+            AverageCost: "712.58"
+            Location: NYC, NY
+            Position: Machine
+            Division: ""
+            Recurring: true
+            Trial: "No"
+      items:
+        properties:
+          ProductGroup:
+            type: string
+          Products:
+            items:
+              properties:
+                productId:
+                  type: integer
+                productName:
+                  type: string
+                productSubGroup:
+                  type: string
+                Quantity:
+                  type: string
+                PriceTotal:
+                  type: string
+                DiscountTotal:
+                  type: string
+                Recurring:
+                  type: boolean
+                Products:
+                  items:
+                    properties:
+                      Username:
+                        type: string
+                      Serial:
+                        type: string
+                      User:
+                        type: string
+                      AverageCost:
+                        type: string
+                      Location:
+                        type: string
+                      Position:
+                        type: string
+                      Division:
+                        type: string
+                      Recurring:
+                        type: boolean
+                      Trial:
+                        type: string
+                  type: array
+            type: array
+        type: object
+      type: array
+    invoiceDetails:
+      example:
+        notes:
+        - Will Appear here
+        endPeriod: 2018-12-31T00:00:00
+        taxDetails:
+        - services: 371121.6
+          tax: 17825.53
+          allocationPercent: 100
+          taxRate: 0.08875
+          taxZone: NY
+          currencySymbol: $
+          conversionRatio: 1
+          ukExchangeRate: 0.7837605
+        companyName: S.A.B. Sell Side
+        billingAdjustments:
+        - description: 'Credit for 250 Exchange Dow Jones Indices - RT (273), March
+            2019 '
+          date: 2019-03-07T00:00:00
+          services: -500
+          taxes: -33.13
+          fees: 0
+          currencySymbol: $
+          conversionRatio: 1
+        - description: 'Credit for 250 Exchange Dow Jones Indices - RT (273), March
+            2019 '
+          date: 2019-03-07T00:00:00
+          services: -500
+          taxes: -33.13
+          fees: 0
+          currencySymbol: $
+          conversionRatio: 1
+        closingBalance: 1
+        currencySymbol: $
+        tax: 6
+        servicesRenderedCompanyName: ""
+        subscriptionChanges:
+          exchanges:
+          - orderDate: 2018-11-30T10:04:29.947
+            orderId: 2380448
+            orderType: Purchase
+            productId: 1728
+            productName: Exchange MSCI Indices - RT
+            serial: "871963"
+            individual: Lentini, Nick
+            quanitity: 1
+            amount: 46
+            discountamount: 0
+            subTotalAmount: 46
+            lastMonthAdd: true
+          - orderDate: 2018-08-24T09:08:55.313
+            orderId: 2286340
+            orderType: Cancel
+            productId: 1728
+            productName: Exchange MSCI Indices - RT
+            serial: '809105 '
+            individual: Coleman, Roger
+            quanitity: 1
+            amount: 0
+            discountamount: 0
+            subTotalAmount: 0
+            lastMonthAdd: false
+        accountId: AB2C
+        startPeriod: 2018-12-01T00:00:00
+        billingAdjustementsTotal: 0
+        nonRecurringDetails:
+          workstations:
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 4080
+            quanitity: 1
+            displayName: Alpha Testing Daily/Weekly
+            unitPrice: 1250
+            discount: 0
+            lastMonthAdd: true
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 1429
+            quanitity: 1
+            displayName: SPAR IB
+            unitPrice: 250
+            discount: 0
+            lastMonthAdd: false
+        statementofAccountDetails:
+        - date: 2018-09-05T00:00:00
+          agingDate: 2018-09-05T00:00:00
+          documentTypeId: IN
+          amount: 363426.27
+          description: Invoice 10961809. services rendered September 01, 2018 - September
+            30, 2018
+        - date: 2018-09-05T00:00:00
+          agingDate: 2018-09-05T00:00:00
+          documentTypeId: IN
+          amount: 363426.27
+          description: Invoice 10961809. services rendered September 01, 2018 - September
+            30, 2018
+        invoiceId: AB2C1905
+        serviceDetails:
+          workstations:
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 930
+            quanitity: 1
+            displayName: CornerStone 2.0
+            unitPrice: 10666.67
+            discount: 0
+            lastMonthAdd: false
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 4106
+            quanitity: 1
+            displayName: On Demand - Matlab Package (Base)
+            unitPrice: 500
+            discount: 0
+            lastMonthAdd: false
+          Exchange Fees:
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 267
+            quanitity: 3
+            displayName: Exchange NASDAQ Level I - RT
+            unitPrice: 27
+            discount: 0
+            lastMonthAdd: false
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 267
+            quanitity: 3
+            displayName: 'Exchange New York - RT: Administration'
+            unitPrice: 2.5
+            discount: 0
+            lastMonthAdd: false
+        currencyId: USD
+        invoiceTitle: Invoice of services
+        openingBalance: 0
+        invoicedate: 2018-12-04T00:00:00
+      properties:
+        invoiceTitle:
+          example: Invoice of services
+          type: string
+        invoiceId:
+          description: =accountId + 2 char year + 2 char month
+          example: AB2C1905
+          type: string
+        invoicedate:
+          example: 2018-12-04T00:00:00
+          type: string
+        accountId:
+          example: AB2C
+          type: string
+        companyName:
+          example: S.A.B. Sell Side
+          type: string
+        servicesRenderedCompanyName:
+          description: If invoice is paid by a 3rd party company the name will appear
+            here.
+          example: ""
+          type: string
+        startPeriod:
+          example: 2018-12-01T00:00:00
+          type: string
+        endPeriod:
+          example: 2018-12-31T00:00:00
+          type: string
+        currencyId:
+          example: USD
+          type: string
+        currencySymbol:
+          example: $
+          type: string
+        openingBalance:
+          description: Any prior unpaid balances.
+          example: 0
+          type: integer
+        billingAdjustementsTotal:
+          type: integer
+        tax:
+          type: integer
+        closingBalance:
+          description: Current account balance.
+          type: integer
+        serviceDetails:
+          $ref: '#/components/schemas/invoiceDetails_serviceDetails'
+        nonRecurringDetails:
+          $ref: '#/components/schemas/invoiceDetails_nonRecurringDetails'
+        taxDetails:
+          example:
+          - services: 371121.6
+            tax: 17825.53
+            allocationPercent: 100
+            taxRate: 0.08875
+            taxZone: NY
+            currencySymbol: $
+            conversionRatio: 1
+            ukExchangeRate: 0.7837605
+          items:
+            $ref: '#/components/schemas/invoiceDetails_taxDetails'
+          type: array
+        statementofAccountDetails:
+          items:
+            $ref: '#/components/schemas/invoiceDetails_statementofAccountDetails'
+          type: array
+        subscriptionChanges:
+          $ref: '#/components/schemas/invoiceDetails_subscriptionChanges'
+        notes:
+          example:
+          - Will Appear here
+          items:
+            type: string
+          type: array
+        billingAdjustments:
+          items:
+            $ref: '#/components/schemas/invoiceDetails_billingAdjustments'
+          type: array
+      type: object
+    getInvoice:
+      format: binary
+      type: string
+    invoiceDetails_serviceDetails_Exchange_Fees:
+      properties:
+        accountId:
+          type: string
+        invoiceId:
+          description: =accountId + 2 char year + 2 char month
+          type: string
+        productId:
+          type: integer
+        quanitity:
+          type: integer
+        displayName:
+          type: string
+        unitPrice:
+          type: integer
+        discount:
+          type: integer
+        lastMonthAdd:
+          type: boolean
+      type: object
+    invoiceDetails_serviceDetails:
+      example:
+        workstations:
+        - accountId: AB2C
+          invoiceId: AB2C1905
+          productId: 930
+          quanitity: 1
+          displayName: CornerStone 2.0
+          unitPrice: 10666.67
+          discount: 0
+          lastMonthAdd: false
+        - accountId: AB2C
+          invoiceId: AB2C1905
+          productId: 4106
+          quanitity: 1
+          displayName: On Demand - Matlab Package (Base)
+          unitPrice: 500
+          discount: 0
+          lastMonthAdd: false
+        Exchange Fees:
+        - accountId: AB2C
+          invoiceId: AB2C1905
+          productId: 267
+          quanitity: 3
+          displayName: Exchange NASDAQ Level I - RT
+          unitPrice: 27
+          discount: 0
+          lastMonthAdd: false
+        - accountId: AB2C
+          invoiceId: AB2C1905
+          productId: 267
+          quanitity: 3
+          displayName: 'Exchange New York - RT: Administration'
+          unitPrice: 2.5
+          discount: 0
+          lastMonthAdd: false
+      properties:
+        Exchange Fees:
+          example:
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 267
+            quanitity: 3
+            displayName: Exchange NASDAQ Level I - RT
+            unitPrice: 27
+            discount: 0
+            lastMonthAdd: false
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 267
+            quanitity: 3
+            displayName: 'Exchange New York - RT: Administration'
+            unitPrice: 2.5
+            discount: 0
+            lastMonthAdd: false
+          items:
+            $ref: '#/components/schemas/invoiceDetails_serviceDetails_Exchange_Fees'
+          type: array
+        workstations:
+          description: Invoice details returns arrays of objects designated by Product
+            Groups. E.G. Workstations
+          example:
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 930
+            quanitity: 1
+            displayName: CornerStone 2.0
+            unitPrice: 10666.67
+            discount: 0
+            lastMonthAdd: false
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 4106
+            quanitity: 1
+            displayName: On Demand - Matlab Package (Base)
+            unitPrice: 500
+            discount: 0
+            lastMonthAdd: false
+          items:
+            $ref: '#/components/schemas/invoiceDetails_serviceDetails_Exchange_Fees'
+          type: array
+      type: object
+    invoiceDetails_nonRecurringDetails:
+      example:
+        workstations:
+        - accountId: AB2C
+          invoiceId: AB2C1905
+          productId: 4080
+          quanitity: 1
+          displayName: Alpha Testing Daily/Weekly
+          unitPrice: 1250
+          discount: 0
+          lastMonthAdd: true
+        - accountId: AB2C
+          invoiceId: AB2C1905
+          productId: 1429
+          quanitity: 1
+          displayName: SPAR IB
+          unitPrice: 250
+          discount: 0
+          lastMonthAdd: false
+      properties:
+        workstations:
+          description: NonRecurringDetails returns arrays of objects designated by
+            Product Groups. E.G. Workstations, for items billed for current month
+            only.
+          example:
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 4080
+            quanitity: 1
+            displayName: Alpha Testing Daily/Weekly
+            unitPrice: 1250
+            discount: 0
+            lastMonthAdd: true
+          - accountId: AB2C
+            invoiceId: AB2C1905
+            productId: 1429
+            quanitity: 1
+            displayName: SPAR IB
+            unitPrice: 250
+            discount: 0
+            lastMonthAdd: false
+          items:
+            properties:
+              accountId:
+                type: string
+              invoiceId:
+                description: =accountId + 2 char year + 2 char month
+                type: string
+              productId:
+                type: integer
+              quanitity:
+                type: integer
+              displayName:
+                type: string
+              unitPrice:
+                type: integer
+              discount:
+                type: integer
+              lastMonthAdd:
+                type: boolean
+          type: array
+      type: object
+    invoiceDetails_taxDetails:
+      properties:
+        services:
+          format: nvarchar250
+          type: integer
+        tax:
+          type: integer
+        allocationPercent:
+          description: Taxes allocation to a particular TaxZone
+          type: integer
+        taxRate:
+          type: string
+        taxZone:
+          type: string
+        currencySymbol:
+          type: string
+        conversionRatio:
+          type: integer
+        ukExchangeRate:
+          type: integer
+      type: object
+    invoiceDetails_statementofAccountDetails:
+      example:
+        date: 2018-09-05T00:00:00
+        agingDate: 2018-09-05T00:00:00
+        documentTypeId: IN
+        amount: 363426.27
+        description: Invoice 10961809. services rendered September 01, 2018 - September
+          30, 2018
+      properties:
+        date:
+          description: Date of invoice generation.
+          type: string
+        agingDate:
+          description: Date of invoices, credits or payments issued.
+          type: string
+        documentTypeId:
+          description: See White Paper for Invoices and Billing API endpoints for
+            descriptions.
+          type: string
+        amount:
+          type: integer
+        description:
+          type: integer
+      type: object
+    invoiceDetails_subscriptionChanges_exchanges:
+      properties:
+        orderDate:
+          type: string
+        orderId:
+          type: integer
+        orderType:
+          type: string
+        productId:
+          type: integer
+        productName:
+          type: string
+        serial:
+          type: string
+        individual:
+          type: string
+        quanitity:
+          type: integer
+        amount:
+          type: integer
+        subTotalAmount:
+          type: integer
+        lastMonthAdd:
+          type: boolean
+      type: object
+    invoiceDetails_subscriptionChanges:
+      description: Per Serial or per Username  subscription changes, returned by Product
+        Group.
+      example:
+        exchanges:
+        - orderDate: 2018-11-30T10:04:29.947
+          orderId: 2380448
+          orderType: Purchase
+          productId: 1728
+          productName: Exchange MSCI Indices - RT
+          serial: "871963"
+          individual: Lentini, Nick
+          quanitity: 1
+          amount: 46
+          discountamount: 0
+          subTotalAmount: 46
+          lastMonthAdd: true
+        - orderDate: 2018-08-24T09:08:55.313
+          orderId: 2286340
+          orderType: Cancel
+          productId: 1728
+          productName: Exchange MSCI Indices - RT
+          serial: '809105 '
+          individual: Coleman, Roger
+          quanitity: 1
+          amount: 0
+          discountamount: 0
+          subTotalAmount: 0
+          lastMonthAdd: false
+      properties:
+        exchanges:
+          example:
+          - orderDate: 2018-11-30T10:04:29.947
+            orderId: 2380448
+            orderType: Purchase
+            productId: 1728
+            productName: Exchange MSCI Indices - RT
+            serial: "871963"
+            individual: Lentini, Nick
+            quanitity: 1
+            amount: 46
+            discountamount: 0
+            subTotalAmount: 46
+            lastMonthAdd: true
+          - orderDate: 2018-08-24T09:08:55.313
+            orderId: 2286340
+            orderType: Cancel
+            productId: 1728
+            productName: Exchange MSCI Indices - RT
+            serial: '809105 '
+            individual: Coleman, Roger
+            quanitity: 1
+            amount: 0
+            discountamount: 0
+            subTotalAmount: 0
+            lastMonthAdd: false
+          items:
+            $ref: '#/components/schemas/invoiceDetails_subscriptionChanges_exchanges'
+          type: array
+      type: object
+    invoiceDetails_billingAdjustments:
+      example:
+        description: 'Credit for 250 Exchange Dow Jones Indices - RT (273), March
+          2019 '
+        date: 2019-03-07T00:00:00
+        services: -500
+        taxes: -33.13
+        fees: 0
+        currencySymbol: $
+        conversionRatio: 1
+      properties:
+        description:
+          type: string
+        date:
+          type: string
+        services:
+          type: integer
+        taxes:
+          type: integer
+        fees:
+          type: integer
+        currencySymbol:
+          type: string
+        conversionRatio:
+          type: integer
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

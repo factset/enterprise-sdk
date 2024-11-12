@@ -38,9 +38,11 @@ import FundamentalsResponse from './model/FundamentalsResponse';
 import Item from './model/Item';
 import Metric from './model/Metric';
 import MetricsResponse from './model/MetricsResponse';
+import PerShare from './model/PerShare';
 import Periodicity from './model/Periodicity';
 import Profile from './model/Profile';
 import ProfileResponse from './model/ProfileResponse';
+import Ratios from './model/Ratios';
 import Segment from './model/Segment';
 import SegmentRequestBody from './model/SegmentRequestBody';
 import SegmentType from './model/SegmentType';
@@ -254,6 +256,12 @@ export {
     MetricsResponse,
 
     /**
+     * The PerShare model constructor.
+     * @property {module:model/PerShare}
+     */
+    PerShare,
+
+    /**
      * The Periodicity model constructor.
      * @property {module:model/Periodicity}
      */
@@ -270,6 +278,12 @@ export {
      * @property {module:model/ProfileResponse}
      */
     ProfileResponse,
+
+    /**
+     * The Ratios model constructor.
+     * @property {module:model/Ratios}
+     */
+    Ratios,
 
     /**
      * The Segment model constructor.

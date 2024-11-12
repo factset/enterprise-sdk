@@ -38,9 +38,11 @@ from fds.sdk.FactSetFundamentals.model.item import Item
 from fds.sdk.FactSetFundamentals.model.metric import Metric
 from fds.sdk.FactSetFundamentals.model.metrics import Metrics
 from fds.sdk.FactSetFundamentals.model.metrics_response import MetricsResponse
+from fds.sdk.FactSetFundamentals.model.per_share import PerShare
 from fds.sdk.FactSetFundamentals.model.periodicity import Periodicity
 from fds.sdk.FactSetFundamentals.model.profile import Profile
 from fds.sdk.FactSetFundamentals.model.profile_response import ProfileResponse
+from fds.sdk.FactSetFundamentals.model.ratios import Ratios
 from fds.sdk.FactSetFundamentals.model.segment import Segment
 from fds.sdk.FactSetFundamentals.model.segment_request_body import SegmentRequestBody
 from fds.sdk.FactSetFundamentals.model.segment_type import SegmentType

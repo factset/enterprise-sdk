@@ -278,7 +278,7 @@ paths:
           The latest date of the feed file the API should fetch for based on the file timestamp.
 
           - Format: Should be absolute - YYYY-MM-DD.
-        example: 2023-01-28T00:00:00.000Z
+        example: 2023-01-28
         explode: true
         in: query
         name: endDate
@@ -476,7 +476,7 @@ paths:
           The latest date of the feed file the API should fetch for based on the file timestamp.
 
           - Format: Should be absolute - YYYY-MM-DD.
-        example: 2023-01-28T00:00:00.000Z
+        example: 2023-01-28
         explode: true
         in: query
         name: endDate
@@ -833,7 +833,7 @@ components:
         The latest date of the feed file the API should fetch for based on the file timestamp.
 
         - Format: Should be absolute - YYYY-MM-DD.
-      example: 2023-01-28T00:00:00.000Z
+      example: 2023-01-28
       explode: true
       in: query
       name: endDate

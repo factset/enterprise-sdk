@@ -29,7 +29,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Returns the response for a Batch Request 
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
         /// Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
@@ -40,7 +40,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         BatchProcessingApi.GetBatchDataResponseWrapper GetBatchData(Guid id);
 
         /// <summary>
-        /// Returns the response for a Batch Request 
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
         /// Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
@@ -50,7 +50,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>ApiResponse of BatchProcessingApi.GetBatchDataResponseWrapper</returns>
         ApiResponse<BatchProcessingApi.GetBatchDataResponseWrapper> GetBatchDataWithHttpInfo(Guid id);
         /// <summary>
-        /// Returns the status for a Batch Request 
+        /// Returns the status for a Batch Request
         /// </summary>
         /// <remarks>
         /// Return the status for the underlying batch request that is specified by the id.
@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         BatchStatusResponse GetBatchStatus(Guid id);
 
         /// <summary>
-        /// Returns the status for a Batch Request 
+        /// Returns the status for a Batch Request
         /// </summary>
         /// <remarks>
         /// Return the status for the underlying batch request that is specified by the id.
@@ -80,7 +80,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Returns the response for a Batch Request 
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
         /// Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
@@ -92,7 +92,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         System.Threading.Tasks.Task<BatchProcessingApi.GetBatchDataResponseWrapper> GetBatchDataAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Returns the response for a Batch Request 
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
         /// Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
@@ -103,7 +103,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>Task of ApiResponse (BatchProcessingApi.GetBatchDataResponseWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchProcessingApi.GetBatchDataResponseWrapper>> GetBatchDataWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Returns the status for a Batch Request 
+        /// Returns the status for a Batch Request
         /// </summary>
         /// <remarks>
         /// Return the status for the underlying batch request that is specified by the id.
@@ -115,7 +115,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         System.Threading.Tasks.Task<BatchStatusResponse> GetBatchStatusAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Returns the status for a Batch Request 
+        /// Returns the status for a Batch Request
         /// </summary>
         /// <remarks>
         /// Return the status for the underlying batch request that is specified by the id.
@@ -361,7 +361,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request  Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -373,7 +373,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request  Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -442,7 +442,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request  Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -455,7 +455,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request  Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -528,7 +528,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request  Return the status for the underlying batch request that is specified by the id.
+        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -540,7 +540,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request  Return the status for the underlying batch request that is specified by the id.
+        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -608,7 +608,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request  Return the status for the underlying batch request that is specified by the id.
+        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -621,7 +621,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request  Return the status for the underlying batch request that is specified by the id.
+        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>

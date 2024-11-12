@@ -99,8 +99,16 @@ class Profile(ModelNormal):
             'exchange': (Exchange,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'address': (Address,),  # noqa: E501
+            'economy_id': (str, none_type,),  # noqa: E501
+            'economy': (str, none_type,),  # noqa: E501
+            'sub_sector_id': (str, none_type,),  # noqa: E501
+            'sub_sector': (str, none_type,),  # noqa: E501
+            'industry_group_id': (str, none_type,),  # noqa: E501
+            'industry_group': (str, none_type,),  # noqa: E501
             'industry_id': (str, none_type,),  # noqa: E501
             'industry': (str, none_type,),  # noqa: E501
+            'sub_industry_id': (str, none_type,),  # noqa: E501
+            'sub_industry': (str, none_type,),  # noqa: E501
             'sector_id': (str, none_type,),  # noqa: E501
             'sector': (str, none_type,),  # noqa: E501
             'number_of_employees': (int, none_type,),  # noqa: E501
@@ -126,8 +134,16 @@ class Profile(ModelNormal):
         'exchange': 'exchange',  # noqa: E501
         'name': 'name',  # noqa: E501
         'address': 'address',  # noqa: E501
+        'economy_id': 'economyId',  # noqa: E501
+        'economy': 'economy',  # noqa: E501
+        'sub_sector_id': 'subSectorId',  # noqa: E501
+        'sub_sector': 'subSector',  # noqa: E501
+        'industry_group_id': 'industryGroupId',  # noqa: E501
+        'industry_group': 'industryGroup',  # noqa: E501
         'industry_id': 'industryId',  # noqa: E501
         'industry': 'industry',  # noqa: E501
+        'sub_industry_id': 'subIndustryId',  # noqa: E501
+        'sub_industry': 'subIndustry',  # noqa: E501
         'sector_id': 'sectorId',  # noqa: E501
         'sector': 'sector',  # noqa: E501
         'number_of_employees': 'numberOfEmployees',  # noqa: E501
@@ -188,8 +204,16 @@ class Profile(ModelNormal):
             exchange (Exchange): [optional]  # noqa: E501
             name (str, none_type): Name of the security. [optional]  # noqa: E501
             address (Address): [optional]  # noqa: E501
+            economy_id (str, none_type): The economy classification Id for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            economy (str, none_type): The economy classification for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_sector_id (str, none_type): The subSector classification Id for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_sector (str, none_type): The subSector classification for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            industry_group_id (str, none_type): The industryGroup classification Id for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            industry_group (str, none_type): The industryGroup classification for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             industry_id (str, none_type): The industry classification Id for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             industry (str, none_type): The industry classification for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_industry_id (str, none_type): The subIndustry classification Id for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_industry (str, none_type): The subIndustry classification for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             sector_id (str, none_type): The sector classification Id for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             sector (str, none_type): The sector classification for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             number_of_employees (int, none_type): Number of employees working in the company. [optional]  # noqa: E501
@@ -288,8 +312,16 @@ class Profile(ModelNormal):
             exchange (Exchange): [optional]  # noqa: E501
             name (str, none_type): Name of the security. [optional]  # noqa: E501
             address (Address): [optional]  # noqa: E501
+            economy_id (str, none_type): The economy classification Id for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            economy (str, none_type): The economy classification for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_sector_id (str, none_type): The subSector classification Id for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_sector (str, none_type): The subSector classification for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            industry_group_id (str, none_type): The industryGroup classification Id for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            industry_group (str, none_type): The industryGroup classification for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             industry_id (str, none_type): The industry classification Id for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             industry (str, none_type): The industry classification for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_industry_id (str, none_type): The subIndustry classification Id for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
+            sub_industry (str, none_type): The subIndustry classification for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             sector_id (str, none_type): The sector classification Id for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             sector (str, none_type): The sector classification for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498). [optional]  # noqa: E501
             number_of_employees (int, none_type): Number of employees working in the company. [optional]  # noqa: E501

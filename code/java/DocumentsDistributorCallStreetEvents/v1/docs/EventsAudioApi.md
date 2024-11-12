@@ -169,9 +169,9 @@ public class Example {
         EventsAudioApi apiInstance = new EventsAudioApi(defaultClient);
         String sort = "-startDate"; // String | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default.
         Integer paginationLimit = 25; // Integer | Specifies the number of results to return per page. [ Min=0 ; Max=500 ]
-        String startDate = "2022-01-01T00:00:00.000Z"; // String | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday).
+        String startDate = "2022-01-01"; // String | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday).
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
-        String endDate = "2022-06-01T00:00:00.000Z"; // String | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today).
+        String endDate = "2022-06-01"; // String | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today).
         Integer reportId = 2666621; // Integer | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event.
         Integer audioSourceId = 56; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSourceIDs.
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier.

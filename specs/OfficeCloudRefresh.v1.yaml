@@ -1,0 +1,478 @@
+openapi: 3.0.3
+info:
+  title: Office Cloud Refresh API
+  description: >-
+    Service for refreshing models with refreshable FactSet objects (e.g., =FDS
+    codes)
+  version: 1.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+  - url: https://api.factset.com/office-refresh/v1
+paths:
+  /refresh/calculate:
+    post:
+      summary: Refresh a spreadsheet file
+      description: Start refreshing a spreadsheet file (in the Open Office XML format).
+      tags:
+        - Refresh Operations
+      operationId: postWorkbook
+      parameters:
+        - name: nowHandlingEnabled
+          description: >-
+            Return \#VALUE for =FDS codes dependent on NOW(). Default is true.
+            For more information on volatile code handling, see Online Assistant
+            https://my.apps.factset.com/oa/pages/16118.
+          in: query
+          schema:
+            type: boolean
+        - name: refreshAutoFilters
+          description: >-
+            Option to refresh =FDS codes within autofilters.  Codes that are
+            filtered out will not be refreshed, unless this option is set to
+            true.  Default is true.  For more information, see Online Assistant
+            https://my.apps.factset.com/oa/pages/21084#fds
+          in: query
+          schema:
+            type: boolean
+        - name: resizeArrays
+          description: >-
+            Option to allow automatic array-resizing, which allows you to return
+            a time series of data without manually setting an array.  Default is
+            true.  For more information, see Online Assistant
+            https://my.apps.factset.com/oa/pages/21084#fds
+          in: query
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            schema:
+              $ref: '#/components/schemas/SpreadsheetFile'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileGroupInfo'
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              schema:
+                type: string
+            X-Concurrent-Limit:
+              $ref: '#/components/headers/X-Concurrent-Limit'
+            X-Concurrent-Limit-Remaining:
+              $ref: '#/components/headers/X-Concurrent-Limit-Remaining'
+            X-Weekly-Limit:
+              $ref: '#/components/headers/X-Weekly-Limit'
+            X-Weekly-Limit-Remaining:
+              $ref: '#/components/headers/X-Weekly-Limit-Remaining'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '403':
+          description: Forbidden. The user's subscription is missing required CACCESS.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '413':
+          description: File Too Large.  Currently only accepting files up to 50MB.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /refresh/{id}/status:
+    get:
+      summary: Get the status of the refresh job with the given resource ID
+      description: Check the status of the given job by the resource ID
+      operationId: getStatusById
+      tags:
+        - Refresh Operations
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '201':
+          description: Created (the calculated workbook is ready to be retrieved)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Relative URL to the calculated file
+              schema:
+                type: string
+        '202':
+          description: Accepted (resource not ready yet)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '422':
+          description: Failed to refresh file
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /refresh/{id}:
+    get:
+      summary: Retrieve a calculated file by resource ID.
+      description: If the requested job is complete, the calculated file will be returned.
+      tags:
+        - Refresh Operations
+      operationId: getFileById
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+        - name: deleteFile
+          description: Delete the file from FactSet servers after completing the request.
+          in: query
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: Expected response; body will contain calculated file
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/SpreadsheetFile'
+          headers:
+            Content-Disposition:
+              description: >-
+                Standard HTTP header. Content is expected to be displayed as an
+                attachment.
+              schema:
+                type: string
+            Content-Type:
+              description: Standard HTTP header. The file format type.
+              schema:
+                type: string
+            Transfer-Encoding:
+              description: >-
+                Standard HTTP header. Header value will be set to Chunked if
+                Accept-Encoding header is specified.
+              schema:
+                type: string
+        '202':
+          description: Accepted (resource not ready yet)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+          headers:
+            Location:
+              description: Relative URL to check status of the request.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '422':
+          description: Failed to refresh file
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+      x-factset-different-success-responses: true
+  /jobs:
+    get:
+      summary: Get information on all active jobs
+      description: Get the ids and status of all active jobs
+      tags:
+        - Job Management
+      operationId: getJobs
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActiveJobStatusList'
+          headers:
+            X-Concurrent-Limit:
+              $ref: '#/components/headers/X-Concurrent-Limit'
+            X-Concurrent-Limit-Remaining:
+              $ref: '#/components/headers/X-Concurrent-Limit-Remaining'
+            X-Weekly-Limit:
+              $ref: '#/components/headers/X-Weekly-Limit'
+            X-Weekly-Limit-Remaining:
+              $ref: '#/components/headers/X-Weekly-Limit-Remaining'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+    delete:
+      summary: Cancel all active jobs
+      description: Cancel all active (on_hold, queued, executing) jobs
+      tags:
+        - Job Management
+      operationId: cancelAllActiveJobs
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  /jobs/{id}:
+    delete:
+      summary: Cancel a job with the given resource ID
+      description: Cancel a specific job by the resource ID
+      tags:
+        - Job Management
+      operationId: cancelActiveJob
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Unique identifier for the job (resource ID returned from FactSet).
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    SpreadsheetFile:
+      description: An Open Office XML spreadsheet file.
+      type: string
+      format: binary
+    FileGroupInfo:
+      description: Information on what files to Refresh.
+      type: object
+      properties:
+        data:
+          type: object
+          required:
+            - fileGroupId
+          properties:
+            fileGroupId:
+              description: Unique identifier for the file group stored by FactSet
+              type: string
+    ErrorCode:
+      description: Factset API specific error codes
+      enum:
+        - notAuthenticated
+        - notAuthorized
+        - notFound
+        - parameterError
+        - requestBodyInvalid
+        - endpointNotFound
+        - genericServerError
+        - quantityLimitsExceeded
+      type: string
+    Error:
+      type: object
+      description: The response returned for an unsuccessful request.
+      properties:
+        id:
+          description: >-
+            A unique ID for the occurrence of the error. It is advised to log
+            this code and include it if you contact FactSet support desk.
+          type: string
+        code:
+          $ref: '#/components/schemas/ErrorCode'
+        title:
+          description: a description of the error
+          type: string
+    Errors:
+      type: object
+      description: A list of errors
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    JobStatus:
+      type: object
+      description: Status information about a job
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: >-
+                Unique identifier for the job (resource ID returned from
+                FactSet).
+            status:
+              type: string
+              description: The status of the job
+              enum:
+                - queued
+                - executing
+                - created
+                - failed
+                - cancelled
+            error:
+              $ref: '#/components/schemas/Error'
+    ActiveJobStatus:
+      type: object
+      description: Status information about an active job
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the job (resource ID returned from FactSet).
+        status:
+          type: string
+          description: The status of the job
+          enum:
+            - queued
+            - executing
+        error:
+          $ref: '#/components/schemas/Error'
+    ActiveJobStatusList:
+      type: object
+      description: List of active job status information
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActiveJobStatus'
+  responses:
+    '429':
+      description: Limit Exceeded
+      headers:
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests left for the time window.
+          schema:
+            type: string
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining till rate limit resets.
+          schema:
+            type: string
+  headers:
+    X-Concurrent-Limit:
+      description: Number of concurrent jobs running
+      schema:
+        type: string
+    X-Concurrent-Limit-Remaining:
+      description: Number of concurrent jobs remaining
+      schema:
+        type: string
+    X-Weekly-Limit:
+      description: Number of jobs run this week
+      schema:
+        type: string
+    X-Weekly-Limit-Remaining:
+      description: Number of jobs remaining this week
+      schema:
+        type: string
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Refresh Operations
+    description: Endpoints that have to do with refreshing a recieving a file
+  - name: Job Management
+    description: Endpoints that deal with viewing and cancelling active jobs

@@ -37,9 +37,11 @@ docs/Metric.md
 docs/Metrics.md
 docs/MetricsApi.md
 docs/MetricsResponse.md
+docs/PerShare.md
 docs/Periodicity.md
 docs/Profile.md
 docs/ProfileResponse.md
+docs/Ratios.md
 docs/Segment.md
 docs/SegmentRequestBody.md
 docs/SegmentType.md
@@ -91,9 +93,11 @@ fds/sdk/FactSetFundamentals/model/item.py
 fds/sdk/FactSetFundamentals/model/metric.py
 fds/sdk/FactSetFundamentals/model/metrics.py
 fds/sdk/FactSetFundamentals/model/metrics_response.py
+fds/sdk/FactSetFundamentals/model/per_share.py
 fds/sdk/FactSetFundamentals/model/periodicity.py
 fds/sdk/FactSetFundamentals/model/profile.py
 fds/sdk/FactSetFundamentals/model/profile_response.py
+fds/sdk/FactSetFundamentals/model/ratios.py
 fds/sdk/FactSetFundamentals/model/segment.py
 fds/sdk/FactSetFundamentals/model/segment_request_body.py
 fds/sdk/FactSetFundamentals/model/segment_type.py

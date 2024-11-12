@@ -319,16 +319,21 @@ paths:
         - Company Reports
       summary: Returns company financial data.
       operationId: getFinancials
-      x-factset-sdk-ignore: true
       description: >
         Returns company financial data (preliminary or final) for specified
         security and statement type (income statement, balance sheet, cash
         flow), for various fiscal reporting periods. All values provided in the
-        response are absolute.
+        response are absolute.<br>
+
+        **Note:** Due to variations in calculation time of average exchange
+        rates, there may be some minor differences in the values of company
+        report financial statement attributes if you are requesting for a
+        currency other than local, when compared to the workstation.
       parameters:
         - $ref: '#/components/parameters/statementType'
         - $ref: '#/components/parameters/identifier'
         - $ref: '#/components/parameters/financialPeriodicity'
+        - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/updateType'
         - $ref: '#/components/parameters/limit'
       responses:
@@ -393,11 +398,17 @@ paths:
       description: >
         Returns detailed insights on specified publicly traded company's various
         key financial measures or fundamentals like cash per share, dividend,
-        EPS, EBIT etc. All values provided in the response are absolute.
+        EPS, EBIT etc. All values provided in the response are absolute.<br>
+
+        **Note:** Due to variations in calculation time of average exchange
+        rates, there may be some minor differences in the values of company
+        report financial statement attributes if you are requesting for a
+        currency other than local, when compared to the workstation.
       tags:
         - Company Reports
       parameters:
         - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/currency'
       responses:
         '200':
           description: Fundamental data items
@@ -446,6 +457,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MetricsResponse'
+              examples:
+                Response of metrics:
+                  $ref: '#/components/examples/metricsresponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -460,8 +474,7 @@ paths:
     get:
       tags:
         - Batch Processing
-      summary: |
-        Returns the status for a Batch Request
+      summary: Returns the status for a Batch Request
       description: >-
         Return the status for the underlying batch request that is specified by
         the id.
@@ -508,8 +521,7 @@ paths:
     get:
       tags:
         - Batch Processing
-      summary: |
-        Returns the response for a Batch Request
+      summary: Returns the response for a Batch Request
       description: >
         Returns the response data for the underlying batch request that is
         specified by the id.
@@ -1596,6 +1608,11 @@ components:
         name:
           type: string
           description: Name of the metric
+        ffCode:
+          type: string
+          description: >-
+            FactSet Fundamental code representing the corresponding financial
+            metric
         displayLevel:
           type: string
           description: Describes the level of displaying the item
@@ -1668,6 +1685,60 @@ components:
           nullable: true
         address:
           $ref: '#/components/schemas/Address'
+        economyId:
+          description: >-
+            The economy classification Id for this security. The industry level
+            1 RBIC (Revere Business Industry Classification) system is used in
+            classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: '55'
+          nullable: true
+        economy:
+          description: >-
+            The economy classification for this security. The industry level 1
+            RBIC (Revere Business Industry Classification) system is used in
+            classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: Technology
+          nullable: true
+        subSectorId:
+          description: >-
+            The subSector classification Id for this security. The industry
+            level 3 RBIC (Revere Business Industry Classification) system is
+            used in classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: '551515'
+          nullable: true
+        subSector:
+          description: >-
+            The subSector classification for this security. The industry level 3
+            RBIC (Revere Business Industry Classification) system is used in
+            classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: Communications Equipment
+          nullable: true
+        industryGroupId:
+          description: >-
+            The industryGroup classification Id for this security. The industry
+            level 4 RBIC (Revere Business Industry Classification) system is
+            used in classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: '55151545'
+          nullable: true
+        industryGroup:
+          description: >-
+            The industryGroup classification for this security. The industry
+            level 4 RBIC (Revere Business Industry Classification) system is
+            used in classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: Wireless Mobile Equipment
+          nullable: true
         industryId:
           description: >-
             The industry classification Id for this security. The industry level
@@ -1675,7 +1746,7 @@ components:
             classification. For more info, visit: [OA
             page](https://my.apps.factset.com/oa/pages/17498)
           type: string
-          example: '5515'
+          example: '5515154530'
           nullable: true
         industry:
           description: >-
@@ -1684,7 +1755,25 @@ components:
             classification. For more info, visit: [OA
             page](https://my.apps.factset.com/oa/pages/17498)
           type: string
-          example: Hardware
+          example: Smart Phone Manufacturing
+          nullable: true
+        subIndustryId:
+          description: >-
+            The subIndustry classification Id for this security. The industry
+            level 6 RBIC (Revere Business Industry Classification) system is
+            used in classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: '551515453010'
+          nullable: true
+        subIndustry:
+          description: >-
+            The subIndustry classification for this security. The industry level
+            6 RBIC (Revere Business Industry Classification) system is used in
+            classification. For more info, visit: [OA
+            page](https://my.apps.factset.com/oa/pages/17498)
+          type: string
+          example: Smart Phone Manufacturing
           nullable: true
         sectorId:
           description: >-
@@ -1693,7 +1782,7 @@ components:
             classification. For more info, visit: [OA
             page](https://my.apps.factset.com/oa/pages/17498)
           type: string
-          example: '5515154530'
+          example: '5515'
           nullable: true
         sector:
           description: >-
@@ -1702,7 +1791,7 @@ components:
             classification. For more info, visit: [OA
             page](https://my.apps.factset.com/oa/pages/17498)
           type: string
-          example: Smart Phone Manufacturing
+          example: Hardware
           nullable: true
         numberOfEmployees:
           description: Number of employees working in the company
@@ -1891,76 +1980,12 @@ components:
           type: string
           example: USD
           nullable: true
-        assetTurnoverRatio:
-          type: number
-          format: double
-          description: >-
-            The asset turnover ratio measures the value of a company's sales or
-            revenues relative to the value of its assets
-          example: 0.479435359033746
-          nullable: true
-        bookValuePerShare:
-          type: number
-          format: double
-          description: >-
-            Book value per common share is a formula used to calculate the per
-            share value of a company based on common shareholders' equity in the
-            company
-          example: 25.27711
-          nullable: true
-        cashFlowPerShare:
-          type: number
-          format: double
-          description: >-
-            Cash flow per share is calculated as a ratio, indicating the amount
-            of cash a business generates based on a company's net income with
-            the costs of depreciation and amortization added back
-          example: 10.4268994512216
-          nullable: true
-        cashPerShare:
-          type: number
-          format: double
-          description: Cash Per Share of Security
-          example: 7.968296945651575
-          nullable: true
-        currentRatio:
-          type: number
-          format: double
-          description: >-
-            The current ratio is a liquidity ratio that measures a company's
-            ability to pay short-term and long-term obligations. The ratio is
-            calculated by comparing current assets to current liabilities
-          example: 0.874795791674835
-          nullable: true
+        perShare:
+          $ref: '#/components/schemas/PerShare'
+        ratios:
+          $ref: '#/components/schemas/Ratios'
         dividend:
           $ref: '#/components/schemas/Dividend'
-        earningsPerShare:
-          type: number
-          format: double
-          description: >-
-            Earnings per share (EPS) is the portion of a company's profit
-            allocated to each share of common stock
-          example: 1.8668
-          nullable: true
-        ebitMargin:
-          type: number
-          format: double
-          description: >-
-            EBIT margin is an assessment of a firm's operating profitability as
-            a percentage of its total revenue. It is equal to earnings before
-            interest and tax (EBIT) divided by total revenue
-          example: 16.4113340563991
-          nullable: true
-        ebitdaMargin:
-          type: number
-          format: double
-          description: >-
-            EBITDA margin is an assessment of a firm's operating profitability
-            as a percentage of its total revenue. It is equal to earnings before
-            interest, tax, depreciation and amortization (EBITDA) divided by
-            total revenue
-          example: 23.8204989154013
-          nullable: true
         enterpriseValue:
           type: number
           format: double
@@ -1993,33 +2018,6 @@ components:
             for the period and date(s) requested
           example: 15310.455156
           nullable: true
-        grossMargin:
-          type: number
-          format: double
-          description: >-
-            Gross profit margin is the proportion of money left over from
-            revenues after accounting for the cost of goods sold, calculated by
-            dividing gross profit by revenues.
-          example: 53.843546637744
-          nullable: true
-        inventoryTurnover:
-          type: number
-          format: double
-          description: >-
-            Inventory turnover is a ratio showing how many times a company has
-            sold and replaced inventory during a given period
-          example: 17.6586282492953
-          nullable: true
-        longTermDebtToEquity:
-          type: number
-          format: double
-          description: >-
-            Long-term debt consists of loans and financial obligations lasting
-            over one year. The Debt/Equity (D/E) Ratio is calculated by dividing
-            a company's total liabilities lasting over one year by its
-            shareholder equity
-          example: 2.22278064208656
-          nullable: true
         netIncome:
           type: number
           format: double
@@ -2038,100 +2036,6 @@ components:
             fiscal year-end.
           example: 311300
           nullable: true
-        payoutRatio:
-          type: number
-          format: double
-          description: >-
-            The dividend payout ratio is the ratio of the total amount of
-            dividends paid out to shareholders relative to the net income of the
-            company
-          example: 89.98265394622723
-          nullable: true
-        pretaxMargin:
-          type: number
-          format: double
-          description: >-
-            The pretax margin is the ratio of a company's pre-tax earnings to
-            its total sales
-          example: 12.7236984815618
-          nullable: true
-        priceToBookRatio:
-          type: number
-          format: double
-          description: >-
-            Companies use the price-to-book ratio to compare a firm's market to
-            book value by dividing price per share by book value per share
-            (BVPS) .
-          example: 6.38918
-          nullable: true
-        priceToCashFlowRatio:
-          type: number
-          format: double
-          description: >-
-            The price-to-cash flow ratio is a stock valuation indicator or
-            multiple that measures the value of a stock's price relative to its
-            operating cash flow per share.
-          example: 11.105
-          nullable: true
-        priceToEarningsRatio:
-          type: number
-          format: double
-          description: >-
-            The price-to-earnings ratio (P/E ratio) is the ratio for valuing a
-            company that measures its current share price relative to its
-            per-share earnings
-          example: 21.4293
-          nullable: true
-        priceToSalesRatio:
-          type: number
-          format: double
-          description: >-
-            The price-to-sales ratio (P/S ratio) is a valuation ratio that
-            compares a company's stock price to its revenues
-          example: 2.43871
-          nullable: true
-        quickRatio:
-          type: number
-          format: double
-          description: >-
-            The quick ratio measures the dollar amount of liquid assets
-            available with the company against the dollar amount of its current
-            liabilities
-          example: 0.829085800169901
-          nullable: true
-        returnOnAssets:
-          type: number
-          format: double
-          description: >-
-            Return on net assets (RONA) is a measure of financial performance
-            calculated as net income divided by the sum of fixed assets and net
-            working capital
-          example: 5.56332812114229
-          nullable: true
-        returnOnEquity:
-          type: number
-          format: double
-          description: >-
-            Return on equity (ROE) is a measure of financial performance
-            calculated as net income divided by shareholders' equity
-          example: 32.8938526774336
-          nullable: true
-        returnOnInvestedCapital:
-          type: number
-          format: double
-          description: >-
-            Return on Investment (ROI) measures how well an investment is
-            performing
-          example: 10.0320834452249
-          nullable: true
-        revenuePerShare:
-          type: number
-          format: double
-          description: >-
-            The portion of a company's revenue that is allocated to each share
-            of common stock.
-          example: 66.3510388780454
-          nullable: true
         salesPerEmployee:
           type: number
           format: double
@@ -2139,14 +2043,6 @@ components:
             Revenue per employee is a ratio that is calculated as a company's
             total revenue divided by its current number of employees
           example: 0.194442659813685
-          nullable: true
-        salesPerShare:
-          type: number
-          format: double
-          description: >-
-            Sales per share is a ratio that computes the total revenue earned
-            per share over a designated period
-          example: 15.9710148599077
           nullable: true
         shareHolderEquity:
           type: number
@@ -2179,14 +2075,6 @@ components:
           description: Total amount of assets owned by entity.
           example: 129321.001
           nullable: true
-        totalDebtToEquity:
-          type: number
-          format: double
-          description: >-
-            The Debt/Equity (D/E) Ratio is calculated by dividing a company's
-            total liabilities by its shareholder equity
-          example: 2.53563537108444
-          nullable: true
         totalRevenue:
           type: number
           format: double
@@ -2196,11 +2084,222 @@ components:
             deductions for returned merchandise.
           example: 14752.001
           nullable: true
+    PerShare:
+      type: object
+      properties:
+        bookValuePerShare:
+          type: number
+          format: double
+          description: >-
+            Book value per common share is a formula used to calculate the per
+            share value of a company based on common shareholders' equity in the
+            company
+          example: 25.27711
+          nullable: true
+        cashFlowPerShare:
+          type: number
+          format: double
+          description: >-
+            Cash flow per share is calculated as a ratio, indicating the amount
+            of cash a business generates based on a company’s net income with
+            the costs of depreciation and amortization added back
+          example: 10.4268994512216
+          nullable: true
+        cashPerShare:
+          type: number
+          format: double
+          description: Cash Per Share of Security
+          example: 7.968296945651575
+          nullable: true
+        earningsPerShare:
+          type: number
+          format: double
+          description: >-
+            Earnings per share (EPS) is the portion of a company's profit
+            allocated to each share of common stock
+          example: 1.8668
+          nullable: true
+        revenuePerShare:
+          type: number
+          format: double
+          description: >-
+            The portion of a company's revenue that is allocated to each share
+            of common stock.
+          example: 66.3510388780454
+          nullable: true
+        salesPerShare:
+          type: number
+          format: double
+          description: >-
+            Sales per share is a ratio that computes the total revenue earned
+            per share over a designated period
+          example: 15.9710148599077
+          nullable: true
         trailingTwelveMonthEarningsPerShare:
           type: number
           format: double
           description: Earnings per share over the last 12 months.
           example: 7.621
+          nullable: true
+    Ratios:
+      type: object
+      properties:
+        assetTurnoverRatio:
+          type: number
+          format: double
+          description: >-
+            The asset turnover ratio measures the value of a company's sales or
+            revenues relative to the value of its assets
+          example: 0.479435359033746
+          nullable: true
+        currentRatio:
+          type: number
+          format: double
+          description: >-
+            The current ratio is a liquidity ratio that measures a company's
+            ability to pay short-term and long-term obligations. The ratio is
+            calculated by comparing current assets to current liabilities
+          example: 0.874795791674835
+          nullable: true
+        quickRatio:
+          type: number
+          format: double
+          description: >-
+            The quick ratio measures the dollar amount of liquid assets
+            available with the company against the dollar amount of its current
+            liabilities
+          example: 0.829085800169901
+          nullable: true
+        ebitMargin:
+          type: number
+          format: double
+          description: >-
+            EBIT margin is an assessment of a firm's operating profitability as
+            a percentage of its total revenue. It is equal to earnings before
+            interest and tax (EBIT) divided by total revenue
+          example: 16.4113340563991
+          nullable: true
+        ebitdaMargin:
+          type: number
+          format: double
+          description: >-
+            EBITDA margin is an assessment of a firm's operating profitability
+            as a percentage of its total revenue. It is equal to earnings before
+            interest, tax, depreciation and amortization (EBITDA) divided by
+            total revenue
+          example: 23.8204989154013
+          nullable: true
+        grossMargin:
+          type: number
+          format: double
+          description: >-
+            Gross profit margin is the proportion of money left over from
+            revenues after accounting for the cost of goods sold, calculated by
+            dividing gross profit by revenues.
+          example: 53.843546637744
+          nullable: true
+        inventoryTurnover:
+          type: number
+          format: double
+          description: >-
+            Inventory turnover is a ratio showing how many times a company has
+            sold and replaced inventory during a given period
+          example: 17.6586282492953
+          nullable: true
+        longTermDebtToEquity:
+          type: number
+          format: double
+          description: >-
+            Long-term debt consists of loans and financial obligations lasting
+            over one year. The Debt/Equity (D/E) Ratio is calculated by dividing
+            a company’s total liabilities lasting over one year by its
+            shareholder equity
+          example: 2.22278064208656
+          nullable: true
+        payoutRatio:
+          type: number
+          format: double
+          description: >-
+            The dividend payout ratio is the ratio of the total amount of
+            dividends paid out to shareholders relative to the net income of the
+            company
+          example: 89.98265394622723
+          nullable: true
+        pretaxMargin:
+          type: number
+          format: double
+          description: >-
+            The pretax margin is the ratio of a company's pre-tax earnings to
+            its total sales
+          example: 12.7236984815618
+          nullable: true
+        priceToBookRatio:
+          type: number
+          format: double
+          description: >-
+            Companies use the price-to-book ratio to compare a firm's market to
+            book value by dividing price per share by book value per share
+            (BVPS) .
+          example: 6.38918
+          nullable: true
+        priceToCashFlowRatio:
+          type: number
+          format: double
+          description: >-
+            The price-to-cash flow ratio is a stock valuation indicator or
+            multiple that measures the value of a stock’s price relative to its
+            operating cash flow per share.
+          example: 11.105
+          nullable: true
+        priceToEarningsRatio:
+          type: number
+          format: double
+          description: >-
+            The price-to-earnings ratio (P/E ratio) is the ratio for valuing a
+            company that measures its current share price relative to its
+            per-share earnings
+          example: 21.4293
+          nullable: true
+        priceToSalesRatio:
+          type: number
+          format: double
+          description: >-
+            The price-to-sales ratio (P/S ratio) is a valuation ratio that
+            compares a company’s stock price to its revenues
+          example: 2.43871
+          nullable: true
+        returnOnAssets:
+          type: number
+          format: double
+          description: >-
+            Return on net assets (RONA) is a measure of financial performance
+            calculated as net income divided by the sum of fixed assets and net
+            working capital
+          example: 5.56332812114229
+          nullable: true
+        returnOnEquity:
+          type: number
+          format: double
+          description: >-
+            Return on equity (ROE) is a measure of financial performance
+            calculated as net income divided by shareholders' equity
+          example: 32.8938526774336
+          nullable: true
+        returnOnInvestedCapital:
+          type: number
+          format: double
+          description: >-
+            Return on Investment (ROI) measures how well an investment is
+            performing
+          example: 10.0320834452249
+          nullable: true
+        totalDebtToEquity:
+          type: number
+          format: double
+          description: >-
+            The Debt/Equity (D/E) Ratio is calculated by dividing a company’s
+            total liabilities by its shareholder equity
+          example: 2.53563537108444
           nullable: true
     Dividend:
       type: object
@@ -2323,6 +2422,74 @@ components:
             definition for FF_SALES.
           type: string
           example: D10585
+          nullable: true
+        description:
+          description: Description of the metric item.
+          type: string
+          example: >-
+            Total Assets
+
+
+            Total Assets
+
+
+            Page: D10585Library: FactSet Fundamentals
+
+
+            Category: Balance Sheet/Assets
+
+
+            Units:Millions
+
+
+            Annual and Interim items - All Industries
+
+
+            Represents as reported total value of resources the company is using
+            for its operations. Company assets are expected to provide future
+            economic benefits in the entire course of business. Most of these
+            are convertible into cash which can be used to cover any
+            obligations. Thus, this is equal to the company&rsquo;s liabilities
+            and total equity.
+
+
+            It includes:
+
+            -  Negative Goodwill
+
+
+            -  Goodwill (reported as part of Liabilities)
+
+
+            -  Due to associated companies
+
+
+            -  Subscription receivable
+
+
+            -  Deferred tax assets
+
+
+            -  Advances on export contracts (reported as deduction within
+            Receivables by Brazilian companies)
+
+
+            It excludes:
+
+            -  Own shares
+
+
+            -  Unrealized foreign exchange loss
+
+
+            -  Retained losses (reported as part of Assets)
+
+
+            -  Uncalled capital
+
+
+            This will be equal to the as reported total assets value if the
+            items stated above are not reported.
           nullable: true
         oaUrl:
           description: >-
@@ -2891,6 +3058,86 @@ components:
             id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
             code: GenericError
             title: the date parameter must be in YYYY-MM-DD format
+    metricsresponse:
+      summary: Response of metrics
+      description: >-
+        Response of metric for category as "BALANCE_SHEET" and subcategory as
+        "ASSETS"
+      value:
+        data:
+          - metric: FF_ASSETS
+            name: Total Assets
+            category: BALANCE_SHEET
+            subcategory: ASSETS
+            oaPageId: D10585
+            description: >-
+              Total Assets
+
+
+              Total Assets
+
+
+              Page: D10585Library: FactSet Fundamentals
+
+
+              Category: Balance Sheet/Assets
+
+
+              Units:Millions
+
+
+              Annual and Interim items - All Industries
+
+
+              Represents as reported total value of resources the company is
+              using for its operations. Company assets are expected to provide
+              future economic benefits in the entire course of business. Most of
+              these are convertible into cash which can be used to cover any
+              obligations. Thus, this is equal to the company&rsquo;s
+              liabilities and total equity.
+
+
+              It includes:
+
+              -  Negative Goodwill
+
+
+              -  Goodwill (reported as part of Liabilities)
+
+
+              -  Due to associated companies
+
+
+              -  Subscription receivable
+
+
+              -  Deferred tax assets
+
+
+              -  Advances on export contracts (reported as deduction within
+              Receivables by Brazilian companies)
+
+
+              It excludes:
+
+              -  Own shares
+
+
+              -  Unrealized foreign exchange loss
+
+
+              -  Retained losses (reported as part of Assets)
+
+
+              -  Uncalled capital
+
+
+              This will be equal to the as reported total assets value if the
+              items stated above are not reported.
+            oaUrl: https://my.apps.factset.com/oa/pages/D10585
+            factor: 1000000
+            sdfPackage: BASIC
+            dataType: doubleArray
     postBodyOfSingleIdwithSingleMetricItem:
       summary: FDS-US company sales[FF_SALES] data for the given time period
       description: >-
@@ -2988,6 +3235,7 @@ components:
               - '2017'
             item:
               - name: Sales/Revenue
+                ffCode: ff_sales
                 displayLevel: L0
                 displayOrder: 1
                 updateType: Final
@@ -2997,6 +3245,7 @@ components:
                   - '365817'
                   - '274150'
               - name: Cost of Goods Sold (COGS) incl D&A
+                ffCode: ff_cogs
                 displayLevel: L0
                 displayOrder: 2
                 updateType: Final
@@ -3006,6 +3255,7 @@ components:
                   - '212981'
                   - '170143'
               - name: Cost of Goods Sold excluding D&A
+                ffCode: ff_cogs_xdep
                 displayLevel: L1
                 displayOrder: 3
                 updateType: Final
@@ -3015,6 +3265,7 @@ components:
                   - '201697'
                   - '159087'
               - name: Depreciation & Amortization
+                ffCode: ff_dep_amort_exp
                 displayLevel: L1
                 displayOrder: 4
                 updateType: Final
@@ -3024,6 +3275,7 @@ components:
                   - '11284'
                   - '11056'
               - name: Depreciation
+                ffCode: ff_dep_exp
                 displayLevel: L2
                 displayOrder: 5
                 updateType: Final
@@ -3033,6 +3285,7 @@ components:
                   - '11284'
                   - '11056'
               - name: Amortization of Intangibles
+                ffCode: ff_amort_intang
                 displayLevel: L2
                 displayOrder: 6
                 updateType: Final
@@ -3042,6 +3295,7 @@ components:
                   - '0'
                   - '0'
               - name: Amortization of Deferred Charges
+                ffCode: ff_amort_dfd_chrg
                 displayLevel: L2
                 displayOrder: 7
                 updateType: Final
@@ -3051,6 +3305,7 @@ components:
                   - '0'
                   - '0'
               - name: Gross Income
+                ffCode: ff_gross_inc
                 displayLevel: L0
                 displayOrder: 8
                 updateType: Final
@@ -3069,11 +3324,33 @@ components:
             fsymId: MH33D6-R
             asOfDate: '2024-03-31'
             currency: USD
-            assetTurnoverRatio: 1.13990301252593
-            bookValuePerShare: 4.83737
-            cashFlowPerShare: 10.4268994512216
-            cashPerShare: 1.9285829687737772
-            currentRatio: 0.874795791674835
+            perShare:
+              bookValuePerShare: 25.27711
+              cashFlowPerShare: 10.4268994512216
+              cashPerShare: 7.968296945651575
+              earningsPerShare: 1.8668
+              revenuePerShare: 66.3510388780454
+              salesPerShare: 15.9710148599077
+              trailingTwelveMonthEarningsPerShare: 7.621
+            ratios:
+              assetTurnoverRatio: 0.479435359033746
+              currentRatio: 0.874795791674835
+              quickRatio: 0.829085800169901
+              ebitMargin: 16.4113340563991
+              ebitdaMargin: 23.8204989154013
+              grossMargin: 53.843546637744
+              inventoryTurnover: 17.6586282492953
+              longTermDebtToEquity: 2.22278064208656
+              payoutRatio: 89.98265394622723
+              pretaxMargin: 12.7236984815618
+              priceToBookRatio: 6.38918
+              priceToCashFlowRatio: 11.105
+              priceToEarningsRatio: 21.4293
+              priceToSalesRatio: 2.43871
+              returnOnAssets: 5.56332812114229
+              returnOnEquity: 32.8938526774336
+              returnOnInvestedCapital: 10.0320834452249
+              totalDebtToEquity: 2.53563537108444
             dividend:
               annualdividendPerShare: 6.59
               distributionFrequency: Quarterly
@@ -3083,38 +3360,18 @@ components:
               payableDate: '2024-05-16'
               recordDate: '2024-05-13'
               yield: 0.502881
-            earningsPerShare: 1.8668
-            ebitMargin: 16.4113340563991
-            ebitdaMargin: 23.8204989154013
             enterpriseValue: 2989652.948
             fiveYearAverageYield: 5.00195
             fiveYearDividendGrowthRate: 6.119162640901776
             floatingSharesOutstanding: 15310.455156
-            grossMargin: 53.843546637744
-            inventoryTurnover: 17.6586282492953
-            longTermDebtToEquity: 2.22278064208656
             netIncome: 23636.001
             numberOfEmployees: 161000
-            payoutRatio: 89.98265394622723
-            pretaxMargin: 12.7236984815618
-            priceToBookRatio: 6.38918
-            priceToCashFlowRatio: 11.105
-            priceToEarningsRatio: 21.4293
-            priceToSalesRatio: 2.43871
-            quickRatio: 0.829085800169901
-            returnOnAssets: 5.56332812114229
-            returnOnEquity: 32.8938526774336
-            returnOnInvestedCapital: 10.0320834452249
-            revenuePerShare: 66.3510388780454
             salesPerEmployee: 0.194442659813685
-            salesPerShare: 15.9710148599077
             shareHolderEquity: 74194.001
             threeYearAverageYield: 4.916496666666666
             threeYearDividendGrowthRate: 1.228878648233489
             totalAssets: 129321.001
-            totalDebtToEquity: 2.53563537108444
             totalRevenue: 84752.001
-            trailingTwelveMonthEarningsPerShare: 7.621
     resultOfCompanyFundamentalsDetailsWithError:
       summary: Fundamentals details for the requested nonexistent identifier
       description: Fundamentals details for nonexistent identifier
@@ -3146,10 +3403,18 @@ components:
               zip: 95014-2083
               phoneNumber: 1.408.996.1010
               website: http://www.apple.com
-            industryId: '5515'
-            industry: Hardware
-            sectorId: '5515154530'
-            sector: Smart Phone Manufacturing
+            economyId: '55'
+            economy: Technology
+            sectorId: '5515'
+            sector: Hardware
+            subSectorId: '551515'
+            subSector: Communications Equipment
+            industryGroupId: '55151545'
+            industryGroup: Wireless Mobile Equipment
+            industryId: '5515154530'
+            industry: Smart Phone Manufacturing
+            subIndustryId: '551515453010'
+            subIndustry: Smart Phone Manufacturing
             numberOfEmployees: 161000
             ceo: Mr. Timothy Donald Cook
             businessSummary: >-
@@ -3182,10 +3447,18 @@ components:
               zip: 95014-2083
               phoneNumber: 1.408.996.1010
               website: http://www.apple.com
-            industryId: '5515'
-            industry: Hardware
-            sectorId: '5515154530'
-            sector: Smart Phone Manufacturing
+            economyId: '55'
+            economy: Technology
+            sectorId: '5515'
+            sector: Hardware
+            subSectorId: '551515'
+            subSector: Communications Equipment
+            industryGroupId: '55151545'
+            industryGroup: Wireless Mobile Equipment
+            industryId: '5515154530'
+            industry: Smart Phone Manufacturing
+            subIndustryId: '551515453010'
+            subIndustry: Smart Phone Manufacturing
             numberOfEmployees: 161000
             ceo: Mr. Timothy Donald Cook
             businessSummary: >-
@@ -3213,10 +3486,18 @@ components:
               zip: 98052-6399
               phoneNumber: 1.425.882.8080
               website: http://www.microsoft.com
-            industryId: '5520'
-            industry: Software
-            sectorId: '5520154010'
-            sector: General and Mixed-Type Software
+            economyId: '55'
+            economy: Technology
+            sectorId: '5520'
+            sector: Software and Consulting
+            subSectorId: '552015'
+            subSector: Software
+            industryGroupId: '55201540'
+            industryGroup: General and Mixed-Type Software
+            industryId: '5520154010'
+            industry: General and Mixed-Type Software
+            subIndustryId: '552015401010'
+            subIndustry: General and Mixed-Type Software
             numberOfEmployees: 221000
             ceo: Mr. Satya Nadella
             businessSummary: >-
@@ -3247,13 +3528,13 @@ components:
           - requestId: AAPL-US
             fsymId: MH33D6-R
             metric: SALES
-            date: 2012-09-28T00:00:00.000Z
+            date: '2012-09-28'
             label: iPhone
             value: 141319.01
           - requestId: AAPL-US
             fsymId: MH33D6-R
             metric: SALES
-            date: 2012-09-28T00:00:00.000Z
+            date: '2012-09-28'
             label: iPad
             value: 19222.01
     resultOfMultipleIdwithSingleMetricItemSegment:
@@ -3266,13 +3547,13 @@ components:
           - requestId: AAPL-US
             fsymId: MH33D6-R
             metric: SALES
-            date: 2012-09-28T00:00:00.000Z
+            date: '2012-09-28'
             label: iPhone
             value: 141319.001
           - requestId: FDS-US
             fsymId: SQFMK3-R
             metric: SALES
-            date: 2012-08-31T00:00:00.000Z
+            date: '2012-08-31'
             label: Integrated Financial Information & Analytical Applications"
             value: 1221.179
     postBodyOfSingleIdwithSingleMetricItemSegment:

@@ -229,7 +229,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> GetBatchDataResponseWrapper:
-        """Returns the response for a Batch Request   # noqa: E501
+        """Returns the response for a Batch Request  # noqa: E501
 
         Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\".   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -276,7 +276,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> typing.Tuple[GetBatchDataResponseWrapper, int, typing.MutableMapping]:
-        """Returns the response for a Batch Request   # noqa: E501
+        """Returns the response for a Batch Request  # noqa: E501
 
         Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\".   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -327,7 +327,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> "ApplyResult[GetBatchDataResponseWrapper]":
-        """Returns the response for a Batch Request   # noqa: E501
+        """Returns the response for a Batch Request  # noqa: E501
 
         Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\".   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -373,7 +373,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[GetBatchDataResponseWrapper, int, typing.MutableMapping]]":
-        """Returns the response for a Batch Request   # noqa: E501
+        """Returns the response for a Batch Request  # noqa: E501
 
         Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\".   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -420,7 +420,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> BatchStatusResponse:
-        """Returns the status for a Batch Request   # noqa: E501
+        """Returns the status for a Batch Request  # noqa: E501
 
         Return the status for the underlying batch request that is specified by the id.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -467,7 +467,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> typing.Tuple[BatchStatusResponse, int, typing.MutableMapping]:
-        """Returns the status for a Batch Request   # noqa: E501
+        """Returns the status for a Batch Request  # noqa: E501
 
         Return the status for the underlying batch request that is specified by the id.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -518,7 +518,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> "ApplyResult[BatchStatusResponse]":
-        """Returns the status for a Batch Request   # noqa: E501
+        """Returns the status for a Batch Request  # noqa: E501
 
         Return the status for the underlying batch request that is specified by the id.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -564,7 +564,7 @@ class BatchProcessingApi(object):
         id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[BatchStatusResponse, int, typing.MutableMapping]]":
-        """Returns the status for a Batch Request   # noqa: E501
+        """Returns the status for a Batch Request  # noqa: E501
 
         Return the status for the underlying batch request that is specified by the id.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult

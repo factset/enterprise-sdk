@@ -34,6 +34,7 @@ import com.factset.sdk.FactSetFundamentals.JSON;
  */
 @JsonPropertyOrder({
   Item.JSON_PROPERTY_NAME,
+  Item.JSON_PROPERTY_FF_CODE,
   Item.JSON_PROPERTY_DISPLAY_LEVEL,
   Item.JSON_PROPERTY_DISPLAY_ORDER,
   Item.JSON_PROPERTY_VALUE
@@ -45,6 +46,9 @@ public class Item implements Serializable {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_FF_CODE = "ffCode";
+  private String ffCode;
 
   public static final String JSON_PROPERTY_DISPLAY_LEVEL = "displayLevel";
   private String displayLevel;
@@ -81,6 +85,32 @@ public class Item implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public Item ffCode(String ffCode) {
+    this.ffCode = ffCode;
+    return this;
+  }
+
+   /**
+   * FactSet Fundamental code representing the corresponding financial metric
+   * @return ffCode
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "FactSet Fundamental code representing the corresponding financial metric")
+  @JsonProperty(JSON_PROPERTY_FF_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFfCode() {
+    return ffCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FF_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFfCode(String ffCode) {
+    this.ffCode = ffCode;
   }
 
 
@@ -183,6 +213,7 @@ public class Item implements Serializable {
     }
     Item item = (Item) o;
     return Objects.equals(this.name, item.name) &&
+        Objects.equals(this.ffCode, item.ffCode) &&
         Objects.equals(this.displayLevel, item.displayLevel) &&
         Objects.equals(this.displayOrder, item.displayOrder) &&
         Objects.equals(this.value, item.value);
@@ -190,7 +221,7 @@ public class Item implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayLevel, displayOrder, value);
+    return Objects.hash(name, ffCode, displayLevel, displayOrder, value);
   }
 
   @Override
@@ -198,6 +229,7 @@ public class Item implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Item {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ffCode: ").append(toIndentedString(ffCode)).append("\n");
     sb.append("    displayLevel: ").append(toIndentedString(displayLevel)).append("\n");
     sb.append("    displayOrder: ").append(toIndentedString(displayOrder)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

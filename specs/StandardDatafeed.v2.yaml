@@ -584,7 +584,7 @@ components:
       required: false
       schema:
         type: string
-      example: 2023-01-28T00:00:00.000Z
+      example: '2023-01-28'
     endDateRelative:
       name: endDateRelative
       in: query

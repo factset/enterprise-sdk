@@ -173,12 +173,6 @@ components:
         endDate:
           type: string
           description: endDate must be < 0
-      x-examples:
-        example-1:
-          Permission Error: 'You are not subscribed to this product: Exchange Snapshot API'
-          Param Error: Missing or Wrong product parameter
-          startDate: Missing or Wrong date parameter
-          endDate: Missing or Wrong date parameter
   securitySchemes:
     FactSetOAuth2:
       type: oauth2

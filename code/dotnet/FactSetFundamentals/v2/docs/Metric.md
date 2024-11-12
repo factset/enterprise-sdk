@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Category** | **string** | Primary Category of metric item, such as, INCOME_STATEMENT, BALANCE_SHEET, CASH_FLOW, or RATIOS. | [optional] 
 **Subcategory** | **string** | Sub-category of metric item, such as ASSETS, SUPPLEMENTAL, SHAREHOLDERS_EQUITY, VALUATION, PROFITABILITY, etc. | [optional] 
 **OaPageId** | **string** | The Online Assistant Page ID in D***** format, used to look up the definition and methodology of the requested item. Visit my.apps.factset.com/oa/pages/[D*****] for details. For example, https://my.apps.factset.com/oa/pages/D10585 will give you the definition for FF_SALES. | [optional] 
+**Description** | **string** | Description of the metric item. | [optional] 
 **OaUrl** | **string** | The Online Assistant Page URL, is used to look up the definition and methodology of the requested item. For example, https://my.apps.factset.com/oa/pages/D10585 will give you the definition for FF_SALES. | [optional] 
 **Factor** | **int?** | The factor for the metric (e.g. 1000 &#x3D; thousands). | [optional] 
 **SdfPackage** | **string** | An indicator for which Standard Data Feed (SDF) package the item is available in - BASIC or ADVANCED. A null value represents items available only in API. | [optional] 

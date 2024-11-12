@@ -109,6 +109,114 @@ class CompanyReportsApi(object):
             api_client=api_client
         )
 
+        self.get_financials_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (FinancialResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/company-reports/financial-statement',
+                'operation_id': 'get_financials',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'statement_type',
+                    'id',
+                    'periodicity',
+                    'currency',
+                    'update_type',
+                    'limit',
+                ],
+                'required': [
+                    'statement_type',
+                    'id',
+                    'periodicity',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'statement_type',
+                    'periodicity',
+                    'update_type',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('statement_type',): {
+
+                        "BS": "BS",
+                        "CF": "CF",
+                        "IS": "IS"
+                    },
+                    ('periodicity',): {
+
+                        "ANN": "ANN",
+                        "ANN_R": "ANN_R",
+                        "QTR": "QTR",
+                        "QTR_R": "QTR_R",
+                        "SEMI": "SEMI",
+                        "SEMI_R": "SEMI_R",
+                        "LTM": "LTM",
+                        "YTD": "YTD"
+                    },
+                    ('update_type',): {
+
+                        "RP": "RP",
+                        "RF": "RF"
+                    },
+                },
+                'openapi_types': {
+                    'statement_type':
+                        (str,),
+                    'id':
+                        (str,),
+                    'periodicity':
+                        (str,),
+                    'currency':
+                        (str,),
+                    'update_type':
+                        (str,),
+                    'limit':
+                        (int,),
+                },
+                'attribute_map': {
+                    'statement_type': 'statementType',
+                    'id': 'id',
+                    'periodicity': 'periodicity',
+                    'currency': 'currency',
+                    'update_type': 'updateType',
+                    'limit': 'limit',
+                },
+                'location_map': {
+                    'statement_type': 'query',
+                    'id': 'query',
+                    'periodicity': 'query',
+                    'currency': 'query',
+                    'update_type': 'query',
+                    'limit': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
         self.get_fundamentals_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -127,6 +235,7 @@ class CompanyReportsApi(object):
             params_map={
                 'all': [
                     'ids',
+                    'currency',
                 ],
                 'required': [
                     'ids',
@@ -152,12 +261,16 @@ class CompanyReportsApi(object):
                 'openapi_types': {
                     'ids':
                         ([str],),
+                    'currency':
+                        (str,),
                 },
                 'attribute_map': {
                     'ids': 'ids',
+                    'currency': 'currency',
                 },
                 'location_map': {
                     'ids': 'query',
+                    'currency': 'query',
                 },
                 'collection_format_map': {
                     'ids': 'csv',
@@ -377,6 +490,241 @@ class CompanyReportsApi(object):
         return self.get_fds_profiles_endpoint.call_with_http_info(**kwargs)
 
 
+    def get_financials(
+        self,
+        statement_type,
+        id,
+        periodicity,
+        **kwargs
+    ) -> FinancialResponse:
+        """Returns company financial data.  # noqa: E501
+
+        Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            statement_type (str): The type of financial statement being requested.
+            id (str): The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.
+            periodicity (str): Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **SEMI_R** = Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  = Last Twelve Months,   * **YTD** = Year-to-date.   <br>  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.<br> 
+
+        Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
+            update_type (str): Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data . [optional] if omitted the server will use the default value of "RP"
+            limit (int): The time period for the returned data. Within range of 1 to 100. If not specified default will be 4.. [optional] if omitted the server will use the default value of 4
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            FinancialResponse
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['statement_type'] = \
+            statement_type
+        kwargs['id'] = \
+            id
+        kwargs['periodicity'] = \
+            periodicity
+        return self.get_financials_endpoint.call_with_http_info(**kwargs)
+
+    def get_financials_with_http_info(
+        self,
+        statement_type,
+        id,
+        periodicity,
+        **kwargs
+    ) -> typing.Tuple[FinancialResponse, int, typing.MutableMapping]:
+        """Returns company financial data.  # noqa: E501
+
+        Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            statement_type (str): The type of financial statement being requested.
+            id (str): The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.
+            periodicity (str): Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **SEMI_R** = Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  = Last Twelve Months,   * **YTD** = Year-to-date.   <br>  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.<br> 
+
+        Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
+            update_type (str): Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data . [optional] if omitted the server will use the default value of "RP"
+            limit (int): The time period for the returned data. Within range of 1 to 100. If not specified default will be 4.. [optional] if omitted the server will use the default value of 4
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            FinancialResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['statement_type'] = \
+            statement_type
+        kwargs['id'] = \
+            id
+        kwargs['periodicity'] = \
+            periodicity
+        return self.get_financials_endpoint.call_with_http_info(**kwargs)
+
+    def get_financials_async(
+        self,
+        statement_type,
+        id,
+        periodicity,
+        **kwargs
+    ) -> "ApplyResult[FinancialResponse]":
+        """Returns company financial data.  # noqa: E501
+
+        Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            statement_type (str): The type of financial statement being requested.
+            id (str): The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.
+            periodicity (str): Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **SEMI_R** = Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  = Last Twelve Months,   * **YTD** = Year-to-date.   <br>  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.<br> 
+
+        Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
+            update_type (str): Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data . [optional] if omitted the server will use the default value of "RP"
+            limit (int): The time period for the returned data. Within range of 1 to 100. If not specified default will be 4.. [optional] if omitted the server will use the default value of 4
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[FinancialResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['statement_type'] = \
+            statement_type
+        kwargs['id'] = \
+            id
+        kwargs['periodicity'] = \
+            periodicity
+        return self.get_financials_endpoint.call_with_http_info(**kwargs)
+
+    def get_financials_with_http_info_async(
+        self,
+        statement_type,
+        id,
+        periodicity,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[FinancialResponse, int, typing.MutableMapping]]":
+        """Returns company financial data.  # noqa: E501
+
+        Returns company financial data (preliminary or final) for specified security and statement type (income statement, balance sheet, cash flow), for various fiscal reporting periods. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            statement_type (str): The type of financial statement being requested.
+            id (str): The requested security identifier. Accepted ID types include Market Ticker, SEDOL, ISIN, CUSIP, or FactSet Permanent Id.
+            periodicity (str): Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **SEMI_R** = Semi-Annual - Latest - *Includes Restatements*,   * **LTM**  = Last Twelve Months,   * **YTD** = Year-to-date.   <br>  Please note that the coverage for SEMI_R may be limited as fewer companies report with this periodicity.<br> 
+
+        Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
+            update_type (str): Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data . [optional] if omitted the server will use the default value of "RP"
+            limit (int): The time period for the returned data. Within range of 1 to 100. If not specified default will be 4.. [optional] if omitted the server will use the default value of 4
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(FinancialResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['statement_type'] = \
+            statement_type
+        kwargs['id'] = \
+            id
+        kwargs['periodicity'] = \
+            periodicity
+        return self.get_financials_endpoint.call_with_http_info(**kwargs)
+
+
     def get_fundamentals(
         self,
         ids,
@@ -384,13 +732,14 @@ class CompanyReportsApi(object):
     ) -> CompanyFundamentalsResponse:
         """Returns company fundamentals for a given list of identifiers.  # noqa: E501
 
-        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.   # noqa: E501
+        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
 
         Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -431,13 +780,14 @@ class CompanyReportsApi(object):
     ) -> typing.Tuple[CompanyFundamentalsResponse, int, typing.MutableMapping]:
         """Returns company fundamentals for a given list of identifiers.  # noqa: E501
 
-        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.   # noqa: E501
+        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
 
         Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -482,13 +832,14 @@ class CompanyReportsApi(object):
     ) -> "ApplyResult[CompanyFundamentalsResponse]":
         """Returns company fundamentals for a given list of identifiers.  # noqa: E501
 
-        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.   # noqa: E501
+        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
 
         Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -528,13 +879,14 @@ class CompanyReportsApi(object):
     ) -> "ApplyResult[typing.Tuple[CompanyFundamentalsResponse, int, typing.MutableMapping]]":
         """Returns company fundamentals for a given list of identifiers.  # noqa: E501
 
-        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.   # noqa: E501
+        Returns detailed insights on specified publicly traded company's various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.<br> **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
 
         Keyword Args:
+            currency (str): Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. . [optional] if omitted the server will use the default value of "LOCAL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

@@ -47,8 +47,16 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   Profile.JSON_PROPERTY_EXCHANGE,
   Profile.JSON_PROPERTY_NAME,
   Profile.JSON_PROPERTY_ADDRESS,
+  Profile.JSON_PROPERTY_ECONOMY_ID,
+  Profile.JSON_PROPERTY_ECONOMY,
+  Profile.JSON_PROPERTY_SUB_SECTOR_ID,
+  Profile.JSON_PROPERTY_SUB_SECTOR,
+  Profile.JSON_PROPERTY_INDUSTRY_GROUP_ID,
+  Profile.JSON_PROPERTY_INDUSTRY_GROUP,
   Profile.JSON_PROPERTY_INDUSTRY_ID,
   Profile.JSON_PROPERTY_INDUSTRY,
+  Profile.JSON_PROPERTY_SUB_INDUSTRY_ID,
+  Profile.JSON_PROPERTY_SUB_INDUSTRY,
   Profile.JSON_PROPERTY_SECTOR_ID,
   Profile.JSON_PROPERTY_SECTOR,
   Profile.JSON_PROPERTY_NUMBER_OF_EMPLOYEES,
@@ -86,11 +94,35 @@ public class Profile implements Serializable {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
 
+  public static final String JSON_PROPERTY_ECONOMY_ID = "economyId";
+  private JsonNullable<String> economyId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_ECONOMY = "economy";
+  private JsonNullable<String> economy = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SUB_SECTOR_ID = "subSectorId";
+  private JsonNullable<String> subSectorId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SUB_SECTOR = "subSector";
+  private JsonNullable<String> subSector = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_INDUSTRY_GROUP_ID = "industryGroupId";
+  private JsonNullable<String> industryGroupId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_INDUSTRY_GROUP = "industryGroup";
+  private JsonNullable<String> industryGroup = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_INDUSTRY_ID = "industryId";
   private JsonNullable<String> industryId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INDUSTRY = "industry";
   private JsonNullable<String> industry = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SUB_INDUSTRY_ID = "subIndustryId";
+  private JsonNullable<String> subIndustryId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_SUB_INDUSTRY = "subIndustry";
+  private JsonNullable<String> subIndustry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SECTOR_ID = "sectorId";
   private JsonNullable<String> sectorId = JsonNullable.<String>undefined();
@@ -331,6 +363,210 @@ public class Profile implements Serializable {
   }
 
 
+  public Profile economyId(String economyId) {
+    this.economyId = JsonNullable.<String>of(economyId);
+    return this;
+  }
+
+   /**
+   * The economy classification Id for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return economyId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "55", value = "The economy classification Id for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getEconomyId() {
+        return economyId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ECONOMY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getEconomyId_JsonNullable() {
+    return economyId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ECONOMY_ID)
+  public void setEconomyId_JsonNullable(JsonNullable<String> economyId) {
+    this.economyId = economyId;
+  }
+
+  public void setEconomyId(String economyId) {
+    this.economyId = JsonNullable.<String>of(economyId);
+  }
+
+
+  public Profile economy(String economy) {
+    this.economy = JsonNullable.<String>of(economy);
+    return this;
+  }
+
+   /**
+   * The economy classification for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return economy
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Technology", value = "The economy classification for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getEconomy() {
+        return economy.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ECONOMY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getEconomy_JsonNullable() {
+    return economy;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ECONOMY)
+  public void setEconomy_JsonNullable(JsonNullable<String> economy) {
+    this.economy = economy;
+  }
+
+  public void setEconomy(String economy) {
+    this.economy = JsonNullable.<String>of(economy);
+  }
+
+
+  public Profile subSectorId(String subSectorId) {
+    this.subSectorId = JsonNullable.<String>of(subSectorId);
+    return this;
+  }
+
+   /**
+   * The subSector classification Id for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return subSectorId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "551515", value = "The subSector classification Id for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getSubSectorId() {
+        return subSectorId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUB_SECTOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSubSectorId_JsonNullable() {
+    return subSectorId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SUB_SECTOR_ID)
+  public void setSubSectorId_JsonNullable(JsonNullable<String> subSectorId) {
+    this.subSectorId = subSectorId;
+  }
+
+  public void setSubSectorId(String subSectorId) {
+    this.subSectorId = JsonNullable.<String>of(subSectorId);
+  }
+
+
+  public Profile subSector(String subSector) {
+    this.subSector = JsonNullable.<String>of(subSector);
+    return this;
+  }
+
+   /**
+   * The subSector classification for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return subSector
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Communications Equipment", value = "The subSector classification for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getSubSector() {
+        return subSector.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUB_SECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSubSector_JsonNullable() {
+    return subSector;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SUB_SECTOR)
+  public void setSubSector_JsonNullable(JsonNullable<String> subSector) {
+    this.subSector = subSector;
+  }
+
+  public void setSubSector(String subSector) {
+    this.subSector = JsonNullable.<String>of(subSector);
+  }
+
+
+  public Profile industryGroupId(String industryGroupId) {
+    this.industryGroupId = JsonNullable.<String>of(industryGroupId);
+    return this;
+  }
+
+   /**
+   * The industryGroup classification Id for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return industryGroupId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "55151545", value = "The industryGroup classification Id for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getIndustryGroupId() {
+        return industryGroupId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_GROUP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIndustryGroupId_JsonNullable() {
+    return industryGroupId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_GROUP_ID)
+  public void setIndustryGroupId_JsonNullable(JsonNullable<String> industryGroupId) {
+    this.industryGroupId = industryGroupId;
+  }
+
+  public void setIndustryGroupId(String industryGroupId) {
+    this.industryGroupId = JsonNullable.<String>of(industryGroupId);
+  }
+
+
+  public Profile industryGroup(String industryGroup) {
+    this.industryGroup = JsonNullable.<String>of(industryGroup);
+    return this;
+  }
+
+   /**
+   * The industryGroup classification for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return industryGroup
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Wireless Mobile Equipment", value = "The industryGroup classification for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getIndustryGroup() {
+        return industryGroup.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIndustryGroup_JsonNullable() {
+    return industryGroup;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INDUSTRY_GROUP)
+  public void setIndustryGroup_JsonNullable(JsonNullable<String> industryGroup) {
+    this.industryGroup = industryGroup;
+  }
+
+  public void setIndustryGroup(String industryGroup) {
+    this.industryGroup = JsonNullable.<String>of(industryGroup);
+  }
+
+
   public Profile industryId(String industryId) {
     this.industryId = JsonNullable.<String>of(industryId);
     return this;
@@ -341,7 +577,7 @@ public class Profile implements Serializable {
    * @return industryId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "5515", value = "The industry classification Id for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @ApiModelProperty(example = "5515154530", value = "The industry classification Id for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
   @JsonIgnore
 
   public String getIndustryId() {
@@ -375,7 +611,7 @@ public class Profile implements Serializable {
    * @return industry
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Hardware", value = "The industry classification for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @ApiModelProperty(example = "Smart Phone Manufacturing", value = "The industry classification for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
   @JsonIgnore
 
   public String getIndustry() {
@@ -399,6 +635,74 @@ public class Profile implements Serializable {
   }
 
 
+  public Profile subIndustryId(String subIndustryId) {
+    this.subIndustryId = JsonNullable.<String>of(subIndustryId);
+    return this;
+  }
+
+   /**
+   * The subIndustry classification Id for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return subIndustryId
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "551515453010", value = "The subIndustry classification Id for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getSubIndustryId() {
+        return subIndustryId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUB_INDUSTRY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSubIndustryId_JsonNullable() {
+    return subIndustryId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SUB_INDUSTRY_ID)
+  public void setSubIndustryId_JsonNullable(JsonNullable<String> subIndustryId) {
+    this.subIndustryId = subIndustryId;
+  }
+
+  public void setSubIndustryId(String subIndustryId) {
+    this.subIndustryId = JsonNullable.<String>of(subIndustryId);
+  }
+
+
+  public Profile subIndustry(String subIndustry) {
+    this.subIndustry = JsonNullable.<String>of(subIndustry);
+    return this;
+  }
+
+   /**
+   * The subIndustry classification for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+   * @return subIndustry
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Smart Phone Manufacturing", value = "The subIndustry classification for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @JsonIgnore
+
+  public String getSubIndustry() {
+        return subIndustry.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SUB_INDUSTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSubIndustry_JsonNullable() {
+    return subIndustry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SUB_INDUSTRY)
+  public void setSubIndustry_JsonNullable(JsonNullable<String> subIndustry) {
+    this.subIndustry = subIndustry;
+  }
+
+  public void setSubIndustry(String subIndustry) {
+    this.subIndustry = JsonNullable.<String>of(subIndustry);
+  }
+
+
   public Profile sectorId(String sectorId) {
     this.sectorId = JsonNullable.<String>of(sectorId);
     return this;
@@ -409,7 +713,7 @@ public class Profile implements Serializable {
    * @return sectorId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "5515154530", value = "The sector classification Id for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @ApiModelProperty(example = "5515", value = "The sector classification Id for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
   @JsonIgnore
 
   public String getSectorId() {
@@ -443,7 +747,7 @@ public class Profile implements Serializable {
    * @return sector
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Smart Phone Manufacturing", value = "The sector classification for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
+  @ApiModelProperty(example = "Hardware", value = "The sector classification for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)")
   @JsonIgnore
 
   public String getSector() {
@@ -758,8 +1062,16 @@ public class Profile implements Serializable {
         Objects.equals(this.exchange, profile.exchange) &&
         equalsNullable(this.name, profile.name) &&
         Objects.equals(this.address, profile.address) &&
+        equalsNullable(this.economyId, profile.economyId) &&
+        equalsNullable(this.economy, profile.economy) &&
+        equalsNullable(this.subSectorId, profile.subSectorId) &&
+        equalsNullable(this.subSector, profile.subSector) &&
+        equalsNullable(this.industryGroupId, profile.industryGroupId) &&
+        equalsNullable(this.industryGroup, profile.industryGroup) &&
         equalsNullable(this.industryId, profile.industryId) &&
         equalsNullable(this.industry, profile.industry) &&
+        equalsNullable(this.subIndustryId, profile.subIndustryId) &&
+        equalsNullable(this.subIndustry, profile.subIndustry) &&
         equalsNullable(this.sectorId, profile.sectorId) &&
         equalsNullable(this.sector, profile.sector) &&
         equalsNullable(this.numberOfEmployees, profile.numberOfEmployees) &&
@@ -778,7 +1090,7 @@ public class Profile implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, error, hashCodeNullable(fsymId), hashCodeNullable(tickerRegion), exchange, hashCodeNullable(name), address, hashCodeNullable(industryId), hashCodeNullable(industry), hashCodeNullable(sectorId), hashCodeNullable(sector), hashCodeNullable(numberOfEmployees), hashCodeNullable(ceo), hashCodeNullable(businessSummary), hashCodeNullable(yearFounded), hashCodeNullable(marketCapitalization), hashCodeNullable(totalMarketCapitalization), hashCodeNullable(sharesOutstanding), hashCodeNullable(peRatio));
+    return Objects.hash(requestId, error, hashCodeNullable(fsymId), hashCodeNullable(tickerRegion), exchange, hashCodeNullable(name), address, hashCodeNullable(economyId), hashCodeNullable(economy), hashCodeNullable(subSectorId), hashCodeNullable(subSector), hashCodeNullable(industryGroupId), hashCodeNullable(industryGroup), hashCodeNullable(industryId), hashCodeNullable(industry), hashCodeNullable(subIndustryId), hashCodeNullable(subIndustry), hashCodeNullable(sectorId), hashCodeNullable(sector), hashCodeNullable(numberOfEmployees), hashCodeNullable(ceo), hashCodeNullable(businessSummary), hashCodeNullable(yearFounded), hashCodeNullable(marketCapitalization), hashCodeNullable(totalMarketCapitalization), hashCodeNullable(sharesOutstanding), hashCodeNullable(peRatio));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -799,8 +1111,16 @@ public class Profile implements Serializable {
     sb.append("    exchange: ").append(toIndentedString(exchange)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    economyId: ").append(toIndentedString(economyId)).append("\n");
+    sb.append("    economy: ").append(toIndentedString(economy)).append("\n");
+    sb.append("    subSectorId: ").append(toIndentedString(subSectorId)).append("\n");
+    sb.append("    subSector: ").append(toIndentedString(subSector)).append("\n");
+    sb.append("    industryGroupId: ").append(toIndentedString(industryGroupId)).append("\n");
+    sb.append("    industryGroup: ").append(toIndentedString(industryGroup)).append("\n");
     sb.append("    industryId: ").append(toIndentedString(industryId)).append("\n");
     sb.append("    industry: ").append(toIndentedString(industry)).append("\n");
+    sb.append("    subIndustryId: ").append(toIndentedString(subIndustryId)).append("\n");
+    sb.append("    subIndustry: ").append(toIndentedString(subIndustry)).append("\n");
     sb.append("    sectorId: ").append(toIndentedString(sectorId)).append("\n");
     sb.append("    sector: ").append(toIndentedString(sector)).append("\n");
     sb.append("    numberOfEmployees: ").append(toIndentedString(numberOfEmployees)).append("\n");

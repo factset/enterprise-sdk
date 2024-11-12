@@ -36,12 +36,14 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
         /// <param name="name">Name of the metric.</param>
+        /// <param name="ffCode">FactSet Fundamental code representing the corresponding financial metric.</param>
         /// <param name="displayLevel">Describes the level of displaying the item.</param>
         /// <param name="displayOrder">Describes the order of displaying the item.</param>
         /// <param name="value">value.</param>
-        public Item(string name = default(string), string displayLevel = default(string), int displayOrder = default(int), List<double?> value = default(List<double?>))
+        public Item(string name = default(string), string ffCode = default(string), string displayLevel = default(string), int displayOrder = default(int), List<double?> value = default(List<double?>))
         {
             this.Name = name;
+            this.FfCode = ffCode;
             this.DisplayLevel = displayLevel;
             this.DisplayOrder = displayOrder;
             this.Value = value;
@@ -53,6 +55,13 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         /// <value>Name of the metric</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// FactSet Fundamental code representing the corresponding financial metric
+        /// </summary>
+        /// <value>FactSet Fundamental code representing the corresponding financial metric</value>
+        [DataMember(Name = "ffCode", EmitDefaultValue = false)]
+        public string FfCode { get; set; }
 
         /// <summary>
         /// Describes the level of displaying the item
@@ -83,6 +92,7 @@ namespace FactSet.SDK.FactSetFundamentals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Item {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  FfCode: ").Append(FfCode).Append("\n");
             sb.Append("  DisplayLevel: ").Append(DisplayLevel).Append("\n");
             sb.Append("  DisplayOrder: ").Append(DisplayOrder).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -127,6 +137,11 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.FfCode == input.FfCode ||
+                    (this.FfCode != null &&
+                    this.FfCode.Equals(input.FfCode))
+                ) && 
+                (
                     this.DisplayLevel == input.DisplayLevel ||
                     (this.DisplayLevel != null &&
                     this.DisplayLevel.Equals(input.DisplayLevel))
@@ -155,6 +170,10 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.FfCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.FfCode.GetHashCode();
                 }
                 if (this.DisplayLevel != null)
                 {

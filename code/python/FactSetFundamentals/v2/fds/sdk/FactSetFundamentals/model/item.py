@@ -83,6 +83,7 @@ class Item(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
+            'ff_code': (str,),  # noqa: E501
             'display_level': (str,),  # noqa: E501
             'display_order': (int,),  # noqa: E501
             'value': ([float, none_type],),  # noqa: E501
@@ -95,6 +96,7 @@ class Item(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'ff_code': 'ffCode',  # noqa: E501
         'display_level': 'displayLevel',  # noqa: E501
         'display_order': 'displayOrder',  # noqa: E501
         'value': 'value',  # noqa: E501
@@ -142,6 +144,7 @@ class Item(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): Name of the metric. [optional]  # noqa: E501
+            ff_code (str): FactSet Fundamental code representing the corresponding financial metric. [optional]  # noqa: E501
             display_level (str): Describes the level of displaying the item. [optional]  # noqa: E501
             display_order (int): Describes the order of displaying the item. [optional]  # noqa: E501
             value ([float, none_type]): [optional]  # noqa: E501
@@ -227,6 +230,7 @@ class Item(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): Name of the metric. [optional]  # noqa: E501
+            ff_code (str): FactSet Fundamental code representing the corresponding financial metric. [optional]  # noqa: E501
             display_level (str): Describes the level of displaying the item. [optional]  # noqa: E501
             display_order (int): Describes the order of displaying the item. [optional]  # noqa: E501
             value ([float, none_type]): [optional]  # noqa: E501

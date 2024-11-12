@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.FactSetFundamentals.models.CompanyReportErrorObject;
 import com.factset.sdk.FactSetFundamentals.models.Dividend;
+import com.factset.sdk.FactSetFundamentals.models.PerShare;
+import com.factset.sdk.FactSetFundamentals.models.Ratios;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,44 +48,21 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   Fundamentals.JSON_PROPERTY_FSYM_ID,
   Fundamentals.JSON_PROPERTY_AS_OF_DATE,
   Fundamentals.JSON_PROPERTY_CURRENCY,
-  Fundamentals.JSON_PROPERTY_ASSET_TURNOVER_RATIO,
-  Fundamentals.JSON_PROPERTY_BOOK_VALUE_PER_SHARE,
-  Fundamentals.JSON_PROPERTY_CASH_FLOW_PER_SHARE,
-  Fundamentals.JSON_PROPERTY_CASH_PER_SHARE,
-  Fundamentals.JSON_PROPERTY_CURRENT_RATIO,
+  Fundamentals.JSON_PROPERTY_PER_SHARE,
+  Fundamentals.JSON_PROPERTY_RATIOS,
   Fundamentals.JSON_PROPERTY_DIVIDEND,
-  Fundamentals.JSON_PROPERTY_EARNINGS_PER_SHARE,
-  Fundamentals.JSON_PROPERTY_EBIT_MARGIN,
-  Fundamentals.JSON_PROPERTY_EBITDA_MARGIN,
   Fundamentals.JSON_PROPERTY_ENTERPRISE_VALUE,
   Fundamentals.JSON_PROPERTY_FIVE_YEAR_AVERAGE_YIELD,
   Fundamentals.JSON_PROPERTY_FIVE_YEAR_DIVIDEND_GROWTH_RATE,
   Fundamentals.JSON_PROPERTY_FLOATING_SHARES_OUTSTANDING,
-  Fundamentals.JSON_PROPERTY_GROSS_MARGIN,
-  Fundamentals.JSON_PROPERTY_INVENTORY_TURNOVER,
-  Fundamentals.JSON_PROPERTY_LONG_TERM_DEBT_TO_EQUITY,
   Fundamentals.JSON_PROPERTY_NET_INCOME,
   Fundamentals.JSON_PROPERTY_NUMBER_OF_EMPLOYEES,
-  Fundamentals.JSON_PROPERTY_PAYOUT_RATIO,
-  Fundamentals.JSON_PROPERTY_PRETAX_MARGIN,
-  Fundamentals.JSON_PROPERTY_PRICE_TO_BOOK_RATIO,
-  Fundamentals.JSON_PROPERTY_PRICE_TO_CASH_FLOW_RATIO,
-  Fundamentals.JSON_PROPERTY_PRICE_TO_EARNINGS_RATIO,
-  Fundamentals.JSON_PROPERTY_PRICE_TO_SALES_RATIO,
-  Fundamentals.JSON_PROPERTY_QUICK_RATIO,
-  Fundamentals.JSON_PROPERTY_RETURN_ON_ASSETS,
-  Fundamentals.JSON_PROPERTY_RETURN_ON_EQUITY,
-  Fundamentals.JSON_PROPERTY_RETURN_ON_INVESTED_CAPITAL,
-  Fundamentals.JSON_PROPERTY_REVENUE_PER_SHARE,
   Fundamentals.JSON_PROPERTY_SALES_PER_EMPLOYEE,
-  Fundamentals.JSON_PROPERTY_SALES_PER_SHARE,
   Fundamentals.JSON_PROPERTY_SHARE_HOLDER_EQUITY,
   Fundamentals.JSON_PROPERTY_THREE_YEAR_AVERAGE_YIELD,
   Fundamentals.JSON_PROPERTY_THREE_YEAR_DIVIDEND_GROWTH_RATE,
   Fundamentals.JSON_PROPERTY_TOTAL_ASSETS,
-  Fundamentals.JSON_PROPERTY_TOTAL_DEBT_TO_EQUITY,
-  Fundamentals.JSON_PROPERTY_TOTAL_REVENUE,
-  Fundamentals.JSON_PROPERTY_TRAILING_TWELVE_MONTH_EARNINGS_PER_SHARE
+  Fundamentals.JSON_PROPERTY_TOTAL_REVENUE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -105,32 +84,14 @@ public class Fundamentals implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ASSET_TURNOVER_RATIO = "assetTurnoverRatio";
-  private JsonNullable<Double> assetTurnoverRatio = JsonNullable.<Double>undefined();
+  public static final String JSON_PROPERTY_PER_SHARE = "perShare";
+  private PerShare perShare;
 
-  public static final String JSON_PROPERTY_BOOK_VALUE_PER_SHARE = "bookValuePerShare";
-  private JsonNullable<Double> bookValuePerShare = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_CASH_FLOW_PER_SHARE = "cashFlowPerShare";
-  private JsonNullable<Double> cashFlowPerShare = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_CASH_PER_SHARE = "cashPerShare";
-  private JsonNullable<Double> cashPerShare = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_CURRENT_RATIO = "currentRatio";
-  private JsonNullable<Double> currentRatio = JsonNullable.<Double>undefined();
+  public static final String JSON_PROPERTY_RATIOS = "ratios";
+  private Ratios ratios;
 
   public static final String JSON_PROPERTY_DIVIDEND = "dividend";
   private Dividend dividend;
-
-  public static final String JSON_PROPERTY_EARNINGS_PER_SHARE = "earningsPerShare";
-  private JsonNullable<Double> earningsPerShare = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_EBIT_MARGIN = "ebitMargin";
-  private JsonNullable<Double> ebitMargin = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_EBITDA_MARGIN = "ebitdaMargin";
-  private JsonNullable<Double> ebitdaMargin = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ENTERPRISE_VALUE = "enterpriseValue";
   private JsonNullable<Double> enterpriseValue = JsonNullable.<Double>undefined();
@@ -144,59 +105,14 @@ public class Fundamentals implements Serializable {
   public static final String JSON_PROPERTY_FLOATING_SHARES_OUTSTANDING = "floatingSharesOutstanding";
   private JsonNullable<Double> floatingSharesOutstanding = JsonNullable.<Double>undefined();
 
-  public static final String JSON_PROPERTY_GROSS_MARGIN = "grossMargin";
-  private JsonNullable<Double> grossMargin = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_INVENTORY_TURNOVER = "inventoryTurnover";
-  private JsonNullable<Double> inventoryTurnover = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_LONG_TERM_DEBT_TO_EQUITY = "longTermDebtToEquity";
-  private JsonNullable<Double> longTermDebtToEquity = JsonNullable.<Double>undefined();
-
   public static final String JSON_PROPERTY_NET_INCOME = "netIncome";
   private JsonNullable<Double> netIncome = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_NUMBER_OF_EMPLOYEES = "numberOfEmployees";
   private JsonNullable<Integer> numberOfEmployees = JsonNullable.<Integer>undefined();
 
-  public static final String JSON_PROPERTY_PAYOUT_RATIO = "payoutRatio";
-  private JsonNullable<Double> payoutRatio = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_PRETAX_MARGIN = "pretaxMargin";
-  private JsonNullable<Double> pretaxMargin = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_PRICE_TO_BOOK_RATIO = "priceToBookRatio";
-  private JsonNullable<Double> priceToBookRatio = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_PRICE_TO_CASH_FLOW_RATIO = "priceToCashFlowRatio";
-  private JsonNullable<Double> priceToCashFlowRatio = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_PRICE_TO_EARNINGS_RATIO = "priceToEarningsRatio";
-  private JsonNullable<Double> priceToEarningsRatio = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_PRICE_TO_SALES_RATIO = "priceToSalesRatio";
-  private JsonNullable<Double> priceToSalesRatio = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_QUICK_RATIO = "quickRatio";
-  private JsonNullable<Double> quickRatio = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_RETURN_ON_ASSETS = "returnOnAssets";
-  private JsonNullable<Double> returnOnAssets = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_RETURN_ON_EQUITY = "returnOnEquity";
-  private JsonNullable<Double> returnOnEquity = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_RETURN_ON_INVESTED_CAPITAL = "returnOnInvestedCapital";
-  private JsonNullable<Double> returnOnInvestedCapital = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_REVENUE_PER_SHARE = "revenuePerShare";
-  private JsonNullable<Double> revenuePerShare = JsonNullable.<Double>undefined();
-
   public static final String JSON_PROPERTY_SALES_PER_EMPLOYEE = "salesPerEmployee";
   private JsonNullable<Double> salesPerEmployee = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_SALES_PER_SHARE = "salesPerShare";
-  private JsonNullable<Double> salesPerShare = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_SHARE_HOLDER_EQUITY = "shareHolderEquity";
   private JsonNullable<Double> shareHolderEquity = JsonNullable.<Double>undefined();
@@ -210,14 +126,8 @@ public class Fundamentals implements Serializable {
   public static final String JSON_PROPERTY_TOTAL_ASSETS = "totalAssets";
   private JsonNullable<Double> totalAssets = JsonNullable.<Double>undefined();
 
-  public static final String JSON_PROPERTY_TOTAL_DEBT_TO_EQUITY = "totalDebtToEquity";
-  private JsonNullable<Double> totalDebtToEquity = JsonNullable.<Double>undefined();
-
   public static final String JSON_PROPERTY_TOTAL_REVENUE = "totalRevenue";
   private JsonNullable<Double> totalRevenue = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_TRAILING_TWELVE_MONTH_EARNINGS_PER_SHARE = "trailingTwelveMonthEarningsPerShare";
-  private JsonNullable<Double> trailingTwelveMonthEarningsPerShare = JsonNullable.<Double>undefined();
 
   public Fundamentals() { 
   }
@@ -376,173 +286,55 @@ public class Fundamentals implements Serializable {
   }
 
 
-  public Fundamentals assetTurnoverRatio(Double assetTurnoverRatio) {
-    this.assetTurnoverRatio = JsonNullable.<Double>of(assetTurnoverRatio);
+  public Fundamentals perShare(PerShare perShare) {
+    this.perShare = perShare;
     return this;
   }
 
    /**
-   * The asset turnover ratio measures the value of a company&#39;s sales or revenues relative to the value of its assets
-   * @return assetTurnoverRatio
+   * Get perShare
+   * @return perShare
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "0.479435359033746", value = "The asset turnover ratio measures the value of a company's sales or revenues relative to the value of its assets")
-  @JsonIgnore
-
-  public Double getAssetTurnoverRatio() {
-        return assetTurnoverRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ASSET_TURNOVER_RATIO)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PER_SHARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Double> getAssetTurnoverRatio_JsonNullable() {
-    return assetTurnoverRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ASSET_TURNOVER_RATIO)
-  public void setAssetTurnoverRatio_JsonNullable(JsonNullable<Double> assetTurnoverRatio) {
-    this.assetTurnoverRatio = assetTurnoverRatio;
-  }
-
-  public void setAssetTurnoverRatio(Double assetTurnoverRatio) {
-    this.assetTurnoverRatio = JsonNullable.<Double>of(assetTurnoverRatio);
+  public PerShare getPerShare() {
+    return perShare;
   }
 
 
-  public Fundamentals bookValuePerShare(Double bookValuePerShare) {
-    this.bookValuePerShare = JsonNullable.<Double>of(bookValuePerShare);
+  @JsonProperty(JSON_PROPERTY_PER_SHARE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPerShare(PerShare perShare) {
+    this.perShare = perShare;
+  }
+
+
+  public Fundamentals ratios(Ratios ratios) {
+    this.ratios = ratios;
     return this;
   }
 
    /**
-   * Book value per common share is a formula used to calculate the per share value of a company based on common shareholders&#39; equity in the company
-   * @return bookValuePerShare
+   * Get ratios
+   * @return ratios
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "25.27711", value = "Book value per common share is a formula used to calculate the per share value of a company based on common shareholders' equity in the company")
-  @JsonIgnore
-
-  public Double getBookValuePerShare() {
-        return bookValuePerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_BOOK_VALUE_PER_SHARE)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Double> getBookValuePerShare_JsonNullable() {
-    return bookValuePerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_BOOK_VALUE_PER_SHARE)
-  public void setBookValuePerShare_JsonNullable(JsonNullable<Double> bookValuePerShare) {
-    this.bookValuePerShare = bookValuePerShare;
-  }
-
-  public void setBookValuePerShare(Double bookValuePerShare) {
-    this.bookValuePerShare = JsonNullable.<Double>of(bookValuePerShare);
+  public Ratios getRatios() {
+    return ratios;
   }
 
 
-  public Fundamentals cashFlowPerShare(Double cashFlowPerShare) {
-    this.cashFlowPerShare = JsonNullable.<Double>of(cashFlowPerShare);
-    return this;
-  }
-
-   /**
-   * Cash flow per share is calculated as a ratio, indicating the amount of cash a business generates based on a company&#39;s net income with the costs of depreciation and amortization added back
-   * @return cashFlowPerShare
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "10.4268994512216", value = "Cash flow per share is calculated as a ratio, indicating the amount of cash a business generates based on a company's net income with the costs of depreciation and amortization added back")
-  @JsonIgnore
-
-  public Double getCashFlowPerShare() {
-        return cashFlowPerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CASH_FLOW_PER_SHARE)
+  @JsonProperty(JSON_PROPERTY_RATIOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getCashFlowPerShare_JsonNullable() {
-    return cashFlowPerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CASH_FLOW_PER_SHARE)
-  public void setCashFlowPerShare_JsonNullable(JsonNullable<Double> cashFlowPerShare) {
-    this.cashFlowPerShare = cashFlowPerShare;
-  }
-
-  public void setCashFlowPerShare(Double cashFlowPerShare) {
-    this.cashFlowPerShare = JsonNullable.<Double>of(cashFlowPerShare);
-  }
-
-
-  public Fundamentals cashPerShare(Double cashPerShare) {
-    this.cashPerShare = JsonNullable.<Double>of(cashPerShare);
-    return this;
-  }
-
-   /**
-   * Cash Per Share of Security
-   * @return cashPerShare
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "7.968296945651575", value = "Cash Per Share of Security")
-  @JsonIgnore
-
-  public Double getCashPerShare() {
-        return cashPerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CASH_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getCashPerShare_JsonNullable() {
-    return cashPerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CASH_PER_SHARE)
-  public void setCashPerShare_JsonNullable(JsonNullable<Double> cashPerShare) {
-    this.cashPerShare = cashPerShare;
-  }
-
-  public void setCashPerShare(Double cashPerShare) {
-    this.cashPerShare = JsonNullable.<Double>of(cashPerShare);
-  }
-
-
-  public Fundamentals currentRatio(Double currentRatio) {
-    this.currentRatio = JsonNullable.<Double>of(currentRatio);
-    return this;
-  }
-
-   /**
-   * The current ratio is a liquidity ratio that measures a company&#39;s ability to pay short-term and long-term obligations. The ratio is calculated by comparing current assets to current liabilities
-   * @return currentRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "0.874795791674835", value = "The current ratio is a liquidity ratio that measures a company's ability to pay short-term and long-term obligations. The ratio is calculated by comparing current assets to current liabilities")
-  @JsonIgnore
-
-  public Double getCurrentRatio() {
-        return currentRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CURRENT_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getCurrentRatio_JsonNullable() {
-    return currentRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_CURRENT_RATIO)
-  public void setCurrentRatio_JsonNullable(JsonNullable<Double> currentRatio) {
-    this.currentRatio = currentRatio;
-  }
-
-  public void setCurrentRatio(Double currentRatio) {
-    this.currentRatio = JsonNullable.<Double>of(currentRatio);
+  public void setRatios(Ratios ratios) {
+    this.ratios = ratios;
   }
 
 
@@ -569,108 +361,6 @@ public class Fundamentals implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDividend(Dividend dividend) {
     this.dividend = dividend;
-  }
-
-
-  public Fundamentals earningsPerShare(Double earningsPerShare) {
-    this.earningsPerShare = JsonNullable.<Double>of(earningsPerShare);
-    return this;
-  }
-
-   /**
-   * Earnings per share (EPS) is the portion of a company&#39;s profit allocated to each share of common stock
-   * @return earningsPerShare
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "1.8668", value = "Earnings per share (EPS) is the portion of a company's profit allocated to each share of common stock")
-  @JsonIgnore
-
-  public Double getEarningsPerShare() {
-        return earningsPerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EARNINGS_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getEarningsPerShare_JsonNullable() {
-    return earningsPerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EARNINGS_PER_SHARE)
-  public void setEarningsPerShare_JsonNullable(JsonNullable<Double> earningsPerShare) {
-    this.earningsPerShare = earningsPerShare;
-  }
-
-  public void setEarningsPerShare(Double earningsPerShare) {
-    this.earningsPerShare = JsonNullable.<Double>of(earningsPerShare);
-  }
-
-
-  public Fundamentals ebitMargin(Double ebitMargin) {
-    this.ebitMargin = JsonNullable.<Double>of(ebitMargin);
-    return this;
-  }
-
-   /**
-   * EBIT margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest and tax (EBIT) divided by total revenue
-   * @return ebitMargin
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "16.4113340563991", value = "EBIT margin is an assessment of a firm's operating profitability as a percentage of its total revenue. It is equal to earnings before interest and tax (EBIT) divided by total revenue")
-  @JsonIgnore
-
-  public Double getEbitMargin() {
-        return ebitMargin.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EBIT_MARGIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getEbitMargin_JsonNullable() {
-    return ebitMargin;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EBIT_MARGIN)
-  public void setEbitMargin_JsonNullable(JsonNullable<Double> ebitMargin) {
-    this.ebitMargin = ebitMargin;
-  }
-
-  public void setEbitMargin(Double ebitMargin) {
-    this.ebitMargin = JsonNullable.<Double>of(ebitMargin);
-  }
-
-
-  public Fundamentals ebitdaMargin(Double ebitdaMargin) {
-    this.ebitdaMargin = JsonNullable.<Double>of(ebitdaMargin);
-    return this;
-  }
-
-   /**
-   * EBITDA margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest, tax, depreciation and amortization (EBITDA) divided by total revenue
-   * @return ebitdaMargin
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "23.8204989154013", value = "EBITDA margin is an assessment of a firm's operating profitability as a percentage of its total revenue. It is equal to earnings before interest, tax, depreciation and amortization (EBITDA) divided by total revenue")
-  @JsonIgnore
-
-  public Double getEbitdaMargin() {
-        return ebitdaMargin.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_EBITDA_MARGIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getEbitdaMargin_JsonNullable() {
-    return ebitdaMargin;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EBITDA_MARGIN)
-  public void setEbitdaMargin_JsonNullable(JsonNullable<Double> ebitdaMargin) {
-    this.ebitdaMargin = ebitdaMargin;
-  }
-
-  public void setEbitdaMargin(Double ebitdaMargin) {
-    this.ebitdaMargin = JsonNullable.<Double>of(ebitdaMargin);
   }
 
 
@@ -810,108 +500,6 @@ public class Fundamentals implements Serializable {
   }
 
 
-  public Fundamentals grossMargin(Double grossMargin) {
-    this.grossMargin = JsonNullable.<Double>of(grossMargin);
-    return this;
-  }
-
-   /**
-   * Gross profit margin is the proportion of money left over from revenues after accounting for the cost of goods sold, calculated by dividing gross profit by revenues.
-   * @return grossMargin
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "53.843546637744", value = "Gross profit margin is the proportion of money left over from revenues after accounting for the cost of goods sold, calculated by dividing gross profit by revenues.")
-  @JsonIgnore
-
-  public Double getGrossMargin() {
-        return grossMargin.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GROSS_MARGIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getGrossMargin_JsonNullable() {
-    return grossMargin;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_GROSS_MARGIN)
-  public void setGrossMargin_JsonNullable(JsonNullable<Double> grossMargin) {
-    this.grossMargin = grossMargin;
-  }
-
-  public void setGrossMargin(Double grossMargin) {
-    this.grossMargin = JsonNullable.<Double>of(grossMargin);
-  }
-
-
-  public Fundamentals inventoryTurnover(Double inventoryTurnover) {
-    this.inventoryTurnover = JsonNullable.<Double>of(inventoryTurnover);
-    return this;
-  }
-
-   /**
-   * Inventory turnover is a ratio showing how many times a company has sold and replaced inventory during a given period
-   * @return inventoryTurnover
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "17.6586282492953", value = "Inventory turnover is a ratio showing how many times a company has sold and replaced inventory during a given period")
-  @JsonIgnore
-
-  public Double getInventoryTurnover() {
-        return inventoryTurnover.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_INVENTORY_TURNOVER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getInventoryTurnover_JsonNullable() {
-    return inventoryTurnover;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_INVENTORY_TURNOVER)
-  public void setInventoryTurnover_JsonNullable(JsonNullable<Double> inventoryTurnover) {
-    this.inventoryTurnover = inventoryTurnover;
-  }
-
-  public void setInventoryTurnover(Double inventoryTurnover) {
-    this.inventoryTurnover = JsonNullable.<Double>of(inventoryTurnover);
-  }
-
-
-  public Fundamentals longTermDebtToEquity(Double longTermDebtToEquity) {
-    this.longTermDebtToEquity = JsonNullable.<Double>of(longTermDebtToEquity);
-    return this;
-  }
-
-   /**
-   * Long-term debt consists of loans and financial obligations lasting over one year. The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities lasting over one year by its shareholder equity
-   * @return longTermDebtToEquity
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2.22278064208656", value = "Long-term debt consists of loans and financial obligations lasting over one year. The Debt/Equity (D/E) Ratio is calculated by dividing a company's total liabilities lasting over one year by its shareholder equity")
-  @JsonIgnore
-
-  public Double getLongTermDebtToEquity() {
-        return longTermDebtToEquity.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LONG_TERM_DEBT_TO_EQUITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getLongTermDebtToEquity_JsonNullable() {
-    return longTermDebtToEquity;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_LONG_TERM_DEBT_TO_EQUITY)
-  public void setLongTermDebtToEquity_JsonNullable(JsonNullable<Double> longTermDebtToEquity) {
-    this.longTermDebtToEquity = longTermDebtToEquity;
-  }
-
-  public void setLongTermDebtToEquity(Double longTermDebtToEquity) {
-    this.longTermDebtToEquity = JsonNullable.<Double>of(longTermDebtToEquity);
-  }
-
-
   public Fundamentals netIncome(Double netIncome) {
     this.netIncome = JsonNullable.<Double>of(netIncome);
     return this;
@@ -980,380 +568,6 @@ public class Fundamentals implements Serializable {
   }
 
 
-  public Fundamentals payoutRatio(Double payoutRatio) {
-    this.payoutRatio = JsonNullable.<Double>of(payoutRatio);
-    return this;
-  }
-
-   /**
-   * The dividend payout ratio is the ratio of the total amount of dividends paid out to shareholders relative to the net income of the company
-   * @return payoutRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "89.98265394622723", value = "The dividend payout ratio is the ratio of the total amount of dividends paid out to shareholders relative to the net income of the company")
-  @JsonIgnore
-
-  public Double getPayoutRatio() {
-        return payoutRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PAYOUT_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getPayoutRatio_JsonNullable() {
-    return payoutRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PAYOUT_RATIO)
-  public void setPayoutRatio_JsonNullable(JsonNullable<Double> payoutRatio) {
-    this.payoutRatio = payoutRatio;
-  }
-
-  public void setPayoutRatio(Double payoutRatio) {
-    this.payoutRatio = JsonNullable.<Double>of(payoutRatio);
-  }
-
-
-  public Fundamentals pretaxMargin(Double pretaxMargin) {
-    this.pretaxMargin = JsonNullable.<Double>of(pretaxMargin);
-    return this;
-  }
-
-   /**
-   * The pretax margin is the ratio of a company&#39;s pre-tax earnings to its total sales
-   * @return pretaxMargin
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "12.7236984815618", value = "The pretax margin is the ratio of a company's pre-tax earnings to its total sales")
-  @JsonIgnore
-
-  public Double getPretaxMargin() {
-        return pretaxMargin.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRETAX_MARGIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getPretaxMargin_JsonNullable() {
-    return pretaxMargin;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PRETAX_MARGIN)
-  public void setPretaxMargin_JsonNullable(JsonNullable<Double> pretaxMargin) {
-    this.pretaxMargin = pretaxMargin;
-  }
-
-  public void setPretaxMargin(Double pretaxMargin) {
-    this.pretaxMargin = JsonNullable.<Double>of(pretaxMargin);
-  }
-
-
-  public Fundamentals priceToBookRatio(Double priceToBookRatio) {
-    this.priceToBookRatio = JsonNullable.<Double>of(priceToBookRatio);
-    return this;
-  }
-
-   /**
-   * Companies use the price-to-book ratio to compare a firm&#39;s market to book value by dividing price per share by book value per share (BVPS) .
-   * @return priceToBookRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "6.38918", value = "Companies use the price-to-book ratio to compare a firm's market to book value by dividing price per share by book value per share (BVPS) .")
-  @JsonIgnore
-
-  public Double getPriceToBookRatio() {
-        return priceToBookRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_BOOK_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getPriceToBookRatio_JsonNullable() {
-    return priceToBookRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_BOOK_RATIO)
-  public void setPriceToBookRatio_JsonNullable(JsonNullable<Double> priceToBookRatio) {
-    this.priceToBookRatio = priceToBookRatio;
-  }
-
-  public void setPriceToBookRatio(Double priceToBookRatio) {
-    this.priceToBookRatio = JsonNullable.<Double>of(priceToBookRatio);
-  }
-
-
-  public Fundamentals priceToCashFlowRatio(Double priceToCashFlowRatio) {
-    this.priceToCashFlowRatio = JsonNullable.<Double>of(priceToCashFlowRatio);
-    return this;
-  }
-
-   /**
-   * The price-to-cash flow ratio is a stock valuation indicator or multiple that measures the value of a stock&#39;s price relative to its operating cash flow per share.
-   * @return priceToCashFlowRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "11.105", value = "The price-to-cash flow ratio is a stock valuation indicator or multiple that measures the value of a stock's price relative to its operating cash flow per share.")
-  @JsonIgnore
-
-  public Double getPriceToCashFlowRatio() {
-        return priceToCashFlowRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_CASH_FLOW_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getPriceToCashFlowRatio_JsonNullable() {
-    return priceToCashFlowRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_CASH_FLOW_RATIO)
-  public void setPriceToCashFlowRatio_JsonNullable(JsonNullable<Double> priceToCashFlowRatio) {
-    this.priceToCashFlowRatio = priceToCashFlowRatio;
-  }
-
-  public void setPriceToCashFlowRatio(Double priceToCashFlowRatio) {
-    this.priceToCashFlowRatio = JsonNullable.<Double>of(priceToCashFlowRatio);
-  }
-
-
-  public Fundamentals priceToEarningsRatio(Double priceToEarningsRatio) {
-    this.priceToEarningsRatio = JsonNullable.<Double>of(priceToEarningsRatio);
-    return this;
-  }
-
-   /**
-   * The price-to-earnings ratio (P/E ratio) is the ratio for valuing a company that measures its current share price relative to its per-share earnings
-   * @return priceToEarningsRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "21.4293", value = "The price-to-earnings ratio (P/E ratio) is the ratio for valuing a company that measures its current share price relative to its per-share earnings")
-  @JsonIgnore
-
-  public Double getPriceToEarningsRatio() {
-        return priceToEarningsRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_EARNINGS_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getPriceToEarningsRatio_JsonNullable() {
-    return priceToEarningsRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_EARNINGS_RATIO)
-  public void setPriceToEarningsRatio_JsonNullable(JsonNullable<Double> priceToEarningsRatio) {
-    this.priceToEarningsRatio = priceToEarningsRatio;
-  }
-
-  public void setPriceToEarningsRatio(Double priceToEarningsRatio) {
-    this.priceToEarningsRatio = JsonNullable.<Double>of(priceToEarningsRatio);
-  }
-
-
-  public Fundamentals priceToSalesRatio(Double priceToSalesRatio) {
-    this.priceToSalesRatio = JsonNullable.<Double>of(priceToSalesRatio);
-    return this;
-  }
-
-   /**
-   * The price-to-sales ratio (P/S ratio) is a valuation ratio that compares a company&#39;s stock price to its revenues
-   * @return priceToSalesRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2.43871", value = "The price-to-sales ratio (P/S ratio) is a valuation ratio that compares a company's stock price to its revenues")
-  @JsonIgnore
-
-  public Double getPriceToSalesRatio() {
-        return priceToSalesRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_SALES_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getPriceToSalesRatio_JsonNullable() {
-    return priceToSalesRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_PRICE_TO_SALES_RATIO)
-  public void setPriceToSalesRatio_JsonNullable(JsonNullable<Double> priceToSalesRatio) {
-    this.priceToSalesRatio = priceToSalesRatio;
-  }
-
-  public void setPriceToSalesRatio(Double priceToSalesRatio) {
-    this.priceToSalesRatio = JsonNullable.<Double>of(priceToSalesRatio);
-  }
-
-
-  public Fundamentals quickRatio(Double quickRatio) {
-    this.quickRatio = JsonNullable.<Double>of(quickRatio);
-    return this;
-  }
-
-   /**
-   * The quick ratio measures the dollar amount of liquid assets available with the company against the dollar amount of its current liabilities
-   * @return quickRatio
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "0.829085800169901", value = "The quick ratio measures the dollar amount of liquid assets available with the company against the dollar amount of its current liabilities")
-  @JsonIgnore
-
-  public Double getQuickRatio() {
-        return quickRatio.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_QUICK_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getQuickRatio_JsonNullable() {
-    return quickRatio;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_QUICK_RATIO)
-  public void setQuickRatio_JsonNullable(JsonNullable<Double> quickRatio) {
-    this.quickRatio = quickRatio;
-  }
-
-  public void setQuickRatio(Double quickRatio) {
-    this.quickRatio = JsonNullable.<Double>of(quickRatio);
-  }
-
-
-  public Fundamentals returnOnAssets(Double returnOnAssets) {
-    this.returnOnAssets = JsonNullable.<Double>of(returnOnAssets);
-    return this;
-  }
-
-   /**
-   * Return on net assets (RONA) is a measure of financial performance calculated as net income divided by the sum of fixed assets and net working capital
-   * @return returnOnAssets
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "5.56332812114229", value = "Return on net assets (RONA) is a measure of financial performance calculated as net income divided by the sum of fixed assets and net working capital")
-  @JsonIgnore
-
-  public Double getReturnOnAssets() {
-        return returnOnAssets.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RETURN_ON_ASSETS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getReturnOnAssets_JsonNullable() {
-    return returnOnAssets;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_RETURN_ON_ASSETS)
-  public void setReturnOnAssets_JsonNullable(JsonNullable<Double> returnOnAssets) {
-    this.returnOnAssets = returnOnAssets;
-  }
-
-  public void setReturnOnAssets(Double returnOnAssets) {
-    this.returnOnAssets = JsonNullable.<Double>of(returnOnAssets);
-  }
-
-
-  public Fundamentals returnOnEquity(Double returnOnEquity) {
-    this.returnOnEquity = JsonNullable.<Double>of(returnOnEquity);
-    return this;
-  }
-
-   /**
-   * Return on equity (ROE) is a measure of financial performance calculated as net income divided by shareholders&#39; equity
-   * @return returnOnEquity
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "32.8938526774336", value = "Return on equity (ROE) is a measure of financial performance calculated as net income divided by shareholders' equity")
-  @JsonIgnore
-
-  public Double getReturnOnEquity() {
-        return returnOnEquity.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RETURN_ON_EQUITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getReturnOnEquity_JsonNullable() {
-    return returnOnEquity;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_RETURN_ON_EQUITY)
-  public void setReturnOnEquity_JsonNullable(JsonNullable<Double> returnOnEquity) {
-    this.returnOnEquity = returnOnEquity;
-  }
-
-  public void setReturnOnEquity(Double returnOnEquity) {
-    this.returnOnEquity = JsonNullable.<Double>of(returnOnEquity);
-  }
-
-
-  public Fundamentals returnOnInvestedCapital(Double returnOnInvestedCapital) {
-    this.returnOnInvestedCapital = JsonNullable.<Double>of(returnOnInvestedCapital);
-    return this;
-  }
-
-   /**
-   * Return on Investment (ROI) measures how well an investment is performing
-   * @return returnOnInvestedCapital
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "10.0320834452249", value = "Return on Investment (ROI) measures how well an investment is performing")
-  @JsonIgnore
-
-  public Double getReturnOnInvestedCapital() {
-        return returnOnInvestedCapital.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_RETURN_ON_INVESTED_CAPITAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getReturnOnInvestedCapital_JsonNullable() {
-    return returnOnInvestedCapital;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_RETURN_ON_INVESTED_CAPITAL)
-  public void setReturnOnInvestedCapital_JsonNullable(JsonNullable<Double> returnOnInvestedCapital) {
-    this.returnOnInvestedCapital = returnOnInvestedCapital;
-  }
-
-  public void setReturnOnInvestedCapital(Double returnOnInvestedCapital) {
-    this.returnOnInvestedCapital = JsonNullable.<Double>of(returnOnInvestedCapital);
-  }
-
-
-  public Fundamentals revenuePerShare(Double revenuePerShare) {
-    this.revenuePerShare = JsonNullable.<Double>of(revenuePerShare);
-    return this;
-  }
-
-   /**
-   * The portion of a company&#39;s revenue that is allocated to each share of common stock.
-   * @return revenuePerShare
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "66.3510388780454", value = "The portion of a company's revenue that is allocated to each share of common stock.")
-  @JsonIgnore
-
-  public Double getRevenuePerShare() {
-        return revenuePerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_REVENUE_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getRevenuePerShare_JsonNullable() {
-    return revenuePerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_REVENUE_PER_SHARE)
-  public void setRevenuePerShare_JsonNullable(JsonNullable<Double> revenuePerShare) {
-    this.revenuePerShare = revenuePerShare;
-  }
-
-  public void setRevenuePerShare(Double revenuePerShare) {
-    this.revenuePerShare = JsonNullable.<Double>of(revenuePerShare);
-  }
-
-
   public Fundamentals salesPerEmployee(Double salesPerEmployee) {
     this.salesPerEmployee = JsonNullable.<Double>of(salesPerEmployee);
     return this;
@@ -1385,40 +599,6 @@ public class Fundamentals implements Serializable {
 
   public void setSalesPerEmployee(Double salesPerEmployee) {
     this.salesPerEmployee = JsonNullable.<Double>of(salesPerEmployee);
-  }
-
-
-  public Fundamentals salesPerShare(Double salesPerShare) {
-    this.salesPerShare = JsonNullable.<Double>of(salesPerShare);
-    return this;
-  }
-
-   /**
-   * Sales per share is a ratio that computes the total revenue earned per share over a designated period
-   * @return salesPerShare
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "15.9710148599077", value = "Sales per share is a ratio that computes the total revenue earned per share over a designated period")
-  @JsonIgnore
-
-  public Double getSalesPerShare() {
-        return salesPerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SALES_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getSalesPerShare_JsonNullable() {
-    return salesPerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SALES_PER_SHARE)
-  public void setSalesPerShare_JsonNullable(JsonNullable<Double> salesPerShare) {
-    this.salesPerShare = salesPerShare;
-  }
-
-  public void setSalesPerShare(Double salesPerShare) {
-    this.salesPerShare = JsonNullable.<Double>of(salesPerShare);
   }
 
 
@@ -1558,40 +738,6 @@ public class Fundamentals implements Serializable {
   }
 
 
-  public Fundamentals totalDebtToEquity(Double totalDebtToEquity) {
-    this.totalDebtToEquity = JsonNullable.<Double>of(totalDebtToEquity);
-    return this;
-  }
-
-   /**
-   * The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities by its shareholder equity
-   * @return totalDebtToEquity
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2.53563537108444", value = "The Debt/Equity (D/E) Ratio is calculated by dividing a company's total liabilities by its shareholder equity")
-  @JsonIgnore
-
-  public Double getTotalDebtToEquity() {
-        return totalDebtToEquity.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TOTAL_DEBT_TO_EQUITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getTotalDebtToEquity_JsonNullable() {
-    return totalDebtToEquity;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TOTAL_DEBT_TO_EQUITY)
-  public void setTotalDebtToEquity_JsonNullable(JsonNullable<Double> totalDebtToEquity) {
-    this.totalDebtToEquity = totalDebtToEquity;
-  }
-
-  public void setTotalDebtToEquity(Double totalDebtToEquity) {
-    this.totalDebtToEquity = JsonNullable.<Double>of(totalDebtToEquity);
-  }
-
-
   public Fundamentals totalRevenue(Double totalRevenue) {
     this.totalRevenue = JsonNullable.<Double>of(totalRevenue);
     return this;
@@ -1626,40 +772,6 @@ public class Fundamentals implements Serializable {
   }
 
 
-  public Fundamentals trailingTwelveMonthEarningsPerShare(Double trailingTwelveMonthEarningsPerShare) {
-    this.trailingTwelveMonthEarningsPerShare = JsonNullable.<Double>of(trailingTwelveMonthEarningsPerShare);
-    return this;
-  }
-
-   /**
-   * Earnings per share over the last 12 months.
-   * @return trailingTwelveMonthEarningsPerShare
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "7.621", value = "Earnings per share over the last 12 months.")
-  @JsonIgnore
-
-  public Double getTrailingTwelveMonthEarningsPerShare() {
-        return trailingTwelveMonthEarningsPerShare.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TRAILING_TWELVE_MONTH_EARNINGS_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Double> getTrailingTwelveMonthEarningsPerShare_JsonNullable() {
-    return trailingTwelveMonthEarningsPerShare;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TRAILING_TWELVE_MONTH_EARNINGS_PER_SHARE)
-  public void setTrailingTwelveMonthEarningsPerShare_JsonNullable(JsonNullable<Double> trailingTwelveMonthEarningsPerShare) {
-    this.trailingTwelveMonthEarningsPerShare = trailingTwelveMonthEarningsPerShare;
-  }
-
-  public void setTrailingTwelveMonthEarningsPerShare(Double trailingTwelveMonthEarningsPerShare) {
-    this.trailingTwelveMonthEarningsPerShare = JsonNullable.<Double>of(trailingTwelveMonthEarningsPerShare);
-  }
-
-
   /**
    * Return true if this Fundamentals object is equal to o.
    */
@@ -1677,44 +789,21 @@ public class Fundamentals implements Serializable {
         equalsNullable(this.fsymId, fundamentals.fsymId) &&
         equalsNullable(this.asOfDate, fundamentals.asOfDate) &&
         equalsNullable(this.currency, fundamentals.currency) &&
-        equalsNullable(this.assetTurnoverRatio, fundamentals.assetTurnoverRatio) &&
-        equalsNullable(this.bookValuePerShare, fundamentals.bookValuePerShare) &&
-        equalsNullable(this.cashFlowPerShare, fundamentals.cashFlowPerShare) &&
-        equalsNullable(this.cashPerShare, fundamentals.cashPerShare) &&
-        equalsNullable(this.currentRatio, fundamentals.currentRatio) &&
+        Objects.equals(this.perShare, fundamentals.perShare) &&
+        Objects.equals(this.ratios, fundamentals.ratios) &&
         Objects.equals(this.dividend, fundamentals.dividend) &&
-        equalsNullable(this.earningsPerShare, fundamentals.earningsPerShare) &&
-        equalsNullable(this.ebitMargin, fundamentals.ebitMargin) &&
-        equalsNullable(this.ebitdaMargin, fundamentals.ebitdaMargin) &&
         equalsNullable(this.enterpriseValue, fundamentals.enterpriseValue) &&
         equalsNullable(this.fiveYearAverageYield, fundamentals.fiveYearAverageYield) &&
         equalsNullable(this.fiveYearDividendGrowthRate, fundamentals.fiveYearDividendGrowthRate) &&
         equalsNullable(this.floatingSharesOutstanding, fundamentals.floatingSharesOutstanding) &&
-        equalsNullable(this.grossMargin, fundamentals.grossMargin) &&
-        equalsNullable(this.inventoryTurnover, fundamentals.inventoryTurnover) &&
-        equalsNullable(this.longTermDebtToEquity, fundamentals.longTermDebtToEquity) &&
         equalsNullable(this.netIncome, fundamentals.netIncome) &&
         equalsNullable(this.numberOfEmployees, fundamentals.numberOfEmployees) &&
-        equalsNullable(this.payoutRatio, fundamentals.payoutRatio) &&
-        equalsNullable(this.pretaxMargin, fundamentals.pretaxMargin) &&
-        equalsNullable(this.priceToBookRatio, fundamentals.priceToBookRatio) &&
-        equalsNullable(this.priceToCashFlowRatio, fundamentals.priceToCashFlowRatio) &&
-        equalsNullable(this.priceToEarningsRatio, fundamentals.priceToEarningsRatio) &&
-        equalsNullable(this.priceToSalesRatio, fundamentals.priceToSalesRatio) &&
-        equalsNullable(this.quickRatio, fundamentals.quickRatio) &&
-        equalsNullable(this.returnOnAssets, fundamentals.returnOnAssets) &&
-        equalsNullable(this.returnOnEquity, fundamentals.returnOnEquity) &&
-        equalsNullable(this.returnOnInvestedCapital, fundamentals.returnOnInvestedCapital) &&
-        equalsNullable(this.revenuePerShare, fundamentals.revenuePerShare) &&
         equalsNullable(this.salesPerEmployee, fundamentals.salesPerEmployee) &&
-        equalsNullable(this.salesPerShare, fundamentals.salesPerShare) &&
         equalsNullable(this.shareHolderEquity, fundamentals.shareHolderEquity) &&
         equalsNullable(this.threeYearAverageYield, fundamentals.threeYearAverageYield) &&
         equalsNullable(this.threeYearDividendGrowthRate, fundamentals.threeYearDividendGrowthRate) &&
         equalsNullable(this.totalAssets, fundamentals.totalAssets) &&
-        equalsNullable(this.totalDebtToEquity, fundamentals.totalDebtToEquity) &&
-        equalsNullable(this.totalRevenue, fundamentals.totalRevenue) &&
-        equalsNullable(this.trailingTwelveMonthEarningsPerShare, fundamentals.trailingTwelveMonthEarningsPerShare);
+        equalsNullable(this.totalRevenue, fundamentals.totalRevenue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1723,7 +812,7 @@ public class Fundamentals implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, error, hashCodeNullable(fsymId), hashCodeNullable(asOfDate), hashCodeNullable(currency), hashCodeNullable(assetTurnoverRatio), hashCodeNullable(bookValuePerShare), hashCodeNullable(cashFlowPerShare), hashCodeNullable(cashPerShare), hashCodeNullable(currentRatio), dividend, hashCodeNullable(earningsPerShare), hashCodeNullable(ebitMargin), hashCodeNullable(ebitdaMargin), hashCodeNullable(enterpriseValue), hashCodeNullable(fiveYearAverageYield), hashCodeNullable(fiveYearDividendGrowthRate), hashCodeNullable(floatingSharesOutstanding), hashCodeNullable(grossMargin), hashCodeNullable(inventoryTurnover), hashCodeNullable(longTermDebtToEquity), hashCodeNullable(netIncome), hashCodeNullable(numberOfEmployees), hashCodeNullable(payoutRatio), hashCodeNullable(pretaxMargin), hashCodeNullable(priceToBookRatio), hashCodeNullable(priceToCashFlowRatio), hashCodeNullable(priceToEarningsRatio), hashCodeNullable(priceToSalesRatio), hashCodeNullable(quickRatio), hashCodeNullable(returnOnAssets), hashCodeNullable(returnOnEquity), hashCodeNullable(returnOnInvestedCapital), hashCodeNullable(revenuePerShare), hashCodeNullable(salesPerEmployee), hashCodeNullable(salesPerShare), hashCodeNullable(shareHolderEquity), hashCodeNullable(threeYearAverageYield), hashCodeNullable(threeYearDividendGrowthRate), hashCodeNullable(totalAssets), hashCodeNullable(totalDebtToEquity), hashCodeNullable(totalRevenue), hashCodeNullable(trailingTwelveMonthEarningsPerShare));
+    return Objects.hash(requestId, error, hashCodeNullable(fsymId), hashCodeNullable(asOfDate), hashCodeNullable(currency), perShare, ratios, dividend, hashCodeNullable(enterpriseValue), hashCodeNullable(fiveYearAverageYield), hashCodeNullable(fiveYearDividendGrowthRate), hashCodeNullable(floatingSharesOutstanding), hashCodeNullable(netIncome), hashCodeNullable(numberOfEmployees), hashCodeNullable(salesPerEmployee), hashCodeNullable(shareHolderEquity), hashCodeNullable(threeYearAverageYield), hashCodeNullable(threeYearDividendGrowthRate), hashCodeNullable(totalAssets), hashCodeNullable(totalRevenue));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1742,44 +831,21 @@ public class Fundamentals implements Serializable {
     sb.append("    fsymId: ").append(toIndentedString(fsymId)).append("\n");
     sb.append("    asOfDate: ").append(toIndentedString(asOfDate)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    assetTurnoverRatio: ").append(toIndentedString(assetTurnoverRatio)).append("\n");
-    sb.append("    bookValuePerShare: ").append(toIndentedString(bookValuePerShare)).append("\n");
-    sb.append("    cashFlowPerShare: ").append(toIndentedString(cashFlowPerShare)).append("\n");
-    sb.append("    cashPerShare: ").append(toIndentedString(cashPerShare)).append("\n");
-    sb.append("    currentRatio: ").append(toIndentedString(currentRatio)).append("\n");
+    sb.append("    perShare: ").append(toIndentedString(perShare)).append("\n");
+    sb.append("    ratios: ").append(toIndentedString(ratios)).append("\n");
     sb.append("    dividend: ").append(toIndentedString(dividend)).append("\n");
-    sb.append("    earningsPerShare: ").append(toIndentedString(earningsPerShare)).append("\n");
-    sb.append("    ebitMargin: ").append(toIndentedString(ebitMargin)).append("\n");
-    sb.append("    ebitdaMargin: ").append(toIndentedString(ebitdaMargin)).append("\n");
     sb.append("    enterpriseValue: ").append(toIndentedString(enterpriseValue)).append("\n");
     sb.append("    fiveYearAverageYield: ").append(toIndentedString(fiveYearAverageYield)).append("\n");
     sb.append("    fiveYearDividendGrowthRate: ").append(toIndentedString(fiveYearDividendGrowthRate)).append("\n");
     sb.append("    floatingSharesOutstanding: ").append(toIndentedString(floatingSharesOutstanding)).append("\n");
-    sb.append("    grossMargin: ").append(toIndentedString(grossMargin)).append("\n");
-    sb.append("    inventoryTurnover: ").append(toIndentedString(inventoryTurnover)).append("\n");
-    sb.append("    longTermDebtToEquity: ").append(toIndentedString(longTermDebtToEquity)).append("\n");
     sb.append("    netIncome: ").append(toIndentedString(netIncome)).append("\n");
     sb.append("    numberOfEmployees: ").append(toIndentedString(numberOfEmployees)).append("\n");
-    sb.append("    payoutRatio: ").append(toIndentedString(payoutRatio)).append("\n");
-    sb.append("    pretaxMargin: ").append(toIndentedString(pretaxMargin)).append("\n");
-    sb.append("    priceToBookRatio: ").append(toIndentedString(priceToBookRatio)).append("\n");
-    sb.append("    priceToCashFlowRatio: ").append(toIndentedString(priceToCashFlowRatio)).append("\n");
-    sb.append("    priceToEarningsRatio: ").append(toIndentedString(priceToEarningsRatio)).append("\n");
-    sb.append("    priceToSalesRatio: ").append(toIndentedString(priceToSalesRatio)).append("\n");
-    sb.append("    quickRatio: ").append(toIndentedString(quickRatio)).append("\n");
-    sb.append("    returnOnAssets: ").append(toIndentedString(returnOnAssets)).append("\n");
-    sb.append("    returnOnEquity: ").append(toIndentedString(returnOnEquity)).append("\n");
-    sb.append("    returnOnInvestedCapital: ").append(toIndentedString(returnOnInvestedCapital)).append("\n");
-    sb.append("    revenuePerShare: ").append(toIndentedString(revenuePerShare)).append("\n");
     sb.append("    salesPerEmployee: ").append(toIndentedString(salesPerEmployee)).append("\n");
-    sb.append("    salesPerShare: ").append(toIndentedString(salesPerShare)).append("\n");
     sb.append("    shareHolderEquity: ").append(toIndentedString(shareHolderEquity)).append("\n");
     sb.append("    threeYearAverageYield: ").append(toIndentedString(threeYearAverageYield)).append("\n");
     sb.append("    threeYearDividendGrowthRate: ").append(toIndentedString(threeYearDividendGrowthRate)).append("\n");
     sb.append("    totalAssets: ").append(toIndentedString(totalAssets)).append("\n");
-    sb.append("    totalDebtToEquity: ").append(toIndentedString(totalDebtToEquity)).append("\n");
     sb.append("    totalRevenue: ").append(toIndentedString(totalRevenue)).append("\n");
-    sb.append("    trailingTwelveMonthEarningsPerShare: ").append(toIndentedString(trailingTwelveMonthEarningsPerShare)).append("\n");
     sb.append("}");
     return sb.toString();
   }

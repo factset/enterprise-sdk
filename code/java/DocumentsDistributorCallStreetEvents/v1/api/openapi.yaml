@@ -233,7 +233,7 @@ paths:
       - description: 'Used in conjuction with endDate. The earliest date of the audio
           file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative
           date: **-1** for yesterday).'
-        example: 2022-01-01T00:00:00.000Z
+        example: 2022-01-01
         explode: true
         in: query
         name: startDate
@@ -255,7 +255,7 @@ paths:
       - description: 'Used in conjuction with startDate. The latest date of the audio
           file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative
           date: **0** for today).'
-        example: 2022-06-01T00:00:00.000Z
+        example: 2022-06-01
         explode: true
         in: query
         name: endDate

@@ -171,9 +171,9 @@ namespace Example
 
             var sort = "-startDate";  // string | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional)  (default to -startDate)
             var paginationLimit = 25;  // int? | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional)  (default to 25)
-            var startDate = "2022-01-01T00:00:00.000Z";  // string | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday). (optional) 
+            var startDate = "2022-01-01";  // string | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday). (optional) 
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
-            var endDate = "2022-06-01T00:00:00.000Z";  // string | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today). (optional) 
+            var endDate = "2022-06-01";  // string | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today). (optional) 
             var reportId = 2666621;  // int? | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event. (optional) 
             var audioSourceId = 56;  // int? | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSourceIDs. (optional) 
             var ids = new List<string>(); // List<string> | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier. (optional) 

@@ -40,89 +40,43 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         /// <param name="fsymId">FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet..</param>
         /// <param name="asOfDate">Date on which the specified fundamentals data or information is accurate or relevant..</param>
         /// <param name="currency">Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        /// <param name="assetTurnoverRatio">The asset turnover ratio measures the value of a company&#39;s sales or revenues relative to the value of its assets.</param>
-        /// <param name="bookValuePerShare">Book value per common share is a formula used to calculate the per share value of a company based on common shareholders&#39; equity in the company.</param>
-        /// <param name="cashFlowPerShare">Cash flow per share is calculated as a ratio, indicating the amount of cash a business generates based on a company&#39;s net income with the costs of depreciation and amortization added back.</param>
-        /// <param name="cashPerShare">Cash Per Share of Security.</param>
-        /// <param name="currentRatio">The current ratio is a liquidity ratio that measures a company&#39;s ability to pay short-term and long-term obligations. The ratio is calculated by comparing current assets to current liabilities.</param>
+        /// <param name="perShare">perShare.</param>
+        /// <param name="ratios">ratios.</param>
         /// <param name="dividend">dividend.</param>
-        /// <param name="earningsPerShare">Earnings per share (EPS) is the portion of a company&#39;s profit allocated to each share of common stock.</param>
-        /// <param name="ebitMargin">EBIT margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest and tax (EBIT) divided by total revenue.</param>
-        /// <param name="ebitdaMargin">EBITDA margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest, tax, depreciation and amortization (EBITDA) divided by total revenue.</param>
         /// <param name="enterpriseValue">Enterprise Value (EV) is the measure of a company&#39;s total value for the period and date(s) requested in local currency by default.</param>
         /// <param name="fiveYearAverageYield">Average of the dividend yield with yield calculated for each of the past five years.</param>
         /// <param name="fiveYearDividendGrowthRate">The dividend growth rate is the annualized percentage rate of growth that a particular stock&#39;s dividend undergoes over five years of time.</param>
         /// <param name="floatingSharesOutstanding">Represents the number of shares outstanding less closely held shares for the period and date(s) requested.</param>
-        /// <param name="grossMargin">Gross profit margin is the proportion of money left over from revenues after accounting for the cost of goods sold, calculated by dividing gross profit by revenues..</param>
-        /// <param name="inventoryTurnover">Inventory turnover is a ratio showing how many times a company has sold and replaced inventory during a given period.</param>
-        /// <param name="longTermDebtToEquity">Long-term debt consists of loans and financial obligations lasting over one year. The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities lasting over one year by its shareholder equity.</param>
         /// <param name="netIncome">This equals to net earnings (profit) calculated as sales less cost of goods sold, selling, general and administrative expenses, operating expenses, depreciation, interest, taxes and other expenses.</param>
         /// <param name="numberOfEmployees">Represents the number of employees under the company&#39;s payroll as reported by the management to the shareholders within 90 days of the fiscal year-end..</param>
-        /// <param name="payoutRatio">The dividend payout ratio is the ratio of the total amount of dividends paid out to shareholders relative to the net income of the company.</param>
-        /// <param name="pretaxMargin">The pretax margin is the ratio of a company&#39;s pre-tax earnings to its total sales.</param>
-        /// <param name="priceToBookRatio">Companies use the price-to-book ratio to compare a firm&#39;s market to book value by dividing price per share by book value per share (BVPS) ..</param>
-        /// <param name="priceToCashFlowRatio">The price-to-cash flow ratio is a stock valuation indicator or multiple that measures the value of a stock&#39;s price relative to its operating cash flow per share..</param>
-        /// <param name="priceToEarningsRatio">The price-to-earnings ratio (P/E ratio) is the ratio for valuing a company that measures its current share price relative to its per-share earnings.</param>
-        /// <param name="priceToSalesRatio">The price-to-sales ratio (P/S ratio) is a valuation ratio that compares a company&#39;s stock price to its revenues.</param>
-        /// <param name="quickRatio">The quick ratio measures the dollar amount of liquid assets available with the company against the dollar amount of its current liabilities.</param>
-        /// <param name="returnOnAssets">Return on net assets (RONA) is a measure of financial performance calculated as net income divided by the sum of fixed assets and net working capital.</param>
-        /// <param name="returnOnEquity">Return on equity (ROE) is a measure of financial performance calculated as net income divided by shareholders&#39; equity.</param>
-        /// <param name="returnOnInvestedCapital">Return on Investment (ROI) measures how well an investment is performing.</param>
-        /// <param name="revenuePerShare">The portion of a company&#39;s revenue that is allocated to each share of common stock..</param>
         /// <param name="salesPerEmployee">Revenue per employee is a ratio that is calculated as a company&#39;s total revenue divided by its current number of employees.</param>
-        /// <param name="salesPerShare">Sales per share is a ratio that computes the total revenue earned per share over a designated period.</param>
         /// <param name="shareHolderEquity">Shareholder equity represents the amount of financing the company experiences through common and preferred shares.</param>
         /// <param name="threeYearAverageYield">Average of the dividend yield with yield calculated for each of the past three years.</param>
         /// <param name="threeYearDividendGrowthRate">The dividend growth rate is the annualized percentage rate of growth that a particular stock&#39;s dividend undergoes over three years of time.</param>
         /// <param name="totalAssets">Total amount of assets owned by entity..</param>
-        /// <param name="totalDebtToEquity">The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities by its shareholder equity.</param>
         /// <param name="totalRevenue">Revenue is the amount of money (in Million) that a company actually receives during a specific period, including discounts and deductions for returned merchandise..</param>
-        /// <param name="trailingTwelveMonthEarningsPerShare">Earnings per share over the last 12 months..</param>
-        public Fundamentals(string requestId = default(string), CompanyReportErrorObject error = default(CompanyReportErrorObject), string fsymId = default(string), DateTime? asOfDate = default(DateTime?), string currency = default(string), double? assetTurnoverRatio = default(double?), double? bookValuePerShare = default(double?), double? cashFlowPerShare = default(double?), double? cashPerShare = default(double?), double? currentRatio = default(double?), Dividend dividend = default(Dividend), double? earningsPerShare = default(double?), double? ebitMargin = default(double?), double? ebitdaMargin = default(double?), double? enterpriseValue = default(double?), double? fiveYearAverageYield = default(double?), double? fiveYearDividendGrowthRate = default(double?), double? floatingSharesOutstanding = default(double?), double? grossMargin = default(double?), double? inventoryTurnover = default(double?), double? longTermDebtToEquity = default(double?), double? netIncome = default(double?), int? numberOfEmployees = default(int?), double? payoutRatio = default(double?), double? pretaxMargin = default(double?), double? priceToBookRatio = default(double?), double? priceToCashFlowRatio = default(double?), double? priceToEarningsRatio = default(double?), double? priceToSalesRatio = default(double?), double? quickRatio = default(double?), double? returnOnAssets = default(double?), double? returnOnEquity = default(double?), double? returnOnInvestedCapital = default(double?), double? revenuePerShare = default(double?), double? salesPerEmployee = default(double?), double? salesPerShare = default(double?), double? shareHolderEquity = default(double?), double? threeYearAverageYield = default(double?), double? threeYearDividendGrowthRate = default(double?), double? totalAssets = default(double?), double? totalDebtToEquity = default(double?), double? totalRevenue = default(double?), double? trailingTwelveMonthEarningsPerShare = default(double?))
+        public Fundamentals(string requestId = default(string), CompanyReportErrorObject error = default(CompanyReportErrorObject), string fsymId = default(string), DateTime? asOfDate = default(DateTime?), string currency = default(string), PerShare perShare = default(PerShare), Ratios ratios = default(Ratios), Dividend dividend = default(Dividend), double? enterpriseValue = default(double?), double? fiveYearAverageYield = default(double?), double? fiveYearDividendGrowthRate = default(double?), double? floatingSharesOutstanding = default(double?), double? netIncome = default(double?), int? numberOfEmployees = default(int?), double? salesPerEmployee = default(double?), double? shareHolderEquity = default(double?), double? threeYearAverageYield = default(double?), double? threeYearDividendGrowthRate = default(double?), double? totalAssets = default(double?), double? totalRevenue = default(double?))
         {
             this.RequestId = requestId;
             this.Error = error;
             this.FsymId = fsymId;
             this.AsOfDate = asOfDate;
             this.Currency = currency;
-            this.AssetTurnoverRatio = assetTurnoverRatio;
-            this.BookValuePerShare = bookValuePerShare;
-            this.CashFlowPerShare = cashFlowPerShare;
-            this.CashPerShare = cashPerShare;
-            this.CurrentRatio = currentRatio;
+            this.PerShare = perShare;
+            this.Ratios = ratios;
             this.Dividend = dividend;
-            this.EarningsPerShare = earningsPerShare;
-            this.EbitMargin = ebitMargin;
-            this.EbitdaMargin = ebitdaMargin;
             this.EnterpriseValue = enterpriseValue;
             this.FiveYearAverageYield = fiveYearAverageYield;
             this.FiveYearDividendGrowthRate = fiveYearDividendGrowthRate;
             this.FloatingSharesOutstanding = floatingSharesOutstanding;
-            this.GrossMargin = grossMargin;
-            this.InventoryTurnover = inventoryTurnover;
-            this.LongTermDebtToEquity = longTermDebtToEquity;
             this.NetIncome = netIncome;
             this.NumberOfEmployees = numberOfEmployees;
-            this.PayoutRatio = payoutRatio;
-            this.PretaxMargin = pretaxMargin;
-            this.PriceToBookRatio = priceToBookRatio;
-            this.PriceToCashFlowRatio = priceToCashFlowRatio;
-            this.PriceToEarningsRatio = priceToEarningsRatio;
-            this.PriceToSalesRatio = priceToSalesRatio;
-            this.QuickRatio = quickRatio;
-            this.ReturnOnAssets = returnOnAssets;
-            this.ReturnOnEquity = returnOnEquity;
-            this.ReturnOnInvestedCapital = returnOnInvestedCapital;
-            this.RevenuePerShare = revenuePerShare;
             this.SalesPerEmployee = salesPerEmployee;
-            this.SalesPerShare = salesPerShare;
             this.ShareHolderEquity = shareHolderEquity;
             this.ThreeYearAverageYield = threeYearAverageYield;
             this.ThreeYearDividendGrowthRate = threeYearDividendGrowthRate;
             this.TotalAssets = totalAssets;
-            this.TotalDebtToEquity = totalDebtToEquity;
             this.TotalRevenue = totalRevenue;
-            this.TrailingTwelveMonthEarningsPerShare = trailingTwelveMonthEarningsPerShare;
         }
 
         /// <summary>
@@ -161,66 +115,22 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The asset turnover ratio measures the value of a company&#39;s sales or revenues relative to the value of its assets
+        /// Gets or Sets PerShare
         /// </summary>
-        /// <value>The asset turnover ratio measures the value of a company&#39;s sales or revenues relative to the value of its assets</value>
-        [DataMember(Name = "assetTurnoverRatio", EmitDefaultValue = true)]
-        public double? AssetTurnoverRatio { get; set; }
+        [DataMember(Name = "perShare", EmitDefaultValue = false)]
+        public PerShare PerShare { get; set; }
 
         /// <summary>
-        /// Book value per common share is a formula used to calculate the per share value of a company based on common shareholders&#39; equity in the company
+        /// Gets or Sets Ratios
         /// </summary>
-        /// <value>Book value per common share is a formula used to calculate the per share value of a company based on common shareholders&#39; equity in the company</value>
-        [DataMember(Name = "bookValuePerShare", EmitDefaultValue = true)]
-        public double? BookValuePerShare { get; set; }
-
-        /// <summary>
-        /// Cash flow per share is calculated as a ratio, indicating the amount of cash a business generates based on a company&#39;s net income with the costs of depreciation and amortization added back
-        /// </summary>
-        /// <value>Cash flow per share is calculated as a ratio, indicating the amount of cash a business generates based on a company&#39;s net income with the costs of depreciation and amortization added back</value>
-        [DataMember(Name = "cashFlowPerShare", EmitDefaultValue = true)]
-        public double? CashFlowPerShare { get; set; }
-
-        /// <summary>
-        /// Cash Per Share of Security
-        /// </summary>
-        /// <value>Cash Per Share of Security</value>
-        [DataMember(Name = "cashPerShare", EmitDefaultValue = true)]
-        public double? CashPerShare { get; set; }
-
-        /// <summary>
-        /// The current ratio is a liquidity ratio that measures a company&#39;s ability to pay short-term and long-term obligations. The ratio is calculated by comparing current assets to current liabilities
-        /// </summary>
-        /// <value>The current ratio is a liquidity ratio that measures a company&#39;s ability to pay short-term and long-term obligations. The ratio is calculated by comparing current assets to current liabilities</value>
-        [DataMember(Name = "currentRatio", EmitDefaultValue = true)]
-        public double? CurrentRatio { get; set; }
+        [DataMember(Name = "ratios", EmitDefaultValue = false)]
+        public Ratios Ratios { get; set; }
 
         /// <summary>
         /// Gets or Sets Dividend
         /// </summary>
         [DataMember(Name = "dividend", EmitDefaultValue = false)]
         public Dividend Dividend { get; set; }
-
-        /// <summary>
-        /// Earnings per share (EPS) is the portion of a company&#39;s profit allocated to each share of common stock
-        /// </summary>
-        /// <value>Earnings per share (EPS) is the portion of a company&#39;s profit allocated to each share of common stock</value>
-        [DataMember(Name = "earningsPerShare", EmitDefaultValue = true)]
-        public double? EarningsPerShare { get; set; }
-
-        /// <summary>
-        /// EBIT margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest and tax (EBIT) divided by total revenue
-        /// </summary>
-        /// <value>EBIT margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest and tax (EBIT) divided by total revenue</value>
-        [DataMember(Name = "ebitMargin", EmitDefaultValue = true)]
-        public double? EbitMargin { get; set; }
-
-        /// <summary>
-        /// EBITDA margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest, tax, depreciation and amortization (EBITDA) divided by total revenue
-        /// </summary>
-        /// <value>EBITDA margin is an assessment of a firm&#39;s operating profitability as a percentage of its total revenue. It is equal to earnings before interest, tax, depreciation and amortization (EBITDA) divided by total revenue</value>
-        [DataMember(Name = "ebitdaMargin", EmitDefaultValue = true)]
-        public double? EbitdaMargin { get; set; }
 
         /// <summary>
         /// Enterprise Value (EV) is the measure of a company&#39;s total value for the period and date(s) requested in local currency by default
@@ -251,27 +161,6 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         public double? FloatingSharesOutstanding { get; set; }
 
         /// <summary>
-        /// Gross profit margin is the proportion of money left over from revenues after accounting for the cost of goods sold, calculated by dividing gross profit by revenues.
-        /// </summary>
-        /// <value>Gross profit margin is the proportion of money left over from revenues after accounting for the cost of goods sold, calculated by dividing gross profit by revenues.</value>
-        [DataMember(Name = "grossMargin", EmitDefaultValue = true)]
-        public double? GrossMargin { get; set; }
-
-        /// <summary>
-        /// Inventory turnover is a ratio showing how many times a company has sold and replaced inventory during a given period
-        /// </summary>
-        /// <value>Inventory turnover is a ratio showing how many times a company has sold and replaced inventory during a given period</value>
-        [DataMember(Name = "inventoryTurnover", EmitDefaultValue = true)]
-        public double? InventoryTurnover { get; set; }
-
-        /// <summary>
-        /// Long-term debt consists of loans and financial obligations lasting over one year. The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities lasting over one year by its shareholder equity
-        /// </summary>
-        /// <value>Long-term debt consists of loans and financial obligations lasting over one year. The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities lasting over one year by its shareholder equity</value>
-        [DataMember(Name = "longTermDebtToEquity", EmitDefaultValue = true)]
-        public double? LongTermDebtToEquity { get; set; }
-
-        /// <summary>
         /// This equals to net earnings (profit) calculated as sales less cost of goods sold, selling, general and administrative expenses, operating expenses, depreciation, interest, taxes and other expenses
         /// </summary>
         /// <value>This equals to net earnings (profit) calculated as sales less cost of goods sold, selling, general and administrative expenses, operating expenses, depreciation, interest, taxes and other expenses</value>
@@ -286,95 +175,11 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         public int? NumberOfEmployees { get; set; }
 
         /// <summary>
-        /// The dividend payout ratio is the ratio of the total amount of dividends paid out to shareholders relative to the net income of the company
-        /// </summary>
-        /// <value>The dividend payout ratio is the ratio of the total amount of dividends paid out to shareholders relative to the net income of the company</value>
-        [DataMember(Name = "payoutRatio", EmitDefaultValue = true)]
-        public double? PayoutRatio { get; set; }
-
-        /// <summary>
-        /// The pretax margin is the ratio of a company&#39;s pre-tax earnings to its total sales
-        /// </summary>
-        /// <value>The pretax margin is the ratio of a company&#39;s pre-tax earnings to its total sales</value>
-        [DataMember(Name = "pretaxMargin", EmitDefaultValue = true)]
-        public double? PretaxMargin { get; set; }
-
-        /// <summary>
-        /// Companies use the price-to-book ratio to compare a firm&#39;s market to book value by dividing price per share by book value per share (BVPS) .
-        /// </summary>
-        /// <value>Companies use the price-to-book ratio to compare a firm&#39;s market to book value by dividing price per share by book value per share (BVPS) .</value>
-        [DataMember(Name = "priceToBookRatio", EmitDefaultValue = true)]
-        public double? PriceToBookRatio { get; set; }
-
-        /// <summary>
-        /// The price-to-cash flow ratio is a stock valuation indicator or multiple that measures the value of a stock&#39;s price relative to its operating cash flow per share.
-        /// </summary>
-        /// <value>The price-to-cash flow ratio is a stock valuation indicator or multiple that measures the value of a stock&#39;s price relative to its operating cash flow per share.</value>
-        [DataMember(Name = "priceToCashFlowRatio", EmitDefaultValue = true)]
-        public double? PriceToCashFlowRatio { get; set; }
-
-        /// <summary>
-        /// The price-to-earnings ratio (P/E ratio) is the ratio for valuing a company that measures its current share price relative to its per-share earnings
-        /// </summary>
-        /// <value>The price-to-earnings ratio (P/E ratio) is the ratio for valuing a company that measures its current share price relative to its per-share earnings</value>
-        [DataMember(Name = "priceToEarningsRatio", EmitDefaultValue = true)]
-        public double? PriceToEarningsRatio { get; set; }
-
-        /// <summary>
-        /// The price-to-sales ratio (P/S ratio) is a valuation ratio that compares a company&#39;s stock price to its revenues
-        /// </summary>
-        /// <value>The price-to-sales ratio (P/S ratio) is a valuation ratio that compares a company&#39;s stock price to its revenues</value>
-        [DataMember(Name = "priceToSalesRatio", EmitDefaultValue = true)]
-        public double? PriceToSalesRatio { get; set; }
-
-        /// <summary>
-        /// The quick ratio measures the dollar amount of liquid assets available with the company against the dollar amount of its current liabilities
-        /// </summary>
-        /// <value>The quick ratio measures the dollar amount of liquid assets available with the company against the dollar amount of its current liabilities</value>
-        [DataMember(Name = "quickRatio", EmitDefaultValue = true)]
-        public double? QuickRatio { get; set; }
-
-        /// <summary>
-        /// Return on net assets (RONA) is a measure of financial performance calculated as net income divided by the sum of fixed assets and net working capital
-        /// </summary>
-        /// <value>Return on net assets (RONA) is a measure of financial performance calculated as net income divided by the sum of fixed assets and net working capital</value>
-        [DataMember(Name = "returnOnAssets", EmitDefaultValue = true)]
-        public double? ReturnOnAssets { get; set; }
-
-        /// <summary>
-        /// Return on equity (ROE) is a measure of financial performance calculated as net income divided by shareholders&#39; equity
-        /// </summary>
-        /// <value>Return on equity (ROE) is a measure of financial performance calculated as net income divided by shareholders&#39; equity</value>
-        [DataMember(Name = "returnOnEquity", EmitDefaultValue = true)]
-        public double? ReturnOnEquity { get; set; }
-
-        /// <summary>
-        /// Return on Investment (ROI) measures how well an investment is performing
-        /// </summary>
-        /// <value>Return on Investment (ROI) measures how well an investment is performing</value>
-        [DataMember(Name = "returnOnInvestedCapital", EmitDefaultValue = true)]
-        public double? ReturnOnInvestedCapital { get; set; }
-
-        /// <summary>
-        /// The portion of a company&#39;s revenue that is allocated to each share of common stock.
-        /// </summary>
-        /// <value>The portion of a company&#39;s revenue that is allocated to each share of common stock.</value>
-        [DataMember(Name = "revenuePerShare", EmitDefaultValue = true)]
-        public double? RevenuePerShare { get; set; }
-
-        /// <summary>
         /// Revenue per employee is a ratio that is calculated as a company&#39;s total revenue divided by its current number of employees
         /// </summary>
         /// <value>Revenue per employee is a ratio that is calculated as a company&#39;s total revenue divided by its current number of employees</value>
         [DataMember(Name = "salesPerEmployee", EmitDefaultValue = true)]
         public double? SalesPerEmployee { get; set; }
-
-        /// <summary>
-        /// Sales per share is a ratio that computes the total revenue earned per share over a designated period
-        /// </summary>
-        /// <value>Sales per share is a ratio that computes the total revenue earned per share over a designated period</value>
-        [DataMember(Name = "salesPerShare", EmitDefaultValue = true)]
-        public double? SalesPerShare { get; set; }
 
         /// <summary>
         /// Shareholder equity represents the amount of financing the company experiences through common and preferred shares
@@ -405,25 +210,11 @@ namespace FactSet.SDK.FactSetFundamentals.Model
         public double? TotalAssets { get; set; }
 
         /// <summary>
-        /// The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities by its shareholder equity
-        /// </summary>
-        /// <value>The Debt/Equity (D/E) Ratio is calculated by dividing a company&#39;s total liabilities by its shareholder equity</value>
-        [DataMember(Name = "totalDebtToEquity", EmitDefaultValue = true)]
-        public double? TotalDebtToEquity { get; set; }
-
-        /// <summary>
         /// Revenue is the amount of money (in Million) that a company actually receives during a specific period, including discounts and deductions for returned merchandise.
         /// </summary>
         /// <value>Revenue is the amount of money (in Million) that a company actually receives during a specific period, including discounts and deductions for returned merchandise.</value>
         [DataMember(Name = "totalRevenue", EmitDefaultValue = true)]
         public double? TotalRevenue { get; set; }
-
-        /// <summary>
-        /// Earnings per share over the last 12 months.
-        /// </summary>
-        /// <value>Earnings per share over the last 12 months.</value>
-        [DataMember(Name = "trailingTwelveMonthEarningsPerShare", EmitDefaultValue = true)]
-        public double? TrailingTwelveMonthEarningsPerShare { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -438,44 +229,21 @@ namespace FactSet.SDK.FactSetFundamentals.Model
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  AsOfDate: ").Append(AsOfDate).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  AssetTurnoverRatio: ").Append(AssetTurnoverRatio).Append("\n");
-            sb.Append("  BookValuePerShare: ").Append(BookValuePerShare).Append("\n");
-            sb.Append("  CashFlowPerShare: ").Append(CashFlowPerShare).Append("\n");
-            sb.Append("  CashPerShare: ").Append(CashPerShare).Append("\n");
-            sb.Append("  CurrentRatio: ").Append(CurrentRatio).Append("\n");
+            sb.Append("  PerShare: ").Append(PerShare).Append("\n");
+            sb.Append("  Ratios: ").Append(Ratios).Append("\n");
             sb.Append("  Dividend: ").Append(Dividend).Append("\n");
-            sb.Append("  EarningsPerShare: ").Append(EarningsPerShare).Append("\n");
-            sb.Append("  EbitMargin: ").Append(EbitMargin).Append("\n");
-            sb.Append("  EbitdaMargin: ").Append(EbitdaMargin).Append("\n");
             sb.Append("  EnterpriseValue: ").Append(EnterpriseValue).Append("\n");
             sb.Append("  FiveYearAverageYield: ").Append(FiveYearAverageYield).Append("\n");
             sb.Append("  FiveYearDividendGrowthRate: ").Append(FiveYearDividendGrowthRate).Append("\n");
             sb.Append("  FloatingSharesOutstanding: ").Append(FloatingSharesOutstanding).Append("\n");
-            sb.Append("  GrossMargin: ").Append(GrossMargin).Append("\n");
-            sb.Append("  InventoryTurnover: ").Append(InventoryTurnover).Append("\n");
-            sb.Append("  LongTermDebtToEquity: ").Append(LongTermDebtToEquity).Append("\n");
             sb.Append("  NetIncome: ").Append(NetIncome).Append("\n");
             sb.Append("  NumberOfEmployees: ").Append(NumberOfEmployees).Append("\n");
-            sb.Append("  PayoutRatio: ").Append(PayoutRatio).Append("\n");
-            sb.Append("  PretaxMargin: ").Append(PretaxMargin).Append("\n");
-            sb.Append("  PriceToBookRatio: ").Append(PriceToBookRatio).Append("\n");
-            sb.Append("  PriceToCashFlowRatio: ").Append(PriceToCashFlowRatio).Append("\n");
-            sb.Append("  PriceToEarningsRatio: ").Append(PriceToEarningsRatio).Append("\n");
-            sb.Append("  PriceToSalesRatio: ").Append(PriceToSalesRatio).Append("\n");
-            sb.Append("  QuickRatio: ").Append(QuickRatio).Append("\n");
-            sb.Append("  ReturnOnAssets: ").Append(ReturnOnAssets).Append("\n");
-            sb.Append("  ReturnOnEquity: ").Append(ReturnOnEquity).Append("\n");
-            sb.Append("  ReturnOnInvestedCapital: ").Append(ReturnOnInvestedCapital).Append("\n");
-            sb.Append("  RevenuePerShare: ").Append(RevenuePerShare).Append("\n");
             sb.Append("  SalesPerEmployee: ").Append(SalesPerEmployee).Append("\n");
-            sb.Append("  SalesPerShare: ").Append(SalesPerShare).Append("\n");
             sb.Append("  ShareHolderEquity: ").Append(ShareHolderEquity).Append("\n");
             sb.Append("  ThreeYearAverageYield: ").Append(ThreeYearAverageYield).Append("\n");
             sb.Append("  ThreeYearDividendGrowthRate: ").Append(ThreeYearDividendGrowthRate).Append("\n");
             sb.Append("  TotalAssets: ").Append(TotalAssets).Append("\n");
-            sb.Append("  TotalDebtToEquity: ").Append(TotalDebtToEquity).Append("\n");
             sb.Append("  TotalRevenue: ").Append(TotalRevenue).Append("\n");
-            sb.Append("  TrailingTwelveMonthEarningsPerShare: ").Append(TrailingTwelveMonthEarningsPerShare).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -537,49 +305,19 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                     this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.AssetTurnoverRatio == input.AssetTurnoverRatio ||
-                    (this.AssetTurnoverRatio != null &&
-                    this.AssetTurnoverRatio.Equals(input.AssetTurnoverRatio))
+                    this.PerShare == input.PerShare ||
+                    (this.PerShare != null &&
+                    this.PerShare.Equals(input.PerShare))
                 ) && 
                 (
-                    this.BookValuePerShare == input.BookValuePerShare ||
-                    (this.BookValuePerShare != null &&
-                    this.BookValuePerShare.Equals(input.BookValuePerShare))
-                ) && 
-                (
-                    this.CashFlowPerShare == input.CashFlowPerShare ||
-                    (this.CashFlowPerShare != null &&
-                    this.CashFlowPerShare.Equals(input.CashFlowPerShare))
-                ) && 
-                (
-                    this.CashPerShare == input.CashPerShare ||
-                    (this.CashPerShare != null &&
-                    this.CashPerShare.Equals(input.CashPerShare))
-                ) && 
-                (
-                    this.CurrentRatio == input.CurrentRatio ||
-                    (this.CurrentRatio != null &&
-                    this.CurrentRatio.Equals(input.CurrentRatio))
+                    this.Ratios == input.Ratios ||
+                    (this.Ratios != null &&
+                    this.Ratios.Equals(input.Ratios))
                 ) && 
                 (
                     this.Dividend == input.Dividend ||
                     (this.Dividend != null &&
                     this.Dividend.Equals(input.Dividend))
-                ) && 
-                (
-                    this.EarningsPerShare == input.EarningsPerShare ||
-                    (this.EarningsPerShare != null &&
-                    this.EarningsPerShare.Equals(input.EarningsPerShare))
-                ) && 
-                (
-                    this.EbitMargin == input.EbitMargin ||
-                    (this.EbitMargin != null &&
-                    this.EbitMargin.Equals(input.EbitMargin))
-                ) && 
-                (
-                    this.EbitdaMargin == input.EbitdaMargin ||
-                    (this.EbitdaMargin != null &&
-                    this.EbitdaMargin.Equals(input.EbitdaMargin))
                 ) && 
                 (
                     this.EnterpriseValue == input.EnterpriseValue ||
@@ -602,21 +340,6 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                     this.FloatingSharesOutstanding.Equals(input.FloatingSharesOutstanding))
                 ) && 
                 (
-                    this.GrossMargin == input.GrossMargin ||
-                    (this.GrossMargin != null &&
-                    this.GrossMargin.Equals(input.GrossMargin))
-                ) && 
-                (
-                    this.InventoryTurnover == input.InventoryTurnover ||
-                    (this.InventoryTurnover != null &&
-                    this.InventoryTurnover.Equals(input.InventoryTurnover))
-                ) && 
-                (
-                    this.LongTermDebtToEquity == input.LongTermDebtToEquity ||
-                    (this.LongTermDebtToEquity != null &&
-                    this.LongTermDebtToEquity.Equals(input.LongTermDebtToEquity))
-                ) && 
-                (
                     this.NetIncome == input.NetIncome ||
                     (this.NetIncome != null &&
                     this.NetIncome.Equals(input.NetIncome))
@@ -627,69 +350,9 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                     this.NumberOfEmployees.Equals(input.NumberOfEmployees))
                 ) && 
                 (
-                    this.PayoutRatio == input.PayoutRatio ||
-                    (this.PayoutRatio != null &&
-                    this.PayoutRatio.Equals(input.PayoutRatio))
-                ) && 
-                (
-                    this.PretaxMargin == input.PretaxMargin ||
-                    (this.PretaxMargin != null &&
-                    this.PretaxMargin.Equals(input.PretaxMargin))
-                ) && 
-                (
-                    this.PriceToBookRatio == input.PriceToBookRatio ||
-                    (this.PriceToBookRatio != null &&
-                    this.PriceToBookRatio.Equals(input.PriceToBookRatio))
-                ) && 
-                (
-                    this.PriceToCashFlowRatio == input.PriceToCashFlowRatio ||
-                    (this.PriceToCashFlowRatio != null &&
-                    this.PriceToCashFlowRatio.Equals(input.PriceToCashFlowRatio))
-                ) && 
-                (
-                    this.PriceToEarningsRatio == input.PriceToEarningsRatio ||
-                    (this.PriceToEarningsRatio != null &&
-                    this.PriceToEarningsRatio.Equals(input.PriceToEarningsRatio))
-                ) && 
-                (
-                    this.PriceToSalesRatio == input.PriceToSalesRatio ||
-                    (this.PriceToSalesRatio != null &&
-                    this.PriceToSalesRatio.Equals(input.PriceToSalesRatio))
-                ) && 
-                (
-                    this.QuickRatio == input.QuickRatio ||
-                    (this.QuickRatio != null &&
-                    this.QuickRatio.Equals(input.QuickRatio))
-                ) && 
-                (
-                    this.ReturnOnAssets == input.ReturnOnAssets ||
-                    (this.ReturnOnAssets != null &&
-                    this.ReturnOnAssets.Equals(input.ReturnOnAssets))
-                ) && 
-                (
-                    this.ReturnOnEquity == input.ReturnOnEquity ||
-                    (this.ReturnOnEquity != null &&
-                    this.ReturnOnEquity.Equals(input.ReturnOnEquity))
-                ) && 
-                (
-                    this.ReturnOnInvestedCapital == input.ReturnOnInvestedCapital ||
-                    (this.ReturnOnInvestedCapital != null &&
-                    this.ReturnOnInvestedCapital.Equals(input.ReturnOnInvestedCapital))
-                ) && 
-                (
-                    this.RevenuePerShare == input.RevenuePerShare ||
-                    (this.RevenuePerShare != null &&
-                    this.RevenuePerShare.Equals(input.RevenuePerShare))
-                ) && 
-                (
                     this.SalesPerEmployee == input.SalesPerEmployee ||
                     (this.SalesPerEmployee != null &&
                     this.SalesPerEmployee.Equals(input.SalesPerEmployee))
-                ) && 
-                (
-                    this.SalesPerShare == input.SalesPerShare ||
-                    (this.SalesPerShare != null &&
-                    this.SalesPerShare.Equals(input.SalesPerShare))
                 ) && 
                 (
                     this.ShareHolderEquity == input.ShareHolderEquity ||
@@ -712,19 +375,9 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                     this.TotalAssets.Equals(input.TotalAssets))
                 ) && 
                 (
-                    this.TotalDebtToEquity == input.TotalDebtToEquity ||
-                    (this.TotalDebtToEquity != null &&
-                    this.TotalDebtToEquity.Equals(input.TotalDebtToEquity))
-                ) && 
-                (
                     this.TotalRevenue == input.TotalRevenue ||
                     (this.TotalRevenue != null &&
                     this.TotalRevenue.Equals(input.TotalRevenue))
-                ) && 
-                (
-                    this.TrailingTwelveMonthEarningsPerShare == input.TrailingTwelveMonthEarningsPerShare ||
-                    (this.TrailingTwelveMonthEarningsPerShare != null &&
-                    this.TrailingTwelveMonthEarningsPerShare.Equals(input.TrailingTwelveMonthEarningsPerShare))
                 );
         }
 
@@ -757,41 +410,17 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                if (this.AssetTurnoverRatio != null)
+                if (this.PerShare != null)
                 {
-                    hashCode = (hashCode * 59) + this.AssetTurnoverRatio.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PerShare.GetHashCode();
                 }
-                if (this.BookValuePerShare != null)
+                if (this.Ratios != null)
                 {
-                    hashCode = (hashCode * 59) + this.BookValuePerShare.GetHashCode();
-                }
-                if (this.CashFlowPerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.CashFlowPerShare.GetHashCode();
-                }
-                if (this.CashPerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.CashPerShare.GetHashCode();
-                }
-                if (this.CurrentRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentRatio.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Ratios.GetHashCode();
                 }
                 if (this.Dividend != null)
                 {
                     hashCode = (hashCode * 59) + this.Dividend.GetHashCode();
-                }
-                if (this.EarningsPerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.EarningsPerShare.GetHashCode();
-                }
-                if (this.EbitMargin != null)
-                {
-                    hashCode = (hashCode * 59) + this.EbitMargin.GetHashCode();
-                }
-                if (this.EbitdaMargin != null)
-                {
-                    hashCode = (hashCode * 59) + this.EbitdaMargin.GetHashCode();
                 }
                 if (this.EnterpriseValue != null)
                 {
@@ -809,18 +438,6 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                 {
                     hashCode = (hashCode * 59) + this.FloatingSharesOutstanding.GetHashCode();
                 }
-                if (this.GrossMargin != null)
-                {
-                    hashCode = (hashCode * 59) + this.GrossMargin.GetHashCode();
-                }
-                if (this.InventoryTurnover != null)
-                {
-                    hashCode = (hashCode * 59) + this.InventoryTurnover.GetHashCode();
-                }
-                if (this.LongTermDebtToEquity != null)
-                {
-                    hashCode = (hashCode * 59) + this.LongTermDebtToEquity.GetHashCode();
-                }
                 if (this.NetIncome != null)
                 {
                     hashCode = (hashCode * 59) + this.NetIncome.GetHashCode();
@@ -829,57 +446,9 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                 {
                     hashCode = (hashCode * 59) + this.NumberOfEmployees.GetHashCode();
                 }
-                if (this.PayoutRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.PayoutRatio.GetHashCode();
-                }
-                if (this.PretaxMargin != null)
-                {
-                    hashCode = (hashCode * 59) + this.PretaxMargin.GetHashCode();
-                }
-                if (this.PriceToBookRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.PriceToBookRatio.GetHashCode();
-                }
-                if (this.PriceToCashFlowRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.PriceToCashFlowRatio.GetHashCode();
-                }
-                if (this.PriceToEarningsRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.PriceToEarningsRatio.GetHashCode();
-                }
-                if (this.PriceToSalesRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.PriceToSalesRatio.GetHashCode();
-                }
-                if (this.QuickRatio != null)
-                {
-                    hashCode = (hashCode * 59) + this.QuickRatio.GetHashCode();
-                }
-                if (this.ReturnOnAssets != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReturnOnAssets.GetHashCode();
-                }
-                if (this.ReturnOnEquity != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReturnOnEquity.GetHashCode();
-                }
-                if (this.ReturnOnInvestedCapital != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReturnOnInvestedCapital.GetHashCode();
-                }
-                if (this.RevenuePerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.RevenuePerShare.GetHashCode();
-                }
                 if (this.SalesPerEmployee != null)
                 {
                     hashCode = (hashCode * 59) + this.SalesPerEmployee.GetHashCode();
-                }
-                if (this.SalesPerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.SalesPerShare.GetHashCode();
                 }
                 if (this.ShareHolderEquity != null)
                 {
@@ -897,17 +466,9 @@ namespace FactSet.SDK.FactSetFundamentals.Model
                 {
                     hashCode = (hashCode * 59) + this.TotalAssets.GetHashCode();
                 }
-                if (this.TotalDebtToEquity != null)
-                {
-                    hashCode = (hashCode * 59) + this.TotalDebtToEquity.GetHashCode();
-                }
                 if (this.TotalRevenue != null)
                 {
                     hashCode = (hashCode * 59) + this.TotalRevenue.GetHashCode();
-                }
-                if (this.TrailingTwelveMonthEarningsPerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.TrailingTwelveMonthEarningsPerShare.GetHashCode();
                 }
                 return hashCode;
             }

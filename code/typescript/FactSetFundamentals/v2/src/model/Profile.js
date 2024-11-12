@@ -70,11 +70,35 @@ class Profile {
             if (data.hasOwnProperty('address')) {
                 obj['address'] = Address.constructFromObject(data['address']);
             }
+            if (data.hasOwnProperty('economyId')) {
+                obj['economyId'] = ApiClient.convertToType(data['economyId'], 'String');
+            }
+            if (data.hasOwnProperty('economy')) {
+                obj['economy'] = ApiClient.convertToType(data['economy'], 'String');
+            }
+            if (data.hasOwnProperty('subSectorId')) {
+                obj['subSectorId'] = ApiClient.convertToType(data['subSectorId'], 'String');
+            }
+            if (data.hasOwnProperty('subSector')) {
+                obj['subSector'] = ApiClient.convertToType(data['subSector'], 'String');
+            }
+            if (data.hasOwnProperty('industryGroupId')) {
+                obj['industryGroupId'] = ApiClient.convertToType(data['industryGroupId'], 'String');
+            }
+            if (data.hasOwnProperty('industryGroup')) {
+                obj['industryGroup'] = ApiClient.convertToType(data['industryGroup'], 'String');
+            }
             if (data.hasOwnProperty('industryId')) {
                 obj['industryId'] = ApiClient.convertToType(data['industryId'], 'String');
             }
             if (data.hasOwnProperty('industry')) {
                 obj['industry'] = ApiClient.convertToType(data['industry'], 'String');
+            }
+            if (data.hasOwnProperty('subIndustryId')) {
+                obj['subIndustryId'] = ApiClient.convertToType(data['subIndustryId'], 'String');
+            }
+            if (data.hasOwnProperty('subIndustry')) {
+                obj['subIndustry'] = ApiClient.convertToType(data['subIndustry'], 'String');
             }
             if (data.hasOwnProperty('sectorId')) {
                 obj['sectorId'] = ApiClient.convertToType(data['sectorId'], 'String');
@@ -153,6 +177,42 @@ Profile.prototype['name'] = undefined;
 Profile.prototype['address'] = undefined;
 
 /**
+ * The economy classification Id for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} economyId
+ */
+Profile.prototype['economyId'] = undefined;
+
+/**
+ * The economy classification for this security. The industry level 1 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} economy
+ */
+Profile.prototype['economy'] = undefined;
+
+/**
+ * The subSector classification Id for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} subSectorId
+ */
+Profile.prototype['subSectorId'] = undefined;
+
+/**
+ * The subSector classification for this security. The industry level 3 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} subSector
+ */
+Profile.prototype['subSector'] = undefined;
+
+/**
+ * The industryGroup classification Id for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} industryGroupId
+ */
+Profile.prototype['industryGroupId'] = undefined;
+
+/**
+ * The industryGroup classification for this security. The industry level 4 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} industryGroup
+ */
+Profile.prototype['industryGroup'] = undefined;
+
+/**
  * The industry classification Id for this security. The industry level 5 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
  * @member {String} industryId
  */
@@ -163,6 +223,18 @@ Profile.prototype['industryId'] = undefined;
  * @member {String} industry
  */
 Profile.prototype['industry'] = undefined;
+
+/**
+ * The subIndustry classification Id for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} subIndustryId
+ */
+Profile.prototype['subIndustryId'] = undefined;
+
+/**
+ * The subIndustry classification for this security. The industry level 6 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)
+ * @member {String} subIndustry
+ */
+Profile.prototype['subIndustry'] = undefined;
 
 /**
  * The sector classification Id for this security. The sector level 2 RBIC (Revere Business Industry Classification) system is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)

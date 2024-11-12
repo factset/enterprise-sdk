@@ -42,6 +42,7 @@ import com.factset.sdk.FactSetFundamentals.JSON;
   Metric.JSON_PROPERTY_CATEGORY,
   Metric.JSON_PROPERTY_SUBCATEGORY,
   Metric.JSON_PROPERTY_OA_PAGE_ID,
+  Metric.JSON_PROPERTY_DESCRIPTION,
   Metric.JSON_PROPERTY_OA_URL,
   Metric.JSON_PROPERTY_FACTOR,
   Metric.JSON_PROPERTY_SDF_PACKAGE,
@@ -66,6 +67,9 @@ public class Metric implements Serializable {
 
   public static final String JSON_PROPERTY_OA_PAGE_ID = "oaPageId";
   private JsonNullable<String> oaPageId = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OA_URL = "oaUrl";
   private JsonNullable<String> oaUrl = JsonNullable.<String>undefined();
@@ -287,6 +291,40 @@ public class Metric implements Serializable {
   }
 
 
+  public Metric description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+   /**
+   * Description of the metric item.
+   * @return description
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Total Assets  Total Assets  Page: D10585Library: FactSet Fundamentals  Category: Balance Sheet/Assets  Units:Millions  Annual and Interim items - All Industries  Represents as reported total value of resources the company is using for its operations. Company assets are expected to provide future economic benefits in the entire course of business. Most of these are convertible into cash which can be used to cover any obligations. Thus, this is equal to the company&rsquo;s liabilities and total equity.  It includes: -  Negative Goodwill  -  Goodwill (reported as part of Liabilities)  -  Due to associated companies  -  Subscription receivable  -  Deferred tax assets  -  Advances on export contracts (reported as deduction within Receivables by Brazilian companies)  It excludes: -  Own shares  -  Unrealized foreign exchange loss  -  Retained losses (reported as part of Assets)  -  Uncalled capital  This will be equal to the as reported total assets value if the items stated above are not reported.", value = "Description of the metric item.")
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+
   public Metric oaUrl(String oaUrl) {
     this.oaUrl = JsonNullable.<String>of(oaUrl);
     return this;
@@ -440,6 +478,7 @@ public class Metric implements Serializable {
         equalsNullable(this.category, metric.category) &&
         equalsNullable(this.subcategory, metric.subcategory) &&
         equalsNullable(this.oaPageId, metric.oaPageId) &&
+        equalsNullable(this.description, metric.description) &&
         equalsNullable(this.oaUrl, metric.oaUrl) &&
         equalsNullable(this.factor, metric.factor) &&
         equalsNullable(this.sdfPackage, metric.sdfPackage) &&
@@ -452,7 +491,7 @@ public class Metric implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(metric), hashCodeNullable(name), hashCodeNullable(category), hashCodeNullable(subcategory), hashCodeNullable(oaPageId), hashCodeNullable(oaUrl), hashCodeNullable(factor), hashCodeNullable(sdfPackage), hashCodeNullable(dataType));
+    return Objects.hash(hashCodeNullable(metric), hashCodeNullable(name), hashCodeNullable(category), hashCodeNullable(subcategory), hashCodeNullable(oaPageId), hashCodeNullable(description), hashCodeNullable(oaUrl), hashCodeNullable(factor), hashCodeNullable(sdfPackage), hashCodeNullable(dataType));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -471,6 +510,7 @@ public class Metric implements Serializable {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    subcategory: ").append(toIndentedString(subcategory)).append("\n");
     sb.append("    oaPageId: ").append(toIndentedString(oaPageId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    oaUrl: ").append(toIndentedString(oaUrl)).append("\n");
     sb.append("    factor: ").append(toIndentedString(factor)).append("\n");
     sb.append("    sdfPackage: ").append(toIndentedString(sdfPackage)).append("\n");

@@ -61,6 +61,9 @@ class Metric {
             if (data.hasOwnProperty('oaPageId')) {
                 obj['oaPageId'] = ApiClient.convertToType(data['oaPageId'], 'String');
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
             if (data.hasOwnProperty('oaUrl')) {
                 obj['oaUrl'] = ApiClient.convertToType(data['oaUrl'], 'String');
             }
@@ -109,6 +112,12 @@ Metric.prototype['subcategory'] = undefined;
  * @member {String} oaPageId
  */
 Metric.prototype['oaPageId'] = undefined;
+
+/**
+ * Description of the metric item.
+ * @member {String} description
+ */
+Metric.prototype['description'] = undefined;
 
 /**
  * The Online Assistant Page URL, is used to look up the definition and methodology of the requested item. For example, https://my.apps.factset.com/oa/pages/D10585 will give you the definition for FF_SALES.

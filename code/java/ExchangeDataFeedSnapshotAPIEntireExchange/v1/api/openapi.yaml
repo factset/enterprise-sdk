@@ -160,13 +160,6 @@ components:
           type: string
       title: Error-Messages
       type: object
-      x-examples:
-        example-1:
-          Permission Error: 'You are not subscribed to this product: Exchange Snapshot
-            API'
-          Param Error: Missing or Wrong product parameter
-          startDate: Missing or Wrong date parameter
-          endDate: Missing or Wrong date parameter
     inline_response_200:
       example:
         date: date

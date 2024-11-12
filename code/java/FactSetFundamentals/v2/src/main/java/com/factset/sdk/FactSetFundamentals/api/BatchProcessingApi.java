@@ -146,7 +146,7 @@ public class BatchProcessingApi {
   }
 
   /**
-   * Returns the response for a Batch Request 
+   * Returns the response for a Batch Request
    * Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
    * @param id Batch Request identifier. (required)
    * @return GetBatchDataResponseWrapper
@@ -164,7 +164,7 @@ public class BatchProcessingApi {
   }
 
   /**
-   * Returns the response for a Batch Request 
+   * Returns the response for a Batch Request
    * Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
    * @param id Batch Request identifier. (required)
    * @return ApiResponse&lt;GetBatchDataResponseWrapper&gt;
@@ -231,7 +231,7 @@ public class BatchProcessingApi {
 
   }
   /**
-   * Returns the status for a Batch Request 
+   * Returns the status for a Batch Request
    * Return the status for the underlying batch request that is specified by the id.
    * @param id Batch Request identifier. (required)
    * @return BatchStatusResponse
@@ -249,7 +249,7 @@ public class BatchProcessingApi {
   }
 
   /**
-   * Returns the status for a Batch Request 
+   * Returns the status for a Batch Request
    * Return the status for the underlying batch request that is specified by the id.
    * @param id Batch Request identifier. (required)
    * @return ApiResponse&lt;BatchStatusResponse&gt;

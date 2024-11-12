@@ -1461,7 +1461,7 @@ components:
         an input.
       value:
         status: Bad Request
-        timestamp: 2020-07-23T11:11:46.261Z
+        timestamp: '2020-07-23 11:11:46.261'
         path: /factset-fundamentals/v1/fundamentals
         message: 'getFdsFundamentals.metrics: size must be between 1 and 1'
         subErrors: null

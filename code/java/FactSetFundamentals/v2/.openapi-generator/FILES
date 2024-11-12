@@ -36,9 +36,11 @@ docs/Item.md
 docs/Metric.md
 docs/MetricsApi.md
 docs/MetricsResponse.md
+docs/PerShare.md
 docs/Periodicity.md
 docs/Profile.md
 docs/ProfileResponse.md
+docs/Ratios.md
 docs/Segment.md
 docs/SegmentRequestBody.md
 docs/SegmentType.md
@@ -107,9 +109,11 @@ src/main/java/com/factset/sdk/FactSetFundamentals/models/FundamentalsResponse.ja
 src/main/java/com/factset/sdk/FactSetFundamentals/models/Item.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/Metric.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/MetricsResponse.java
+src/main/java/com/factset/sdk/FactSetFundamentals/models/PerShare.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/Periodicity.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/Profile.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/ProfileResponse.java
+src/main/java/com/factset/sdk/FactSetFundamentals/models/Ratios.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/Segment.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/SegmentRequestBody.java
 src/main/java/com/factset/sdk/FactSetFundamentals/models/SegmentType.java
