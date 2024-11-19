@@ -18,8 +18,8 @@ info:
     \n**For Information on Access to and Content Available via the Conversational\
     \ API**\n\nPlease see the [Conversational API Online Assistant Page](https://my.apps.factset.com/oa/pages/23209).\
     \ Here you can find instructions on how to set up access to the Conversational\
-    \ API, and the full list of content available.\n\n**Conversational API Consumer\
-    \ Workflow**\n\nThe Conversational API is an asynchronous API that utilizes status\
+    \ API, and the full list of content available.\n\n#### Conversational API Consumer\
+    \ Workflow\n\nThe Conversational API is an asynchronous API that utilizes status\
     \ polling to inform the consumer when a query response is complete. Please see\
     \ the technical OpenAPI documentation below for specific information regarding\
     \ consuming the API programmatically.\n\nAt a high level, the API consumer workflow\
@@ -30,17 +30,27 @@ info:
     \ contains a file ID, such as for an Excel chart or a [FactSet ActiveGraph](https://my.apps.factset.com/oa/pages/20355),\
     \ retrieve it using the file ID at the `/download/file` endpoint.\n- To provide\
     \ feedback on your response and help the Conversational API better serve you content,\
-    \ we encourage you to use the `/feedback` endpoint. \n\n**FAQ and Limitations**\n\
+    \ we encourage you to use the `/feedback` endpoint. \n\n##### Current Limitations\n\
     \n- \"Natural language\" in this documentation refers to modern conversational\
     \ English. Support for other languages is currently unavailable.\n- The Conversational\
     \ API is currently limited to accept 10 natural language queries per minute and\
     \ 200 per hour for an individual consumer. If you anticipate your needs to be\
-    \ greater than these limits, please reach out to FatSet Support.\n"
+    \ greater than these limits, please reach out to FatSet Support.\n\n#### FAQ \n\
+    \n**How can I receive updates on changes to the Conversational API?** - Please\
+    \ subscribe to our FactSet Notify by clicking \"Subscribe to notifications\" in\
+    \ the upper right above the API overview. You will receive email updates when\
+    \ any updates occur to the API.\n**Why am I receiving a 403 error with a valid\
+    \ API key?** - Please ensure that your current public IP is within the IP range\
+    \ allocated to the API key you are using to authenticate API requests. You can\
+    \ update your API key's allowable IP range via the [FactSet Developer Portal API\
+    \ Authentication page](https://developer.factset.com/api-authentication). If this\
+    \ does not resolve the issue, please reach out to FactSet Support to ensure you\
+    \ are appropriately authorized to access the Conversational API.\n"
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Conversational API Powered by FactSet Mercury
-  version: 1.0.2
+  version: 1.0.3
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury
@@ -147,10 +157,13 @@ paths:
                   detail: Insufficient permissions
               schema:
                 $ref: '#/components/schemas/ForbiddenError'
-          description: Forbidden - You do not have the proper permissions for this
-            request. Please make sure you have the proper CACCESS entitlements enabled
-            for this service and that you are using a resource ID that your account
-            has access to.
+          description: "Forbidden - You do not have the proper permissions for this\
+            \ request. \n\nPlease make sure you have the proper CACCESS entitlements\
+            \ enabled for this service and that you are using a resource ID that your\
+            \ account has access to.\n\nThis may also be due to your IP address being\
+            \ unsupported by the API key you are currently using. Please ensure your\
+            \ IP address is whitelisted for the API key you are using. IP addresses\
+            \ can be managed per API key via [this developer portal page](https://developer.factset.com/manage-api-keys).\n"
         "404":
           content:
             application/json:
@@ -331,10 +344,13 @@ paths:
                   detail: Insufficient permissions
               schema:
                 $ref: '#/components/schemas/ForbiddenError'
-          description: Forbidden - You do not have the proper permissions for this
-            request. Please make sure you have the proper CACCESS entitlements enabled
-            for this service and that you are using a resource ID that your account
-            has access to.
+          description: "Forbidden - You do not have the proper permissions for this\
+            \ request. \n\nPlease make sure you have the proper CACCESS entitlements\
+            \ enabled for this service and that you are using a resource ID that your\
+            \ account has access to.\n\nThis may also be due to your IP address being\
+            \ unsupported by the API key you are currently using. Please ensure your\
+            \ IP address is whitelisted for the API key you are using. IP addresses\
+            \ can be managed per API key via [this developer portal page](https://developer.factset.com/manage-api-keys).\n"
         "404":
           content:
             application/json:
@@ -491,10 +507,13 @@ paths:
                   detail: Insufficient permissions
               schema:
                 $ref: '#/components/schemas/ForbiddenError'
-          description: Forbidden - You do not have the proper permissions for this
-            request. Please make sure you have the proper CACCESS entitlements enabled
-            for this service and that you are using a resource ID that your account
-            has access to.
+          description: "Forbidden - You do not have the proper permissions for this\
+            \ request. \n\nPlease make sure you have the proper CACCESS entitlements\
+            \ enabled for this service and that you are using a resource ID that your\
+            \ account has access to.\n\nThis may also be due to your IP address being\
+            \ unsupported by the API key you are currently using. Please ensure your\
+            \ IP address is whitelisted for the API key you are using. IP addresses\
+            \ can be managed per API key via [this developer portal page](https://developer.factset.com/manage-api-keys).\n"
         "404":
           content:
             application/json:
@@ -633,10 +652,13 @@ paths:
                   detail: Insufficient permissions
               schema:
                 $ref: '#/components/schemas/ForbiddenError'
-          description: Forbidden - You do not have the proper permissions for this
-            request. Please make sure you have the proper CACCESS entitlements enabled
-            for this service and that you are using a resource ID that your account
-            has access to.
+          description: "Forbidden - You do not have the proper permissions for this\
+            \ request. \n\nPlease make sure you have the proper CACCESS entitlements\
+            \ enabled for this service and that you are using a resource ID that your\
+            \ account has access to.\n\nThis may also be due to your IP address being\
+            \ unsupported by the API key you are currently using. Please ensure your\
+            \ IP address is whitelisted for the API key you are using. IP addresses\
+            \ can be managed per API key via [this developer portal page](https://developer.factset.com/manage-api-keys).\n"
         "405":
           content:
             text/plain:
@@ -793,10 +815,13 @@ paths:
                   detail: Insufficient permissions
               schema:
                 $ref: '#/components/schemas/ForbiddenError'
-          description: Forbidden - You do not have the proper permissions for this
-            request. Please make sure you have the proper CACCESS entitlements enabled
-            for this service and that you are using a resource ID that your account
-            has access to.
+          description: "Forbidden - You do not have the proper permissions for this\
+            \ request. \n\nPlease make sure you have the proper CACCESS entitlements\
+            \ enabled for this service and that you are using a resource ID that your\
+            \ account has access to.\n\nThis may also be due to your IP address being\
+            \ unsupported by the API key you are currently using. Please ensure your\
+            \ IP address is whitelisted for the API key you are using. IP addresses\
+            \ can be managed per API key via [this developer portal page](https://developer.factset.com/manage-api-keys).\n"
         "404":
           content:
             application/json:
@@ -1825,10 +1850,13 @@ components:
               detail: Insufficient permissions
           schema:
             $ref: '#/components/schemas/ForbiddenError'
-      description: Forbidden - You do not have the proper permissions for this request.
-        Please make sure you have the proper CACCESS entitlements enabled for this
-        service and that you are using a resource ID that your account has access
-        to.
+      description: "Forbidden - You do not have the proper permissions for this request.\
+        \ \n\nPlease make sure you have the proper CACCESS entitlements enabled for\
+        \ this service and that you are using a resource ID that your account has\
+        \ access to.\n\nThis may also be due to your IP address being unsupported\
+        \ by the API key you are currently using. Please ensure your IP address is\
+        \ whitelisted for the API key you are using. IP addresses can be managed per\
+        \ API key via [this developer portal page](https://developer.factset.com/manage-api-keys).\n"
     ResourceNotFoundResponse:
       content:
         application/json:
@@ -2518,6 +2546,7 @@ components:
           type: string
         category:
           description: Category of associated url
+          nullable: true
           type: string
         url:
           $ref: '#/components/schemas/OpenUrl_url'

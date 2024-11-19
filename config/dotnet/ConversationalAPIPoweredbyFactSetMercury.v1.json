@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury",
-  "packageVersion": "0.10.0",
+  "packageVersion": "1.0.0",
   "packageGuid": "{493ae8b7-9e8f-5b2e-ac0f-3e1d5398e8a5}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/ConversationalAPIPoweredbyFactSetMercury/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ConversationalAPIPoweredbyFactSetMercury/0.10.0",
+  "httpUserAgent": "fds-sdk/dotnet/ConversationalAPIPoweredbyFactSetMercury/1.0.0",
   "files": {
     "LICENSE": {}
   },
