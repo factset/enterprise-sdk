@@ -1,5 +1,5 @@
 """
-    FactSet Mergers and Acquisitions API
+    FACTSET MERGERS AND ACQUISITIONS API
 
     The FactSet Mergers and Acquisitions API provides access to key transactions and pricing metrics on over 60,000 globally traded deals. Reference a Global Universe of Mergers and Acquisitions (M&A) transactions where the target of the deal is a Publicly traded Company. Review premiums, multiples and fundamental data to gather insights on deals and create predictive models based on different deal characteristics.    Monetary values returned by this API are converted and represented in USD.    This API is allows a limit of 10 requests per second and a maximum of 10 concurrent requests.   # noqa: E501
 
@@ -116,7 +116,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = f'fds-sdk/python/FactSetMergersandAcquisitions/1.0.4 ({platform.system()}, Python {platform.python_version()})'
+        self.user_agent = f'fds-sdk/python/FactSetMergersandAcquisitions/1.0.5 ({platform.system()}, Python {platform.python_version()})'
 
     def __enter__(self):
         return self

@@ -1,5 +1,5 @@
 """
-    FactSet Mergers and Acquisitions API
+    FACTSET MERGERS AND ACQUISITIONS API
 
     The FactSet Mergers and Acquisitions API provides access to key transactions and pricing metrics on over 60,000 globally traded deals. Reference a Global Universe of Mergers and Acquisitions (M&A) transactions where the target of the deal is a Publicly traded Company. Review premiums, multiples and fundamental data to gather insights on deals and create predictive models based on different deal characteristics.    Monetary values returned by this API are converted and represented in USD.    This API is allows a limit of 10 requests per second and a maximum of 10 concurrent requests.   # noqa: E501
 
@@ -107,55 +107,6 @@ class Detail(ModelNormal):
             'FRIENDLY': "Friendly",
             'HOSTILE': "Hostile",
             'NEUTRAL': "Neutral",
-
-
-        },
-        ('deal_characteristics',): {
-            'None': None,
-            'DIVESTMENT': "Divestment",
-            'EMPLOYEE_BUY-OUT': "Employee Buy-Out",
-            'EXIT': "Exit",
-            'INVESTOR_BUY-IN': "Investor Buy-In",
-            'INVESTOR_BUY-OUT': "Investor Buy-Out",
-            'INSOLVENCY': "Insolvency",
-            'MANAGEMENT_BUY-OUT': "Management Buy-Out",
-            'REVERSE_TAKEOVER': "Reverse Takeover",
-            'SECONDARY_BUY-OUT': "Secondary Buy-Out",
-            'LEVERAGED_BUY-OUT': "Leveraged Buy-Out",
-            'GOING_PRIVATE': "Going Private",
-            'EXIT_(PARTIAL)': "Exit (Partial)",
-            'CONTROL_PREMIUM_STUDY': "Control Premium Study",
-            'PRIVATE_EQUITY_GROUP': "Private Equity Group",
-            'ASSET_PURCHASE': "Asset Purchase",
-            'RELATED_PARTY': "Related Party",
-            'TENDER_OFFER': "Tender Offer",
-            'UNEQUAL_VOTING': "Unequal Voting",
-            'TARGET_CONTROLLING_SHAREHOLDER': "Target Controlling Shareholder",
-            'AUCTION': "Auction",
-            'CLUB_DEAL_-_PE_GROUP': "Club Deal - PE Group",
-            'CLUB_DEAL_-_CORP/PE': "Club Deal - Corp/PE",
-            'VENTURE_BACKED_ACQUIRER': "Venture Backed Acquirer",
-            'UNSOLICITED_BID': "Unsolicited Bid",
-            'RUMOR': "Rumor",
-            'SCHEME_OF_ARRANGEMENT': "Scheme of Arrangement",
-            'GOLDEN_SHARE': "Golden Share",
-            'MERGER_OF_EQUALS': "Merger of Equals",
-            'PRIVATIZATION': "Privatization",
-            'INDICATIVE_/_TENTATIVE_PROPOSAL': "Indicative / Tentative Proposal",
-            'CLUB_DEAL_-_CORPORATE_GROUP': "Club Deal - Corporate Group",
-            'MULTIPLE_TARGET_DEAL': "Multiple Target Deal",
-            'SPAC': "SPAC",
-            'SQUEEZE_OUT': "Squeeze Out",
-            'SPECIAL_COMMITTEE': "Special Committee",
-            'COLLAR': "Collar",
-            'FORCED_REGULATORY_DIVESTITURE': "Forced Regulatory Divestiture",
-            'VENTURE-BACKED_TARGET': "Venture-Backed Target",
-            'BANK_BRANCH_PURCHASE': "Bank Branch Purchase",
-            'BIDDER_SPECIAL_COMMITTEE': "Bidder Special Committee",
-            'TARGET_SPECIAL_COMMITTEE': "Target Special Committee",
-            'BIDDER_CONTROLLING_SHAREHOLDER': "Bidder Controlling Shareholder",
-            'PROPERTY_TRANSACTION': "Property Transaction",
-            'POWER_PLANT_PURCHASE': "Power Plant Purchase",
 
 
         },
@@ -342,7 +293,7 @@ class Detail(ModelNormal):
             buyer_post_merger_own (float, none_type): Post Merger Ownership % - Acquirer: The pro forma percentage of ownership to be held by acquirer shareholders in the newly merged company. This data item is designed to reflect the expected ownership of the newly merged company at the time the transaction was announced. This data item will not be populated for Going Private transactions as they are not applicable since the acquirer in a going private transaction is not publicly traded.. [optional]  # noqa: E501
             attitude (str, none_type): The way the target's board of directors viewed the acquirer's proposal to enter into the transaction - Friendly, Hostile, Neutral.. [optional]  # noqa: E501
             deal_summary (str, none_type): Summary of the deal.. [optional]  # noqa: E501
-            deal_characteristics ([str, none_type], none_type): The secondary deal type(s).. [optional]  # noqa: E501
+            deal_characteristics ([str, none_type], none_type): The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -458,7 +409,7 @@ class Detail(ModelNormal):
             buyer_post_merger_own (float, none_type): Post Merger Ownership % - Acquirer: The pro forma percentage of ownership to be held by acquirer shareholders in the newly merged company. This data item is designed to reflect the expected ownership of the newly merged company at the time the transaction was announced. This data item will not be populated for Going Private transactions as they are not applicable since the acquirer in a going private transaction is not publicly traded.. [optional]  # noqa: E501
             attitude (str, none_type): The way the target's board of directors viewed the acquirer's proposal to enter into the transaction - Friendly, Hostile, Neutral.. [optional]  # noqa: E501
             deal_summary (str, none_type): Summary of the deal.. [optional]  # noqa: E501
-            deal_characteristics ([str, none_type], none_type): The secondary deal type(s).. [optional]  # noqa: E501
+            deal_characteristics ([str, none_type], none_type): The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

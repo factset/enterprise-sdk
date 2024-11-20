@@ -65,7 +65,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/FactSetDebtCapitalStructure/0.2.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/FactSetDebtCapitalStructure/0.2.1 (${process.platform}; node ${process.version})`
         };
 
         /**

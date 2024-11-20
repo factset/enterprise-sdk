@@ -1,5 +1,5 @@
 /*
- * FactSet Mergers and Acquisitions API
+ * FACTSET MERGERS AND ACQUISITIONS API
  *
  * The FactSet Mergers and Acquisitions API provides access to key transactions and pricing metrics on over 60,000 globally traded deals. Reference a Global Universe of Mergers and Acquisitions (M&A) transactions where the target of the deal is a Publicly traded Company. Review premiums, multiples and fundamental data to gather insights on deals and create predictive models based on different deal characteristics.    Monetary values returned by this API are converted and represented in USD.    This API is allows a limit of 10 requests per second and a maximum of 10 concurrent requests. 
  *
@@ -33,7 +33,7 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,7 +106,7 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetMergersandAcquisitions/1.0.2";
+            UserAgent = "fds-sdk/dotnet/FactSetMergersandAcquisitions/1.0.3";
             BasePath = "https://api.factset.com/content/factset-mergers-acquisitions/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -484,7 +484,7 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 1.0.2\n";
+            report += "    SDK Package Version: 1.0.3\n";
 
             return report;
         }

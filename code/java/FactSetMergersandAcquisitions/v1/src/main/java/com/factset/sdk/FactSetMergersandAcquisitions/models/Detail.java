@@ -1,5 +1,5 @@
 /*
- * FactSet Mergers and Acquisitions API
+ * FACTSET MERGERS AND ACQUISITIONS API
  * The FactSet Mergers and Acquisitions API provides access to key transactions and pricing metrics on over 60,000 globally traded deals. Reference a Global Universe of Mergers and Acquisitions (M&A) transactions where the target of the deal is a Publicly traded Company. Review premiums, multiples and fundamental data to gather insights on deals and create predictive models based on different deal characteristics.    Monetary values returned by this API are converted and represented in USD.    This API is allows a limit of 10 requests per second and a maximum of 10 concurrent requests. 
  *
  * The version of the OpenAPI document: 1.0.0
@@ -386,127 +386,8 @@ public class Detail implements Serializable {
   public static final String JSON_PROPERTY_DEAL_SUMMARY = "dealSummary";
   private JsonNullable<String> dealSummary = JsonNullable.<String>undefined();
 
-  /**
-   * Gets or Sets dealCharacteristics
-   */
-  public enum DealCharacteristicsEnum {
-    DIVESTMENT("Divestment"),
-    
-    EMPLOYEE_BUY_OUT("Employee Buy-Out"),
-    
-    EXIT("Exit"),
-    
-    INVESTOR_BUY_IN("Investor Buy-In"),
-    
-    INVESTOR_BUY_OUT("Investor Buy-Out"),
-    
-    INSOLVENCY("Insolvency"),
-    
-    MANAGEMENT_BUY_OUT("Management Buy-Out"),
-    
-    REVERSE_TAKEOVER("Reverse Takeover"),
-    
-    SECONDARY_BUY_OUT("Secondary Buy-Out"),
-    
-    LEVERAGED_BUY_OUT("Leveraged Buy-Out"),
-    
-    GOING_PRIVATE("Going Private"),
-    
-    EXIT_PARTIAL_("Exit (Partial)"),
-    
-    CONTROL_PREMIUM_STUDY("Control Premium Study"),
-    
-    PRIVATE_EQUITY_GROUP("Private Equity Group"),
-    
-    ASSET_PURCHASE("Asset Purchase"),
-    
-    RELATED_PARTY("Related Party"),
-    
-    TENDER_OFFER("Tender Offer"),
-    
-    UNEQUAL_VOTING("Unequal Voting"),
-    
-    TARGET_CONTROLLING_SHAREHOLDER("Target Controlling Shareholder"),
-    
-    AUCTION("Auction"),
-    
-    CLUB_DEAL_PE_GROUP("Club Deal - PE Group"),
-    
-    CLUB_DEAL_CORP_PE("Club Deal - Corp/PE"),
-    
-    VENTURE_BACKED_ACQUIRER("Venture Backed Acquirer"),
-    
-    UNSOLICITED_BID("Unsolicited Bid"),
-    
-    RUMOR("Rumor"),
-    
-    SCHEME_OF_ARRANGEMENT("Scheme of Arrangement"),
-    
-    GOLDEN_SHARE("Golden Share"),
-    
-    MERGER_OF_EQUALS("Merger of Equals"),
-    
-    PRIVATIZATION("Privatization"),
-    
-    INDICATIVE_TENTATIVE_PROPOSAL("Indicative / Tentative Proposal"),
-    
-    CLUB_DEAL_CORPORATE_GROUP("Club Deal - Corporate Group"),
-    
-    MULTIPLE_TARGET_DEAL("Multiple Target Deal"),
-    
-    SPAC("SPAC"),
-    
-    SQUEEZE_OUT("Squeeze Out"),
-    
-    SPECIAL_COMMITTEE("Special Committee"),
-    
-    COLLAR("Collar"),
-    
-    FORCED_REGULATORY_DIVESTITURE("Forced Regulatory Divestiture"),
-    
-    VENTURE_BACKED_TARGET("Venture-Backed Target"),
-    
-    BANK_BRANCH_PURCHASE("Bank Branch Purchase"),
-    
-    BIDDER_SPECIAL_COMMITTEE("Bidder Special Committee"),
-    
-    TARGET_SPECIAL_COMMITTEE("Target Special Committee"),
-    
-    BIDDER_CONTROLLING_SHAREHOLDER("Bidder Controlling Shareholder"),
-    
-    PROPERTY_TRANSACTION("Property Transaction"),
-    
-    POWER_PLANT_PURCHASE("Power Plant Purchase");
-
-    private String value;
-
-    DealCharacteristicsEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static DealCharacteristicsEnum fromValue(String value) {
-      for (DealCharacteristicsEnum b : DealCharacteristicsEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
   public static final String JSON_PROPERTY_DEAL_CHARACTERISTICS = "dealCharacteristics";
-  private JsonNullable<java.util.List<DealCharacteristicsEnum>> dealCharacteristics = JsonNullable.<java.util.List<DealCharacteristicsEnum>>undefined();
+  private JsonNullable<java.util.List<String>> dealCharacteristics = JsonNullable.<java.util.List<String>>undefined();
 
   public Detail() { 
   }
@@ -1651,14 +1532,14 @@ public class Detail implements Serializable {
   }
 
 
-  public Detail dealCharacteristics(java.util.List<DealCharacteristicsEnum> dealCharacteristics) {
-    this.dealCharacteristics = JsonNullable.<java.util.List<DealCharacteristicsEnum>>of(dealCharacteristics);
+  public Detail dealCharacteristics(java.util.List<String> dealCharacteristics) {
+    this.dealCharacteristics = JsonNullable.<java.util.List<String>>of(dealCharacteristics);
     return this;
   }
 
-  public Detail addDealCharacteristicsItem(DealCharacteristicsEnum dealCharacteristicsItem) {
+  public Detail addDealCharacteristicsItem(String dealCharacteristicsItem) {
     if (this.dealCharacteristics == null || !this.dealCharacteristics.isPresent()) {
-      this.dealCharacteristics = JsonNullable.<java.util.List<DealCharacteristicsEnum>>of(new java.util.ArrayList<>());
+      this.dealCharacteristics = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
     }
     try {
       this.dealCharacteristics.get().add(dealCharacteristicsItem);
@@ -1669,31 +1550,31 @@ public class Detail implements Serializable {
   }
 
    /**
-   * The secondary deal type(s).
+   * The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target 
    * @return dealCharacteristics
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "[\"Exit\",\"Going Private\"]", value = "The secondary deal type(s).")
+  @ApiModelProperty(example = "[\"Exit\",\"Going Private\"]", value = "The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target ")
   @JsonIgnore
 
-  public java.util.List<DealCharacteristicsEnum> getDealCharacteristics() {
+  public java.util.List<String> getDealCharacteristics() {
         return dealCharacteristics.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_DEAL_CHARACTERISTICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<java.util.List<DealCharacteristicsEnum>> getDealCharacteristics_JsonNullable() {
+  public JsonNullable<java.util.List<String>> getDealCharacteristics_JsonNullable() {
     return dealCharacteristics;
   }
   
   @JsonProperty(JSON_PROPERTY_DEAL_CHARACTERISTICS)
-  public void setDealCharacteristics_JsonNullable(JsonNullable<java.util.List<DealCharacteristicsEnum>> dealCharacteristics) {
+  public void setDealCharacteristics_JsonNullable(JsonNullable<java.util.List<String>> dealCharacteristics) {
     this.dealCharacteristics = dealCharacteristics;
   }
 
-  public void setDealCharacteristics(java.util.List<DealCharacteristicsEnum> dealCharacteristics) {
-    this.dealCharacteristics = JsonNullable.<java.util.List<DealCharacteristicsEnum>>of(dealCharacteristics);
+  public void setDealCharacteristics(java.util.List<String> dealCharacteristics) {
+    this.dealCharacteristics = JsonNullable.<java.util.List<String>>of(dealCharacteristics);
   }
 
 

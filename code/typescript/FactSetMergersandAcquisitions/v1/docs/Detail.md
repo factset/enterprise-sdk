@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **buyerPostMergerOwn** | **Number** | Post Merger Ownership % - Acquirer: The pro forma percentage of ownership to be held by acquirer shareholders in the newly merged company. This data item is designed to reflect the expected ownership of the newly merged company at the time the transaction was announced. This data item will not be populated for Going Private transactions as they are not applicable since the acquirer in a going private transaction is not publicly traded. | [optional] 
 **attitude** | **String** | The way the target&#39;s board of directors viewed the acquirer&#39;s proposal to enter into the transaction - Friendly, Hostile, Neutral. | [optional] 
 **dealSummary** | **String** | Summary of the deal. | [optional] 
-**dealCharacteristics** | **[String]** | The secondary deal type(s). | [optional] 
+**dealCharacteristics** | **[String]** | The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target  | [optional] 
 
 
 
@@ -118,101 +118,6 @@ Name | Type | Description | Notes
 * `Hostile` (value: `"Hostile"`)
 
 * `Neutral` (value: `"Neutral"`)
-
-
-
-
-
-## Enum: [DealCharacteristicsEnum]
-
-
-* `Divestment` (value: `"Divestment"`)
-
-* `Employee Buy-Out` (value: `"Employee Buy-Out"`)
-
-* `Exit` (value: `"Exit"`)
-
-* `Investor Buy-In` (value: `"Investor Buy-In"`)
-
-* `Investor Buy-Out` (value: `"Investor Buy-Out"`)
-
-* `Insolvency` (value: `"Insolvency"`)
-
-* `Management Buy-Out` (value: `"Management Buy-Out"`)
-
-* `Reverse Takeover` (value: `"Reverse Takeover"`)
-
-* `Secondary Buy-Out` (value: `"Secondary Buy-Out"`)
-
-* `Leveraged Buy-Out` (value: `"Leveraged Buy-Out"`)
-
-* `Going Private` (value: `"Going Private"`)
-
-* `Exit (Partial)` (value: `"Exit (Partial)"`)
-
-* `Control Premium Study` (value: `"Control Premium Study"`)
-
-* `Private Equity Group` (value: `"Private Equity Group"`)
-
-* `Asset Purchase` (value: `"Asset Purchase"`)
-
-* `Related Party` (value: `"Related Party"`)
-
-* `Tender Offer` (value: `"Tender Offer"`)
-
-* `Unequal Voting` (value: `"Unequal Voting"`)
-
-* `Target Controlling Shareholder` (value: `"Target Controlling Shareholder"`)
-
-* `Auction` (value: `"Auction"`)
-
-* `Club Deal - PE Group` (value: `"Club Deal - PE Group"`)
-
-* `Club Deal - Corp/PE` (value: `"Club Deal - Corp/PE"`)
-
-* `Venture Backed Acquirer` (value: `"Venture Backed Acquirer"`)
-
-* `Unsolicited Bid` (value: `"Unsolicited Bid"`)
-
-* `Rumor` (value: `"Rumor"`)
-
-* `Scheme of Arrangement` (value: `"Scheme of Arrangement"`)
-
-* `Golden Share` (value: `"Golden Share"`)
-
-* `Merger of Equals` (value: `"Merger of Equals"`)
-
-* `Privatization` (value: `"Privatization"`)
-
-* `Indicative / Tentative Proposal` (value: `"Indicative / Tentative Proposal"`)
-
-* `Club Deal - Corporate Group` (value: `"Club Deal - Corporate Group"`)
-
-* `Multiple Target Deal` (value: `"Multiple Target Deal"`)
-
-* `SPAC` (value: `"SPAC"`)
-
-* `Squeeze Out` (value: `"Squeeze Out"`)
-
-* `Special Committee` (value: `"Special Committee"`)
-
-* `Collar` (value: `"Collar"`)
-
-* `Forced Regulatory Divestiture` (value: `"Forced Regulatory Divestiture"`)
-
-* `Venture-Backed Target` (value: `"Venture-Backed Target"`)
-
-* `Bank Branch Purchase` (value: `"Bank Branch Purchase"`)
-
-* `Bidder Special Committee` (value: `"Bidder Special Committee"`)
-
-* `Target Special Committee` (value: `"Target Special Committee"`)
-
-* `Bidder Controlling Shareholder` (value: `"Bidder Controlling Shareholder"`)
-
-* `Property Transaction` (value: `"Property Transaction"`)
-
-* `Power Plant Purchase` (value: `"Power Plant Purchase"`)
 
 
 

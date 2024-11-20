@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **buyerPostMergerOwn** | **BigDecimal** | Post Merger Ownership % - Acquirer: The pro forma percentage of ownership to be held by acquirer shareholders in the newly merged company. This data item is designed to reflect the expected ownership of the newly merged company at the time the transaction was announced. This data item will not be populated for Going Private transactions as they are not applicable since the acquirer in a going private transaction is not publicly traded. |  [optional]
 **attitude** | [**AttitudeEnum**](#AttitudeEnum) | The way the target&#39;s board of directors viewed the acquirer&#39;s proposal to enter into the transaction - Friendly, Hostile, Neutral. |  [optional]
 **dealSummary** | **String** | Summary of the deal. |  [optional]
-**dealCharacteristics** | [**java.util.List&lt;DealCharacteristicsEnum&gt;**](#java.util.List&lt;DealCharacteristicsEnum&gt;) | The secondary deal type(s). |  [optional]
+**dealCharacteristics** | **java.util.List&lt;String&gt;** | The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target  |  [optional]
 
 
 
@@ -100,57 +100,6 @@ Name | Value
 FRIENDLY | &quot;Friendly&quot;
 HOSTILE | &quot;Hostile&quot;
 NEUTRAL | &quot;Neutral&quot;
-
-
-
-## Enum: java.util.List&lt;DealCharacteristicsEnum&gt;
-
-Name | Value
----- | -----
-DIVESTMENT | &quot;Divestment&quot;
-EMPLOYEE_BUY_OUT | &quot;Employee Buy-Out&quot;
-EXIT | &quot;Exit&quot;
-INVESTOR_BUY_IN | &quot;Investor Buy-In&quot;
-INVESTOR_BUY_OUT | &quot;Investor Buy-Out&quot;
-INSOLVENCY | &quot;Insolvency&quot;
-MANAGEMENT_BUY_OUT | &quot;Management Buy-Out&quot;
-REVERSE_TAKEOVER | &quot;Reverse Takeover&quot;
-SECONDARY_BUY_OUT | &quot;Secondary Buy-Out&quot;
-LEVERAGED_BUY_OUT | &quot;Leveraged Buy-Out&quot;
-GOING_PRIVATE | &quot;Going Private&quot;
-EXIT_PARTIAL_ | &quot;Exit (Partial)&quot;
-CONTROL_PREMIUM_STUDY | &quot;Control Premium Study&quot;
-PRIVATE_EQUITY_GROUP | &quot;Private Equity Group&quot;
-ASSET_PURCHASE | &quot;Asset Purchase&quot;
-RELATED_PARTY | &quot;Related Party&quot;
-TENDER_OFFER | &quot;Tender Offer&quot;
-UNEQUAL_VOTING | &quot;Unequal Voting&quot;
-TARGET_CONTROLLING_SHAREHOLDER | &quot;Target Controlling Shareholder&quot;
-AUCTION | &quot;Auction&quot;
-CLUB_DEAL_PE_GROUP | &quot;Club Deal - PE Group&quot;
-CLUB_DEAL_CORP_PE | &quot;Club Deal - Corp/PE&quot;
-VENTURE_BACKED_ACQUIRER | &quot;Venture Backed Acquirer&quot;
-UNSOLICITED_BID | &quot;Unsolicited Bid&quot;
-RUMOR | &quot;Rumor&quot;
-SCHEME_OF_ARRANGEMENT | &quot;Scheme of Arrangement&quot;
-GOLDEN_SHARE | &quot;Golden Share&quot;
-MERGER_OF_EQUALS | &quot;Merger of Equals&quot;
-PRIVATIZATION | &quot;Privatization&quot;
-INDICATIVE_TENTATIVE_PROPOSAL | &quot;Indicative / Tentative Proposal&quot;
-CLUB_DEAL_CORPORATE_GROUP | &quot;Club Deal - Corporate Group&quot;
-MULTIPLE_TARGET_DEAL | &quot;Multiple Target Deal&quot;
-SPAC | &quot;SPAC&quot;
-SQUEEZE_OUT | &quot;Squeeze Out&quot;
-SPECIAL_COMMITTEE | &quot;Special Committee&quot;
-COLLAR | &quot;Collar&quot;
-FORCED_REGULATORY_DIVESTITURE | &quot;Forced Regulatory Divestiture&quot;
-VENTURE_BACKED_TARGET | &quot;Venture-Backed Target&quot;
-BANK_BRANCH_PURCHASE | &quot;Bank Branch Purchase&quot;
-BIDDER_SPECIAL_COMMITTEE | &quot;Bidder Special Committee&quot;
-TARGET_SPECIAL_COMMITTEE | &quot;Target Special Committee&quot;
-BIDDER_CONTROLLING_SHAREHOLDER | &quot;Bidder Controlling Shareholder&quot;
-PROPERTY_TRANSACTION | &quot;Property Transaction&quot;
-POWER_PLANT_PURCHASE | &quot;Power Plant Purchase&quot;
 
 
 ## Implemented Interfaces

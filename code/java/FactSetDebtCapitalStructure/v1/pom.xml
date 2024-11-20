@@ -5,7 +5,7 @@
     <artifactId>factsetdebtcapitalstructure</artifactId>
     <packaging>jar</packaging>
     <name>factsetdebtcapitalstructure</name>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Debt Capital Structure client library for Java</description>
     <scm>

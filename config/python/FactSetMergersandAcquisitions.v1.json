@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetMergersandAcquisitions",
   "projectName": "fds.sdk.FactSetMergersandAcquisitions",
-  "packageVersion": "1.0.4",
+  "packageVersion": "1.0.5",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Mergers and Acquisitions client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetMergersandAcquisitions/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetMergersandAcquisitions/1.0.4",
+  "httpUserAgent": "fds-sdk/python/FactSetMergersandAcquisitions/1.0.5",
   "files": {
     "LICENSE": {}
   }

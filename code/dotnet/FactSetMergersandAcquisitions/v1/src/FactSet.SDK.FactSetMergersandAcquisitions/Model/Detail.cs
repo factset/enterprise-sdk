@@ -1,5 +1,5 @@
 /*
- * FactSet Mergers and Acquisitions API
+ * FACTSET MERGERS AND ACQUISITIONS API
  *
  * The FactSet Mergers and Acquisitions API provides access to key transactions and pricing metrics on over 60,000 globally traded deals. Reference a Global Universe of Mergers and Acquisitions (M&A) transactions where the target of the deal is a Publicly traded Company. Review premiums, multiples and fundamental data to gather insights on deals and create predictive models based on different deal characteristics.    Monetary values returned by this API are converted and represented in USD.    This API is allows a limit of 10 requests per second and a maximum of 10 concurrent requests. 
  *
@@ -251,286 +251,6 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         [DataMember(Name = "attitude", EmitDefaultValue = true)]
         public AttitudeEnum? Attitude { get; set; }
         /// <summary>
-        /// Defines DealCharacteristics
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DealCharacteristicsEnum
-        {
-            /// <summary>
-            /// Enum Divestment for value: Divestment
-            /// </summary>
-            [EnumMember(Value = "Divestment")]
-            Divestment = 1,
-
-            /// <summary>
-            /// Enum EmployeeBuyOut for value: Employee Buy-Out
-            /// </summary>
-            [EnumMember(Value = "Employee Buy-Out")]
-            EmployeeBuyOut = 2,
-
-            /// <summary>
-            /// Enum Exit for value: Exit
-            /// </summary>
-            [EnumMember(Value = "Exit")]
-            Exit = 3,
-
-            /// <summary>
-            /// Enum InvestorBuyIn for value: Investor Buy-In
-            /// </summary>
-            [EnumMember(Value = "Investor Buy-In")]
-            InvestorBuyIn = 4,
-
-            /// <summary>
-            /// Enum InvestorBuyOut for value: Investor Buy-Out
-            /// </summary>
-            [EnumMember(Value = "Investor Buy-Out")]
-            InvestorBuyOut = 5,
-
-            /// <summary>
-            /// Enum Insolvency for value: Insolvency
-            /// </summary>
-            [EnumMember(Value = "Insolvency")]
-            Insolvency = 6,
-
-            /// <summary>
-            /// Enum ManagementBuyOut for value: Management Buy-Out
-            /// </summary>
-            [EnumMember(Value = "Management Buy-Out")]
-            ManagementBuyOut = 7,
-
-            /// <summary>
-            /// Enum ReverseTakeover for value: Reverse Takeover
-            /// </summary>
-            [EnumMember(Value = "Reverse Takeover")]
-            ReverseTakeover = 8,
-
-            /// <summary>
-            /// Enum SecondaryBuyOut for value: Secondary Buy-Out
-            /// </summary>
-            [EnumMember(Value = "Secondary Buy-Out")]
-            SecondaryBuyOut = 9,
-
-            /// <summary>
-            /// Enum LeveragedBuyOut for value: Leveraged Buy-Out
-            /// </summary>
-            [EnumMember(Value = "Leveraged Buy-Out")]
-            LeveragedBuyOut = 10,
-
-            /// <summary>
-            /// Enum GoingPrivate for value: Going Private
-            /// </summary>
-            [EnumMember(Value = "Going Private")]
-            GoingPrivate = 11,
-
-            /// <summary>
-            /// Enum ExitPartial for value: Exit (Partial)
-            /// </summary>
-            [EnumMember(Value = "Exit (Partial)")]
-            ExitPartial = 12,
-
-            /// <summary>
-            /// Enum ControlPremiumStudy for value: Control Premium Study
-            /// </summary>
-            [EnumMember(Value = "Control Premium Study")]
-            ControlPremiumStudy = 13,
-
-            /// <summary>
-            /// Enum PrivateEquityGroup for value: Private Equity Group
-            /// </summary>
-            [EnumMember(Value = "Private Equity Group")]
-            PrivateEquityGroup = 14,
-
-            /// <summary>
-            /// Enum AssetPurchase for value: Asset Purchase
-            /// </summary>
-            [EnumMember(Value = "Asset Purchase")]
-            AssetPurchase = 15,
-
-            /// <summary>
-            /// Enum RelatedParty for value: Related Party
-            /// </summary>
-            [EnumMember(Value = "Related Party")]
-            RelatedParty = 16,
-
-            /// <summary>
-            /// Enum TenderOffer for value: Tender Offer
-            /// </summary>
-            [EnumMember(Value = "Tender Offer")]
-            TenderOffer = 17,
-
-            /// <summary>
-            /// Enum UnequalVoting for value: Unequal Voting
-            /// </summary>
-            [EnumMember(Value = "Unequal Voting")]
-            UnequalVoting = 18,
-
-            /// <summary>
-            /// Enum TargetControllingShareholder for value: Target Controlling Shareholder
-            /// </summary>
-            [EnumMember(Value = "Target Controlling Shareholder")]
-            TargetControllingShareholder = 19,
-
-            /// <summary>
-            /// Enum Auction for value: Auction
-            /// </summary>
-            [EnumMember(Value = "Auction")]
-            Auction = 20,
-
-            /// <summary>
-            /// Enum ClubDealPEGroup for value: Club Deal - PE Group
-            /// </summary>
-            [EnumMember(Value = "Club Deal - PE Group")]
-            ClubDealPEGroup = 21,
-
-            /// <summary>
-            /// Enum ClubDealCorpPE for value: Club Deal - Corp/PE
-            /// </summary>
-            [EnumMember(Value = "Club Deal - Corp/PE")]
-            ClubDealCorpPE = 22,
-
-            /// <summary>
-            /// Enum VentureBackedAcquirer for value: Venture Backed Acquirer
-            /// </summary>
-            [EnumMember(Value = "Venture Backed Acquirer")]
-            VentureBackedAcquirer = 23,
-
-            /// <summary>
-            /// Enum UnsolicitedBid for value: Unsolicited Bid
-            /// </summary>
-            [EnumMember(Value = "Unsolicited Bid")]
-            UnsolicitedBid = 24,
-
-            /// <summary>
-            /// Enum Rumor for value: Rumor
-            /// </summary>
-            [EnumMember(Value = "Rumor")]
-            Rumor = 25,
-
-            /// <summary>
-            /// Enum SchemeOfArrangement for value: Scheme of Arrangement
-            /// </summary>
-            [EnumMember(Value = "Scheme of Arrangement")]
-            SchemeOfArrangement = 26,
-
-            /// <summary>
-            /// Enum GoldenShare for value: Golden Share
-            /// </summary>
-            [EnumMember(Value = "Golden Share")]
-            GoldenShare = 27,
-
-            /// <summary>
-            /// Enum MergerOfEquals for value: Merger of Equals
-            /// </summary>
-            [EnumMember(Value = "Merger of Equals")]
-            MergerOfEquals = 28,
-
-            /// <summary>
-            /// Enum Privatization for value: Privatization
-            /// </summary>
-            [EnumMember(Value = "Privatization")]
-            Privatization = 29,
-
-            /// <summary>
-            /// Enum IndicativeTentativeProposal for value: Indicative / Tentative Proposal
-            /// </summary>
-            [EnumMember(Value = "Indicative / Tentative Proposal")]
-            IndicativeTentativeProposal = 30,
-
-            /// <summary>
-            /// Enum ClubDealCorporateGroup for value: Club Deal - Corporate Group
-            /// </summary>
-            [EnumMember(Value = "Club Deal - Corporate Group")]
-            ClubDealCorporateGroup = 31,
-
-            /// <summary>
-            /// Enum MultipleTargetDeal for value: Multiple Target Deal
-            /// </summary>
-            [EnumMember(Value = "Multiple Target Deal")]
-            MultipleTargetDeal = 32,
-
-            /// <summary>
-            /// Enum SPAC for value: SPAC
-            /// </summary>
-            [EnumMember(Value = "SPAC")]
-            SPAC = 33,
-
-            /// <summary>
-            /// Enum SqueezeOut for value: Squeeze Out
-            /// </summary>
-            [EnumMember(Value = "Squeeze Out")]
-            SqueezeOut = 34,
-
-            /// <summary>
-            /// Enum SpecialCommittee for value: Special Committee
-            /// </summary>
-            [EnumMember(Value = "Special Committee")]
-            SpecialCommittee = 35,
-
-            /// <summary>
-            /// Enum Collar for value: Collar
-            /// </summary>
-            [EnumMember(Value = "Collar")]
-            Collar = 36,
-
-            /// <summary>
-            /// Enum ForcedRegulatoryDivestiture for value: Forced Regulatory Divestiture
-            /// </summary>
-            [EnumMember(Value = "Forced Regulatory Divestiture")]
-            ForcedRegulatoryDivestiture = 37,
-
-            /// <summary>
-            /// Enum VentureBackedTarget for value: Venture-Backed Target
-            /// </summary>
-            [EnumMember(Value = "Venture-Backed Target")]
-            VentureBackedTarget = 38,
-
-            /// <summary>
-            /// Enum BankBranchPurchase for value: Bank Branch Purchase
-            /// </summary>
-            [EnumMember(Value = "Bank Branch Purchase")]
-            BankBranchPurchase = 39,
-
-            /// <summary>
-            /// Enum BidderSpecialCommittee for value: Bidder Special Committee
-            /// </summary>
-            [EnumMember(Value = "Bidder Special Committee")]
-            BidderSpecialCommittee = 40,
-
-            /// <summary>
-            /// Enum TargetSpecialCommittee for value: Target Special Committee
-            /// </summary>
-            [EnumMember(Value = "Target Special Committee")]
-            TargetSpecialCommittee = 41,
-
-            /// <summary>
-            /// Enum BidderControllingShareholder for value: Bidder Controlling Shareholder
-            /// </summary>
-            [EnumMember(Value = "Bidder Controlling Shareholder")]
-            BidderControllingShareholder = 42,
-
-            /// <summary>
-            /// Enum PropertyTransaction for value: Property Transaction
-            /// </summary>
-            [EnumMember(Value = "Property Transaction")]
-            PropertyTransaction = 43,
-
-            /// <summary>
-            /// Enum PowerPlantPurchase for value: Power Plant Purchase
-            /// </summary>
-            [EnumMember(Value = "Power Plant Purchase")]
-            PowerPlantPurchase = 44
-
-        }
-
-
-
-        /// <summary>
-        /// The secondary deal type(s).
-        /// </summary>
-        /// <value>The secondary deal type(s).</value>
-        [DataMember(Name = "dealCharacteristics", EmitDefaultValue = true)]
-        public List<DealCharacteristicsEnum> DealCharacteristics { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Detail" /> class.
         /// </summary>
         /// <param name="dealId">FactSet unique deal Identifier..</param>
@@ -567,8 +287,8 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// <param name="buyerPostMergerOwn">Post Merger Ownership % - Acquirer: The pro forma percentage of ownership to be held by acquirer shareholders in the newly merged company. This data item is designed to reflect the expected ownership of the newly merged company at the time the transaction was announced. This data item will not be populated for Going Private transactions as they are not applicable since the acquirer in a going private transaction is not publicly traded..</param>
         /// <param name="attitude">The way the target&#39;s board of directors viewed the acquirer&#39;s proposal to enter into the transaction - Friendly, Hostile, Neutral..</param>
         /// <param name="dealSummary">Summary of the deal..</param>
-        /// <param name="dealCharacteristics">The secondary deal type(s)..</param>
-        public Detail(string dealId = default(string), Target target = default(Target), List<Participant> buyers = default(List<Participant>), List<Participant> sellers = default(List<Participant>), StatusEnum? status = default(StatusEnum?), DateTime? rumorDate = default(DateTime?), DateTime? announceDate = default(DateTime?), DateTime? referenceDate = default(DateTime?), DateTime? expectedCloseDate = default(DateTime?), DateTime? closeDate = default(DateTime?), DateTime? cancelDate = default(DateTime?), DealTypeEnum? dealType = default(DealTypeEnum?), List<SourceFundsEnum> sourceFunds = default(List<SourceFundsEnum>), DealValue dealValue = default(DealValue), PurposeEnum? purpose = default(PurposeEnum?), decimal? evSales = default(decimal?), decimal? evEBIT = default(decimal?), decimal? evEBITDA = default(decimal?), decimal? bepBV = default(decimal?), decimal? sales = default(decimal?), decimal? ebit = default(decimal?), decimal? ebitda = default(decimal?), decimal? netIncome = default(decimal?), decimal? cash = default(decimal?), decimal? intBearingDebt = default(decimal?), decimal? prefStockValue = default(decimal?), decimal? totalAssets = default(decimal?), decimal? sharesOutstanding = default(decimal?), decimal? eps = default(decimal?), decimal? bookValueShare = default(decimal?), decimal? targetPostMergerOwn = default(decimal?), decimal? buyerPostMergerOwn = default(decimal?), AttitudeEnum? attitude = default(AttitudeEnum?), string dealSummary = default(string), List<DealCharacteristicsEnum> dealCharacteristics = default(List<DealCharacteristicsEnum>))
+        /// <param name="dealCharacteristics">The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target .</param>
+        public Detail(string dealId = default(string), Target target = default(Target), List<Participant> buyers = default(List<Participant>), List<Participant> sellers = default(List<Participant>), StatusEnum? status = default(StatusEnum?), DateTime? rumorDate = default(DateTime?), DateTime? announceDate = default(DateTime?), DateTime? referenceDate = default(DateTime?), DateTime? expectedCloseDate = default(DateTime?), DateTime? closeDate = default(DateTime?), DateTime? cancelDate = default(DateTime?), DealTypeEnum? dealType = default(DealTypeEnum?), List<SourceFundsEnum> sourceFunds = default(List<SourceFundsEnum>), DealValue dealValue = default(DealValue), PurposeEnum? purpose = default(PurposeEnum?), decimal? evSales = default(decimal?), decimal? evEBIT = default(decimal?), decimal? evEBITDA = default(decimal?), decimal? bepBV = default(decimal?), decimal? sales = default(decimal?), decimal? ebit = default(decimal?), decimal? ebitda = default(decimal?), decimal? netIncome = default(decimal?), decimal? cash = default(decimal?), decimal? intBearingDebt = default(decimal?), decimal? prefStockValue = default(decimal?), decimal? totalAssets = default(decimal?), decimal? sharesOutstanding = default(decimal?), decimal? eps = default(decimal?), decimal? bookValueShare = default(decimal?), decimal? targetPostMergerOwn = default(decimal?), decimal? buyerPostMergerOwn = default(decimal?), AttitudeEnum? attitude = default(AttitudeEnum?), string dealSummary = default(string), List<string> dealCharacteristics = default(List<string>))
         {
             this.DealId = dealId;
             this.Target = target;
@@ -813,6 +533,13 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// <value>Summary of the deal.</value>
         [DataMember(Name = "dealSummary", EmitDefaultValue = true)]
         public string DealSummary { get; set; }
+
+        /// <summary>
+        /// The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target 
+        /// </summary>
+        /// <value>The secondary deal type(s). Possible values include: - Divestment - Employee Buy-Out - Exit - Investor Buy-In - Investor Buy-Out - Insolvency - Management Buy-Out - Reverse Takeover - Secondary Buy-Out - Leveraged Buy-Out - Going Private - Exit (Partial) - Control Premium Study - Private Equity Group - Asset Purchase - Related Party - Tender Offer - Unequal Voting - Target Controlling Shareholder - Auction - Club Deal - PE Group - Club Deal - Corp/PE - Venture Backed Acquirer - Unsolicited Bid - Rumor - Scheme of Arrangement - Golden Share - Merger of Equals - Privatization - Indicative / Tentative Proposal - Club Deal - Corporate Group - Multiple Target Deal - SPAC - Squeeze Out - Special Committee - Collar - Forced Regulatory Divestiture - Venture-Backed Target - Bank Branch Purchase - Bidder Special Committee - Target Special Committee - Bidder Controlling Shareholder - Property Transaction - Power Plant Purchase - PE-Backed Target </value>
+        [DataMember(Name = "dealCharacteristics", EmitDefaultValue = true)]
+        public List<string> DealCharacteristics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -1061,6 +788,8 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
                 ) && 
                 (
                     this.DealCharacteristics == input.DealCharacteristics ||
+                    this.DealCharacteristics != null &&
+                    input.DealCharacteristics != null &&
                     this.DealCharacteristics.SequenceEqual(input.DealCharacteristics)
                 );
         }
@@ -1195,7 +924,10 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
                 {
                     hashCode = (hashCode * 59) + this.DealSummary.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DealCharacteristics.GetHashCode();
+                if (this.DealCharacteristics != null)
+                {
+                    hashCode = (hashCode * 59) + this.DealCharacteristics.GetHashCode();
+                }
                 return hashCode;
             }
         }

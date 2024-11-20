@@ -459,7 +459,7 @@ components:
           ids:
             - IBM-US
           periodicity: ANN
-          AsOfDate: '2023-12-31'
+          date: '2023-12-31'
     interimDetailsRequestAll:
       summary: Detail request for company id.
       value:

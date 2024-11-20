@@ -6,7 +6,7 @@ info:
   description: |
     FactSet Revere Business Industry Classification System (RBICS) is a comprehensive structured taxonomy to classify companies by what they primarily do. It delivers a granular view for investors by classifying companies using a bottom-up approach according to the products and services they provide. By combining this approach with a top-level grouping based on companies' behavior similarities and stock co-movement, FactSet RBICS delivers unprecedented precision for 1,400+ sector groups.
 
-    RBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assitant Page #20710](https://oa.apps.factset.com/pages/20710).
+    RBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assitant Page #20710](https://oa.apps.factset.com/pages/20710).<p><b>Rate limit is set to 40 requests per second</b>.</p>
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -194,6 +194,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              rbicsEntityFocusRequest:
+                $ref: '#/components/examples/rbicsEntityFocusRequest'
             schema:
               $ref: '#/components/schemas/entityFocusRequest'
         description: Request Body to request a list of RBICS Entity Focus objects.
@@ -368,6 +371,9 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Structure Request:
+                $ref: '#/components/examples/rbicsStructureRequest'
             schema:
               $ref: '#/components/schemas/structureRequest'
         description: Request Body to request a list of RBICS Structure objects.
@@ -547,6 +553,30 @@ components:
           endDate: null
           rbicsId: "10"
           name: Business Services
+    rbicsEntityFocusRequest:
+      description: Request Body to request a list of RBICS Entity Focus objects.
+      summary: Entity Focus Request
+      value:
+        ids:
+        - FDS-US
+        - 0FPWZZ-E
+        - TSLA-US
+        date: 2020-09-30
+        levels:
+        - 1
+        - 3
+        - 6
+        includeNames: true
+    rbicsStructureRequest:
+      description: Request Body to request a list of RBICS Structure objects.
+      summary: Structure Request
+      value:
+        rbicsIds:
+        - "101010000000"
+        - "55"
+        level: 3
+        includeNames: true
+        date: 2020-09-30
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.

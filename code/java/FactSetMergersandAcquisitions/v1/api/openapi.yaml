@@ -13,7 +13,7 @@ info:
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: FactSet Mergers and Acquisitions API
+  title: FACTSET MERGERS AND ACQUISITIONS API
   version: 1.0.0
 externalDocs:
   description: API Documentation
@@ -1998,12 +1998,8 @@ components:
           nullable: true
           type: string
         dealCharacteristics:
-          description: The secondary deal type(s).
-          example:
-          - Exit
-          - Going Private
-          items:
-            enum:
+          description: |
+            The secondary deal type(s). Possible values include:
             - Divestment
             - Employee Buy-Out
             - Exit
@@ -2048,6 +2044,11 @@ components:
             - Bidder Controlling Shareholder
             - Property Transaction
             - Power Plant Purchase
+            - PE-Backed Target
+          example:
+          - Exit
+          - Going Private
+          items:
             nullable: true
             type: string
           nullable: true

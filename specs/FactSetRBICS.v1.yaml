@@ -16,7 +16,8 @@ info:
     business. It is based on the company business line/s that stand for majority
     of a the revenue that the company generates. Updated monthly. For more
     details, visit [Online Assitant Page
-    #20710](https://oa.apps.factset.com/pages/20710).
+    #20710](https://oa.apps.factset.com/pages/20710).<p><b>Rate limit is set to
+    40 requests per second</b>.</p>
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -93,6 +94,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/entityFocusRequest'
+            examples:
+              rbicsEntityFocusRequest:
+                $ref: '#/components/examples/rbicsEntityFocusRequest'
       responses:
         '200':
           description: Successful Response producing an array of Entity Focus Objects
@@ -166,6 +170,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/structureRequest'
+            examples:
+              Structure Request:
+                $ref: '#/components/examples/rbicsStructureRequest'
       responses:
         '200':
           description: Successful Response producing an array of RBICS Structure Objects
@@ -686,6 +693,30 @@ components:
             endDate: null
             rbicsId: '10'
             name: Business Services
+    rbicsEntityFocusRequest:
+      summary: Entity Focus Request
+      description: Request Body to request a list of RBICS Entity Focus objects.
+      value:
+        ids:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+        date: '2020-09-30'
+        levels:
+          - 1
+          - 3
+          - 6
+        includeNames: true
+    rbicsStructureRequest:
+      summary: Structure Request
+      description: Request Body to request a list of RBICS Structure objects.
+      value:
+        rbicsIds:
+          - '101010000000'
+          - '55'
+        level: 3
+        includeNames: true
+        date: '2020-09-30'
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

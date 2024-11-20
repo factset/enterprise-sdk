@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: FactSet Mergers and Acquisitions API
+  title: FACTSET MERGERS AND ACQUISITIONS API
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -906,58 +906,59 @@ components:
             considering a bid.
           nullable: true
         dealCharacteristics:
-          description: The secondary deal type(s).
+          description: |
+            The secondary deal type(s). Possible values include:
+            - Divestment
+            - Employee Buy-Out
+            - Exit
+            - Investor Buy-In
+            - Investor Buy-Out
+            - Insolvency
+            - Management Buy-Out
+            - Reverse Takeover
+            - Secondary Buy-Out
+            - Leveraged Buy-Out
+            - Going Private
+            - Exit (Partial)
+            - Control Premium Study
+            - Private Equity Group
+            - Asset Purchase
+            - Related Party
+            - Tender Offer
+            - Unequal Voting
+            - Target Controlling Shareholder
+            - Auction
+            - Club Deal - PE Group
+            - Club Deal - Corp/PE
+            - Venture Backed Acquirer
+            - Unsolicited Bid
+            - Rumor
+            - Scheme of Arrangement
+            - Golden Share
+            - Merger of Equals
+            - Privatization
+            - Indicative / Tentative Proposal
+            - Club Deal - Corporate Group
+            - Multiple Target Deal
+            - SPAC
+            - Squeeze Out
+            - Special Committee
+            - Collar
+            - Forced Regulatory Divestiture
+            - Venture-Backed Target
+            - Bank Branch Purchase
+            - Bidder Special Committee
+            - Target Special Committee
+            - Bidder Controlling Shareholder
+            - Property Transaction
+            - Power Plant Purchase
+            - PE-Backed Target
           type: array
           example:
             - Exit
             - Going Private
           items:
             type: string
-            enum:
-              - Divestment
-              - Employee Buy-Out
-              - Exit
-              - Investor Buy-In
-              - Investor Buy-Out
-              - Insolvency
-              - Management Buy-Out
-              - Reverse Takeover
-              - Secondary Buy-Out
-              - Leveraged Buy-Out
-              - Going Private
-              - Exit (Partial)
-              - Control Premium Study
-              - Private Equity Group
-              - Asset Purchase
-              - Related Party
-              - Tender Offer
-              - Unequal Voting
-              - Target Controlling Shareholder
-              - Auction
-              - Club Deal - PE Group
-              - Club Deal - Corp/PE
-              - Venture Backed Acquirer
-              - Unsolicited Bid
-              - Rumor
-              - Scheme of Arrangement
-              - Golden Share
-              - Merger of Equals
-              - Privatization
-              - Indicative / Tentative Proposal
-              - Club Deal - Corporate Group
-              - Multiple Target Deal
-              - SPAC
-              - Squeeze Out
-              - Special Committee
-              - Collar
-              - Forced Regulatory Divestiture
-              - Venture-Backed Target
-              - Bank Branch Purchase
-              - Bidder Special Committee
-              - Target Special Committee
-              - Bidder Controlling Shareholder
-              - Property Transaction
-              - Power Plant Purchase
             nullable: true
           nullable: true
     Ids:
