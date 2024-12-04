@@ -1,22 +1,24 @@
 # CustomSymbolsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCustomSymbol**](CustomSymbolsApi.md#createCustomSymbol) | **POST** /v1/custom-symbols | Create a custom symbol
-[**deleteCustomSymbol**](CustomSymbolsApi.md#deleteCustomSymbol) | **DELETE** /v1/custom-symbols/{customSymbolId} | Delete a custom symbol
-[**getCustomSymbol**](CustomSymbolsApi.md#getCustomSymbol) | **GET** /v1/custom-symbols/{customSymbolId} | Get all custom field and standard field details on a specific custom symbol
-[**getCustomSymbolRecords**](CustomSymbolsApi.md#getCustomSymbolRecords) | **GET** /v1/custom-symbols/{customSymbolId}/records | Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
-[**getCustomSymbols**](CustomSymbolsApi.md#getCustomSymbols) | **GET** /v1/custom-symbols | Get list of all custom symbols in your group along with some of their standard field and custom fields data
-[**linkCustomSymbolToStandardSymbol**](CustomSymbolsApi.md#linkCustomSymbolToStandardSymbol) | **POST** /v1/custom-symbols/{customSymbolId}/link-standard-symbol | Link custom symbol to standard symbol
-[**patchCustomSymbol**](CustomSymbolsApi.md#patchCustomSymbol) | **PATCH** /v1/custom-symbols/{customSymbolId} | Edit a custom symbol’s standard field and custom field data
+[**createCustomSymbol**](CustomSymbolsApi.md#createCustomSymbol) | **POST** /custom-symbols | Create a custom symbol
+[**deleteCustomSymbol**](CustomSymbolsApi.md#deleteCustomSymbol) | **DELETE** /custom-symbols/{customSymbolId} | Delete a custom symbol
+[**getCustomSymbol**](CustomSymbolsApi.md#getCustomSymbol) | **GET** /custom-symbols/{customSymbolId} | Get all custom field and standard field details on a specific custom symbol
+[**getCustomSymbolRecords**](CustomSymbolsApi.md#getCustomSymbolRecords) | **GET** /custom-symbols/{customSymbolId}/records | Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
+[**getCustomSymbols**](CustomSymbolsApi.md#getCustomSymbols) | **GET** /custom-symbols | Get list of all custom symbols in your group along with some of their standard field and custom fields data
+[**linkCustomSymbolToStandardSymbol**](CustomSymbolsApi.md#linkCustomSymbolToStandardSymbol) | **POST** /custom-symbols/{customSymbolId}/link-standard-symbol | Link custom symbol to standard symbol
+[**patchCustomSymbol**](CustomSymbolsApi.md#patchCustomSymbol) | **PATCH** /custom-symbols/{customSymbolId} | Edit a custom symbol’s standard field and custom field data
 
 
 
 ## createCustomSymbol
 
 > NewItemDto createCustomSymbol(createCustomSymbolDto)
+
+Create a custom symbol
 
 Create a custom symbol
 
@@ -111,6 +113,8 @@ Name | Type | Description  | Notes
 
 Delete a custom symbol
 
+Delete a custom symbol
+
 ### Example
 
 > [!IMPORTANT]
@@ -198,7 +202,9 @@ null (empty response body)
 
 ## getCustomSymbol
 
-> CustomSymbolDto getCustomSymbol(customSymbolId, includeEvent)
+> CustomSymbolDto getCustomSymbol(customSymbolId)
+
+Get all custom field and standard field details on a specific custom symbol
 
 Get all custom field and standard field details on a specific custom symbol
 
@@ -244,9 +250,8 @@ public class Example {
 
         CustomSymbolsApi apiInstance = new CustomSymbolsApi(defaultClient);
         java.util.UUID customSymbolId = new java.util.UUID(); // java.util.UUID | customSymbolId to get associated custom symbol
-        Boolean includeEvent = false; // Boolean | Whether or not to include event
         try {
-            CustomSymbolDto result = apiInstance.getCustomSymbol(customSymbolId, includeEvent);
+            CustomSymbolDto result = apiInstance.getCustomSymbol(customSymbolId);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -266,7 +271,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customSymbolId** | **java.util.UUID**| customSymbolId to get associated custom symbol |
- **includeEvent** | **Boolean**| Whether or not to include event | [optional] [default to false]
 
 ### Return type
 
@@ -285,11 +289,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **404** | Not Found |  -  |
+| **0** | Error |  -  |
 
 
 ## getCustomSymbolRecords
 
 > java.util.List<RecordPreviewDto> getCustomSymbolRecords(customSymbolId)
+
+Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
 
 Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
 
@@ -380,7 +388,9 @@ Name | Type | Description  | Notes
 
 ## getCustomSymbols
 
-> java.util.List<CustomSymbolDto> getCustomSymbols(typeName, query, includeCustomFieldValues, excludeLinkedCustomSymbol, includeEvent)
+> java.util.List<CustomSymbolDto> getCustomSymbols(typeName, query, includeCustomFieldValues, excludeLinkedCustomSymbol, modifiedSince, jobId, batchJobId, includeDeleted)
+
+Get list of all custom symbols in your group along with some of their standard field and custom fields data
 
 Get list of all custom symbols in your group along with some of their standard field and custom fields data
 
@@ -426,12 +436,15 @@ public class Example {
 
         CustomSymbolsApi apiInstance = new CustomSymbolsApi(defaultClient);
         String typeName = "typeName_example"; // String | filter custom symbols based on custom symbol type
-        String query = "query_example"; // String | filter custom symbols based on custom symbol code or name
+        String query = "query_example"; // String | filter custom symbols based on custom symbol code, name or linked factset entity's properties
         Boolean includeCustomFieldValues = false; // Boolean | Whether or not to include customFieldValues
         Boolean excludeLinkedCustomSymbol = false; // Boolean | Whether or not to exclude linked custom symbol
-        Boolean includeEvent = true; // Boolean | Whether or not to include event
+        String modifiedSince = "modifiedSince_example"; // String | Only return Custom Symbols which have been modified or created since a particular time
+        java.util.UUID jobId = new java.util.UUID(); // java.util.UUID | Filter custom symbols based on custom symbol sync job
+        java.util.UUID batchJobId = new java.util.UUID(); // java.util.UUID | Filter custom symbols based on rbl custom symbol job
+        Boolean includeDeleted = false; // Boolean | Whether or not to include deleted custom symbols
         try {
-            java.util.List<CustomSymbolDto> result = apiInstance.getCustomSymbols(typeName, query, includeCustomFieldValues, excludeLinkedCustomSymbol, includeEvent);
+            java.util.List<CustomSymbolDto> result = apiInstance.getCustomSymbols(typeName, query, includeCustomFieldValues, excludeLinkedCustomSymbol, modifiedSince, jobId, batchJobId, includeDeleted);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -451,10 +464,13 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **typeName** | **String**| filter custom symbols based on custom symbol type | [optional]
- **query** | **String**| filter custom symbols based on custom symbol code or name | [optional]
+ **query** | **String**| filter custom symbols based on custom symbol code, name or linked factset entity&#39;s properties | [optional]
  **includeCustomFieldValues** | **Boolean**| Whether or not to include customFieldValues | [optional] [default to false]
  **excludeLinkedCustomSymbol** | **Boolean**| Whether or not to exclude linked custom symbol | [optional] [default to false]
- **includeEvent** | **Boolean**| Whether or not to include event | [optional] [default to true]
+ **modifiedSince** | **String**| Only return Custom Symbols which have been modified or created since a particular time | [optional]
+ **jobId** | **java.util.UUID**| Filter custom symbols based on custom symbol sync job | [optional]
+ **batchJobId** | **java.util.UUID**| Filter custom symbols based on rbl custom symbol job | [optional]
+ **includeDeleted** | **Boolean**| Whether or not to include deleted custom symbols | [optional] [default to false]
 
 ### Return type
 
@@ -473,6 +489,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **0** | Error |  -  |
 
@@ -480,6 +497,8 @@ Name | Type | Description  | Notes
 ## linkCustomSymbolToStandardSymbol
 
 > linkCustomSymbolToStandardSymbol(customSymbolId, standardSymbolDto)
+
+Link custom symbol to standard symbol
 
 Link custom symbol to standard symbol
 
@@ -570,6 +589,8 @@ null (empty response body)
 ## patchCustomSymbol
 
 > patchCustomSymbol(customSymbolId, operation)
+
+Edit a custom symbol’s standard field and custom field data
 
 Edit a custom symbol’s standard field and custom field data
 

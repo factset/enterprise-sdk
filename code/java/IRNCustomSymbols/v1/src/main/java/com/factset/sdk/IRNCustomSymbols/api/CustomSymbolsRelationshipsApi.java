@@ -15,6 +15,7 @@ import com.factset.sdk.IRNCustomSymbols.models.ProblemDetails;
 import com.factset.sdk.IRNCustomSymbols.models.SymbolRelationshipDto;
 import com.factset.sdk.IRNCustomSymbols.models.SymbolRelationshipSaveDto;
 import com.factset.sdk.IRNCustomSymbols.models.SymbolRelationshipUpdateDto;
+import com.factset.sdk.IRNCustomSymbols.models.SymbolsRelationshipType;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -49,6 +50,11 @@ public class CustomSymbolsRelationshipsApi {
     getSymbolRelationshipsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
 
+  private static final Map<Integer, GenericType> getSymbolsRelationshipsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSymbolsRelationshipsResponseTypeMap.put(200, new GenericType<java.util.List<SymbolRelationshipDto>>(){});
+  }
+
   
 
 
@@ -72,7 +78,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Create a symbol relationship
-   * 
+   * Create a symbol relationship
    * @param symbolRelationshipSaveDto symbolRelationship object to save (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -89,7 +95,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Create a symbol relationship
-   * 
+   * Create a symbol relationship
    * @param symbolRelationshipSaveDto symbolRelationship object to save (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -105,7 +111,7 @@ public class CustomSymbolsRelationshipsApi {
     Object localVarPostBody = symbolRelationshipSaveDto;
     
     // create path and map variables
-    String localVarPath = "/v1/symbol-relationships";
+    String localVarPath = "/symbol-relationships";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -141,7 +147,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Delete a symbol relationship
-   * 
+   * Delete a symbol relationship
    * @param symbolRelationshipId symbolRelationshipId to delete associated record (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -159,7 +165,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Delete a symbol relationship
-   * 
+   * Delete a symbol relationship
    * @param symbolRelationshipId symbolRelationshipId to delete associated record (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -181,7 +187,7 @@ public class CustomSymbolsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/symbol-relationships/{symbolRelationshipId}"
+    String localVarPath = "/symbol-relationships/{symbolRelationshipId}"
       .replaceAll("\\{" + "symbolRelationshipId" + "\\}", apiClient.escapeString(symbolRelationshipId.toString()));
 
     // query params
@@ -218,7 +224,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Edit a symbol relationship
-   * 
+   * Edit a symbol relationship
    * @param symbol  (required)
    * @param symbolRelationshipUpdateDto symbolRelationship object to save (optional)
    * @throws ApiException if fails to make API call
@@ -234,7 +240,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Edit a symbol relationship
-   * 
+   * Edit a symbol relationship
    * @param symbol  (required)
    * @param symbolRelationshipUpdateDto symbolRelationship object to save (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -254,7 +260,7 @@ public class CustomSymbolsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/symbol-relationships/{symbol}"
+    String localVarPath = "/symbol-relationships/{symbol}"
       .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
 
     // query params
@@ -291,7 +297,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Get details on a specific symbol relationship
-   * 
+   * Get details on a specific symbol relationship
    * @param symbolRelationshipId symbolRelationshipId to get associated record (required)
    * @return SymbolRelationshipDto
    * @throws ApiException if fails to make API call
@@ -309,7 +315,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Get details on a specific symbol relationship
-   * 
+   * Get details on a specific symbol relationship
    * @param symbolRelationshipId symbolRelationshipId to get associated record (required)
    * @return ApiResponse&lt;SymbolRelationshipDto&gt;
    * @throws ApiException if fails to make API call
@@ -330,7 +336,7 @@ public class CustomSymbolsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/symbol-relationships/{symbolRelationshipId}"
+    String localVarPath = "/symbol-relationships/{symbolRelationshipId}"
       .replaceAll("\\{" + "symbolRelationshipId" + "\\}", apiClient.escapeString(symbolRelationshipId.toString()));
 
     // query params
@@ -369,7 +375,7 @@ public class CustomSymbolsRelationshipsApi {
   }
   /**
    * Returns a list of a symbol’s relationships
-   * 
+   * Returns a list of a symbol’s relationships
    * @param symbolId symbolId to get associated records (required)
    * @return java.util.List<SymbolRelationshipDto>
    * @throws ApiException if fails to make API call
@@ -387,7 +393,7 @@ public class CustomSymbolsRelationshipsApi {
 
   /**
    * Returns a list of a symbol’s relationships
-   * 
+   * Returns a list of a symbol’s relationships
    * @param symbolId symbolId to get associated records (required)
    * @return ApiResponse&lt;java.util.List<SymbolRelationshipDto>&gt;
    * @throws ApiException if fails to make API call
@@ -408,7 +414,7 @@ public class CustomSymbolsRelationshipsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/symbol-relationships/{symbolId}/relationships"
+    String localVarPath = "/symbol-relationships/{symbolId}/relationships"
       .replaceAll("\\{" + "symbolId" + "\\}", apiClient.escapeString(symbolId.toString()));
 
     // query params
@@ -441,6 +447,78 @@ public class CustomSymbolsRelationshipsApi {
     > apiResponse = apiClient.invokeAPI("CustomSymbolsRelationshipsApi.getSymbolRelationships", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getSymbolRelationshipsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Get list of all symbol relationships in your group
+   * Get list of all symbol relationships in your group
+   * @param relationshipType Filter results on relationship type (optional)
+   * @param relationshipCode Filter results on relationship code (optional)
+   * @return java.util.List<SymbolRelationshipDto>
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+   */
+  public java.util.List<SymbolRelationshipDto> getSymbolsRelationships(SymbolsRelationshipType relationshipType, String relationshipCode) throws ApiException {
+    return getSymbolsRelationshipsWithHttpInfo(relationshipType, relationshipCode).getData();
+  }
+
+  /**
+   * Get list of all symbol relationships in your group
+   * Get list of all symbol relationships in your group
+   * @param relationshipType Filter results on relationship type (optional)
+   * @param relationshipCode Filter results on relationship code (optional)
+   * @return ApiResponse&lt;java.util.List<SymbolRelationshipDto>&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<java.util.List<SymbolRelationshipDto>> getSymbolsRelationshipsWithHttpInfo(SymbolsRelationshipType relationshipType, String relationshipCode) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/symbol-relationships";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "relationshipType", relationshipType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "relationshipCode", relationshipCode));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        java.util.List<SymbolRelationshipDto>
+      
+    > apiResponse = apiClient.invokeAPI("CustomSymbolsRelationshipsApi.getSymbolsRelationships", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getSymbolsRelationshipsResponseTypeMap, false);
 
     return apiResponse;
 

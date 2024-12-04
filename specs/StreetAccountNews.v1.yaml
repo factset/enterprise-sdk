@@ -17,7 +17,26 @@ info:
     as Watchlists/Indices/Tickers, Categories (the equivalent of 'Subjects'
     within the Workstation), Market Topics, Regions, and Sectors.  Headlines can
     also be retrieved based on saved views within the Workstation.
-  version: 1.0.0
+
+     **StreetAccount Historical Stories:**
+
+    These endpoints provide access to historical StreetAccount (SA) news. The
+    API delivers SA stories in XML format based on user-specified date input
+    parameters. Output files are securely available to users through a URL. This
+    API has three endpoints: Create, Status, and Get.
+
+
+    Please note that this API only supports adhoc requests for historical files
+    and does not support real-time files. If real-time push is required,
+    consider using other methods such as SFTP, QNT account, or Azure Storage.
+    Both historical and real-time Street Account news can be delivered via SFTP,
+    QNT account, or Azure Storage.
+
+
+    The files delivered contain both metadata and content body, eliminating the
+    need for multiple requests through multiple services to retrieve all the
+    information.
+  version: 1.1.0
   contact:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
@@ -35,6 +54,8 @@ tags:
     description: Get headlines for a specified view or specified filters
   - name: Views
     description: Create, edit and delete views
+  - name: StreetAccount Historical Stories
+    description: Create, Status and Get files
 paths:
   /headlines:
     post:
@@ -1101,6 +1122,304 @@ paths:
                   $ref: '#/components/examples/NotFound'
         '429':
           $ref: '#/components/responses/429'
+  /historical/files/create:
+    post:
+      tags:
+        - StreetAccount Historical Stories
+      summary: Requests the creation of StreetAccount News Files with historical data.
+      operationId: requestFiles
+      description: >-
+        Data available from past 10 years, 2 years of data can be retrieved per
+        API request and an ID is returned.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createFilesRequest'
+      responses:
+        '202':
+          description: |
+            The Request has been Accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acceptedResponse'
+              examples:
+                default202ResponseExample:
+                  $ref: '#/components/examples/acceptedResponseExample'
+          headers:
+            Location:
+              description: Relative location to poll for status
+              schema:
+                type: string
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              schema:
+                type: string
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              schema:
+                type: string
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthDetails'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+        '429':
+          description: Too many requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default429ResponseExample:
+                  $ref: '#/components/examples/429Example'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Details'
+  /historical/files/status:
+    get:
+      tags:
+        - StreetAccount Historical Stories
+      summary: Returns the status of the request
+      description: >-
+        Need to plug-in the ID get from /historical/files/create endpoint into
+        /historical/files/status endpoint
+      operationId: getStatusData
+      parameters:
+        - name: id
+          in: query
+          description: >-
+            ID returned by the /historical/files/create endpoint to know the
+            status
+          required: true
+          schema:
+            type: string
+        - name: _paginationLimit
+          in: query
+          description: Specifies the maximum number of results to return per result
+          required: false
+          schema:
+            type: integer
+        - name: _paginationOffset
+          in: query
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the beginning of next set of results
+          required: false
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: |
+            The Request has been Created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/submittedResponse'
+              examples:
+                default201ResponseExample:
+                  $ref: '#/components/examples/submittedResponseExample'
+          headers:
+            Location:
+              description: Relative location to pick up results.
+              schema:
+                type: string
+              example: get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '202':
+          description: |
+            The Request has been Accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acceptedResponse'
+              examples:
+                QueuedExample:
+                  $ref: '#/components/examples/sampleFilesResponseQueued'
+                ExecutingExample:
+                  $ref: '#/components/examples/sampleFilesResponseExecuting'
+                FailedExample:
+                  $ref: '#/components/examples/sampleFilesResponseFailed'
+                CancelledExample:
+                  $ref: '#/components/examples/sampleFilesResponseCancelled'
+          headers:
+            Location:
+              description: Relative location to poll for status.
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthDetails'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Details'
+      x-factset-different-success-responses: true
+  /historical/files/get:
+    get:
+      tags:
+        - StreetAccount Historical Stories
+      summary: >-
+        Returns the StreetAccount Historical data in files requested in the
+        /historical/files/create endpoint.
+      description: >-
+        Need to plug-in the ID got from /historical/files/create into
+        /historical/files/status endpoint
+      operationId: getFilesData
+      parameters:
+        - name: id
+          in: query
+          description: >-
+            ID returned by the /historical/files/create endpoint to collect the
+            results of the query
+          required: true
+          schema:
+            type: string
+        - name: _paginationLimit
+          in: query
+          description: Specifies the maximum number of results to return per result
+          required: false
+          schema:
+            type: integer
+        - name: _paginationOffset
+          in: query
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the   beginning of next set of results
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getfilesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/200GetFilesExample'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400ExampleOne'
+          headers:
+            Location:
+              description: Relative location to poll for status.
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthDetails'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Details'
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/streetaccount-news-api
@@ -1272,6 +1591,163 @@ components:
           - code: Internal Server error
             title: An unexpected error happened.
             id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+    400Example:
+      summary: Sample error Response
+      value:
+        errors:
+          - code: Bad Request
+            title: parameterError:['_id'] is not a valid parameter(s)
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    400ExampleOne:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Bad Request
+            title: >-
+              Please use /historical/files/status endpoint to get the status
+              until the resource created.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    403Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Forbidden
+            title: USERNAME-SERIAL does not have permission
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    429Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Too Many Requests
+            title: quantityLimitsExceeded
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    404Example:
+      summary: sample error response
+      value:
+        errors:
+          - code: Not Found
+            title: id not found
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+    acceptedResponseExample:
+      summary: Status Accepted
+      value:
+        data:
+          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+          status: queued
+          error: null
+    submittedResponseExample:
+      summary: Status Done
+      value:
+        data:
+          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+          status: created
+          resources:
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
+              status: created
+              error: null
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
+              status: created
+              error: null
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+    sampleFilesResponseQueued:
+      summary: Status Queued
+      value:
+        data:
+          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+          status: queued
+          resources:
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
+              status: queued
+              error: null
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
+              status: queued
+              error: null
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+    sampleFilesResponseExecuting:
+      summary: Status Executing
+      value:
+        data:
+          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+          status: executing
+          resources:
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
+              status: executing
+              error: null
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
+              status: executing
+              error: null
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+    sampleFilesResponseFailed:
+      summary: Status Failed
+      value:
+        data:
+          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+          status: failed
+          resources:
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
+              status: failed
+              error:
+                id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+                code: Geeneric Error
+                title: 'Not a valid request '
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
+              status: failed
+              error:
+                id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+                code: Geeneric Error
+                title: 'Not a valid request '
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+    sampleFilesResponseCancelled:
+      summary: Status Cancelled
+      value:
+        data:
+          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+          status: cancelled
+          resources:
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
+              status: cancelled
+              error:
+                id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+                code: Error
+                title: Request taking long time
+            - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
+              status: cancelled
+              error:
+                id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
+                code: Error
+                title: Request taking long time
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+    200GetFilesExample:
+      summary: Sample Response
+      value:
+        data:
+          - startDate: '2021-11-21T00:00:00Z'
+            endDate: '2021-11-28T00:00:00Z'
+            id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
+            url: https://structured-data-delivery-streetaccount/download/get/link
+          - startDate: '2021-11-21T00:00:00Z'
+            endDate: '2021-11-28T00:00:00Z'
+            id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
+            url: https://structured-data-delivery-streetaccount/download/get/link
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
   schemas:
     Error:
       type: object
@@ -1295,6 +1771,253 @@ components:
         code:
           type: string
           description: The error code associated with the error.
+    createFilesRequest:
+      title: create-files Request Body
+      description: create-files request body elements
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/createFilesRequestObject'
+      required:
+        - data
+    createFilesRequestObject:
+      title: create-files Request Body
+      description: create-files request body elements
+      type: object
+      properties:
+        dateTimeRange:
+          $ref: '#/components/schemas/dateTimeRange'
+        identifiers:
+          $ref: '#/components/schemas/identifiers'
+        category:
+          $ref: '#/components/schemas/category'
+      required:
+        - dateTimeRange
+        - category
+    dateTimeRange:
+      $ref: '#/components/schemas/dateTimeRangeObject'
+    dateTimeRangeObject:
+      type: object
+      description: Date Range
+      properties:
+        start:
+          description: |
+            The date for (or from which) the data is required.
+          type: string
+          format: date-time
+          example: '2012-01-01T12:35:45Z'
+        end:
+          type: string
+          format: date-time
+          description: |
+            The date to which data is required.
+          example: '2012-01-30T08:10:30Z'
+    identifiers:
+      type: array
+      items:
+        type: string
+        minItems: 1
+        maxItems: 500
+      description: >-
+        Returns files for specified CUSIP, SEDOL, ISIN, Entity Identifier,
+        Ticker and Regional Ticker. If this parameter is not specified, it will
+        return all the files that covered under specified category.
+      example:
+        - AAPL-US
+        - IBM-US
+    category:
+      type: array
+      description: >-
+        Each category corresponds to AT LEAST 1 output file. Depending on the
+        date range provided, each category can produce any number of output
+        files. If multiple files are created for one category, the files
+        themselves have no specific order. 
+
+
+        * companyNewsAll = Company News - All Regions
+
+        * companyNewsNA = Company News - North America Region
+
+        * companyNewsEU = Company News -EU Region
+
+        * companyNewsAPAC = Company News - APAC Region
+
+        * companyNewsESG = Company News - ESG
+
+        * macroTtnAll = Macro and Today's Top News - All Regions
+
+        * macroTtnNA = Macro and Today's Top News - North America Region
+
+        * macroTtnEU = Macro and Today's Top News - EU Region
+
+        * macroTtnAPAC = Macro and Today's Top News - APAC  Region
+
+        * macroTtnESG = Macro and Today's Top News - ESG
+
+        * all = Content bundle includes "Company News - All Regions", "Company
+        News - ESG", "Macro and Today's Top News - All Regions", and "Macro and
+        Today's Top News - ESG"
+
+        * macroTtnBanking = Macro and Today's Top News -Banking
+
+        * macroTtnConsumer = Macro and Today's Top News - Consumer
+
+        * macroTtnEnergy = Macro and Today's Top News - Energy
+
+        * macroTtnHealthcare = Macro and Today's Top News - Healthcare
+
+        * macroTtnIndustrials = Macro and Today's Top News - Industrials
+
+        * macroTtnInsurance = Macro and Today's Top News - Insurance
+
+        * macroTtnMedia =  Macro and Today's Top News - Media & Telecom
+
+        * macroTtnMetals = Macro and Today's Top News - Metals & Mining
+
+        * macroTtnPower = Macro and Today's Top News - Power & Utilities
+
+        * macroTtnRealEstate = Macro and Today's Top News - Real Estate
+
+        * macroTtnTech = Macro and Today's Top News -Technology
+
+        * macroTtnAllSectors = Macro and Today's Top News - All Sectors
+      items:
+        type: string
+        enum:
+          - companyNewsAll
+          - companyNewsNA
+          - companyNewsEU
+          - companyNewsAPAC
+          - companyNewsESG
+          - macroTtnAll
+          - macroTtnNA
+          - macroTtnEU
+          - macroTtnAPAC
+          - macroTtnESG
+          - all
+          - macroTtnBanking
+          - macroTtnConsumer
+          - macroTtnEnergy
+          - macroTtnHealthcare
+          - macroTtnIndustrials
+          - macroTtnInsurance
+          - macroTtnMedia
+          - macroTtnMetals
+          - macroTtnPower
+          - macroTtnRealEstate
+          - macroTtnTech
+          - macroTtnAllSectors
+    acceptedResponse:
+      type: object
+      title: Status Response
+      description: Returns Status of the id.
+      properties:
+        data:
+          $ref: '#/components/schemas/StatusOne'
+        meta:
+          $ref: '#/components/schemas/metaOne'
+    StatusOne:
+      type: object
+      description: request-files
+      properties:
+        id:
+          description: a unique identification for the query requested
+          type: string
+        status:
+          description: The status of the query
+          type: string
+          enum:
+            - queued
+            - executing
+            - created
+            - failed
+            - cancelled
+        resources:
+          type: array
+          items:
+            properties:
+              id:
+                description: a unique identification for the batch
+                type: string
+              status:
+                description: The status of the batch
+                type: string
+              error:
+                $ref: '#/components/schemas/202ErrorObject'
+    202ErrorObject:
+      type: object
+      nullable: true
+      description: error
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+        code:
+          description: status
+          type: string
+        title:
+          description: The plain text error message
+          type: string
+    submittedResponse:
+      type: object
+      title: Status Response
+      description: Returns Status of the id.
+      properties:
+        data:
+          $ref: '#/components/schemas/StatusOne'
+        meta:
+          $ref: '#/components/schemas/metaOne'
+    metaOne:
+      title: Meta
+      description: Array of metadata objects
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/paginationOne'
+    paginationOne:
+      title: PaginationItems
+      description: List of pagination objects
+      type: object
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query
+          type: integer
+        isEstimatedTotal:
+          description: >-
+            Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to False. as the
+            API should always return the exact count
+          type: boolean
+    getfilesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/getfiles'
+        meta:
+          $ref: '#/components/schemas/metaOne'
+    getfiles:
+      type: object
+      properties:
+        startDate:
+          description: >-
+            The startDate from which the data is required in
+            YYYY-MM-DDTHH:MM:SSZ format
+          type: string
+          format: date-time
+        endDate:
+          description: >-
+            The endDate until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ
+            format
+          type: string
+          format: date-time
+        id:
+          description: Unique id to get the xml files for the requested date
+          type: string
+        url:
+          description: Link to download the zip file which contains xml files
+          type: string
     HeadlinesRequest:
       type: object
       description: >-

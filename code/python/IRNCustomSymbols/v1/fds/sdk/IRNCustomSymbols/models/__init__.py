@@ -30,3 +30,4 @@ from fds.sdk.IRNCustomSymbols.model.symbol_relationship_dto import SymbolRelatio
 from fds.sdk.IRNCustomSymbols.model.symbol_relationship_save_dto import SymbolRelationshipSaveDto
 from fds.sdk.IRNCustomSymbols.model.symbol_relationship_update_dto import SymbolRelationshipUpdateDto
 from fds.sdk.IRNCustomSymbols.model.symbols_relationship_id_name_dto import SymbolsRelationshipIdNameDto
+from fds.sdk.IRNCustomSymbols.model.symbols_relationship_type import SymbolsRelationshipType

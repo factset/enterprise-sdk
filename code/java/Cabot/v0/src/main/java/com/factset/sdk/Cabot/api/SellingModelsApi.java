@@ -15,7 +15,9 @@ import com.factset.sdk.Cabot.models.Attributes;
 import com.factset.sdk.Cabot.models.ClientErrorResponse;
 import com.factset.sdk.Cabot.models.Regions;
 import com.factset.sdk.Cabot.models.Sectors;
+import com.factset.sdk.Cabot.models.SellTimingHoldings;
 import com.factset.sdk.Cabot.models.SellTimingResponseRoot;
+import com.factset.sdk.Cabot.models.StopLossHoldings;
 import com.factset.sdk.Cabot.models.StopLossResponseRoot;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -75,6 +77,7 @@ public class SellingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return SellTimingResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -92,8 +95,8 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public SellTimingResponseRoot getSellTimingModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    return getSellTimingModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region).getData();
+  public SellTimingResponseRoot getSellTimingModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, SellTimingHoldings holdings) throws ApiException {
+    return getSellTimingModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
   }
 
   /**
@@ -105,6 +108,7 @@ public class SellingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return ApiResponse&lt;SellTimingResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -122,7 +126,7 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SellTimingResponseRoot> getSellTimingModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
+  public ApiResponse<SellTimingResponseRoot> getSellTimingModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, SellTimingHoldings holdings) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountPath' is set
@@ -155,6 +159,7 @@ public class SellingModelsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -192,6 +197,7 @@ public class SellingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return StopLossResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -209,8 +215,8 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public StopLossResponseRoot getStopLossModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    return getStopLossModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region).getData();
+  public StopLossResponseRoot getStopLossModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, StopLossHoldings holdings) throws ApiException {
+    return getStopLossModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
   }
 
   /**
@@ -222,6 +228,7 @@ public class SellingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return ApiResponse&lt;StopLossResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -239,7 +246,7 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<StopLossResponseRoot> getStopLossModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
+  public ApiResponse<StopLossResponseRoot> getStopLossModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, StopLossHoldings holdings) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountPath' is set
@@ -272,6 +279,7 @@ public class SellingModelsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     

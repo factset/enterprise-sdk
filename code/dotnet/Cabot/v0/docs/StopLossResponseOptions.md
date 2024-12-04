@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attribute** | **string** |  | [optional] 
 **HighStopLossValues** | [**List&lt;StopLossModelAnalytics&gt;**](StopLossModelAnalytics.md) |  | [optional] 
+**HoldingsData** | [**HoldingsResponseOptions**](HoldingsResponseOptions.md) |  | [optional] 
 **LowStopLossValues** | [**List&lt;StopLossModelAnalytics&gt;**](StopLossModelAnalytics.md) |  | [optional] 
 **StopLossValues** | [**List&lt;StopLossModelAnalytics&gt;**](StopLossModelAnalytics.md) |  | [optional] 
 

@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 <a name="getresultsmodelanalytic"></a>
 # **GetResultsModelAnalytic**
-> ResultsResponseRoot GetResultsModelAnalytic (string accountPath, string benchmarkPath, string period)
+> ResultsResponseRoot GetResultsModelAnalytic (string accountPath, string benchmarkPath, string period, Currency? currency = null)
 
 Cabot main path for Results API
 
@@ -292,11 +292,12 @@ namespace Example
             var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
             var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
             var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
+            var currency = (Currency) "USD";  // Currency? | In which currency you want to see the data. By default the API uses USD.<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Results API
-                ResultsResponseRoot result = apiInstance.GetResultsModelAnalytic(accountPath, benchmarkPath, period);
+                ResultsResponseRoot result = apiInstance.GetResultsModelAnalytic(accountPath, benchmarkPath, period, currency);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -317,6 +318,7 @@ Name | Type | Description  | Notes
  **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
  **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
  **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
+ **currency** | **Currency?**| In which currency you want to see the data. By default the API uses USD.&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**ResultsResponseRoot**](ResultsResponseRoot.md)
@@ -350,7 +352,7 @@ Name | Type | Description  | Notes
 
 <a name="getskillsmodelanalytic"></a>
 # **GetSkillsModelAnalytic**
-> SkillsResponseRoot GetSkillsModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> SkillsResponseRoot GetSkillsModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, SkillsHoldings? holdings = null)
 
 Cabot main path for Skills API
 
@@ -406,11 +408,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (SkillsHoldings) "all";  // SkillsHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Skills API
-                SkillsResponseRoot result = apiInstance.GetSkillsModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                SkillsResponseRoot result = apiInstance.GetSkillsModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -434,6 +437,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **SkillsHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**SkillsResponseRoot**](SkillsResponseRoot.md)

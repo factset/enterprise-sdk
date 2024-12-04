@@ -28,6 +28,7 @@ from fds.sdk.EventsandTranscripts.model.events_audio_history import EventsAudioH
 from fds.sdk.EventsandTranscripts.model.events_audio_ids_object import EventsAudioIdsObject
 from fds.sdk.EventsandTranscripts.model.indexed_nrt import IndexedNrt
 from fds.sdk.EventsandTranscripts.model.indexed_object import IndexedObject
+from fds.sdk.EventsandTranscripts.model.investor_slides import InvestorSlides
 from fds.sdk.EventsandTranscripts.model.list_file_object import ListFileObject
 from fds.sdk.EventsandTranscripts.model.nrt_calls import NrtCalls
 from fds.sdk.EventsandTranscripts.model.nrt_calls_meta import NrtCallsMeta
@@ -41,6 +42,7 @@ from fds.sdk.EventsandTranscripts.model.response_categories import ResponseCateg
 from fds.sdk.EventsandTranscripts.model.response_categories_object import ResponseCategoriesObject
 from fds.sdk.EventsandTranscripts.model.response_time import ResponseTime
 from fds.sdk.EventsandTranscripts.model.response_time_object import ResponseTimeObject
+from fds.sdk.EventsandTranscripts.model.slides_object import SlidesObject
 from fds.sdk.EventsandTranscripts.model.transcript_object import TranscriptObject
 from fds.sdk.EventsandTranscripts.model.transcript_object_one import TranscriptObjectOne
 from fds.sdk.EventsandTranscripts.model.transcript_object_times import TranscriptObjectTimes

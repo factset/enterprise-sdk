@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attribute** | **string** |  | [optional] 
 **HighSellTimingValues** | [**SellTimingModelAnalytics**](SellTimingModelAnalytics.md) |  | [optional] 
+**HoldingsData** | [**HoldingsResponseOptions**](HoldingsResponseOptions.md) |  | [optional] 
 **LowSellTimingValues** | [**SellTimingModelAnalytics**](SellTimingModelAnalytics.md) |  | [optional] 
 **SellTimingValues** | [**SellTimingModelAnalytics**](SellTimingModelAnalytics.md) |  | [optional] 
 

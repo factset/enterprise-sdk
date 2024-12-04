@@ -26,6 +26,7 @@ from fds.sdk.EventsandTranscripts.model_utils import (  # noqa: F401
 )
 from fds.sdk.EventsandTranscripts.exceptions import ApiException
 from fds.sdk.EventsandTranscripts.model.error import Error
+from fds.sdk.EventsandTranscripts.model.investor_slides import InvestorSlides
 from fds.sdk.EventsandTranscripts.model.response_categories import ResponseCategories
 from fds.sdk.EventsandTranscripts.model.response_time import ResponseTime
 from fds.sdk.EventsandTranscripts.model.transcripts import Transcripts
@@ -498,6 +499,128 @@ class TranscriptsApi(object):
                 'collection_format_map': {
                     'ids': 'csv',
                     'report_ids': 'csv',
+                    'categories': 'csv',
+                    'sort': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_transcripts_investor_slides_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InvestorSlides,), 400: (Error,), 401: (Error,), 403: (Error,), 500: (Error,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/transcripts/investor-slides',
+                'operation_id': 'get_transcripts_investor_slides',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'start_date',
+                    'end_date',
+                    'ids',
+                    'event_ids',
+                    'categories',
+                    'search_text',
+                    'sort',
+                    'pagination_limit',
+                    'pagination_offset',
+                ],
+                'required': [
+                    'start_date',
+                    'end_date',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'sort',
+                ],
+                'validation': [
+                    'ids',
+                    'event_ids',
+                    'sort',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('ids',): {
+
+                        'max_items': 1000,
+                    },
+                    ('event_ids',): {
+
+                        'max_items': 1000,
+                    },
+                    ('sort',): {
+
+                        'max_items': 2,
+                    },
+                },
+                'allowed_values': {
+                    ('sort',): {
+
+                        "STORYDATETIME": "storyDateTime",
+                        "-STORYDATETIME": "-storyDateTime"
+                    },
+                },
+                'openapi_types': {
+                    'start_date':
+                        (date,),
+                    'end_date':
+                        (date,),
+                    'ids':
+                        ([str],),
+                    'event_ids':
+                        ([str],),
+                    'categories':
+                        ([str],),
+                    'search_text':
+                        (str,),
+                    'sort':
+                        ([str],),
+                    'pagination_limit':
+                        (int,),
+                    'pagination_offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'start_date': 'startDate',
+                    'end_date': 'endDate',
+                    'ids': 'ids',
+                    'event_ids': 'eventIds',
+                    'categories': 'categories',
+                    'search_text': 'searchText',
+                    'sort': '_sort',
+                    'pagination_limit': '_paginationLimit',
+                    'pagination_offset': '_paginationOffset',
+                },
+                'location_map': {
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'ids': 'query',
+                    'event_ids': 'query',
+                    'categories': 'query',
+                    'search_text': 'query',
+                    'sort': 'query',
+                    'pagination_limit': 'query',
+                    'pagination_offset': 'query',
+                },
+                'collection_format_map': {
+                    'ids': 'csv',
+                    'event_ids': 'csv',
                     'categories': 'csv',
                     'sort': 'csv',
                 }
@@ -1623,6 +1746,241 @@ class TranscriptsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_transcripts_ids_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_transcripts_investor_slides(
+        self,
+        start_date,
+        end_date,
+        **kwargs
+    ) -> InvestorSlides:
+        """Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.  # noqa: E501
+
+        Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+            end_date (date): End Date. Format is YYYY-MM-DD.
+
+        Keyword Args:
+            ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            event_ids ([str]): Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.. [optional]
+            categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
+            sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InvestorSlides
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['start_date'] = \
+            start_date
+        kwargs['end_date'] = \
+            end_date
+        return self.get_transcripts_investor_slides_endpoint.call_with_http_info(**kwargs)
+
+    def get_transcripts_investor_slides_with_http_info(
+        self,
+        start_date,
+        end_date,
+        **kwargs
+    ) -> typing.Tuple[InvestorSlides, int, typing.MutableMapping]:
+        """Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.  # noqa: E501
+
+        Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+            end_date (date): End Date. Format is YYYY-MM-DD.
+
+        Keyword Args:
+            ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            event_ids ([str]): Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.. [optional]
+            categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
+            sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InvestorSlides
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['start_date'] = \
+            start_date
+        kwargs['end_date'] = \
+            end_date
+        return self.get_transcripts_investor_slides_endpoint.call_with_http_info(**kwargs)
+
+    def get_transcripts_investor_slides_async(
+        self,
+        start_date,
+        end_date,
+        **kwargs
+    ) -> "ApplyResult[InvestorSlides]":
+        """Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.  # noqa: E501
+
+        Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+            end_date (date): End Date. Format is YYYY-MM-DD.
+
+        Keyword Args:
+            ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            event_ids ([str]): Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.. [optional]
+            categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
+            sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InvestorSlides]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['start_date'] = \
+            start_date
+        kwargs['end_date'] = \
+            end_date
+        return self.get_transcripts_investor_slides_endpoint.call_with_http_info(**kwargs)
+
+    def get_transcripts_investor_slides_with_http_info_async(
+        self,
+        start_date,
+        end_date,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InvestorSlides, int, typing.MutableMapping]]":
+        """Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.  # noqa: E501
+
+        Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            start_date (date): Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+            end_date (date): End Date. Format is YYYY-MM-DD.
+
+        Keyword Args:
+            ids ([str]): Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.. [optional]
+            event_ids ([str]): Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.. [optional]
+            categories ([str]): Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.. [optional]
+            search_text (str): Restricts the search to include only document stories which include the text searched.. [optional]
+            sort ([str]): Enables sorting data in ascending or descending chronological order based on eventDate. . [optional] if omitted the server will use the default value of ["-storyDateTime"]
+            pagination_limit (int): Number of results to return per page. Maximum value: 1000. . [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Page number of the results to return.. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InvestorSlides, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['start_date'] = \
+            start_date
+        kwargs['end_date'] = \
+            end_date
+        return self.get_transcripts_investor_slides_endpoint.call_with_http_info(**kwargs)
 
 
     def get_transcripts_time(

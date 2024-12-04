@@ -1,18 +1,20 @@
 # irncustomsymbols.HybridSymbolsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createStandardSymbolMetadata**](HybridSymbolsApi.md#createStandardSymbolMetadata) | **POST** /v1/custom-symbols/standard-symbol-metadata | Create standard symbol metadata
-[**getStandardSymbolMetadataGuid**](HybridSymbolsApi.md#getStandardSymbolMetadataGuid) | **GET** /v1/custom-symbols/standard-symbol-metadata/{standardSymbol} | Get all custom field and standard field details on a specific standard symbol
-[**patchStandardSymbol**](HybridSymbolsApi.md#patchStandardSymbol) | **PATCH** /v1/custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
+[**createStandardSymbolMetadata**](HybridSymbolsApi.md#createStandardSymbolMetadata) | **POST** /custom-symbols/standard-symbol-metadata | Create standard symbol metadata
+[**getStandardSymbolMetadataGuid**](HybridSymbolsApi.md#getStandardSymbolMetadataGuid) | **GET** /custom-symbols/standard-symbol-metadata/{standardSymbol} | Get all custom field and standard field details on a specific standard symbol
+[**patchStandardSymbol**](HybridSymbolsApi.md#patchStandardSymbol) | **PATCH** /custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
 
 
 
 ## createStandardSymbolMetadata
 
 > NewItemDto createStandardSymbolMetadata(opts)
+
+Create standard symbol metadata
 
 Create standard symbol metadata
 
@@ -95,6 +97,8 @@ Name | Type | Description  | Notes
 
 Get all custom field and standard field details on a specific standard symbol
 
+Get all custom field and standard field details on a specific standard symbol
+
 ### Example
 
 > [!IMPORTANT]
@@ -169,6 +173,8 @@ Name | Type | Description  | Notes
 ## patchStandardSymbol
 
 > patchStandardSymbol(standardSymbolId, opts)
+
+Edit a standard symbol’s standard field and custom field data
 
 Edit a standard symbol’s standard field and custom field data
 

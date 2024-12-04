@@ -28,6 +28,7 @@ docs/SymbolRelationshipDto.md
 docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
+docs/SymbolsRelationshipType.md
 git_push.sh
 mocha.opts
 package.json
@@ -57,3 +58,4 @@ src/model/SymbolRelationshipDto.js
 src/model/SymbolRelationshipSaveDto.js
 src/model/SymbolRelationshipUpdateDto.js
 src/model/SymbolsRelationshipIdNameDto.js
+src/model/SymbolsRelationshipType.js

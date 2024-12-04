@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attribute** | **string** |  | [optional] 
 **HighRampUpValues** | [**List&lt;RampUpModelAnalytics&gt;**](RampUpModelAnalytics.md) |  | [optional] 
+**HoldingsData** | [**HoldingsResponseOptions**](HoldingsResponseOptions.md) |  | [optional] 
 **LowRampUpValues** | [**List&lt;RampUpModelAnalytics&gt;**](RampUpModelAnalytics.md) |  | [optional] 
 **RampUpValues** | [**List&lt;RampUpModelAnalytics&gt;**](RampUpModelAnalytics.md) |  | [optional] 
 

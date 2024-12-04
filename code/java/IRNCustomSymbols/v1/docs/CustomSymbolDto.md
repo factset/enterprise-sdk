@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **standardSymbolInstrumentData** | [**InstrumentDto**](InstrumentDto.md) |  |  [optional]
 **isAddressAutoFilled** | **Boolean** |  |  [optional]
 **isDescriptionAutoFilled** | **Boolean** |  |  [optional]
+**isDeleted** | **Boolean** |  |  [optional]
 
 
 ## Implemented Interfaces

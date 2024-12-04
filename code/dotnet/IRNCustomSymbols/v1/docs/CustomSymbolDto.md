@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **StandardSymbolInstrumentData** | [**InstrumentDto**](InstrumentDto.md) |  | [optional] 
 **IsAddressAutoFilled** | **bool** |  | [optional] 
 **IsDescriptionAutoFilled** | **bool** |  | [optional] 
+**IsDeleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

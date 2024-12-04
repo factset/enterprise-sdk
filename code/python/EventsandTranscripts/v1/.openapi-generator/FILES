@@ -25,6 +25,7 @@ docs/EventsAudioHistory.md
 docs/EventsAudioIdsObject.md
 docs/IndexedNrt.md
 docs/IndexedObject.md
+docs/InvestorSlides.md
 docs/ListFileObject.md
 docs/NearRealTimeTranscriptsApi.md
 docs/NrtCalls.md
@@ -39,6 +40,7 @@ docs/ResponseCategories.md
 docs/ResponseCategoriesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
+docs/SlidesObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
 docs/TranscriptObjectTimes.md
@@ -81,6 +83,7 @@ fds/sdk/EventsandTranscripts/model/events_audio_history.py
 fds/sdk/EventsandTranscripts/model/events_audio_ids_object.py
 fds/sdk/EventsandTranscripts/model/indexed_nrt.py
 fds/sdk/EventsandTranscripts/model/indexed_object.py
+fds/sdk/EventsandTranscripts/model/investor_slides.py
 fds/sdk/EventsandTranscripts/model/list_file_object.py
 fds/sdk/EventsandTranscripts/model/nrt_calls.py
 fds/sdk/EventsandTranscripts/model/nrt_calls_meta.py
@@ -94,6 +97,7 @@ fds/sdk/EventsandTranscripts/model/response_categories.py
 fds/sdk/EventsandTranscripts/model/response_categories_object.py
 fds/sdk/EventsandTranscripts/model/response_time.py
 fds/sdk/EventsandTranscripts/model/response_time_object.py
+fds/sdk/EventsandTranscripts/model/slides_object.py
 fds/sdk/EventsandTranscripts/model/transcript_object.py
 fds/sdk/EventsandTranscripts/model/transcript_object_one.py
 fds/sdk/EventsandTranscripts/model/transcript_object_times.py

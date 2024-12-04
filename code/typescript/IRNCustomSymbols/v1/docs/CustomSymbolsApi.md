@@ -1,22 +1,24 @@
 # irncustomsymbols.CustomSymbolsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCustomSymbol**](CustomSymbolsApi.md#createCustomSymbol) | **POST** /v1/custom-symbols | Create a custom symbol
-[**deleteCustomSymbol**](CustomSymbolsApi.md#deleteCustomSymbol) | **DELETE** /v1/custom-symbols/{customSymbolId} | Delete a custom symbol
-[**getCustomSymbol**](CustomSymbolsApi.md#getCustomSymbol) | **GET** /v1/custom-symbols/{customSymbolId} | Get all custom field and standard field details on a specific custom symbol
-[**getCustomSymbolRecords**](CustomSymbolsApi.md#getCustomSymbolRecords) | **GET** /v1/custom-symbols/{customSymbolId}/records | Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
-[**getCustomSymbols**](CustomSymbolsApi.md#getCustomSymbols) | **GET** /v1/custom-symbols | Get list of all custom symbols in your group along with some of their standard field and custom fields data
-[**linkCustomSymbolToStandardSymbol**](CustomSymbolsApi.md#linkCustomSymbolToStandardSymbol) | **POST** /v1/custom-symbols/{customSymbolId}/link-standard-symbol | Link custom symbol to standard symbol
-[**patchCustomSymbol**](CustomSymbolsApi.md#patchCustomSymbol) | **PATCH** /v1/custom-symbols/{customSymbolId} | Edit a custom symbol’s standard field and custom field data
+[**createCustomSymbol**](CustomSymbolsApi.md#createCustomSymbol) | **POST** /custom-symbols | Create a custom symbol
+[**deleteCustomSymbol**](CustomSymbolsApi.md#deleteCustomSymbol) | **DELETE** /custom-symbols/{customSymbolId} | Delete a custom symbol
+[**getCustomSymbol**](CustomSymbolsApi.md#getCustomSymbol) | **GET** /custom-symbols/{customSymbolId} | Get all custom field and standard field details on a specific custom symbol
+[**getCustomSymbolRecords**](CustomSymbolsApi.md#getCustomSymbolRecords) | **GET** /custom-symbols/{customSymbolId}/records | Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
+[**getCustomSymbols**](CustomSymbolsApi.md#getCustomSymbols) | **GET** /custom-symbols | Get list of all custom symbols in your group along with some of their standard field and custom fields data
+[**linkCustomSymbolToStandardSymbol**](CustomSymbolsApi.md#linkCustomSymbolToStandardSymbol) | **POST** /custom-symbols/{customSymbolId}/link-standard-symbol | Link custom symbol to standard symbol
+[**patchCustomSymbol**](CustomSymbolsApi.md#patchCustomSymbol) | **PATCH** /custom-symbols/{customSymbolId} | Edit a custom symbol’s standard field and custom field data
 
 
 
 ## createCustomSymbol
 
 > NewItemDto createCustomSymbol(opts)
+
+Create a custom symbol
 
 Create a custom symbol
 
@@ -99,6 +101,8 @@ Name | Type | Description  | Notes
 
 Delete a custom symbol
 
+Delete a custom symbol
+
 ### Example
 
 > [!IMPORTANT]
@@ -170,7 +174,9 @@ null (empty response body)
 
 ## getCustomSymbol
 
-> CustomSymbolDto getCustomSymbol(customSymbolId, opts)
+> CustomSymbolDto getCustomSymbol(customSymbolId)
+
+Get all custom field and standard field details on a specific custom symbol
 
 Get all custom field and standard field details on a specific custom symbol
 
@@ -208,12 +214,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new CustomSymbolsApi();
 const customSymbolId = "customSymbolId_example"; // String | customSymbolId to get associated custom symbol
-const opts = {
-  'includeEvent': false // Boolean | Whether or not to include event
-};
 
 // Call api endpoint
-apiInstance.getCustomSymbol(customSymbolId, opts).then(
+apiInstance.getCustomSymbol(customSymbolId).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -233,7 +236,6 @@ apiInstance.getCustomSymbol(customSymbolId, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customSymbolId** | **String**| customSymbolId to get associated custom symbol | 
- **includeEvent** | **Boolean**| Whether or not to include event | [optional] [default to false]
 
 ### Return type
 
@@ -252,6 +254,8 @@ Name | Type | Description  | Notes
 ## getCustomSymbolRecords
 
 > [RecordPreviewDto] getCustomSymbolRecords(customSymbolId)
+
+Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
 
 Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
 
@@ -332,6 +336,8 @@ Name | Type | Description  | Notes
 
 Get list of all custom symbols in your group along with some of their standard field and custom fields data
 
+Get list of all custom symbols in your group along with some of their standard field and custom fields data
+
 ### Example
 
 > [!IMPORTANT]
@@ -367,10 +373,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new CustomSymbolsApi();
 const opts = {
   'typeName': "typeName_example", // String | filter custom symbols based on custom symbol type
-  'query': "query_example", // String | filter custom symbols based on custom symbol code or name
+  'query': "query_example", // String | filter custom symbols based on custom symbol code, name or linked factset entity's properties
   'includeCustomFieldValues': false, // Boolean | Whether or not to include customFieldValues
   'excludeLinkedCustomSymbol': false, // Boolean | Whether or not to exclude linked custom symbol
-  'includeEvent': true // Boolean | Whether or not to include event
+  'modifiedSince': "modifiedSince_example", // String | Only return Custom Symbols which have been modified or created since a particular time
+  'jobId': "jobId_example", // String | Filter custom symbols based on custom symbol sync job
+  'batchJobId': "batchJobId_example", // String | Filter custom symbols based on rbl custom symbol job
+  'includeDeleted': false // Boolean | Whether or not to include deleted custom symbols
 };
 
 // Call api endpoint
@@ -394,10 +403,13 @@ apiInstance.getCustomSymbols(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **typeName** | **String**| filter custom symbols based on custom symbol type | [optional] 
- **query** | **String**| filter custom symbols based on custom symbol code or name | [optional] 
+ **query** | **String**| filter custom symbols based on custom symbol code, name or linked factset entity&#39;s properties | [optional] 
  **includeCustomFieldValues** | **Boolean**| Whether or not to include customFieldValues | [optional] [default to false]
  **excludeLinkedCustomSymbol** | **Boolean**| Whether or not to exclude linked custom symbol | [optional] [default to false]
- **includeEvent** | **Boolean**| Whether or not to include event | [optional] [default to true]
+ **modifiedSince** | **String**| Only return Custom Symbols which have been modified or created since a particular time | [optional] 
+ **jobId** | **String**| Filter custom symbols based on custom symbol sync job | [optional] 
+ **batchJobId** | **String**| Filter custom symbols based on rbl custom symbol job | [optional] 
+ **includeDeleted** | **Boolean**| Whether or not to include deleted custom symbols | [optional] [default to false]
 
 ### Return type
 
@@ -416,6 +428,8 @@ Name | Type | Description  | Notes
 ## linkCustomSymbolToStandardSymbol
 
 > linkCustomSymbolToStandardSymbol(customSymbolId, opts)
+
+Link custom symbol to standard symbol
 
 Link custom symbol to standard symbol
 
@@ -495,6 +509,8 @@ null (empty response body)
 ## patchCustomSymbol
 
 > patchCustomSymbol(customSymbolId, opts)
+
+Edit a custom symbol’s standard field and custom field data
 
 Edit a custom symbol’s standard field and custom field data
 

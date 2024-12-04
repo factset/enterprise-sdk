@@ -65,7 +65,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/DirectStreamingofTransactionMessages/0.25.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/DirectStreamingofTransactionMessages/1.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**

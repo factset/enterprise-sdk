@@ -25,6 +25,7 @@ docs/EventsAudioHistory.md
 docs/EventsAudioIdsObject.md
 docs/IndexedNrt.md
 docs/IndexedObject.md
+docs/InvestorSlides.md
 docs/ListFileObject.md
 docs/NearRealTimeTranscriptsApi.md
 docs/NrtCalls.md
@@ -39,6 +40,7 @@ docs/ResponseCategories.md
 docs/ResponseCategoriesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
+docs/SlidesObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
 docs/TranscriptObjectTimes.md
@@ -92,6 +94,7 @@ src/FactSet.SDK.EventsandTranscripts/Model/EventsAudioHistory.cs
 src/FactSet.SDK.EventsandTranscripts/Model/EventsAudioIdsObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/IndexedNrt.cs
 src/FactSet.SDK.EventsandTranscripts/Model/IndexedObject.cs
+src/FactSet.SDK.EventsandTranscripts/Model/InvestorSlides.cs
 src/FactSet.SDK.EventsandTranscripts/Model/ListFileObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/NrtCalls.cs
 src/FactSet.SDK.EventsandTranscripts/Model/NrtCallsMeta.cs
@@ -105,6 +108,7 @@ src/FactSet.SDK.EventsandTranscripts/Model/ResponseCategories.cs
 src/FactSet.SDK.EventsandTranscripts/Model/ResponseCategoriesObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/ResponseTime.cs
 src/FactSet.SDK.EventsandTranscripts/Model/ResponseTimeObject.cs
+src/FactSet.SDK.EventsandTranscripts/Model/SlidesObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptObject.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptObjectOne.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptObjectTimes.cs

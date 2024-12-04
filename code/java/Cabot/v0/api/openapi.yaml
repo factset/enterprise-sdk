@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Cabot Models API
-  version: 0.2.0
+  version: 0.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/cabot
@@ -104,6 +104,16 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: addDown
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/AddTrimHoldings'
+        style: form
       responses:
         "200":
           content:
@@ -123,6 +133,52 @@ paths:
                         addUp: 0.34
                         trimDown: 0.03
                         trimUp: 0.05
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_SALES_GR_1Y
+                      highAddTrimValues:
+                        addDown: 0.08
+                        addUp: -0.15
+                        trimDown: -0.09
+                        trimUp: 0.04
+                      lowAddTrimValues:
+                        addDown: -0.06
+                        addUp: 0.34
+                        trimDown: 0.03
+                        trimUp: 0.05
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highAddTrimValues:
+                              addDown: 0.08
+                              addUp: -0.15
+                              trimDown: -0.09
+                              trimUp: 0.04
+                            lowAddTrimValues:
+                              addDown: -0.06
+                              addUp: 0.34
+                              trimDown: 0.03
+                              trimUp: 0.05
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highAddTrimValues:
+                              addDown: 0.08
+                              addUp: -0.15
+                              trimDown: -0.09
+                              trimUp: 0.04
+                            lowAddTrimValues:
+                              addDown: -0.06
+                              addUp: 0.34
+                              trimDown: 0.03
+                              trimUp: 0.05
                 No attribute was provided in the request:
                   value:
                     data:
@@ -132,6 +188,37 @@ paths:
                         trimDown: 0.03
                         trimUp: 0.15
                       attribute: null
+                No attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      addTrimValues:
+                        addDown: 0.49
+                        addUp: 0.84
+                        trimDown: 0.03
+                        trimUp: 0.15
+                      attribute: null
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            addTrimValues:
+                              addDown: 0.49
+                              addUp: 0.84
+                              trimDown: 0.03
+                              trimUp: 0.15
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            addTrimValues:
+                              addDown: 0.49
+                              addUp: 0.84
+                              trimDown: 0.03
+                              trimUp: 0.15
               schema:
                 $ref: '#/components/schemas/AddTrimResponseRoot'
           description: Successful response.
@@ -592,6 +679,16 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: 3 days
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/BuyTimingHoldings'
+        style: form
       responses:
         "200":
           content:
@@ -623,6 +720,88 @@ paths:
                         value: 0.14
                       - time: a month
                         value: 0.02
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_SALES_GR_1Y
+                      highBuyTimingValues:
+                      - time: 3 days
+                        value: 0.02
+                      - time: 5 days
+                        value: -0.01
+                      - time: 10 days
+                        value: -0.05
+                      - time: 20 days
+                        value: -0.04
+                      - time: a month
+                        value: -0.05
+                      lowBuyTimingValues:
+                      - time: 3 days
+                        value: -0.22
+                      - time: 5 days
+                        value: -0.13
+                      - time: 10 days
+                        value: 0.01
+                      - time: 20 days
+                        value: 0.14
+                      - time: a month
+                        value: 0.02
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highBuyTimingValues:
+                            - time: 3 days
+                              value: 0.02
+                            - time: 5 days
+                              value: -0.01
+                            - time: 10 days
+                              value: -0.05
+                            - time: 20 days
+                              value: -0.04
+                            - time: a month
+                              value: -0.05
+                            lowBuyTimingValues:
+                            - time: 3 days
+                              value: -0.22
+                            - time: 5 days
+                              value: -0.13
+                            - time: 10 days
+                              value: 0.01
+                            - time: 20 days
+                              value: 0.14
+                            - time: a month
+                              value: 0.02
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highBuyTimingValues:
+                            - time: 3 days
+                              value: 0.02
+                            - time: 5 days
+                              value: -0.01
+                            - time: 10 days
+                              value: -0.05
+                            - time: 20 days
+                              value: -0.04
+                            - time: a month
+                              value: -0.05
+                            lowBuyTimingValues:
+                            - time: 3 days
+                              value: -0.22
+                            - time: 5 days
+                              value: -0.13
+                            - time: 10 days
+                              value: 0.01
+                            - time: 20 days
+                              value: 0.14
+                            - time: a month
+                              value: 0.02
                 No attribute was provided in the request:
                   value:
                     data:
@@ -638,6 +817,55 @@ paths:
                         value: -0.06
                       - time: a month
                         value: -0.37
+                No attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: null
+                      buyTimingValues:
+                      - time: 3 days
+                        value: -0.2
+                      - time: 5 days
+                        value: -0.17
+                      - time: 10 days
+                        value: -0.16
+                      - time: 20 days
+                        value: -0.06
+                      - time: a month
+                        value: -0.37
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            buyTimingValues:
+                            - time: 3 days
+                              value: -0.2
+                            - time: 5 days
+                              value: -0.17
+                            - time: 10 days
+                              value: -0.16
+                            - time: 20 days
+                              value: -0.06
+                            - time: a month
+                              value: -0.37
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            buyTimingValues:
+                            - time: 3 days
+                              value: -0.2
+                            - time: 5 days
+                              value: -0.17
+                            - time: 10 days
+                              value: -0.16
+                            - time: 20 days
+                              value: -0.06
+                            - time: a month
+                              value: -0.37
               schema:
                 $ref: '#/components/schemas/BuyTimingResponseRoot'
           description: Successful response.
@@ -1193,6 +1421,16 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: a month
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/RampDownHoldings'
+        style: form
       responses:
         "200":
           content:
@@ -1216,6 +1454,64 @@ paths:
                         value: -0.22
                       - time: 17 months
                         value: -0.37
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_SALES_GR_1Y
+                      highRampDownValues:
+                      - time: 6 months
+                        value: 0.38
+                      - time: 11 months
+                        value: -0.06
+                      - time: 17 months
+                        value: -0.15
+                      lowRampDownValues:
+                      - time: 6 months
+                        value: 0.76
+                      - time: 11 months
+                        value: -0.22
+                      - time: 17 months
+                        value: -0.37
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highRampDownValues:
+                            - time: 6 months
+                              value: 0.38
+                            - time: 11 months
+                              value: -0.06
+                            - time: 17 months
+                              value: -0.15
+                            lowRampDownValues:
+                            - time: 6 months
+                              value: 0.76
+                            - time: 11 months
+                              value: -0.22
+                            - time: 17 months
+                              value: -0.37
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highRampDownValues:
+                            - time: 6 months
+                              value: 0.38
+                            - time: 11 months
+                              value: -0.06
+                            - time: 17 months
+                              value: -0.15
+                            lowRampDownValues:
+                            - time: 6 months
+                              value: 0.76
+                            - time: 11 months
+                              value: -0.22
+                            - time: 17 months
+                              value: -0.37
                 No attribute was provided in the request:
                   value:
                     data:
@@ -1227,6 +1523,43 @@ paths:
                         value: -0.11
                       - time: 17 months
                         value: -0.51
+                No attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: null
+                      rampDownValues:
+                      - time: 6 months
+                        value: 1.26
+                      - time: 11 months
+                        value: -0.11
+                      - time: 17 months
+                        value: -0.51
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            rampDownValues:
+                            - time: 6 months
+                              value: 1.26
+                            - time: 11 months
+                              value: -0.11
+                            - time: 17 months
+                              value: -0.51
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            rampDownValues:
+                            - time: 6 months
+                              value: 1.26
+                            - time: 11 months
+                              value: -0.11
+                            - time: 17 months
+                              value: -0.51
               schema:
                 $ref: '#/components/schemas/RampDownResponseRoot'
           description: Successful response.
@@ -1415,6 +1748,16 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: months
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/RampUpHoldings'
+        style: form
       responses:
         "200":
           content:
@@ -1438,6 +1781,64 @@ paths:
                         value: 0.88
                       - time: 6 months
                         value: 0.21
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_SALES_GR_1Y
+                      highRampUpValues:
+                      - time: immediate
+                        value: -0.33
+                      - time: 3 months
+                        value: -0.02
+                      - time: 6 months
+                        value: -0.18
+                      lowRampUpValues:
+                      - time: immediate
+                        value: 1.77
+                      - time: 3 months
+                        value: 0.88
+                      - time: 6 months
+                        value: 0.21
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highRampUpValues:
+                            - time: immediate
+                              value: -0.33
+                            - time: 3 months
+                              value: -0.02
+                            - time: 6 months
+                              value: -0.18
+                            lowRampUpValues:
+                            - time: immediate
+                              value: 1.77
+                            - time: 3 months
+                              value: 0.88
+                            - time: 6 months
+                              value: 0.21
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highRampUpValues:
+                            - time: immediate
+                              value: -0.33
+                            - time: 3 months
+                              value: -0.02
+                            - time: 6 months
+                              value: -0.18
+                            lowRampUpValues:
+                            - time: immediate
+                              value: 1.77
+                            - time: 3 months
+                              value: 0.88
+                            - time: 6 months
+                              value: 0.21
                 No attribute was provided in the request:
                   value:
                     data:
@@ -1449,6 +1850,43 @@ paths:
                         value: 1.21
                       - time: 6 months
                         value: 0.01
+                No attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: null
+                      rampUpValues:
+                      - time: immediate
+                        value: 1.82
+                      - time: 3 months
+                        value: 1.21
+                      - time: 6 months
+                        value: 0.01
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            rampUpValues:
+                            - time: immediate
+                              value: 1.82
+                            - time: 3 months
+                              value: 1.21
+                            - time: 6 months
+                              value: 0.01
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            rampUpValues:
+                            - time: immediate
+                              value: 1.82
+                            - time: 3 months
+                              value: 1.21
+                            - time: 6 months
+                              value: 0.01
               schema:
                 $ref: '#/components/schemas/RampUpResponseRoot'
           description: Successful response.
@@ -1604,6 +2042,16 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/Period'
+        style: form
+      - description: In which currency you want to see the data. By default the API
+          uses USD.<br /><br />
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          $ref: '#/components/schemas/Currency'
         style: form
       responses:
         "200":
@@ -1822,6 +2270,16 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: olderLoser
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/SellTimingHoldings'
+        style: form
       responses:
         "200":
           content:
@@ -1841,6 +2299,52 @@ paths:
                         olderWinner: 0.15
                         youngerLoser: -0.58
                         youngerWinner: 1.48
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_SALES_GR_1Y
+                      highSellTimingValues:
+                        olderLoser: 2
+                        olderWinner: 0.15
+                        youngerLoser: -0.58
+                        youngerWinner: 1.48
+                      lowSellTimingValues:
+                        olderLoser: 2
+                        olderWinner: 0.15
+                        youngerLoser: -0.58
+                        youngerWinner: 1.48
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highSellTimingValues:
+                              olderLoser: 2
+                              olderWinner: 0.15
+                              youngerLoser: -0.58
+                              youngerWinner: 1.48
+                            lowSellTimingValues:
+                              olderLoser: 2
+                              olderWinner: 0.15
+                              youngerLoser: -0.58
+                              youngerWinner: 1.48
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highSellTimingValues:
+                              olderLoser: 2
+                              olderWinner: 0.15
+                              youngerLoser: -0.58
+                              youngerWinner: 1.48
+                            lowSellTimingValues:
+                              olderLoser: 2
+                              olderWinner: 0.15
+                              youngerLoser: -0.58
+                              youngerWinner: 1.48
                 No attribute was provided in the request:
                   value:
                     data:
@@ -1850,6 +2354,37 @@ paths:
                         olderWinner: 0.15
                         youngerLoser: -0.58
                         youngerWinner: 1.48
+                No attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: null
+                      sellTimingValues:
+                        olderLoser: 2
+                        olderWinner: 0.15
+                        youngerLoser: -0.58
+                        youngerWinner: 1.48
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            sellTimingValues:
+                              olderLoser: 2
+                              olderWinner: 0.15
+                              youngerLoser: -0.58
+                              youngerWinner: 1.48
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            sellTimingValues:
+                              olderLoser: 2
+                              olderWinner: 0.15
+                              youngerLoser: -0.58
+                              youngerWinner: 1.48
               schema:
                 $ref: '#/components/schemas/SellTimingResponseRoot'
           description: Successful response.
@@ -2038,12 +2573,22 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: buySkill
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/SkillsHoldings'
+        style: form
       responses:
         "200":
           content:
             application/json:
               examples:
-                An attribute was provided in the request:
+                Attribute was provided in the request:
                   value:
                     data:
                       attribute: QFL_DEBT_ASSETS
@@ -2055,6 +2600,46 @@ paths:
                         buySkill: 0.03
                         sellSkill: 0.24
                         sizingSkill: 0.37
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_DEBT_ASSETS
+                      highSkillValues:
+                        buySkill: 2.06
+                        sellSkill: -0.88
+                        sizingSkill: 0.75
+                      lowSkillValues:
+                        buySkill: 0.03
+                        sellSkill: 0.24
+                        sizingSkill: 0.37
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highSkillValues:
+                              buySkill: 2.06
+                              sellSkill: -0.88
+                              sizingSkill: 0.75
+                            lowSkillValues:
+                              buySkill: 0.03
+                              sellSkill: 0.24
+                              sizingSkill: 0.37
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highSkillValues:
+                              buySkill: 2.06
+                              sellSkill: -0.88
+                              sizingSkill: 0.75
+                            lowSkillValues:
+                              buySkill: 0.03
+                              sellSkill: 0.24
+                              sizingSkill: 0.37
                 No attribute was provided in the request:
                   value:
                     data:
@@ -2063,6 +2648,34 @@ paths:
                         buySkill: 1.48
                         sellSkill: -0.58
                         sizingSkill: 0.15
+                No attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: null
+                      skillValues:
+                        buySkill: 1.48
+                        sellSkill: -0.58
+                        sizingSkill: 0.15
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            skillValues:
+                              buySkill: 1.48
+                              sellSkill: -0.58
+                              sizingSkill: 0.15
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            skillValues:
+                              buySkill: 1.48
+                              sellSkill: -0.58
+                              sizingSkill: 0.15
               schema:
                 $ref: '#/components/schemas/SkillsResponseRoot'
           description: Successful response.
@@ -2251,6 +2864,16 @@ paths:
         schema:
           $ref: '#/components/schemas/Regions'
         style: form
+      - description: If set, the API will add holding-level details for all or only
+          the selected analytic (if available for your portfolio).<br /><br />
+        example: -20
+        explode: true
+        in: query
+        name: holdings
+        required: false
+        schema:
+          $ref: '#/components/schemas/StopLossHoldings'
+        style: form
       responses:
         "200":
           content:
@@ -2274,6 +2897,64 @@ paths:
                         value: -0.17
                       - percent: -40
                         value: -0.06
+                Attribute was provided in the request with a holdings parameter set to 'all':
+                  value:
+                    data:
+                      attribute: QFL_SALES_GR_1Y
+                      highStopLossValues:
+                      - percent: -20
+                        value: 0.34
+                      - percent: -30
+                        value: -0.01
+                      - percent: -40
+                        value: -0.01
+                      lowStopLossValues:
+                      - percent: -20
+                        value: 0.09
+                      - percent: -30
+                        value: -0.17
+                      - percent: -40
+                        value: -0.06
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            highStopLossValues:
+                            - percent: -20
+                              value: 0.34
+                            - percent: -30
+                              value: -0.01
+                            - percent: -40
+                              value: -0.01
+                            lowStopLossValues:
+                            - percent: -20
+                              value: 0.09
+                            - percent: -30
+                              value: -0.17
+                            - percent: -40
+                              value: -0.06
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            highStopLossValues:
+                            - percent: -20
+                              value: 0.34
+                            - percent: -30
+                              value: -0.01
+                            - percent: -40
+                              value: -0.01
+                            lowStopLossValues:
+                            - percent: -20
+                              value: 0.09
+                            - percent: -30
+                              value: -0.17
+                            - percent: -40
+                              value: -0.06
                 No attribute was provided in the request:
                   value:
                     data:
@@ -2285,6 +2966,43 @@ paths:
                         value: -0.49
                       - percent: -40
                         value: -0.15
+                No attribute was provided in the request with a holdings parameter set to 'all:
+                  value:
+                    data:
+                      attribute: null
+                      stopLossValues:
+                      - percent: -20
+                        value: 0.72
+                      - percent: -30
+                        value: -0.49
+                      - percent: -40
+                        value: -0.15
+                      holdingsData:
+                        holdings:
+                        - ticker: META-US
+                          name: Meta Platforms
+                          sector: communicationServices
+                          region: northAmerica
+                          incrementalBenefit:
+                            stopLossValues:
+                            - percent: -20
+                              value: 0.72
+                            - percent: -30
+                              value: -0.49
+                            - percent: -40
+                              value: -0.15
+                        - ticker: MSFT-US
+                          name: Microsoft
+                          sector: informationTechnology
+                          region: northAmerica
+                          incrementalBenefit:
+                            stopLossValues:
+                            - percent: -20
+                              value: 0.72
+                            - percent: -30
+                              value: -0.49
+                            - percent: -40
+                              value: -0.15
               schema:
                 $ref: '#/components/schemas/StopLossResponseRoot'
           description: Successful response.
@@ -2443,6 +3161,16 @@ components:
       description: The account path of the portfolio you want to retrieve the data
         for.
       type: string
+    AddTrimHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - addDown
+      - addUp
+      - trimDown
+      - trimUp
+      type: string
     AddTrimModelAnalytics:
       example:
         addDown: 0.8008281904610115
@@ -2471,6 +3199,18 @@ components:
           trimUp: 5.962133916683182
           trimDown: 1.4658129805029452
           addUp: 6.027456183070403
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         addTrimValues:
           addDown: 0.8008281904610115
           trimUp: 5.962133916683182
@@ -2485,6 +3225,8 @@ components:
           type: string
         highAddTrimValues:
           $ref: '#/components/schemas/AddTrimModelAnalytics'
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowAddTrimValues:
           $ref: '#/components/schemas/AddTrimModelAnalytics'
       type: object
@@ -2501,6 +3243,18 @@ components:
             trimUp: 5.962133916683182
             trimDown: 1.4658129805029452
             addUp: 6.027456183070403
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           addTrimValues:
             addDown: 0.8008281904610115
             trimUp: 5.962133916683182
@@ -2691,6 +3445,17 @@ components:
         data:
           $ref: '#/components/schemas/BuyContextResponseOptions'
       type: object
+    BuyTimingHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - 3 days
+      - 5 days
+      - 10 days
+      - 20 days
+      - a month
+      type: string
     BuyTimingModelAnalytics:
       example:
         time: time
@@ -2708,6 +3473,18 @@ components:
           value: 0.8008281904610115
         - time: time
           value: 0.8008281904610115
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         buyTimingValues:
         - time: time
           value: 0.8008281904610115
@@ -2731,6 +3508,8 @@ components:
           items:
             $ref: '#/components/schemas/BuyTimingModelAnalytics'
           type: array
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowBuyTimingValues:
           items:
             $ref: '#/components/schemas/BuyTimingModelAnalytics'
@@ -2744,6 +3523,18 @@ components:
             value: 0.8008281904610115
           - time: time
             value: 0.8008281904610115
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           buyTimingValues:
           - time: time
             value: 0.8008281904610115
@@ -2836,6 +3627,17 @@ components:
         data:
           $ref: '#/components/schemas/ConstructionResponseOptions'
       type: object
+    Currency:
+      description: In which currency you want to see the data. By default the API
+        uses USD.
+      enum:
+      - USD
+      - CAD
+      - EUR
+      - GBP
+      - JPY
+      - AUD
+      type: string
     Error:
       properties:
         code:
@@ -2920,8 +3722,60 @@ components:
         data:
           $ref: '#/components/schemas/HitRateResponseOptions'
       type: object
+    HoldingAnalytics:
+      example:
+        incrementalBenefit: '{}'
+        ticker: ticker
+        name: name
+        region: region
+        sector: sector
+      properties:
+        incrementalBenefit:
+          description: Impact of the position on your portfolio.
+          type: object
+        name:
+          description: Company name.
+          type: string
+        region:
+          description: Company region.
+          type: string
+        sector:
+          description: Company sector.
+          type: string
+        ticker:
+          description: Ticker symbol.
+          type: string
+      type: object
+    HoldingsResponseOptions:
+      example:
+        holdings:
+        - incrementalBenefit: '{}'
+          ticker: ticker
+          name: name
+          region: region
+          sector: sector
+        - incrementalBenefit: '{}'
+          ticker: ticker
+          name: name
+          region: region
+          sector: sector
+      properties:
+        holdings:
+          items:
+            $ref: '#/components/schemas/HoldingAnalytics'
+          type: array
+      type: object
     Period:
       description: For which period you want to retrieve the data.
+      type: string
+    RampDownHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - a month
+      - months
+      - years
       type: string
     RampDownModelAnalytics:
       example:
@@ -2940,6 +3794,18 @@ components:
           value: 0.8008281904610115
         - time: time
           value: 0.8008281904610115
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         rampDownValues:
         - time: time
           value: 0.8008281904610115
@@ -2959,6 +3825,8 @@ components:
           items:
             $ref: '#/components/schemas/RampDownModelAnalytics'
           type: array
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowRampDownValues:
           items:
             $ref: '#/components/schemas/RampDownModelAnalytics'
@@ -2976,6 +3844,18 @@ components:
             value: 0.8008281904610115
           - time: time
             value: 0.8008281904610115
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           rampDownValues:
           - time: time
             value: 0.8008281904610115
@@ -2991,6 +3871,16 @@ components:
         data:
           $ref: '#/components/schemas/RampDownResponseOptions'
       type: object
+    RampUpHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - immediate
+      - days
+      - a month
+      - months
+      type: string
     RampUpModelAnalytics:
       example:
         time: time
@@ -3013,6 +3903,18 @@ components:
           value: 0.8008281904610115
         - time: time
           value: 0.8008281904610115
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         attribute: attribute
         rampUpValues:
         - time: time
@@ -3027,6 +3929,8 @@ components:
           items:
             $ref: '#/components/schemas/RampUpModelAnalytics'
           type: array
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowRampUpValues:
           items:
             $ref: '#/components/schemas/RampUpModelAnalytics'
@@ -3049,6 +3953,18 @@ components:
             value: 0.8008281904610115
           - time: time
             value: 0.8008281904610115
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           attribute: attribute
           rampUpValues:
           - time: time
@@ -3189,6 +4105,16 @@ components:
       - mortageHomeFinancing
       - mortageCommercialFinancing
       type: string
+    SellTimingHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - olderLoser
+      - olderWinner
+      - youngerLoser
+      - youngerWinner
+      type: string
     SellTimingModelAnalytics:
       example:
         olderLoser: 0.8008281904610115
@@ -3221,6 +4147,18 @@ components:
           youngerLoser: 1.4658129805029452
           youngerWinner: 5.962133916683182
           olderWinner: 6.027456183070403
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         lowSellTimingValues:
           olderLoser: 0.8008281904610115
           youngerLoser: 1.4658129805029452
@@ -3233,6 +4171,8 @@ components:
           type: string
         highSellTimingValues:
           $ref: '#/components/schemas/SellTimingModelAnalytics'
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowSellTimingValues:
           $ref: '#/components/schemas/SellTimingModelAnalytics'
         sellTimingValues:
@@ -3251,6 +4191,18 @@ components:
             youngerLoser: 1.4658129805029452
             youngerWinner: 5.962133916683182
             olderWinner: 6.027456183070403
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           lowSellTimingValues:
             olderLoser: 0.8008281904610115
             youngerLoser: 1.4658129805029452
@@ -3261,6 +4213,15 @@ components:
         data:
           $ref: '#/components/schemas/SellTimingResponseOptions'
       type: object
+    SkillsHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - buySkill
+      - sizingSkill
+      - sellSkill
+      type: string
     SkillsModelAnalytics:
       example:
         buySkill: 0.8008281904610115
@@ -3287,6 +4248,18 @@ components:
           buySkill: 0.8008281904610115
           sellSkill: 6.027456183070403
           sizingSkill: 1.4658129805029452
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         lowSkillValues:
           buySkill: 0.8008281904610115
           sellSkill: 6.027456183070403
@@ -3302,6 +4275,8 @@ components:
           type: string
         highSkillValues:
           $ref: '#/components/schemas/SkillsModelAnalytics'
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowSkillValues:
           $ref: '#/components/schemas/SkillsModelAnalytics'
         skillValues:
@@ -3314,6 +4289,18 @@ components:
             buySkill: 0.8008281904610115
             sellSkill: 6.027456183070403
             sizingSkill: 1.4658129805029452
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           lowSkillValues:
             buySkill: 0.8008281904610115
             sellSkill: 6.027456183070403
@@ -3327,6 +4314,15 @@ components:
         data:
           $ref: '#/components/schemas/SkillsResponseOptions'
       type: object
+    StopLossHoldings:
+      description: If set, the API will add holding-level details for all or only
+        the selected analytic (if available for your portfolio).
+      enum:
+      - all
+      - -20
+      - -30
+      - -40
+      type: string
     StopLossModelAnalytics:
       example:
         percent: 0.8008281904610115
@@ -3344,6 +4340,18 @@ components:
           value: 6.027456183070403
         - percent: 0.8008281904610115
           value: 6.027456183070403
+        holdingsData:
+          holdings:
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
+          - incrementalBenefit: '{}'
+            ticker: ticker
+            name: name
+            region: region
+            sector: sector
         stopLossValues:
         - percent: 0.8008281904610115
           value: 6.027456183070403
@@ -3363,6 +4371,8 @@ components:
           items:
             $ref: '#/components/schemas/StopLossModelAnalytics'
           type: array
+        holdingsData:
+          $ref: '#/components/schemas/HoldingsResponseOptions'
         lowStopLossValues:
           items:
             $ref: '#/components/schemas/StopLossModelAnalytics'
@@ -3380,6 +4390,18 @@ components:
             value: 6.027456183070403
           - percent: 0.8008281904610115
             value: 6.027456183070403
+          holdingsData:
+            holdings:
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
+            - incrementalBenefit: '{}'
+              ticker: ticker
+              name: name
+              region: region
+              sector: sector
           stopLossValues:
           - percent: 0.8008281904610115
             value: 6.027456183070403

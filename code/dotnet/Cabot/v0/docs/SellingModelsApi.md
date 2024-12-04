@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getselltimingmodelanalytic"></a>
 # **GetSellTimingModelAnalytic**
-> SellTimingResponseRoot GetSellTimingModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> SellTimingResponseRoot GetSellTimingModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, SellTimingHoldings? holdings = null)
 
 Cabot main path for Sell Timing API
 
@@ -67,11 +67,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (SellTimingHoldings) "all";  // SellTimingHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Sell Timing API
-                SellTimingResponseRoot result = apiInstance.GetSellTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                SellTimingResponseRoot result = apiInstance.GetSellTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -95,6 +96,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **SellTimingHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**SellTimingResponseRoot**](SellTimingResponseRoot.md)
@@ -128,7 +130,7 @@ Name | Type | Description  | Notes
 
 <a name="getstoplossmodelanalytic"></a>
 # **GetStopLossModelAnalytic**
-> StopLossResponseRoot GetStopLossModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> StopLossResponseRoot GetStopLossModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, StopLossHoldings? holdings = null)
 
 Cabot main path for Stop Loss API
 
@@ -184,11 +186,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (StopLossHoldings) "all";  // StopLossHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Stop Loss API
-                StopLossResponseRoot result = apiInstance.GetStopLossModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                StopLossResponseRoot result = apiInstance.GetStopLossModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -212,6 +215,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **StopLossHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**StopLossResponseRoot**](StopLossResponseRoot.md)

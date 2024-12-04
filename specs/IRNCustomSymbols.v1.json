@@ -3,25 +3,35 @@
   "info": {
     "title": "IRN API v1",
     "description": "Allows users to extract, create, update and configure IRN data.",
-    "version": "1"
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "1.1.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com/research/irn",
+      "url": "https://api.factset.com/research/irn/v1",
       "description": "Production Server"
     },
     {
-      "url": "https://api-sandbox.factset.com/research/irn",
-      "description": "Sandbox"
+      "url": "https://api-sandbox.factset.com/research/irn/v1",
+      "description": "Sandbox Server"
     }
   ],
   "paths": {
-    "/v1/custom-symbols": {
+    "/custom-symbols": {
       "get": {
         "tags": [
           "CustomSymbols"
         ],
         "summary": "Get list of all custom symbols in your group along with some of their standard field and custom fields data",
+        "description": "Get list of all custom symbols in your group along with some of their standard field and custom fields data",
         "operationId": "GetCustomSymbols",
         "parameters": [
           {
@@ -35,7 +45,7 @@
           {
             "name": "query",
             "in": "query",
-            "description": "filter custom symbols based on custom symbol code or name",
+            "description": "filter custom symbols based on custom symbol code, name or linked factset entity's properties",
             "schema": {
               "type": "string"
             }
@@ -59,12 +69,38 @@
             }
           },
           {
-            "name": "includeEvent",
+            "name": "modifiedSince",
             "in": "query",
-            "description": "Whether or not to include event",
+            "description": "Only return Custom Symbols which have been modified or created since a particular time",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "Filter custom symbols based on custom symbol sync job",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "batchJobId",
+            "in": "query",
+            "description": "Filter custom symbols based on rbl custom symbol job",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "includeDeleted",
+            "in": "query",
+            "description": "Whether or not to include deleted custom symbols",
             "schema": {
               "type": "boolean",
-              "default": true
+              "default": false
             }
           }
         ],
@@ -78,6 +114,16 @@
                   "items": {
                     "$ref": "#/components/schemas/CustomSymbolDto"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -109,6 +155,7 @@
           "CustomSymbols"
         ],
         "summary": "Create a custom symbol",
+        "description": "Create a custom symbol",
         "operationId": "CreateCustomSymbol",
         "requestBody": {
           "description": "createCustomSymbolDto object to save",
@@ -169,12 +216,13 @@
         }
       }
     },
-    "/v1/custom-symbols/{customSymbolId}": {
+    "/custom-symbols/{customSymbolId}": {
       "get": {
         "tags": [
           "CustomSymbols"
         ],
         "summary": "Get all custom field and standard field details on a specific custom symbol",
+        "description": "Get all custom field and standard field details on a specific custom symbol",
         "operationId": "GetCustomSymbol",
         "parameters": [
           {
@@ -185,15 +233,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "includeEvent",
-            "in": "query",
-            "description": "Whether or not to include event",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -207,6 +246,26 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       },
@@ -215,6 +274,7 @@
           "CustomSymbols"
         ],
         "summary": "Edit a custom symbol’s standard field and custom field data",
+        "description": "Edit a custom symbol’s standard field and custom field data",
         "operationId": "PatchCustomSymbol",
         "parameters": [
           {
@@ -306,6 +366,7 @@
           "CustomSymbols"
         ],
         "summary": "Delete a custom symbol",
+        "description": "Delete a custom symbol",
         "operationId": "DeleteCustomSymbol",
         "parameters": [
           {
@@ -356,12 +417,13 @@
         }
       }
     },
-    "/v1/custom-symbols/{customSymbolId}/records": {
+    "/custom-symbols/{customSymbolId}/records": {
       "get": {
         "tags": [
           "CustomSymbols"
         ],
         "summary": "Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier",
+        "description": "Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier",
         "operationId": "GetCustomSymbolRecords",
         "parameters": [
           {
@@ -412,12 +474,13 @@
         }
       }
     },
-    "/v1/custom-symbols/standard-symbol-metadata/{standardSymbol}": {
+    "/custom-symbols/standard-symbol-metadata/{standardSymbol}": {
       "get": {
         "tags": [
           "HybridSymbols"
         ],
         "summary": "Get all custom field and standard field details on a specific standard symbol",
+        "description": "Get all custom field and standard field details on a specific standard symbol",
         "operationId": "GetStandardSymbolMetadataGuid",
         "parameters": [
           {
@@ -465,22 +528,29 @@
         }
       }
     },
-    "/v1/symbol-relationships/{symbolId}/relationships": {
+    "/symbol-relationships": {
       "get": {
         "tags": [
           "CustomSymbols - Relationships"
         ],
-        "summary": "Returns a list of a symbol’s relationships",
-        "operationId": "GetSymbolRelationships",
+        "summary": "Get list of all symbol relationships in your group",
+        "description": "Get list of all symbol relationships in your group",
+        "operationId": "GetSymbolsRelationships",
         "parameters": [
           {
-            "name": "symbolId",
-            "in": "path",
-            "description": "symbolId to get associated records",
-            "required": true,
+            "name": "relationshipType",
+            "in": "query",
+            "description": "Filter results on relationship type",
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/SymbolsRelationshipType"
+            }
+          },
+          {
+            "name": "relationshipCode",
+            "in": "query",
+            "description": "Filter results on relationship code",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -497,260 +567,15 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/symbol-relationships/{symbolRelationshipId}": {
-      "get": {
-        "tags": [
-          "CustomSymbols - Relationships"
-        ],
-        "summary": "Get details on a specific symbol relationship",
-        "operationId": "GetSymbolRelationship",
-        "parameters": [
-          {
-            "name": "symbolRelationshipId",
-            "in": "path",
-            "description": "symbolRelationshipId to get associated record",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SymbolRelationshipDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
           }
         }
       },
-      "delete": {
-        "tags": [
-          "CustomSymbols - Relationships"
-        ],
-        "summary": "Delete a symbol relationship",
-        "operationId": "DeleteSymbolRelationship",
-        "parameters": [
-          {
-            "name": "symbolRelationshipId",
-            "in": "path",
-            "description": "symbolRelationshipId to delete associated record",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/custom-symbols/{customSymbolId}/link-standard-symbol": {
-      "post": {
-        "tags": [
-          "CustomSymbols"
-        ],
-        "summary": "Link custom symbol to standard symbol",
-        "operationId": "LinkCustomSymbolToStandardSymbol",
-        "parameters": [
-          {
-            "name": "customSymbolId",
-            "in": "path",
-            "description": "customSymbolId associated with custom symbol",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "standard symbol name",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/StandardSymbolDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StandardSymbolDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StandardSymbolDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/StandardSymbolDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/v1/custom-symbols/standard-symbol-metadata": {
-      "post": {
-        "tags": [
-          "HybridSymbols"
-        ],
-        "summary": "Create standard symbol metadata",
-        "operationId": "CreateStandardSymbolMetadata",
-        "requestBody": {
-          "description": "createStandardSymbolMetadataDto object to save",
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewItemDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/symbol-relationships": {
       "post": {
         "tags": [
           "CustomSymbols - Relationships"
         ],
         "summary": "Create a symbol relationship",
+        "description": "Create a symbol relationship",
         "operationId": "CreateSymbolRelationship",
         "requestBody": {
           "description": "symbolRelationship object to save",
@@ -816,12 +641,298 @@
         }
       }
     },
-    "/v1/symbol-relationships/{symbol}": {
+    "/symbol-relationships/{symbolId}/relationships": {
+      "get": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Returns a list of a symbol’s relationships",
+        "description": "Returns a list of a symbol’s relationships",
+        "operationId": "GetSymbolRelationships",
+        "parameters": [
+          {
+            "name": "symbolId",
+            "in": "path",
+            "description": "symbolId to get associated records",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SymbolRelationshipDto"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/symbol-relationships/{symbolRelationshipId}": {
+      "get": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Get details on a specific symbol relationship",
+        "description": "Get details on a specific symbol relationship",
+        "operationId": "GetSymbolRelationship",
+        "parameters": [
+          {
+            "name": "symbolRelationshipId",
+            "in": "path",
+            "description": "symbolRelationshipId to get associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SymbolRelationshipDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Delete a symbol relationship",
+        "description": "Delete a symbol relationship",
+        "operationId": "DeleteSymbolRelationship",
+        "parameters": [
+          {
+            "name": "symbolRelationshipId",
+            "in": "path",
+            "description": "symbolRelationshipId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/custom-symbols/{customSymbolId}/link-standard-symbol": {
+      "post": {
+        "tags": [
+          "CustomSymbols"
+        ],
+        "summary": "Link custom symbol to standard symbol",
+        "description": "Link custom symbol to standard symbol",
+        "operationId": "LinkCustomSymbolToStandardSymbol",
+        "parameters": [
+          {
+            "name": "customSymbolId",
+            "in": "path",
+            "description": "customSymbolId associated with custom symbol",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "standard symbol name",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StandardSymbolDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StandardSymbolDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StandardSymbolDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StandardSymbolDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/custom-symbols/standard-symbol-metadata": {
+      "post": {
+        "tags": [
+          "HybridSymbols"
+        ],
+        "summary": "Create standard symbol metadata",
+        "description": "Create standard symbol metadata",
+        "operationId": "CreateStandardSymbolMetadata",
+        "requestBody": {
+          "description": "createStandardSymbolMetadataDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStandardSymbolMetadataDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/symbol-relationships/{symbol}": {
       "put": {
         "tags": [
           "CustomSymbols - Relationships"
         ],
         "summary": "Edit a symbol relationship",
+        "description": "Edit a symbol relationship",
         "operationId": "EditAndAddSymbolRelationship",
         "parameters": [
           {
@@ -878,12 +989,13 @@
         }
       }
     },
-    "/v1/custom-symbols/standard-symbol-metadata/{standardSymbolId}": {
+    "/custom-symbols/standard-symbol-metadata/{standardSymbolId}": {
       "patch": {
         "tags": [
           "HybridSymbols"
         ],
         "summary": "Edit a standard symbol’s standard field and custom field data",
+        "description": "Edit a standard symbol’s standard field and custom field data",
         "operationId": "PatchStandardSymbol",
         "parameters": [
           {
@@ -981,6 +1093,7 @@
         "type": "object",
         "properties": {
           "code": {
+            "minLength": 1,
             "type": "string"
           },
           "textValue": {
@@ -1016,13 +1129,13 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateCustomSymbolDto": {
         "type": "object",
         "properties": {
           "code": {
-            "maxLength": 32,
+            "maxLength": 255,
             "minLength": 0,
             "type": "string",
             "nullable": true
@@ -1089,7 +1202,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CreateStandardSymbolMetadataDto": {
         "required": [
@@ -1158,7 +1271,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolAddressDto": {
         "type": "object",
@@ -1188,7 +1301,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolContact": {
         "type": "object",
@@ -1217,7 +1330,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolCustomFieldValueDto": {
         "type": "object",
@@ -1245,7 +1358,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolDto": {
         "type": "object",
@@ -1302,9 +1415,12 @@
           },
           "isDescriptionAutoFilled": {
             "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolSubTypeSummaryDto": {
         "type": "object",
@@ -1318,7 +1434,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "CustomSymbolTypeSummaryDto": {
         "type": "object",
@@ -1332,7 +1448,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "InstrumentDto": {
         "type": "object",
@@ -1373,7 +1489,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "NewItemDto": {
         "type": "object",
@@ -1383,7 +1499,7 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "Operation": {
         "type": "object",
@@ -1407,7 +1523,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "OperationType": {
         "enum": [
@@ -1447,7 +1563,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": {},
+        "nullable": true
       },
       "RecordPreviewDto": {
         "type": "object",
@@ -1469,9 +1586,13 @@
           "date": {
             "type": "string",
             "format": "date-time"
+          },
+          "subjectName": {
+            "type": "string",
+            "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "StandardSymbolDto": {
         "required": [
@@ -1480,10 +1601,11 @@
         "type": "object",
         "properties": {
           "standardSymbol": {
+            "minLength": 1,
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolIdNameDto": {
         "type": "object",
@@ -1502,7 +1624,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolRelationshipDto": {
         "type": "object",
@@ -1535,7 +1657,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolRelationshipSaveDto": {
         "type": "object",
@@ -1567,7 +1689,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolRelationshipUpdateDto": {
         "type": "object",
@@ -1603,7 +1725,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
       },
       "SymbolsRelationshipIdNameDto": {
         "type": "object",
@@ -1621,7 +1743,14 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
+      },
+      "SymbolsRelationshipType": {
+        "enum": [
+          "PARENTCHILD",
+          "PEER"
+        ],
+        "type": "string"
       }
     },
     "securitySchemes": {
@@ -1658,5 +1787,9 @@
     {
       "name": "HybridSymbols"
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/#apiDocumentation"
+  }
 }

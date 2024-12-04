@@ -5,8 +5,8 @@ info:
     ### OVERVIEW
 
 
-    The FactSet Conversational API allows clients to white-label core FactSet
-    Mercury capabilities in a client's chatbot experience.
+    The FactSet Conversational API allows clients to integrate core FactSet
+    Mercury capabilities in chatbot experiences.
 
 
     The Conversational API is powered by FactSet Mercury, FactSet's Generative
@@ -80,7 +80,7 @@ info:
     - The Conversational API is currently limited to accept 10 natural language
     queries per minute and 200 per hour for an individual consumer. If you
     anticipate your needs to be greater than these limits, please reach out to
-    FatSet Support.
+    FactSet Support.
 
 
     #### FAQ 
@@ -98,7 +98,7 @@ info:
     page](https://developer.factset.com/api-authentication). If this does not
     resolve the issue, please reach out to FactSet Support to ensure you are
     appropriately authorized to access the Conversational API.
-  version: 1.0.3
+  version: 1.0.5
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -157,6 +157,7 @@ paths:
           $ref: '#/components/responses/TooManyQueryRequestErrorResponse'
         '500':
           $ref: '#/components/responses/InternalServerErrorResponse'
+      x-factset-sdk-main-example: true
   /status:
     post:
       operationId: getChatStatus
@@ -2492,3 +2493,4 @@ externalDocs:
   description: API Documentation
   url: >-
     https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury
+x-factset-sdk-has-main-example: true

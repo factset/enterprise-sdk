@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **startdate** | **String** | Calculation&#39;s start date. | 
 **enddate** | **String** | Calculation&#39;s end date. | 
 **frequency** | **String** | Calculation&#39;s frequency. | 
+**useeachportfolioinception** | **Boolean** | Use Each Portfolio Inception |  [optional]
 
 
 ## Implemented Interfaces

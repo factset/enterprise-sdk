@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attribute** | **string** |  | [optional] 
 **HighSkillValues** | [**SkillsModelAnalytics**](SkillsModelAnalytics.md) |  | [optional] 
+**HoldingsData** | [**HoldingsResponseOptions**](HoldingsResponseOptions.md) |  | [optional] 
 **LowSkillValues** | [**SkillsModelAnalytics**](SkillsModelAnalytics.md) |  | [optional] 
 **SkillValues** | [**SkillsModelAnalytics**](SkillsModelAnalytics.md) |  | [optional] 
 

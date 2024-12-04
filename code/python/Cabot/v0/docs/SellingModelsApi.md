@@ -67,12 +67,13 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
     sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
     region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
+    holdings = SellTimingHoldings("olderLoser") # SellTimingHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
 
     try:
         # Cabot main path for Sell Timing API
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_sell_timing_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region)
+        api_response = api_instance.get_sell_timing_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
 
         pprint(api_response)
 
@@ -91,6 +92,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
  **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
  **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
+ **holdings** | **SellTimingHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
 
 ### Return type
 
@@ -181,12 +183,13 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
     sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
     region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
+    holdings = StopLossHoldings("-20") # StopLossHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
 
     try:
         # Cabot main path for Stop Loss API
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_stop_loss_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region)
+        api_response = api_instance.get_stop_loss_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
 
         pprint(api_response)
 
@@ -205,6 +208,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
  **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
  **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
+ **holdings** | **StopLossHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
 
 ### Return type
 

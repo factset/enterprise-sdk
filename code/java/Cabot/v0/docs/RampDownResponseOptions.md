@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attribute** | **String** |  |  [optional]
 **highRampDownValues** | [**java.util.List&lt;RampDownModelAnalytics&gt;**](RampDownModelAnalytics.md) |  |  [optional]
+**holdingsData** | [**HoldingsResponseOptions**](HoldingsResponseOptions.md) |  |  [optional]
 **lowRampDownValues** | [**java.util.List&lt;RampDownModelAnalytics&gt;**](RampDownModelAnalytics.md) |  |  [optional]
 **rampDownValues** | [**java.util.List&lt;RampDownModelAnalytics&gt;**](RampDownModelAnalytics.md) |  |  [optional]
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getSellTimingModelAnalytic
 
-> SellTimingResponseRoot getSellTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region)
+> SellTimingResponseRoot getSellTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings)
 
 Cabot main path for Sell Timing API
 
@@ -64,8 +64,9 @@ public class Example {
         Attributes attribute = Attributes.fromValue("QFL_EY"); // Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />
         Sectors sector = Sectors.fromValue("energy"); // Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
         Regions region = Regions.fromValue("africa"); // Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
+        SellTimingHoldings holdings = SellTimingHoldings.fromValue("all"); // SellTimingHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />
         try {
-            SellTimingResponseRoot result = apiInstance.getSellTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+            SellTimingResponseRoot result = apiInstance.getSellTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -90,6 +91,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: QFL_EY, QFL_PEG, QFL_OCFY, QFL_BP, QFL_SP, QFL_OCF_EARNINGS_VAR, QFL_DY, QFL_NET_MGN, QFL_OPER_MGN, QFL_ROE, QFL_CFROE, QFL_EPS_GR_5Y, QFL_OCF_GR_5Y, QFL_SALES_GR_5Y, QFL_DPS_GR_5Y, QFL_EPS_GR_1Y, QFL_OCF_GR_1Y, QFL_SALES_GR_1Y, QFL_LT_DEBT_EQUITY, QFL_DEBT_ASSETS, QFL_EBITDAEV, QFL_REVEV, QFL_ROIC, QFL_CFROIC]
  **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: energy, materials, industrials, consumerDiscretionary, consumerStaples, healthCare, financials, informationTechnology, communicationServices, utilities, realEstate, equityDiversified, equityHealthCare, equitySelfStorage, equityIndustrial, equityOffice, equityResidential, equityRetail, equityLodgingAndResorts, equitySpecialty, equityTimberReits, equityInfrastructureReits, equityDataCenters, mortageHomeFinancing, mortageCommercialFinancing]
  **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: africa, centralAsia, easternEurope, middleEast, northAmerica, pacificRim, southAmerica, westernEurope]
+ **holdings** | **SellTimingHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] [enum: all, olderLoser, olderWinner, youngerLoser, youngerWinner]
 
 ### Return type
 
@@ -121,7 +123,7 @@ Name | Type | Description  | Notes
 
 ## getStopLossModelAnalytic
 
-> StopLossResponseRoot getStopLossModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region)
+> StopLossResponseRoot getStopLossModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings)
 
 Cabot main path for Stop Loss API
 
@@ -174,8 +176,9 @@ public class Example {
         Attributes attribute = Attributes.fromValue("QFL_EY"); // Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />
         Sectors sector = Sectors.fromValue("energy"); // Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
         Regions region = Regions.fromValue("africa"); // Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
+        StopLossHoldings holdings = StopLossHoldings.fromValue("all"); // StopLossHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />
         try {
-            StopLossResponseRoot result = apiInstance.getStopLossModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+            StopLossResponseRoot result = apiInstance.getStopLossModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -200,6 +203,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: QFL_EY, QFL_PEG, QFL_OCFY, QFL_BP, QFL_SP, QFL_OCF_EARNINGS_VAR, QFL_DY, QFL_NET_MGN, QFL_OPER_MGN, QFL_ROE, QFL_CFROE, QFL_EPS_GR_5Y, QFL_OCF_GR_5Y, QFL_SALES_GR_5Y, QFL_DPS_GR_5Y, QFL_EPS_GR_1Y, QFL_OCF_GR_1Y, QFL_SALES_GR_1Y, QFL_LT_DEBT_EQUITY, QFL_DEBT_ASSETS, QFL_EBITDAEV, QFL_REVEV, QFL_ROIC, QFL_CFROIC]
  **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: energy, materials, industrials, consumerDiscretionary, consumerStaples, healthCare, financials, informationTechnology, communicationServices, utilities, realEstate, equityDiversified, equityHealthCare, equitySelfStorage, equityIndustrial, equityOffice, equityResidential, equityRetail, equityLodgingAndResorts, equitySpecialty, equityTimberReits, equityInfrastructureReits, equityDataCenters, mortageHomeFinancing, mortageCommercialFinancing]
  **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: africa, centralAsia, easternEurope, middleEast, northAmerica, pacificRim, southAmerica, westernEurope]
+ **holdings** | **StopLossHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] [enum: all, -20, -30, -40]
 
 ### Return type
 

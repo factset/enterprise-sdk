@@ -1,20 +1,23 @@
 # FactSet.SDK.IRNCustomSymbols.Api.CustomSymbolsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSymbolRelationship**](CustomSymbolsRelationshipsApi.md#createsymbolrelationship) | **POST** /v1/symbol-relationships | Create a symbol relationship
-[**DeleteSymbolRelationship**](CustomSymbolsRelationshipsApi.md#deletesymbolrelationship) | **DELETE** /v1/symbol-relationships/{symbolRelationshipId} | Delete a symbol relationship
-[**EditAndAddSymbolRelationship**](CustomSymbolsRelationshipsApi.md#editandaddsymbolrelationship) | **PUT** /v1/symbol-relationships/{symbol} | Edit a symbol relationship
-[**GetSymbolRelationship**](CustomSymbolsRelationshipsApi.md#getsymbolrelationship) | **GET** /v1/symbol-relationships/{symbolRelationshipId} | Get details on a specific symbol relationship
-[**GetSymbolRelationships**](CustomSymbolsRelationshipsApi.md#getsymbolrelationships) | **GET** /v1/symbol-relationships/{symbolId}/relationships | Returns a list of a symbol’s relationships
+[**CreateSymbolRelationship**](CustomSymbolsRelationshipsApi.md#createsymbolrelationship) | **POST** /symbol-relationships | Create a symbol relationship
+[**DeleteSymbolRelationship**](CustomSymbolsRelationshipsApi.md#deletesymbolrelationship) | **DELETE** /symbol-relationships/{symbolRelationshipId} | Delete a symbol relationship
+[**EditAndAddSymbolRelationship**](CustomSymbolsRelationshipsApi.md#editandaddsymbolrelationship) | **PUT** /symbol-relationships/{symbol} | Edit a symbol relationship
+[**GetSymbolRelationship**](CustomSymbolsRelationshipsApi.md#getsymbolrelationship) | **GET** /symbol-relationships/{symbolRelationshipId} | Get details on a specific symbol relationship
+[**GetSymbolRelationships**](CustomSymbolsRelationshipsApi.md#getsymbolrelationships) | **GET** /symbol-relationships/{symbolId}/relationships | Returns a list of a symbol’s relationships
+[**GetSymbolsRelationships**](CustomSymbolsRelationshipsApi.md#getsymbolsrelationships) | **GET** /symbol-relationships | Get list of all symbol relationships in your group
 
 
 
 <a name="createsymbolrelationship"></a>
 # **CreateSymbolRelationship**
 > void CreateSymbolRelationship (List<SymbolRelationshipSaveDto> symbolRelationshipSaveDto = null)
+
+Create a symbol relationship
 
 Create a symbol relationship
 
@@ -112,6 +115,8 @@ void (empty response body)
 <a name="deletesymbolrelationship"></a>
 # **DeleteSymbolRelationship**
 > void DeleteSymbolRelationship (Guid symbolRelationshipId)
+
+Delete a symbol relationship
 
 Delete a symbol relationship
 
@@ -213,6 +218,8 @@ void (empty response body)
 
 Edit a symbol relationship
 
+Edit a symbol relationship
+
 ### Example
 
 > [!IMPORTANT]
@@ -307,6 +314,8 @@ void (empty response body)
 <a name="getsymbolrelationship"></a>
 # **GetSymbolRelationship**
 > SymbolRelationshipDto GetSymbolRelationship (Guid symbolRelationshipId)
+
+Get details on a specific symbol relationship
 
 Get details on a specific symbol relationship
 
@@ -408,6 +417,8 @@ Name | Type | Description  | Notes
 
 Returns a list of a symbol’s relationships
 
+Returns a list of a symbol’s relationships
+
 ### Example
 
 > [!IMPORTANT]
@@ -496,6 +507,106 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 | **404** | Not Found |  -  |
 | **0** | Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="getsymbolsrelationships"></a>
+# **GetSymbolsRelationships**
+> List&lt;SymbolRelationshipDto&gt; GetSymbolsRelationships (SymbolsRelationshipType? relationshipType = null, string relationshipCode = null)
+
+Get list of all symbol relationships in your group
+
+Get list of all symbol relationships in your group
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.IRNCustomSymbols.Api;
+using FactSet.SDK.IRNCustomSymbols.Client;
+using FactSet.SDK.IRNCustomSymbols.Model;
+
+namespace Example
+{
+    public class GetSymbolsRelationshipsExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.IRNCustomSymbols.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new CustomSymbolsRelationshipsApi(config);
+
+            var relationshipType = (SymbolsRelationshipType) "PARENTCHILD";  // SymbolsRelationshipType? | Filter results on relationship type (optional) 
+            var relationshipCode = "relationshipCode_example";  // string | Filter results on relationship code (optional) 
+
+            try
+            {
+                // Get list of all symbol relationships in your group
+                List<SymbolRelationshipDto> result = apiInstance.GetSymbolsRelationships(relationshipType, relationshipCode);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling CustomSymbolsRelationshipsApi.GetSymbolsRelationships: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **relationshipType** | **SymbolsRelationshipType?**| Filter results on relationship type | [optional] 
+ **relationshipCode** | **string**| Filter results on relationship code | [optional] 
+
+### Return type
+[**List&lt;SymbolRelationshipDto&gt;**](SymbolRelationshipDto.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

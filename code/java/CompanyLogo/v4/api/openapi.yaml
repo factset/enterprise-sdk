@@ -1,0 +1,403 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "Consume FactSet collected Company Logos through an API that seamlessly\
+    \ integrates with company fundamentals and estimates data\n(listed equities data\
+    \ available via the stocks API), quotes, time series, and other Digital APIs.\n\
+    \nThe logo API provides access to logos for a global universe of listed companies.\
+    \ The logos could be accessed by using national and\ninternational identifiers\
+    \ like ISIN, CUSIP, WKN, Valor, etc. and are a nice feature for comprehensive\
+    \ visualizations of equities\non overview pages (factsheets).\n\nLogo collection\
+    \ and maintenance takes into account IPOs, M&A notifications, and further consistency\
+    \ check mechanisms.\n\nThe Company Logo API seamlessly integrates with the [Stocks\
+    \ API](https://developer.factset.com/api-catalog/stocks-api-digital-portals)\n\
+    for equities and estimates data and the [Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api),\
+    \ allowing\naccess to detailed price and performance information of listings.\
+    \ The [Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api)\n\
+    also supports basic security identifier cross-reference (see for example /notation/crossReference/getByFactSetMarketSymbol\
+    \ to retrieve an instrument id).\nFor direct access to price histories for charting,\
+    \ please refer to the\n[Real-Time Time Series API](https://developer.factset.com/api-catalog/real-time-time-series-api).\n\
+    \ \n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Company Logo API
+  version: 4.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+- url: https://api.factset.com/wealth/v4
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: company endpoints
+  name: company
+paths:
+  /company/logo/get:
+    get:
+      description: "List of URLs for transparent company logos in different sizes\
+        \ and formats.   The different sizes for the rectangular and square formats\
+        \ are: \n\n **Small**:\n * rectangular:  maximum width of 88 pixels and maximum\
+        \ height of 31 pixels.\n * square:  31 x 31 pixels.\n\n\n **Medium**: small\
+        \ logo scaled up by 200%.\n\n **Large**: small logo scaled up by 300%.\n\n\
+        \ **Vector**: can be rendered at any size."
+      operationId: getCompanyLogoGet
+      parameters:
+      - description: Identifier to resolve.
+        example: FDS-US
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Identifier to resolve.
+          example: FDS-US
+          maxLength: 50
+          minLength: 3
+          pattern: ^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$|^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$|^[A-Z1-9][A-Z0-9]{5}$|^[0-9]{1,9}$|^[A-Z0-9]{8}[0-9]$
+          type: string
+        style: form
+      - description: |+
+          Type of the identifier.
+          | Value | Description |
+          | --- | --- |
+          | idInstrument | MDG identifier of an instrument. |
+          | idNotation | MDG identifier of a listing. |
+          | fdsPermanentIdentifierSecurity | FactSet Permanent Identifier on security level. |
+          | fdsPermanentIdentifierListing | FactSet Permanent Identifier on listing level. |
+          | fdsPermanentIdentifierRegional | Regional FactSet Permanent Identifier. |
+          | tickerExchange | FactSet market symbol of a listing. |
+          | tickerRegion | Regional FactSet ticker symbol. |
+          | sedol | SEDOL or IDII of a listing. |
+          | isin | ISIN of an instrument. |
+          | wkn | WKN of an instrument. |
+          | valor | Valor number of an instrument. |
+          | cusip | CUSIP or CINS identifier of an instrument |
+
+        example: tickerRegion
+        explode: true
+        in: query
+        name: identifierType
+        required: true
+        schema:
+          description: |+
+            Type of the identifier.
+            | Value | Description |
+            | --- | --- |
+            | idInstrument | MDG identifier of an instrument. |
+            | idNotation | MDG identifier of a listing. |
+            | fdsPermanentIdentifierSecurity | FactSet Permanent Identifier on security level. |
+            | fdsPermanentIdentifierListing | FactSet Permanent Identifier on listing level. |
+            | fdsPermanentIdentifierRegional | Regional FactSet Permanent Identifier. |
+            | tickerExchange | FactSet market symbol of a listing. |
+            | tickerRegion | Regional FactSet ticker symbol. |
+            | sedol | SEDOL or IDII of a listing. |
+            | isin | ISIN of an instrument. |
+            | wkn | WKN of an instrument. |
+            | valor | Valor number of an instrument. |
+            | cusip | CUSIP or CINS identifier of an instrument |
+
+          enum:
+          - idInstrument
+          - idNotation
+          - fdsPermanentIdentifierSecurity
+          - fdsPermanentIdentifierListing
+          - fdsPermanentIdentifierRegional
+          - tickerExchange
+          - tickerRegion
+          - sedol
+          - isin
+          - wkn
+          - valor
+          - cusip
+          example: tickerRegion
+          type: string
+        style: form
+      - description: |+
+          Format of the logos.
+          | Value | Description |
+          | --- | --- |
+          | rectangular | Logos in rectangular format |
+          | square | Logos in square format |
+
+        example: rectangular
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: rectangular
+          description: |+
+            Format of the logos.
+            | Value | Description |
+            | --- | --- |
+            | rectangular | Logos in rectangular format |
+            | square | Logos in square format |
+
+          enum:
+          - rectangular
+          - square
+          example: rectangular
+          type: string
+        style: form
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  idInstrument: "209485"
+                  sourceIdentifier: FDS-US
+                  small:
+                    url: https://developer.factset.com
+                    mimeType: Lorem ipsum
+                  medium:
+                    url: https://developer.factset.com
+                    mimeType: Lorem ipsum
+                  large:
+                    url: https://developer.factset.com
+                    mimeType: Lorem ipsum
+                  vector:
+                    url: https://developer.factset.com
+                    mimeType: Lorem ipsum
+                meta:
+                  status:
+                    code: 200
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: List of URLs of company logos.
+      tags:
+      - company
+      x-accepts: application/json
+components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
+  requestBodies: {}
+  responses:
+    GetCompanyLogoGet200Response:
+      content:
+        application/json:
+          example:
+            data:
+              idInstrument: "209485"
+              sourceIdentifier: FDS-US
+              small:
+                url: https://developer.factset.com
+                mimeType: Lorem ipsum
+              medium:
+                url: https://developer.factset.com
+                mimeType: Lorem ipsum
+              large:
+                url: https://developer.factset.com
+                mimeType: Lorem ipsum
+              vector:
+                url: https://developer.factset.com
+                mimeType: Lorem ipsum
+            meta:
+              status:
+                code: 200
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Successful Response
+  schemas:
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 200
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          example: 200
+          format: int32
+          type: number
+      required:
+      - code
+      type: object
+    inline_response_200_data_small:
+      description: Small logo.
+      example:
+        mimeType: Lorem ipsum
+        url: https://developer.factset.com
+      nullable: false
+      properties:
+        url:
+          description: URL of the logo.
+          example: https://developer.factset.com
+          format: url
+          nullable: true
+          type: string
+        mimeType:
+          description: MIME type of the logo.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_medium:
+      description: Medium logo.
+      example:
+        mimeType: Lorem ipsum
+        url: https://developer.factset.com
+      nullable: false
+      properties:
+        url:
+          description: URL of the logo.
+          example: https://developer.factset.com
+          format: url
+          nullable: true
+          type: string
+        mimeType:
+          description: MIME type of the logo.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_large:
+      description: Large logo.
+      example:
+        mimeType: Lorem ipsum
+        url: https://developer.factset.com
+      nullable: false
+      properties:
+        url:
+          description: URL of the logo.
+          example: https://developer.factset.com
+          format: url
+          nullable: true
+          type: string
+        mimeType:
+          description: MIME type of the logo.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_vector:
+      description: Vector logo.
+      example:
+        mimeType: Lorem ipsum
+        url: https://developer.factset.com
+      nullable: false
+      properties:
+        url:
+          description: URL of the logo.
+          example: https://developer.factset.com
+          format: url
+          nullable: true
+          type: string
+        mimeType:
+          description: MIME type of the logo.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data:
+      description: URLs of company logos. All URLs are publicly available via HTTPS
+        and hosted by FactSet with a top-level domain `mdgms.com`. For possible values
+        of the attribute `mimeType`, see endpoint `/basic/media/type/list` with parameter
+        `filter.ids=1 (image)`.
+      example:
+        small:
+          mimeType: Lorem ipsum
+          url: https://developer.factset.com
+        idInstrument: "209485"
+        sourceIdentifier: FDS-US
+        large:
+          mimeType: Lorem ipsum
+          url: https://developer.factset.com
+        vector:
+          mimeType: Lorem ipsum
+          url: https://developer.factset.com
+        medium:
+          mimeType: Lorem ipsum
+          url: https://developer.factset.com
+      nullable: false
+      properties:
+        idInstrument:
+          description: MDG identifier of the instrument.
+          example: "209485"
+          format: id64
+          nullable: true
+          type: string
+        sourceIdentifier:
+          description: Identifier used in the request.
+          example: FDS-US
+          nullable: true
+          type: string
+        small:
+          $ref: '#/components/schemas/inline_response_200_data_small'
+        medium:
+          $ref: '#/components/schemas/inline_response_200_data_medium'
+        large:
+          $ref: '#/components/schemas/inline_response_200_data_large'
+        vector:
+          $ref: '#/components/schemas/inline_response_200_data_vector'
+      type: object
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 200
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    inline_response_200:
+      example:
+        data:
+          small:
+            mimeType: Lorem ipsum
+            url: https://developer.factset.com
+          idInstrument: "209485"
+          sourceIdentifier: FDS-US
+          large:
+            mimeType: Lorem ipsum
+            url: https://developer.factset.com
+          vector:
+            mimeType: Lorem ipsum
+            url: https://developer.factset.com
+          medium:
+            mimeType: Lorem ipsum
+            url: https://developer.factset.com
+        meta:
+          status:
+            code: 200
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

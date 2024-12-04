@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Style Performance and Risk Analysis (SPAR) Engine API
-  version: 3.13.4
+  version: 3.14.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/spar-engine-api
@@ -5946,6 +5946,7 @@ components:
       example:
         enddate: enddate
         startdate: startdate
+        useeachportfolioinception: true
         frequency: frequency
       properties:
         startdate:
@@ -5957,6 +5958,9 @@ components:
         frequency:
           description: Calculation's frequency.
           type: string
+        useeachportfolioinception:
+          description: Use Each Portfolio Inception
+          type: boolean
       required:
       - enddate
       - frequency
@@ -5969,6 +5973,7 @@ components:
         dates:
           enddate: enddate
           startdate: startdate
+          useeachportfolioinception: true
           frequency: frequency
         accounts:
         - prefix: prefix
@@ -6056,6 +6061,7 @@ components:
             dates:
               enddate: enddate
               startdate: startdate
+              useeachportfolioinception: true
               frequency: frequency
             accounts:
             - prefix: prefix

@@ -182,6 +182,8 @@ paths:
                         description: Taiwan Stock Exchange
                       - source: ASXD
                         description: ASX Company Announcements Delayed
+                      - source: OMX
+                        description: GlobeNewswire Europe
         '400':
           description: Bad request.
           content:

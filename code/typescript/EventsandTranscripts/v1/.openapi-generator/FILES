@@ -25,6 +25,7 @@ docs/EventsAudioHistory.md
 docs/EventsAudioIdsObject.md
 docs/IndexedNrt.md
 docs/IndexedObject.md
+docs/InvestorSlides.md
 docs/ListFileObject.md
 docs/NearRealTimeTranscriptsApi.md
 docs/NrtCalls.md
@@ -39,6 +40,7 @@ docs/ResponseCategories.md
 docs/ResponseCategoriesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
+docs/SlidesObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
 docs/TranscriptObjectTimes.md
@@ -78,6 +80,7 @@ src/model/EventsAudioHistory.js
 src/model/EventsAudioIdsObject.js
 src/model/IndexedNrt.js
 src/model/IndexedObject.js
+src/model/InvestorSlides.js
 src/model/ListFileObject.js
 src/model/NrtCalls.js
 src/model/NrtCallsMeta.js
@@ -91,6 +94,7 @@ src/model/ResponseCategories.js
 src/model/ResponseCategoriesObject.js
 src/model/ResponseTime.js
 src/model/ResponseTimeObject.js
+src/model/SlidesObject.js
 src/model/TranscriptObject.js
 src/model/TranscriptObjectOne.js
 src/model/TranscriptObjectTimes.js

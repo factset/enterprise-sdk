@@ -30,6 +30,7 @@ docs/SymbolRelationshipDto.md
 docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
+docs/SymbolsRelationshipType.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -82,3 +83,4 @@ src/main/java/com/factset/sdk/IRNCustomSymbols/models/SymbolRelationshipDto.java
 src/main/java/com/factset/sdk/IRNCustomSymbols/models/SymbolRelationshipSaveDto.java
 src/main/java/com/factset/sdk/IRNCustomSymbols/models/SymbolRelationshipUpdateDto.java
 src/main/java/com/factset/sdk/IRNCustomSymbols/models/SymbolsRelationshipIdNameDto.java
+src/main/java/com/factset/sdk/IRNCustomSymbols/models/SymbolsRelationshipType.java

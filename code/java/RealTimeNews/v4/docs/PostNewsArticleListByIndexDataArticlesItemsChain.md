@@ -1,0 +1,18 @@
+
+
+# PostNewsArticleListByIndexDataArticlesItemsChain
+
+Article chain.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** | Identifier of the news article chain. |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

@@ -11,10 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.Cabot.models.AddTrimHoldings;
 import com.factset.sdk.Cabot.models.AddTrimResponseRoot;
 import com.factset.sdk.Cabot.models.Attributes;
 import com.factset.sdk.Cabot.models.ClientErrorResponse;
+import com.factset.sdk.Cabot.models.RampDownHoldings;
 import com.factset.sdk.Cabot.models.RampDownResponseRoot;
+import com.factset.sdk.Cabot.models.RampUpHoldings;
 import com.factset.sdk.Cabot.models.RampUpResponseRoot;
 import com.factset.sdk.Cabot.models.Regions;
 import com.factset.sdk.Cabot.models.Sectors;
@@ -83,6 +86,7 @@ public class SizingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return AddTrimResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -100,8 +104,8 @@ public class SizingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public AddTrimResponseRoot getAddTrimModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    return getAddTrimModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region).getData();
+  public AddTrimResponseRoot getAddTrimModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, AddTrimHoldings holdings) throws ApiException {
+    return getAddTrimModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
   }
 
   /**
@@ -113,6 +117,7 @@ public class SizingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return ApiResponse&lt;AddTrimResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -130,7 +135,7 @@ public class SizingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<AddTrimResponseRoot> getAddTrimModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
+  public ApiResponse<AddTrimResponseRoot> getAddTrimModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, AddTrimHoldings holdings) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountPath' is set
@@ -163,6 +168,7 @@ public class SizingModelsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -200,6 +206,7 @@ public class SizingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return RampDownResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -217,8 +224,8 @@ public class SizingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public RampDownResponseRoot getRampDownModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    return getRampDownModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region).getData();
+  public RampDownResponseRoot getRampDownModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, RampDownHoldings holdings) throws ApiException {
+    return getRampDownModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
   }
 
   /**
@@ -230,6 +237,7 @@ public class SizingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return ApiResponse&lt;RampDownResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -247,7 +255,7 @@ public class SizingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<RampDownResponseRoot> getRampDownModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
+  public ApiResponse<RampDownResponseRoot> getRampDownModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, RampDownHoldings holdings) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountPath' is set
@@ -280,6 +288,7 @@ public class SizingModelsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -317,6 +326,7 @@ public class SizingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return RampUpResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -334,8 +344,8 @@ public class SizingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public RampUpResponseRoot getRampUpModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    return getRampUpModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region).getData();
+  public RampUpResponseRoot getRampUpModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, RampUpHoldings holdings) throws ApiException {
+    return getRampUpModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
   }
 
   /**
@@ -347,6 +357,7 @@ public class SizingModelsApi {
    * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
    * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
    * @return ApiResponse&lt;RampUpResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -364,7 +375,7 @@ public class SizingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<RampUpResponseRoot> getRampUpModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
+  public ApiResponse<RampUpResponseRoot> getRampUpModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, RampUpHoldings holdings) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accountPath' is set
@@ -397,6 +408,7 @@ public class SizingModelsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     

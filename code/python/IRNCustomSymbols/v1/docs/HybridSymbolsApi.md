@@ -1,17 +1,19 @@
 # fds.sdk.IRNCustomSymbols.HybridSymbolsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_standard_symbol_metadata**](HybridSymbolsApi.md#create_standard_symbol_metadata) | **POST** /v1/custom-symbols/standard-symbol-metadata | Create standard symbol metadata
-[**get_standard_symbol_metadata_guid**](HybridSymbolsApi.md#get_standard_symbol_metadata_guid) | **GET** /v1/custom-symbols/standard-symbol-metadata/{standardSymbol} | Get all custom field and standard field details on a specific standard symbol
-[**patch_standard_symbol**](HybridSymbolsApi.md#patch_standard_symbol) | **PATCH** /v1/custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
+[**create_standard_symbol_metadata**](HybridSymbolsApi.md#create_standard_symbol_metadata) | **POST** /custom-symbols/standard-symbol-metadata | Create standard symbol metadata
+[**get_standard_symbol_metadata_guid**](HybridSymbolsApi.md#get_standard_symbol_metadata_guid) | **GET** /custom-symbols/standard-symbol-metadata/{standardSymbol} | Get all custom field and standard field details on a specific standard symbol
+[**patch_standard_symbol**](HybridSymbolsApi.md#patch_standard_symbol) | **PATCH** /custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
 
 
 
 # **create_standard_symbol_metadata**
 > NewItemDto create_standard_symbol_metadata()
+
+Create standard symbol metadata
 
 Create standard symbol metadata
 
@@ -136,6 +138,8 @@ Name | Type | Description  | Notes
 
 Get all custom field and standard field details on a specific standard symbol
 
+Get all custom field and standard field details on a specific standard symbol
+
 ### Example
 
 > [!IMPORTANT]
@@ -227,6 +231,8 @@ Name | Type | Description  | Notes
 
 # **patch_standard_symbol**
 > patch_standard_symbol(standard_symbol_id)
+
+Edit a standard symbol’s standard field and custom field data
 
 Edit a standard symbol’s standard field and custom field data
 

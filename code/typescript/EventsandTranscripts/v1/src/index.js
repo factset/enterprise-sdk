@@ -31,6 +31,7 @@ import EventsAudioHistory from './model/EventsAudioHistory';
 import EventsAudioIdsObject from './model/EventsAudioIdsObject';
 import IndexedNrt from './model/IndexedNrt';
 import IndexedObject from './model/IndexedObject';
+import InvestorSlides from './model/InvestorSlides';
 import ListFileObject from './model/ListFileObject';
 import NrtCalls from './model/NrtCalls';
 import NrtCallsMeta from './model/NrtCallsMeta';
@@ -44,6 +45,7 @@ import ResponseCategories from './model/ResponseCategories';
 import ResponseCategoriesObject from './model/ResponseCategoriesObject';
 import ResponseTime from './model/ResponseTime';
 import ResponseTimeObject from './model/ResponseTimeObject';
+import SlidesObject from './model/SlidesObject';
 import TranscriptObject from './model/TranscriptObject';
 import TranscriptObjectOne from './model/TranscriptObjectOne';
 import TranscriptObjectTimes from './model/TranscriptObjectTimes';
@@ -213,6 +215,12 @@ export {
     IndexedObject,
 
     /**
+     * The InvestorSlides model constructor.
+     * @property {module:model/InvestorSlides}
+     */
+    InvestorSlides,
+
+    /**
      * The ListFileObject model constructor.
      * @property {module:model/ListFileObject}
      */
@@ -289,6 +297,12 @@ export {
      * @property {module:model/ResponseTimeObject}
      */
     ResponseTimeObject,
+
+    /**
+     * The SlidesObject model constructor.
+     * @property {module:model/SlidesObject}
+     */
+    SlidesObject,
 
     /**
      * The TranscriptObject model constructor.

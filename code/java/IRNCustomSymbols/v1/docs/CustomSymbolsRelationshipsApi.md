@@ -1,20 +1,23 @@
 # CustomSymbolsRelationshipsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSymbolRelationship**](CustomSymbolsRelationshipsApi.md#createSymbolRelationship) | **POST** /v1/symbol-relationships | Create a symbol relationship
-[**deleteSymbolRelationship**](CustomSymbolsRelationshipsApi.md#deleteSymbolRelationship) | **DELETE** /v1/symbol-relationships/{symbolRelationshipId} | Delete a symbol relationship
-[**editAndAddSymbolRelationship**](CustomSymbolsRelationshipsApi.md#editAndAddSymbolRelationship) | **PUT** /v1/symbol-relationships/{symbol} | Edit a symbol relationship
-[**getSymbolRelationship**](CustomSymbolsRelationshipsApi.md#getSymbolRelationship) | **GET** /v1/symbol-relationships/{symbolRelationshipId} | Get details on a specific symbol relationship
-[**getSymbolRelationships**](CustomSymbolsRelationshipsApi.md#getSymbolRelationships) | **GET** /v1/symbol-relationships/{symbolId}/relationships | Returns a list of a symbol’s relationships
+[**createSymbolRelationship**](CustomSymbolsRelationshipsApi.md#createSymbolRelationship) | **POST** /symbol-relationships | Create a symbol relationship
+[**deleteSymbolRelationship**](CustomSymbolsRelationshipsApi.md#deleteSymbolRelationship) | **DELETE** /symbol-relationships/{symbolRelationshipId} | Delete a symbol relationship
+[**editAndAddSymbolRelationship**](CustomSymbolsRelationshipsApi.md#editAndAddSymbolRelationship) | **PUT** /symbol-relationships/{symbol} | Edit a symbol relationship
+[**getSymbolRelationship**](CustomSymbolsRelationshipsApi.md#getSymbolRelationship) | **GET** /symbol-relationships/{symbolRelationshipId} | Get details on a specific symbol relationship
+[**getSymbolRelationships**](CustomSymbolsRelationshipsApi.md#getSymbolRelationships) | **GET** /symbol-relationships/{symbolId}/relationships | Returns a list of a symbol’s relationships
+[**getSymbolsRelationships**](CustomSymbolsRelationshipsApi.md#getSymbolsRelationships) | **GET** /symbol-relationships | Get list of all symbol relationships in your group
 
 
 
 ## createSymbolRelationship
 
 > createSymbolRelationship(symbolRelationshipSaveDto)
+
+Create a symbol relationship
 
 Create a symbol relationship
 
@@ -105,6 +108,8 @@ null (empty response body)
 ## deleteSymbolRelationship
 
 > deleteSymbolRelationship(symbolRelationshipId)
+
+Delete a symbol relationship
 
 Delete a symbol relationship
 
@@ -199,6 +204,8 @@ null (empty response body)
 
 Edit a symbol relationship
 
+Edit a symbol relationship
+
 ### Example
 
 > [!IMPORTANT]
@@ -286,6 +293,8 @@ null (empty response body)
 ## getSymbolRelationship
 
 > SymbolRelationshipDto getSymbolRelationship(symbolRelationshipId)
+
+Get details on a specific symbol relationship
 
 Get details on a specific symbol relationship
 
@@ -380,6 +389,8 @@ Name | Type | Description  | Notes
 
 Returns a list of a symbol’s relationships
 
+Returns a list of a symbol’s relationships
+
 ### Example
 
 > [!IMPORTANT]
@@ -463,4 +474,97 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 | **404** | Not Found |  -  |
 | **0** | Error |  -  |
+
+
+## getSymbolsRelationships
+
+> java.util.List<SymbolRelationshipDto> getSymbolsRelationships(relationshipType, relationshipCode)
+
+Get list of all symbol relationships in your group
+
+Get list of all symbol relationships in your group
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.IRNCustomSymbols.ApiClient;
+import com.factset.sdk.IRNCustomSymbols.ApiException;
+import com.factset.sdk.IRNCustomSymbols.Configuration;
+import com.factset.sdk.IRNCustomSymbols.auth.*;
+import com.factset.sdk.IRNCustomSymbols.models.*;
+import com.factset.sdk.IRNCustomSymbols.api.CustomSymbolsRelationshipsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        CustomSymbolsRelationshipsApi apiInstance = new CustomSymbolsRelationshipsApi(defaultClient);
+        SymbolsRelationshipType relationshipType = SymbolsRelationshipType.fromValue("PARENTCHILD"); // SymbolsRelationshipType | Filter results on relationship type
+        String relationshipCode = "relationshipCode_example"; // String | Filter results on relationship code
+        try {
+            java.util.List<SymbolRelationshipDto> result = apiInstance.getSymbolsRelationships(relationshipType, relationshipCode);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CustomSymbolsRelationshipsApi#getSymbolsRelationships");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **relationshipType** | **SymbolsRelationshipType**| Filter results on relationship type | [optional] [enum: PARENTCHILD, PEER]
+ **relationshipCode** | **String**| Filter results on relationship code | [optional]
+
+### Return type
+
+[**java.util.List&lt;SymbolRelationshipDto&gt;**](SymbolRelationshipDto.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
 

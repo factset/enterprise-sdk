@@ -68,7 +68,7 @@ public class HybridSymbolsApi {
 
   /**
    * Create standard symbol metadata
-   * 
+   * Create standard symbol metadata
    * @param createStandardSymbolMetadataDto createStandardSymbolMetadataDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -86,7 +86,7 @@ public class HybridSymbolsApi {
 
   /**
    * Create standard symbol metadata
-   * 
+   * Create standard symbol metadata
    * @param createStandardSymbolMetadataDto createStandardSymbolMetadataDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -102,7 +102,7 @@ public class HybridSymbolsApi {
     Object localVarPostBody = createStandardSymbolMetadataDto;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/standard-symbol-metadata";
+    String localVarPath = "/custom-symbols/standard-symbol-metadata";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -133,14 +133,14 @@ public class HybridSymbolsApi {
       
     > apiResponse = apiClient.invokeAPI("HybridSymbolsApi.createStandardSymbolMetadata", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, createStandardSymbolMetadataResponseTypeMap, false);
+                               localVarAuthNames, createStandardSymbolMetadataResponseTypeMap, true);
 
     return apiResponse;
 
   }
   /**
    * Get all custom field and standard field details on a specific standard symbol
-   * 
+   * Get all custom field and standard field details on a specific standard symbol
    * @param standardSymbol Standard symbol to get associated customSymbolId (required)
    * @return java.util.UUID
    * @throws ApiException if fails to make API call
@@ -158,7 +158,7 @@ public class HybridSymbolsApi {
 
   /**
    * Get all custom field and standard field details on a specific standard symbol
-   * 
+   * Get all custom field and standard field details on a specific standard symbol
    * @param standardSymbol Standard symbol to get associated customSymbolId (required)
    * @return ApiResponse&lt;java.util.UUID&gt;
    * @throws ApiException if fails to make API call
@@ -179,7 +179,7 @@ public class HybridSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/standard-symbol-metadata/{standardSymbol}"
+    String localVarPath = "/custom-symbols/standard-symbol-metadata/{standardSymbol}"
       .replaceAll("\\{" + "standardSymbol" + "\\}", apiClient.escapeString(standardSymbol.toString()));
 
     // query params
@@ -218,7 +218,7 @@ public class HybridSymbolsApi {
   }
   /**
    * Edit a standard symbol’s standard field and custom field data
-   * 
+   * Edit a standard symbol’s standard field and custom field data
    * @param standardSymbolId standardSymbolId to update associated standard symbol (required)
    * @param operation updateCustomSymbolDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -237,7 +237,7 @@ public class HybridSymbolsApi {
 
   /**
    * Edit a standard symbol’s standard field and custom field data
-   * 
+   * Edit a standard symbol’s standard field and custom field data
    * @param standardSymbolId standardSymbolId to update associated standard symbol (required)
    * @param operation updateCustomSymbolDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -260,7 +260,7 @@ public class HybridSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/standard-symbol-metadata/{standardSymbolId}"
+    String localVarPath = "/custom-symbols/standard-symbol-metadata/{standardSymbolId}"
       .replaceAll("\\{" + "standardSymbolId" + "\\}", apiClient.escapeString(standardSymbolId.toString()));
 
     // query params

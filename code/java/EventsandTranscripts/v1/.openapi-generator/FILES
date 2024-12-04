@@ -27,6 +27,7 @@ docs/EventsAudioHistory.md
 docs/EventsAudioIdsObject.md
 docs/IndexedNrt.md
 docs/IndexedObject.md
+docs/InvestorSlides.md
 docs/ListFileObject.md
 docs/NearRealTimeTranscriptsApi.md
 docs/NrtCalls.md
@@ -41,6 +42,7 @@ docs/ResponseCategories.md
 docs/ResponseCategoriesObject.md
 docs/ResponseTime.md
 docs/ResponseTimeObject.md
+docs/SlidesObject.md
 docs/TranscriptObject.md
 docs/TranscriptObjectOne.md
 docs/TranscriptObjectTimes.md
@@ -103,6 +105,7 @@ src/main/java/com/factset/sdk/EventsandTranscripts/models/EventsAudioHistory.jav
 src/main/java/com/factset/sdk/EventsandTranscripts/models/EventsAudioIdsObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/IndexedNrt.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/IndexedObject.java
+src/main/java/com/factset/sdk/EventsandTranscripts/models/InvestorSlides.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/ListFileObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/NrtCalls.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/NrtCallsMeta.java
@@ -116,6 +119,7 @@ src/main/java/com/factset/sdk/EventsandTranscripts/models/ResponseCategories.jav
 src/main/java/com/factset/sdk/EventsandTranscripts/models/ResponseCategoriesObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/ResponseTime.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/ResponseTimeObject.java
+src/main/java/com/factset/sdk/EventsandTranscripts/models/SlidesObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptObject.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptObjectOne.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptObjectTimes.java

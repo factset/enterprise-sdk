@@ -1,0 +1,19 @@
+# GetCategoryListDataCategoriesItems
+
+A list of objects. For semantical context see the description of the parent array.
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **float, none_type** | Identifier of the category. | [optional] 
+**code** | **str, none_type** | Code commonly used for this category. | [optional] 
+**name** | **str, none_type** | Name of the category. | [optional] 
+**description** | **str, none_type** | Description of the category. | [optional] 
+**active** | **bool, none_type** | Indicates whether this category is active. | [optional] 
+**level** | [**GetCategoryListDataCategoriesItemsLevel**](GetCategoryListDataCategoriesItemsLevel.md) |  | [optional] 
+**parent** | [**GetCategoryListDataCategoriesItemsParent**](GetCategoryListDataCategoriesItemsParent.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

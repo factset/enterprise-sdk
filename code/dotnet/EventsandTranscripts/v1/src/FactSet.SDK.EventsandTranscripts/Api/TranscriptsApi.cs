@@ -178,6 +178,43 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <returns>ApiResponse of TranscriptsOne</returns>
         ApiResponse<TranscriptsOne> GetTranscriptsIdsWithHttpInfo(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+        /// </summary>
+        /// <remarks>
+        /// Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <returns>InvestorSlides</returns>
+        InvestorSlides GetTranscriptsInvestorSlides(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+
+        /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+        /// </summary>
+        /// <remarks>
+        /// Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <returns>ApiResponse of InvestorSlides</returns>
+        ApiResponse<InvestorSlides> GetTranscriptsInvestorSlidesWithHttpInfo(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+        /// <summary>
         /// Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
         /// </summary>
         /// <remarks>
@@ -394,6 +431,45 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         /// <returns>Task of ApiResponse (TranscriptsOne)</returns>
         System.Threading.Tasks.Task<ApiResponse<TranscriptsOne>> GetTranscriptsIdsWithHttpInfoAsync(bool? primaryId = default(bool?), List<string> ids = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string searchText = default(string), List<string> reportIds = default(List<string>), List<string> categories = default(List<string>), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+        /// </summary>
+        /// <remarks>
+        /// Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InvestorSlides</returns>
+        System.Threading.Tasks.Task<InvestorSlides> GetTranscriptsInvestorSlidesAsync(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+        /// </summary>
+        /// <remarks>
+        /// Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InvestorSlides)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InvestorSlides>> GetTranscriptsInvestorSlidesWithHttpInfoAsync(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
         /// </summary>
         /// <remarks>
@@ -504,6 +580,15 @@ namespace FactSet.SDK.EventsandTranscripts.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> GetTranscriptsIdsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(TranscriptsOne) },
+            { (HttpStatusCode)400, typeof(Error) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetTranscriptsInvestorSlidesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InvestorSlides) },
             { (HttpStatusCode)400, typeof(Error) },
             { (HttpStatusCode)401, typeof(Error) },
             { (HttpStatusCode)403, typeof(Error) },
@@ -1747,6 +1832,261 @@ namespace FactSet.SDK.EventsandTranscripts.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTranscriptsIds", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters. Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <returns>InvestorSlides</returns>
+        public InvestorSlides GetTranscriptsInvestorSlides(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            var localVarResponse = GetTranscriptsInvestorSlidesWithHttpInfo(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters. Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <returns>ApiResponse of InvestorSlides</returns>
+        public ApiResponse<InvestorSlides> GetTranscriptsInvestorSlidesWithHttpInfo(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            FactSet.SDK.EventsandTranscripts.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.EventsandTranscripts.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.EventsandTranscripts.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.EventsandTranscripts.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (ids != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate)));
+            if (eventIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "eventIds", eventIds));
+            }
+            if (categories != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "categories", categories));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "searchText", searchText));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "_sort", sort));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.EventsandTranscripts.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTranscriptsInvestorSlidesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InvestorSlides>("/transcripts/investor-slides", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTranscriptsInvestorSlides", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters. Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InvestorSlides</returns>
+        public async System.Threading.Tasks.Task<InvestorSlides>GetTranscriptsInvestorSlidesAsync(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetTranscriptsInvestorSlidesWithHttpInfoAsync(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters. Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.EventsandTranscripts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** </param>
+        /// <param name="endDate">End Date. Format is YYYY-MM-DD.</param>
+        /// <param name="ids">Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)</param>
+        /// <param name="eventIds">Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)</param>
+        /// <param name="categories">Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)</param>
+        /// <param name="searchText">Restricts the search to include only document stories which include the text searched. (optional)</param>
+        /// <param name="sort">Enables sorting data in ascending or descending chronological order based on eventDate.  (optional)</param>
+        /// <param name="paginationLimit">Number of results to return per page. Maximum value: 1000.  (optional, default to 25)</param>
+        /// <param name="paginationOffset">Page number of the results to return. (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InvestorSlides)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InvestorSlides>> GetTranscriptsInvestorSlidesWithHttpInfoAsync(DateTime startDate, DateTime endDate, List<string> ids = default(List<string>), List<string> eventIds = default(List<string>), List<string> categories = default(List<string>), string searchText = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.EventsandTranscripts.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.EventsandTranscripts.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.EventsandTranscripts.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.EventsandTranscripts.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (ids != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
+            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate)));
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate)));
+            if (eventIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "eventIds", eventIds));
+            }
+            if (categories != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "categories", categories));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "searchText", searchText));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("csv", "_sort", sort));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.EventsandTranscripts.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.EventsandTranscripts.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTranscriptsInvestorSlidesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InvestorSlides>("/transcripts/investor-slides", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTranscriptsInvestorSlides", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

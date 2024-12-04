@@ -28,6 +28,7 @@ docs/SymbolRelationshipDto.md
 docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
+docs/SymbolsRelationshipType.md
 git_push.sh
 src/FactSet.SDK.IRNCustomSymbols/Api/CustomSymbolsApi.cs
 src/FactSet.SDK.IRNCustomSymbols/Api/CustomSymbolsRelationshipsApi.cs
@@ -71,3 +72,4 @@ src/FactSet.SDK.IRNCustomSymbols/Model/SymbolRelationshipDto.cs
 src/FactSet.SDK.IRNCustomSymbols/Model/SymbolRelationshipSaveDto.cs
 src/FactSet.SDK.IRNCustomSymbols/Model/SymbolRelationshipUpdateDto.cs
 src/FactSet.SDK.IRNCustomSymbols/Model/SymbolsRelationshipIdNameDto.cs
+src/FactSet.SDK.IRNCustomSymbols/Model/SymbolsRelationshipType.cs

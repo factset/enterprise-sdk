@@ -1,13 +1,23 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: Allows users to extract, create, update and configure IRN data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: IRN API v1
-  version: "1"
+  version: 1.1.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/#apiDocumentation
 servers:
 - description: Production Server
-  url: https://api.factset.com/research/irn
-- description: Sandbox
-  url: https://api-sandbox.factset.com/research/irn
+  url: https://api.factset.com/research/irn/v1
+- description: Sandbox Server
+  url: https://api-sandbox.factset.com/research/irn/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -16,8 +26,10 @@ tags:
 - name: CustomSymbols - Relationships
 - name: HybridSymbols
 paths:
-  /v1/custom-symbols:
+  /custom-symbols:
     get:
+      description: Get list of all custom symbols in your group along with some of
+        their standard field and custom fields data
       operationId: GetCustomSymbols
       parameters:
       - description: filter custom symbols based on custom symbol type
@@ -28,7 +40,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: filter custom symbols based on custom symbol code or name
+      - description: filter custom symbols based on custom symbol code, name or linked
+          factset entity's properties
         explode: true
         in: query
         name: query
@@ -54,13 +67,40 @@ paths:
           default: false
           type: boolean
         style: form
-      - description: Whether or not to include event
+      - description: Only return Custom Symbols which have been modified or created
+          since a particular time
         explode: true
         in: query
-        name: includeEvent
+        name: modifiedSince
         required: false
         schema:
-          default: true
+          type: string
+        style: form
+      - description: Filter custom symbols based on custom symbol sync job
+        explode: true
+        in: query
+        name: jobId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - description: Filter custom symbols based on rbl custom symbol job
+        explode: true
+        in: query
+        name: batchJobId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - description: Whether or not to include deleted custom symbols
+        explode: true
+        in: query
+        name: includeDeleted
+        required: false
+        schema:
+          default: false
           type: boolean
         style: form
       responses:
@@ -72,6 +112,12 @@ paths:
                   $ref: '#/components/schemas/CustomSymbolDto'
                 type: array
           description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
         "404":
           content:
             application/json:
@@ -90,6 +136,7 @@ paths:
       - CustomSymbols
       x-accepts: application/json
     post:
+      description: Create a custom symbol
       operationId: CreateCustomSymbol
       requestBody:
         content:
@@ -130,8 +177,9 @@ paths:
       - CustomSymbols
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/custom-symbols/{customSymbolId}:
+  /custom-symbols/{customSymbolId}:
     delete:
+      description: Delete a custom symbol
       operationId: DeleteCustomSymbol
       parameters:
       - description: customSymbolId to delete associated custom symbol
@@ -169,6 +217,8 @@ paths:
       - CustomSymbols
       x-accepts: application/json
     get:
+      description: Get all custom field and standard field details on a specific custom
+        symbol
       operationId: GetCustomSymbol
       parameters:
       - description: customSymbolId to get associated custom symbol
@@ -180,15 +230,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - description: Whether or not to include event
-        explode: true
-        in: query
-        name: includeEvent
-        required: false
-        schema:
-          default: false
-          type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -196,12 +237,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/CustomSymbolDto'
           description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
       summary: Get all custom field and standard field details on a specific custom
         symbol
       tags:
       - CustomSymbols
       x-accepts: application/json
     patch:
+      description: Edit a custom symbol’s standard field and custom field data
       operationId: PatchCustomSymbol
       parameters:
       - description: customSymbolId to update associated custom symbol
@@ -262,8 +316,10 @@ paths:
       - CustomSymbols
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/custom-symbols/{customSymbolId}/records:
+  /custom-symbols/{customSymbolId}/records:
     get:
+      description: Get all notes and meetings where a specific customSymbol was tagged
+        as primary or related identifier
       operationId: GetCustomSymbolRecords
       parameters:
       - description: CustomSymbolId to get associated records
@@ -301,8 +357,10 @@ paths:
       tags:
       - CustomSymbols
       x-accepts: application/json
-  /v1/custom-symbols/standard-symbol-metadata/{standardSymbol}:
+  /custom-symbols/standard-symbol-metadata/{standardSymbol}:
     get:
+      description: Get all custom field and standard field details on a specific standard
+        symbol
       operationId: GetStandardSymbolMetadataGuid
       parameters:
       - description: Standard symbol to get associated customSymbolId
@@ -338,19 +396,27 @@ paths:
       tags:
       - HybridSymbols
       x-accepts: application/json
-  /v1/symbol-relationships/{symbolId}/relationships:
+  /symbol-relationships:
     get:
-      operationId: GetSymbolRelationships
+      description: Get list of all symbol relationships in your group
+      operationId: GetSymbolsRelationships
       parameters:
-      - description: symbolId to get associated records
-        explode: false
-        in: path
-        name: symbolId
-        required: true
+      - description: Filter results on relationship type
+        explode: true
+        in: query
+        name: relationshipType
+        required: false
         schema:
-          format: uuid
+          $ref: '#/components/schemas/SymbolsRelationshipType'
+        style: form
+      - description: Filter results on relationship code
+        explode: true
+        in: query
+        name: relationshipCode
+        required: false
+        schema:
           type: string
-        style: simple
+        style: form
       responses:
         "200":
           content:
@@ -360,175 +426,12 @@ paths:
                   $ref: '#/components/schemas/SymbolRelationshipDto'
                 type: array
           description: Success
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Error
-      summary: Returns a list of a symbol’s relationships
+      summary: Get list of all symbol relationships in your group
       tags:
       - CustomSymbols - Relationships
       x-accepts: application/json
-  /v1/symbol-relationships/{symbolRelationshipId}:
-    delete:
-      operationId: DeleteSymbolRelationship
-      parameters:
-      - description: symbolRelationshipId to delete associated record
-        explode: false
-        in: path
-        name: symbolRelationshipId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: Success
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Error
-      summary: Delete a symbol relationship
-      tags:
-      - CustomSymbols - Relationships
-      x-accepts: application/json
-    get:
-      operationId: GetSymbolRelationship
-      parameters:
-      - description: symbolRelationshipId to get associated record
-        explode: false
-        in: path
-        name: symbolRelationshipId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SymbolRelationshipDto'
-          description: Success
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Error
-      summary: Get details on a specific symbol relationship
-      tags:
-      - CustomSymbols - Relationships
-      x-accepts: application/json
-  /v1/custom-symbols/{customSymbolId}/link-standard-symbol:
     post:
-      operationId: LinkCustomSymbolToStandardSymbol
-      parameters:
-      - description: customSymbolId associated with custom symbol
-        explode: false
-        in: path
-        name: customSymbolId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/StandardSymbolDto'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StandardSymbolDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/StandardSymbolDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/StandardSymbolDto'
-        description: standard symbol name
-      responses:
-        "200":
-          description: Success
-      summary: Link custom symbol to standard symbol
-      tags:
-      - CustomSymbols
-      x-contentType: application/json-patch+json
-      x-accepts: application/json
-  /v1/custom-symbols/standard-symbol-metadata:
-    post:
-      operationId: CreateStandardSymbolMetadata
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
-        description: createStandardSymbolMetadataDto object to save
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NewItemDto'
-          description: Created
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Bad Request
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Error
-      summary: Create standard symbol metadata
-      tags:
-      - HybridSymbols
-      x-contentType: application/json-patch+json
-      x-accepts: application/json
-  /v1/symbol-relationships:
-    post:
+      description: Create a symbol relationship
       operationId: CreateSymbolRelationship
       requestBody:
         content:
@@ -573,8 +476,203 @@ paths:
       - CustomSymbols - Relationships
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/symbol-relationships/{symbol}:
+  /symbol-relationships/{symbolId}/relationships:
+    get:
+      description: Returns a list of a symbol’s relationships
+      operationId: GetSymbolRelationships
+      parameters:
+      - description: symbolId to get associated records
+        explode: false
+        in: path
+        name: symbolId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SymbolRelationshipDto'
+                type: array
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Returns a list of a symbol’s relationships
+      tags:
+      - CustomSymbols - Relationships
+      x-accepts: application/json
+  /symbol-relationships/{symbolRelationshipId}:
+    delete:
+      description: Delete a symbol relationship
+      operationId: DeleteSymbolRelationship
+      parameters:
+      - description: symbolRelationshipId to delete associated record
+        explode: false
+        in: path
+        name: symbolRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a symbol relationship
+      tags:
+      - CustomSymbols - Relationships
+      x-accepts: application/json
+    get:
+      description: Get details on a specific symbol relationship
+      operationId: GetSymbolRelationship
+      parameters:
+      - description: symbolRelationshipId to get associated record
+        explode: false
+        in: path
+        name: symbolRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SymbolRelationshipDto'
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get details on a specific symbol relationship
+      tags:
+      - CustomSymbols - Relationships
+      x-accepts: application/json
+  /custom-symbols/{customSymbolId}/link-standard-symbol:
+    post:
+      description: Link custom symbol to standard symbol
+      operationId: LinkCustomSymbolToStandardSymbol
+      parameters:
+      - description: customSymbolId associated with custom symbol
+        explode: false
+        in: path
+        name: customSymbolId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/StandardSymbolDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StandardSymbolDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/StandardSymbolDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/StandardSymbolDto'
+        description: standard symbol name
+      responses:
+        "200":
+          description: Success
+      summary: Link custom symbol to standard symbol
+      tags:
+      - CustomSymbols
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /custom-symbols/standard-symbol-metadata:
+    post:
+      description: Create standard symbol metadata
+      operationId: CreateStandardSymbolMetadata
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateStandardSymbolMetadataDto'
+        description: createStandardSymbolMetadataDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create standard symbol metadata
+      tags:
+      - HybridSymbols
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /symbol-relationships/{symbol}:
     put:
+      description: Edit a symbol relationship
       operationId: EditAndAddSymbolRelationship
       parameters:
       - explode: false
@@ -615,8 +713,9 @@ paths:
       - CustomSymbols - Relationships
       x-contentType: application/json-patch+json
       x-accepts: application/json
-  /v1/custom-symbols/standard-symbol-metadata/{standardSymbolId}:
+  /custom-symbols/standard-symbol-metadata/{standardSymbolId}:
     patch:
+      description: Edit a standard symbol’s standard field and custom field data
       operationId: PatchStandardSymbol
       parameters:
       - description: standardSymbolId to update associated standard symbol
@@ -680,7 +779,6 @@ paths:
 components:
   schemas:
     CreateCustomSymbolCustomFieldValueDto:
-      additionalProperties: false
       example:
         dateValue: dateValue
         code: code
@@ -693,8 +791,10 @@ components:
         optionValues:
         - optionValues
         - optionValues
+      nullable: true
       properties:
         code:
+          minLength: 1
           type: string
         textValue:
           nullable: true
@@ -724,7 +824,6 @@ components:
       - code
       type: object
     CreateCustomSymbolDto:
-      additionalProperties: false
       example:
         country: country
         code: code
@@ -760,9 +859,10 @@ components:
         typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         subTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         googleMapsPlaceId: googleMapsPlaceId
+      nullable: true
       properties:
         code:
-          maxLength: 32
+          maxLength: 255
           minLength: 0
           nullable: true
           type: string
@@ -817,7 +917,6 @@ components:
           type: array
       type: object
     CreateStandardSymbolMetadataDto:
-      additionalProperties: false
       example:
         country: country
         standardSymbol: standardSymbol
@@ -852,6 +951,7 @@ components:
         typeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         subTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         googleMapsPlaceId: googleMapsPlaceId
+      nullable: true
       properties:
         standardSymbol:
           maxLength: 255
@@ -905,7 +1005,6 @@ components:
       - standardSymbol
       type: object
     CustomSymbolAddressDto:
-      additionalProperties: false
       example:
         country: country
         formattedAddress: formattedAddress
@@ -913,6 +1012,7 @@ components:
         postalCode: postalCode
         stateProvince: stateProvince
         googleMapsPlaceId: googleMapsPlaceId
+      nullable: true
       properties:
         googleMapsPlaceId:
           nullable: true
@@ -934,7 +1034,6 @@ components:
           type: string
       type: object
     CustomSymbolContact:
-      additionalProperties: false
       example:
         isDeleted: true
         name: name
@@ -942,6 +1041,7 @@ components:
         irnPersonId: irnPersonId
         employerName: employerName
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -962,7 +1062,6 @@ components:
           type: string
       type: object
     CustomSymbolCustomFieldValueDto:
-      additionalProperties: false
       example:
         code: code
         value: value
@@ -982,6 +1081,7 @@ components:
         optionValues:
         - optionValues
         - optionValues
+      nullable: true
       properties:
         code:
           nullable: true
@@ -1001,7 +1101,6 @@ components:
           type: array
       type: object
     CustomSymbolDto:
-      additionalProperties: false
       example:
         standardSymbolInstrumentData:
           tickerExchange: tickerExchange
@@ -1067,12 +1166,14 @@ components:
         isDescriptionAutoFilled: true
         createdDate: createdDate
         standardSymbol: standardSymbol
+        isDeleted: true
         createdBy: createdBy
         name: name
         subType:
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1112,12 +1213,14 @@ components:
           type: boolean
         isDescriptionAutoFilled:
           type: boolean
+        isDeleted:
+          type: boolean
       type: object
     CustomSymbolSubTypeSummaryDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1127,10 +1230,10 @@ components:
           type: string
       type: object
     CustomSymbolTypeSummaryDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1140,7 +1243,6 @@ components:
           type: string
       type: object
     InstrumentDto:
-      additionalProperties: false
       example:
         tickerExchange: tickerExchange
         symbol: symbol
@@ -1152,6 +1254,7 @@ components:
         tickerRegion: tickerRegion
         sedol: sedol
         isin: isin
+      nullable: true
       properties:
         symbol:
           nullable: true
@@ -1181,21 +1284,21 @@ components:
           type: array
       type: object
     NewItemDto:
-      additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
           type: string
       type: object
     Operation:
-      additionalProperties: false
       example:
         path: path
         op: op
         from: from
         value: ""
+      nullable: true
       properties:
         operationType:
           $ref: '#/components/schemas/OperationType'
@@ -1224,6 +1327,7 @@ components:
       type: integer
     ProblemDetails:
       additionalProperties: {}
+      nullable: true
       properties:
         type:
           nullable: true
@@ -1243,12 +1347,13 @@ components:
           type: string
       type: object
     RecordPreviewDto:
-      additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
         noteGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         meetingGuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+        subjectName: subjectName
+      nullable: true
       properties:
         noteGuid:
           format: uuid
@@ -1264,23 +1369,27 @@ components:
         date:
           format: date-time
           type: string
+        subjectName:
+          nullable: true
+          type: string
       type: object
     StandardSymbolDto:
-      additionalProperties: false
       example:
         standardSymbol: standardSymbol
+      nullable: true
       properties:
         standardSymbol:
+          minLength: 1
           type: string
       required:
       - standardSymbol
       type: object
     SymbolIdNameDto:
-      additionalProperties: false
       example:
         code: code
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1294,7 +1403,6 @@ components:
           type: string
       type: object
     SymbolRelationshipDto:
-      additionalProperties: false
       example:
         childSymbol:
           code: code
@@ -1312,6 +1420,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           type: type
         startDate: 2000-01-23T04:56:07.000+00:00
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1335,7 +1444,6 @@ components:
           type: string
       type: object
     SymbolRelationshipSaveDto:
-      additionalProperties: false
       example:
         childSymbol: childSymbol
         parentSymbol: parentSymbol
@@ -1343,6 +1451,7 @@ components:
         comment: comment
         startDate: 2000-01-23T04:56:07.000+00:00
         symbolsRelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         symbolsRelationshipId:
           format: uuid
@@ -1366,7 +1475,6 @@ components:
           type: string
       type: object
     SymbolRelationshipUpdateDto:
-      additionalProperties: false
       example:
         childSymbol: childSymbol
         parentSymbol: parentSymbol
@@ -1375,6 +1483,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         startDate: 2000-01-23T04:56:07.000+00:00
         symbolsRelationshipId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1401,11 +1510,11 @@ components:
           type: string
       type: object
     SymbolsRelationshipIdNameDto:
-      additionalProperties: false
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type: type
+      nullable: true
       properties:
         id:
           format: uuid
@@ -1417,6 +1526,11 @@ components:
           nullable: true
           type: string
       type: object
+    SymbolsRelationshipType:
+      enum:
+      - PARENTCHILD
+      - PEER
+      type: string
   securitySchemes:
     FactSetOAuth2:
       flows:

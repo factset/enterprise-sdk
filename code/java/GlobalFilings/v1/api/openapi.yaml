@@ -330,6 +330,8 @@ paths:
                       description: Taiwan Stock Exchange
                     - source: ASXD
                       description: ASX Company Announcements Delayed
+                    - source: OMX
+                      description: GlobeNewswire Europe
               schema:
                 $ref: '#/components/schemas/responseSources'
           description: Success

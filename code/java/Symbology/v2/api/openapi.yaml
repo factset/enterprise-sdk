@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and Bloomberg FIGIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs. Translate market IDs into CUSIP, SEDOL, ISIN, Tickers as of a point in time or for the entire history of the requested id allowing Data Management workflows to normalize ids over time.</p>
   title: FactSet Symbology API
-  version: 2.1.2
+  version: 2.1.3
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -247,8 +247,7 @@ paths:
         \ into FactSet Permanent Identifiers. Any symbol types within this category\
         \ MUST be declared by themselves to appropriately resolve. \n* BIC - Bank\
         \ Identification Code (e.g. ABXXHKH1)\n* CIK - Edgar Central Index Keys (e.g.\
-        \ 0000100331)\n* CRD - Central Registration Depository (e.g. 149722)\n* DUNS\
-        \ - Dun & Bradstreet Data Universal Numbering System (e.g. 687741991)\n* EIN\
+        \ 0000100331)\n* CRD - Central Registration Depository (e.g. 149722)\n* EIN\
         \ - Employer Identification Number (e.g. 953540776)\n* FITCH - Fitch Ratings\
         \ Identifier (e.g. 47504)\n* LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n\
         * MD - Moody's Ratings Identifier (e.g. 0823736553)\n* SPR - S&P Ratings Identifier\
@@ -301,7 +300,6 @@ paths:
             |BIC|Bank Identification Codes|Entity (-E)|
             |CIK|Edgar Central Index Key|Entity (-E)|
             |CRD|Central Registration Depository|Entity (-E)|
-            |DUNS|Dun & Bradstreet Data Universal Numbering System|Entity (-E)|
             |EIN|Employer Identification Number|Entity (-E)|
             |FITCH|Fitch Ratings Identifier|Entity (-E)|
             |LEI|Legal Entity Identifier|Entity (-E)|
@@ -321,7 +319,6 @@ paths:
           - BIC
           - CIK
           - CRD
-          - DUNS
           - EIN
           - FITCH
           - LEI
@@ -345,8 +342,6 @@ paths:
                   $ref: '#/components/examples/fromUnknownResponse'
                 Bloomberg Translation:
                   $ref: '#/components/examples/fromUnknownResponseBloomberg'
-                DUNS Translation Response:
-                  $ref: '#/components/examples/dunsResponse'
               schema:
                 $ref: '#/components/schemas/factsetTranslationAdvancedResponse'
           description: Successful response of ids translated into FactSet Permanent
@@ -430,8 +425,7 @@ paths:
         \ into FactSet Permanent Identifiers. Any symbol types within this category\
         \ MUST be declared by themselves to appropriately resolve. \n* BIC - Bank\
         \ Identification Code (e.g. ABXXHKH1)\n* CIK - Edgar Central Index Keys (e.g.\
-        \ 0000100331)\n* CRD - Central Registration Depository (e.g. 149722)\n* DUNS\
-        \ - Dun & Bradstreet Data Universal Numbering System (e.g. 687741991)\n* EIN\
+        \ 0000100331)\n* CRD - Central Registration Depository (e.g. 149722)\n* EIN\
         \ - Employer Identification Number (e.g. 953540776)\n* FITCH - Fitch Ratings\
         \ Identifier (e.g. 47504)\n* LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n\
         * MD - Moody's Ratings Identifier (e.g. 0823736553)\n* SPR - S&P Ratings Identifier\
@@ -452,8 +446,6 @@ paths:
             examples:
               From Unknown Request:
                 $ref: '#/components/examples/fromUnknownRequest'
-              DUNS Id Resolution:
-                $ref: '#/components/examples/dunsRequest'
             schema:
               $ref: '#/components/schemas/factsetTranslationAdvancedRequest'
         description: Request Body for FactSet Symbology Translation
@@ -467,8 +459,6 @@ paths:
                   $ref: '#/components/examples/fromUnknownResponse'
                 Bloomberg Translation:
                   $ref: '#/components/examples/fromUnknownResponseBloomberg'
-                DUNS Translation Response:
-                  $ref: '#/components/examples/dunsResponse'
               schema:
                 $ref: '#/components/schemas/factsetTranslationAdvancedResponse'
           description: Symbol translation objects.
@@ -2804,29 +2794,6 @@ components:
           fsymTickerExchange: AAPL-USA
           fsymTickerRegion: AAPL-US
           requestId: AAPL US
-    dunsRequest:
-      description: Translating a DUNS Identifier using the symbolType parameter into
-        a FactSet Permanent Identifier.
-      summary: Translating a DUNS Identifier into a FactSet Permanent Identifier
-      value:
-        ids:
-        - 152874004
-        symbolType: DUNS
-    dunsResponse:
-      description: Translated DUNS id into a FactSet Permanent Entity Identifer. Depending
-        on the ID type, not all fsym* response items will return values. All responses
-        should if available return fsymId and requestId.
-      summary: Translated DUNS Id into a FactSet Permanent Entity Identifier
-      value:
-        data:
-        - fsymId: 05L5M0-E
-          fsymSecurityId: null
-          fsymRegionalId: null
-          fsymListingId: null
-          fsymEntityId: null
-          fsymTickerExchange: null
-          fsymTickerRegion: null
-          requestId: "152874004"
     singleCusipTranslation:
       description: Translating Single Market Identifier (GOOGL-US) into CUSIP.
       summary: Translating a single market identifier into CUSIP.
@@ -3636,7 +3603,6 @@ components:
           |BIC|Bank Identification Codes|Entity (-E)|
           |CIK|Edgar Central Index Key|Entity (-E)|
           |CRD|Central Registration Depository|Entity (-E)|
-          |DUNS|Dun & Bradstreet Data Universal Numbering System|Entity (-E)|
           |EIN|Employer Identification Number|Entity (-E)|
           |FITCH|Fitch Ratings Identifier|Entity (-E)|
           |LEI|Legal Entity Identifier|Entity (-E)|
@@ -3656,7 +3622,6 @@ components:
         - BIC
         - CIK
         - CRD
-        - DUNS
         - EIN
         - FITCH
         - LEI
@@ -4926,7 +4891,6 @@ components:
           |BIC|Bank Identification Codes|
           |CIK|Edgar Central Index Key|
           |CRD|Central Registration Depository|
-          |DUNS|Dun & Bradstreet Data Universal Numbering System|
           |EIN|Employer Identification Number|
           |FITCH|Fitch Ratings Identifier|
           |LEI|Legal Entity Identifier|
@@ -4940,7 +4904,6 @@ components:
       - BIC
       - CIK
       - CRD
-      - DUNS
       - EIN
       - FITCH
       - LEI

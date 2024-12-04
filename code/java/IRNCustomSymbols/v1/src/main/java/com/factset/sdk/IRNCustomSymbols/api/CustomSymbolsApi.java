@@ -44,6 +44,8 @@ public class CustomSymbolsApi {
   private static final Map<Integer, GenericType> getCustomSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolResponseTypeMap.put(200, new GenericType<CustomSymbolDto>(){});
+    getCustomSymbolResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getCustomSymbolResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
 
   private static final Map<Integer, GenericType> getCustomSymbolRecordsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -56,6 +58,7 @@ public class CustomSymbolsApi {
   private static final Map<Integer, GenericType> getCustomSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCustomSymbolsResponseTypeMap.put(200, new GenericType<java.util.List<CustomSymbolDto>>(){});
+    getCustomSymbolsResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
     getCustomSymbolsResponseTypeMap.put(404, new GenericType<String>(){});
     getCustomSymbolsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
   }
@@ -87,7 +90,7 @@ public class CustomSymbolsApi {
 
   /**
    * Create a custom symbol
-   * 
+   * Create a custom symbol
    * @param createCustomSymbolDto createCustomSymbolDto object to save (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
@@ -105,7 +108,7 @@ public class CustomSymbolsApi {
 
   /**
    * Create a custom symbol
-   * 
+   * Create a custom symbol
    * @param createCustomSymbolDto createCustomSymbolDto object to save (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
@@ -121,7 +124,7 @@ public class CustomSymbolsApi {
     Object localVarPostBody = createCustomSymbolDto;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols";
+    String localVarPath = "/custom-symbols";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -152,14 +155,14 @@ public class CustomSymbolsApi {
       
     > apiResponse = apiClient.invokeAPI("CustomSymbolsApi.createCustomSymbol", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, createCustomSymbolResponseTypeMap, false);
+                               localVarAuthNames, createCustomSymbolResponseTypeMap, true);
 
     return apiResponse;
 
   }
   /**
    * Delete a custom symbol
-   * 
+   * Delete a custom symbol
    * @param customSymbolId customSymbolId to delete associated custom symbol (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -177,7 +180,7 @@ public class CustomSymbolsApi {
 
   /**
    * Delete a custom symbol
-   * 
+   * Delete a custom symbol
    * @param customSymbolId customSymbolId to delete associated custom symbol (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -199,7 +202,7 @@ public class CustomSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/{customSymbolId}"
+    String localVarPath = "/custom-symbols/{customSymbolId}"
       .replaceAll("\\{" + "customSymbolId" + "\\}", apiClient.escapeString(customSymbolId.toString()));
 
     // query params
@@ -236,35 +239,37 @@ public class CustomSymbolsApi {
   }
   /**
    * Get all custom field and standard field details on a specific custom symbol
-   * 
+   * Get all custom field and standard field details on a specific custom symbol
    * @param customSymbolId customSymbolId to get associated custom symbol (required)
-   * @param includeEvent Whether or not to include event (optional, default to false)
    * @return CustomSymbolDto
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public CustomSymbolDto getCustomSymbol(java.util.UUID customSymbolId, Boolean includeEvent) throws ApiException {
-    return getCustomSymbolWithHttpInfo(customSymbolId, includeEvent).getData();
+  public CustomSymbolDto getCustomSymbol(java.util.UUID customSymbolId) throws ApiException {
+    return getCustomSymbolWithHttpInfo(customSymbolId).getData();
   }
 
   /**
    * Get all custom field and standard field details on a specific custom symbol
-   * 
+   * Get all custom field and standard field details on a specific custom symbol
    * @param customSymbolId customSymbolId to get associated custom symbol (required)
-   * @param includeEvent Whether or not to include event (optional, default to false)
    * @return ApiResponse&lt;CustomSymbolDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CustomSymbolDto> getCustomSymbolWithHttpInfo(java.util.UUID customSymbolId, Boolean includeEvent) throws ApiException {
+  public ApiResponse<CustomSymbolDto> getCustomSymbolWithHttpInfo(java.util.UUID customSymbolId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'customSymbolId' is set
@@ -273,7 +278,7 @@ public class CustomSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/{customSymbolId}"
+    String localVarPath = "/custom-symbols/{customSymbolId}"
       .replaceAll("\\{" + "customSymbolId" + "\\}", apiClient.escapeString(customSymbolId.toString()));
 
     // query params
@@ -282,7 +287,6 @@ public class CustomSymbolsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeEvent", includeEvent));
 
     
     
@@ -313,7 +317,7 @@ public class CustomSymbolsApi {
   }
   /**
    * Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
-   * 
+   * Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
    * @param customSymbolId CustomSymbolId to get associated records (required)
    * @return java.util.List<RecordPreviewDto>
    * @throws ApiException if fails to make API call
@@ -331,7 +335,7 @@ public class CustomSymbolsApi {
 
   /**
    * Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
-   * 
+   * Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
    * @param customSymbolId CustomSymbolId to get associated records (required)
    * @return ApiResponse&lt;java.util.List<RecordPreviewDto>&gt;
    * @throws ApiException if fails to make API call
@@ -352,7 +356,7 @@ public class CustomSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/{customSymbolId}/records"
+    String localVarPath = "/custom-symbols/{customSymbolId}/records"
       .replaceAll("\\{" + "customSymbolId" + "\\}", apiClient.escapeString(customSymbolId.toString()));
 
     // query params
@@ -391,49 +395,57 @@ public class CustomSymbolsApi {
   }
   /**
    * Get list of all custom symbols in your group along with some of their standard field and custom fields data
-   * 
+   * Get list of all custom symbols in your group along with some of their standard field and custom fields data
    * @param typeName filter custom symbols based on custom symbol type (optional)
-   * @param query filter custom symbols based on custom symbol code or name (optional)
+   * @param query filter custom symbols based on custom symbol code, name or linked factset entity&#39;s properties (optional)
    * @param includeCustomFieldValues Whether or not to include customFieldValues (optional, default to false)
    * @param excludeLinkedCustomSymbol Whether or not to exclude linked custom symbol (optional, default to false)
-   * @param includeEvent Whether or not to include event (optional, default to true)
+   * @param modifiedSince Only return Custom Symbols which have been modified or created since a particular time (optional)
+   * @param jobId Filter custom symbols based on custom symbol sync job (optional)
+   * @param batchJobId Filter custom symbols based on rbl custom symbol job (optional)
+   * @param includeDeleted Whether or not to include deleted custom symbols (optional, default to false)
    * @return java.util.List<CustomSymbolDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<CustomSymbolDto> getCustomSymbols(String typeName, String query, Boolean includeCustomFieldValues, Boolean excludeLinkedCustomSymbol, Boolean includeEvent) throws ApiException {
-    return getCustomSymbolsWithHttpInfo(typeName, query, includeCustomFieldValues, excludeLinkedCustomSymbol, includeEvent).getData();
+  public java.util.List<CustomSymbolDto> getCustomSymbols(String typeName, String query, Boolean includeCustomFieldValues, Boolean excludeLinkedCustomSymbol, String modifiedSince, java.util.UUID jobId, java.util.UUID batchJobId, Boolean includeDeleted) throws ApiException {
+    return getCustomSymbolsWithHttpInfo(typeName, query, includeCustomFieldValues, excludeLinkedCustomSymbol, modifiedSince, jobId, batchJobId, includeDeleted).getData();
   }
 
   /**
    * Get list of all custom symbols in your group along with some of their standard field and custom fields data
-   * 
+   * Get list of all custom symbols in your group along with some of their standard field and custom fields data
    * @param typeName filter custom symbols based on custom symbol type (optional)
-   * @param query filter custom symbols based on custom symbol code or name (optional)
+   * @param query filter custom symbols based on custom symbol code, name or linked factset entity&#39;s properties (optional)
    * @param includeCustomFieldValues Whether or not to include customFieldValues (optional, default to false)
    * @param excludeLinkedCustomSymbol Whether or not to exclude linked custom symbol (optional, default to false)
-   * @param includeEvent Whether or not to include event (optional, default to true)
+   * @param modifiedSince Only return Custom Symbols which have been modified or created since a particular time (optional)
+   * @param jobId Filter custom symbols based on custom symbol sync job (optional)
+   * @param batchJobId Filter custom symbols based on rbl custom symbol job (optional)
+   * @param includeDeleted Whether or not to include deleted custom symbols (optional, default to false)
    * @return ApiResponse&lt;java.util.List<CustomSymbolDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<CustomSymbolDto>> getCustomSymbolsWithHttpInfo(String typeName, String query, Boolean includeCustomFieldValues, Boolean excludeLinkedCustomSymbol, Boolean includeEvent) throws ApiException {
+  public ApiResponse<java.util.List<CustomSymbolDto>> getCustomSymbolsWithHttpInfo(String typeName, String query, Boolean includeCustomFieldValues, Boolean excludeLinkedCustomSymbol, String modifiedSince, java.util.UUID jobId, java.util.UUID batchJobId, Boolean includeDeleted) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols";
+    String localVarPath = "/custom-symbols";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -445,7 +457,10 @@ public class CustomSymbolsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeCustomFieldValues", includeCustomFieldValues));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeLinkedCustomSymbol", excludeLinkedCustomSymbol));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeEvent", includeEvent));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "modifiedSince", modifiedSince));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "jobId", jobId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batchJobId", batchJobId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeDeleted", includeDeleted));
 
     
     
@@ -476,7 +491,7 @@ public class CustomSymbolsApi {
   }
   /**
    * Link custom symbol to standard symbol
-   * 
+   * Link custom symbol to standard symbol
    * @param customSymbolId customSymbolId associated with custom symbol (required)
    * @param standardSymbolDto standard symbol name (optional)
    * @throws ApiException if fails to make API call
@@ -492,7 +507,7 @@ public class CustomSymbolsApi {
 
   /**
    * Link custom symbol to standard symbol
-   * 
+   * Link custom symbol to standard symbol
    * @param customSymbolId customSymbolId associated with custom symbol (required)
    * @param standardSymbolDto standard symbol name (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -512,7 +527,7 @@ public class CustomSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/{customSymbolId}/link-standard-symbol"
+    String localVarPath = "/custom-symbols/{customSymbolId}/link-standard-symbol"
       .replaceAll("\\{" + "customSymbolId" + "\\}", apiClient.escapeString(customSymbolId.toString()));
 
     // query params
@@ -542,14 +557,14 @@ public class CustomSymbolsApi {
       Void
     > apiResponse = apiClient.invokeAPI("CustomSymbolsApi.linkCustomSymbolToStandardSymbol", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, linkCustomSymbolToStandardSymbolResponseTypeMap, false);
+                               localVarAuthNames, linkCustomSymbolToStandardSymbolResponseTypeMap, true);
 
     return apiResponse;
 
   }
   /**
    * Edit a custom symbol’s standard field and custom field data
-   * 
+   * Edit a custom symbol’s standard field and custom field data
    * @param customSymbolId customSymbolId to update associated custom symbol (required)
    * @param operation updateCustomSymbolDto object to update (optional)
    * @throws ApiException if fails to make API call
@@ -568,7 +583,7 @@ public class CustomSymbolsApi {
 
   /**
    * Edit a custom symbol’s standard field and custom field data
-   * 
+   * Edit a custom symbol’s standard field and custom field data
    * @param customSymbolId customSymbolId to update associated custom symbol (required)
    * @param operation updateCustomSymbolDto object to update (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -591,7 +606,7 @@ public class CustomSymbolsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/custom-symbols/{customSymbolId}"
+    String localVarPath = "/custom-symbols/{customSymbolId}"
       .replaceAll("\\{" + "customSymbolId" + "\\}", apiClient.escapeString(customSymbolId.toString()));
 
     // query params

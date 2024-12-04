@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attribute** | **string** |  | [optional] 
 **HighRampDownValues** | [**List&lt;RampDownModelAnalytics&gt;**](RampDownModelAnalytics.md) |  | [optional] 
+**HoldingsData** | [**HoldingsResponseOptions**](HoldingsResponseOptions.md) |  | [optional] 
 **LowRampDownValues** | [**List&lt;RampDownModelAnalytics&gt;**](RampDownModelAnalytics.md) |  | [optional] 
 **RampDownValues** | [**List&lt;RampDownModelAnalytics&gt;**](RampDownModelAnalytics.md) |  | [optional] 
 

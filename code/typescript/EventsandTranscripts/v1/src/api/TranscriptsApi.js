@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Error from '../model/Error';
+import InvestorSlides from '../model/InvestorSlides';
 import ResponseCategories from '../model/ResponseCategories';
 import ResponseTime from '../model/ResponseTime';
 import Transcripts from '../model/Transcripts';
@@ -346,6 +347,88 @@ export default class TranscriptsApi {
      */
     getTranscriptsIds(opts) {
       return this.getTranscriptsIdsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+     * Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+     * @param {Date} startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+     * @param {Date} endDate End Date. Format is YYYY-MM-DD.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+     * @param {Array.<String>} opts.eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
+     * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+     * @param {String} opts.searchText Restricts the search to include only document stories which include the text searched.
+     * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
+     * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InvestorSlides} and HTTP response
+     */
+    getTranscriptsInvestorSlidesWithHttpInfo(startDate, endDate, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'startDate' is set
+      if (startDate === undefined || startDate === null) {
+        throw new Error("Missing the required parameter 'startDate' when calling getTranscriptsInvestorSlides");
+      }
+      // verify the required parameter 'endDate' is set
+      if (endDate === undefined || endDate === null) {
+        throw new Error("Missing the required parameter 'endDate' when calling getTranscriptsInvestorSlides");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'ids': this.apiClient.buildCollectionParam(opts['ids'], 'csv'),
+        'startDate': startDate,
+        'endDate': endDate,
+        'eventIds': this.apiClient.buildCollectionParam(opts['eventIds'], 'csv'),
+        'categories': this.apiClient.buildCollectionParam(opts['categories'], 'csv'),
+        'searchText': opts['searchText'],
+        '_sort': this.apiClient.buildCollectionParam(opts['sort'], 'csv'),
+        '_paginationLimit': opts['paginationLimit'],
+        '_paginationOffset': opts['paginationOffset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InvestorSlides;
+
+      return this.apiClient.callApi(
+        '/transcripts/investor-slides', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+     * Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+     * @param {Date} startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+     * @param {Date} endDate End Date. Format is YYYY-MM-DD.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+     * @param {Array.<String>} opts.eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
+     * @param {Array.<String>} opts.categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+     * @param {String} opts.searchText Restricts the search to include only document stories which include the text searched.
+     * @param {Array.<module:model/String>} opts.sort Enables sorting data in ascending or descending chronological order based on eventDate. 
+     * @param {Number} opts.paginationLimit Number of results to return per page. Maximum value: 1000.  (default to 25)
+     * @param {Number} opts.paginationOffset Page number of the results to return. (default to 0)
+     * @return { Promise.< module:model/InvestorSlides > } a Promise, with data of type {@link module:model/InvestorSlides }
+     */
+    getTranscriptsInvestorSlides(startDate, endDate, opts) {
+      return this.getTranscriptsInvestorSlidesWithHttpInfo(startDate, endDate, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

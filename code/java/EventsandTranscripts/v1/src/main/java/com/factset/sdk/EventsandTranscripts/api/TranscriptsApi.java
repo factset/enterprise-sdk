@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.EventsandTranscripts.models.Error;
+import com.factset.sdk.EventsandTranscripts.models.InvestorSlides;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import com.factset.sdk.EventsandTranscripts.models.ResponseCategories;
@@ -76,6 +77,15 @@ public class TranscriptsApi {
     getTranscriptsIdsResponseTypeMap.put(401, new GenericType<Error>(){});
     getTranscriptsIdsResponseTypeMap.put(403, new GenericType<Error>(){});
     getTranscriptsIdsResponseTypeMap.put(500, new GenericType<Error>(){});
+  }
+
+  private static final Map<Integer, GenericType> getTranscriptsInvestorSlidesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTranscriptsInvestorSlidesResponseTypeMap.put(200, new GenericType<InvestorSlides>(){});
+    getTranscriptsInvestorSlidesResponseTypeMap.put(400, new GenericType<Error>(){});
+    getTranscriptsInvestorSlidesResponseTypeMap.put(401, new GenericType<Error>(){});
+    getTranscriptsInvestorSlidesResponseTypeMap.put(403, new GenericType<Error>(){});
+    getTranscriptsInvestorSlidesResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
   private static final Map<Integer, GenericType> getTranscriptsTimeResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -564,6 +574,117 @@ public class TranscriptsApi {
     > apiResponse = apiClient.invokeAPI("TranscriptsApi.getTranscriptsIds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getTranscriptsIdsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+   * Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+   * @param startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  (required)
+   * @param endDate End Date. Format is YYYY-MM-DD. (required)
+   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
+   * @param eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)
+   * @param categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
+   * @param searchText Restricts the search to include only document stories which include the text searched. (optional)
+   * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
+   * @param paginationOffset Page number of the results to return. (optional, default to 0)
+   * @return InvestorSlides
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> The latest investor slides based on the provided date ranges. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public InvestorSlides getTranscriptsInvestorSlides(LocalDate startDate, LocalDate endDate, java.util.List<String> ids, java.util.List<String> eventIds, java.util.List<String> categories, String searchText, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getTranscriptsInvestorSlidesWithHttpInfo(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset).getData();
+  }
+
+  /**
+   * Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+   * Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
+   * @param startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  (required)
+   * @param endDate End Date. Format is YYYY-MM-DD. (required)
+   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. (optional)
+   * @param eventIds Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. (optional)
+   * @param categories Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
+   * @param searchText Restricts the search to include only document stories which include the text searched. (optional)
+   * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
+   * @param paginationLimit Number of results to return per page. Maximum value: 1000.  (optional, default to 25)
+   * @param paginationOffset Page number of the results to return. (optional, default to 0)
+   * @return ApiResponse&lt;InvestorSlides&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> The latest investor slides based on the provided date ranges. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InvestorSlides> getTranscriptsInvestorSlidesWithHttpInfo(LocalDate startDate, LocalDate endDate, java.util.List<String> ids, java.util.List<String> eventIds, java.util.List<String> categories, String searchText, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'startDate' is set
+    if (startDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'startDate' when calling getTranscriptsInvestorSlides");
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getTranscriptsInvestorSlides");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/transcripts/investor-slides";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "eventIds", eventIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "categories", categories));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "searchText", searchText));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        InvestorSlides
+      
+    > apiResponse = apiClient.invokeAPI("TranscriptsApi.getTranscriptsInvestorSlides", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getTranscriptsInvestorSlidesResponseTypeMap, false);
 
     return apiResponse;
 

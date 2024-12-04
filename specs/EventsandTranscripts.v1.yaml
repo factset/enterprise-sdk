@@ -1792,6 +1792,103 @@ paths:
         - $ref: '#/components/parameters/audioSourceId'
         - $ref: '#/components/parameters/indexedpaginationLimit'
         - $ref: '#/components/parameters/paginationOffset'
+  /transcripts/investor-slides:
+    get:
+      summary: >-
+        Returns the investor slides in PDF format and related metadata within
+        FactSet coverage based on specific date range and various parameters.
+      tags:
+        - Transcripts
+      responses:
+        '200':
+          description: The latest investor slides based on the provided date ranges.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvestorSlides'
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                      - primaryIds:
+                          - SGI-AU
+                        allIds:
+                          - SGI-AU
+                        searchId: SGI-AU
+                        headline: >-
+                          Stealth Group Holdings Ltd. Slide 1: Q4 2024 Earnings
+                          Call
+                        storyDateTime: '2023-03-07T19:40:26Z'
+                        categories:
+                          - >-
+                            CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                        slidesLink: >-
+                          https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                        eventId: '1203335253'
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+      operationId: getTranscriptsInvestorSlides
+      description: >
+        Returns the Factset Callstreet Investor Slides documents within FactSet
+        coverage along with other response fields
+
+         All transcripts originate from Factset Callstreet Investor Slides.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDateSlides'
+        - $ref: '#/components/parameters/endDateSlides'
+        - $ref: '#/components/parameters/event_ids'
+        - $ref: '#/components/parameters/categories'
+        - $ref: '#/components/parameters/searchText'
+        - $ref: '#/components/parameters/_sort'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
   /transcripts/dates:
     get:
       summary: >-
@@ -2608,6 +2705,34 @@ components:
                   description: >-
                     Total number of files the API returns for a particular
                     query.
+    InvestorSlides:
+      description: Response containing investor slides.
+      type: object
+      properties:
+        data:
+          type: array
+          description: Collection of data elements.
+          items:
+            $ref: '#/components/schemas/SlidesObject'
+        meta:
+          type: object
+          description: Meta Object
+          properties:
+            pagination:
+              type: object
+              description: Pagination Object
+              properties:
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results.
+                total:
+                  type: integer
+                  description: >-
+                    Total number of files the API returns for a particular
+                    query.
     TranscriptsOne:
       description: Response containing transcripts.
       type: object
@@ -2676,6 +2801,51 @@ components:
           type: string
           description: description
           example: Analysts Revisions
+    SlidesObject:
+      type: object
+      properties:
+        primaryIds:
+          type: array
+          items:
+            type: string
+          description: Refers to the main companies a particular document pertains to.
+        allIds:
+          type: array
+          items:
+            type: string
+          description: 'Refers to all companies mentioned in the document. '
+        searchId:
+          type: string
+          description: >-
+            Returns IDs used in the ids parameter. The identifier type is based
+            on what was used in the parameter.
+        headline:
+          type: string
+          description: Headline of the story.
+        storyDateTime:
+          type: string
+          format: date-time
+          description: >-
+            Refers to either the date and time of the story, when it is
+            available in workstation (in the specified timezone) or the date and
+            time FactSet received it from the vendor.
+        categories:
+          type: array
+          items:
+            type: string
+          description: >-
+            Categories are country, industry, and subject codes. This is a
+            comma-separated list.
+        slidesLink:
+          type: string
+          description: >-
+            This is a link for downloading the document with an expiration
+            duration of 24 hours.
+        eventId:
+          type: string
+          description: >-
+            Unique identifier derived from report_id with a 't' appended,
+            indicating a transcript or slide.
     TranscriptObject:
       type: object
       properties:
@@ -3913,6 +4083,30 @@ components:
 
         **The API supports data from 1999 onwards. Ensure that the provided Date
         falls within this range for accurate results.**
+    startDateSlides:
+      schema:
+        type: string
+        format: date
+      in: query
+      name: startDate
+      example: '2020-10-01'
+      required: true
+      description: >
+        Start Date. Format is YYYY-MM-DD 
+
+
+
+        **The API supports data from 1995 onwards. Ensure that the provided Date
+        falls within this range for accurate results.**
+    endDateSlides:
+      schema:
+        type: string
+        format: date
+      in: query
+      name: endDate
+      example: '2020-12-26'
+      required: true
+      description: End Date. Format is YYYY-MM-DD.
     startDateRelative:
       name: startDateRelative
       in: query
@@ -4109,7 +4303,7 @@ components:
       in: query
       name: categories
       example:
-        - CN:GB
+        - CN:AU
       description: >-
         Code for categories to include. This is a comma-separated list.which
         represents country, industry, and subject codes. Use the

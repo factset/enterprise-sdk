@@ -1957,6 +1957,215 @@ paths:
       tags:
       - Near Real-Time Transcripts
       x-accepts: application/json
+  /transcripts/investor-slides:
+    get:
+      description: |
+        Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields
+
+         All transcripts originate from Factset Callstreet Investor Slides.
+      operationId: getTranscriptsInvestorSlides
+      parameters:
+      - description: Requested symbols or securities.  This is a comma-separated list
+          with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+          CUSIP, or SEDOL.
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - RTO-GB
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - RTO-GB
+            - ROAD-US
+        explode: false
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          type: array
+        style: form
+      - description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
+          \ from 1995 onwards. Ensure that the provided Date falls within this range\
+          \ for accurate results.**\n"
+        example: 2020-10-01
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: End Date. Format is YYYY-MM-DD.
+        example: 2020-12-26
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Requests Event IDs. This is a comma-separated list with a maximum
+          limit of 1000.
+        examples:
+          oneId:
+            summary: One identifier
+            value:
+            - "1202993804"
+        explode: false
+        in: query
+        name: eventIds
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          type: array
+        style: form
+      - description: |-
+          Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.
+
+          Default = All categories.
+        example:
+        - CN:AU
+        explode: false
+        in: query
+        name: categories
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Restricts the search to include only document stories which include
+          the text searched.
+        example: Updates
+        explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Enables sorting data in ascending or descending chronological order based on eventDate.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -storyDateTime
+          items:
+            enum:
+            - storyDateTime
+            - -storyDateTime
+            type: string
+          maxItems: 2
+          type: array
+        style: form
+      - description: |
+          Number of results to return per page. Maximum value: 1000.
+        example: 20
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          format: int32
+          type: integer
+        style: form
+      - description: Page number of the results to return.
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                    - primaryIds:
+                      - SGI-AU
+                      allIds:
+                      - SGI-AU
+                      searchId: SGI-AU
+                      headline: 'Stealth Group Holdings Ltd. Slide 1: Q4 2024 Earnings
+                        Call'
+                      storyDateTime: 2023-03-07T19:40:26Z
+                      categories:
+                      - CN:US,DT:CONF,DT:EVTS,DT:EV_ME,DT:FILNS_TS_TR,IN:OIL,LN:EN,RN:AM,RN:NA,SB:EVTS,SB:EV_ME
+                      slidesLink: https://api.factset.com/v1/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                      eventId: "1203335253"
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+              schema:
+                $ref: '#/components/schemas/InvestorSlides'
+          description: The latest investor slides based on the provided date ranges.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Returns the investor slides in PDF format and related metadata within
+        FactSet coverage based on specific date range and various parameters.
+      tags:
+      - Transcripts
+      x-accepts: application/json
   /transcripts/dates:
     get:
       description: "Returns the transcripts documents within FactSet coverage along\
@@ -2540,7 +2749,7 @@ paths:
 
           Default = All categories.
         example:
-        - CN:GB
+        - CN:AU
         explode: false
         in: query
         name: categories
@@ -3109,6 +3318,30 @@ components:
         format: date
         type: string
       style: form
+    startDateSlides:
+      description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
+        \ from 1995 onwards. Ensure that the provided Date falls within this range\
+        \ for accurate results.**\n"
+      example: 2020-10-01
+      explode: true
+      in: query
+      name: startDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    endDateSlides:
+      description: End Date. Format is YYYY-MM-DD.
+      example: 2020-12-26
+      explode: true
+      in: query
+      name: endDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
     startDateRelative:
       description: |
         The earliest date of the feed file the API should fetch based on the file timestamp.
@@ -3303,7 +3536,7 @@ components:
 
         Default = All categories.
       example:
-      - CN:GB
+      - CN:AU
       explode: false
       in: query
       name: categories
@@ -3580,6 +3813,51 @@ components:
         meta:
           $ref: '#/components/schemas/Transcripts_meta'
       type: object
+    InvestorSlides:
+      description: Response containing investor slides.
+      example:
+        data:
+        - eventId: eventId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          searchId: searchId
+          slidesLink: slidesLink
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+        - eventId: eventId
+          primaryIds:
+          - primaryIds
+          - primaryIds
+          searchId: searchId
+          slidesLink: slidesLink
+          storyDateTime: 2000-01-23T04:56:07.000+00:00
+          categories:
+          - categories
+          - categories
+          allIds:
+          - allIds
+          - allIds
+          headline: headline
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Collection of data elements.
+          items:
+            $ref: '#/components/schemas/SlidesObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Transcripts_meta'
+      type: object
     TranscriptsOne:
       description: Response containing transcripts.
       example:
@@ -3693,6 +3971,62 @@ components:
         description:
           description: description
           example: Analysts Revisions
+          type: string
+      type: object
+    SlidesObject:
+      example:
+        eventId: eventId
+        primaryIds:
+        - primaryIds
+        - primaryIds
+        searchId: searchId
+        slidesLink: slidesLink
+        storyDateTime: 2000-01-23T04:56:07.000+00:00
+        categories:
+        - categories
+        - categories
+        allIds:
+        - allIds
+        - allIds
+        headline: headline
+      properties:
+        primaryIds:
+          description: Refers to the main companies a particular document pertains
+            to.
+          items:
+            type: string
+          type: array
+        allIds:
+          description: 'Refers to all companies mentioned in the document. '
+          items:
+            type: string
+          type: array
+        searchId:
+          description: Returns IDs used in the ids parameter. The identifier type
+            is based on what was used in the parameter.
+          type: string
+        headline:
+          description: Headline of the story.
+          type: string
+        storyDateTime:
+          description: Refers to either the date and time of the story, when it is
+            available in workstation (in the specified timezone) or the date and time
+            FactSet received it from the vendor.
+          format: date-time
+          type: string
+        categories:
+          description: Categories are country, industry, and subject codes. This is
+            a comma-separated list.
+          items:
+            type: string
+          type: array
+        slidesLink:
+          description: This is a link for downloading the document with an expiration
+            duration of 24 hours.
+          type: string
+        eventId:
+          description: Unique identifier derived from report_id with a 't' appended,
+            indicating a transcript or slide.
           type: string
       type: object
     TranscriptObject:

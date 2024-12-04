@@ -4,8 +4,8 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
-  description: "### OVERVIEW\n\nThe FactSet Conversational API allows clients to white-label\
-    \ core FactSet Mercury capabilities in a client's chatbot experience.\n\nThe Conversational\
+  description: "### OVERVIEW\n\nThe FactSet Conversational API allows clients to integrate\
+    \ core FactSet Mercury capabilities in chatbot experiences.\n\nThe Conversational\
     \ API is powered by FactSet Mercury, FactSet's Generative Artificial Intelligence\
     \ (GenAI) large language model. The Conversational API provides a variety of content\
     \ and capabilities, including FactSet’s Federation layer (FactSet’s core GenAI-based\
@@ -35,8 +35,8 @@ info:
     \ English. Support for other languages is currently unavailable.\n- The Conversational\
     \ API is currently limited to accept 10 natural language queries per minute and\
     \ 200 per hour for an individual consumer. If you anticipate your needs to be\
-    \ greater than these limits, please reach out to FatSet Support.\n\n#### FAQ \n\
-    \n**How can I receive updates on changes to the Conversational API?** - Please\
+    \ greater than these limits, please reach out to FactSet Support.\n\n#### FAQ\
+    \ \n\n**How can I receive updates on changes to the Conversational API?** - Please\
     \ subscribe to our FactSet Notify by clicking \"Subscribe to notifications\" in\
     \ the upper right above the API overview. You will receive email updates when\
     \ any updates occur to the API.\n**Why am I receiving a 403 error with a valid\
@@ -50,7 +50,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Conversational API Powered by FactSet Mercury
-  version: 1.0.3
+  version: 1.0.5
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury
@@ -227,6 +227,7 @@ paths:
       summary: Send a natural language query to FactSet Mercury
       tags:
       - Chat
+      x-factset-sdk-main-example: true
       x-contentType: application/json
       x-accepts: application/json
   /status:
@@ -2839,4 +2840,5 @@ components:
     FactSetApiKey:
       scheme: basic
       type: http
+x-factset-sdk-has-main-example: true
 

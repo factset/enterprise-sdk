@@ -11,8 +11,6 @@
 
 * `CRD` (value: `"CRD"`)
 
-* `DUNS` (value: `"DUNS"`)
-
 * `EIN` (value: `"EIN"`)
 
 * `FITCH` (value: `"FITCH"`)

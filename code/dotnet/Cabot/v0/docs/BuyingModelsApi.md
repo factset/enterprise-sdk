@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 <a name="getbuytimingmodelanalytic"></a>
 # **GetBuyTimingModelAnalytic**
-> BuyTimingResponseRoot GetBuyTimingModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> BuyTimingResponseRoot GetBuyTimingModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, BuyTimingHoldings? holdings = null)
 
 Cabot main path for Buy Timing API
 
@@ -184,11 +184,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (BuyTimingHoldings) "all";  // BuyTimingHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Buy Timing API
-                BuyTimingResponseRoot result = apiInstance.GetBuyTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                BuyTimingResponseRoot result = apiInstance.GetBuyTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -212,6 +213,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **BuyTimingHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**BuyTimingResponseRoot**](BuyTimingResponseRoot.md)

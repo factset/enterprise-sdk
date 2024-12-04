@@ -1,18 +1,20 @@
 # FactSet.SDK.IRNCustomSymbols.Api.HybridSymbolsApi
 
-All URIs are relative to *https://api.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateStandardSymbolMetadata**](HybridSymbolsApi.md#createstandardsymbolmetadata) | **POST** /v1/custom-symbols/standard-symbol-metadata | Create standard symbol metadata
-[**GetStandardSymbolMetadataGuid**](HybridSymbolsApi.md#getstandardsymbolmetadataguid) | **GET** /v1/custom-symbols/standard-symbol-metadata/{standardSymbol} | Get all custom field and standard field details on a specific standard symbol
-[**PatchStandardSymbol**](HybridSymbolsApi.md#patchstandardsymbol) | **PATCH** /v1/custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
+[**CreateStandardSymbolMetadata**](HybridSymbolsApi.md#createstandardsymbolmetadata) | **POST** /custom-symbols/standard-symbol-metadata | Create standard symbol metadata
+[**GetStandardSymbolMetadataGuid**](HybridSymbolsApi.md#getstandardsymbolmetadataguid) | **GET** /custom-symbols/standard-symbol-metadata/{standardSymbol} | Get all custom field and standard field details on a specific standard symbol
+[**PatchStandardSymbol**](HybridSymbolsApi.md#patchstandardsymbol) | **PATCH** /custom-symbols/standard-symbol-metadata/{standardSymbolId} | Edit a standard symbol’s standard field and custom field data
 
 
 
 <a name="createstandardsymbolmetadata"></a>
 # **CreateStandardSymbolMetadata**
 > NewItemDto CreateStandardSymbolMetadata (CreateStandardSymbolMetadataDto createStandardSymbolMetadataDto = null)
+
+Create standard symbol metadata
 
 Create standard symbol metadata
 
@@ -114,6 +116,8 @@ Name | Type | Description  | Notes
 
 Get all custom field and standard field details on a specific standard symbol
 
+Get all custom field and standard field details on a specific standard symbol
+
 ### Example
 
 > [!IMPORTANT]
@@ -209,6 +213,8 @@ Name | Type | Description  | Notes
 <a name="patchstandardsymbol"></a>
 # **PatchStandardSymbol**
 > void PatchStandardSymbol (Guid standardSymbolId, List<Operation> operation = null)
+
+Edit a standard symbol’s standard field and custom field data
 
 Edit a standard symbol’s standard field and custom field data
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getTranscriptsDates**](TranscriptsApi.md#getTranscriptsDates) | **GET** /transcripts/dates | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific date range and time zones.
 [**getTranscriptsEvents**](TranscriptsApi.md#getTranscriptsEvents) | **GET** /transcripts/events | Returns the transcript documents in XML format and related metadata within FactSet coverage based on eventIds and eventType.
 [**getTranscriptsIds**](TranscriptsApi.md#getTranscriptsIds) | **GET** /transcripts/ids | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific IDs.
+[**getTranscriptsInvestorSlides**](TranscriptsApi.md#getTranscriptsInvestorSlides) | **GET** /transcripts/investor-slides | Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
 [**getTranscriptsTime**](TranscriptsApi.md#getTranscriptsTime) | **GET** /transcripts/times | Returns the transcript documents in XML format and related metadata within FactSet coverage based on specific time.
 [**getcategories**](TranscriptsApi.md#getcategories) | **GET** /reference/categories | Returns the categories.
 
@@ -543,6 +544,121 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The latest transcripts based on the provided report ID, IDs and primary ID. |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+| **500** | Internal Server Error |  -  |
+
+
+## getTranscriptsInvestorSlides
+
+> InvestorSlides getTranscriptsInvestorSlides(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset)
+
+Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
+
+Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields
+
+ All transcripts originate from Factset Callstreet Investor Slides.
+
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+import java.time.LocalDate;
+// Import classes:
+import com.factset.sdk.EventsandTranscripts.ApiClient;
+import com.factset.sdk.EventsandTranscripts.ApiException;
+import com.factset.sdk.EventsandTranscripts.Configuration;
+import com.factset.sdk.EventsandTranscripts.auth.*;
+import com.factset.sdk.EventsandTranscripts.models.*;
+import com.factset.sdk.EventsandTranscripts.api.TranscriptsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        TranscriptsApi apiInstance = new TranscriptsApi(defaultClient);
+        LocalDate startDate = LocalDate.parse("2020-10-01"); // LocalDate | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+        LocalDate endDate = LocalDate.parse("2020-12-26"); // LocalDate | End Date. Format is YYYY-MM-DD.
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+        java.util.List<String> eventIds = Arrays.asList(); // java.util.List<String> | Requests Event IDs. This is a comma-separated list with a maximum limit of 1000.
+        java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the ```/reference/categories``` endpoint to get the list of available categories.  Default = All categories.
+        String searchText = "Updates"; // String | Restricts the search to include only document stories which include the text searched.
+        java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
+        Integer paginationLimit = 25; // Integer | Number of results to return per page. Maximum value: 1000. 
+        Integer paginationOffset = 0; // Integer | Page number of the results to return.
+        try {
+            InvestorSlides result = apiInstance.getTranscriptsInvestorSlides(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TranscriptsApi#getTranscriptsInvestorSlides");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startDate** | **LocalDate**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  |
+ **endDate** | **LocalDate**| End Date. Format is YYYY-MM-DD. |
+ **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | [optional]
+ **eventIds** | **List&lt;String&gt;**| Requests Event IDs. This is a comma-separated list with a maximum limit of 1000. | [optional]
+ **categories** | **List&lt;String&gt;**| Code for categories to include. This is a comma-separated list.which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/reference/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
+ **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional]
+ **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]
+ **paginationLimit** | **Integer**| Number of results to return per page. Maximum value: 1000.  | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Page number of the results to return. | [optional] [default to 0]
+
+### Return type
+
+[**InvestorSlides**](InvestorSlides.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The latest investor slides based on the provided date ranges. |  -  |
 | **400** | Bad request |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

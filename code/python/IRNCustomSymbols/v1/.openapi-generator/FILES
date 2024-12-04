@@ -28,6 +28,7 @@ docs/SymbolRelationshipDto.md
 docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
+docs/SymbolsRelationshipType.md
 fds/__init__.py
 fds/sdk/IRNCustomSymbols/__init__.py
 fds/sdk/IRNCustomSymbols/api/__init__.py
@@ -60,6 +61,7 @@ fds/sdk/IRNCustomSymbols/model/symbol_relationship_dto.py
 fds/sdk/IRNCustomSymbols/model/symbol_relationship_save_dto.py
 fds/sdk/IRNCustomSymbols/model/symbol_relationship_update_dto.py
 fds/sdk/IRNCustomSymbols/model/symbols_relationship_id_name_dto.py
+fds/sdk/IRNCustomSymbols/model/symbols_relationship_type.py
 fds/sdk/IRNCustomSymbols/model_utils.py
 fds/sdk/IRNCustomSymbols/models/__init__.py
 fds/sdk/IRNCustomSymbols/rest.py

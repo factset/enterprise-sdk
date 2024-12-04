@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **meetingGuid** | **java.util.UUID** |  |  [optional]
 **title** | **String** |  |  [optional]
 **date** | **OffsetDateTime** |  |  [optional]
+**subjectName** | **String** |  |  [optional]
 
 
 ## Implemented Interfaces

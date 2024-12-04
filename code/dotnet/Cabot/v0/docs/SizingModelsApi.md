@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getaddtrimmodelanalytic"></a>
 # **GetAddTrimModelAnalytic**
-> AddTrimResponseRoot GetAddTrimModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> AddTrimResponseRoot GetAddTrimModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, AddTrimHoldings? holdings = null)
 
 Cabot main path for Add Trim API
 
@@ -68,11 +68,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (AddTrimHoldings) "all";  // AddTrimHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Add Trim API
-                AddTrimResponseRoot result = apiInstance.GetAddTrimModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                AddTrimResponseRoot result = apiInstance.GetAddTrimModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -96,6 +97,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **AddTrimHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**AddTrimResponseRoot**](AddTrimResponseRoot.md)
@@ -129,7 +131,7 @@ Name | Type | Description  | Notes
 
 <a name="getrampdownmodelanalytic"></a>
 # **GetRampDownModelAnalytic**
-> RampDownResponseRoot GetRampDownModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> RampDownResponseRoot GetRampDownModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, RampDownHoldings? holdings = null)
 
 Cabot main path for Ramp Down API
 
@@ -185,11 +187,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (RampDownHoldings) "all";  // RampDownHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Ramp Down API
-                RampDownResponseRoot result = apiInstance.GetRampDownModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                RampDownResponseRoot result = apiInstance.GetRampDownModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -213,6 +216,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **RampDownHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**RampDownResponseRoot**](RampDownResponseRoot.md)
@@ -246,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="getrampupmodelanalytic"></a>
 # **GetRampUpModelAnalytic**
-> RampUpResponseRoot GetRampUpModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null)
+> RampUpResponseRoot GetRampUpModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, RampUpHoldings? holdings = null)
 
 Cabot main path for Ramp Up API
 
@@ -302,11 +306,12 @@ namespace Example
             var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
             var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
             var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var holdings = (RampUpHoldings) "all";  // RampUpHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
 
             try
             {
                 // Cabot main path for Ramp Up API
-                RampUpResponseRoot result = apiInstance.GetRampUpModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                RampUpResponseRoot result = apiInstance.GetRampUpModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -330,6 +335,7 @@ Name | Type | Description  | Notes
  **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
  **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **holdings** | **RampUpHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
 
 ### Return type
 [**RampUpResponseRoot**](RampUpResponseRoot.md)

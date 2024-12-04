@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **meetingGuid** | **String** |  | [optional] 
 **title** | **String** |  | [optional] 
 **date** | **Date** |  | [optional] 
+**subjectName** | **String** |  | [optional] 
 
 

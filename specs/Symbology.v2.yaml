@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.1.2
+  version: 2.1.3
   title: FactSet Symbology API
   contact:
     name: FactSet Research Systems
@@ -125,9 +125,6 @@ paths:
 
         * CRD - Central Registration Depository (e.g. 149722)
 
-        * DUNS - Dun & Bradstreet Data Universal Numbering System (e.g.
-        687741991)
-
         * EIN - Employer Identification Number (e.g. 953540776)
 
         * FITCH - Fitch Ratings Identifier (e.g. 47504)
@@ -182,8 +179,6 @@ paths:
                   $ref: '#/components/examples/fromUnknownResponse'
                 Bloomberg Translation:
                   $ref: '#/components/examples/fromUnknownResponseBloomberg'
-                DUNS Translation Response:
-                  $ref: '#/components/examples/dunsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -210,9 +205,6 @@ paths:
         * CIK - Edgar Central Index Keys (e.g. 0000100331)
 
         * CRD - Central Registration Depository (e.g. 149722)
-
-        * DUNS - Dun & Bradstreet Data Universal Numbering System (e.g.
-        687741991)
 
         * EIN - Employer Identification Number (e.g. 953540776)
 
@@ -262,8 +254,6 @@ paths:
             examples:
               From Unknown Request:
                 $ref: '#/components/examples/fromUnknownRequest'
-              DUNS Id Resolution:
-                $ref: '#/components/examples/dunsRequest'
       responses:
         '200':
           description: Symbol translation objects.
@@ -276,8 +266,6 @@ paths:
                   $ref: '#/components/examples/fromUnknownResponse'
                 Bloomberg Translation:
                   $ref: '#/components/examples/fromUnknownResponseBloomberg'
-                DUNS Translation Response:
-                  $ref: '#/components/examples/dunsResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1160,7 +1148,6 @@ components:
           |BIC|Bank Identification Codes|Entity (-E)|
           |CIK|Edgar Central Index Key|Entity (-E)|
           |CRD|Central Registration Depository|Entity (-E)|
-          |DUNS|Dun & Bradstreet Data Universal Numbering System|Entity (-E)|
           |EIN|Employer Identification Number|Entity (-E)|
           |FITCH|Fitch Ratings Identifier|Entity (-E)|
           |LEI|Legal Entity Identifier|Entity (-E)|
@@ -1176,7 +1163,6 @@ components:
           - BIC
           - CIK
           - CRD
-          - DUNS
           - EIN
           - FITCH
           - LEI
@@ -2119,7 +2105,6 @@ components:
           |BIC|Bank Identification Codes|
           |CIK|Edgar Central Index Key|
           |CRD|Central Registration Depository|
-          |DUNS|Dun & Bradstreet Data Universal Numbering System|
           |EIN|Employer Identification Number|
           |FITCH|Fitch Ratings Identifier|
           |LEI|Legal Entity Identifier|
@@ -2133,7 +2118,6 @@ components:
         - BIC
         - CIK
         - CRD
-        - DUNS
         - EIN
         - FITCH
         - LEI
@@ -2365,31 +2349,6 @@ components:
             fsymTickerExchange: AAPL-USA
             fsymTickerRegion: AAPL-US
             requestId: AAPL US
-    dunsRequest:
-      summary: Translating a DUNS Identifier into a FactSet Permanent Identifier
-      description: >-
-        Translating a DUNS Identifier using the symbolType parameter into a
-        FactSet Permanent Identifier.
-      value:
-        ids:
-          - 152874004
-        symbolType: DUNS
-    dunsResponse:
-      summary: Translated DUNS Id into a FactSet Permanent Entity Identifier
-      description: >-
-        Translated DUNS id into a FactSet Permanent Entity Identifer. Depending
-        on the ID type, not all fsym* response items will return values. All
-        responses should if available return fsymId and requestId.
-      value:
-        data:
-          - fsymId: 05L5M0-E
-            fsymSecurityId: null
-            fsymRegionalId: null
-            fsymListingId: null
-            fsymEntityId: null
-            fsymTickerExchange: null
-            fsymTickerRegion: null
-            requestId: '152874004'
     singleCusipTranslation:
       summary: Translating a single market identifier into CUSIP.
       description: Translating Single Market Identifier (GOOGL-US) into CUSIP.
