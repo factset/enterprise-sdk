@@ -3,7 +3,7 @@
 # IRN Meetings client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.4.0-blue)](https://developer.factset.com/api-catalog/irn-meetings-api#apiDocumentation)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-irnmeetings)](https://www.npmjs.com/package/@factset/sdk-irnmeetings)
+[![npm](https://img.shields.io/badge/npm-v4.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-irnmeetings/v/4.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

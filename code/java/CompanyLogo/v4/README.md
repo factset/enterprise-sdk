@@ -3,7 +3,7 @@
 # Company Logo client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v4.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/companylogo)](https://search.maven.org/artifact/com.factset.sdk/companylogo)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/companylogo/0.20.0)](https://central.sonatype.com/artifact/com.factset.sdk/companylogo/0.20.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Consume FactSet collected Company Logos through an API that seamlessly integrates with company fundamentals and estimates data

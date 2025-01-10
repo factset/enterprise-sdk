@@ -3,7 +3,7 @@
 # Real-Time Price Alerting client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v3.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/realtimepricealerting)](https://search.maven.org/artifact/com.factset.sdk/realtimepricealerting)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/realtimepricealerting/0.12.1)](https://central.sonatype.com/artifact/com.factset.sdk/realtimepricealerting/0.12.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.

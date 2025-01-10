@@ -3,7 +3,7 @@
 # IRN Notes client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1-blue)](https://developer.factset.com/api-catalog/irn-notes-api#apiDocumentation)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.IRNNotes)](https://www.nuget.org/packages/FactSet.SDK.IRNNotes)
+[![Nuget](https://img.shields.io/badge/nuget-v4.0.0-orange)](https://www.nuget.org/packages/FactSet.SDK.IRNNotes/4.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

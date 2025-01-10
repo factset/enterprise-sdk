@@ -3,7 +3,7 @@
 # Investment Banking Office Refresh client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.InvestmentBankingOfficeRefresh)](https://pypi.org/project/fds.sdk.InvestmentBankingOfficeRefresh/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.InvestmentBankingOfficeRefresh/1.1.1)](https://pypi.org/project/fds.sdk.InvestmentBankingOfficeRefresh/v/1.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Service for refreshing models with refreshable FactSet objects (e.g., =FDS codes)

@@ -3,7 +3,7 @@
 # FactSet Benchmarks client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetBenchmarks)](https://pypi.org/project/fds.sdk.FactSetBenchmarks/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetBenchmarks/1.3.1)](https://pypi.org/project/fds.sdk.FactSetBenchmarks/v/1.3.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.

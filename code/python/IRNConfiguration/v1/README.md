@@ -3,7 +3,7 @@
 # IRN Configuration client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/irn-configuration-api#apiDocumentation)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNConfiguration)](https://pypi.org/project/fds.sdk.IRNConfiguration/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNConfiguration/1.1.1)](https://pypi.org/project/fds.sdk.IRNConfiguration/v/1.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

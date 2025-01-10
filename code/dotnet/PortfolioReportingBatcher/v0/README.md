@@ -3,7 +3,7 @@
 # Portfolio Reporting Batcher client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v0.6.0-blue)](https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.PortfolioReportingBatcher)](https://www.nuget.org/packages/FactSet.SDK.PortfolioReportingBatcher)
+[![Nuget](https://img.shields.io/badge/nuget-v0.23.3-orange)](https://www.nuget.org/packages/FactSet.SDK.PortfolioReportingBatcher/0.23.3)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.

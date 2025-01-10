@@ -3,7 +3,7 @@
 # Real-Time News client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v4.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.RealTimeNews)](https://www.nuget.org/packages/FactSet.SDK.RealTimeNews)
+[![Nuget](https://img.shields.io/badge/nuget-v0.20.0-orange)](https://www.nuget.org/packages/FactSet.SDK.RealTimeNews/0.20.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with

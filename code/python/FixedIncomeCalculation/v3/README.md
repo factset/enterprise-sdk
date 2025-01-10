@@ -3,7 +3,7 @@
 # Fixed Income Calculation client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3.13.0-blue)](https://developer.factset.com/api-catalog/fixed-income-calculation-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FixedIncomeCalculation)](https://pypi.org/project/fds.sdk.FixedIncomeCalculation/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FixedIncomeCalculation/1.2.1)](https://pypi.org/project/fds.sdk.FixedIncomeCalculation/v/1.2.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

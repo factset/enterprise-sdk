@@ -3,7 +3,7 @@
 # FactSet Concordance client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2.8.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetConcordance)](https://www.nuget.org/packages/FactSet.SDK.FactSetConcordance)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.0-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetConcordance/1.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

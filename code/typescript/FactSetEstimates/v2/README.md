@@ -3,7 +3,7 @@
 # FactSet Estimates client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v2.6.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetestimates)](https://www.npmjs.com/package/@factset/sdk-factsetestimates)
+[![npm](https://img.shields.io/badge/npm-v2.1.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsetestimates/v/2.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:

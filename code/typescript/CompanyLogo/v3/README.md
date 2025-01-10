@@ -3,7 +3,7 @@
 # Company Logo client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-companylogo)](https://www.npmjs.com/package/@factset/sdk-companylogo)
+[![npm](https://img.shields.io/badge/npm-v0.12.0-orange)](https://www.npmjs.com/package/@factset/sdk-companylogo/v/0.12.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Consume FactSet collected Company Logos through an API that seamlessly integrates with company fundamentals and estimates data

@@ -3,7 +3,7 @@
 # FactSet Prices client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetPrices)](https://pypi.org/project/fds.sdk.FactSetPrices/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetPrices/1.1.13)](https://pypi.org/project/fds.sdk.FactSetPrices/v/1.1.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p><p><b>Rate limit is set to 25 requests per second</b>.</p>

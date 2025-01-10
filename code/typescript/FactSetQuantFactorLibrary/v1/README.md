@@ -3,7 +3,7 @@
 # FactSet Quant Factor Library client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.1-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetquantfactorlibrary)](https://www.npmjs.com/package/@factset/sdk-factsetquantfactorlibrary)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsetquantfactorlibrary/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet FactSet Quant Factor Library (QFL) API helps to detect investment themes across global equity markets, incorporate ideas into your portfolio construction process, and transform raw data into actionable intelligence. Over 2000+ items spanning Factor Groups in-

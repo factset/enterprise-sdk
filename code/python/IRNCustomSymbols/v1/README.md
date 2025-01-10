@@ -3,7 +3,7 @@
 # IRN Custom Symbols client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/#apiDocumentation)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNCustomSymbols)](https://pypi.org/project/fds.sdk.IRNCustomSymbols/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNCustomSymbols/1.1.0)](https://pypi.org/project/fds.sdk.IRNCustomSymbols/v/1.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

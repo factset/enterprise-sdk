@@ -3,7 +3,7 @@
 # FactSet Tick History client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v2.3.0-blue)](https://developer.factset.com/api-catalog/factset-tick-history-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsettickhistory)](https://www.npmjs.com/package/@factset/sdk-factsettickhistory)
+[![npm](https://img.shields.io/badge/npm-v0.33.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsettickhistory/v/0.33.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Tick History provides dynamic access to historical tick data for a specific security for specific dates or date range.

@@ -3,7 +3,7 @@
 # Stocks API for Digital Portals client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2-blue)](https://endpointreference.mdgms.com)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.StocksAPIforDigitalPortals)](https://www.nuget.org/packages/FactSet.SDK.StocksAPIforDigitalPortals)
+[![Nuget](https://img.shields.io/badge/nuget-v0.11.1-orange)](https://www.nuget.org/packages/FactSet.SDK.StocksAPIforDigitalPortals/0.11.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Stocks API features a screener to search for equity instruments based on stock-specific parameters.

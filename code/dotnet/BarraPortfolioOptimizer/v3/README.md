@@ -3,7 +3,7 @@
 # Barra Portfolio Optimizer client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.BarraPortfolioOptimizer)](https://www.nuget.org/packages/FactSet.SDK.BarraPortfolioOptimizer)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.BarraPortfolioOptimizer/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

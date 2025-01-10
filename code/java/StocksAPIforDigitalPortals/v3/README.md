@@ -3,7 +3,7 @@
 # Stocks API for Digital Portals client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2-blue)](https://endpointreference.mdgms.com)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/stocksapifordigitalportals)](https://search.maven.org/artifact/com.factset.sdk/stocksapifordigitalportals)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/stocksapifordigitalportals/0.11.1)](https://central.sonatype.com/artifact/com.factset.sdk/stocksapifordigitalportals/0.11.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Stocks API features a screener to search for equity instruments based on stock-specific parameters.

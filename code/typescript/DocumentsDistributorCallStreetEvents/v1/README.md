@@ -3,7 +3,7 @@
 # Documents Distributor - CallStreet Events client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.8.3-blue)](https://developer.factset.com/api-catalog/documents-distributor-callstreet-events)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-documentsdistributorcallstreetevents)](https://www.npmjs.com/package/@factset/sdk-documentsdistributorcallstreetevents)
+[![npm](https://img.shields.io/badge/npm-v0.22.0-orange)](https://www.npmjs.com/package/@factset/sdk-documentsdistributorcallstreetevents/v/0.22.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 CallStreet Events contains all the Documents Distributor APIs that offer events data such as Events Audio and Near Real-Time Transcripts.

@@ -3,7 +3,7 @@
 # Real-Time Time Series client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v4.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/realtimetimeseries)](https://search.maven.org/artifact/com.factset.sdk/realtimetimeseries)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/realtimetimeseries/0.20.0)](https://central.sonatype.com/artifact/com.factset.sdk/realtimetimeseries/0.20.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Time series data, end-of-day or intraday, tick-by-tick or subsampled. Additional vendor-specific endpoints provide a modified interface

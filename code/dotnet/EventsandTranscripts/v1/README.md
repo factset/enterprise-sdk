@@ -3,7 +3,7 @@
 # Events and Transcripts client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/documents-distributor-callstreet-events)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.EventsandTranscripts)](https://www.nuget.org/packages/FactSet.SDK.EventsandTranscripts)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.6-orange)](https://www.nuget.org/packages/FactSet.SDK.EventsandTranscripts/0.21.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 <p>The Calendar Events API provides access to FactSetâ€™s Event Calendar data alongside business logic that allows users to replicate views and functionality consistent with the experience provided by the Workstation. This API provides the ability to pull Event Calendar data based on specific filters.</p>

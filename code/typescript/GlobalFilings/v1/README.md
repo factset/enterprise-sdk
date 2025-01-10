@@ -3,7 +3,7 @@
 # Global Filings client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/global-filings-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-globalfilings)](https://www.npmjs.com/package/@factset/sdk-globalfilings)
+[![npm](https://img.shields.io/badge/npm-v2.0.1-orange)](https://www.npmjs.com/package/@factset/sdk-globalfilings/v/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

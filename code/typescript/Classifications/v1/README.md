@@ -3,7 +3,7 @@
 # Classifications client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.1-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-classifications)](https://www.npmjs.com/package/@factset/sdk-classifications)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-classifications/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Classifications API gives access to various Industry Classifications for a given list of securities. Beginning first with GICS Direct, the service will then expand to offering NAICS, SIC, RBICS, and more. 

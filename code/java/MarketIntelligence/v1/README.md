@@ -3,7 +3,7 @@
 # Market Intelligence client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/marketintelligence)](https://search.maven.org/artifact/com.factset.sdk/marketintelligence)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/marketintelligence/0.22.1)](https://central.sonatype.com/artifact/com.factset.sdk/marketintelligence/0.22.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Through the Market Intelligence API, stay up to date on the companies and sectors you care most about with ease. Request the templates you have made in Market Intelligence to receive news and data on your portfolio.

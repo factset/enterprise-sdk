@@ -3,7 +3,7 @@
 # Overview Report Builder client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)](https://developer.factset.com/api-catalog/overview-report-builder-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.OverviewReportBuilder)](https://www.nuget.org/packages/FactSet.SDK.OverviewReportBuilder)
+[![Nuget](https://img.shields.io/badge/nuget-v1.1.8-orange)](https://www.nuget.org/packages/FactSet.SDK.OverviewReportBuilder/1.1.8)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Get relevant industry-specific data for high level analysis of public and private companies

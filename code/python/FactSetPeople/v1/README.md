@@ -3,7 +3,7 @@
 # FactSet People client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetPeople)](https://pypi.org/project/fds.sdk.FactSetPeople/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetPeople/1.0.14)](https://pypi.org/project/fds.sdk.FactSetPeople/v/1.0.14)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet People API exposes FactSet data for individuals and their jobs.<p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>

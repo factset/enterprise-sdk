@@ -1,18 +1,18 @@
 # ModelAccountsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/accounts/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createOrUpdateModelAccount**](ModelAccountsApi.md#createOrUpdateModelAccount) | **PUT** /analytics/accounts/v3/models/{name} | Create or update an existing model account
-[**deleteAModelAccount**](ModelAccountsApi.md#deleteAModelAccount) | **DELETE** /analytics/accounts/v3/models/{name} | Delete model account, takes an account path and name and deletes it.
-[**deleteModelAccountByDate**](ModelAccountsApi.md#deleteModelAccountByDate) | **DELETE** /analytics/accounts/v3/models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
-[**deleteModelAccountBySymbol**](ModelAccountsApi.md#deleteModelAccountBySymbol) | **DELETE** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
-[**getAccount**](ModelAccountsApi.md#getAccount) | **GET** /analytics/accounts/v3/models/{name} | Get account endpoint, takes an account name and returns underlying data
-[**getAccountForDate**](ModelAccountsApi.md#getAccountForDate) | **GET** /analytics/accounts/v3/models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
-[**getAccountForDateAndSymbol**](ModelAccountsApi.md#getAccountForDateAndSymbol) | **GET** /analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
-[**getAccountForSymbol**](ModelAccountsApi.md#getAccountForSymbol) | **GET** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
-[**getAccountSchema**](ModelAccountsApi.md#getAccountSchema) | **GET** /analytics/accounts/v3/models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
+[**createOrUpdateModelAccount**](ModelAccountsApi.md#createOrUpdateModelAccount) | **PUT** /models/{name} | Create or update an existing model account
+[**deleteAModelAccount**](ModelAccountsApi.md#deleteAModelAccount) | **DELETE** /models/{name} | Delete model account, takes an account path and name and deletes it.
+[**deleteModelAccountByDate**](ModelAccountsApi.md#deleteModelAccountByDate) | **DELETE** /models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
+[**deleteModelAccountBySymbol**](ModelAccountsApi.md#deleteModelAccountBySymbol) | **DELETE** /models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
+[**getAccount**](ModelAccountsApi.md#getAccount) | **GET** /models/{name} | Get account endpoint, takes an account name and returns underlying data
+[**getAccountForDate**](ModelAccountsApi.md#getAccountForDate) | **GET** /models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
+[**getAccountForDateAndSymbol**](ModelAccountsApi.md#getAccountForDateAndSymbol) | **GET** /models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
+[**getAccountForSymbol**](ModelAccountsApi.md#getAccountForSymbol) | **GET** /models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
+[**getAccountSchema**](ModelAccountsApi.md#getAccountSchema) | **GET** /models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
 
 
 
@@ -21,6 +21,10 @@ Method | HTTP request | Description
 > createOrUpdateModelAccount(name, modelAccountFieldsRoot)
 
 Create or update an existing model account
+
+This endpoint creates and/or updates the model account specified in the URL using the holdings provided in the PUT body.
+It must be used first, before fetching or cancelling endpoints.
+A successful response will contain the URL of the resource in the Location header.
 
 ### Example
 
@@ -63,7 +67,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of the model account to create or update
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of the model account to create or update
         ModelAccountFieldsRoot modelAccountFieldsRoot = new ModelAccountFieldsRoot(); // ModelAccountFieldsRoot | The object containing the input values
         try {
             apiInstance.createOrUpdateModelAccount(name, modelAccountFieldsRoot);
@@ -122,6 +126,8 @@ null (empty response body)
 
 Delete model account, takes an account path and name and deletes it.
 
+This endpoint takes an account path and deletes a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -163,7 +169,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of model account to delete
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of model account to delete
         try {
             apiInstance.deleteAModelAccount(name);
 
@@ -215,6 +221,8 @@ null (empty response body)
 
 Delete all entries for a date or specific symbol entries for a date from a previously created account.
 
+This endpoint is used to delete data for entire date or specific symbols for a date from a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -256,8 +264,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The filename of model account to delete
-        String date = "date_example"; // String | The date from the given file name to delete
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The filename of model account to delete
+        String date = "20191010"; // String | The date from the given file name to delete
         java.util.List<String> symbols = Arrays.asList(); // java.util.List<String> | The symbols from the given file name and date to delete (Maximum 10 symbols are allowed)
         try {
             apiInstance.deleteModelAccountByDate(name, date, symbols);
@@ -313,6 +321,8 @@ null (empty response body)
 
 Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
 
+This endpoint is used to delete entire symbol or specific dates for a symbol from a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -354,8 +364,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The filename of model account to delete
-        String symbol = "symbol_example"; // String | The symbol from the given file name to delete
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The filename of model account to delete
+        String symbol = "FDS"; // String | The symbol from the given file name to delete
         java.util.List<String> dates = Arrays.asList(); // java.util.List<String> | The dates from the given file name and symbol to delete (Maximum 10 dates are allowed)
         try {
             apiInstance.deleteModelAccountBySymbol(name, symbol, dates);
@@ -411,6 +421,8 @@ null (empty response body)
 
 Get account endpoint, takes an account name and returns underlying data
 
+This endpoint takes an account name and returns underlying data.
+
 ### Example
 
 > [!IMPORTANT]
@@ -452,7 +464,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of the account to get
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of the account to get
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
             DataAndMetaModel result = apiInstance.getAccount(name, format);
@@ -509,6 +521,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name, date and returns underlying data for that date
 
+This endpoint takes an account name, date and returns underlying data for that date.
+
 ### Example
 
 > [!IMPORTANT]
@@ -550,8 +564,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of the account to get
-        String date = "date_example"; // String | The date for which data needs to be updated
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of the account to get
+        String date = "20191010"; // String | The date for which data needs to be updated
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
             DataAndMetaModel result = apiInstance.getAccountForDate(name, date, format);
@@ -609,6 +623,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name and returns underlying data
 
+This endpoint takes an account name, symbol and date and returns underlying data.
+
 ### Example
 
 > [!IMPORTANT]
@@ -650,9 +666,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of the account to get
-        String symbol = "symbol_example"; // String | The symbol for which data needs to be updated
-        String date = "date_example"; // String | The date for which data needs to be updated
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of the account to get
+        String symbol = "FDS"; // String | The symbol for which data needs to be updated
+        String date = "20191010"; // String | The date for which data needs to be updated
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
             DataAndMetaModel result = apiInstance.getAccountForDateAndSymbol(name, symbol, date, format);
@@ -711,6 +727,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
 
+This endpoint takes an account name, symbol and returns underlying data for that symbol.
+
 ### Example
 
 > [!IMPORTANT]
@@ -752,8 +770,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of the account to get
-        String symbol = "symbol_example"; // String | The symbol for which data needs to be updated
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of the account to get
+        String symbol = "FDS"; // String | The symbol for which data needs to be updated
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
             DataAndMetaModel result = apiInstance.getAccountForSymbol(name, symbol, format);
@@ -807,9 +825,11 @@ Name | Type | Description  | Notes
 
 ## getAccountSchema
 
-> DataAndMetaModel getAccountSchema(name)
+> ModelAccountSchemaRoot getAccountSchema(name)
 
 Get account schema endpoint, takes an account name and returns its schema
+
+This endpoint returns the Schema for a previously created account.
 
 ### Example
 
@@ -852,9 +872,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
-        String name = "name_example"; // String | The path and filename of the account to get its schema
+        String name = "Client:/Folder1/AccountName.Acct"; // String | The path and filename of the account to get its schema
         try {
-            DataAndMetaModel result = apiInstance.getAccountSchema(name);
+            ModelAccountSchemaRoot result = apiInstance.getAccountSchema(name);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -877,7 +897,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataAndMetaModel**](DataAndMetaModel.md)
+[**ModelAccountSchemaRoot**](ModelAccountSchemaRoot.md)
 
 ### Authorization
 

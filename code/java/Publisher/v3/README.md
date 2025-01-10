@@ -3,7 +3,7 @@
 # Publisher client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/publisher)](https://search.maven.org/artifact/com.factset.sdk/publisher)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/publisher/0.22.1)](https://central.sonatype.com/artifact/com.factset.sdk/publisher/0.22.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Publisher Analytics through APIs.

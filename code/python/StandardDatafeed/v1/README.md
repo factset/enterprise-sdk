@@ -3,7 +3,7 @@
 # Standard Datafeed client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.StandardDatafeed)](https://pypi.org/project/fds.sdk.StandardDatafeed/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.StandardDatafeed/0.21.15)](https://pypi.org/project/fds.sdk.StandardDatafeed/v/0.21.15)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:

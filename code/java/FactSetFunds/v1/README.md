@@ -3,7 +3,7 @@
 # FactSet Funds client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/factset-funds-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetfunds)](https://search.maven.org/artifact/com.factset.sdk/factsetfunds)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetfunds/2.1.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsetfunds/2.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Mutual Funds data offers over 50 fund- and share class-specific data points for mutual funds listed in the United States. <p>FactSet Mutual Funds Reference provides fund-specific reference information as well as FactSet's proprietary classification system. It includes but is not limited to the following coverage 

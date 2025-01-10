@@ -3,7 +3,7 @@
 # Open:Risk client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.26.0-blue)](https://developer.factset.com/api-catalog/openrisk-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/openrisk)](https://search.maven.org/artifact/com.factset.sdk/openrisk)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/openrisk/5.0.2)](https://central.sonatype.com/artifact/com.factset.sdk/openrisk/5.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.

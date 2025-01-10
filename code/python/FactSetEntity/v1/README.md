@@ -3,7 +3,7 @@
 # FactSet Entity client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.4.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetEntity)](https://pypi.org/project/fds.sdk.FactSetEntity/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetEntity/1.1.9)](https://pypi.org/project/fds.sdk.FactSetEntity/v/1.1.9)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Using an entity centric data model, FactSet's Entity API provides access to

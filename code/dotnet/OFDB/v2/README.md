@@ -3,7 +3,7 @@
 # OFDB client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2.1.0-blue)](https://developer.factset.com/api-catalog/ofdb-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.OFDB)](https://www.nuget.org/packages/FactSet.SDK.OFDB)
+[![Nuget](https://img.shields.io/badge/nuget-v0.31.1-orange)](https://www.nuget.org/packages/FactSet.SDK.OFDB/0.31.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 OFDB API

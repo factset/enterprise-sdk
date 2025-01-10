@@ -3,7 +3,7 @@
 # FactSet Intraday Tick History client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://www.factset.com/hubfs/Website_Downloads/Exchange%20DataFeed/data%20service%20manual%202.0b.pdf)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetIntradayTickHistory)](https://pypi.org/project/fds.sdk.FactSetIntradayTickHistory/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetIntradayTickHistory/0.21.13)](https://pypi.org/project/fds.sdk.FactSetIntradayTickHistory/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

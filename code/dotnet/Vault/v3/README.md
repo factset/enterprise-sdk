@@ -3,7 +3,7 @@
 # Vault client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3.14.6-blue)](https://developer.factset.com/api-catalog/vault-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.Vault)](https://www.nuget.org/packages/FactSet.SDK.Vault)
+[![Nuget](https://img.shields.io/badge/nuget-v2.0.0-orange)](https://www.nuget.org/packages/FactSet.SDK.Vault/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

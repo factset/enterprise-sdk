@@ -3,7 +3,7 @@
 # FactSet Tick History client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.3.0-blue)](https://developer.factset.com/api-catalog/factset-tick-history-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetTickHistory)](https://pypi.org/project/fds.sdk.FactSetTickHistory/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetTickHistory/0.32.6)](https://pypi.org/project/fds.sdk.FactSetTickHistory/v/0.32.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Tick History provides dynamic access to historical tick data for a specific security for specific dates or date range.

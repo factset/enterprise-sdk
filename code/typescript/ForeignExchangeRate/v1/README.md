@@ -3,7 +3,7 @@
 # Foreign Exchange Rate client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-foreignexchangerate)](https://www.npmjs.com/package/@factset/sdk-foreignexchangerate)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-foreignexchangerate/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Foreign Exchange Rates API in which retrieves Spots and Forwards for a given currency pair and date range. <p>*Spots and Forwards rates are sourced from W/M Reuters.The WM Company calculates daily standardized spot rates for global foreign exchange transactions, using rates provided by Reuters. These rates are recognized globally as the standard by banks, fund managers, and index compilers; increasingly these rates are also being used for benchmark currency trading. In 1994, WM Company began calculating closing spot rates. Closing spot rates provide a standard set of currency rates so that portfolio valuations can be compared to each other and their performances measured against benchmarks, without having discrepancies caused by exchange rates. Closing spot rates are recorded at 16:00 GMT.*</p>

@@ -3,7 +3,7 @@
 # Office Cloud Refresh client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/officecloudrefresh)](https://search.maven.org/artifact/com.factset.sdk/officecloudrefresh)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/officecloudrefresh/0.1.0)](https://central.sonatype.com/artifact/com.factset.sdk/officecloudrefresh/0.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Service for refreshing models with refreshable FactSet objects (e.g., =FDS codes)

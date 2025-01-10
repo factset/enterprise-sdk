@@ -3,7 +3,7 @@
 # Documents Distributor - CallStreet Events client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.8.3-blue)](https://developer.factset.com/api-catalog/documents-distributor-callstreet-events)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.DocumentsDistributorCallStreetEvents)](https://pypi.org/project/fds.sdk.DocumentsDistributorCallStreetEvents/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.DocumentsDistributorCallStreetEvents/0.21.19)](https://pypi.org/project/fds.sdk.DocumentsDistributorCallStreetEvents/v/0.21.19)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 CallStreet Events contains all the Documents Distributor APIs that offer events data such as Events Audio and Near Real-Time Transcripts.

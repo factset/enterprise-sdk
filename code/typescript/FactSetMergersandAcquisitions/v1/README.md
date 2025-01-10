@@ -3,7 +3,7 @@
 # FactSet Mergers and Acquisitions client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/factset-mergers-acquisitions-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetmergersandacquisitions)](https://www.npmjs.com/package/@factset/sdk-factsetmergersandacquisitions)
+[![npm](https://img.shields.io/badge/npm-v2.0.1-orange)](https://www.npmjs.com/package/@factset/sdk-factsetmergersandacquisitions/v/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Mergers and Acquisitions API provides access to key transactions and pricing metrics on over 60,000 globally traded deals. Reference a Global Universe of Mergers and Acquisitions (M&A) transactions where the target of the deal is a Publicly traded Company. Review premiums, multiples and fundamental data to gather insights on deals and create predictive models based on different deal characteristics.

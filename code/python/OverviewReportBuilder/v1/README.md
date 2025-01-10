@@ -3,7 +3,7 @@
 # Overview Report Builder client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)](https://developer.factset.com/api-catalog/overview-report-builder-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.OverviewReportBuilder)](https://pypi.org/project/fds.sdk.OverviewReportBuilder/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.OverviewReportBuilder/1.1.11)](https://pypi.org/project/fds.sdk.OverviewReportBuilder/v/1.1.11)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Get relevant industry-specific data for high level analysis of public and private companies

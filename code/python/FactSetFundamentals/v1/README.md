@@ -3,7 +3,7 @@
 # FactSet Fundamentals client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetFundamentals)](https://pypi.org/project/fds.sdk.FactSetFundamentals/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetFundamentals/1.0.12)](https://pypi.org/project/fds.sdk.FactSetFundamentals/v/1.0.12)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Gain access to current, comprehensive, and comparative information on securities in worldwide developed and emerging markets. Composed of annual and interim/quarterly data, detailed historical financial statement content, per share data, and calculated ratios, FactSet Fundamentals provides you with the information you need for a global investment perspective.

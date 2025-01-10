@@ -3,7 +3,7 @@
 # Formula client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)](https://developer.factset.com/api-catalog/formula-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Formula)](https://pypi.org/project/fds.sdk.Formula/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Formula/3.0.1)](https://pypi.org/project/fds.sdk.Formula/v/3.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

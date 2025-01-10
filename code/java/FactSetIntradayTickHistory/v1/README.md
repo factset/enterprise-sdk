@@ -3,7 +3,7 @@
 # FactSet Intraday Tick History client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://www.factset.com/hubfs/Website_Downloads/Exchange%20DataFeed/data%20service%20manual%202.0b.pdf)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetintradaytickhistory)](https://search.maven.org/artifact/com.factset.sdk/factsetintradaytickhistory)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetintradaytickhistory/0.22.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsetintradaytickhistory/0.22.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

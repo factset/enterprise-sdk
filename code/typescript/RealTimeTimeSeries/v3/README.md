@@ -3,7 +3,7 @@
 # Real-Time Time Series client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-realtimetimeseries)](https://www.npmjs.com/package/@factset/sdk-realtimetimeseries)
+[![npm](https://img.shields.io/badge/npm-v0.12.0-orange)](https://www.npmjs.com/package/@factset/sdk-realtimetimeseries/v/0.12.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Time series data, end-of-day or intraday, tick-by-tick or subsampled. Additional vendor-specific endpoints provide a modified interface

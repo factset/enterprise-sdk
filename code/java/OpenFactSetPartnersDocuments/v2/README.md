@@ -3,7 +3,7 @@
 # Open:FactSet Partners - Documents client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/openfactset-partners-documents)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/openfactsetpartnersdocuments)](https://search.maven.org/artifact/com.factset.sdk/openfactsetpartnersdocuments)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/openfactsetpartnersdocuments/4.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/openfactsetpartnersdocuments/4.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This service provides the capability to search and download unstructured content provided by <a href=\"https://open.factset.com/catalog/en-us\">Open:FactSet Partners</a>.

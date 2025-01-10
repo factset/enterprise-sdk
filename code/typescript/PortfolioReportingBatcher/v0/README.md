@@ -3,7 +3,7 @@
 # Portfolio Reporting Batcher client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v0.6.0-blue)](https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-portfolioreportingbatcher)](https://www.npmjs.com/package/@factset/sdk-portfolioreportingbatcher)
+[![npm](https://img.shields.io/badge/npm-v0.24.0-orange)](https://www.npmjs.com/package/@factset/sdk-portfolioreportingbatcher/v/0.24.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.

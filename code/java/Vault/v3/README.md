@@ -3,7 +3,7 @@
 # Vault client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v3.14.6-blue)](https://developer.factset.com/api-catalog/vault-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/vault)](https://search.maven.org/artifact/com.factset.sdk/vault)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/vault/3.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/vault/3.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

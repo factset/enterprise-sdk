@@ -3,7 +3,7 @@
 # Real-Time Time Series client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.RealTimeTimeSeries)](https://pypi.org/project/fds.sdk.RealTimeTimeSeries/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.RealTimeTimeSeries/0.11.6)](https://pypi.org/project/fds.sdk.RealTimeTimeSeries/v/0.11.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Time series data, end-of-day or intraday, tick-by-tick or subsampled. Additional vendor-specific endpoints provide a modified interface

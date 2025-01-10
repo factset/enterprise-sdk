@@ -16,3 +16,4 @@ from fds.sdk.Portfolio.model.error_source import ErrorSource
 from fds.sdk.Portfolio.model.model_account_additional_field import ModelAccountAdditionalField
 from fds.sdk.Portfolio.model.model_account_fields import ModelAccountFields
 from fds.sdk.Portfolio.model.model_account_fields_root import ModelAccountFieldsRoot
+from fds.sdk.Portfolio.model.model_account_schema_root import ModelAccountSchemaRoot

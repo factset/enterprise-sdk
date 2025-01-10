@@ -3,7 +3,7 @@
 # Documents Distributor - CallStreet Events client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.8.3-blue)](https://developer.factset.com/api-catalog/documents-distributor-callstreet-events)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.DocumentsDistributorCallStreetEvents)](https://www.nuget.org/packages/FactSet.SDK.DocumentsDistributorCallStreetEvents)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.16-orange)](https://www.nuget.org/packages/FactSet.SDK.DocumentsDistributorCallStreetEvents/0.21.16)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 CallStreet Events contains all the Documents Distributor APIs that offer events data such as Events Audio and Near Real-Time Transcripts.

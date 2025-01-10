@@ -3,7 +3,7 @@
 # FactSet Estimates Report Builder client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/factset-estimates-report-builder-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetEstimatesReportBuilder)](https://pypi.org/project/fds.sdk.FactSetEstimatesReportBuilder/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetEstimatesReportBuilder/1.0.13)](https://pypi.org/project/fds.sdk.FactSetEstimatesReportBuilder/v/1.0.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 License info

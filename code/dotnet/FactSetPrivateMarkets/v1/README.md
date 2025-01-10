@@ -3,7 +3,7 @@
 # FactSet Private Markets client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetPrivateMarkets)](https://www.nuget.org/packages/FactSet.SDK.FactSetPrivateMarkets)
+[![Nuget](https://img.shields.io/badge/nuget-v2.0.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetPrivateMarkets/2.0.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p>

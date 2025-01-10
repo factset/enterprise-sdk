@@ -13,6 +13,7 @@ docs/ErrorSource.md
 docs/ModelAccountAdditionalField.md
 docs/ModelAccountFields.md
 docs/ModelAccountFieldsRoot.md
+docs/ModelAccountSchemaRoot.md
 docs/ModelAccountsApi.md
 git_push.sh
 gradle.properties
@@ -50,3 +51,4 @@ src/main/java/com/factset/sdk/Portfolio/models/ErrorSource.java
 src/main/java/com/factset/sdk/Portfolio/models/ModelAccountAdditionalField.java
 src/main/java/com/factset/sdk/Portfolio/models/ModelAccountFields.java
 src/main/java/com/factset/sdk/Portfolio/models/ModelAccountFieldsRoot.java
+src/main/java/com/factset/sdk/Portfolio/models/ModelAccountSchemaRoot.java

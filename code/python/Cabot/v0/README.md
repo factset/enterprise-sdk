@@ -3,7 +3,7 @@
 # Cabot client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v0.3.0-blue)](https://developer.factset.com/api-catalog/cabot)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Cabot)](https://pypi.org/project/fds.sdk.Cabot/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Cabot/0.11.2)](https://pypi.org/project/fds.sdk.Cabot/v/0.11.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Cabot Models API

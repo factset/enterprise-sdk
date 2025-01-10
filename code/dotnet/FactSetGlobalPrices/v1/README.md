@@ -3,7 +3,7 @@
 # FactSet Global Prices client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.7.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetGlobalPrices)](https://www.nuget.org/packages/FactSet.SDK.FactSetGlobalPrices)
+[![Nuget](https://img.shields.io/badge/nuget-v2.2.1-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetGlobalPrices/2.2.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>

@@ -3,7 +3,7 @@
 # Standard Datafeed client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-standarddatafeed)](https://www.npmjs.com/package/@factset/sdk-standarddatafeed)
+[![npm](https://img.shields.io/badge/npm-v0.22.0-orange)](https://www.npmjs.com/package/@factset/sdk-standarddatafeed/v/0.22.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:

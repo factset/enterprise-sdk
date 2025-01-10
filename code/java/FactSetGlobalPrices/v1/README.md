@@ -3,7 +3,7 @@
 # FactSet Global Prices client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.7.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetglobalprices)](https://search.maven.org/artifact/com.factset.sdk/factsetglobalprices)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetglobalprices/3.1.2)](https://central.sonatype.com/artifact/com.factset.sdk/factsetglobalprices/3.1.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>

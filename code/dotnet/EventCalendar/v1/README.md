@@ -3,7 +3,7 @@
 # Event Calendar client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.EventCalendar)](https://www.nuget.org/packages/FactSet.SDK.EventCalendar)
+[![Nuget](https://img.shields.io/badge/nuget-v0.20.9-orange)](https://www.nuget.org/packages/FactSet.SDK.EventCalendar/0.20.9)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Retrieves events for companies

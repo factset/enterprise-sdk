@@ -3,7 +3,7 @@
 # FactSet Ownership Report Builder client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/factset-ownership-report-builder-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetOwnershipReportBuilder)](https://www.nuget.org/packages/FactSet.SDK.FactSetOwnershipReportBuilder)
+[![Nuget](https://img.shields.io/badge/nuget-v2.0.2-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetOwnershipReportBuilder/2.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 description.md

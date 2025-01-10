@@ -3,7 +3,7 @@
 # FactSet Fundamentals client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetfundamentals)](https://search.maven.org/artifact/com.factset.sdk/factsetfundamentals)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetfundamentals/2.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsetfundamentals/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Gain access to current, comprehensive, and comparative information on securities in worldwide developed and emerging markets. Composed of annual and interim/quarterly data, detailed historical financial statement content, per share data, and calculated ratios, FactSet Fundamentals provides you with the information you need for a global investment perspective.

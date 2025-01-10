@@ -3,7 +3,7 @@
 # Quant Engine client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3.11.0-blue)](https://developer.factset.com/api-catalog/quant-engine-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.QuantEngine)](https://www.nuget.org/packages/FactSet.SDK.QuantEngine)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.3-orange)](https://www.nuget.org/packages/FactSet.SDK.QuantEngine/1.0.3)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

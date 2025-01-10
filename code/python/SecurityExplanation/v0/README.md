@@ -3,7 +3,7 @@
 # Security Explanation client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v0.1.0-blue)](https://developer.factset.com/api-catalog/security-explanation-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.SecurityExplanation)](https://pypi.org/project/fds.sdk.SecurityExplanation/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.SecurityExplanation/0.10.0)](https://pypi.org/project/fds.sdk.SecurityExplanation/v/0.10.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to use Security Explanation through APIs.

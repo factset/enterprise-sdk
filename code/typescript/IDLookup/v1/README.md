@@ -3,7 +3,7 @@
 # ID Lookup client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-idlookup)](https://www.npmjs.com/package/@factset/sdk-idlookup)
+[![npm](https://img.shields.io/badge/npm-v0.23.0-orange)](https://www.npmjs.com/package/@factset/sdk-idlookup/v/0.23.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Factset Identifier Lookup API provides the ability to search for various identifier types based on keyword. The API returns tickers, entity names and other identifiers that Factset supports. In addition, the API offers filters that allows users to refine the results.

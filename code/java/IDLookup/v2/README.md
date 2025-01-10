@@ -3,7 +3,7 @@
 # ID Lookup client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/id-lookup-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/idlookup)](https://search.maven.org/artifact/com.factset.sdk/idlookup)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/idlookup/1.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/idlookup/1.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The ID Lookup API is a fuzzy search service that allows users to resolve symbols but are unable to find them elsewhere. The ID Lookup API allows users to search for entities in a wide variety of ways including, but not limited to, tickers, CUSIPs, URLs, a company’s brands, names and descriptions. The API does not require a complete query and will return different lists of results with each additional character, which enables users to iterate and adjust queries to return the desired results. Each search query returns a list of suggestions that can include every entity type offered by the API based on a matching and ranking algorithm.

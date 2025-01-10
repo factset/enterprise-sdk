@@ -3,7 +3,7 @@
 # StreetAccount News client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/streetaccount-news-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-streetaccountnews)](https://www.npmjs.com/package/@factset/sdk-streetaccountnews)
+[![npm](https://img.shields.io/badge/npm-v2.1.0-orange)](https://www.npmjs.com/package/@factset/sdk-streetaccountnews/v/2.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.

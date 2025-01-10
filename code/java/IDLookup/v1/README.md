@@ -3,7 +3,7 @@
 # ID Lookup client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/idlookup)](https://search.maven.org/artifact/com.factset.sdk/idlookup)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/idlookup/0.23.1)](https://central.sonatype.com/artifact/com.factset.sdk/idlookup/0.23.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Factset Identifier Lookup API provides the ability to search for various identifier types based on keyword. The API returns tickers, entity names and other identifiers that Factset supports. In addition, the API offers filters that allows users to refine the results.

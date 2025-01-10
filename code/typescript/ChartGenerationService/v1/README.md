@@ -3,7 +3,7 @@
 # Chart Generation Service client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.5.0-blue)](https://developer.factset.com/api-catalog/chart-generation-service)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-chartgenerationservice)](https://www.npmjs.com/package/@factset/sdk-chartgenerationservice)
+[![npm](https://img.shields.io/badge/npm-v0.22.0-orange)](https://www.npmjs.com/package/@factset/sdk-chartgenerationservice/v/0.22.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This is a service for generating charts in a node environment that were created using web charting and get back images in form of `PNGs` and `JPEGs` as response.

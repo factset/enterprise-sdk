@@ -3,7 +3,7 @@
 # Documents Distributor - CallStreet Events client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.8.3-blue)](https://developer.factset.com/api-catalog/documents-distributor-callstreet-events)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/documentsdistributorcallstreetevents)](https://search.maven.org/artifact/com.factset.sdk/documentsdistributorcallstreetevents)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/documentsdistributorcallstreetevents/0.23.1)](https://central.sonatype.com/artifact/com.factset.sdk/documentsdistributorcallstreetevents/0.23.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 CallStreet Events contains all the Documents Distributor APIs that offer events data such as Events Audio and Near Real-Time Transcripts.

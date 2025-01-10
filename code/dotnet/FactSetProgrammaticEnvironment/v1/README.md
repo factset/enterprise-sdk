@@ -3,7 +3,7 @@
 # FactSet Programmatic Environment client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetProgrammaticEnvironment)](https://www.nuget.org/packages/FactSet.SDK.FactSetProgrammaticEnvironment)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetProgrammaticEnvironment/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Programmatic Environment (FPE) API is an API for users to interact with FPE programmatically, streamlining path from research to production.

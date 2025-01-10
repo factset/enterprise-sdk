@@ -1,18 +1,18 @@
 # fds.sdk.Portfolio.ModelAccountsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/accounts/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_or_update_model_account**](ModelAccountsApi.md#create_or_update_model_account) | **PUT** /analytics/accounts/v3/models/{name} | Create or update an existing model account
-[**delete_a_model_account**](ModelAccountsApi.md#delete_a_model_account) | **DELETE** /analytics/accounts/v3/models/{name} | Delete model account, takes an account path and name and deletes it.
-[**delete_model_account_by_date**](ModelAccountsApi.md#delete_model_account_by_date) | **DELETE** /analytics/accounts/v3/models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
-[**delete_model_account_by_symbol**](ModelAccountsApi.md#delete_model_account_by_symbol) | **DELETE** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
-[**get_account**](ModelAccountsApi.md#get_account) | **GET** /analytics/accounts/v3/models/{name} | Get account endpoint, takes an account name and returns underlying data
-[**get_account_for_date**](ModelAccountsApi.md#get_account_for_date) | **GET** /analytics/accounts/v3/models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
-[**get_account_for_date_and_symbol**](ModelAccountsApi.md#get_account_for_date_and_symbol) | **GET** /analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
-[**get_account_for_symbol**](ModelAccountsApi.md#get_account_for_symbol) | **GET** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
-[**get_account_schema**](ModelAccountsApi.md#get_account_schema) | **GET** /analytics/accounts/v3/models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
+[**create_or_update_model_account**](ModelAccountsApi.md#create_or_update_model_account) | **PUT** /models/{name} | Create or update an existing model account
+[**delete_a_model_account**](ModelAccountsApi.md#delete_a_model_account) | **DELETE** /models/{name} | Delete model account, takes an account path and name and deletes it.
+[**delete_model_account_by_date**](ModelAccountsApi.md#delete_model_account_by_date) | **DELETE** /models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
+[**delete_model_account_by_symbol**](ModelAccountsApi.md#delete_model_account_by_symbol) | **DELETE** /models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
+[**get_account**](ModelAccountsApi.md#get_account) | **GET** /models/{name} | Get account endpoint, takes an account name and returns underlying data
+[**get_account_for_date**](ModelAccountsApi.md#get_account_for_date) | **GET** /models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
+[**get_account_for_date_and_symbol**](ModelAccountsApi.md#get_account_for_date_and_symbol) | **GET** /models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
+[**get_account_for_symbol**](ModelAccountsApi.md#get_account_for_symbol) | **GET** /models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
+[**get_account_schema**](ModelAccountsApi.md#get_account_schema) | **GET** /models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
 
 
 
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > create_or_update_model_account(name)
 
 Create or update an existing model account
+
+This endpoint creates and/or updates the model account specified in the URL using the holdings provided in the PUT body.  It must be used first, before fetching or cancelling endpoints.  A successful response will contain the URL of the resource in the Location header.
 
 ### Example
 
@@ -66,7 +68,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of the model account to create or update
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of the model account to create or update
     model_account_fields_root = ModelAccountFieldsRoot(
         data=ModelAccountFields(
             iterative={
@@ -154,6 +156,8 @@ void (empty response body)
 
 Delete model account, takes an account path and name and deletes it.
 
+This endpoint takes an account path and deletes a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -199,7 +203,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of model account to delete
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of model account to delete
 
     try:
         # Delete model account, takes an account path and name and deletes it.
@@ -250,6 +254,8 @@ void (empty response body)
 
 Delete all entries for a date or specific symbol entries for a date from a previously created account.
 
+This endpoint is used to delete data for entire date or specific symbols for a date from a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -295,8 +301,8 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The filename of model account to delete
-    date = "date_example" # str | The date from the given file name to delete
+    name = "Client:/Folder1/AccountName.Acct" # str | The filename of model account to delete
+    date = "20191010" # str | The date from the given file name to delete
     symbols = [
         "symbols_example",
     ] # [str] | The symbols from the given file name and date to delete (Maximum 10 symbols are allowed) (optional)
@@ -354,6 +360,8 @@ void (empty response body)
 
 Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
 
+This endpoint is used to delete entire symbol or specific dates for a symbol from a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -399,8 +407,8 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The filename of model account to delete
-    symbol = "symbol_example" # str | The symbol from the given file name to delete
+    name = "Client:/Folder1/AccountName.Acct" # str | The filename of model account to delete
+    symbol = "FDS" # str | The symbol from the given file name to delete
     dates = [
         "dates_example",
     ] # [str] | The dates from the given file name and symbol to delete (Maximum 10 dates are allowed) (optional)
@@ -458,6 +466,8 @@ void (empty response body)
 
 Get account endpoint, takes an account name and returns underlying data
 
+This endpoint takes an account name and returns underlying data.
+
 ### Example
 
 > [!IMPORTANT]
@@ -503,7 +513,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of the account to get
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of the account to get
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -560,6 +570,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name, date and returns underlying data for that date
 
+This endpoint takes an account name, date and returns underlying data for that date.
+
 ### Example
 
 > [!IMPORTANT]
@@ -605,8 +617,8 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of the account to get
-    date = "date_example" # str | The date for which data needs to be updated
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of the account to get
+    date = "20191010" # str | The date for which data needs to be updated
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -664,6 +676,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name and returns underlying data
 
+This endpoint takes an account name, symbol and date and returns underlying data.
+
 ### Example
 
 > [!IMPORTANT]
@@ -709,9 +723,9 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of the account to get
-    symbol = "symbol_example" # str | The symbol for which data needs to be updated
-    date = "date_example" # str | The date for which data needs to be updated
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of the account to get
+    symbol = "FDS" # str | The symbol for which data needs to be updated
+    date = "20191010" # str | The date for which data needs to be updated
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -770,6 +784,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
 
+This endpoint takes an account name, symbol and returns underlying data for that symbol.
+
 ### Example
 
 > [!IMPORTANT]
@@ -815,8 +831,8 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of the account to get
-    symbol = "symbol_example" # str | The symbol for which data needs to be updated
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of the account to get
+    symbol = "FDS" # str | The symbol for which data needs to be updated
     format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
@@ -870,9 +886,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_account_schema**
-> DataAndMetaModel get_account_schema(name)
+> ModelAccountSchemaRoot get_account_schema(name)
 
 Get account schema endpoint, takes an account name and returns its schema
+
+This endpoint returns the Schema for a previously created account.
 
 ### Example
 
@@ -919,7 +937,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    name = "name_example" # str | The path and filename of the account to get its schema
+    name = "Client:/Folder1/AccountName.Acct" # str | The path and filename of the account to get its schema
 
     try:
         # Get account schema endpoint, takes an account name and returns its schema
@@ -941,7 +959,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataAndMetaModel**](DataAndMetaModel.md)
+[**ModelAccountSchemaRoot**](ModelAccountSchemaRoot.md)
 
 ### Authorization
 

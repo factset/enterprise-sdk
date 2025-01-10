@@ -3,7 +3,7 @@
 # Open:Risk client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.26.0-blue)](https://developer.factset.com/api-catalog/openrisk-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.OpenRisk)](https://www.nuget.org/packages/FactSet.SDK.OpenRisk)
+[![Nuget](https://img.shields.io/badge/nuget-v5.0.1-orange)](https://www.nuget.org/packages/FactSet.SDK.OpenRisk/5.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.

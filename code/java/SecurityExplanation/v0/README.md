@@ -3,7 +3,7 @@
 # Security Explanation client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v0.1.0-blue)](https://developer.factset.com/api-catalog/security-explanation-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/securityexplanation)](https://search.maven.org/artifact/com.factset.sdk/securityexplanation)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/securityexplanation/0.10.0)](https://central.sonatype.com/artifact/com.factset.sdk/securityexplanation/0.10.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to use Security Explanation through APIs.

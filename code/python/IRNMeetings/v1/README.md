@@ -3,7 +3,7 @@
 # IRN Meetings client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.4.0-blue)](https://developer.factset.com/api-catalog/irn-meetings-api#apiDocumentation)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNMeetings)](https://pypi.org/project/fds.sdk.IRNMeetings/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNMeetings/2.0.1)](https://pypi.org/project/fds.sdk.IRNMeetings/v/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

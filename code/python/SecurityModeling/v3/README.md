@@ -3,7 +3,7 @@
 # Security Modeling client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)](https://developer.factset.com/api-catalog/)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.SecurityModeling)](https://pypi.org/project/fds.sdk.SecurityModeling/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.SecurityModeling/0.20.15)](https://pypi.org/project/fds.sdk.SecurityModeling/v/0.20.15)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

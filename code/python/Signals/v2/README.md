@@ -3,7 +3,7 @@
 # Signals client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.6.0-blue)](https://developer.factset.com/api-catalog/signals-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Signals)](https://pypi.org/project/fds.sdk.Signals/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Signals/1.0.1)](https://pypi.org/project/fds.sdk.Signals/v/1.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Collection of endpoints for providing Signal Events, Definitions and Metadata

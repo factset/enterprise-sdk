@@ -3,7 +3,7 @@
 # Event Calendar client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-eventcalendar)](https://www.npmjs.com/package/@factset/sdk-eventcalendar)
+[![npm](https://img.shields.io/badge/npm-v0.21.0-orange)](https://www.npmjs.com/package/@factset/sdk-eventcalendar/v/0.21.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Retrieves events for companies

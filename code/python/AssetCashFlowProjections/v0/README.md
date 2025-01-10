@@ -3,7 +3,7 @@
 # Asset Cash Flow Projections client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v0.1.0-blue)](https://developer.factset.com/api-catalog/asset-cash-flow-projections-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.AssetCashFlowProjections)](https://pypi.org/project/fds.sdk.AssetCashFlowProjections/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.AssetCashFlowProjections/0.10.1)](https://pypi.org/project/fds.sdk.AssetCashFlowProjections/v/0.10.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to upload scenario files through APIs.

@@ -3,7 +3,7 @@
 # Universal Screening client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.0.2-blue)](https://developer.factset.com/api-catalog/universal-screening-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.UniversalScreening)](https://pypi.org/project/fds.sdk.UniversalScreening/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.UniversalScreening/1.1.1)](https://pypi.org/project/fds.sdk.UniversalScreening/v/1.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.

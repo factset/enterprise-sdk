@@ -3,7 +3,7 @@
 # Procure to Pay: Invoice and Billing client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1K-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-procuretopayinvoiceandbilling)](https://www.npmjs.com/package/@factset/sdk-procuretopayinvoiceandbilling)
+[![npm](https://img.shields.io/badge/npm-v0.1.0-orange)](https://www.npmjs.com/package/@factset/sdk-procuretopayinvoiceandbilling/v/0.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 API endpoints for managing and downloading FactSet Invoices

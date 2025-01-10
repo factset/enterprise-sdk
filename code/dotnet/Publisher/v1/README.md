@@ -3,7 +3,7 @@
 # Publisher client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.Publisher)](https://www.nuget.org/packages/FactSet.SDK.Publisher)
+[![Nuget](https://img.shields.io/badge/nuget-v0.8.13-orange)](https://www.nuget.org/packages/FactSet.SDK.Publisher/0.8.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Publisher Analytics through APIs.

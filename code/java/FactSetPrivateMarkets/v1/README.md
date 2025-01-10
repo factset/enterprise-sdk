@@ -3,7 +3,7 @@
 # FactSet Private Markets client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetprivatemarkets)](https://search.maven.org/artifact/com.factset.sdk/factsetprivatemarkets)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetprivatemarkets/2.0.2)](https://central.sonatype.com/artifact/com.factset.sdk/factsetprivatemarkets/2.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p>

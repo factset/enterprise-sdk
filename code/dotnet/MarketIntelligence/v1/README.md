@@ -3,7 +3,7 @@
 # Market Intelligence client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.MarketIntelligence)](https://www.nuget.org/packages/FactSet.SDK.MarketIntelligence)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.MarketIntelligence/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Through the Market Intelligence API, stay up to date on the companies and sectors you care most about with ease. Request the templates you have made in Market Intelligence to receive news and data on your portfolio.

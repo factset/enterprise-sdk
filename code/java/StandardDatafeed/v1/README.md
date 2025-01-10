@@ -3,7 +3,7 @@
 # Standard Datafeed client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/standarddatafeed)](https://search.maven.org/artifact/com.factset.sdk/standarddatafeed)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/standarddatafeed/0.22.1)](https://central.sonatype.com/artifact/com.factset.sdk/standarddatafeed/0.22.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:

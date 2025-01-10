@@ -3,7 +3,7 @@
 # Conversational API Powered by FactSet Mercury client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.5-blue)](https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury)](https://www.nuget.org/packages/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.2-orange)](https://www.nuget.org/packages/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/1.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ### OVERVIEW

@@ -3,7 +3,7 @@
 # FactSet Tick History client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetTickHistory)](https://www.nuget.org/packages/FactSet.SDK.FactSetTickHistory)
+[![Nuget](https://img.shields.io/badge/nuget-v0.22.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetTickHistory/0.22.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 TickHistory provides dynamic access to historical tick data for a specific security for specific dates or date range.

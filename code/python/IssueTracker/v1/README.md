@@ -3,7 +3,7 @@
 # Issue Tracker client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)](https://developer.factset.com/api-catalog/issue-tracker-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IssueTracker)](https://pypi.org/project/fds.sdk.IssueTracker/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IssueTracker/0.4.0)](https://pypi.org/project/fds.sdk.IssueTracker/v/0.4.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This API is used to file issues

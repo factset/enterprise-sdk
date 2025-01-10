@@ -3,7 +3,7 @@
 # Company Logo client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v4.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.CompanyLogo)](https://pypi.org/project/fds.sdk.CompanyLogo/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.CompanyLogo/0.20.0)](https://pypi.org/project/fds.sdk.CompanyLogo/v/0.20.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Consume FactSet collected Company Logos through an API that seamlessly integrates with company fundamentals and estimates data

@@ -1,18 +1,18 @@
 # FactSet.SDK.Portfolio.Api.ModelAccountsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/accounts/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateOrUpdateModelAccount**](ModelAccountsApi.md#createorupdatemodelaccount) | **PUT** /analytics/accounts/v3/models/{name} | Create or update an existing model account
-[**DeleteAModelAccount**](ModelAccountsApi.md#deleteamodelaccount) | **DELETE** /analytics/accounts/v3/models/{name} | Delete model account, takes an account path and name and deletes it.
-[**DeleteModelAccountByDate**](ModelAccountsApi.md#deletemodelaccountbydate) | **DELETE** /analytics/accounts/v3/models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
-[**DeleteModelAccountBySymbol**](ModelAccountsApi.md#deletemodelaccountbysymbol) | **DELETE** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
-[**GetAccount**](ModelAccountsApi.md#getaccount) | **GET** /analytics/accounts/v3/models/{name} | Get account endpoint, takes an account name and returns underlying data
-[**GetAccountForDate**](ModelAccountsApi.md#getaccountfordate) | **GET** /analytics/accounts/v3/models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
-[**GetAccountForDateAndSymbol**](ModelAccountsApi.md#getaccountfordateandsymbol) | **GET** /analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
-[**GetAccountForSymbol**](ModelAccountsApi.md#getaccountforsymbol) | **GET** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
-[**GetAccountSchema**](ModelAccountsApi.md#getaccountschema) | **GET** /analytics/accounts/v3/models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
+[**CreateOrUpdateModelAccount**](ModelAccountsApi.md#createorupdatemodelaccount) | **PUT** /models/{name} | Create or update an existing model account
+[**DeleteAModelAccount**](ModelAccountsApi.md#deleteamodelaccount) | **DELETE** /models/{name} | Delete model account, takes an account path and name and deletes it.
+[**DeleteModelAccountByDate**](ModelAccountsApi.md#deletemodelaccountbydate) | **DELETE** /models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
+[**DeleteModelAccountBySymbol**](ModelAccountsApi.md#deletemodelaccountbysymbol) | **DELETE** /models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
+[**GetAccount**](ModelAccountsApi.md#getaccount) | **GET** /models/{name} | Get account endpoint, takes an account name and returns underlying data
+[**GetAccountForDate**](ModelAccountsApi.md#getaccountfordate) | **GET** /models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
+[**GetAccountForDateAndSymbol**](ModelAccountsApi.md#getaccountfordateandsymbol) | **GET** /models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
+[**GetAccountForSymbol**](ModelAccountsApi.md#getaccountforsymbol) | **GET** /models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
+[**GetAccountSchema**](ModelAccountsApi.md#getaccountschema) | **GET** /models/{name}/schema | Get account schema endpoint, takes an account name and returns its schema
 
 
 
@@ -21,6 +21,8 @@ Method | HTTP request | Description
 > void CreateOrUpdateModelAccount (string name, ModelAccountFieldsRoot modelAccountFieldsRoot = null)
 
 Create or update an existing model account
+
+This endpoint creates and/or updates the model account specified in the URL using the holdings provided in the PUT body.  It must be used first, before fetching or cancelling endpoints.  A successful response will contain the URL of the resource in the Location header.
 
 ### Example
 
@@ -66,7 +68,7 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of the model account to create or update
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of the model account to create or update
             var modelAccountFieldsRoot = new ModelAccountFieldsRoot(); // ModelAccountFieldsRoot | The object containing the input values (optional) 
 
             try
@@ -129,6 +131,8 @@ void (empty response body)
 
 Delete model account, takes an account path and name and deletes it.
 
+This endpoint takes an account path and deletes a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -173,7 +177,7 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of model account to delete
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of model account to delete
 
             try
             {
@@ -229,6 +233,8 @@ void (empty response body)
 
 Delete all entries for a date or specific symbol entries for a date from a previously created account.
 
+This endpoint is used to delete data for entire date or specific symbols for a date from a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -273,8 +279,8 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The filename of model account to delete
-            var date = "date_example";  // string | The date from the given file name to delete
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The filename of model account to delete
+            var date = "20191010";  // string | The date from the given file name to delete
             var symbols = new List<string>(); // List<string> | The symbols from the given file name and date to delete (Maximum 10 symbols are allowed) (optional) 
 
             try
@@ -334,6 +340,8 @@ void (empty response body)
 
 Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
 
+This endpoint is used to delete entire symbol or specific dates for a symbol from a previously created account.
+
 ### Example
 
 > [!IMPORTANT]
@@ -378,8 +386,8 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The filename of model account to delete
-            var symbol = "symbol_example";  // string | The symbol from the given file name to delete
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The filename of model account to delete
+            var symbol = "FDS";  // string | The symbol from the given file name to delete
             var dates = new List<string>(); // List<string> | The dates from the given file name and symbol to delete (Maximum 10 dates are allowed) (optional) 
 
             try
@@ -439,6 +447,8 @@ void (empty response body)
 
 Get account endpoint, takes an account name and returns underlying data
 
+This endpoint takes an account name and returns underlying data.
+
 ### Example
 
 > [!IMPORTANT]
@@ -483,7 +493,7 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of the account to get
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of the account to get
             var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
@@ -544,6 +554,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name, date and returns underlying data for that date
 
+This endpoint takes an account name, date and returns underlying data for that date.
+
 ### Example
 
 > [!IMPORTANT]
@@ -588,8 +600,8 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of the account to get
-            var date = "date_example";  // string | The date for which data needs to be updated
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of the account to get
+            var date = "20191010";  // string | The date for which data needs to be updated
             var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
@@ -651,6 +663,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name and returns underlying data
 
+This endpoint takes an account name, symbol and date and returns underlying data.
+
 ### Example
 
 > [!IMPORTANT]
@@ -695,9 +709,9 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of the account to get
-            var symbol = "symbol_example";  // string | The symbol for which data needs to be updated
-            var date = "date_example";  // string | The date for which data needs to be updated
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of the account to get
+            var symbol = "FDS";  // string | The symbol for which data needs to be updated
+            var date = "20191010";  // string | The date for which data needs to be updated
             var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
@@ -760,6 +774,8 @@ Name | Type | Description  | Notes
 
 Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
 
+This endpoint takes an account name, symbol and returns underlying data for that symbol.
+
 ### Example
 
 > [!IMPORTANT]
@@ -804,8 +820,8 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of the account to get
-            var symbol = "symbol_example";  // string | The symbol for which data needs to be updated
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of the account to get
+            var symbol = "FDS";  // string | The symbol for which data needs to be updated
             var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
@@ -863,9 +879,11 @@ Name | Type | Description  | Notes
 
 <a name="getaccountschema"></a>
 # **GetAccountSchema**
-> DataAndMetaModel GetAccountSchema (string name)
+> ModelAccountSchemaRoot GetAccountSchema (string name)
 
 Get account schema endpoint, takes an account name and returns its schema
+
+This endpoint returns the Schema for a previously created account.
 
 ### Example
 
@@ -911,12 +929,12 @@ namespace Example
 
             var apiInstance = new ModelAccountsApi(config);
 
-            var name = "name_example";  // string | The path and filename of the account to get its schema
+            var name = "Client:/Folder1/AccountName.Acct";  // string | The path and filename of the account to get its schema
 
             try
             {
                 // Get account schema endpoint, takes an account name and returns its schema
-                DataAndMetaModel result = apiInstance.GetAccountSchema(name);
+                ModelAccountSchemaRoot result = apiInstance.GetAccountSchema(name);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -937,7 +955,7 @@ Name | Type | Description  | Notes
  **name** | **string**| The path and filename of the account to get its schema | 
 
 ### Return type
-[**DataAndMetaModel**](DataAndMetaModel.md)
+[**ModelAccountSchemaRoot**](ModelAccountSchemaRoot.md)
 
 ### Authorization
 

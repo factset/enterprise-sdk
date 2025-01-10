@@ -3,7 +3,7 @@
 # Vault client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3.14.6-blue)](https://developer.factset.com/api-catalog/vault-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Vault)](https://pypi.org/project/fds.sdk.Vault/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Vault/2.0.1)](https://pypi.org/project/fds.sdk.Vault/v/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

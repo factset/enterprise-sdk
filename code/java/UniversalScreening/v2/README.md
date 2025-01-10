@@ -3,7 +3,7 @@
 # Universal Screening client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2.0.2-blue)](https://developer.factset.com/api-catalog/universal-screening-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/universalscreening)](https://search.maven.org/artifact/com.factset.sdk/universalscreening)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/universalscreening/2.1.1)](https://central.sonatype.com/artifact/com.factset.sdk/universalscreening/2.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.

@@ -3,7 +3,7 @@
 # Axioma Fixed Income Optimizer client library for Python
 
 [![API Version](https://img.shields.io/badge/api-vv3-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.AxiomaFixedIncomeOptimizer)](https://pypi.org/project/fds.sdk.AxiomaFixedIncomeOptimizer/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.AxiomaFixedIncomeOptimizer/0.21.13)](https://pypi.org/project/fds.sdk.AxiomaFixedIncomeOptimizer/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

@@ -9,18 +9,23 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: ModelAccounts API
-  version: "3"
+  version: 3.3.0
 externalDocs:
   description: API Documentation
-  url: https://developer.factset.com/api-catalog/
+  url: https://developer.factset.com/api-catalog/portfolio-api
 servers:
-- url: https://api.factset.com
+- url: https://api.factset.com/analytics/accounts/v3
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: These endpoints relate to Model Accounts
+  name: ModelAccounts
 paths:
-  /analytics/accounts/v3/models/{name}:
+  /models/{name}:
     delete:
+      description: This endpoint takes an account path and deletes a previously created
+        account.
       operationId: deleteAModelAccount
       parameters:
       - description: The path and filename of model account to delete
@@ -30,6 +35,7 @@ paths:
         required: true
         schema:
           description: The path and filename of model account to delete
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       responses:
@@ -211,6 +217,7 @@ paths:
       - ModelAccounts
       x-accepts: application/json
     get:
+      description: This endpoint takes an account name and returns underlying data.
       operationId: getAccount
       parameters:
       - description: The path and filename of the account to get
@@ -220,6 +227,7 @@ paths:
         required: true
         schema:
           description: The path and filename of the account to get
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       - description: Optional format for the response, supported formats are JsonStach
@@ -238,6 +246,45 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  definition:
+                    columns:
+                    - id: date
+                      name: Date
+                      type: string
+                    - id: PRICE
+                      name: PRICE
+                      type: number
+                    - id: PRICEISO
+                      name: PRICEISO
+                      type: string
+                    - id: WEIGHT
+                      name: WEIGHT
+                      type: number
+                    - id: TAXABLE
+                      name: TAXABLE
+                      type: string
+                    - id: symbol
+                      name: Symbol
+                      type: string
+                  data:
+                    rows:
+                    - values:
+                        symbol: FDS
+                        date: "20191010"
+                        PRICE: 50
+                        PRICEISO: USD
+                        WEIGHT: 20
+                        TAXABLE: "false"
+                    - values:
+                        symbol: GOOGL
+                        date: "20191010"
+                        PRICE: 50
+                        PRICEISO: USD
+                        WEIGHT: 20
+                        TAXABLE: "false"
+                meta: null
               schema:
                 $ref: '#/components/schemas/DataAndMetaModel'
           description: Expected response, returns JSON representation of the account's
@@ -305,6 +352,23 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 676502E6BA0B1FC7
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Account doesn't exist
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 676503913B2559DE
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: Client:%2FFolder1%2FAccountName1.ofdb'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid account name or type parameter provided.
@@ -522,6 +586,10 @@ paths:
       - ModelAccounts
       x-accepts: application/json
     put:
+      description: "This endpoint creates and/or updates the model account specified\
+        \ in the URL using the holdings provided in the PUT body.\r\nIt must be used\
+        \ first, before fetching or cancelling endpoints.\r\nA successful response\
+        \ will contain the URL of the resource in the Location header."
       operationId: createOrUpdateModelAccount
       parameters:
       - description: The path and filename of the model account to create or update
@@ -531,6 +599,7 @@ paths:
         required: true
         schema:
           description: The path and filename of the model account to create or update
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       requestBody:
@@ -687,6 +756,31 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 676501654728E0F1
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
+                "400 - Update an account with Meta fields in Request Body":
+                  value:
+                    errors:
+                    - id: 6764FE7FABED6961
+                      code: InternalServerError
+                      title: Failed to process request
+                      detail: Meta fields not allowed while updating existing account
+                "400 - Update an account with Additional Fields in Request Body":
+                  value:
+                    errors:
+                    - id: 6765005373C53483
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error in input as we do not support additionalFields
+                        while updating
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid POST body.
@@ -941,8 +1035,10 @@ paths:
       - ModelAccounts
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/accounts/v3/models/{name}/symbols/{symbol}:
+  /models/{name}/symbols/{symbol}:
     delete:
+      description: This endpoint is used to delete entire symbol or specific dates
+        for a symbol from a previously created account.
       operationId: deleteModelAccountBySymbol
       parameters:
       - description: The filename of model account to delete
@@ -952,6 +1048,7 @@ paths:
         required: true
         schema:
           description: The filename of model account to delete
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       - description: The symbol from the given file name to delete
@@ -961,6 +1058,7 @@ paths:
         required: true
         schema:
           description: The symbol from the given file name to delete
+          example: FDS
           type: string
         style: simple
       - description: The dates from the given file name and symbol to delete (Maximum
@@ -1017,6 +1115,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 6765040C214B985B
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid model account name or symbol parameter provided
@@ -1114,6 +1222,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 676503C005248B66
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Error deleting the details from account
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: The provided account name does not exist at the location provided.
@@ -1197,6 +1313,8 @@ paths:
       - ModelAccounts
       x-accepts: application/json
     get:
+      description: This endpoint takes an account name, symbol and returns underlying
+        data for that symbol.
       operationId: getAccountForSymbol
       parameters:
       - description: The path and filename of the account to get
@@ -1206,6 +1324,7 @@ paths:
         required: true
         schema:
           description: The path and filename of the account to get
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       - description: The symbol for which data needs to be updated
@@ -1215,6 +1334,7 @@ paths:
         required: true
         schema:
           description: The symbol for which data needs to be updated
+          example: FDS
           type: string
         style: simple
       - description: Optional format for the response, supported formats are JsonStach
@@ -1233,6 +1353,38 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  definition:
+                    columns:
+                    - id: date
+                      name: Date
+                      type: string
+                    - id: PRICE
+                      name: PRICE
+                      type: number
+                    - id: PRICEISO
+                      name: PRICEISO
+                      type: string
+                    - id: WEIGHT
+                      name: WEIGHT
+                      type: number
+                    - id: TAXABLE
+                      name: TAXABLE
+                      type: string
+                    - id: symbol
+                      name: Symbol
+                      type: string
+                  data:
+                    rows:
+                    - values:
+                        symbol: FDS
+                        date: "20191010"
+                        PRICE: 50
+                        PRICEISO: USD
+                        WEIGHT: 20
+                        TAXABLE: "false"
+                meta: null
               schema:
                 $ref: '#/components/schemas/DataAndMetaModel'
           description: Expected response, returns JSON representation of the account's
@@ -1300,6 +1452,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 67650623F9C105EB
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid account name or type parameter provided.
@@ -1397,6 +1559,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 676505C5B746E91E
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Account doesn't exist
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: The provided account name does not exist at the location provided.
@@ -1516,8 +1686,10 @@ paths:
       tags:
       - ModelAccounts
       x-accepts: application/json
-  /analytics/accounts/v3/models/{name}/dates/{date}:
+  /models/{name}/dates/{date}:
     delete:
+      description: This endpoint is used to delete data for entire date or specific
+        symbols for a date from a previously created account.
       operationId: deleteModelAccountByDate
       parameters:
       - description: The filename of model account to delete
@@ -1527,6 +1699,7 @@ paths:
         required: true
         schema:
           description: The filename of model account to delete
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       - description: The date from the given file name to delete
@@ -1536,6 +1709,7 @@ paths:
         required: true
         schema:
           description: The date from the given file name to delete
+          example: "20191010"
           type: string
         style: simple
       - description: The symbols from the given file name and date to delete (Maximum
@@ -1592,6 +1766,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 67650685ABBFE91B
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid model account name or date parameter provided
@@ -1689,6 +1873,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 676506E1EF48D673
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Error deleting the details from account
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: The provided account name does not exist at the location provided.
@@ -1772,6 +1964,8 @@ paths:
       - ModelAccounts
       x-accepts: application/json
     get:
+      description: This endpoint takes an account name, date and returns underlying
+        data for that date.
       operationId: getAccountForDate
       parameters:
       - description: The path and filename of the account to get
@@ -1781,6 +1975,7 @@ paths:
         required: true
         schema:
           description: The path and filename of the account to get
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       - description: The date for which data needs to be updated
@@ -1790,6 +1985,7 @@ paths:
         required: true
         schema:
           description: The date for which data needs to be updated
+          example: "20191010"
           type: string
         style: simple
       - description: Optional format for the response, supported formats are JsonStach
@@ -1808,6 +2004,45 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  definition:
+                    columns:
+                    - id: date
+                      name: Date
+                      type: string
+                    - id: PRICE
+                      name: PRICE
+                      type: number
+                    - id: PRICEISO
+                      name: PRICEISO
+                      type: string
+                    - id: WEIGHT
+                      name: WEIGHT
+                      type: number
+                    - id: TAXABLE
+                      name: TAXABLE
+                      type: string
+                    - id: symbol
+                      name: Symbol
+                      type: string
+                  data:
+                    rows:
+                    - values:
+                        symbol: FDS
+                        date: "20191010"
+                        PRICE: 50
+                        PRICEISO: USD
+                        WEIGHT: 20
+                        TAXABLE: "false"
+                    - values:
+                        symbol: GOOGL
+                        date: "20191010"
+                        PRICE: 50
+                        PRICEISO: USD
+                        WEIGHT: 20
+                        TAXABLE: "false"
+                meta: null
               schema:
                 $ref: '#/components/schemas/DataAndMetaModel'
           description: Expected response, returns JSON representation of the account's
@@ -1875,6 +2110,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 67650795FA5FFE0B
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid account name or type parameter provided.
@@ -1972,6 +2217,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 67650764A91266AF
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Account doesn't exist
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: The provided account name does not exist at the location provided.
@@ -2091,8 +2344,10 @@ paths:
       tags:
       - ModelAccounts
       x-accepts: application/json
-  /analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol}:
+  /models/{name}/dates/{date}/symbols/{symbol}:
     get:
+      description: This endpoint takes an account name, symbol and date and returns
+        underlying data.
       operationId: getAccountForDateAndSymbol
       parameters:
       - description: The path and filename of the account to get
@@ -2102,6 +2357,7 @@ paths:
         required: true
         schema:
           description: The path and filename of the account to get
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       - description: The symbol for which data needs to be updated
@@ -2111,6 +2367,7 @@ paths:
         required: true
         schema:
           description: The symbol for which data needs to be updated
+          example: FDS
           type: string
         style: simple
       - description: The date for which data needs to be updated
@@ -2120,6 +2377,7 @@ paths:
         required: true
         schema:
           description: The date for which data needs to be updated
+          example: "20191010"
           type: string
         style: simple
       - description: Optional format for the response, supported formats are JsonStach
@@ -2138,6 +2396,38 @@ paths:
         "200":
           content:
             application/json:
+              example:
+                data:
+                  definition:
+                    columns:
+                    - id: date
+                      name: Date
+                      type: string
+                    - id: PRICE
+                      name: PRICE
+                      type: number
+                    - id: PRICEISO
+                      name: PRICEISO
+                      type: string
+                    - id: WEIGHT
+                      name: WEIGHT
+                      type: number
+                    - id: TAXABLE
+                      name: TAXABLE
+                      type: string
+                    - id: symbol
+                      name: Symbol
+                      type: string
+                  data:
+                    rows:
+                    - values:
+                        symbol: FDS
+                        date: "20191010"
+                        PRICE: 50
+                        PRICEISO: USD
+                        WEIGHT: 20
+                        TAXABLE: "false"
+                meta: null
               schema:
                 $ref: '#/components/schemas/DataAndMetaModel'
           description: Expected response, returns JSON representation of the account's
@@ -2205,6 +2495,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 676508C85C1A7C40
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid account name or type parameter provided.
@@ -2302,6 +2602,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 67650833B9E9171B
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Account doesn't exist
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: The provided account name does not exist at the location provided.
@@ -2421,8 +2729,9 @@ paths:
       tags:
       - ModelAccounts
       x-accepts: application/json
-  /analytics/accounts/v3/models/{name}/schema:
+  /models/{name}/schema:
     get:
+      description: This endpoint returns the Schema for a previously created account.
       operationId: getAccountSchema
       parameters:
       - description: The path and filename of the account to get its schema
@@ -2432,14 +2741,49 @@ paths:
         required: true
         schema:
           description: The path and filename of the account to get its schema
+          example: Client:/Folder1/AccountName.Acct
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              example:
+                data:
+                - iteration: false
+                  name: SYMBOL
+                  type: CHAR
+                  description: SYMBOL
+                  splitDirection: NONE
+                  size: 32
+                  codePageFlag: UNKNOWN
+                - iteration: true
+                  name: WEIGHT
+                  type: DOUBLE
+                  description: Weight
+                  splitDirection: NONE
+                  size: 0
+                - iteration: true
+                  name: PRICE
+                  type: FLOAT
+                  description: Price
+                  splitDirection: NORMAL
+                  size: 0
+                - iteration: true
+                  name: PRICEISO
+                  type: CHAR
+                  description: Price ISO
+                  splitDirection: NONE
+                  size: 8
+                  codePageFlag: UTF8
+                - iteration: false
+                  name: TAXABLE
+                  type: STRING
+                  description: Taxable
+                  splitDirection: NONE
+                  size: 0
               schema:
-                $ref: '#/components/schemas/DataAndMetaModel'
+                $ref: '#/components/schemas/ModelAccountSchemaRoot'
           description: Expected response, returns JSON representation of the account's
             schema.
           headers:
@@ -2505,6 +2849,16 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Invalid Account Name":
+                  value:
+                    errors:
+                    - id: 67650AEE68D2C3D8
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: 'Invalid filename: invalid'
+                      source:
+                        parameter: name
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid account name or type parameter provided.
@@ -2602,6 +2956,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                "404 - Account does not exist":
+                  value:
+                    errors:
+                    - id: 67650AC9A7BDC2ED
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Account doesn't exist
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: The provided account name does not exist at the location provided.
@@ -2736,17 +3098,22 @@ components:
         iteration:
           type: boolean
         name:
+          nullable: true
           type: string
         type:
+          nullable: true
           type: string
         description:
+          nullable: true
           type: string
         splitDirection:
+          nullable: true
           type: string
         size:
           format: int32
           type: integer
         codePageFlag:
+          nullable: true
           type: string
       type: object
     ModelAccountFields:
@@ -2787,10 +3154,12 @@ components:
             additionalProperties:
               type: string
             type: object
+          nullable: true
           type: object
         additionalFields:
           items:
             $ref: '#/components/schemas/ModelAccountAdditionalField'
+          nullable: true
           type: array
       required:
       - iterative
@@ -2828,6 +3197,7 @@ components:
         meta:
           additionalProperties:
             type: string
+          nullable: true
           type: object
       required:
       - data
@@ -2835,15 +3205,25 @@ components:
     ErrorSource:
       properties:
         pointer:
+          nullable: true
           type: string
         parameter:
+          nullable: true
           type: string
       type: object
     Error:
       properties:
         id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
           type: string
         detail:
+          nullable: true
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
@@ -2853,15 +3233,48 @@ components:
         errors:
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
       type: object
     DataAndMetaModel:
       example:
-        data: ""
-        meta: ""
+        data: '{}'
+        meta: '{}'
       properties:
-        data: {}
-        meta: {}
+        data:
+          type: object
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+    ModelAccountSchemaRoot:
+      example:
+        data:
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          iteration: true
+          description: description
+          splitDirection: splitDirection
+          type: type
+        - codePageFlag: codePageFlag
+          size: 0
+          name: name
+          iteration: true
+          description: description
+          splitDirection: splitDirection
+          type: type
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ModelAccountAdditionalField'
+          type: array
+        meta:
+          nullable: true
+          type: object
       required:
       - data
       type: object

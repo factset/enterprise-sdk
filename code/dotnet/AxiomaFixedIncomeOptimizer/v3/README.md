@@ -3,7 +3,7 @@
 # Axioma Fixed Income Optimizer client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-vv3-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.AxiomaFixedIncomeOptimizer)](https://www.nuget.org/packages/FactSet.SDK.AxiomaFixedIncomeOptimizer)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.AxiomaFixedIncomeOptimizer/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

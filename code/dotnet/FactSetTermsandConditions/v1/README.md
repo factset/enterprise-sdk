@@ -3,7 +3,7 @@
 # FactSet Terms and Conditions client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetTermsandConditions)](https://www.nuget.org/packages/FactSet.SDK.FactSetTermsandConditions)
+[![Nuget](https://img.shields.io/badge/nuget-v2.0.9-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetTermsandConditions/2.0.9)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Terms & Conditions API exposes Terms & Conditions data for Fixed Income Corporate, Governement & Agency securities. The FactSet Corporate Government & Agency Terms & Conditions library provides descriptive data on the issue level, such as offering details, redemption information, and coupon schedules. Issuer level data is also available. Coverage is global and includes corporate, sovereign, and agency issues.

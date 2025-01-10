@@ -3,7 +3,7 @@
 # Quant Engine client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v3.11.0-blue)](https://developer.factset.com/api-catalog/quant-engine-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/quantengine)](https://search.maven.org/artifact/com.factset.sdk/quantengine)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/quantengine/2.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/quantengine/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

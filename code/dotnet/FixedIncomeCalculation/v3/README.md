@@ -3,7 +3,7 @@
 # Fixed Income Calculation client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3.13.0-blue)](https://developer.factset.com/api-catalog/fixed-income-calculation-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FixedIncomeCalculation)](https://www.nuget.org/packages/FactSet.SDK.FixedIncomeCalculation)
+[![Nuget](https://img.shields.io/badge/nuget-v1.2.0-orange)](https://www.nuget.org/packages/FactSet.SDK.FixedIncomeCalculation/1.2.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

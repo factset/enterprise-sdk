@@ -3,7 +3,7 @@
 # Symbology client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3.4.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.Symbology)](https://www.nuget.org/packages/FactSet.SDK.Symbology)
+[![Nuget](https://img.shields.io/badge/nuget-v4.1.0-orange)](https://www.nuget.org/packages/FactSet.SDK.Symbology/4.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs.</p><p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>

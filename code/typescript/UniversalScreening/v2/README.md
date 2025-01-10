@@ -3,7 +3,7 @@
 # Universal Screening client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v2.0.2-blue)](https://developer.factset.com/api-catalog/universal-screening-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-universalscreening)](https://www.npmjs.com/package/@factset/sdk-universalscreening)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-universalscreening/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.

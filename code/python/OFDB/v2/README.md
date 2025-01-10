@@ -3,7 +3,7 @@
 # OFDB client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.1.0-blue)](https://developer.factset.com/api-catalog/ofdb-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.OFDB)](https://pypi.org/project/fds.sdk.OFDB/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.OFDB/0.31.4)](https://pypi.org/project/fds.sdk.OFDB/v/0.31.4)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 OFDB API

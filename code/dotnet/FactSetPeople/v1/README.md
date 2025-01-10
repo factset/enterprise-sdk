@@ -3,7 +3,7 @@
 # FactSet People client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetPeople)](https://www.nuget.org/packages/FactSet.SDK.FactSetPeople)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetPeople/1.0.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet People API exposes FactSet data for individuals and their jobs.<p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>

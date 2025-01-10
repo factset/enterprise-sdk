@@ -3,7 +3,7 @@
 # Standard Datafeed client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/standard-datafeed-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.StandardDatafeed)](https://www.nuget.org/packages/FactSet.SDK.StandardDatafeed)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.1-orange)](https://www.nuget.org/packages/FactSet.SDK.StandardDatafeed/1.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [The Standard DataFeed (SDF) Download API](https://www.factset.com/marketplace/catalog/product/factset-standard-datafeed-download-api) 

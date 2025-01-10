@@ -3,7 +3,7 @@
 # Global Filings client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/global-filings-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/globalfilings)](https://search.maven.org/artifact/com.factset.sdk/globalfilings)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/globalfilings/1.0.3)](https://central.sonatype.com/artifact/com.factset.sdk/globalfilings/1.0.3)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

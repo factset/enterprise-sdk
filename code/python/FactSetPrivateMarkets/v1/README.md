@@ -3,7 +3,7 @@
 # FactSet Private Markets client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetPrivateMarkets)](https://pypi.org/project/fds.sdk.FactSetPrivateMarkets/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetPrivateMarkets/1.0.13)](https://pypi.org/project/fds.sdk.FactSetPrivateMarkets/v/1.0.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p>

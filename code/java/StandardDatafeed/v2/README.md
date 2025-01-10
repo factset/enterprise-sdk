@@ -3,7 +3,7 @@
 # Standard Datafeed client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/standard-datafeed-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/standarddatafeed)](https://search.maven.org/artifact/com.factset.sdk/standarddatafeed)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/standarddatafeed/1.0.2)](https://central.sonatype.com/artifact/com.factset.sdk/standarddatafeed/1.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [The Standard DataFeed (SDF) Download API](https://www.factset.com/marketplace/catalog/product/factset-standard-datafeed-download-api) 

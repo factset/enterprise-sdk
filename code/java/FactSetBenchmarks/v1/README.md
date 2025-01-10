@@ -3,7 +3,7 @@
 # FactSet Benchmarks client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetbenchmarks)](https://search.maven.org/artifact/com.factset.sdk/factsetbenchmarks)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetbenchmarks/3.1.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsetbenchmarks/3.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.

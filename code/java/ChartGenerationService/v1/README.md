@@ -3,7 +3,7 @@
 # Chart Generation Service client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.5.0-blue)](https://developer.factset.com/api-catalog/chart-generation-service)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/chartgenerationservice)](https://search.maven.org/artifact/com.factset.sdk/chartgenerationservice)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/chartgenerationservice/0.22.2)](https://central.sonatype.com/artifact/com.factset.sdk/chartgenerationservice/0.22.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This is a service for generating charts in a node environment that were created using web charting and get back images in form of `PNGs` and `JPEGs` as response.

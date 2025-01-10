@@ -3,7 +3,7 @@
 # Analytics Datastore client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/analytics-datastore-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.AnalyticsDatastore)](https://www.nuget.org/packages/FactSet.SDK.AnalyticsDatastore)
+[![Nuget](https://img.shields.io/badge/nuget-v0.22.3-orange)](https://www.nuget.org/packages/FactSet.SDK.AnalyticsDatastore/0.22.3)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch precalculated Analytics through predeterministic URLs.

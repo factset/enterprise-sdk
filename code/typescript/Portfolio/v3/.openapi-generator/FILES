@@ -11,6 +11,7 @@ docs/ErrorSource.md
 docs/ModelAccountAdditionalField.md
 docs/ModelAccountFields.md
 docs/ModelAccountFieldsRoot.md
+docs/ModelAccountSchemaRoot.md
 docs/ModelAccountsApi.md
 git_push.sh
 mocha.opts
@@ -25,3 +26,4 @@ src/model/ErrorSource.js
 src/model/ModelAccountAdditionalField.js
 src/model/ModelAccountFields.js
 src/model/ModelAccountFieldsRoot.js
+src/model/ModelAccountSchemaRoot.js

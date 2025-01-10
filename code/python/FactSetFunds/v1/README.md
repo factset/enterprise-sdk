@@ -3,7 +3,7 @@
 # FactSet Funds client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/factset-funds-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetFunds)](https://pypi.org/project/fds.sdk.FactSetFunds/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetFunds/1.2.1)](https://pypi.org/project/fds.sdk.FactSetFunds/v/1.2.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Mutual Funds data offers over 50 fund- and share class-specific data points for mutual funds listed in the United States. <p>FactSet Mutual Funds Reference provides fund-specific reference information as well as FactSet's proprietary classification system. It includes but is not limited to the following coverage 

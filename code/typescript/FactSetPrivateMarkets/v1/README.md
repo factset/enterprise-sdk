@@ -3,7 +3,7 @@
 # FactSet Private Markets client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.2.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetprivatemarkets)](https://www.npmjs.com/package/@factset/sdk-factsetprivatemarkets)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsetprivatemarkets/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Private Markets API encompasses Private Company Financials data to start. Private Company firmographics can be found in the FactSet Entity API. The future plans of this service will include additional Private Markets data, such as Private Equity/Venture Capital.<p><b>Rate limit is set to 10 requests per second</b>.</p>

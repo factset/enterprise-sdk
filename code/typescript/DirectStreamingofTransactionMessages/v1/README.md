@@ -3,7 +3,7 @@
 # Direct Streaming of Transaction Messages client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.6.0-blue)](https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-directstreamingoftransactionmessages)](https://www.npmjs.com/package/@factset/sdk-directstreamingoftransactionmessages)
+[![npm](https://img.shields.io/badge/npm-v1.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-directstreamingoftransactionmessages/v/1.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to send transactions data to FactSet.

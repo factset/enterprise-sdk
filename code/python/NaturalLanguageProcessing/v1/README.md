@@ -3,7 +3,7 @@
 # Natural Language Processing client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.NaturalLanguageProcessing)](https://pypi.org/project/fds.sdk.NaturalLanguageProcessing/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.NaturalLanguageProcessing/0.23.6)](https://pypi.org/project/fds.sdk.NaturalLanguageProcessing/v/0.23.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 APIs that leverage Natural Language Processing to help extract meaningful data from unstructured text

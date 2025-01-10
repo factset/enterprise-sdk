@@ -3,7 +3,7 @@
 # IRN Custom Symbols client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/#apiDocumentation)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-irncustomsymbols)](https://www.npmjs.com/package/@factset/sdk-irncustomsymbols)
+[![npm](https://img.shields.io/badge/npm-v2.1.0-orange)](https://www.npmjs.com/package/@factset/sdk-irncustomsymbols/v/2.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

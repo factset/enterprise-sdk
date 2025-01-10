@@ -3,7 +3,7 @@
 # Procure to Pay: Invoice and Billing client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1K-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/procuretopayinvoiceandbilling)](https://search.maven.org/artifact/com.factset.sdk/procuretopayinvoiceandbilling)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/procuretopayinvoiceandbilling/0.1.0)](https://central.sonatype.com/artifact/com.factset.sdk/procuretopayinvoiceandbilling/0.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 API endpoints for managing and downloading FactSet Invoices

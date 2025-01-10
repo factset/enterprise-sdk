@@ -3,7 +3,7 @@
 # Formula client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)](https://developer.factset.com/api-catalog/formula-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.Formula)](https://www.nuget.org/packages/FactSet.SDK.Formula)
+[![Nuget](https://img.shields.io/badge/nuget-v3.0.0-orange)](https://www.nuget.org/packages/FactSet.SDK.Formula/3.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

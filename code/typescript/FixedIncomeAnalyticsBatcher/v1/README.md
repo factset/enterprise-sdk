@@ -3,7 +3,7 @@
 # Fixed Income Analytics Batcher client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-fixedincomeanalyticsbatcher)](https://www.npmjs.com/package/@factset/sdk-fixedincomeanalyticsbatcher)
+[![npm](https://img.shields.io/badge/npm-v0.22.0-orange)](https://www.npmjs.com/package/@factset/sdk-fixedincomeanalyticsbatcher/v/0.22.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch FIAB Analytics through APIs.

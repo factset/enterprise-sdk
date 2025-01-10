@@ -3,7 +3,7 @@
 # FactSet Benchmarks client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetBenchmarks)](https://www.nuget.org/packages/FactSet.SDK.FactSetBenchmarks)
+[![Nuget](https://img.shields.io/badge/nuget-v1.3.0-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetBenchmarks/1.3.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.

@@ -3,7 +3,7 @@
 # Procure to Pay: Invoice and Billing client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1K-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.ProcuretoPayInvoiceandBilling)](https://www.nuget.org/packages/FactSet.SDK.ProcuretoPayInvoiceandBilling)
+[![Nuget](https://img.shields.io/badge/nuget-v0.1.0-orange)](https://www.nuget.org/packages/FactSet.SDK.ProcuretoPayInvoiceandBilling/0.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 API endpoints for managing and downloading FactSet Invoices

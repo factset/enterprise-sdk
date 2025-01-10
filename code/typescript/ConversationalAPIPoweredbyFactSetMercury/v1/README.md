@@ -3,7 +3,7 @@
 # Conversational API Powered by FactSet Mercury client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.5-blue)](https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-conversationalapipoweredbyfactsetmercury)](https://www.npmjs.com/package/@factset/sdk-conversationalapipoweredbyfactsetmercury)
+[![npm](https://img.shields.io/badge/npm-v1.0.2-orange)](https://www.npmjs.com/package/@factset/sdk-conversationalapipoweredbyfactsetmercury/v/1.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ### OVERVIEW

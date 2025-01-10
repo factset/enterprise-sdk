@@ -3,7 +3,7 @@
 # FactSet Intraday Tick History client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://www.factset.com/hubfs/Website_Downloads/Exchange%20DataFeed/data%20service%20manual%202.0b.pdf)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetIntradayTickHistory)](https://www.nuget.org/packages/FactSet.SDK.FactSetIntradayTickHistory)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetIntradayTickHistory/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

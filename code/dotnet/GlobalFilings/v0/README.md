@@ -3,7 +3,7 @@
 # Global Filings client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v0.0.0-blue)](https://developer.factset.com/api-catalog/global-filings-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.GlobalFilings)](https://www.nuget.org/packages/FactSet.SDK.GlobalFilings)
+[![Nuget](https://img.shields.io/badge/nuget-v0.1.2-orange)](https://www.nuget.org/packages/FactSet.SDK.GlobalFilings/0.1.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Filings API provides a comprehensive set of functionalities for searching and retrieving filing documents from various sources.

@@ -3,7 +3,7 @@
 # Chart Generation Service client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.5.0-blue)](https://developer.factset.com/api-catalog/chart-generation-service)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.ChartGenerationService)](https://pypi.org/project/fds.sdk.ChartGenerationService/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.ChartGenerationService/0.21.14)](https://pypi.org/project/fds.sdk.ChartGenerationService/v/0.21.14)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This is a service for generating charts in a node environment that were created using web charting and get back images in form of `PNGs` and `JPEGs` as response.

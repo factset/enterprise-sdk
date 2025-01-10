@@ -3,7 +3,7 @@
 # FactSet Ownership Report Builder client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/factset-ownership-report-builder-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetownershipreportbuilder)](https://www.npmjs.com/package/@factset/sdk-factsetownershipreportbuilder)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsetownershipreportbuilder/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 description.md

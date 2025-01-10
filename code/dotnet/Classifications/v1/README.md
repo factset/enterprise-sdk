@@ -3,7 +3,7 @@
 # Classifications client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.1-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.Classifications)](https://www.nuget.org/packages/FactSet.SDK.Classifications)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.9-orange)](https://www.nuget.org/packages/FactSet.SDK.Classifications/1.0.9)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Classifications API gives access to various Industry Classifications for a given list of securities. Beginning first with GICS Direct, the service will then expand to offering NAICS, SIC, RBICS, and more. 

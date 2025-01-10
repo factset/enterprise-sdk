@@ -3,7 +3,7 @@
 # Events Contribution client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v0.2.0-blue)](https://developer.factset.com/api-catalog/events-contribution-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-eventscontribution)](https://www.npmjs.com/package/@factset/sdk-eventscontribution)
+[![npm](https://img.shields.io/badge/npm-v0.21.0-orange)](https://www.npmjs.com/package/@factset/sdk-eventscontribution/v/0.21.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Events Contribution API provides the ability to add specific types of corporate events to FactSet’s own events calendar, for display within FactSet’s applications, as well as for off-platform re-distribution via FactSet’s Events Calendar API.

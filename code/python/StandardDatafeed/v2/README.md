@@ -3,7 +3,7 @@
 # Standard Datafeed client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/standard-datafeed-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.StandardDatafeed)](https://pypi.org/project/fds.sdk.StandardDatafeed/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.StandardDatafeed/1.0.2)](https://pypi.org/project/fds.sdk.StandardDatafeed/v/1.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [The Standard DataFeed (SDF) Download API](https://www.factset.com/marketplace/catalog/product/factset-standard-datafeed-download-api) 

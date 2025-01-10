@@ -3,7 +3,7 @@
 # Fixed Income Calculation client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3.13.0-blue)](https://developer.factset.com/api-catalog/fixed-income-calculation-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-fixedincomecalculation)](https://www.npmjs.com/package/@factset/sdk-fixedincomecalculation)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-fixedincomecalculation/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

@@ -3,7 +3,7 @@
 # Publisher client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Publisher)](https://pypi.org/project/fds.sdk.Publisher/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Publisher/0.40.1)](https://pypi.org/project/fds.sdk.Publisher/v/0.40.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Publisher Analytics through APIs.

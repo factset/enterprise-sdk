@@ -11,6 +11,7 @@ docs/ErrorSource.md
 docs/ModelAccountAdditionalField.md
 docs/ModelAccountFields.md
 docs/ModelAccountFieldsRoot.md
+docs/ModelAccountSchemaRoot.md
 docs/ModelAccountsApi.md
 git_push.sh
 src/FactSet.SDK.Portfolio/Api/ModelAccountsApi.cs
@@ -39,3 +40,4 @@ src/FactSet.SDK.Portfolio/Model/ErrorSource.cs
 src/FactSet.SDK.Portfolio/Model/ModelAccountAdditionalField.cs
 src/FactSet.SDK.Portfolio/Model/ModelAccountFields.cs
 src/FactSet.SDK.Portfolio/Model/ModelAccountFieldsRoot.cs
+src/FactSet.SDK.Portfolio/Model/ModelAccountSchemaRoot.cs

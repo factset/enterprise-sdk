@@ -3,7 +3,7 @@
 # Cabot client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v0.3.0-blue)](https://developer.factset.com/api-catalog/cabot)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/cabot)](https://search.maven.org/artifact/com.factset.sdk/cabot)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/cabot/0.11.2)](https://central.sonatype.com/artifact/com.factset.sdk/cabot/0.11.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Cabot Models API

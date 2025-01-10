@@ -3,7 +3,7 @@
 # FactSet Estimates client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2.6.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetestimates)](https://search.maven.org/artifact/com.factset.sdk/factsetestimates)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetestimates/3.1.0)](https://central.sonatype.com/artifact/com.factset.sdk/factsetestimates/3.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:

@@ -3,7 +3,7 @@
 # Best Execution Analytics for Smarter Trading (BEAST) client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/bestexecutionanalyticsforsmartertradingbeast)](https://search.maven.org/artifact/com.factset.sdk/bestexecutionanalyticsforsmartertradingbeast)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/bestexecutionanalyticsforsmartertradingbeast/0.1.0)](https://central.sonatype.com/artifact/com.factset.sdk/bestexecutionanalyticsforsmartertradingbeast/0.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Enables clients to programmatically access the underlying data which powers the BEAST Liquidity Analytics (LA) and Transaction Cost Analysis (TCA) applications.

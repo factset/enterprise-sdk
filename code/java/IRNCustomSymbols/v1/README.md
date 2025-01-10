@@ -3,7 +3,7 @@
 # IRN Custom Symbols client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/#apiDocumentation)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/irncustomsymbols)](https://search.maven.org/artifact/com.factset.sdk/irncustomsymbols)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/irncustomsymbols/2.1.0)](https://central.sonatype.com/artifact/com.factset.sdk/irncustomsymbols/2.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

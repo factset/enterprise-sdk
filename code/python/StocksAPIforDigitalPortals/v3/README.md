@@ -3,7 +3,7 @@
 # Stocks API for Digital Portals client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2-blue)](https://endpointreference.mdgms.com)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.StocksAPIforDigitalPortals)](https://pypi.org/project/fds.sdk.StocksAPIforDigitalPortals/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.StocksAPIforDigitalPortals/0.10.19)](https://pypi.org/project/fds.sdk.StocksAPIforDigitalPortals/v/0.10.19)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Stocks API features a screener to search for equity instruments based on stock-specific parameters.

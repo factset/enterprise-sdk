@@ -3,7 +3,7 @@
 # FactSet Options client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetOptions)](https://pypi.org/project/fds.sdk.FactSetOptions/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetOptions/1.0.13)](https://pypi.org/project/fds.sdk.FactSetOptions/v/1.0.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Option Prices database provides pricing data such as mid bid-ask price, reference data (e.g., strike price), and risk measures (e.g., Greeks and implied volatility). Visit [Options Overview OA Page # 14925](https://my.apps.factset.com/oa/pages/14925) for details on database coverage. U.S. exchange-traded option bid and ask quotes are continuously updated throughout the day even when no trades have occurred on the option (zero volume). The end-of-day closing bid and ask quotes are always in line with the underlying closing price.

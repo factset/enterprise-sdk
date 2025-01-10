@@ -3,7 +3,7 @@
 # FactSet Quant Factor Library client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.1-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetQuantFactorLibrary)](https://pypi.org/project/fds.sdk.FactSetQuantFactorLibrary/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetQuantFactorLibrary/1.0.13)](https://pypi.org/project/fds.sdk.FactSetQuantFactorLibrary/v/1.0.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet FactSet Quant Factor Library (QFL) API helps to detect investment themes across global equity markets, incorporate ideas into your portfolio construction process, and transform raw data into actionable intelligence. Over 2000+ items spanning Factor Groups in-

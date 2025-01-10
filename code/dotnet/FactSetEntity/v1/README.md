@@ -3,7 +3,7 @@
 # FactSet Entity client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.4.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetEntity)](https://www.nuget.org/packages/FactSet.SDK.FactSetEntity)
+[![Nuget](https://img.shields.io/badge/nuget-v1.1.5-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetEntity/1.1.5)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Using an entity centric data model, FactSet's Entity API provides access to

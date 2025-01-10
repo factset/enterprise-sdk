@@ -3,7 +3,7 @@
 # Events Contribution client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v0.2.0-blue)](https://developer.factset.com/api-catalog/events-contribution-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.EventsContribution)](https://pypi.org/project/fds.sdk.EventsContribution/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.EventsContribution/0.20.4)](https://pypi.org/project/fds.sdk.EventsContribution/v/0.20.4)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Events Contribution API provides the ability to add specific types of corporate events to FactSet’s own events calendar, for display within FactSet’s applications, as well as for off-platform re-distribution via FactSet’s Events Calendar API.

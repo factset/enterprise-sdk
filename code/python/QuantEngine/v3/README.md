@@ -3,7 +3,7 @@
 # Quant Engine client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3.11.0-blue)](https://developer.factset.com/api-catalog/quant-engine-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.QuantEngine)](https://pypi.org/project/fds.sdk.QuantEngine/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.QuantEngine/1.0.6)](https://pypi.org/project/fds.sdk.QuantEngine/v/1.0.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

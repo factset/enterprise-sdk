@@ -3,7 +3,7 @@
 # Style Performance and Risk Analysis (SPAR) Engine client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3.14.0-blue)](https://developer.factset.com/api-catalog/spar-engine-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-sparengine)](https://www.npmjs.com/package/@factset/sdk-sparengine)
+[![npm](https://img.shields.io/badge/npm-v3.0.1-orange)](https://www.npmjs.com/package/@factset/sdk-sparengine/v/3.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

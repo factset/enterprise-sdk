@@ -3,7 +3,7 @@
 # FactSet Benchmarks client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetbenchmarks)](https://www.npmjs.com/package/@factset/sdk-factsetbenchmarks)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsetbenchmarks/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.

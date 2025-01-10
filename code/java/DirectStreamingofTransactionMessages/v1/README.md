@@ -3,7 +3,7 @@
 # Direct Streaming of Transaction Messages client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.6.0-blue)](https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/directstreamingoftransactionmessages)](https://search.maven.org/artifact/com.factset.sdk/directstreamingoftransactionmessages)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/directstreamingoftransactionmessages/1.0.0)](https://central.sonatype.com/artifact/com.factset.sdk/directstreamingoftransactionmessages/1.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to send transactions data to FactSet.

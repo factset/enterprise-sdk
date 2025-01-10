@@ -3,7 +3,7 @@
 # Vermilion client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/vermilion-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Vermilion)](https://pypi.org/project/fds.sdk.Vermilion/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.Vermilion/1.2.1)](https://pypi.org/project/fds.sdk.Vermilion/v/1.2.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Documentation on all available end points in the VRSAPI

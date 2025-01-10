@@ -3,7 +3,7 @@
 # FactSet Content API Batch client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetContentAPIBatch)](https://pypi.org/project/fds.sdk.FactSetContentAPIBatch/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetContentAPIBatch/0.21.13)](https://pypi.org/project/fds.sdk.FactSetContentAPIBatch/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Content APIs - Batching Endpoint

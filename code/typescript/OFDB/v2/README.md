@@ -3,7 +3,7 @@
 # OFDB client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v2.1.0-blue)](https://developer.factset.com/api-catalog/ofdb-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-ofdb)](https://www.npmjs.com/package/@factset/sdk-ofdb)
+[![npm](https://img.shields.io/badge/npm-v0.32.0-orange)](https://www.npmjs.com/package/@factset/sdk-ofdb/v/0.32.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 OFDB API

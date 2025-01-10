@@ -3,7 +3,7 @@
 # Capital Structure Report Builder client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/capital-structure-report-builder-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.CapitalStructureReportBuilder)](https://www.nuget.org/packages/FactSet.SDK.CapitalStructureReportBuilder)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.10-orange)](https://www.nuget.org/packages/FactSet.SDK.CapitalStructureReportBuilder/1.0.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 License info

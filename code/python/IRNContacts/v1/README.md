@@ -3,7 +3,7 @@
 # IRN Contacts client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1-blue)](https://developer.factset.com/api-catalog/irn-contacts-api#apiDocumentation)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNContacts)](https://pypi.org/project/fds.sdk.IRNContacts/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.IRNContacts/1.1.1)](https://pypi.org/project/fds.sdk.IRNContacts/v/1.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

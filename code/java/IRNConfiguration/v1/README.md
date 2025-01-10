@@ -3,7 +3,7 @@
 # IRN Configuration client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/irn-configuration-api#apiDocumentation)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/irnconfiguration)](https://search.maven.org/artifact/com.factset.sdk/irnconfiguration)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/irnconfiguration/2.1.1)](https://central.sonatype.com/artifact/com.factset.sdk/irnconfiguration/2.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

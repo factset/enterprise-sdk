@@ -3,7 +3,7 @@
 # Northfield Portfolio Optimizer client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.NorthfieldPortfolioOptimizer)](https://www.nuget.org/packages/FactSet.SDK.NorthfieldPortfolioOptimizer)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.NorthfieldPortfolioOptimizer/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

@@ -3,7 +3,7 @@
 # Asset Cash Flow Projections client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v0.1.0-blue)](https://developer.factset.com/api-catalog/asset-cash-flow-projections-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.AssetCashFlowProjections)](https://www.nuget.org/packages/FactSet.SDK.AssetCashFlowProjections)
+[![Nuget](https://img.shields.io/badge/nuget-v0.10.0-orange)](https://www.nuget.org/packages/FactSet.SDK.AssetCashFlowProjections/0.10.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to upload scenario files through APIs.

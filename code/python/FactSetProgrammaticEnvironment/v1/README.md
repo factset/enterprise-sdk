@@ -3,7 +3,7 @@
 # FactSet Programmatic Environment client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetProgrammaticEnvironment)](https://pypi.org/project/fds.sdk.FactSetProgrammaticEnvironment/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetProgrammaticEnvironment/0.21.13)](https://pypi.org/project/fds.sdk.FactSetProgrammaticEnvironment/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Programmatic Environment (FPE) API is an API for users to interact with FPE programmatically, streamlining path from research to production.

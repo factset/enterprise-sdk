@@ -3,7 +3,7 @@
 # Natural Language Processing client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.NaturalLanguageProcessing)](https://www.nuget.org/packages/FactSet.SDK.NaturalLanguageProcessing)
+[![Nuget](https://img.shields.io/badge/nuget-v0.23.3-orange)](https://www.nuget.org/packages/FactSet.SDK.NaturalLanguageProcessing/0.23.3)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 APIs that leverage Natural Language Processing to help extract meaningful data from unstructured text

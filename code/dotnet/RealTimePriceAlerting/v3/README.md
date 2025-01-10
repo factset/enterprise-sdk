@@ -3,7 +3,7 @@
 # Real-Time Price Alerting client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.RealTimePriceAlerting)](https://www.nuget.org/packages/FactSet.SDK.RealTimePriceAlerting)
+[![Nuget](https://img.shields.io/badge/nuget-v0.12.1-orange)](https://www.nuget.org/packages/FactSet.SDK.RealTimePriceAlerting/0.12.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.

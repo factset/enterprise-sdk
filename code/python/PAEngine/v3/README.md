@@ -3,7 +3,7 @@
 # PA Engine client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3.16.0-blue)](https://developer.factset.com/api-catalog/pa-engine-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.PAEngine)](https://pypi.org/project/fds.sdk.PAEngine/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.PAEngine/2.1.1)](https://pypi.org/project/fds.sdk.PAEngine/v/2.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

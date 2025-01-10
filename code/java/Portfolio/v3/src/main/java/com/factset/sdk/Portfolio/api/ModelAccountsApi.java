@@ -14,6 +14,7 @@ import java.util.Objects;
 import com.factset.sdk.Portfolio.models.ClientErrorResponse;
 import com.factset.sdk.Portfolio.models.DataAndMetaModel;
 import com.factset.sdk.Portfolio.models.ModelAccountFieldsRoot;
+import com.factset.sdk.Portfolio.models.ModelAccountSchemaRoot;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -66,7 +67,7 @@ public class ModelAccountsApi {
 
   private static final Map<Integer, GenericType> getAccountSchemaResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    getAccountSchemaResponseTypeMap.put(200, new GenericType<DataAndMetaModel>(){});
+    getAccountSchemaResponseTypeMap.put(200, new GenericType<ModelAccountSchemaRoot>(){});
     getAccountSchemaResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getAccountSchemaResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
@@ -94,7 +95,7 @@ public class ModelAccountsApi {
 
   /**
    * Create or update an existing model account
-   * 
+   * This endpoint creates and/or updates the model account specified in the URL using the holdings provided in the PUT body.  It must be used first, before fetching or cancelling endpoints.  A successful response will contain the URL of the resource in the Location header.
    * @param name The path and filename of the model account to create or update (required)
    * @param modelAccountFieldsRoot The object containing the input values (optional)
    * @throws ApiException if fails to make API call
@@ -120,7 +121,7 @@ public class ModelAccountsApi {
 
   /**
    * Create or update an existing model account
-   * 
+   * This endpoint creates and/or updates the model account specified in the URL using the holdings provided in the PUT body.  It must be used first, before fetching or cancelling endpoints.  A successful response will contain the URL of the resource in the Location header.
    * @param name The path and filename of the model account to create or update (required)
    * @param modelAccountFieldsRoot The object containing the input values (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -150,7 +151,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}"
+    String localVarPath = "/models/{name}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
 
     // query params
@@ -187,7 +188,7 @@ public class ModelAccountsApi {
   }
   /**
    * Delete model account, takes an account path and name and deletes it.
-   * 
+   * This endpoint takes an account path and deletes a previously created account.
    * @param name The path and filename of model account to delete (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -207,7 +208,7 @@ public class ModelAccountsApi {
 
   /**
    * Delete model account, takes an account path and name and deletes it.
-   * 
+   * This endpoint takes an account path and deletes a previously created account.
    * @param name The path and filename of model account to delete (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -231,7 +232,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}"
+    String localVarPath = "/models/{name}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
 
     // query params
@@ -268,7 +269,7 @@ public class ModelAccountsApi {
   }
   /**
    * Delete all entries for a date or specific symbol entries for a date from a previously created account.
-   * 
+   * This endpoint is used to delete data for entire date or specific symbols for a date from a previously created account.
    * @param name The filename of model account to delete (required)
    * @param date The date from the given file name to delete (required)
    * @param symbols The symbols from the given file name and date to delete (Maximum 10 symbols are allowed) (optional)
@@ -291,7 +292,7 @@ public class ModelAccountsApi {
 
   /**
    * Delete all entries for a date or specific symbol entries for a date from a previously created account.
-   * 
+   * This endpoint is used to delete data for entire date or specific symbols for a date from a previously created account.
    * @param name The filename of model account to delete (required)
    * @param date The date from the given file name to delete (required)
    * @param symbols The symbols from the given file name and date to delete (Maximum 10 symbols are allowed) (optional)
@@ -323,7 +324,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}/dates/{date}"
+    String localVarPath = "/models/{name}/dates/{date}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
       .replaceAll("\\{" + "date" + "\\}", apiClient.escapeString(date.toString()));
 
@@ -362,7 +363,7 @@ public class ModelAccountsApi {
   }
   /**
    * Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
-   * 
+   * This endpoint is used to delete entire symbol or specific dates for a symbol from a previously created account.
    * @param name The filename of model account to delete (required)
    * @param symbol The symbol from the given file name to delete (required)
    * @param dates The dates from the given file name and symbol to delete (Maximum 10 dates are allowed) (optional)
@@ -385,7 +386,7 @@ public class ModelAccountsApi {
 
   /**
    * Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
-   * 
+   * This endpoint is used to delete entire symbol or specific dates for a symbol from a previously created account.
    * @param name The filename of model account to delete (required)
    * @param symbol The symbol from the given file name to delete (required)
    * @param dates The dates from the given file name and symbol to delete (Maximum 10 dates are allowed) (optional)
@@ -417,7 +418,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}/symbols/{symbol}"
+    String localVarPath = "/models/{name}/symbols/{symbol}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
       .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
 
@@ -456,7 +457,7 @@ public class ModelAccountsApi {
   }
   /**
    * Get account endpoint, takes an account name and returns underlying data
-   * 
+   * This endpoint takes an account name and returns underlying data.
    * @param name The path and filename of the account to get (required)
    * @param format Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to JsonStach)
    * @return DataAndMetaModel
@@ -480,7 +481,7 @@ public class ModelAccountsApi {
 
   /**
    * Get account endpoint, takes an account name and returns underlying data
-   * 
+   * This endpoint takes an account name and returns underlying data.
    * @param name The path and filename of the account to get (required)
    * @param format Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to JsonStach)
    * @return ApiResponse&lt;DataAndMetaModel&gt;
@@ -507,7 +508,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}"
+    String localVarPath = "/models/{name}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
 
     // query params
@@ -547,7 +548,7 @@ public class ModelAccountsApi {
   }
   /**
    * Get account endpoint, takes an account name, date and returns underlying data for that date
-   * 
+   * This endpoint takes an account name, date and returns underlying data for that date.
    * @param name The path and filename of the account to get (required)
    * @param date The date for which data needs to be updated (required)
    * @param format Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to JsonStach)
@@ -572,7 +573,7 @@ public class ModelAccountsApi {
 
   /**
    * Get account endpoint, takes an account name, date and returns underlying data for that date
-   * 
+   * This endpoint takes an account name, date and returns underlying data for that date.
    * @param name The path and filename of the account to get (required)
    * @param date The date for which data needs to be updated (required)
    * @param format Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to JsonStach)
@@ -605,7 +606,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}/dates/{date}"
+    String localVarPath = "/models/{name}/dates/{date}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
       .replaceAll("\\{" + "date" + "\\}", apiClient.escapeString(date.toString()));
 
@@ -646,7 +647,7 @@ public class ModelAccountsApi {
   }
   /**
    * Get account endpoint, takes an account name and returns underlying data
-   * 
+   * This endpoint takes an account name, symbol and date and returns underlying data.
    * @param name The path and filename of the account to get (required)
    * @param symbol The symbol for which data needs to be updated (required)
    * @param date The date for which data needs to be updated (required)
@@ -672,7 +673,7 @@ public class ModelAccountsApi {
 
   /**
    * Get account endpoint, takes an account name and returns underlying data
-   * 
+   * This endpoint takes an account name, symbol and date and returns underlying data.
    * @param name The path and filename of the account to get (required)
    * @param symbol The symbol for which data needs to be updated (required)
    * @param date The date for which data needs to be updated (required)
@@ -711,7 +712,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol}"
+    String localVarPath = "/models/{name}/dates/{date}/symbols/{symbol}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
       .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()))
       .replaceAll("\\{" + "date" + "\\}", apiClient.escapeString(date.toString()));
@@ -753,7 +754,7 @@ public class ModelAccountsApi {
   }
   /**
    * Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
-   * 
+   * This endpoint takes an account name, symbol and returns underlying data for that symbol.
    * @param name The path and filename of the account to get (required)
    * @param symbol The symbol for which data needs to be updated (required)
    * @param format Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to JsonStach)
@@ -778,7 +779,7 @@ public class ModelAccountsApi {
 
   /**
    * Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
-   * 
+   * This endpoint takes an account name, symbol and returns underlying data for that symbol.
    * @param name The path and filename of the account to get (required)
    * @param symbol The symbol for which data needs to be updated (required)
    * @param format Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to JsonStach)
@@ -811,7 +812,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}/symbols/{symbol}"
+    String localVarPath = "/models/{name}/symbols/{symbol}"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
       .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
 
@@ -852,9 +853,9 @@ public class ModelAccountsApi {
   }
   /**
    * Get account schema endpoint, takes an account name and returns its schema
-   * 
+   * This endpoint returns the Schema for a previously created account.
    * @param name The path and filename of the account to get its schema (required)
-   * @return DataAndMetaModel
+   * @return ModelAccountSchemaRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -869,15 +870,15 @@ public class ModelAccountsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public DataAndMetaModel getAccountSchema(String name) throws ApiException {
+  public ModelAccountSchemaRoot getAccountSchema(String name) throws ApiException {
     return getAccountSchemaWithHttpInfo(name).getData();
   }
 
   /**
    * Get account schema endpoint, takes an account name and returns its schema
-   * 
+   * This endpoint returns the Schema for a previously created account.
    * @param name The path and filename of the account to get its schema (required)
-   * @return ApiResponse&lt;DataAndMetaModel&gt;
+   * @return ApiResponse&lt;ModelAccountSchemaRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -892,7 +893,7 @@ public class ModelAccountsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<DataAndMetaModel> getAccountSchemaWithHttpInfo(String name) throws ApiException {
+  public ApiResponse<ModelAccountSchemaRoot> getAccountSchemaWithHttpInfo(String name) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'name' is set
@@ -901,7 +902,7 @@ public class ModelAccountsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/accounts/v3/models/{name}/schema"
+    String localVarPath = "/models/{name}/schema"
       .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
 
     // query params
@@ -929,7 +930,7 @@ public class ModelAccountsApi {
 
     ApiResponse<
         
-        DataAndMetaModel
+        ModelAccountSchemaRoot
       
     > apiResponse = apiClient.invokeAPI("ModelAccountsApi.getAccountSchema", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

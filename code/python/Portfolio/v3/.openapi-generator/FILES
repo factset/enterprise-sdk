@@ -11,6 +11,7 @@ docs/ErrorSource.md
 docs/ModelAccountAdditionalField.md
 docs/ModelAccountFields.md
 docs/ModelAccountFieldsRoot.md
+docs/ModelAccountSchemaRoot.md
 docs/ModelAccountsApi.md
 fds/__init__.py
 fds/sdk/Portfolio/__init__.py
@@ -28,6 +29,7 @@ fds/sdk/Portfolio/model/error_source.py
 fds/sdk/Portfolio/model/model_account_additional_field.py
 fds/sdk/Portfolio/model/model_account_fields.py
 fds/sdk/Portfolio/model/model_account_fields_root.py
+fds/sdk/Portfolio/model/model_account_schema_root.py
 fds/sdk/Portfolio/model_utils.py
 fds/sdk/Portfolio/models/__init__.py
 fds/sdk/Portfolio/rest.py

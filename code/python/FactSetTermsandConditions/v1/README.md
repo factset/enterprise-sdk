@@ -3,7 +3,7 @@
 # FactSet Terms and Conditions client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetTermsandConditions)](https://pypi.org/project/fds.sdk.FactSetTermsandConditions/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetTermsandConditions/1.0.12)](https://pypi.org/project/fds.sdk.FactSetTermsandConditions/v/1.0.12)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Terms & Conditions API exposes Terms & Conditions data for Fixed Income Corporate, Governement & Agency securities. The FactSet Corporate Government & Agency Terms & Conditions library provides descriptive data on the issue level, such as offering details, redemption information, and coupon schedules. Issuer level data is also available. Coverage is global and includes corporate, sovereign, and agency issues.

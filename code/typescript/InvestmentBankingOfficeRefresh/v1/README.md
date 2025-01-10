@@ -3,7 +3,7 @@
 # Investment Banking Office Refresh client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-investmentbankingofficerefresh)](https://www.npmjs.com/package/@factset/sdk-investmentbankingofficerefresh)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-investmentbankingofficerefresh/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Service for refreshing models with refreshable FactSet objects (e.g., =FDS codes)

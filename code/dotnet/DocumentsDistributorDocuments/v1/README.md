@@ -3,7 +3,7 @@
 # Documents Distributor - Documents client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.DocumentsDistributorDocuments)](https://www.nuget.org/packages/FactSet.SDK.DocumentsDistributorDocuments)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.11-orange)](https://www.nuget.org/packages/FactSet.SDK.DocumentsDistributorDocuments/0.21.11)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount

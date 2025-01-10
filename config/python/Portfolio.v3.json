@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.Portfolio",
   "projectName": "fds.sdk.Portfolio",
-  "packageVersion": "0.21.14",
+  "packageVersion": "1.0.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Portfolio client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Portfolio/v3",
-  "httpUserAgent": "fds-sdk/python/Portfolio/0.21.14",
+  "httpUserAgent": "fds-sdk/python/Portfolio/1.0.0",
   "files": {
     "LICENSE": {}
   }

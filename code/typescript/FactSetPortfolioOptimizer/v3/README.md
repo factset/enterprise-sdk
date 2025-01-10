@@ -3,7 +3,7 @@
 # FactSet Portfolio Optimizer client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-factsetportfoliooptimizer)](https://www.npmjs.com/package/@factset/sdk-factsetportfoliooptimizer)
+[![npm](https://img.shields.io/badge/npm-v0.22.0-orange)](https://www.npmjs.com/package/@factset/sdk-factsetportfoliooptimizer/v/0.22.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

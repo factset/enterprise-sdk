@@ -3,7 +3,7 @@
 # Procure to Pay: Invoice and Billing client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1K-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.ProcuretoPayInvoiceandBilling)](https://pypi.org/project/fds.sdk.ProcuretoPayInvoiceandBilling/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.ProcuretoPayInvoiceandBilling/0.1.0)](https://pypi.org/project/fds.sdk.ProcuretoPayInvoiceandBilling/v/0.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 API endpoints for managing and downloading FactSet Invoices

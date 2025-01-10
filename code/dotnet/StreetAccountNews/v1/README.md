@@ -3,7 +3,7 @@
 # StreetAccount News client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)](https://developer.factset.com/api-catalog/streetaccount-news-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.StreetAccountNews)](https://www.nuget.org/packages/FactSet.SDK.StreetAccountNews)
+[![Nuget](https://img.shields.io/badge/nuget-v1.1.0-orange)](https://www.nuget.org/packages/FactSet.SDK.StreetAccountNews/1.1.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.

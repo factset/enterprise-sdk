@@ -3,7 +3,7 @@
 # Event Calendar client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.EventCalendar)](https://pypi.org/project/fds.sdk.EventCalendar/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.EventCalendar/0.20.12)](https://pypi.org/project/fds.sdk.EventCalendar/v/0.20.12)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Retrieves events for companies

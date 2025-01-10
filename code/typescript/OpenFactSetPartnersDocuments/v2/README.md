@@ -3,7 +3,7 @@
 # Open:FactSet Partners - Documents client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/openfactset-partners-documents)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-openfactsetpartnersdocuments)](https://www.npmjs.com/package/@factset/sdk-openfactsetpartnersdocuments)
+[![npm](https://img.shields.io/badge/npm-v4.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-openfactsetpartnersdocuments/v/4.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This service provides the capability to search and download unstructured content provided by <a href=\"https://open.factset.com/catalog/en-us\">Open:FactSet Partners</a>.

@@ -3,7 +3,7 @@
 # Security Modeling client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)](https://developer.factset.com/api-catalog/)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.SecurityModeling)](https://www.nuget.org/packages/FactSet.SDK.SecurityModeling)
+[![Nuget](https://img.shields.io/badge/nuget-v0.20.11-orange)](https://www.nuget.org/packages/FactSet.SDK.SecurityModeling/0.20.11)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

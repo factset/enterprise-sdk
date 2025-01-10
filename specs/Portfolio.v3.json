@@ -12,20 +12,21 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3"
+    "version": "3.3.0"
   },
   "servers": [
     {
-      "url": "https://api.factset.com"
+      "url": "https://api.factset.com/analytics/accounts/v3"
     }
   ],
   "paths": {
-    "/analytics/accounts/v3/models/{name}": {
+    "/models/{name}": {
       "put": {
         "tags": [
           "ModelAccounts"
         ],
         "summary": "Create or update an existing model account",
+        "description": "This endpoint creates and/or updates the model account specified in the URL using the holdings provided in the PUT body.\r\nIt must be used first, before fetching or cancelling endpoints.\r\nA successful response will contain the URL of the resource in the Location header.",
         "operationId": "createOrUpdateModelAccount",
         "parameters": [
           {
@@ -35,7 +36,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of the model account to create or update"
+              "description": "The path and filename of the model account to create or update",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           }
         ],
@@ -247,6 +249,47 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676501654728E0F1",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "400 - Update an account with Meta fields in Request Body": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6764FE7FABED6961",
+                          "code": "InternalServerError",
+                          "title": "Failed to process request",
+                          "detail": "Meta fields not allowed while updating existing account"
+                        }
+                      ]
+                    }
+                  },
+                  "400 - Update an account with Additional Fields in Request Body": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6765005373C53483",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error in input as we do not support additionalFields while updating"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -470,6 +513,7 @@
           "ModelAccounts"
         ],
         "summary": "Delete model account, takes an account path and name and deletes it.",
+        "description": "This endpoint takes an account path and deletes a previously created account.",
         "operationId": "deleteAModelAccount",
         "parameters": [
           {
@@ -479,7 +523,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of model account to delete"
+              "description": "The path and filename of model account to delete",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           }
         ],
@@ -666,6 +711,7 @@
           "ModelAccounts"
         ],
         "summary": "Get account endpoint, takes an account name and returns underlying data",
+        "description": "This endpoint takes an account name and returns underlying data.",
         "operationId": "getAccount",
         "parameters": [
           {
@@ -675,7 +721,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of the account to get"
+              "description": "The path and filename of the account to get",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           },
           {
@@ -751,6 +798,69 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataAndMetaModel"
+                },
+                "example": {
+                  "data": {
+                    "definition": {
+                      "columns": [
+                        {
+                          "id": "date",
+                          "name": "Date",
+                          "type": "string"
+                        },
+                        {
+                          "id": "PRICE",
+                          "name": "PRICE",
+                          "type": "number"
+                        },
+                        {
+                          "id": "PRICEISO",
+                          "name": "PRICEISO",
+                          "type": "string"
+                        },
+                        {
+                          "id": "WEIGHT",
+                          "name": "WEIGHT",
+                          "type": "number"
+                        },
+                        {
+                          "id": "TAXABLE",
+                          "name": "TAXABLE",
+                          "type": "string"
+                        },
+                        {
+                          "id": "symbol",
+                          "name": "Symbol",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "data": {
+                      "rows": [
+                        {
+                          "values": {
+                            "symbol": "FDS",
+                            "date": "20191010",
+                            "PRICE": 50,
+                            "PRICEISO": "USD",
+                            "WEIGHT": 20,
+                            "TAXABLE": "false"
+                          }
+                        },
+                        {
+                          "values": {
+                            "symbol": "GOOGL",
+                            "date": "20191010",
+                            "PRICE": 50,
+                            "PRICEISO": "USD",
+                            "WEIGHT": 20,
+                            "TAXABLE": "false"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "meta": null
                 }
               }
             }
@@ -795,6 +905,35 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676502E6BA0B1FC7",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Account doesn't exist"
+                        }
+                      ]
+                    }
+                  },
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676503913B2559DE",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: Client:%2FFolder1%2FAccountName1.ofdb",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -977,12 +1116,13 @@
         }
       }
     },
-    "/analytics/accounts/v3/models/{name}/symbols/{symbol}": {
+    "/models/{name}/symbols/{symbol}": {
       "delete": {
         "tags": [
           "ModelAccounts"
         ],
         "summary": "Delete all entries for a symbol or specific date entries for a symbol from a previously created account.",
+        "description": "This endpoint is used to delete entire symbol or specific dates for a symbol from a previously created account.",
         "operationId": "deleteModelAccountBySymbol",
         "parameters": [
           {
@@ -992,7 +1132,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The filename of model account to delete"
+              "description": "The filename of model account to delete",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           },
           {
@@ -1002,7 +1143,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The symbol from the given file name to delete"
+              "description": "The symbol from the given file name to delete",
+              "example": "FDS"
             }
           },
           {
@@ -1096,6 +1238,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6765040C214B985B",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1196,6 +1355,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676503C005248B66",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Error deleting the details from account"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1245,6 +1418,7 @@
           "ModelAccounts"
         ],
         "summary": "Get account endpoint, takes an account name, symbol and returns underlying data for that symbol",
+        "description": "This endpoint takes an account name, symbol and returns underlying data for that symbol.",
         "operationId": "getAccountForSymbol",
         "parameters": [
           {
@@ -1254,7 +1428,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of the account to get"
+              "description": "The path and filename of the account to get",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           },
           {
@@ -1264,7 +1439,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The symbol for which data needs to be updated"
+              "description": "The symbol for which data needs to be updated",
+              "example": "FDS"
             }
           },
           {
@@ -1340,6 +1516,59 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataAndMetaModel"
+                },
+                "example": {
+                  "data": {
+                    "definition": {
+                      "columns": [
+                        {
+                          "id": "date",
+                          "name": "Date",
+                          "type": "string"
+                        },
+                        {
+                          "id": "PRICE",
+                          "name": "PRICE",
+                          "type": "number"
+                        },
+                        {
+                          "id": "PRICEISO",
+                          "name": "PRICEISO",
+                          "type": "string"
+                        },
+                        {
+                          "id": "WEIGHT",
+                          "name": "WEIGHT",
+                          "type": "number"
+                        },
+                        {
+                          "id": "TAXABLE",
+                          "name": "TAXABLE",
+                          "type": "string"
+                        },
+                        {
+                          "id": "symbol",
+                          "name": "Symbol",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "data": {
+                      "rows": [
+                        {
+                          "values": {
+                            "symbol": "FDS",
+                            "date": "20191010",
+                            "PRICE": 50,
+                            "PRICEISO": "USD",
+                            "WEIGHT": 20,
+                            "TAXABLE": "false"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "meta": null
                 }
               }
             }
@@ -1384,6 +1613,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650623F9C105EB",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1484,6 +1730,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676505C5B746E91E",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Account doesn't exist"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1566,12 +1826,13 @@
         }
       }
     },
-    "/analytics/accounts/v3/models/{name}/dates/{date}": {
+    "/models/{name}/dates/{date}": {
       "delete": {
         "tags": [
           "ModelAccounts"
         ],
         "summary": "Delete all entries for a date or specific symbol entries for a date from a previously created account.",
+        "description": "This endpoint is used to delete data for entire date or specific symbols for a date from a previously created account.",
         "operationId": "deleteModelAccountByDate",
         "parameters": [
           {
@@ -1581,7 +1842,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The filename of model account to delete"
+              "description": "The filename of model account to delete",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           },
           {
@@ -1591,7 +1853,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The date from the given file name to delete"
+              "description": "The date from the given file name to delete",
+              "example": "20191010"
             }
           },
           {
@@ -1685,6 +1948,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650685ABBFE91B",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1785,6 +2065,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676506E1EF48D673",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Error deleting the details from account"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1834,6 +2128,7 @@
           "ModelAccounts"
         ],
         "summary": "Get account endpoint, takes an account name, date and returns underlying data for that date",
+        "description": "This endpoint takes an account name, date and returns underlying data for that date.",
         "operationId": "getAccountForDate",
         "parameters": [
           {
@@ -1843,7 +2138,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of the account to get"
+              "description": "The path and filename of the account to get",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           },
           {
@@ -1853,7 +2149,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The date for which data needs to be updated"
+              "description": "The date for which data needs to be updated",
+              "example": "20191010"
             }
           },
           {
@@ -1929,6 +2226,69 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataAndMetaModel"
+                },
+                "example": {
+                  "data": {
+                    "definition": {
+                      "columns": [
+                        {
+                          "id": "date",
+                          "name": "Date",
+                          "type": "string"
+                        },
+                        {
+                          "id": "PRICE",
+                          "name": "PRICE",
+                          "type": "number"
+                        },
+                        {
+                          "id": "PRICEISO",
+                          "name": "PRICEISO",
+                          "type": "string"
+                        },
+                        {
+                          "id": "WEIGHT",
+                          "name": "WEIGHT",
+                          "type": "number"
+                        },
+                        {
+                          "id": "TAXABLE",
+                          "name": "TAXABLE",
+                          "type": "string"
+                        },
+                        {
+                          "id": "symbol",
+                          "name": "Symbol",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "data": {
+                      "rows": [
+                        {
+                          "values": {
+                            "symbol": "FDS",
+                            "date": "20191010",
+                            "PRICE": 50,
+                            "PRICEISO": "USD",
+                            "WEIGHT": 20,
+                            "TAXABLE": "false"
+                          }
+                        },
+                        {
+                          "values": {
+                            "symbol": "GOOGL",
+                            "date": "20191010",
+                            "PRICE": 50,
+                            "PRICEISO": "USD",
+                            "WEIGHT": 20,
+                            "TAXABLE": "false"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "meta": null
                 }
               }
             }
@@ -1973,6 +2333,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650795FA5FFE0B",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2073,6 +2450,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650764A91266AF",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Account doesn't exist"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2155,12 +2546,13 @@
         }
       }
     },
-    "/analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol}": {
+    "/models/{name}/dates/{date}/symbols/{symbol}": {
       "get": {
         "tags": [
           "ModelAccounts"
         ],
         "summary": "Get account endpoint, takes an account name and returns underlying data",
+        "description": "This endpoint takes an account name, symbol and date and returns underlying data.",
         "operationId": "getAccountForDateAndSymbol",
         "parameters": [
           {
@@ -2170,7 +2562,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of the account to get"
+              "description": "The path and filename of the account to get",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           },
           {
@@ -2180,7 +2573,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The symbol for which data needs to be updated"
+              "description": "The symbol for which data needs to be updated",
+              "example": "FDS"
             }
           },
           {
@@ -2190,7 +2584,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The date for which data needs to be updated"
+              "description": "The date for which data needs to be updated",
+              "example": "20191010"
             }
           },
           {
@@ -2266,6 +2661,59 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DataAndMetaModel"
+                },
+                "example": {
+                  "data": {
+                    "definition": {
+                      "columns": [
+                        {
+                          "id": "date",
+                          "name": "Date",
+                          "type": "string"
+                        },
+                        {
+                          "id": "PRICE",
+                          "name": "PRICE",
+                          "type": "number"
+                        },
+                        {
+                          "id": "PRICEISO",
+                          "name": "PRICEISO",
+                          "type": "string"
+                        },
+                        {
+                          "id": "WEIGHT",
+                          "name": "WEIGHT",
+                          "type": "number"
+                        },
+                        {
+                          "id": "TAXABLE",
+                          "name": "TAXABLE",
+                          "type": "string"
+                        },
+                        {
+                          "id": "symbol",
+                          "name": "Symbol",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "data": {
+                      "rows": [
+                        {
+                          "values": {
+                            "symbol": "FDS",
+                            "date": "20191010",
+                            "PRICE": 50,
+                            "PRICEISO": "USD",
+                            "WEIGHT": 20,
+                            "TAXABLE": "false"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "meta": null
                 }
               }
             }
@@ -2310,6 +2758,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "676508C85C1A7C40",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2410,6 +2875,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650833B9E9171B",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Account doesn't exist"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2492,12 +2971,13 @@
         }
       }
     },
-    "/analytics/accounts/v3/models/{name}/schema": {
+    "/models/{name}/schema": {
       "get": {
         "tags": [
           "ModelAccounts"
         ],
         "summary": "Get account schema endpoint, takes an account name and returns its schema",
+        "description": "This endpoint returns the Schema for a previously created account.",
         "operationId": "getAccountSchema",
         "parameters": [
           {
@@ -2507,7 +2987,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The path and filename of the account to get its schema"
+              "description": "The path and filename of the account to get its schema",
+              "example": "Client:/Folder1/AccountName.Acct"
             }
           }
         ],
@@ -2572,7 +3053,53 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataAndMetaModel"
+                  "$ref": "#/components/schemas/ModelAccountSchemaRoot"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "iteration": false,
+                      "name": "SYMBOL",
+                      "type": "CHAR",
+                      "description": "SYMBOL",
+                      "splitDirection": "NONE",
+                      "size": 32,
+                      "codePageFlag": "UNKNOWN"
+                    },
+                    {
+                      "iteration": true,
+                      "name": "WEIGHT",
+                      "type": "DOUBLE",
+                      "description": "Weight",
+                      "splitDirection": "NONE",
+                      "size": 0
+                    },
+                    {
+                      "iteration": true,
+                      "name": "PRICE",
+                      "type": "FLOAT",
+                      "description": "Price",
+                      "splitDirection": "NORMAL",
+                      "size": 0
+                    },
+                    {
+                      "iteration": true,
+                      "name": "PRICEISO",
+                      "type": "CHAR",
+                      "description": "Price ISO",
+                      "splitDirection": "NONE",
+                      "size": 8,
+                      "codePageFlag": "UTF8"
+                    },
+                    {
+                      "iteration": false,
+                      "name": "TAXABLE",
+                      "type": "STRING",
+                      "description": "Taxable",
+                      "splitDirection": "NONE",
+                      "size": 0
+                    }
+                  ]
                 }
               }
             }
@@ -2617,6 +3144,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Account Name": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650AEE68D2C3D8",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid filename: invalid",
+                          "source": {
+                            "parameter": "name"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2717,6 +3261,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Account does not exist": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "67650AC9A7BDC2ED",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Account doesn't exist"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2809,23 +3367,28 @@
             "type": "boolean"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "splitDirection": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "size": {
             "type": "integer",
             "format": "int32"
           },
           "codePageFlag": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -2854,13 +3417,15 @@
               "additionalProperties": {
                 "type": "string"
               }
-            }
+            },
+            "nullable": true
           },
           "additionalFields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ModelAccountAdditionalField"
-            }
+            },
+            "nullable": true
           }
         }
       },
@@ -2877,7 +3442,8 @@
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            }
+            },
+            "nullable": true
           }
         }
       },
@@ -2885,10 +3451,12 @@
         "type": "object",
         "properties": {
           "pointer": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "parameter": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -2896,10 +3464,20 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
           },
           "detail": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
@@ -2913,7 +3491,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Error"
-            }
+            },
+            "nullable": true
           }
         }
       },
@@ -2923,8 +3502,31 @@
         ],
         "type": "object",
         "properties": {
-          "data": {},
-          "meta": {}
+          "data": {
+            "type": "object"
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
+      },
+      "ModelAccountSchemaRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelAccountAdditionalField"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
         }
       }
     },
@@ -2952,8 +3554,14 @@
       "FactSetOAuth2": []
     }
   ],
+  "tags": [
+    {
+      "name": "ModelAccounts",
+      "description": "These endpoints relate to Model Accounts"
+    }
+  ],
   "externalDocs": {
     "description": "API Documentation",
-    "url": "https://developer.factset.com/api-catalog/"
+    "url": "https://developer.factset.com/api-catalog/portfolio-api"
   }
 }

@@ -3,7 +3,7 @@
 # FactSet Options client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetOptions)](https://www.nuget.org/packages/FactSet.SDK.FactSetOptions)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetOptions/1.0.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Option Prices database provides pricing data such as mid bid-ask price, reference data (e.g., strike price), and risk measures (e.g., Greeks and implied volatility). Visit [Options Overview OA Page # 14925](https://my.apps.factset.com/oa/pages/14925) for details on database coverage. U.S. exchange-traded option bid and ask quotes are continuously updated throughout the day even when no trades have occurred on the option (zero volume). The end-of-day closing bid and ask quotes are always in line with the underlying closing price.

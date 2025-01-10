@@ -3,7 +3,7 @@
 # FactSet NER client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetNER)](https://pypi.org/project/fds.sdk.FactSetNER/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetNER/0.21.13)](https://pypi.org/project/fds.sdk.FactSetNER/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Extract named entities and their FactSet entity IDs from given document text.

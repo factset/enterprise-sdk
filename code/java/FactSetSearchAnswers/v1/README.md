@@ -3,7 +3,7 @@
 # FactSet Search Answers client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetsearchanswers)](https://search.maven.org/artifact/com.factset.sdk/factsetsearchanswers)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetsearchanswers/2.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsetsearchanswers/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Search Answers API provides answers to search queries, reflecting the data shown within FactSet Search Answers, and allowing you to easily add financial data to your widgets, lookups, bots, and assistants. The API understands a fixed amount of search terms and returns structured data from FactSet’s many data sources. Possible answers include Price of a Company, Top 10 Year-to-Date Gainers, Revenue per Passenger Mile, and many more.

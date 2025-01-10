@@ -3,7 +3,7 @@
 # Real-Time News client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3.0.0-blue)](https://developer.factset.com/api-catalog/)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.RealTimeNews)](https://pypi.org/project/fds.sdk.RealTimeNews/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.RealTimeNews/0.11.6)](https://pypi.org/project/fds.sdk.RealTimeNews/v/0.11.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Consume FactSet’s StreetAccount news and 3rd party content through an API that seamlessly integrates with

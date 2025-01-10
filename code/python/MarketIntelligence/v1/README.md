@@ -3,7 +3,7 @@
 # Market Intelligence client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.MarketIntelligence)](https://pypi.org/project/fds.sdk.MarketIntelligence/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.MarketIntelligence/0.21.13)](https://pypi.org/project/fds.sdk.MarketIntelligence/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Through the Market Intelligence API, stay up to date on the companies and sectors you care most about with ease. Request the templates you have made in Market Intelligence to receive news and data on your portfolio.

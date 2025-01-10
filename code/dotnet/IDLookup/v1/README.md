@@ -3,7 +3,7 @@
 # ID Lookup client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.IDLookup)](https://www.nuget.org/packages/FactSet.SDK.IDLookup)
+[![Nuget](https://img.shields.io/badge/nuget-v0.22.2-orange)](https://www.nuget.org/packages/FactSet.SDK.IDLookup/0.22.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Factset Identifier Lookup API provides the ability to search for various identifier types based on keyword. The API returns tickers, entity names and other identifiers that Factset supports. In addition, the API offers filters that allows users to refine the results.

@@ -3,7 +3,7 @@
 # Issue Tracker client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.3.0-blue)](https://developer.factset.com/api-catalog/issue-tracker-api)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.IssueTracker)](https://www.nuget.org/packages/FactSet.SDK.IssueTracker)
+[![Nuget](https://img.shields.io/badge/nuget-v0.4.0-orange)](https://www.nuget.org/packages/FactSet.SDK.IssueTracker/0.4.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This API is used to file issues

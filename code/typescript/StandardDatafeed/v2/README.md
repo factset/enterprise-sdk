@@ -3,7 +3,7 @@
 # Standard Datafeed client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/standard-datafeed-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-standarddatafeed)](https://www.npmjs.com/package/@factset/sdk-standarddatafeed)
+[![npm](https://img.shields.io/badge/npm-v2.0.1-orange)](https://www.npmjs.com/package/@factset/sdk-standarddatafeed/v/2.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [The Standard DataFeed (SDF) Download API](https://www.factset.com/marketplace/catalog/product/factset-standard-datafeed-download-api) 

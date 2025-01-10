@@ -3,7 +3,7 @@
 # Exchange DataFeed Data Model client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)]()
-[![npm](https://img.shields.io/npm/v/@factset/sdk-exchangedatafeeddatamodel)](https://www.npmjs.com/package/@factset/sdk-exchangedatafeeddatamodel)
+[![npm](https://img.shields.io/badge/npm-v0.21.0-orange)](https://www.npmjs.com/package/@factset/sdk-exchangedatafeeddatamodel/v/0.21.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet’s Exchange DataFeed products provide access to consolidated real-time and delayed global exchange data. Proprietary technology normalizes over 250 global venues, 18+ million instruments, and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. Innovative technology ensures reliability and provides scalability that allows clients to make requests based on a symbol list or an exchange. Reduce development time by powering proprietary and third-party applications with exchange data from a unified data model. <p>The Exchange DataFeed Data Model API provides mappings for enumerations used in our Real-Time DataFeed products and should be used in conjunction with the DataFeed Data Model documentation available for each product. <p>The initial beta version of this API is limited to include mapping tables for the product codes only.

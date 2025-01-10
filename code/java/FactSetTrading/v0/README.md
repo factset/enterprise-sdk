@@ -3,7 +3,7 @@
 # FactSet Trading client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v0.5.0-blue)](https://developer.factset.com/api-catalog/factset-trading-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsettrading)](https://search.maven.org/artifact/com.factset.sdk/factsettrading)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsettrading/0.26.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsettrading/0.26.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to trade orders.

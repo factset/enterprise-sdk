@@ -3,7 +3,7 @@
 # Open:Risk client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v1.26.0-blue)](https://developer.factset.com/api-catalog/openrisk-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-openrisk)](https://www.npmjs.com/package/@factset/sdk-openrisk)
+[![npm](https://img.shields.io/badge/npm-v5.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-openrisk/v/5.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.

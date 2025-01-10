@@ -3,7 +3,7 @@
 # FactSet Global Prices client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.7.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetGlobalPrices)](https://pypi.org/project/fds.sdk.FactSetGlobalPrices/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetGlobalPrices/2.2.2)](https://pypi.org/project/fds.sdk.FactSetGlobalPrices/v/2.2.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>

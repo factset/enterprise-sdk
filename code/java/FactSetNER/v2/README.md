@@ -3,7 +3,7 @@
 # FactSet NER client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetner)](https://search.maven.org/artifact/com.factset.sdk/factsetner)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsetner/0.22.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsetner/0.22.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Extract named entities and their FactSet entity IDs from given document text.

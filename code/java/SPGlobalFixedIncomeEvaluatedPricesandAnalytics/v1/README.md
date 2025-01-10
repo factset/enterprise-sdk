@@ -3,7 +3,7 @@
 # S&amp;amp;P Global Fixed Income Evaluated Prices and Analytics client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/sp-global-fixed-income-evaluated-prices-and-analytics-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/spglobalfixedincomeevaluatedpricesandanalytics)](https://search.maven.org/artifact/com.factset.sdk/spglobalfixedincomeevaluatedpricesandanalytics)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/spglobalfixedincomeevaluatedpricesandanalytics/0.2.1)](https://central.sonatype.com/artifact/com.factset.sdk/spglobalfixedincomeevaluatedpricesandanalytics/0.2.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Gain access to evaluated pricing and analytics data for Corporate Bonds, Municipal Bonds and Asset Backed Securities provided by S&P Global (formerly IHS Markit) .

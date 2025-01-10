@@ -3,7 +3,7 @@
 # Security Explanation client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v0.1.0-blue)](https://developer.factset.com/api-catalog/security-explanation-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-securityexplanation)](https://www.npmjs.com/package/@factset/sdk-securityexplanation)
+[![npm](https://img.shields.io/badge/npm-v0.10.0-orange)](https://www.npmjs.com/package/@factset/sdk-securityexplanation/v/0.10.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to use Security Explanation through APIs.

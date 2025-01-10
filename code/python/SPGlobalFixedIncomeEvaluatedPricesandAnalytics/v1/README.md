@@ -3,7 +3,7 @@
 # S&amp;P Global Fixed Income Evaluated Prices and Analytics client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://developer.factset.com/api-catalog/sp-global-fixed-income-evaluated-prices-and-analytics-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics)](https://pypi.org/project/fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics/0.1.13)](https://pypi.org/project/fds.sdk.SPGlobalFixedIncomeEvaluatedPricesandAnalytics/v/0.1.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Gain access to evaluated pricing and analytics data for Corporate Bonds, Municipal Bonds and Asset Backed Securities provided by S&P Global (formerly IHS Markit) .

@@ -3,7 +3,7 @@
 # Open:FactSet Partners - Documents client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/openfactset-partners-documents)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.OpenFactSetPartnersDocuments)](https://pypi.org/project/fds.sdk.OpenFactSetPartnersDocuments/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.OpenFactSetPartnersDocuments/3.0.10)](https://pypi.org/project/fds.sdk.OpenFactSetPartnersDocuments/v/3.0.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This service provides the capability to search and download unstructured content provided by <a href=\"https://open.factset.com/catalog/en-us\">Open:FactSet Partners</a>.

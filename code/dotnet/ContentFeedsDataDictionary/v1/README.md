@@ -3,7 +3,7 @@
 # Content Feeds Data Dictionary client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v0.2-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.ContentFeedsDataDictionary)](https://www.nuget.org/packages/FactSet.SDK.ContentFeedsDataDictionary)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.11-orange)](https://www.nuget.org/packages/FactSet.SDK.ContentFeedsDataDictionary/0.21.11)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 An API for interacting with CTS Data Dictionary.

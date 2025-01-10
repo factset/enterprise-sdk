@@ -3,7 +3,7 @@
 # FactSet Fundamentals client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetFundamentals)](https://www.nuget.org/packages/FactSet.SDK.FactSetFundamentals)
+[![Nuget](https://img.shields.io/badge/nuget-v1.0.9-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetFundamentals/1.0.9)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Gain access to current, comprehensive, and comparative information on securities in worldwide developed and emerging markets. Composed of annual and interim/quarterly data, detailed historical financial statement content, per share data, and calculated ratios, FactSet Fundamentals provides you with the information you need for a global investment perspective.

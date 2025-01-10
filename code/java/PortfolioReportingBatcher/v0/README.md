@@ -3,7 +3,7 @@
 # Portfolio Reporting Batcher client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v0.6.0-blue)](https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/portfolioreportingbatcher)](https://search.maven.org/artifact/com.factset.sdk/portfolioreportingbatcher)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/portfolioreportingbatcher/0.24.3)](https://central.sonatype.com/artifact/com.factset.sdk/portfolioreportingbatcher/0.24.3)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.

@@ -3,7 +3,7 @@
 # FactSet Search Answers client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetSearchAnswers)](https://pypi.org/project/fds.sdk.FactSetSearchAnswers/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetSearchAnswers/1.1.5)](https://pypi.org/project/fds.sdk.FactSetSearchAnswers/v/1.1.5)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The FactSet Search Answers API provides answers to search queries, reflecting the data shown within FactSet Search Answers, and allowing you to easily add financial data to your widgets, lookups, bots, and assistants. The API understands a fixed amount of search terms and returns structured data from FactSet’s many data sources. Possible answers include Price of a Company, Top 10 Year-to-Date Gainers, Revenue per Passenger Mile, and many more.

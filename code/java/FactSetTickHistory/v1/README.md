@@ -3,7 +3,7 @@
 # FactSet Tick History client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsettickhistory)](https://search.maven.org/artifact/com.factset.sdk/factsettickhistory)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/factsettickhistory/0.23.1)](https://central.sonatype.com/artifact/com.factset.sdk/factsettickhistory/0.23.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 TickHistory provides dynamic access to historical tick data for a specific security for specific dates or date range.

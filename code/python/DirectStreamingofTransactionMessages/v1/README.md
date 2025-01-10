@@ -3,7 +3,7 @@
 # Direct Streaming of Transaction Messages client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.6.0-blue)](https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.DirectStreamingofTransactionMessages)](https://pypi.org/project/fds.sdk.DirectStreamingofTransactionMessages/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.DirectStreamingofTransactionMessages/1.0.0)](https://pypi.org/project/fds.sdk.DirectStreamingofTransactionMessages/v/1.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to send transactions data to FactSet.

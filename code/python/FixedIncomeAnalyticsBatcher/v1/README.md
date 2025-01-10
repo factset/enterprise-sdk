@@ -3,7 +3,7 @@
 # Fixed Income Analytics Batcher client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FixedIncomeAnalyticsBatcher)](https://pypi.org/project/fds.sdk.FixedIncomeAnalyticsBatcher/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FixedIncomeAnalyticsBatcher/0.21.13)](https://pypi.org/project/fds.sdk.FixedIncomeAnalyticsBatcher/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch FIAB Analytics through APIs.

@@ -3,7 +3,7 @@
 # FactSet RBICS client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v1.1.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetRBICS)](https://pypi.org/project/fds.sdk.FactSetRBICS/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetRBICS/1.0.2)](https://pypi.org/project/fds.sdk.FactSetRBICS/v/1.0.2)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet Revere Business Industry Classification System (RBICS) is a comprehensive structured taxonomy to classify companies by what they primarily do. It delivers a granular view for investors by classifying companies using a bottom-up approach according to the products and services they provide. By combining this approach with a top-level grouping based on companies' behavior similarities and stock co-movement, FactSet RBICS delivers unprecedented precision for 1,400+ sector groups.

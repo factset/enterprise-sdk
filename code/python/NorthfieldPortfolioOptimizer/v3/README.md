@@ -3,7 +3,7 @@
 # Northfield Portfolio Optimizer client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v3-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.NorthfieldPortfolioOptimizer)](https://pypi.org/project/fds.sdk.NorthfieldPortfolioOptimizer/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.NorthfieldPortfolioOptimizer/0.21.13)](https://pypi.org/project/fds.sdk.NorthfieldPortfolioOptimizer/v/0.21.13)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

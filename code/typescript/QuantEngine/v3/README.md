@@ -3,7 +3,7 @@
 # Quant Engine client library for JavaScript
 
 [![API Version](https://img.shields.io/badge/api-v3.11.0-blue)](https://developer.factset.com/api-catalog/quant-engine-api)
-[![npm](https://img.shields.io/npm/v/@factset/sdk-quantengine)](https://www.npmjs.com/package/@factset/sdk-quantengine)
+[![npm](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.com/package/@factset/sdk-quantengine/v/2.0.0)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allow clients to fetch Analytics through APIs.

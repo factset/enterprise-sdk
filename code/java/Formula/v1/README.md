@@ -3,7 +3,7 @@
 # Formula client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.8.0-blue)](https://developer.factset.com/api-catalog/formula-api)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/formula)](https://search.maven.org/artifact/com.factset.sdk/formula)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/formula/5.0.1)](https://central.sonatype.com/artifact/com.factset.sdk/formula/5.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 

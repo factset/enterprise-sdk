@@ -3,7 +3,7 @@
 # Open:FactSet Partners - Documents client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)](https://developer.factset.com/api-catalog/openfactset-partners-documents)
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.OpenFactSetPartnersDocuments)](https://www.nuget.org/packages/FactSet.SDK.OpenFactSetPartnersDocuments)
+[![Nuget](https://img.shields.io/badge/nuget-v3.0.7-orange)](https://www.nuget.org/packages/FactSet.SDK.OpenFactSetPartnersDocuments/3.0.7)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 This service provides the capability to search and download unstructured content provided by <a href=\"https://open.factset.com/catalog/en-us\">Open:FactSet Partners</a>.

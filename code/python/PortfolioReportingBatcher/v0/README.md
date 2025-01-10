@@ -3,7 +3,7 @@
 # Portfolio Reporting Batcher client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v0.6.0-blue)](https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api)
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.PortfolioReportingBatcher)](https://pypi.org/project/fds.sdk.PortfolioReportingBatcher/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.PortfolioReportingBatcher/0.23.6)](https://pypi.org/project/fds.sdk.PortfolioReportingBatcher/v/0.23.6)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.

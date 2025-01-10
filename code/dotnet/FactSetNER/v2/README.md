@@ -3,7 +3,7 @@
 # FactSet NER client library for .NET
 
 [![API Version](https://img.shields.io/badge/api-v2.0.0-blue)]()
-[![Nuget](https://img.shields.io/nuget/v/FactSet.SDK.FactSetNER)](https://www.nuget.org/packages/FactSet.SDK.FactSetNER)
+[![Nuget](https://img.shields.io/badge/nuget-v0.21.10-orange)](https://www.nuget.org/packages/FactSet.SDK.FactSetNER/0.21.10)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Extract named entities and their FactSet entity IDs from given document text.

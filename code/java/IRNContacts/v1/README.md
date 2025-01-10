@@ -3,7 +3,7 @@
 # IRN Contacts client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1-blue)](https://developer.factset.com/api-catalog/irn-contacts-api#apiDocumentation)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/irncontacts)](https://search.maven.org/artifact/com.factset.sdk/irncontacts)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/irncontacts/2.1.1)](https://central.sonatype.com/artifact/com.factset.sdk/irncontacts/2.1.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Allows users to extract, create, update and configure IRN data.

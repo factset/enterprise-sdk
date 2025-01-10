@@ -3,7 +3,7 @@
 # Exchange DataFeed Snapshot API - Symbol List client library for Java
 
 [![API Version](https://img.shields.io/badge/api-v1.0.0-blue)](https://open.factset.com/products/factset-exchange-datafeed-snapshot-api/en-us)
-[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/exchangedatafeedsnapshotapisymbollist)](https://search.maven.org/artifact/com.factset.sdk/exchangedatafeedsnapshotapisymbollist)
+[![Maven Central](https://img.shields.io/maven-central/v/com.factset.sdk/exchangedatafeedsnapshotapisymbollist/0.22.1)](https://central.sonatype.com/artifact/com.factset.sdk/exchangedatafeedsnapshotapisymbollist/0.22.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 FactSet’s Exchange DataFeed Snapshot API provides cost-effective access to real-time and delayed global exchange data. Proprietary technology normalizes over 300 global exchanges and 150+ data fields. Asset types integrated include equities, futures, options, warrants, fixed income, mutual funds, ETFs, indices, commodities, and FX rates. <p>Cutting-edge technology ensures reliability and provides scalability that allow applications to request multiple items at a time. To simplify client-side development an entire response can be placed in a matrix or table for effortless integration into internal and external applications. Using specified output formats (CSV, XML, JSON) receive all standard fields by default or customize the list based on specific needs.</p></p>Below are the current hosts:</p><p>Production: api.factset.com<p>Sandbox: api-sandbox.factset.com</p>

@@ -3,7 +3,7 @@
 # FactSet Concordance client library for Python
 
 [![API Version](https://img.shields.io/badge/api-v2.8.0-blue)]()
-[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetConcordance)](https://pypi.org/project/fds.sdk.FactSetConcordance/)
+[![PyPi](https://img.shields.io/pypi/v/fds.sdk.FactSetConcordance/1.0.1)](https://pypi.org/project/fds.sdk.FactSetConcordance/v/1.0.1)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
