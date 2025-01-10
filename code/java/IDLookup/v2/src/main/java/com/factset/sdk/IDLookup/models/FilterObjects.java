@@ -159,7 +159,7 @@ public class FilterObjects implements Serializable {
    * @return dataset
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Type of dataset.")
+  @ApiModelProperty(example = "equities", required = true, value = "Type of dataset.")
   @JsonProperty(JSON_PROPERTY_DATASET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

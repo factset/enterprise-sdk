@@ -168,14 +168,10 @@ with fds.sdk.IDLookup.ApiClient(configuration) as api_client:
                     dataset="equities",
                     filters=Filters(
                         include=IncludeObject(
-                            key=[
-                                "key_example",
-                            ],
+                            key=["US","GB"],
                         ),
                         exclude=ExcludeObject(
-                            key=[
-                                "key_example",
-                            ],
+                            key=["US","GB"],
                         ),
                     ),
                 ),

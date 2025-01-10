@@ -14,7 +14,7 @@
 import ApiClient from './ApiClient';
 import CompanyEventRequest from './model/CompanyEventRequest';
 import CompanyEventRequestData from './model/CompanyEventRequestData';
-import CompanyEventRequestDataDate from './model/CompanyEventRequestDataDate';
+import CompanyEventRequestDataDateTime from './model/CompanyEventRequestDataDateTime';
 import CompanyEventRequestDataUniverse from './model/CompanyEventRequestDataUniverse';
 import CompanyEventResponse from './model/CompanyEventResponse';
 import CompanyEventResponseData from './model/CompanyEventResponseData';
@@ -74,10 +74,10 @@ export {
     CompanyEventRequestData,
 
     /**
-     * The CompanyEventRequestDataDate model constructor.
-     * @property {module:model/CompanyEventRequestDataDate}
+     * The CompanyEventRequestDataDateTime model constructor.
+     * @property {module:model/CompanyEventRequestDataDateTime}
      */
-    CompanyEventRequestDataDate,
+    CompanyEventRequestDataDateTime,
 
     /**
      * The CompanyEventRequestDataUniverse model constructor.

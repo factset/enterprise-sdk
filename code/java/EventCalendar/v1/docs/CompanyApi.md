@@ -1,10 +1,10 @@
 # CompanyApi
 
-All URIs are relative to *https://api.factset.com/event-calendar/v1*
+All URIs are relative to *https://api.factset.com/events/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCompanyEvent**](CompanyApi.md#getCompanyEvent) | **POST** /company/event/list | Retrieve Company Event data
+[**getCompanyEvent**](CompanyApi.md#getCompanyEvent) | **POST** /calendar/events | Retrieve Company Event data
 
 
 

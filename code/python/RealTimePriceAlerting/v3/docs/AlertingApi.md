@@ -63,7 +63,7 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     api_instance = alerting_api.AlertingApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | 
+    id = "4004" # str | Identifier of the alert.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -85,7 +85,7 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **id** | **str**| Identifier of the alert. |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -165,15 +165,15 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 0 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) if omitted the server will use the default value of 0
-    pagination_cursor = "_paginationCursor_example" # str | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional)
+    meta_subscription_minimum_interval = 937 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) if omitted the server will use the default value of 0
+    pagination_cursor = "Lorem ipsum" # str | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional)
     pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # List of alerts.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_alerting_prices_basic_alert_list(attributes=attributes, subscription_minimum_interval=subscription_minimum_interval, pagination_cursor=pagination_cursor, pagination_limit=pagination_limit)
+        api_response = api_instance.get_alerting_prices_basic_alert_list(attributes=attributes, meta_subscription_minimum_interval=meta_subscription_minimum_interval, pagination_cursor=pagination_cursor, pagination_limit=pagination_limit)
 
         pprint(api_response)
 
@@ -187,7 +187,7 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **subscription_minimum_interval** | **float**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] if omitted the server will use the default value of 0
+ **meta_subscription_minimum_interval** | **float**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] if omitted the server will use the default value of 0
  **pagination_cursor** | **str**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional]
  **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
@@ -265,7 +265,7 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
     api_instance = alerting_api.AlertingApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | 
+    id = "4004" # str | Identifier of the trigger.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -287,7 +287,7 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **id** | **str**| Identifier of the trigger. |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -373,11 +373,9 @@ with fds.sdk.RealTimePriceAlerting.ApiClient(configuration) as api_client:
             ),
         ),
         meta=PostAlertingPricesBasicTriggerListRequestMeta(
-            attributes=AttributesMember([
-                "attributes_example",
-            ]),
+            attributes=AttributesMember([]),
             pagination=PostAlertingPricesBasicTriggerListRequestMetaPagination(
-                cursor="cursor_example",
+                cursor="Lorem ipsum",
                 limit=20,
             ),
         ),

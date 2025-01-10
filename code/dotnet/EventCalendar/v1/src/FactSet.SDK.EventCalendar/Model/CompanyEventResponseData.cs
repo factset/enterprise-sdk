@@ -39,76 +39,76 @@ namespace FactSet.SDK.EventCalendar.Model
         public enum EventTypeEnum
         {
             /// <summary>
-            /// Enum E for value: E
+            /// Enum Earnings for value: Earnings
             /// </summary>
-            [EnumMember(Value = "E")]
-            E = 1,
+            [EnumMember(Value = "Earnings")]
+            Earnings = 1,
 
             /// <summary>
-            /// Enum SA for value: SA
+            /// Enum SalesRevenueCall for value: SalesRevenueCall
             /// </summary>
-            [EnumMember(Value = "SA")]
-            SA = 2,
+            [EnumMember(Value = "SalesRevenueCall")]
+            SalesRevenueCall = 2,
 
             /// <summary>
-            /// Enum G for value: G
+            /// Enum GuidanceCall for value: GuidanceCall
             /// </summary>
-            [EnumMember(Value = "G")]
-            G = 3,
+            [EnumMember(Value = "GuidanceCall")]
+            GuidanceCall = 3,
 
             /// <summary>
-            /// Enum AM for value: AM
+            /// Enum AnalystsInvestorsMeeting for value: AnalystsInvestorsMeeting
             /// </summary>
-            [EnumMember(Value = "AM")]
-            AM = 4,
+            [EnumMember(Value = "AnalystsInvestorsMeeting")]
+            AnalystsInvestorsMeeting = 4,
 
             /// <summary>
-            /// Enum SM for value: SM
+            /// Enum ShareholdersMeeting for value: ShareholdersMeeting
             /// </summary>
-            [EnumMember(Value = "SM")]
-            SM = 5,
+            [EnumMember(Value = "ShareholdersMeeting")]
+            ShareholdersMeeting = 5,
 
             /// <summary>
-            /// Enum SS for value: SS
+            /// Enum SpecialSituation for value: SpecialSituation
             /// </summary>
-            [EnumMember(Value = "SS")]
-            SS = 6,
+            [EnumMember(Value = "SpecialSituation")]
+            SpecialSituation = 6,
 
             /// <summary>
-            /// Enum CP for value: CP
+            /// Enum Conference for value: Conference
             /// </summary>
-            [EnumMember(Value = "CP")]
-            CP = 7,
+            [EnumMember(Value = "Conference")]
+            Conference = 7,
 
             /// <summary>
-            /// Enum ConfirmedER for value: confirmedER
+            /// Enum ConfirmedEarningsRelease for value: ConfirmedEarningsRelease
             /// </summary>
-            [EnumMember(Value = "confirmedER")]
-            ConfirmedER = 8,
+            [EnumMember(Value = "ConfirmedEarningsRelease")]
+            ConfirmedEarningsRelease = 8,
 
             /// <summary>
-            /// Enum SR for value: SR
+            /// Enum ProjectedEarningsRelease for value: ProjectedEarningsRelease
             /// </summary>
-            [EnumMember(Value = "SR")]
-            SR = 9,
+            [EnumMember(Value = "ProjectedEarningsRelease")]
+            ProjectedEarningsRelease = 9,
 
             /// <summary>
-            /// Enum ProjectedER for value: projectedER
+            /// Enum SalesRevenueRelease for value: SalesRevenueRelease
             /// </summary>
-            [EnumMember(Value = "projectedER")]
-            ProjectedER = 10,
+            [EnumMember(Value = "SalesRevenueRelease")]
+            SalesRevenueRelease = 10,
 
             /// <summary>
-            /// Enum S for value: S
+            /// Enum Split for value: Split
             /// </summary>
-            [EnumMember(Value = "S")]
-            S = 11,
+            [EnumMember(Value = "Split")]
+            Split = 11,
 
             /// <summary>
-            /// Enum D for value: D
+            /// Enum Dividend for value: Dividend
             /// </summary>
-            [EnumMember(Value = "D")]
-            D = 12
+            [EnumMember(Value = "Dividend")]
+            Dividend = 12
 
         }
 

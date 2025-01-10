@@ -48,15 +48,13 @@ public class CompanyEventRequestDataUniverse implements Serializable {
    * Gets or Sets type
    */
   public enum TypeEnum {
-    TICKERS("tickers"),
+    TICKERS("Tickers"),
     
-    INDEX("index"),
+    INDEX("Index"),
     
-    ETF("etf"),
+    ETF("Etf"),
     
-    MUTUAL("mutual"),
-    
-    ALLCOMPANIES("allCompanies");
+    ALLCOMPANIES("AllCompanies");
 
     private String value;
 
@@ -135,7 +133,7 @@ public class CompanyEventRequestDataUniverse implements Serializable {
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "tickers", value = "")
+  @ApiModelProperty(example = "Tickers", value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

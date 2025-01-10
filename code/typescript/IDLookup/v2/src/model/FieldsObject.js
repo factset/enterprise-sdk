@@ -21,6 +21,7 @@ import ValuesObject from './ValuesObject';
 class FieldsObject {
     /**
      * Constructs a new <code>FieldsObject</code>.
+     * Fields Object
      * @alias module:model/FieldsObject
      */
     constructor() { 

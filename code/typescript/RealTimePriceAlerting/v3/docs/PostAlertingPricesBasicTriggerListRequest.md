@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PostAlertingPricesBasicTriggerListRequestData**](PostAlertingPricesBasicTriggerListRequestData.md) |  | [optional] 
+**data** | [**PostAlertingPricesBasicTriggerListRequestData**](PostAlertingPricesBasicTriggerListRequestData.md) |  | 
 **meta** | [**PostAlertingPricesBasicTriggerListRequestMeta**](PostAlertingPricesBasicTriggerListRequestMeta.md) |  | [optional] 
 
 

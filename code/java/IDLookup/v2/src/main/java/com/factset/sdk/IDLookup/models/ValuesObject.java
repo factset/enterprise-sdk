@@ -34,8 +34,9 @@ import com.factset.sdk.IDLookup.JSON;
 
 
 /**
- * ValuesObject
+ * Values Object
  */
+@ApiModel(description = "Values Object")
 @JsonPropertyOrder({
   ValuesObject.JSON_PROPERTY_VALUE,
   ValuesObject.JSON_PROPERTY_DESCRIPTION

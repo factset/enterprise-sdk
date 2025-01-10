@@ -8,7 +8,7 @@ Selection of notifications for triggered alerts.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel** | [**java.util.List&lt;InlineResponse2002DataNotificationChannel&gt;**](InlineResponse2002DataNotificationChannel.md) | Notification channel selection; see endpoint &#x60;/alerting/notification/channel/list&#x60; for possible channels. |  [optional]
+**channel** | [**java.util.List&lt;GetAlertingPricesBasicTriggerGetDataNotificationChannelItems&gt;**](GetAlertingPricesBasicTriggerGetDataNotificationChannelItems.md) | Notification channel selection; see endpoint &#x60;/alerting/notification/channel/list&#x60; for possible channels. |  [optional]
 
 
 ## Implemented Interfaces

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**KeyStatsObject**](KeyStatsObject.md) |  | [optional] 
-**meta** | **{String: String}** |  | [optional] 
+**data** | [**KeyStatsDataObject**](KeyStatsDataObject.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) |  | [optional] 
 
 

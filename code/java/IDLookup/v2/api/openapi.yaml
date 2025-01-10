@@ -229,6 +229,7 @@ paths:
       operationId: helper
       parameters:
       - description: Type of dataset.
+        example: equities
         explode: true
         in: query
         name: dataset
@@ -894,6 +895,7 @@ components:
           resultCount:
             equities: 2
     badRequest:
+      description: Sample response for 'Bad Request'
       summary: Bad Request
       value:
         errors:
@@ -902,6 +904,7 @@ components:
           detail: Invalid dataset (optons) specified in datasets.
           title: parameterError:[bond] is not a valid parameter(s)
     unAuthenticated:
+      description: Sample response for 'Not Authenticated'
       summary: Not Authenticated
       value:
         errors:
@@ -911,6 +914,7 @@ components:
           title: There were either no, invalid, or expired credentials present in
             the request.
     forbidden:
+      description: Sample response for 'Not Authorized'
       summary: Not Authorized
       value:
         errors:
@@ -919,6 +923,7 @@ components:
           detail: User Authorization Failed.
           title: The given credentials are not entitled for the requested data.
     limitExceeded:
+      description: Sample response for 'Limit Exceeded'
       summary: Limit Exceeded
       value:
         errors:
@@ -927,6 +932,7 @@ components:
           detail: limit exceeded
           title: The application or user has exceeded the permitted request quantities.
     generalException:
+      description: Sample response for 'Internal Server Error'
       summary: Internal Server Error
       value:
         errors:
@@ -938,6 +944,7 @@ components:
   parameters:
     dataset:
       description: Type of dataset.
+      example: equities
       explode: true
       in: query
       name: dataset
@@ -1040,7 +1047,7 @@ components:
               value: value
             - description: description
               value: value
-          dataset: dataset
+          dataset: equities
       properties:
         data:
           $ref: '#/components/schemas/helperObject'
@@ -1065,7 +1072,7 @@ components:
             value: value
           - description: description
             value: value
-        dataset: dataset
+        dataset: equities
       properties:
         description:
           description: Description of the dataset.
@@ -1073,6 +1080,7 @@ components:
           type: string
         dataset:
           description: Name of the dataset.
+          example: equities
           nullable: true
           type: string
         fields:
@@ -1083,6 +1091,7 @@ components:
       title: Helper Object
       type: object
     fieldsObject:
+      description: Fields Object
       example:
         field: field
         values:
@@ -1102,6 +1111,7 @@ components:
           type: array
       type: object
     valuesObject:
+      description: Values Object
       example:
         description: description
         value: value
@@ -1135,6 +1145,7 @@ components:
           title: Search term
           type: string
         datasets:
+          description: Type of dataset
           items:
             $ref: '#/components/schemas/filterObjects'
           minItems: 1
@@ -1146,6 +1157,7 @@ components:
       title: Lookup Object
       type: object
     datasets:
+      description: Type of dataset
       items:
         $ref: '#/components/schemas/filterObjects'
       minItems: 1
@@ -1186,6 +1198,7 @@ components:
           - regions
           - yields
           - options
+          example: equities
           type: string
         filters:
           $ref: '#/components/schemas/filters'
@@ -1225,9 +1238,13 @@ components:
               \ in an array. The values within this list are tied by an OR operation.\
               \ Example:- `[\"US\", \"GB\"]` would include documents whose region\
               \ values are either the United States or Great Britain.\n \n"
+            example:
+            - US
+            - GB
             items:
               type: string
             type: array
+          description: Include Object
           title: Include Object
           type: object
         exclude:
@@ -1239,9 +1256,13 @@ components:
               \ OR operation. Example:- `[\"US\", \"GB\"]` would exclude documents\
               \ whose region values are either the United States or Great Britain.\n\
               \ \n"
+            example:
+            - US
+            - GB
             items:
               type: string
             type: array
+          description: Exclude Object
           title: Exclude Object
           type: object
       title: Filters
@@ -1254,9 +1275,13 @@ components:
           \ in an array. The values within this list are tied by an OR operation.\
           \ Example:- `[\"US\", \"GB\"]` would include documents whose region values\
           \ are either the United States or Great Britain.\n \n"
+        example:
+        - US
+        - GB
         items:
           type: string
         type: array
+      description: Include Object
       title: Include Object
       type: object
     excludeObject:
@@ -1267,9 +1292,13 @@ components:
           \ an array. The values within this list are tied by an OR operation. Example:-\
           \ `[\"US\", \"GB\"]` would exclude documents whose region values are either\
           \ the United States or Great Britain.\n \n"
+        example:
+        - US
+        - GB
         items:
           type: string
         type: array
+      description: Exclude Object
       title: Exclude Object
       type: object
     lookupResponse:
@@ -1382,6 +1411,7 @@ components:
           - entityId
           - tickerRegion
           - tickerExchange
+          example: symbol
           type: string
         name:
           description: Name of the related dataset.

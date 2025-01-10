@@ -104,7 +104,7 @@ public class HelperObject implements Serializable {
    * @return dataset
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Name of the dataset.")
+  @ApiModelProperty(example = "equities", value = "Name of the dataset.")
   @JsonIgnore
 
   public String getDataset() {

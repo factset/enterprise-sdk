@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**ProfileData**](ProfileData.md) |  |  [optional]
-**meta** | **Map&lt;String, String&gt;** |  |  [optional]
+**data** | [**ProfileDataObject**](ProfileDataObject.md) |  |  [optional]
+**meta** | **Meta** |  |  [optional]
 
 
 ## Implemented Interfaces

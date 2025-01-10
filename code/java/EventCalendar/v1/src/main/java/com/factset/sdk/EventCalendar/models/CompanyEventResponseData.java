@@ -73,29 +73,29 @@ public class CompanyEventResponseData implements Serializable {
    * Gets or Sets eventType
    */
   public enum EventTypeEnum {
-    E("E"),
+    EARNINGS("Earnings"),
     
-    SA("SA"),
+    SALESREVENUECALL("SalesRevenueCall"),
     
-    G("G"),
+    GUIDANCECALL("GuidanceCall"),
     
-    AM("AM"),
+    ANALYSTSINVESTORSMEETING("AnalystsInvestorsMeeting"),
     
-    SM("SM"),
+    SHAREHOLDERSMEETING("ShareholdersMeeting"),
     
-    SS("SS"),
+    SPECIALSITUATION("SpecialSituation"),
     
-    CP("CP"),
+    CONFERENCE("Conference"),
     
-    CONFIRMEDER("confirmedER"),
+    CONFIRMEDEARNINGSRELEASE("ConfirmedEarningsRelease"),
     
-    SR("SR"),
+    PROJECTEDEARNINGSRELEASE("ProjectedEarningsRelease"),
     
-    PROJECTEDER("projectedER"),
+    SALESREVENUERELEASE("SalesRevenueRelease"),
     
-    S("S"),
+    SPLIT("Split"),
     
-    D("D");
+    DIVIDEND("Dividend");
 
     private String value;
 
@@ -294,7 +294,7 @@ public class CompanyEventResponseData implements Serializable {
    * @return eventType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "E", value = "")
+  @ApiModelProperty(example = "Earnings", value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

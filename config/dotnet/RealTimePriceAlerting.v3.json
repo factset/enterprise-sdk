@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.RealTimePriceAlerting",
-  "packageVersion": "0.12.1",
+  "packageVersion": "0.13.0",
   "packageGuid": "{a420525c-7650-5a1f-9788-efc28c4d4eb3}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/RealTimePriceAlerting/v3",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/RealTimePriceAlerting/0.12.1",
+  "httpUserAgent": "fds-sdk/dotnet/RealTimePriceAlerting/0.13.0",
   "files": {
     "LICENSE": {}
   },

@@ -7,7 +7,7 @@ README.md
 docs/CompanyApi.md
 docs/CompanyEventRequest.md
 docs/CompanyEventRequestData.md
-docs/CompanyEventRequestDataDate.md
+docs/CompanyEventRequestDataDateTime.md
 docs/CompanyEventRequestDataUniverse.md
 docs/CompanyEventResponse.md
 docs/CompanyEventResponseData.md
@@ -21,7 +21,7 @@ src/api/CompanyApi.js
 src/index.js
 src/model/CompanyEventRequest.js
 src/model/CompanyEventRequestData.js
-src/model/CompanyEventRequestDataDate.js
+src/model/CompanyEventRequestDataDateTime.js
 src/model/CompanyEventRequestDataUniverse.js
 src/model/CompanyEventResponse.js
 src/model/CompanyEventResponseData.js

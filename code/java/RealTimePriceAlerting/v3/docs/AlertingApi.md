@@ -60,7 +60,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AlertingApi apiInstance = new AlertingApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "4004"; // String | Identifier of the alert.
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse200 result = apiInstance.getAlertingPricesBasicAlertGet(id, attributes);
@@ -82,7 +82,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  |
+ **id** | **String**| Identifier of the alert. |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## getAlertingPricesBasicAlertList
 
-> InlineResponse2001 getAlertingPricesBasicAlertList(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit)
+> InlineResponse2001 getAlertingPricesBasicAlertList(attributes, metaSubscriptionMinimumInterval, paginationCursor, paginationLimit)
 
 List of alerts.
 
@@ -155,11 +155,11 @@ public class Example {
 
         AlertingApi apiInstance = new AlertingApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        BigDecimal subscriptionMinimumInterval = new BigDecimal("0"); // BigDecimal | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
-        String paginationCursor = "paginationCursor_example"; // String | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
+        BigDecimal metaSubscriptionMinimumInterval = new BigDecimal("0"); // BigDecimal | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
+        String paginationCursor = "Lorem ipsum"; // String | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
         BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
-            InlineResponse2001 result = apiInstance.getAlertingPricesBasicAlertList(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit);
+            InlineResponse2001 result = apiInstance.getAlertingPricesBasicAlertList(attributes, metaSubscriptionMinimumInterval, paginationCursor, paginationLimit);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -179,7 +179,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **subscriptionMinimumInterval** | **BigDecimal**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0]
+ **metaSubscriptionMinimumInterval** | **BigDecimal**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0]
  **paginationCursor** | **String**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional]
  **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
@@ -251,7 +251,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AlertingApi apiInstance = new AlertingApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "4004"; // String | Identifier of the trigger.
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse2002 result = apiInstance.getAlertingPricesBasicTriggerGet(id, attributes);
@@ -273,7 +273,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  |
+ **id** | **String**| Identifier of the trigger. |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type

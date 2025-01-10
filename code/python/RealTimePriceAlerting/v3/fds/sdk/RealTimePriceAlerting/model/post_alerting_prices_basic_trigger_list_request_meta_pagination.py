@@ -1,7 +1,7 @@
 """
-    Price Alerting API For Digital Portals
+    Real-Time Price Alerting API
 
-    The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.  A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.  When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com.   # noqa: E501
+    The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.   * A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.   The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument. * When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com.   # noqa: E501
 
     The version of the OpenAPI document: 3.0.0
     Contact: api@factset.com
@@ -90,7 +90,7 @@ class PostAlertingPricesBasicTriggerListRequestMetaPagination(ModelNormal):
         """
         return {
             'cursor': (str,),  # noqa: E501
-            'limit': (float,),  # noqa: E501
+            'limit': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +145,7 @@ class PostAlertingPricesBasicTriggerListRequestMetaPagination(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cursor (str): Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).. [optional]  # noqa: E501
-            limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
+            limit (int): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class PostAlertingPricesBasicTriggerListRequestMetaPagination(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cursor (str): Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).. [optional]  # noqa: E501
-            limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
+            limit (int): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

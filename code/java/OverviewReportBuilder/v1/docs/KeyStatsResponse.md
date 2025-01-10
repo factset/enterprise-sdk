@@ -8,8 +8,8 @@ Key statistics data for the requested id
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**KeyStatsObject**](KeyStatsObject.md) |  |  [optional]
-**meta** | **Map&lt;String, String&gt;** |  |  [optional]
+**data** | [**KeyStatsDataObject**](KeyStatsDataObject.md) |  |  [optional]
+**meta** | **Meta** |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -28,25 +28,25 @@ public class CalculationsApi {
     this.apiClient = apiClient;
   }
   
-  private static final Map<Integer, GenericType> analyticsQuantFpeV1CalculationsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> createCalculationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    analyticsQuantFpeV1CalculationsIdGetResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
-    analyticsQuantFpeV1CalculationsIdGetResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
+    createCalculationsResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
   }
 
-  private static final Map<Integer, GenericType> analyticsQuantFpeV1CalculationsIdLogGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCalculationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    analyticsQuantFpeV1CalculationsIdLogGetResponseTypeMap.put(200, new GenericType<File>(){});
+    getCalculationsResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
+    getCalculationsResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
   }
 
-  private static final Map<Integer, GenericType> analyticsQuantFpeV1CalculationsIdOutputGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCalculationsLogResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    analyticsQuantFpeV1CalculationsIdOutputGetResponseTypeMap.put(200, new GenericType<File>(){});
+    getCalculationsLogResponseTypeMap.put(200, new GenericType<File>(){});
   }
 
-  private static final Map<Integer, GenericType> analyticsQuantFpeV1CalculationsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCalculationsOutputResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    analyticsQuantFpeV1CalculationsPostResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
+    getCalculationsOutputResponseTypeMap.put(200, new GenericType<File>(){});
   }
 
   
@@ -71,6 +71,80 @@ public class CalculationsApi {
   }
 
   /**
+   * Starts a new script calculation
+   * This endpoint takes a python script and starts executing it within FPE
+   * @param calculation  (optional)
+   * @return CalculationStatus
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 202 </td><td> Expected response, contains the relative URL in the Location header to check the status of the calculation. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid request body provided </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+     </table>
+   */
+  public CalculationStatus createCalculations(Calculation calculation) throws ApiException {
+    return createCalculationsWithHttpInfo(calculation).getData();
+  }
+
+  /**
+   * Starts a new script calculation
+   * This endpoint takes a python script and starts executing it within FPE
+   * @param calculation  (optional)
+   * @return ApiResponse&lt;CalculationStatus&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 202 </td><td> Expected response, contains the relative URL in the Location header to check the status of the calculation. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid request body provided </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<CalculationStatus> createCalculationsWithHttpInfo(Calculation calculation) throws ApiException {
+    Object localVarPostBody = calculation;
+    
+    // create path and map variables
+    String localVarPath = "/calculations";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        CalculationStatus
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.createCalculations", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, createCalculationsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
    * Get calculation status by id
    * This is the endpoint to check on the progress of a previous calculation request.
    * @param id From url, provided by location header or response body in the calculation start endpoint (required)
@@ -85,8 +159,8 @@ public class CalculationsApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public CalculationStatus analyticsQuantFpeV1CalculationsIdGet(String id) throws ApiException {
-    return analyticsQuantFpeV1CalculationsIdGetWithHttpInfo(id).getData();
+  public CalculationStatus getCalculations(String id) throws ApiException {
+    return getCalculationsWithHttpInfo(id).getData();
   }
 
   /**
@@ -104,16 +178,16 @@ public class CalculationsApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<CalculationStatus> analyticsQuantFpeV1CalculationsIdGetWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<CalculationStatus> getCalculationsWithHttpInfo(String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling analyticsQuantFpeV1CalculationsIdGet");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCalculations");
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/quant/fpe/v1/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -143,9 +217,9 @@ public class CalculationsApi {
         
         CalculationStatus
       
-    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantFpeV1CalculationsIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.getCalculations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, analyticsQuantFpeV1CalculationsIdGetResponseTypeMap, false);
+                               localVarAuthNames, getCalculationsResponseTypeMap, false);
 
     return apiResponse;
 
@@ -165,8 +239,8 @@ public class CalculationsApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public File analyticsQuantFpeV1CalculationsIdLogGet(String id) throws ApiException {
-    return analyticsQuantFpeV1CalculationsIdLogGetWithHttpInfo(id).getData();
+  public File getCalculationsLog(String id) throws ApiException {
+    return getCalculationsLogWithHttpInfo(id).getData();
   }
 
   /**
@@ -184,16 +258,16 @@ public class CalculationsApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<File> analyticsQuantFpeV1CalculationsIdLogGetWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<File> getCalculationsLogWithHttpInfo(String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling analyticsQuantFpeV1CalculationsIdLogGet");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCalculationsLog");
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/quant/fpe/v1/calculations/{id}/log"
+    String localVarPath = "/calculations/{id}/log"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -223,9 +297,9 @@ public class CalculationsApi {
         
         File
       
-    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantFpeV1CalculationsIdLogGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.getCalculationsLog", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, analyticsQuantFpeV1CalculationsIdLogGetResponseTypeMap, false);
+                               localVarAuthNames, getCalculationsLogResponseTypeMap, false);
 
     return apiResponse;
 
@@ -245,8 +319,8 @@ public class CalculationsApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public File analyticsQuantFpeV1CalculationsIdOutputGet(String id) throws ApiException {
-    return analyticsQuantFpeV1CalculationsIdOutputGetWithHttpInfo(id).getData();
+  public File getCalculationsOutput(String id) throws ApiException {
+    return getCalculationsOutputWithHttpInfo(id).getData();
   }
 
   /**
@@ -264,16 +338,16 @@ public class CalculationsApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<File> analyticsQuantFpeV1CalculationsIdOutputGetWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<File> getCalculationsOutputWithHttpInfo(String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling analyticsQuantFpeV1CalculationsIdOutputGet");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCalculationsOutput");
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/quant/fpe/v1/calculations/{id}/output"
+    String localVarPath = "/calculations/{id}/output"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -303,83 +377,9 @@ public class CalculationsApi {
         
         File
       
-    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantFpeV1CalculationsIdOutputGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.getCalculationsOutput", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, analyticsQuantFpeV1CalculationsIdOutputGetResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * Starts a new script calculation
-   * This endpoint takes a python script and starts executing it within FPE
-   * @param calculation  (optional)
-   * @return CalculationStatus
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 202 </td><td> Expected response, contains the relative URL in the Location header to check the status of the calculation. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 400 </td><td> Invalid request body provided </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-     </table>
-   */
-  public CalculationStatus analyticsQuantFpeV1CalculationsPost(Calculation calculation) throws ApiException {
-    return analyticsQuantFpeV1CalculationsPostWithHttpInfo(calculation).getData();
-  }
-
-  /**
-   * Starts a new script calculation
-   * This endpoint takes a python script and starts executing it within FPE
-   * @param calculation  (optional)
-   * @return ApiResponse&lt;CalculationStatus&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 202 </td><td> Expected response, contains the relative URL in the Location header to check the status of the calculation. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 400 </td><td> Invalid request body provided </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-     </table>
-   */
-  public ApiResponse<CalculationStatus> analyticsQuantFpeV1CalculationsPostWithHttpInfo(Calculation calculation) throws ApiException {
-    Object localVarPostBody = calculation;
-    
-    // create path and map variables
-    String localVarPath = "/analytics/quant/fpe/v1/calculations";
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        CalculationStatus
-      
-    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantFpeV1CalculationsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, analyticsQuantFpeV1CalculationsPostResponseTypeMap, false);
+                               localVarAuthNames, getCalculationsOutputResponseTypeMap, false);
 
     return apiResponse;
 

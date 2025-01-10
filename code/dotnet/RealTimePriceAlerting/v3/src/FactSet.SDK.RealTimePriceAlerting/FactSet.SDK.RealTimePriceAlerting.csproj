@@ -13,7 +13,7 @@
     <Description>Real-Time Price Alerting client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.RealTimePriceAlerting</RootNamespace>
-    <Version>0.12.1</Version>
+    <Version>0.13.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.RealTimePriceAlerting.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

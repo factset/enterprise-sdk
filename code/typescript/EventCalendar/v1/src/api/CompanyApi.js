@@ -66,7 +66,7 @@ export default class CompanyApi {
       let returnType = CompanyEventResponse;
 
       return this.apiClient.callApi(
-        '/company/event/list', 'POST',
+        '/calendar/events', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

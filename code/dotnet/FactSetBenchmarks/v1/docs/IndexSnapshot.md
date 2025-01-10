@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FsymId** | **string** | Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet. | [optional] 
 **Date** | **DateTime?** | The respective date for values as of the date requested in YYYY-MM-DD format. | [optional] 
+**InceptionDate** | **DateTime?** | The inception date of the requested index in YYYY-MM-DD format. | [optional] 
 **Name** | **string** | Proper Name of Index. | [optional] 
 **ConstituentNumber** | **int?** | The total number of constituents as of the date requested. | [optional] 
 **Currency** | **string** | Currency Code used in adjustments. If no Currency was requested, the service will default to the local Calendar. | [optional] 

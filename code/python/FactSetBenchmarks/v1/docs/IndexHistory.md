@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fsym_id** | **str, none_type** | Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet. | [optional] 
 **date** | **date, none_type** | The respective date for values as of the date requested in YYYY-MM-DD format. | [optional] 
+**inception_date** | **date, none_type** | The inception date of the requested index in YYYY-MM-DD format. | [optional] 
 **name** | **str, none_type** | Proper Name of Index. | [optional] 
 **constituent_number** | **int, none_type** | The total number of constituents as of the date requested. | [optional] 
 **currency** | **str, none_type** | Currency Code used in adjustments. If no Currency was requested, the service will default to LOCAL (&#39;LOC&#39;). | [optional] 

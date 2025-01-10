@@ -336,6 +336,7 @@ components:
           - regions
           - yields
           - options
+      example: equities
   schemas:
     helperEndpoint:
       title: Helper Endpoint
@@ -359,12 +360,14 @@ components:
           nullable: true
           type: string
           description: Name of the dataset.
+          example: equities
         fields:
           type: array
           description: Fields Object
           items:
             $ref: '#/components/schemas/fieldsObject'
     fieldsObject:
+      description: Fields Object
       type: object
       properties:
         field:
@@ -377,6 +380,7 @@ components:
           items:
             $ref: '#/components/schemas/valuesObject'
     valuesObject:
+      description: Values Object
       type: object
       properties:
         value:
@@ -425,6 +429,7 @@ components:
           $ref: '#/components/schemas/datasets'
     datasets:
       title: Datasets
+      description: Type of dataset
       type: array
       minItems: 1
       items:
@@ -469,6 +474,7 @@ components:
             - regions
             - yields
             - options
+          example: equities
         filters:
           $ref: '#/components/schemas/filters'
     filters:
@@ -504,6 +510,7 @@ components:
           $ref: '#/components/schemas/excludeObject'
     includeObject:
       title: Include Object
+      description: Include Object
       type: object
       additionalProperties:
         description: >
@@ -522,8 +529,12 @@ components:
         type: array
         items:
           type: string
+        example:
+          - US
+          - GB
     excludeObject:
       title: Exclude Object
+      description: Exclude Object
       type: object
       additionalProperties:
         description: >
@@ -542,6 +553,9 @@ components:
         type: array
         items:
           type: string
+        example:
+          - US
+          - GB
     lookupResponse:
       title: Lookup Response
       type: object
@@ -726,6 +740,7 @@ components:
             - entityId
             - tickerRegion
             - tickerExchange
+          example: symbol
         name:
           type: string
           description: Name of the related dataset.
@@ -1420,6 +1435,7 @@ components:
             equities: 2
     badRequest:
       summary: Bad Request
+      description: Sample response for 'Bad Request'
       value:
         errors:
           - id: '123456789'
@@ -1428,6 +1444,7 @@ components:
             title: parameterError:[bond] is not a valid parameter(s)
     unAuthenticated:
       summary: Not Authenticated
+      description: Sample response for 'Not Authenticated'
       value:
         errors:
           - id: '123456789'
@@ -1437,6 +1454,7 @@ components:
               There were either no, invalid, or expired credentials present in
               the request.
     forbidden:
+      description: Sample response for 'Not Authorized'
       summary: Not Authorized
       value:
         errors:
@@ -1446,6 +1464,7 @@ components:
             title: The given credentials are not entitled for the requested data.
     limitExceeded:
       summary: Limit Exceeded
+      description: Sample response for 'Limit Exceeded'
       value:
         errors:
           - id: '123456789'
@@ -1455,6 +1474,7 @@ components:
               The application or user has exceeded the permitted request
               quantities.
     generalException:
+      description: Sample response for 'Internal Server Error'
       summary: Internal Server Error
       value:
         errors:

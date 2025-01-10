@@ -294,7 +294,7 @@ namespace FactSet.SDK.EventCalendar.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            CompanyEventResponse>("/company/event/list", localVarRequestOptions, this.Configuration);
+            CompanyEventResponse>("/calendar/events", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyEvent", localVarResponse);
@@ -384,7 +384,7 @@ namespace FactSet.SDK.EventCalendar.Api
             localVarRequestOptions.ResponseTypeDictionary = GetCompanyEventResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CompanyEventResponse>("/company/event/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CompanyEventResponse>("/calendar/events", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

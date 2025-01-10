@@ -75,7 +75,7 @@ public class AlertingApi {
   /**
    * Details of an alert.
    * Details of an alert. The details include the trigger definition at the time of alert creation.
-   * @param id  (required)
+   * @param id Identifier of the alert. (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
@@ -92,7 +92,7 @@ public class AlertingApi {
   /**
    * Details of an alert.
    * Details of an alert. The details include the trigger definition at the time of alert creation.
-   * @param id  (required)
+   * @param id Identifier of the alert. (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
@@ -153,7 +153,7 @@ public class AlertingApi {
    * List of alerts.
    * List of alerts in descending order of creation.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0)
+   * @param metaSubscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0)
    * @param paginationCursor Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)
    * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return InlineResponse2001
@@ -164,15 +164,15 @@ public class AlertingApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 getAlertingPricesBasicAlertList(java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval, String paginationCursor, BigDecimal paginationLimit) throws ApiException {
-    return getAlertingPricesBasicAlertListWithHttpInfo(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit).getData();
+  public InlineResponse2001 getAlertingPricesBasicAlertList(java.util.Set<String> attributes, BigDecimal metaSubscriptionMinimumInterval, String paginationCursor, BigDecimal paginationLimit) throws ApiException {
+    return getAlertingPricesBasicAlertListWithHttpInfo(attributes, metaSubscriptionMinimumInterval, paginationCursor, paginationLimit).getData();
   }
 
   /**
    * List of alerts.
    * List of alerts in descending order of creation.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0)
+   * @param metaSubscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0)
    * @param paginationCursor Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)
    * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return ApiResponse&lt;InlineResponse2001&gt;
@@ -183,7 +183,7 @@ public class AlertingApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> getAlertingPricesBasicAlertListWithHttpInfo(java.util.Set<String> attributes, BigDecimal subscriptionMinimumInterval, String paginationCursor, BigDecimal paginationLimit) throws ApiException {
+  public ApiResponse<InlineResponse2001> getAlertingPricesBasicAlertListWithHttpInfo(java.util.Set<String> attributes, BigDecimal metaSubscriptionMinimumInterval, String paginationCursor, BigDecimal paginationLimit) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -196,7 +196,7 @@ public class AlertingApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_subscriptionMinimumInterval", subscriptionMinimumInterval));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metaSubscriptionMinimumInterval", metaSubscriptionMinimumInterval));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationCursor", paginationCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
 
@@ -230,7 +230,7 @@ public class AlertingApi {
   /**
    * Details of a trigger.
    * Details of a trigger.
-   * @param id  (required)
+   * @param id Identifier of the trigger. (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
@@ -247,7 +247,7 @@ public class AlertingApi {
   /**
    * Details of a trigger.
    * Details of a trigger.
-   * @param id  (required)
+   * @param id Identifier of the trigger. (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call

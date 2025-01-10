@@ -33,7 +33,7 @@ namespace FactSet.SDK.EventCalendar.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.20.9";
+        public const string Version = "0.21.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,8 +106,8 @@ namespace FactSet.SDK.EventCalendar.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/EventCalendar/0.20.9";
-            BasePath = "https://api.factset.com/event-calendar/v1";
+            UserAgent = "fds-sdk/dotnet/EventCalendar/0.21.0";
+            BasePath = "https://api.factset.com/events/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -115,8 +115,14 @@ namespace FactSet.SDK.EventCalendar.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://api.factset.com/event-calendar/v1"},
-                        {"description", "No description provided"},
+                        {"url", "https://api.factset.com/events/v1"},
+                        {"description", "Production server"},
+                    }
+                },
+                {
+                    new Dictionary<string, object> {
+                        {"url", "https://api.staging-cauth.factset.com/events/v1"},
+                        {"description", "Staging server"},
                     }
                 }
             };
@@ -133,7 +139,7 @@ namespace FactSet.SDK.EventCalendar.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api.factset.com/event-calendar/v1") : this()
+            string basePath = "https://api.factset.com/events/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -484,7 +490,7 @@ namespace FactSet.SDK.EventCalendar.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.20.9\n";
+            report += "    SDK Package Version: 0.21.0\n";
 
             return report;
         }

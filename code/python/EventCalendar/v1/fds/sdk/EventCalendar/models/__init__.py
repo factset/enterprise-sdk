@@ -11,7 +11,7 @@
 
 from fds.sdk.EventCalendar.model.company_event_request import CompanyEventRequest
 from fds.sdk.EventCalendar.model.company_event_request_data import CompanyEventRequestData
-from fds.sdk.EventCalendar.model.company_event_request_data_date import CompanyEventRequestDataDate
+from fds.sdk.EventCalendar.model.company_event_request_data_date_time import CompanyEventRequestDataDateTime
 from fds.sdk.EventCalendar.model.company_event_request_data_universe import CompanyEventRequestDataUniverse
 from fds.sdk.EventCalendar.model.company_event_response import CompanyEventResponse
 from fds.sdk.EventCalendar.model.company_event_response_data import CompanyEventResponseData

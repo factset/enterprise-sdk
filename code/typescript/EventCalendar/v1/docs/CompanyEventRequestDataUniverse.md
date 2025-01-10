@@ -12,15 +12,13 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `tickers` (value: `"tickers"`)
+* `Tickers` (value: `"Tickers"`)
 
-* `index` (value: `"index"`)
+* `Index` (value: `"Index"`)
 
-* `etf` (value: `"etf"`)
+* `Etf` (value: `"Etf"`)
 
-* `mutual` (value: `"mutual"`)
-
-* `allCompanies` (value: `"allCompanies"`)
+* `AllCompanies` (value: `"AllCompanies"`)
 
 
 

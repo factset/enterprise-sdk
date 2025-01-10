@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.IDLookup.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.IDLookup.Model
 {
     /// <summary>
-    /// FieldsObject
+    /// Fields Object
     /// </summary>
     [DataContract(Name = "fieldsObject")]
     public partial class FieldsObject : IEquatable<FieldsObject>, IValidatableObject

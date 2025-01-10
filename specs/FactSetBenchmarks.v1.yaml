@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.8.0
+  version: 1.9.0
   title: FactSet Benchmarks API
   contact:
     name: FactSet Research Systems
@@ -965,6 +965,8 @@ components:
         * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
 
         * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
+
+        * **BLOOMBERG** - Global, Regional, US, Europe, Maturity, Ratings
       schema:
         type: string
         enum:
@@ -979,6 +981,7 @@ components:
           - STOXX
           - TOPIX
           - MORNINGSTAR
+          - BLOOMBERG
   schemas:
     benchmarkConstituentsRequest:
       type: object
@@ -1193,6 +1196,12 @@ components:
           format: date
           example: '2020-07-01'
           nullable: true
+        inceptionDate:
+          description: The inception date of the requested index in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '1988-01-04'
+          nullable: true
         name:
           description: Proper Name of Index.
           type: string
@@ -1335,6 +1344,12 @@ components:
           type: string
           format: date
           example: '2020-07-01'
+          nullable: true
+        inceptionDate:
+          description: The inception date of the requested index in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '1988-01-04'
           nullable: true
         name:
           description: Proper Name of Index.
@@ -1834,6 +1849,8 @@ components:
         * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
 
         * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
+
+        * **BLOOMBERG** - Global, Regional, US, Europe, Maturity, Ratings
       type: string
       enum:
         - CHINA_HK_INDICES
@@ -1847,6 +1864,7 @@ components:
         - STOXX
         - TOPIX
         - MORNINGSTAR
+        - BLOOMBERG
       example: MSCI
     errorResponse:
       type: object
@@ -2208,6 +2226,7 @@ components:
           - constituentNumber: 505
             currency: LOCAL
             date: '2020-08-06'
+            inceptionDate: '1988-01-04'
             fsymId: SP50
             marketValue: 27696158.012077
             name: S&P 500
@@ -2224,6 +2243,7 @@ components:
           - constituentNumber: 3000
             currency: LOCAL
             date: '2020-08-06'
+            inceptionDate: '1978-12-29'
             fsymId: R.3000
             marketValue: 32954409.7735481
             name: Russell 3000
@@ -2254,6 +2274,7 @@ components:
         data:
           - fsymId: SP50
             date: '2018-12-31'
+            inceptionDate: '1988-01-04'
             name: S&P 500
             constituentNumber: 505
             currency: USD
@@ -2268,6 +2289,7 @@ components:
             observationDate: '2018-12-31'
           - fsymId: SP50
             date: '2019-12-31'
+            inceptionDate: '1988-01-04'
             name: S&P 500
             constituentNumber: 505
             currency: USD

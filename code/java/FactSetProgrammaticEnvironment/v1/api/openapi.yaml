@@ -1,19 +1,33 @@
 openapi: 3.0.0
 info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: FactSet Programmatic Environment (FPE) API is an API for users to interact
     with FPE programmatically, streamlining path from research to production.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: FPE API
   version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-programmatic-environment-api
 servers:
-- url: https://api.factset.com
+- url: https://api.factset.com/analytics/quant/fpe/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: Calculations
+- name: Files
 paths:
-  /analytics/quant/fpe/v1/calculations:
+  /calculations:
     post:
       description: This endpoint takes a python script and starts executing it within
         FPE
+      operationId: createCalculations
       requestBody:
         content:
           application/json:
@@ -78,10 +92,11 @@ paths:
       - Calculations
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/quant/fpe/v1/calculations/{id}:
+  /calculations/{id}:
     get:
       description: This is the endpoint to check on the progress of a previous calculation
         request.
+      operationId: getCalculations
       parameters:
       - description: From url, provided by location header or response body in the
           calculation start endpoint
@@ -163,9 +178,10 @@ paths:
       tags:
       - Calculations
       x-accepts: application/json
-  /analytics/quant/fpe/v1/calculations/{id}/output:
+  /calculations/{id}/output:
     get:
       description: This endpoint returns the specified output from the calculation.
+      operationId: getCalculationsOutput
       parameters:
       - description: From url, provided by location header or response body in the
           calculation start endpoint
@@ -238,9 +254,10 @@ paths:
       tags:
       - Calculations
       x-accepts: '*'
-  /analytics/quant/fpe/v1/calculations/{id}/log:
+  /calculations/{id}/log:
     get:
       description: This endpoint returns the log from the calculation.
+      operationId: getCalculationsLog
       parameters:
       - description: From url, provided by location header or response body in the
           calculation start endpoint
@@ -306,9 +323,10 @@ paths:
       tags:
       - Calculations
       x-accepts: text/plain
-  /analytics/quant/fpe/v1/files/{server}/{file}:
+  /files/{server}/{file}:
     post:
       description: This endpoint takes a file and uploads it
+      operationId: uploadFile
       parameters:
       - description: The server to upload the file to. Either `interactive` or `batch`.
         explode: false
@@ -385,10 +403,11 @@ paths:
       - Files
       x-contentType: '*'
       x-accepts: application/json
-  /analytics/quant/fpe/v1/files/uploads/{id}:
+  /files/uploads/{id}:
     get:
       description: This is the endpoint to check on the progress of a previous upload
         request.
+      operationId: getUploadFileStatus
       parameters:
       - description: From url, provided by location header or response body in the
           upload start endpoint
@@ -473,6 +492,7 @@ components:
   schemas:
     Calculation:
       example:
+        kernel: python-3-7
         script: script
         notebook: notebook
       properties:
@@ -483,6 +503,14 @@ components:
           description: Notebook file to be executed. Only notebooks in the Client
             directory are currently supported.
           type: string
+        kernel:
+          default: python-3-7
+          description: The kernel to use for this calculation
+          enum:
+          - python-3-7
+          - python-3-11
+          type: string
+      type: object
     CalculationStatus:
       example:
         id: id
@@ -497,6 +525,7 @@ components:
           - failed
           - completed
           type: string
+      type: object
     FileUploadStatus:
       example:
         id: id
@@ -512,6 +541,7 @@ components:
           - completed
           - running
           type: string
+      type: object
   securitySchemes:
     FactSetOAuth2:
       flows:

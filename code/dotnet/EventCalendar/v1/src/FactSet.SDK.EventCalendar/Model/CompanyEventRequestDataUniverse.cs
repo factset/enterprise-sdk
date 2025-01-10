@@ -39,34 +39,28 @@ namespace FactSet.SDK.EventCalendar.Model
         public enum TypeEnum
         {
             /// <summary>
-            /// Enum Tickers for value: tickers
+            /// Enum Tickers for value: Tickers
             /// </summary>
-            [EnumMember(Value = "tickers")]
+            [EnumMember(Value = "Tickers")]
             Tickers = 1,
 
             /// <summary>
-            /// Enum Index for value: index
+            /// Enum Index for value: Index
             /// </summary>
-            [EnumMember(Value = "index")]
+            [EnumMember(Value = "Index")]
             Index = 2,
 
             /// <summary>
-            /// Enum Etf for value: etf
+            /// Enum Etf for value: Etf
             /// </summary>
-            [EnumMember(Value = "etf")]
+            [EnumMember(Value = "Etf")]
             Etf = 3,
 
             /// <summary>
-            /// Enum Mutual for value: mutual
+            /// Enum AllCompanies for value: AllCompanies
             /// </summary>
-            [EnumMember(Value = "mutual")]
-            Mutual = 4,
-
-            /// <summary>
-            /// Enum AllCompanies for value: allCompanies
-            /// </summary>
-            [EnumMember(Value = "allCompanies")]
-            AllCompanies = 5
+            [EnumMember(Value = "AllCompanies")]
+            AllCompanies = 4
 
         }
 

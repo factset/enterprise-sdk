@@ -103,7 +103,7 @@ public class CompanyApi {
     }
     
     // create path and map variables
-    String localVarPath = "/company/event/list";
+    String localVarPath = "/calendar/events";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

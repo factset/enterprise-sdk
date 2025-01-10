@@ -82,34 +82,28 @@ CompanyEventRequestDataUniverse.prototype['type'] = undefined;
 CompanyEventRequestDataUniverse['TypeEnum'] = {
 
     /**
-     * value: "tickers"
+     * value: "Tickers"
      * @const
      */
-    "tickers": "tickers",
+    "Tickers": "Tickers",
 
     /**
-     * value: "index"
+     * value: "Index"
      * @const
      */
-    "index": "index",
+    "Index": "Index",
 
     /**
-     * value: "etf"
+     * value: "Etf"
      * @const
      */
-    "etf": "etf",
+    "Etf": "Etf",
 
     /**
-     * value: "mutual"
+     * value: "AllCompanies"
      * @const
      */
-    "mutual": "mutual",
-
-    /**
-     * value: "allCompanies"
-     * @const
-     */
-    "allCompanies": "allCompanies"
+    "AllCompanies": "AllCompanies"
 };
 
 

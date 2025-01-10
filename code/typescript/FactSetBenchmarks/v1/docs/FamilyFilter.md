@@ -25,4 +25,6 @@
 
 * `MORNINGSTAR` (value: `"MORNINGSTAR"`)
 
+* `BLOOMBERG` (value: `"BLOOMBERG"`)
+
 

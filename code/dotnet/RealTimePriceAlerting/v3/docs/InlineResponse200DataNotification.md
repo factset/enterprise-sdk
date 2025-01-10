@@ -5,7 +5,7 @@ Notification information of the alert.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**List&lt;InlineResponse200DataNotificationStatus&gt;**](InlineResponse200DataNotificationStatus.md) | Status of a notification per channel. | [optional] 
+**Status** | [**List&lt;GetAlertingPricesBasicAlertGetDataNotificationStatusItems&gt;**](GetAlertingPricesBasicAlertGetDataNotificationStatusItems.md) | Status of a notification per channel. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

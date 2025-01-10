@@ -3186,7 +3186,18 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
-          lastModifiedWithin: Today
+          - SalesRevenueCall
+          - GuidanceCall
+          - AnalystsInvestorsMeeting
+          - ShareholdersMeeting
+          - SpecialSituation
+          - Conference
+          - ConfirmedEarningsRelease
+          - ProjectedEarningsRelease
+          - SalesRevenueRelease
+          - Split
+          - Dividend
+          lastModifiedWithin: OneMonth
     postBodyOfSingleSymbolDateRange:
       description: Post body request example to fetch details of the AAPL-US
       summary: Single symbol for the given date range
@@ -3201,6 +3212,17 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
+          - SalesRevenueCall
+          - GuidanceCall
+          - AnalystsInvestorsMeeting
+          - ShareholdersMeeting
+          - SpecialSituation
+          - Conference
+          - ConfirmedEarningsRelease
+          - ProjectedEarningsRelease
+          - SalesRevenueRelease
+          - Split
+          - Dividend
     postMultipleSymbols:
       description: Post body request example to fetch details of the AAPL-US, MSFT-US
         and FDS-US
@@ -3215,7 +3237,18 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
-          lastModifiedWithin: Today
+          - SalesRevenueCall
+          - GuidanceCall
+          - AnalystsInvestorsMeeting
+          - ShareholdersMeeting
+          - SpecialSituation
+          - Conference
+          - ConfirmedEarningsRelease
+          - ProjectedEarningsRelease
+          - SalesRevenueRelease
+          - Split
+          - Dividend
+          lastModifiedWithin: OneMonth
     postMultipleSymbolsDateRange:
       description: Post body request example to fetch details of the AAPL-US, MSFT-US
         and FDS-US
@@ -3233,6 +3266,17 @@ components:
             type: Tickers
           eventTypes:
           - Earnings
+          - SalesRevenueCall
+          - GuidanceCall
+          - AnalystsInvestorsMeeting
+          - ShareholdersMeeting
+          - SpecialSituation
+          - Conference
+          - ConfirmedEarningsRelease
+          - ProjectedEarningsRelease
+          - SalesRevenueRelease
+          - Split
+          - Dividend
     "400Example":
       summary: Sample error Response
       value:

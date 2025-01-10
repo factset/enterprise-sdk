@@ -55,7 +55,7 @@ class CompanyApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/company/event/list',
+                'endpoint_path': '/calendar/events',
                 'operation_id': 'get_company_event',
                 'http_method': 'POST',
                 'servers': None,

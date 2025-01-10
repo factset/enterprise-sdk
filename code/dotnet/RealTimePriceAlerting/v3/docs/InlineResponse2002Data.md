@@ -6,13 +6,13 @@ Details of the trigger.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Identifier of the trigger. | [optional] 
-**Creation** | **string** | Date and time when the trigger was created. | [optional] 
+**Creation** | **DateTime?** | Date and time when the trigger was created. | [optional] 
 **Notation** | [**InlineResponse200DataTriggerNotation**](InlineResponse200DataTriggerNotation.md) |  | [optional] 
-**Price** | [**InlineResponse2001TriggerPrice**](InlineResponse2001TriggerPrice.md) |  | [optional] 
-**Range** | [**InlineResponse200DataTriggerRange**](InlineResponse200DataTriggerRange.md) |  | [optional] 
+**Price** | [**InlineResponse2002DataPrice**](InlineResponse2002DataPrice.md) |  | [optional] 
+**Range** | [**InlineResponse2002DataRange**](InlineResponse2002DataRange.md) |  | [optional] 
 **Comment** | **string** | Comment of the trigger. | [optional] 
 **Notification** | [**InlineResponse2002DataNotification**](InlineResponse2002DataNotification.md) |  | [optional] 
-**Status** | [**InlineResponse200DataTriggerStatus**](InlineResponse200DataTriggerStatus.md) |  | [optional] 
+**Status** | [**InlineResponse2002DataStatus**](InlineResponse2002DataStatus.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

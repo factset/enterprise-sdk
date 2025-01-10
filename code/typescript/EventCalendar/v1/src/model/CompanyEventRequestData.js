@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import CompanyEventRequestDataDate from './CompanyEventRequestDataDate';
+import CompanyEventRequestDataDateTime from './CompanyEventRequestDataDateTime';
 import CompanyEventRequestDataUniverse from './CompanyEventRequestDataUniverse';
 
 /**
@@ -48,14 +48,14 @@ class CompanyEventRequestData {
         if (data) {
             obj = obj || new CompanyEventRequestData();
 
-            if (data.hasOwnProperty('date')) {
-                obj['date'] = CompanyEventRequestDataDate.constructFromObject(data['date']);
+            if (data.hasOwnProperty('dateTime')) {
+                obj['dateTime'] = CompanyEventRequestDataDateTime.constructFromObject(data['dateTime']);
             }
             if (data.hasOwnProperty('universe')) {
                 obj['universe'] = CompanyEventRequestDataUniverse.constructFromObject(data['universe']);
             }
-            if (data.hasOwnProperty('types')) {
-                obj['types'] = ApiClient.convertToType(data['types'], ['String']);
+            if (data.hasOwnProperty('eventTypes')) {
+                obj['eventTypes'] = ApiClient.convertToType(data['eventTypes'], ['String']);
             }
         }
         return obj;
@@ -65,9 +65,9 @@ class CompanyEventRequestData {
 }
 
 /**
- * @member {module:model/CompanyEventRequestDataDate} date
+ * @member {module:model/CompanyEventRequestDataDateTime} dateTime
  */
-CompanyEventRequestData.prototype['date'] = undefined;
+CompanyEventRequestData.prototype['dateTime'] = undefined;
 
 /**
  * @member {module:model/CompanyEventRequestDataUniverse} universe
@@ -76,92 +76,92 @@ CompanyEventRequestData.prototype['universe'] = undefined;
 
 /**
  * The type of events returned in the response
- * @member {Array.<module:model/CompanyEventRequestData.TypesEnum>} types
+ * @member {Array.<module:model/CompanyEventRequestData.EventTypesEnum>} eventTypes
  */
-CompanyEventRequestData.prototype['types'] = undefined;
+CompanyEventRequestData.prototype['eventTypes'] = undefined;
 
 
 
 
 
 /**
- * Allowed values for the <code>types</code> property.
+ * Allowed values for the <code>eventTypes</code> property.
  * @enum {String}
  * @readonly
  */
-CompanyEventRequestData['TypesEnum'] = {
+CompanyEventRequestData['EventTypesEnum'] = {
 
     /**
-     * value: "E"
+     * value: "Earnings"
      * @const
      */
-    "E": "E",
+    "Earnings": "Earnings",
 
     /**
-     * value: "SA"
+     * value: "SalesRevenueCall"
      * @const
      */
-    "SA": "SA",
+    "SalesRevenueCall": "SalesRevenueCall",
 
     /**
-     * value: "G"
+     * value: "GuidanceCall"
      * @const
      */
-    "G": "G",
+    "GuidanceCall": "GuidanceCall",
 
     /**
-     * value: "AM"
+     * value: "AnalystsInvestorsMeeting"
      * @const
      */
-    "AM": "AM",
+    "AnalystsInvestorsMeeting": "AnalystsInvestorsMeeting",
 
     /**
-     * value: "SM"
+     * value: "ShareholdersMeeting"
      * @const
      */
-    "SM": "SM",
+    "ShareholdersMeeting": "ShareholdersMeeting",
 
     /**
-     * value: "SS"
+     * value: "SpecialSituation"
      * @const
      */
-    "SS": "SS",
+    "SpecialSituation": "SpecialSituation",
 
     /**
-     * value: "CP"
+     * value: "Conference"
      * @const
      */
-    "CP": "CP",
+    "Conference": "Conference",
 
     /**
-     * value: "confirmedER"
+     * value: "ConfirmedEarningsRelease"
      * @const
      */
-    "confirmedER": "confirmedER",
+    "ConfirmedEarningsRelease": "ConfirmedEarningsRelease",
 
     /**
-     * value: "SR"
+     * value: "ProjectedEarningsRelease"
      * @const
      */
-    "SR": "SR",
+    "ProjectedEarningsRelease": "ProjectedEarningsRelease",
 
     /**
-     * value: "projectedER"
+     * value: "SalesRevenueRelease"
      * @const
      */
-    "projectedER": "projectedER",
+    "SalesRevenueRelease": "SalesRevenueRelease",
 
     /**
-     * value: "S"
+     * value: "Split"
      * @const
      */
-    "S": "S",
+    "Split": "Split",
 
     /**
-     * value: "D"
+     * value: "Dividend"
      * @const
      */
-    "D": "D"
+    "Dividend": "Dividend"
 };
 
 

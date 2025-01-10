@@ -1,18 +1,40 @@
 {
   "openapi": "3.0.0",
   "info": {
+    "contact": {
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
     "title": "FPE API",
     "description": "FactSet Programmatic Environment (FPE) API is an API for users to interact with FPE programmatically, streamlining path from research to production.",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/factset-programmatic-environment-api"
   },
   "servers": [
     {
-      "url": "https://api.factset.com"
+      "url": "https://api.factset.com/analytics/quant/fpe/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Calculations"
+    },
+    {
+      "name": "Files"
     }
   ],
   "paths": {
-    "/analytics/quant/fpe/v1/calculations": {
+    "/calculations": {
       "post": {
+        "operationId": "createCalculations",
         "tags": [
           "Calculations"
         ],
@@ -93,8 +115,9 @@
         }
       }
     },
-    "/analytics/quant/fpe/v1/calculations/{id}": {
+    "/calculations/{id}": {
       "get": {
+        "operationId": "getCalculations",
         "tags": [
           "Calculations"
         ],
@@ -192,8 +215,9 @@
         }
       }
     },
-    "/analytics/quant/fpe/v1/calculations/{id}/output": {
+    "/calculations/{id}/output": {
       "get": {
+        "operationId": "getCalculationsOutput",
         "tags": [
           "Calculations"
         ],
@@ -277,8 +301,9 @@
         }
       }
     },
-    "/analytics/quant/fpe/v1/calculations/{id}/log": {
+    "/calculations/{id}/log": {
       "get": {
+        "operationId": "getCalculationsLog",
         "tags": [
           "Calculations"
         ],
@@ -356,8 +381,9 @@
         }
       }
     },
-    "/analytics/quant/fpe/v1/files/{server}/{file}": {
+    "/files/{server}/{file}": {
       "post": {
+        "operationId": "uploadFile",
         "tags": [
           "Files"
         ],
@@ -449,8 +475,9 @@
         }
       }
     },
-    "/analytics/quant/fpe/v1/files/uploads/{id}": {
+    "/files/uploads/{id}": {
       "get": {
+        "operationId": "getUploadFileStatus",
         "tags": [
           "Files"
         ],
@@ -549,9 +576,18 @@
       }
     }
   },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
   "components": {
     "schemas": {
       "Calculation": {
+        "type": "object",
         "properties": {
           "script": {
             "type": "string",
@@ -560,10 +596,20 @@
           "notebook": {
             "type": "string",
             "description": "Notebook file to be executed. Only notebooks in the Client directory are currently supported."
+          },
+          "kernel": {
+            "type": "string",
+            "description": "The kernel to use for this calculation",
+            "default": "python-3-7",
+            "enum": [
+              "python-3-7",
+              "python-3-11"
+            ]
           }
         }
       },
       "CalculationStatus": {
+        "type": "object",
         "properties": {
           "id": {
             "type": "string",
@@ -580,6 +626,7 @@
         }
       },
       "FileUploadStatus": {
+        "type": "object",
         "properties": {
           "id": {
             "type": "string",
@@ -612,13 +659,5 @@
         "scheme": "basic"
       }
     }
-  },
-  "security": [
-    {
-      "FactSetApiKey": []
-    },
-    {
-      "FactSetOAuth2": []
-    }
-  ]
+  }
 }

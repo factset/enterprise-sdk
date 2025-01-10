@@ -5,7 +5,7 @@ Request Body
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PostAlertingPricesBasicTriggerListRequestData**](PostAlertingPricesBasicTriggerListRequestData.md) |  | [optional] 
+**data** | [**PostAlertingPricesBasicTriggerListRequestData**](PostAlertingPricesBasicTriggerListRequestData.md) |  | 
 **meta** | [**PostAlertingPricesBasicTriggerListRequestMeta**](PostAlertingPricesBasicTriggerListRequestMeta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

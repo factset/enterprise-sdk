@@ -65,11 +65,11 @@ public class Filters implements Serializable {
   }
 
    /**
-   * Get include
+   * Include Object
    * @return include
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Include Object")
   @JsonProperty(JSON_PROPERTY_INCLUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +99,11 @@ public class Filters implements Serializable {
   }
 
    /**
-   * Get exclude
+   * Exclude Object
    * @return exclude
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Exclude Object")
   @JsonProperty(JSON_PROPERTY_EXCLUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

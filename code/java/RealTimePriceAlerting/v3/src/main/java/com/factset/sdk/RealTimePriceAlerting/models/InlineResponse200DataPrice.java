@@ -1,6 +1,6 @@
 /*
- * Price Alerting API For Digital Portals
- * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.  A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.  When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
+ * Real-Time Price Alerting API
+ * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.   * A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.   The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument. * When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: api@factset.com
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -51,7 +52,7 @@ public class InlineResponse200DataPrice implements Serializable {
   private JsonNullable<BigDecimal> value = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_TIME = "time";
-  private JsonNullable<String> time = JsonNullable.<String>undefined();
+  private JsonNullable<OffsetDateTime> time = JsonNullable.<OffsetDateTime>undefined();
 
   public InlineResponse200DataPrice() { 
   }
@@ -66,7 +67,7 @@ public class InlineResponse200DataPrice implements Serializable {
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Depending on `trigger.price.type`, the trade, bid, or ask price.")
+  @ApiModelProperty(example = "1.01", value = "Depending on `trigger.price.type`, the trade, bid, or ask price.")
   @JsonIgnore
 
   public BigDecimal getValue() {
@@ -90,8 +91,8 @@ public class InlineResponse200DataPrice implements Serializable {
   }
 
 
-  public InlineResponse200DataPrice time(String time) {
-    this.time = JsonNullable.<String>of(time);
+  public InlineResponse200DataPrice time(OffsetDateTime time) {
+    this.time = JsonNullable.<OffsetDateTime>of(time);
     return this;
   }
 
@@ -100,27 +101,27 @@ public class InlineResponse200DataPrice implements Serializable {
    * @return time
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Date and time of the price.")
+  @ApiModelProperty(example = "2024-12-24T18:00Z", value = "Date and time of the price.")
   @JsonIgnore
 
-  public String getTime() {
+  public OffsetDateTime getTime() {
         return time.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getTime_JsonNullable() {
+  public JsonNullable<OffsetDateTime> getTime_JsonNullable() {
     return time;
   }
   
   @JsonProperty(JSON_PROPERTY_TIME)
-  public void setTime_JsonNullable(JsonNullable<String> time) {
+  public void setTime_JsonNullable(JsonNullable<OffsetDateTime> time) {
     this.time = time;
   }
 
-  public void setTime(String time) {
-    this.time = JsonNullable.<String>of(time);
+  public void setTime(OffsetDateTime time) {
+    this.time = JsonNullable.<OffsetDateTime>of(time);
   }
 
 

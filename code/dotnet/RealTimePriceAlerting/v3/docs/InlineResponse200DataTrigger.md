@@ -6,7 +6,7 @@ Trigger data at the time of alert creation.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Identifier of the trigger. | [optional] 
-**Creation** | **string** | Date and time when the trigger was created. | [optional] 
+**Creation** | **DateTime?** | Date and time when the trigger was created. | [optional] 
 **Notation** | [**InlineResponse200DataTriggerNotation**](InlineResponse200DataTriggerNotation.md) |  | [optional] 
 **Price** | [**InlineResponse200DataTriggerPrice**](InlineResponse200DataTriggerPrice.md) |  | [optional] 
 **Range** | [**InlineResponse200DataTriggerRange**](InlineResponse200DataTriggerRange.md) |  | [optional] 

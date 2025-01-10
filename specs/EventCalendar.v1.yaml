@@ -14,7 +14,10 @@ externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/
 servers:
-  - url: https://api.factset.com/event-calendar/v1
+  - url: https://api.factset.com/events/v1
+    description: Production server
+  - url: https://api.staging-cauth.factset.com/events/v1
+    description: Staging server
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
@@ -22,7 +25,7 @@ tags:
   - name: Company
     description: Company tag
 paths:
-  /company/event/list:
+  /calendar/events:
     post:
       summary: Retrieve Company Event data
       description: This endpoint returns all company events with filters from the request.
@@ -104,7 +107,7 @@ components:
         data:
           type: object
           properties:
-            date:
+            dateTime:
               type: object
               properties:
                 start:
@@ -132,31 +135,30 @@ components:
                 type:
                   type: string
                   enum:
-                    - tickers
-                    - index
-                    - etf
-                    - mutual
-                    - allCompanies
-                  example: tickers
-            types:
+                    - Tickers
+                    - Index
+                    - Etf
+                    - AllCompanies
+                  example: Tickers
+            eventTypes:
               description: The type of events returned in the response
               type: array
               items:
                 type: string
                 enum:
-                  - E
-                  - SA
-                  - G
-                  - AM
-                  - SM
-                  - SS
-                  - CP
-                  - confirmedER
-                  - SR
-                  - projectedER
-                  - S
-                  - D
-                example: E
+                  - Earnings
+                  - SalesRevenueCall
+                  - GuidanceCall
+                  - AnalystsInvestorsMeeting
+                  - ShareholdersMeeting
+                  - SpecialSituation
+                  - Conference
+                  - ConfirmedEarningsRelease
+                  - ProjectedEarningsRelease
+                  - SalesRevenueRelease
+                  - Split
+                  - Dividend
+                example: Earnings
     companyEventResponse:
       type: object
       properties:
@@ -184,19 +186,19 @@ components:
               eventType:
                 type: string
                 enum:
-                  - E
-                  - SA
-                  - G
-                  - AM
-                  - SM
-                  - SS
-                  - CP
-                  - confirmedER
-                  - SR
-                  - projectedER
-                  - S
-                  - D
-                example: E
+                  - Earnings
+                  - SalesRevenueCall
+                  - GuidanceCall
+                  - AnalystsInvestorsMeeting
+                  - ShareholdersMeeting
+                  - SpecialSituation
+                  - Conference
+                  - ConfirmedEarningsRelease
+                  - ProjectedEarningsRelease
+                  - SalesRevenueRelease
+                  - Split
+                  - Dividend
+                example: Earnings
               eventId:
                 type: string
                 example: '1200867930'

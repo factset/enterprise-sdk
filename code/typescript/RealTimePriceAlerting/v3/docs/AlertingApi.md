@@ -52,7 +52,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AlertingApi();
-const id = "id_example"; // String | 
+const id = 4004; // String | Identifier of the alert.
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -77,7 +77,7 @@ apiInstance.getAlertingPricesBasicAlertGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**| Identifier of the alert. | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -137,8 +137,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new AlertingApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'subscriptionMinimumInterval': 0, // Number | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
-  'paginationCursor': "paginationCursor_example", // String | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
+  'metaSubscriptionMinimumInterval': 937, // Number | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
+  'paginationCursor': Lorem ipsum, // String | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
   'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
@@ -163,7 +163,7 @@ apiInstance.getAlertingPricesBasicAlertList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **subscriptionMinimumInterval** | **Number**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0]
+ **metaSubscriptionMinimumInterval** | **Number**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0]
  **paginationCursor** | **String**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional] 
  **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
@@ -222,7 +222,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AlertingApi();
-const id = "id_example"; // String | 
+const id = 4004; // String | Identifier of the trigger.
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -247,7 +247,7 @@ apiInstance.getAlertingPricesBasicTriggerGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**| Identifier of the trigger. | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -306,7 +306,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new AlertingApi();
 const opts = {
-  'postAlertingPricesBasicTriggerListRequest': new realtimepricealerting.PostAlertingPricesBasicTriggerListRequest() // PostAlertingPricesBasicTriggerListRequest | Request Body
+  'postAlertingPricesBasicTriggerListRequest': {"data":{"filter":{"status":{"code":"active"}}},"meta":{"attributes":[],"pagination":{"cursor":"Lorem ipsum","limit":20}}} // PostAlertingPricesBasicTriggerListRequest | Request Body
 };
 
 // Call api endpoint

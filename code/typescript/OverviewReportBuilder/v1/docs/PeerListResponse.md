@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PeerListObject**](PeerListObject.md) |  | [optional] 
-**meta** | **{String: String}** |  | [optional] 
+**data** | [**PeerListDataObject**](PeerListDataObject.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) |  | [optional] 
 
 

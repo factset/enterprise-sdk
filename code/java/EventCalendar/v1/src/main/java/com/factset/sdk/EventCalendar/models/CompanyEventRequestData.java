@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.EventCalendar.models.CompanyEventRequestDataDate;
+import com.factset.sdk.EventCalendar.models.CompanyEventRequestDataDateTime;
 import com.factset.sdk.EventCalendar.models.CompanyEventRequestDataUniverse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,52 +35,52 @@ import com.factset.sdk.EventCalendar.JSON;
  * CompanyEventRequestData
  */
 @JsonPropertyOrder({
-  CompanyEventRequestData.JSON_PROPERTY_DATE,
+  CompanyEventRequestData.JSON_PROPERTY_DATE_TIME,
   CompanyEventRequestData.JSON_PROPERTY_UNIVERSE,
-  CompanyEventRequestData.JSON_PROPERTY_TYPES
+  CompanyEventRequestData.JSON_PROPERTY_EVENT_TYPES
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CompanyEventRequestData implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DATE = "date";
-  private CompanyEventRequestDataDate date;
+  public static final String JSON_PROPERTY_DATE_TIME = "dateTime";
+  private CompanyEventRequestDataDateTime dateTime;
 
   public static final String JSON_PROPERTY_UNIVERSE = "universe";
   private CompanyEventRequestDataUniverse universe;
 
   /**
-   * Gets or Sets types
+   * Gets or Sets eventTypes
    */
-  public enum TypesEnum {
-    E("E"),
+  public enum EventTypesEnum {
+    EARNINGS("Earnings"),
     
-    SA("SA"),
+    SALESREVENUECALL("SalesRevenueCall"),
     
-    G("G"),
+    GUIDANCECALL("GuidanceCall"),
     
-    AM("AM"),
+    ANALYSTSINVESTORSMEETING("AnalystsInvestorsMeeting"),
     
-    SM("SM"),
+    SHAREHOLDERSMEETING("ShareholdersMeeting"),
     
-    SS("SS"),
+    SPECIALSITUATION("SpecialSituation"),
     
-    CP("CP"),
+    CONFERENCE("Conference"),
     
-    CONFIRMEDER("confirmedER"),
+    CONFIRMEDEARNINGSRELEASE("ConfirmedEarningsRelease"),
     
-    SR("SR"),
+    PROJECTEDEARNINGSRELEASE("ProjectedEarningsRelease"),
     
-    PROJECTEDER("projectedER"),
+    SALESREVENUERELEASE("SalesRevenueRelease"),
     
-    S("S"),
+    SPLIT("Split"),
     
-    D("D");
+    DIVIDEND("Dividend");
 
     private String value;
 
-    TypesEnum(String value) {
+    EventTypesEnum(String value) {
       this.value = value;
     }
 
@@ -95,8 +95,8 @@ public class CompanyEventRequestData implements Serializable {
     }
 
     @JsonCreator
-    public static TypesEnum fromValue(String value) {
-      for (TypesEnum b : TypesEnum.values()) {
+    public static EventTypesEnum fromValue(String value) {
+      for (EventTypesEnum b : EventTypesEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -105,35 +105,35 @@ public class CompanyEventRequestData implements Serializable {
     }
   }
 
-  public static final String JSON_PROPERTY_TYPES = "types";
-  private java.util.List<TypesEnum> types = null;
+  public static final String JSON_PROPERTY_EVENT_TYPES = "eventTypes";
+  private java.util.List<EventTypesEnum> eventTypes = null;
 
   public CompanyEventRequestData() { 
   }
 
-  public CompanyEventRequestData date(CompanyEventRequestDataDate date) {
-    this.date = date;
+  public CompanyEventRequestData dateTime(CompanyEventRequestDataDateTime dateTime) {
+    this.dateTime = dateTime;
     return this;
   }
 
    /**
-   * Get date
-   * @return date
+   * Get dateTime
+   * @return dateTime
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(JSON_PROPERTY_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CompanyEventRequestDataDate getDate() {
-    return date;
+  public CompanyEventRequestDataDateTime getDateTime() {
+    return dateTime;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonProperty(JSON_PROPERTY_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(CompanyEventRequestDataDate date) {
-    this.date = date;
+  public void setDateTime(CompanyEventRequestDataDateTime dateTime) {
+    this.dateTime = dateTime;
   }
 
 
@@ -163,37 +163,37 @@ public class CompanyEventRequestData implements Serializable {
   }
 
 
-  public CompanyEventRequestData types(java.util.List<TypesEnum> types) {
-    this.types = types;
+  public CompanyEventRequestData eventTypes(java.util.List<EventTypesEnum> eventTypes) {
+    this.eventTypes = eventTypes;
     return this;
   }
 
-  public CompanyEventRequestData addTypesItem(TypesEnum typesItem) {
-    if (this.types == null) {
-      this.types = new java.util.ArrayList<>();
+  public CompanyEventRequestData addEventTypesItem(EventTypesEnum eventTypesItem) {
+    if (this.eventTypes == null) {
+      this.eventTypes = new java.util.ArrayList<>();
     }
-    this.types.add(typesItem);
+    this.eventTypes.add(eventTypesItem);
     return this;
   }
 
    /**
    * The type of events returned in the response
-   * @return types
+   * @return eventTypes
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The type of events returned in the response")
-  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<TypesEnum> getTypes() {
-    return types;
+  public java.util.List<EventTypesEnum> getEventTypes() {
+    return eventTypes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypes(java.util.List<TypesEnum> types) {
-    this.types = types;
+  public void setEventTypes(java.util.List<EventTypesEnum> eventTypes) {
+    this.eventTypes = eventTypes;
   }
 
 
@@ -209,23 +209,23 @@ public class CompanyEventRequestData implements Serializable {
       return false;
     }
     CompanyEventRequestData companyEventRequestData = (CompanyEventRequestData) o;
-    return Objects.equals(this.date, companyEventRequestData.date) &&
+    return Objects.equals(this.dateTime, companyEventRequestData.dateTime) &&
         Objects.equals(this.universe, companyEventRequestData.universe) &&
-        Objects.equals(this.types, companyEventRequestData.types);
+        Objects.equals(this.eventTypes, companyEventRequestData.eventTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, universe, types);
+    return Objects.hash(dateTime, universe, eventTypes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompanyEventRequestData {\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
     sb.append("    universe: ").append(toIndentedString(universe)).append("\n");
-    sb.append("    types: ").append(toIndentedString(types)).append("\n");
+    sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

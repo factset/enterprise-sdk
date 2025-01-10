@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse2001Data]**](InlineResponse2001Data.md) | List of alerts. | [optional] 
+**data** | [**[GetAlertingPricesBasicAlertListDataItems]**](GetAlertingPricesBasicAlertListDataItems.md) | List of alerts. | [optional] 
 **meta** | [**InlineResponse2001Meta**](InlineResponse2001Meta.md) |  | [optional] 
 
 

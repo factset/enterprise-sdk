@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PeerListObject**](PeerListObject.md) |  |  [optional]
-**meta** | **Map&lt;String, String&gt;** |  |  [optional]
+**data** | [**PeerListDataObject**](PeerListDataObject.md) |  |  [optional]
+**meta** | **Meta** |  |  [optional]
 
 
 ## Implemented Interfaces

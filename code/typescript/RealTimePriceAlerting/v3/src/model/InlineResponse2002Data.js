@@ -1,6 +1,6 @@
 /**
- * Price Alerting API For Digital Portals
- * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.  A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.  When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
+ * Real-Time Price Alerting API
+ * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.   * A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.   The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument. * When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: api@factset.com
@@ -12,11 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2001TriggerPrice from './InlineResponse2001TriggerPrice';
 import InlineResponse2002DataNotification from './InlineResponse2002DataNotification';
+import InlineResponse2002DataPrice from './InlineResponse2002DataPrice';
+import InlineResponse2002DataRange from './InlineResponse2002DataRange';
+import InlineResponse2002DataStatus from './InlineResponse2002DataStatus';
 import InlineResponse200DataTriggerNotation from './InlineResponse200DataTriggerNotation';
-import InlineResponse200DataTriggerRange from './InlineResponse200DataTriggerRange';
-import InlineResponse200DataTriggerStatus from './InlineResponse200DataTriggerStatus';
 
 /**
  * The InlineResponse2002Data model module.
@@ -56,16 +56,16 @@ class InlineResponse2002Data {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('creation')) {
-                obj['creation'] = ApiClient.convertToType(data['creation'], 'String');
+                obj['creation'] = ApiClient.convertToType(data['creation'], 'Date');
             }
             if (data.hasOwnProperty('notation')) {
                 obj['notation'] = InlineResponse200DataTriggerNotation.constructFromObject(data['notation']);
             }
             if (data.hasOwnProperty('price')) {
-                obj['price'] = InlineResponse2001TriggerPrice.constructFromObject(data['price']);
+                obj['price'] = InlineResponse2002DataPrice.constructFromObject(data['price']);
             }
             if (data.hasOwnProperty('range')) {
-                obj['range'] = InlineResponse200DataTriggerRange.constructFromObject(data['range']);
+                obj['range'] = InlineResponse2002DataRange.constructFromObject(data['range']);
             }
             if (data.hasOwnProperty('comment')) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
@@ -74,7 +74,7 @@ class InlineResponse2002Data {
                 obj['notification'] = InlineResponse2002DataNotification.constructFromObject(data['notification']);
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = InlineResponse200DataTriggerStatus.constructFromObject(data['status']);
+                obj['status'] = InlineResponse2002DataStatus.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -91,7 +91,7 @@ InlineResponse2002Data.prototype['id'] = undefined;
 
 /**
  * Date and time when the trigger was created.
- * @member {String} creation
+ * @member {Date} creation
  */
 InlineResponse2002Data.prototype['creation'] = undefined;
 
@@ -101,12 +101,12 @@ InlineResponse2002Data.prototype['creation'] = undefined;
 InlineResponse2002Data.prototype['notation'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001TriggerPrice} price
+ * @member {module:model/InlineResponse2002DataPrice} price
  */
 InlineResponse2002Data.prototype['price'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200DataTriggerRange} range
+ * @member {module:model/InlineResponse2002DataRange} range
  */
 InlineResponse2002Data.prototype['range'] = undefined;
 
@@ -122,7 +122,7 @@ InlineResponse2002Data.prototype['comment'] = undefined;
 InlineResponse2002Data.prototype['notification'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200DataTriggerStatus} status
+ * @member {module:model/InlineResponse2002DataStatus} status
  */
 InlineResponse2002Data.prototype['status'] = undefined;
 

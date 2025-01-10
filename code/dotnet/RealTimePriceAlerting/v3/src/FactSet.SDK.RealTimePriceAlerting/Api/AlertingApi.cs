@@ -1,7 +1,7 @@
 /*
- * Price Alerting API For Digital Portals
+ * Real-Time Price Alerting API
  *
- * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.  A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.  When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
+ * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.   * A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.   The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument. * When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: api@factset.com
@@ -35,7 +35,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse200</returns>
         InlineResponse200 GetAlertingPricesBasicAlertGet(string id, List<string> attributes = default(List<string>));
@@ -47,7 +47,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
         ApiResponse<InlineResponse200> GetAlertingPricesBasicAlertGetWithHttpInfo(string id, List<string> attributes = default(List<string>));
@@ -59,11 +59,11 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetAlertingPricesBasicAlertList(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?));
+        InlineResponse2001 GetAlertingPricesBasicAlertList(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// List of alerts.
@@ -73,11 +73,11 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetAlertingPricesBasicAlertListWithHttpInfo(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse2001> GetAlertingPricesBasicAlertListWithHttpInfo(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// Details of a trigger.
         /// </summary>
@@ -85,7 +85,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse2002</returns>
         InlineResponse2002 GetAlertingPricesBasicTriggerGet(string id, List<string> attributes = default(List<string>));
@@ -97,7 +97,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         ApiResponse<InlineResponse2002> GetAlertingPricesBasicTriggerGetWithHttpInfo(string id, List<string> attributes = default(List<string>));
@@ -138,7 +138,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
@@ -151,7 +151,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
@@ -164,12 +164,12 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetAlertingPricesBasicAlertListAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2001> GetAlertingPricesBasicAlertListAsync(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of alerts.
@@ -179,12 +179,12 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetAlertingPricesBasicAlertListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetAlertingPricesBasicAlertListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Details of a trigger.
         /// </summary>
@@ -192,7 +192,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
@@ -205,7 +205,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger.
         /// </remarks>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
@@ -386,7 +386,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetAlertingPricesBasicAlertGet(string id, List<string> attributes = default(List<string>))
@@ -399,7 +399,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
         public ApiResponse<InlineResponse200> GetAlertingPricesBasicAlertGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
@@ -478,7 +478,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
@@ -492,7 +492,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of an alert. Details of an alert. The details include the trigger definition at the time of alert creation.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
@@ -576,13 +576,13 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetAlertingPricesBasicAlertList(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
+        public InlineResponse2001 GetAlertingPricesBasicAlertList(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
         {
-            var localVarResponse = GetAlertingPricesBasicAlertListWithHttpInfo(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit);
+            var localVarResponse = GetAlertingPricesBasicAlertListWithHttpInfo(attributes, metaSubscriptionMinimumInterval, paginationCursor, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -591,11 +591,11 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> GetAlertingPricesBasicAlertListWithHttpInfo(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2001> GetAlertingPricesBasicAlertListWithHttpInfo(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
         {
             FactSet.SDK.RealTimePriceAlerting.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RealTimePriceAlerting.Client.RequestOptions();
 
@@ -623,9 +623,9 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RealTimePriceAlerting.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
             }
-            if (subscriptionMinimumInterval != null)
+            if (metaSubscriptionMinimumInterval != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RealTimePriceAlerting.Client.ClientUtils.ParameterToMultiMap("", "_subscriptionMinimumInterval", subscriptionMinimumInterval));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RealTimePriceAlerting.Client.ClientUtils.ParameterToMultiMap("", "metaSubscriptionMinimumInterval", metaSubscriptionMinimumInterval));
             }
             if (paginationCursor != null)
             {
@@ -677,14 +677,14 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001>GetAlertingPricesBasicAlertListAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetAlertingPricesBasicAlertListAsync(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetAlertingPricesBasicAlertListWithHttpInfoAsync(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAlertingPricesBasicAlertListWithHttpInfoAsync(attributes, metaSubscriptionMinimumInterval, paginationCursor, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -693,13 +693,13 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="subscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
+        /// <param name="metaSubscriptionMinimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0M)</param>
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetAlertingPricesBasicAlertListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetAlertingPricesBasicAlertListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? metaSubscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.RealTimePriceAlerting.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RealTimePriceAlerting.Client.RequestOptions();
@@ -728,9 +728,9 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RealTimePriceAlerting.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
             }
-            if (subscriptionMinimumInterval != null)
+            if (metaSubscriptionMinimumInterval != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RealTimePriceAlerting.Client.ClientUtils.ParameterToMultiMap("", "_subscriptionMinimumInterval", subscriptionMinimumInterval));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RealTimePriceAlerting.Client.ClientUtils.ParameterToMultiMap("", "metaSubscriptionMinimumInterval", metaSubscriptionMinimumInterval));
             }
             if (paginationCursor != null)
             {
@@ -782,7 +782,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger. Details of a trigger.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetAlertingPricesBasicTriggerGet(string id, List<string> attributes = default(List<string>))
@@ -795,7 +795,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger. Details of a trigger.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         public ApiResponse<InlineResponse2002> GetAlertingPricesBasicTriggerGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
@@ -874,7 +874,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger. Details of a trigger.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
@@ -888,7 +888,7 @@ namespace FactSet.SDK.RealTimePriceAlerting.Api
         /// Details of a trigger. Details of a trigger.
         /// </summary>
         /// <exception cref="FactSet.SDK.RealTimePriceAlerting.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>

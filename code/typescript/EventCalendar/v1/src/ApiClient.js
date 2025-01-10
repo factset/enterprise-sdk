@@ -35,11 +35,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://api.factset.com/event-calendar/v1') {
+    constructor(basePath = 'https://api.factset.com/events/v1') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api.factset.com/event-calendar/v1
+         * @default https://api.factset.com/events/v1
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -65,7 +65,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/EventCalendar/0.21.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/EventCalendar/0.22.0 (${process.platform}; node ${process.version})`
         };
 
         /**
@@ -633,8 +633,12 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://api.factset.com/event-calendar/v1",
-              'description': "No description provided",
+              'url': "https://api.factset.com/events/v1",
+              'description': "Production server",
+            },
+            {
+              'url': "https://api.staging-cauth.factset.com/events/v1",
+              'description': "Staging server",
             }
       ];
     }

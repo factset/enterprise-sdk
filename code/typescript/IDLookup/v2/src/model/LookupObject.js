@@ -24,7 +24,7 @@ class LookupObject {
      * Lookup Object
      * @alias module:model/LookupObject
      * @param searchText {String} The string or keyword being searched on.
-     * @param datasets {Array.<module:model/FilterObjects>} 
+     * @param datasets {Array.<module:model/FilterObjects>} Type of dataset
      */
     constructor(searchText, datasets) { 
         
@@ -72,6 +72,7 @@ class LookupObject {
 LookupObject.prototype['searchText'] = undefined;
 
 /**
+ * Type of dataset
  * @member {Array.<module:model/FilterObjects>} datasets
  */
 LookupObject.prototype['datasets'] = undefined;

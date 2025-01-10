@@ -7,7 +7,7 @@ appveyor.yml
 docs/CompanyApi.md
 docs/CompanyEventRequest.md
 docs/CompanyEventRequestData.md
-docs/CompanyEventRequestDataDate.md
+docs/CompanyEventRequestDataDateTime.md
 docs/CompanyEventRequestDataUniverse.md
 docs/CompanyEventResponse.md
 docs/CompanyEventResponseData.md
@@ -35,7 +35,7 @@ src/FactSet.SDK.EventCalendar/FactSet.SDK.EventCalendar.csproj
 src/FactSet.SDK.EventCalendar/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.EventCalendar/Model/CompanyEventRequest.cs
 src/FactSet.SDK.EventCalendar/Model/CompanyEventRequestData.cs
-src/FactSet.SDK.EventCalendar/Model/CompanyEventRequestDataDate.cs
+src/FactSet.SDK.EventCalendar/Model/CompanyEventRequestDataDateTime.cs
 src/FactSet.SDK.EventCalendar/Model/CompanyEventRequestDataUniverse.cs
 src/FactSet.SDK.EventCalendar/Model/CompanyEventResponse.cs
 src/FactSet.SDK.EventCalendar/Model/CompanyEventResponseData.cs

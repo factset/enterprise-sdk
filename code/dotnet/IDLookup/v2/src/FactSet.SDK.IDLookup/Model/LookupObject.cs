@@ -41,7 +41,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// Initializes a new instance of the <see cref="LookupObject" /> class.
         /// </summary>
         /// <param name="searchText">The string or keyword being searched on. (required).</param>
-        /// <param name="datasets">datasets (required).</param>
+        /// <param name="datasets">Type of dataset (required).</param>
         public LookupObject(string searchText, List<FilterObjects> datasets)
         {
             // to ensure "searchText" is required (not null)
@@ -64,8 +64,9 @@ namespace FactSet.SDK.IDLookup.Model
         public string SearchText { get; set; }
 
         /// <summary>
-        /// Gets or Sets Datasets
+        /// Type of dataset
         /// </summary>
+        /// <value>Type of dataset</value>
         [DataMember(Name = "datasets", IsRequired = true, EmitDefaultValue = false)]
         public List<FilterObjects> Datasets { get; set; }
 

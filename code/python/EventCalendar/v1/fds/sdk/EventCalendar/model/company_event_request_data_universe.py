@@ -57,11 +57,10 @@ class CompanyEventRequestDataUniverse(ModelNormal):
 
     allowed_values = {
         ('type',): {
-            'TICKERS': "tickers",
-            'INDEX': "index",
-            'ETF': "etf",
-            'MUTUAL': "mutual",
-            'ALLCOMPANIES': "allCompanies",
+            'TICKERS': "Tickers",
+            'INDEX': "Index",
+            'ETF': "Etf",
+            'ALLCOMPANIES': "AllCompanies",
 
 
         },

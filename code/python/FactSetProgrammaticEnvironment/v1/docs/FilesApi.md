@@ -1,16 +1,113 @@
 # fds.sdk.FactSetProgrammaticEnvironment.FilesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/quant/fpe/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**analytics_quant_fpe_v1_files_server_file_post**](FilesApi.md#analytics_quant_fpe_v1_files_server_file_post) | **POST** /analytics/quant/fpe/v1/files/{server}/{file} | Starts a file upload
-[**analytics_quant_fpe_v1_files_uploads_id_get**](FilesApi.md#analytics_quant_fpe_v1_files_uploads_id_get) | **GET** /analytics/quant/fpe/v1/files/uploads/{id} | Get upload status by id
+[**get_upload_file_status**](FilesApi.md#get_upload_file_status) | **GET** /files/uploads/{id} | Get upload status by id
+[**upload_file**](FilesApi.md#upload_file) | **POST** /files/{server}/{file} | Starts a file upload
 
 
 
-# **analytics_quant_fpe_v1_files_server_file_post**
-> FileUploadStatus analytics_quant_fpe_v1_files_server_file_post(server, file)
+# **get_upload_file_status**
+> FileUploadStatus get_upload_file_status(id)
+
+Get upload status by id
+
+This is the endpoint to check on the progress of a previous upload request.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.FactSetProgrammaticEnvironment
+from fds.sdk.FactSetProgrammaticEnvironment.api import files_api
+from fds.sdk.FactSetProgrammaticEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.FactSetProgrammaticEnvironment.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.FactSetProgrammaticEnvironment.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = files_api.FilesApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    id = "id_example" # str | From url, provided by location header or response body in the upload start endpoint
+
+    try:
+        # Get upload status by id
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_upload_file_status(id)
+
+        pprint(api_response)
+
+    except fds.sdk.FactSetProgrammaticEnvironment.ApiException as e:
+        print("Exception when calling FilesApi->get_upload_file_status: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| From url, provided by location header or response body in the upload start endpoint |
+
+### Return type
+
+[**FileUploadStatus**](FileUploadStatus.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Expected response. Signals that the upload is finished. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**202** | Expected response. Signals that the upload is still in progress. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload_file**
+> FileUploadStatus upload_file(server, file)
 
 Starts a file upload
 
@@ -69,12 +166,12 @@ with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_clie
         # Starts a file upload
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.analytics_quant_fpe_v1_files_server_file_post(server, file, body=body)
+        api_response = api_instance.upload_file(server, file, body=body)
 
         pprint(api_response)
 
     except fds.sdk.FactSetProgrammaticEnvironment.ApiException as e:
-        print("Exception when calling FilesApi->analytics_quant_fpe_v1_files_server_file_post: %s\n" % e)
+        print("Exception when calling FilesApi->upload_file: %s\n" % e)
 ```
 
 
@@ -105,103 +202,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Expected response, contains the relative URL in the Location header to check the status of the upload. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
-**500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
-**503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **analytics_quant_fpe_v1_files_uploads_id_get**
-> FileUploadStatus analytics_quant_fpe_v1_files_uploads_id_get(id)
-
-Get upload status by id
-
-This is the endpoint to check on the progress of a previous upload request.
-
-### Example
-
-> [!IMPORTANT]
-> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
-
-#### Example Code
-
-```python
-from fds.sdk.utils.authentication import ConfidentialClient
-import fds.sdk.FactSetProgrammaticEnvironment
-from fds.sdk.FactSetProgrammaticEnvironment.api import files_api
-from fds.sdk.FactSetProgrammaticEnvironment.models import *
-from dateutil.parser import parse as dateutil_parser
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-
-# Examples for each supported authentication method are below,
-# choose one that satisfies your use case.
-
-# (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://github.com/FactSet/enterprise-sdk#oauth-20
-# for information on how to create the app-config.json file
-#
-# The confidential client instance should be reused in production environments.
-# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
-# for more information on using the ConfidentialClient class
-configuration = fds.sdk.FactSetProgrammaticEnvironment.Configuration(
-    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
-)
-
-# Basic authentication: FactSetApiKey
-# See https://github.com/FactSet/enterprise-sdk#api-key
-# for information how to create an API key
-# configuration = fds.sdk.FactSetProgrammaticEnvironment.Configuration(
-#     username='USERNAME-SERIAL',
-#     password='API-KEY'
-# )
-
-# Enter a context with an instance of the API client
-with fds.sdk.FactSetProgrammaticEnvironment.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = files_api.FilesApi(api_client)
-
-    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | From url, provided by location header or response body in the upload start endpoint
-
-    try:
-        # Get upload status by id
-        # example passing only required values which don't have defaults set
-        api_response = api_instance.analytics_quant_fpe_v1_files_uploads_id_get(id)
-
-        pprint(api_response)
-
-    except fds.sdk.FactSetProgrammaticEnvironment.ApiException as e:
-        print("Exception when calling FilesApi->analytics_quant_fpe_v1_files_uploads_id_get: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**| From url, provided by location header or response body in the upload start endpoint |
-
-### Return type
-
-[**FileUploadStatus**](FileUploadStatus.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Expected response. Signals that the upload is finished. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
-**202** | Expected response. Signals that the upload is still in progress. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 **503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 

@@ -1,4 +1,5 @@
 # FactSet.SDK.IDLookup.Model.FieldsObject
+Fields Object
 
 ## Properties
 

@@ -61,11 +61,13 @@ class Filters {
 }
 
 /**
+ * Include Object
  * @member {Object.<String, Array.<String>>} include
  */
 Filters.prototype['include'] = undefined;
 
 /**
+ * Exclude Object
  * @member {Object.<String, Array.<String>>} exclude
  */
 Filters.prototype['exclude'] = undefined;

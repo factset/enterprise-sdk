@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errors** | [**[ErrorObject]**](ErrorObject.md) |  | [optional] 
-**meta** | **{String: String}** |  | [optional] 
+**meta** | [**Meta**](Meta.md) |  | [optional] 
 
 

@@ -31,9 +31,9 @@ from fds.sdk.EventCalendar.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.EventCalendar.model.company_event_request_data_date import CompanyEventRequestDataDate
+    from fds.sdk.EventCalendar.model.company_event_request_data_date_time import CompanyEventRequestDataDateTime
     from fds.sdk.EventCalendar.model.company_event_request_data_universe import CompanyEventRequestDataUniverse
-    globals()['CompanyEventRequestDataDate'] = CompanyEventRequestDataDate
+    globals()['CompanyEventRequestDataDateTime'] = CompanyEventRequestDataDateTime
     globals()['CompanyEventRequestDataUniverse'] = CompanyEventRequestDataUniverse
 
 
@@ -62,19 +62,19 @@ class CompanyEventRequestData(ModelNormal):
     """
 
     allowed_values = {
-        ('types',): {
-            'E': "E",
-            'SA': "SA",
-            'G': "G",
-            'AM': "AM",
-            'SM': "SM",
-            'SS': "SS",
-            'CP': "CP",
-            'CONFIRMEDER': "confirmedER",
-            'SR': "SR",
-            'PROJECTEDER': "projectedER",
-            'S': "S",
-            'D': "D",
+        ('event_types',): {
+            'EARNINGS': "Earnings",
+            'SALESREVENUECALL': "SalesRevenueCall",
+            'GUIDANCECALL': "GuidanceCall",
+            'ANALYSTSINVESTORSMEETING': "AnalystsInvestorsMeeting",
+            'SHAREHOLDERSMEETING': "ShareholdersMeeting",
+            'SPECIALSITUATION': "SpecialSituation",
+            'CONFERENCE': "Conference",
+            'CONFIRMEDEARNINGSRELEASE': "ConfirmedEarningsRelease",
+            'PROJECTEDEARNINGSRELEASE': "ProjectedEarningsRelease",
+            'SALESREVENUERELEASE': "SalesRevenueRelease",
+            'SPLIT': "Split",
+            'DIVIDEND': "Dividend",
 
 
         },
@@ -106,9 +106,9 @@ class CompanyEventRequestData(ModelNormal):
         """
         lazy_import()
         return {
-            'date': (CompanyEventRequestDataDate,),  # noqa: E501
+            'date_time': (CompanyEventRequestDataDateTime,),  # noqa: E501
             'universe': (CompanyEventRequestDataUniverse,),  # noqa: E501
-            'types': ([str],),  # noqa: E501
+            'event_types': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -117,9 +117,9 @@ class CompanyEventRequestData(ModelNormal):
 
 
     attribute_map = {
-        'date': 'date',  # noqa: E501
+        'date_time': 'dateTime',  # noqa: E501
         'universe': 'universe',  # noqa: E501
-        'types': 'types',  # noqa: E501
+        'event_types': 'eventTypes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,9 +163,9 @@ class CompanyEventRequestData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            date (CompanyEventRequestDataDate): [optional]  # noqa: E501
+            date_time (CompanyEventRequestDataDateTime): [optional]  # noqa: E501
             universe (CompanyEventRequestDataUniverse): [optional]  # noqa: E501
-            types ([str]): The type of events returned in the response. [optional]  # noqa: E501
+            event_types ([str]): The type of events returned in the response. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,9 +247,9 @@ class CompanyEventRequestData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            date (CompanyEventRequestDataDate): [optional]  # noqa: E501
+            date_time (CompanyEventRequestDataDateTime): [optional]  # noqa: E501
             universe (CompanyEventRequestDataUniverse): [optional]  # noqa: E501
-            types ([str]): The type of events returned in the response. [optional]  # noqa: E501
+            event_types ([str]): The type of events returned in the response. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

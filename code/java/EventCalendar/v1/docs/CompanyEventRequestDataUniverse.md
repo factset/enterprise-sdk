@@ -16,11 +16,10 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-TICKERS | &quot;tickers&quot;
-INDEX | &quot;index&quot;
-ETF | &quot;etf&quot;
-MUTUAL | &quot;mutual&quot;
-ALLCOMPANIES | &quot;allCompanies&quot;
+TICKERS | &quot;Tickers&quot;
+INDEX | &quot;Index&quot;
+ETF | &quot;Etf&quot;
+ALLCOMPANIES | &quot;AllCompanies&quot;
 
 
 ## Implemented Interfaces

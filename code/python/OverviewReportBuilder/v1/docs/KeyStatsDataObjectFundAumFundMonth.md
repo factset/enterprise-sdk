@@ -1,0 +1,14 @@
+# KeyStatsDataObjectFundAumFundMonth
+
+The AUM (Actual) is the market value of total assets that a fund manages on behalf of investors based on the shares outstanding, multiplied by the net asset value from the month end at a fund level. Data is updated monthly, based on the last trading day of the month.
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**label** | [**KeyStatsAttributeLabel**](KeyStatsAttributeLabel.md) |  | 
+**value** | [**KeyStatsAttributeValueNumber**](KeyStatsAttributeValueNumber.md) |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

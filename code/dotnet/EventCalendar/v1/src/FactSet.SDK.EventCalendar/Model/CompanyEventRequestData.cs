@@ -33,82 +33,82 @@ namespace FactSet.SDK.EventCalendar.Model
     public partial class CompanyEventRequestData : IEquatable<CompanyEventRequestData>, IValidatableObject
     {
         /// <summary>
-        /// Defines Types
+        /// Defines EventTypes
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypesEnum
+        public enum EventTypesEnum
         {
             /// <summary>
-            /// Enum E for value: E
+            /// Enum Earnings for value: Earnings
             /// </summary>
-            [EnumMember(Value = "E")]
-            E = 1,
+            [EnumMember(Value = "Earnings")]
+            Earnings = 1,
 
             /// <summary>
-            /// Enum SA for value: SA
+            /// Enum SalesRevenueCall for value: SalesRevenueCall
             /// </summary>
-            [EnumMember(Value = "SA")]
-            SA = 2,
+            [EnumMember(Value = "SalesRevenueCall")]
+            SalesRevenueCall = 2,
 
             /// <summary>
-            /// Enum G for value: G
+            /// Enum GuidanceCall for value: GuidanceCall
             /// </summary>
-            [EnumMember(Value = "G")]
-            G = 3,
+            [EnumMember(Value = "GuidanceCall")]
+            GuidanceCall = 3,
 
             /// <summary>
-            /// Enum AM for value: AM
+            /// Enum AnalystsInvestorsMeeting for value: AnalystsInvestorsMeeting
             /// </summary>
-            [EnumMember(Value = "AM")]
-            AM = 4,
+            [EnumMember(Value = "AnalystsInvestorsMeeting")]
+            AnalystsInvestorsMeeting = 4,
 
             /// <summary>
-            /// Enum SM for value: SM
+            /// Enum ShareholdersMeeting for value: ShareholdersMeeting
             /// </summary>
-            [EnumMember(Value = "SM")]
-            SM = 5,
+            [EnumMember(Value = "ShareholdersMeeting")]
+            ShareholdersMeeting = 5,
 
             /// <summary>
-            /// Enum SS for value: SS
+            /// Enum SpecialSituation for value: SpecialSituation
             /// </summary>
-            [EnumMember(Value = "SS")]
-            SS = 6,
+            [EnumMember(Value = "SpecialSituation")]
+            SpecialSituation = 6,
 
             /// <summary>
-            /// Enum CP for value: CP
+            /// Enum Conference for value: Conference
             /// </summary>
-            [EnumMember(Value = "CP")]
-            CP = 7,
+            [EnumMember(Value = "Conference")]
+            Conference = 7,
 
             /// <summary>
-            /// Enum ConfirmedER for value: confirmedER
+            /// Enum ConfirmedEarningsRelease for value: ConfirmedEarningsRelease
             /// </summary>
-            [EnumMember(Value = "confirmedER")]
-            ConfirmedER = 8,
+            [EnumMember(Value = "ConfirmedEarningsRelease")]
+            ConfirmedEarningsRelease = 8,
 
             /// <summary>
-            /// Enum SR for value: SR
+            /// Enum ProjectedEarningsRelease for value: ProjectedEarningsRelease
             /// </summary>
-            [EnumMember(Value = "SR")]
-            SR = 9,
+            [EnumMember(Value = "ProjectedEarningsRelease")]
+            ProjectedEarningsRelease = 9,
 
             /// <summary>
-            /// Enum ProjectedER for value: projectedER
+            /// Enum SalesRevenueRelease for value: SalesRevenueRelease
             /// </summary>
-            [EnumMember(Value = "projectedER")]
-            ProjectedER = 10,
+            [EnumMember(Value = "SalesRevenueRelease")]
+            SalesRevenueRelease = 10,
 
             /// <summary>
-            /// Enum S for value: S
+            /// Enum Split for value: Split
             /// </summary>
-            [EnumMember(Value = "S")]
-            S = 11,
+            [EnumMember(Value = "Split")]
+            Split = 11,
 
             /// <summary>
-            /// Enum D for value: D
+            /// Enum Dividend for value: Dividend
             /// </summary>
-            [EnumMember(Value = "D")]
-            D = 12
+            [EnumMember(Value = "Dividend")]
+            Dividend = 12
 
         }
 
@@ -118,26 +118,26 @@ namespace FactSet.SDK.EventCalendar.Model
         /// The type of events returned in the response
         /// </summary>
         /// <value>The type of events returned in the response</value>
-        [DataMember(Name = "types", EmitDefaultValue = false)]
-        public List<TypesEnum> Types { get; set; }
+        [DataMember(Name = "eventTypes", EmitDefaultValue = false)]
+        public List<EventTypesEnum> EventTypes { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyEventRequestData" /> class.
         /// </summary>
-        /// <param name="date">date.</param>
+        /// <param name="dateTime">dateTime.</param>
         /// <param name="universe">universe.</param>
-        /// <param name="types">The type of events returned in the response.</param>
-        public CompanyEventRequestData(CompanyEventRequestDataDate date = default(CompanyEventRequestDataDate), CompanyEventRequestDataUniverse universe = default(CompanyEventRequestDataUniverse), List<TypesEnum> types = default(List<TypesEnum>))
+        /// <param name="eventTypes">The type of events returned in the response.</param>
+        public CompanyEventRequestData(CompanyEventRequestDataDateTime dateTime = default(CompanyEventRequestDataDateTime), CompanyEventRequestDataUniverse universe = default(CompanyEventRequestDataUniverse), List<EventTypesEnum> eventTypes = default(List<EventTypesEnum>))
         {
-            this.Date = date;
+            this.DateTime = dateTime;
             this.Universe = universe;
-            this.Types = types;
+            this.EventTypes = eventTypes;
         }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// Gets or Sets DateTime
         /// </summary>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
-        public CompanyEventRequestDataDate Date { get; set; }
+        [DataMember(Name = "dateTime", EmitDefaultValue = false)]
+        public CompanyEventRequestDataDateTime DateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Universe
@@ -153,9 +153,9 @@ namespace FactSet.SDK.EventCalendar.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CompanyEventRequestData {\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  DateTime: ").Append(DateTime).Append("\n");
             sb.Append("  Universe: ").Append(Universe).Append("\n");
-            sb.Append("  Types: ").Append(Types).Append("\n");
+            sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,9 +192,9 @@ namespace FactSet.SDK.EventCalendar.Model
             }
             return 
                 (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
+                    this.DateTime == input.DateTime ||
+                    (this.DateTime != null &&
+                    this.DateTime.Equals(input.DateTime))
                 ) && 
                 (
                     this.Universe == input.Universe ||
@@ -202,8 +202,8 @@ namespace FactSet.SDK.EventCalendar.Model
                     this.Universe.Equals(input.Universe))
                 ) && 
                 (
-                    this.Types == input.Types ||
-                    this.Types.SequenceEqual(input.Types)
+                    this.EventTypes == input.EventTypes ||
+                    this.EventTypes.SequenceEqual(input.EventTypes)
                 );
         }
 
@@ -216,15 +216,15 @@ namespace FactSet.SDK.EventCalendar.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Date != null)
+                if (this.DateTime != null)
                 {
-                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DateTime.GetHashCode();
                 }
                 if (this.Universe != null)
                 {
                     hashCode = (hashCode * 59) + this.Universe.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                hashCode = (hashCode * 59) + this.EventTypes.GetHashCode();
                 return hashCode;
             }
         }

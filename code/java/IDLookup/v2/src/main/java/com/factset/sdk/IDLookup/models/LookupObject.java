@@ -99,11 +99,11 @@ public class LookupObject implements Serializable {
   }
 
    /**
-   * Get datasets
+   * Type of dataset
    * @return datasets
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Type of dataset")
   @JsonProperty(JSON_PROPERTY_DATASETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

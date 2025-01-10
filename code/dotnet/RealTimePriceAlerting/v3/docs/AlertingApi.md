@@ -63,7 +63,7 @@ namespace Example
 
             var apiInstance = new AlertingApi(config);
 
-            var id = "id_example";  // string | 
+            var id = "4004";  // string | Identifier of the alert.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -87,7 +87,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **id** | **string**| Identifier of the alert. | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="getalertingpricesbasicalertlist"></a>
 # **GetAlertingPricesBasicAlertList**
-> InlineResponse2001 GetAlertingPricesBasicAlertList (List<string> attributes = null, decimal? subscriptionMinimumInterval = null, string paginationCursor = null, decimal? paginationLimit = null)
+> InlineResponse2001 GetAlertingPricesBasicAlertList (List<string> attributes = null, decimal? metaSubscriptionMinimumInterval = null, string paginationCursor = null, decimal? paginationLimit = null)
 
 List of alerts.
 
@@ -164,14 +164,14 @@ namespace Example
             var apiInstance = new AlertingApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var subscriptionMinimumInterval = 0MD;  // decimal? | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional)  (default to 0M)
-            var paginationCursor = "paginationCursor_example";  // string | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional) 
+            var metaSubscriptionMinimumInterval = 0MD;  // decimal? | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional)  (default to 0M)
+            var paginationCursor = "Lorem ipsum";  // string | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional) 
             var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
                 // List of alerts.
-                InlineResponse2001 result = apiInstance.GetAlertingPricesBasicAlertList(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit);
+                InlineResponse2001 result = apiInstance.GetAlertingPricesBasicAlertList(attributes, metaSubscriptionMinimumInterval, paginationCursor, paginationLimit);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -190,7 +190,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **subscriptionMinimumInterval** | **decimal?**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0M]
+ **metaSubscriptionMinimumInterval** | **decimal?**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0M]
  **paginationCursor** | **string**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional] 
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
@@ -267,7 +267,7 @@ namespace Example
 
             var apiInstance = new AlertingApi(config);
 
-            var id = "id_example";  // string | 
+            var id = "4004";  // string | Identifier of the trigger.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -291,7 +291,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **id** | **string**| Identifier of the trigger. | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type

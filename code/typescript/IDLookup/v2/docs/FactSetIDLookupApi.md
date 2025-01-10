@@ -50,7 +50,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FactSetIDLookupApi();
-const dataset = "dataset_example"; // String | Type of dataset.
+const dataset = equities; // String | Type of dataset.
 
 // Call api endpoint
 apiInstance.helper(dataset).then(

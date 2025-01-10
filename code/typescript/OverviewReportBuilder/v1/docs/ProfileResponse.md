@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**ProfileData**](ProfileData.md) |  | [optional] 
-**meta** | **{String: String}** |  | [optional] 
+**data** | [**ProfileDataObject**](ProfileDataObject.md) |  | [optional] 
+**meta** | [**Meta**](Meta.md) |  | [optional] 
 
 

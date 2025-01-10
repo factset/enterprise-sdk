@@ -7,7 +7,7 @@ README.md
 docs/CompanyApi.md
 docs/CompanyEventRequest.md
 docs/CompanyEventRequestData.md
-docs/CompanyEventRequestDataDate.md
+docs/CompanyEventRequestDataDateTime.md
 docs/CompanyEventRequestDataUniverse.md
 docs/CompanyEventResponse.md
 docs/CompanyEventResponseData.md
@@ -24,7 +24,7 @@ fds/sdk/EventCalendar/exceptions.py
 fds/sdk/EventCalendar/model/__init__.py
 fds/sdk/EventCalendar/model/company_event_request.py
 fds/sdk/EventCalendar/model/company_event_request_data.py
-fds/sdk/EventCalendar/model/company_event_request_data_date.py
+fds/sdk/EventCalendar/model/company_event_request_data_date_time.py
 fds/sdk/EventCalendar/model/company_event_request_data_universe.py
 fds/sdk/EventCalendar/model/company_event_response.py
 fds/sdk/EventCalendar/model/company_event_response_data.py

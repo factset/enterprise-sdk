@@ -6,7 +6,7 @@ Lookup Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SearchText** | **string** | The string or keyword being searched on. | 
-**Datasets** | [**List&lt;FilterObjects&gt;**](FilterObjects.md) |  | 
+**Datasets** | [**List&lt;FilterObjects&gt;**](FilterObjects.md) | Type of dataset | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

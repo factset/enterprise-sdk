@@ -35,8 +35,8 @@ namespace FactSet.SDK.IDLookup.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Filters" /> class.
         /// </summary>
-        /// <param name="include">include.</param>
-        /// <param name="exclude">exclude.</param>
+        /// <param name="include">Include Object.</param>
+        /// <param name="exclude">Exclude Object.</param>
         public Filters(Dictionary<string, List<string>> include = default(Dictionary<string, List<string>>), Dictionary<string, List<string>> exclude = default(Dictionary<string, List<string>>))
         {
             this.Include = include;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.IDLookup.Model
         }
 
         /// <summary>
-        /// Gets or Sets Include
+        /// Include Object
         /// </summary>
+        /// <value>Include Object</value>
         [DataMember(Name = "include", EmitDefaultValue = false)]
         public Dictionary<string, List<string>> Include { get; set; }
 
         /// <summary>
-        /// Gets or Sets Exclude
+        /// Exclude Object
         /// </summary>
+        /// <value>Exclude Object</value>
         [DataMember(Name = "exclude", EmitDefaultValue = false)]
         public Dictionary<string, List<string>> Exclude { get; set; }
 

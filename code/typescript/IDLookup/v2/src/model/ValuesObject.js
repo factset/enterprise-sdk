@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ValuesObject {
     /**
      * Constructs a new <code>ValuesObject</code>.
+     * Values Object
      * @alias module:model/ValuesObject
      */
     constructor() { 

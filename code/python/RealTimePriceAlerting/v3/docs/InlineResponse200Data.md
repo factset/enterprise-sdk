@@ -6,7 +6,7 @@ Details of the alert.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str, none_type** | Identifier of the alert. | [optional] 
-**creation** | **str, none_type** | Date and time when the alert was created. | [optional] 
+**creation** | **datetime, none_type** | Date and time when the alert was created. | [optional] 
 **price** | [**InlineResponse200DataPrice**](InlineResponse200DataPrice.md) |  | [optional] 
 **notification** | [**InlineResponse200DataNotification**](InlineResponse200DataNotification.md) |  | [optional] 
 **trigger** | [**InlineResponse200DataTrigger**](InlineResponse200DataTrigger.md) |  | [optional] 

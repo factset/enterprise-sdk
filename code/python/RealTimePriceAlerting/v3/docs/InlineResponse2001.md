@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse2001Data]**](InlineResponse2001Data.md) | List of alerts. | [optional] 
+**data** | [**[GetAlertingPricesBasicAlertListDataItems]**](GetAlertingPricesBasicAlertListDataItems.md) | List of alerts. | [optional] 
 **meta** | [**InlineResponse2001Meta**](InlineResponse2001Meta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

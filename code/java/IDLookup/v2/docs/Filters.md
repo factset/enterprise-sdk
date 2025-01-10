@@ -8,8 +8,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**include** | **Map&lt;String, java.util.List&lt;String&gt;&gt;** |  |  [optional]
-**exclude** | **Map&lt;String, java.util.List&lt;String&gt;&gt;** |  |  [optional]
+**include** | **Map&lt;String, java.util.List&lt;String&gt;&gt;** | Include Object |  [optional]
+**exclude** | **Map&lt;String, java.util.List&lt;String&gt;&gt;** | Exclude Object |  [optional]
 
 
 ## Implemented Interfaces

@@ -57,18 +57,18 @@ class CompanyEventResponseData(ModelNormal):
 
     allowed_values = {
         ('event_type',): {
-            'E': "E",
-            'SA': "SA",
-            'G': "G",
-            'AM': "AM",
-            'SM': "SM",
-            'SS': "SS",
-            'CP': "CP",
-            'CONFIRMEDER': "confirmedER",
-            'SR': "SR",
-            'PROJECTEDER': "projectedER",
-            'S': "S",
-            'D': "D",
+            'EARNINGS': "Earnings",
+            'SALESREVENUECALL': "SalesRevenueCall",
+            'GUIDANCECALL': "GuidanceCall",
+            'ANALYSTSINVESTORSMEETING': "AnalystsInvestorsMeeting",
+            'SHAREHOLDERSMEETING': "ShareholdersMeeting",
+            'SPECIALSITUATION': "SpecialSituation",
+            'CONFERENCE': "Conference",
+            'CONFIRMEDEARNINGSRELEASE': "ConfirmedEarningsRelease",
+            'PROJECTEDEARNINGSRELEASE': "ProjectedEarningsRelease",
+            'SALESREVENUERELEASE': "SalesRevenueRelease",
+            'SPLIT': "Split",
+            'DIVIDEND': "Dividend",
 
 
         },

@@ -1,6 +1,6 @@
 /**
- * Price Alerting API For Digital Portals
- * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.  A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.  When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
+ * Real-Time Price Alerting API
+ * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.   * A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.   The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument. * When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: api@factset.com
@@ -41,7 +41,7 @@ export default class AlertingApi {
     /**
      * Details of an alert.
      * Details of an alert. The details include the trigger definition at the time of alert creation.
-     * @param {String} id 
+     * @param {String} id Identifier of the alert.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
@@ -82,7 +82,7 @@ export default class AlertingApi {
     /**
      * Details of an alert.
      * Details of an alert. The details include the trigger definition at the time of alert creation.
-     * @param {String} id 
+     * @param {String} id Identifier of the alert.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
@@ -100,7 +100,7 @@ export default class AlertingApi {
      * List of alerts in descending order of creation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (default to 0)
+     * @param {Number} opts.metaSubscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (default to 0)
      * @param {String} opts.paginationCursor Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
@@ -113,7 +113,7 @@ export default class AlertingApi {
       };
       let queryParams = {
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
-        '_subscriptionMinimumInterval': opts['subscriptionMinimumInterval'],
+        'metaSubscriptionMinimumInterval': opts['metaSubscriptionMinimumInterval'],
         '_paginationCursor': opts['paginationCursor'],
         '_paginationLimit': opts['paginationLimit']
       };
@@ -141,7 +141,7 @@ export default class AlertingApi {
      * List of alerts in descending order of creation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {Number} opts.subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (default to 0)
+     * @param {Number} opts.metaSubscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (default to 0)
      * @param {String} opts.paginationCursor Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20)
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
@@ -157,7 +157,7 @@ export default class AlertingApi {
     /**
      * Details of a trigger.
      * Details of a trigger.
-     * @param {String} id 
+     * @param {String} id Identifier of the trigger.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
@@ -198,7 +198,7 @@ export default class AlertingApi {
     /**
      * Details of a trigger.
      * Details of a trigger.
-     * @param {String} id 
+     * @param {String} id Identifier of the trigger.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }

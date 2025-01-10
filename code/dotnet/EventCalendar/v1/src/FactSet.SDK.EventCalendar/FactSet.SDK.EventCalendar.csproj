@@ -13,7 +13,7 @@
     <Description>Event Calendar client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.EventCalendar</RootNamespace>
-    <Version>0.20.9</Version>
+    <Version>0.21.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.EventCalendar.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

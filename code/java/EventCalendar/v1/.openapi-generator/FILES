@@ -9,7 +9,7 @@ build.sbt
 docs/CompanyApi.md
 docs/CompanyEventRequest.md
 docs/CompanyEventRequestData.md
-docs/CompanyEventRequestDataDate.md
+docs/CompanyEventRequestDataDateTime.md
 docs/CompanyEventRequestDataUniverse.md
 docs/CompanyEventResponse.md
 docs/CompanyEventResponseData.md
@@ -46,7 +46,7 @@ src/main/java/com/factset/sdk/EventCalendar/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/EventCalendar/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventRequest.java
 src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventRequestData.java
-src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventRequestDataDate.java
+src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventRequestDataDateTime.java
 src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventRequestDataUniverse.java
 src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventResponse.java
 src/main/java/com/factset/sdk/EventCalendar/models/CompanyEventResponseData.java

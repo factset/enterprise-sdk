@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**include** | **{String: [String]}** |  | [optional] 
-**exclude** | **{String: [String]}** |  | [optional] 
+**include** | **{String: [String]}** | Include Object | [optional] 
+**exclude** | **{String: [String]}** | Exclude Object | [optional] 
 
 

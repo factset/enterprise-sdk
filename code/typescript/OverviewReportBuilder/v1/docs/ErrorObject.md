@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**code** | **String** |  | [optional] 
-**title** | **String** |  | [optional] 
+**code** | **String** | error code | [optional] 
+**detail** | **String** | detail about the error | [optional] 
+**id** | **String** | unique id indicating the error within logs | [optional] 
 **links** | [**ErrorObjectLinks**](ErrorObjectLinks.md) |  | [optional] 
-**detail** | **String** |  | [optional] 
 **source** | [**ErrorObjectSource**](ErrorObjectSource.md) |  | [optional] 
+**title** | **String** | title of the error | [optional] 
 
 

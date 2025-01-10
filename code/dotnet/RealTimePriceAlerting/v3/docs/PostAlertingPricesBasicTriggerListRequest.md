@@ -5,7 +5,7 @@ Request Body
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**PostAlertingPricesBasicTriggerListRequestData**](PostAlertingPricesBasicTriggerListRequestData.md) |  | [optional] 
+**Data** | [**PostAlertingPricesBasicTriggerListRequestData**](PostAlertingPricesBasicTriggerListRequestData.md) |  | 
 **Meta** | [**PostAlertingPricesBasicTriggerListRequestMeta**](PostAlertingPricesBasicTriggerListRequestMeta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

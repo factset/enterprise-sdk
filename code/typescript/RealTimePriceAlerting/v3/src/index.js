@@ -1,6 +1,6 @@
 /**
- * Price Alerting API For Digital Portals
- * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.  A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.  When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
+ * Real-Time Price Alerting API
+ * The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.  Alerting uses the concepts of triggers and alerts.   * A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.   The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument. * When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.  An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).  The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.  See the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.  Note: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a FactSet consultant and see https://endpointreference.factset.com. 
  *
  * The version of the OpenAPI document: 3.0.0
  * Contact: api@factset.com
@@ -13,25 +13,30 @@
 
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
-import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
-import ErrorMetaObject from './model/ErrorMetaObject';
+import GetAlertingPricesBasicAlertGetDataNotificationStatusItems from './model/GetAlertingPricesBasicAlertGetDataNotificationStatusItems';
+import GetAlertingPricesBasicAlertGetDataNotificationStatusItemsChannel from './model/GetAlertingPricesBasicAlertGetDataNotificationStatusItemsChannel';
+import GetAlertingPricesBasicAlertListDataItems from './model/GetAlertingPricesBasicAlertListDataItems';
+import GetAlertingPricesBasicAlertListDataItemsNotification from './model/GetAlertingPricesBasicAlertListDataItemsNotification';
+import GetAlertingPricesBasicAlertListDataItemsTrigger from './model/GetAlertingPricesBasicAlertListDataItemsTrigger';
+import GetAlertingPricesBasicAlertListDataItemsTriggerNotification from './model/GetAlertingPricesBasicAlertListDataItemsTriggerNotification';
+import GetAlertingPricesBasicAlertListDataItemsTriggerNotificationChannel from './model/GetAlertingPricesBasicAlertListDataItemsTriggerNotificationChannel';
+import GetAlertingPricesBasicAlertListDataItemsTriggerPrice from './model/GetAlertingPricesBasicAlertListDataItemsTriggerPrice';
+import GetAlertingPricesBasicAlertListDataItemsTriggerRange from './model/GetAlertingPricesBasicAlertListDataItemsTriggerRange';
+import GetAlertingPricesBasicAlertListDataNotificationStatusItems from './model/GetAlertingPricesBasicAlertListDataNotificationStatusItems';
+import GetAlertingPricesBasicAlertListDataNotificationStatusItemsChannel from './model/GetAlertingPricesBasicAlertListDataNotificationStatusItemsChannel';
+import GetAlertingPricesBasicTriggerGetDataNotificationChannelItems from './model/GetAlertingPricesBasicTriggerGetDataNotificationChannelItems';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
-import InlineResponse2001Data from './model/InlineResponse2001Data';
 import InlineResponse2001Meta from './model/InlineResponse2001Meta';
-import InlineResponse2001Trigger from './model/InlineResponse2001Trigger';
-import InlineResponse2001TriggerPrice from './model/InlineResponse2001TriggerPrice';
-import InlineResponse2001TriggerStatus from './model/InlineResponse2001TriggerStatus';
 import InlineResponse2002 from './model/InlineResponse2002';
 import InlineResponse2002Data from './model/InlineResponse2002Data';
 import InlineResponse2002DataNotification from './model/InlineResponse2002DataNotification';
-import InlineResponse2002DataNotificationChannel from './model/InlineResponse2002DataNotificationChannel';
+import InlineResponse2002DataPrice from './model/InlineResponse2002DataPrice';
+import InlineResponse2002DataRange from './model/InlineResponse2002DataRange';
+import InlineResponse2002DataStatus from './model/InlineResponse2002DataStatus';
 import InlineResponse2003 from './model/InlineResponse2003';
-import InlineResponse2003Data from './model/InlineResponse2003Data';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse200DataNotification from './model/InlineResponse200DataNotification';
-import InlineResponse200DataNotificationChannel from './model/InlineResponse200DataNotificationChannel';
-import InlineResponse200DataNotificationStatus from './model/InlineResponse200DataNotificationStatus';
 import InlineResponse200DataPrice from './model/InlineResponse200DataPrice';
 import InlineResponse200DataTrigger from './model/InlineResponse200DataTrigger';
 import InlineResponse200DataTriggerNotation from './model/InlineResponse200DataTriggerNotation';
@@ -41,9 +46,12 @@ import InlineResponse200DataTriggerPrice from './model/InlineResponse200DataTrig
 import InlineResponse200DataTriggerRange from './model/InlineResponse200DataTriggerRange';
 import InlineResponse200DataTriggerStatus from './model/InlineResponse200DataTriggerStatus';
 import InlineResponse200Meta from './model/InlineResponse200Meta';
-import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutputObject';
-import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
-import PartialOutputObject from './model/PartialOutputObject';
+import PostAlertingPricesBasicTriggerListDataItems from './model/PostAlertingPricesBasicTriggerListDataItems';
+import PostAlertingPricesBasicTriggerListDataItemsNotification from './model/PostAlertingPricesBasicTriggerListDataItemsNotification';
+import PostAlertingPricesBasicTriggerListDataItemsPrice from './model/PostAlertingPricesBasicTriggerListDataItemsPrice';
+import PostAlertingPricesBasicTriggerListDataItemsRange from './model/PostAlertingPricesBasicTriggerListDataItemsRange';
+import PostAlertingPricesBasicTriggerListDataItemsStatus from './model/PostAlertingPricesBasicTriggerListDataItemsStatus';
+import PostAlertingPricesBasicTriggerListDataNotificationChannelItems from './model/PostAlertingPricesBasicTriggerListDataNotificationChannelItems';
 import PostAlertingPricesBasicTriggerListRequest from './model/PostAlertingPricesBasicTriggerListRequest';
 import PostAlertingPricesBasicTriggerListRequestData from './model/PostAlertingPricesBasicTriggerListRequestData';
 import PostAlertingPricesBasicTriggerListRequestDataFilter from './model/PostAlertingPricesBasicTriggerListRequestDataFilter';
@@ -99,16 +107,76 @@ export {
     CursorBasedPaginationOutputObject,
 
     /**
-     * The CursorBasedPaginationOutputObjectWithoutTotal model constructor.
-     * @property {module:model/CursorBasedPaginationOutputObjectWithoutTotal}
+     * The GetAlertingPricesBasicAlertGetDataNotificationStatusItems model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertGetDataNotificationStatusItems}
      */
-    CursorBasedPaginationOutputObjectWithoutTotal,
+    GetAlertingPricesBasicAlertGetDataNotificationStatusItems,
 
     /**
-     * The ErrorMetaObject model constructor.
-     * @property {module:model/ErrorMetaObject}
+     * The GetAlertingPricesBasicAlertGetDataNotificationStatusItemsChannel model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertGetDataNotificationStatusItemsChannel}
      */
-    ErrorMetaObject,
+    GetAlertingPricesBasicAlertGetDataNotificationStatusItemsChannel,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItems model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItems}
+     */
+    GetAlertingPricesBasicAlertListDataItems,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItemsNotification model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItemsNotification}
+     */
+    GetAlertingPricesBasicAlertListDataItemsNotification,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItemsTrigger model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItemsTrigger}
+     */
+    GetAlertingPricesBasicAlertListDataItemsTrigger,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItemsTriggerNotification model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItemsTriggerNotification}
+     */
+    GetAlertingPricesBasicAlertListDataItemsTriggerNotification,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItemsTriggerNotificationChannel model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItemsTriggerNotificationChannel}
+     */
+    GetAlertingPricesBasicAlertListDataItemsTriggerNotificationChannel,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItemsTriggerPrice model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItemsTriggerPrice}
+     */
+    GetAlertingPricesBasicAlertListDataItemsTriggerPrice,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataItemsTriggerRange model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataItemsTriggerRange}
+     */
+    GetAlertingPricesBasicAlertListDataItemsTriggerRange,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataNotificationStatusItems model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataNotificationStatusItems}
+     */
+    GetAlertingPricesBasicAlertListDataNotificationStatusItems,
+
+    /**
+     * The GetAlertingPricesBasicAlertListDataNotificationStatusItemsChannel model constructor.
+     * @property {module:model/GetAlertingPricesBasicAlertListDataNotificationStatusItemsChannel}
+     */
+    GetAlertingPricesBasicAlertListDataNotificationStatusItemsChannel,
+
+    /**
+     * The GetAlertingPricesBasicTriggerGetDataNotificationChannelItems model constructor.
+     * @property {module:model/GetAlertingPricesBasicTriggerGetDataNotificationChannelItems}
+     */
+    GetAlertingPricesBasicTriggerGetDataNotificationChannelItems,
 
     /**
      * The InlineResponse200 model constructor.
@@ -123,34 +191,10 @@ export {
     InlineResponse2001,
 
     /**
-     * The InlineResponse2001Data model constructor.
-     * @property {module:model/InlineResponse2001Data}
-     */
-    InlineResponse2001Data,
-
-    /**
      * The InlineResponse2001Meta model constructor.
      * @property {module:model/InlineResponse2001Meta}
      */
     InlineResponse2001Meta,
-
-    /**
-     * The InlineResponse2001Trigger model constructor.
-     * @property {module:model/InlineResponse2001Trigger}
-     */
-    InlineResponse2001Trigger,
-
-    /**
-     * The InlineResponse2001TriggerPrice model constructor.
-     * @property {module:model/InlineResponse2001TriggerPrice}
-     */
-    InlineResponse2001TriggerPrice,
-
-    /**
-     * The InlineResponse2001TriggerStatus model constructor.
-     * @property {module:model/InlineResponse2001TriggerStatus}
-     */
-    InlineResponse2001TriggerStatus,
 
     /**
      * The InlineResponse2002 model constructor.
@@ -171,22 +215,28 @@ export {
     InlineResponse2002DataNotification,
 
     /**
-     * The InlineResponse2002DataNotificationChannel model constructor.
-     * @property {module:model/InlineResponse2002DataNotificationChannel}
+     * The InlineResponse2002DataPrice model constructor.
+     * @property {module:model/InlineResponse2002DataPrice}
      */
-    InlineResponse2002DataNotificationChannel,
+    InlineResponse2002DataPrice,
+
+    /**
+     * The InlineResponse2002DataRange model constructor.
+     * @property {module:model/InlineResponse2002DataRange}
+     */
+    InlineResponse2002DataRange,
+
+    /**
+     * The InlineResponse2002DataStatus model constructor.
+     * @property {module:model/InlineResponse2002DataStatus}
+     */
+    InlineResponse2002DataStatus,
 
     /**
      * The InlineResponse2003 model constructor.
      * @property {module:model/InlineResponse2003}
      */
     InlineResponse2003,
-
-    /**
-     * The InlineResponse2003Data model constructor.
-     * @property {module:model/InlineResponse2003Data}
-     */
-    InlineResponse2003Data,
 
     /**
      * The InlineResponse200Data model constructor.
@@ -199,18 +249,6 @@ export {
      * @property {module:model/InlineResponse200DataNotification}
      */
     InlineResponse200DataNotification,
-
-    /**
-     * The InlineResponse200DataNotificationChannel model constructor.
-     * @property {module:model/InlineResponse200DataNotificationChannel}
-     */
-    InlineResponse200DataNotificationChannel,
-
-    /**
-     * The InlineResponse200DataNotificationStatus model constructor.
-     * @property {module:model/InlineResponse200DataNotificationStatus}
-     */
-    InlineResponse200DataNotificationStatus,
 
     /**
      * The InlineResponse200DataPrice model constructor.
@@ -267,22 +305,40 @@ export {
     InlineResponse200Meta,
 
     /**
-     * The OffsetBasedPaginationOutputObject model constructor.
-     * @property {module:model/OffsetBasedPaginationOutputObject}
+     * The PostAlertingPricesBasicTriggerListDataItems model constructor.
+     * @property {module:model/PostAlertingPricesBasicTriggerListDataItems}
      */
-    OffsetBasedPaginationOutputObject,
+    PostAlertingPricesBasicTriggerListDataItems,
 
     /**
-     * The OffsetBasedPaginationOutputObjectWithoutTotal model constructor.
-     * @property {module:model/OffsetBasedPaginationOutputObjectWithoutTotal}
+     * The PostAlertingPricesBasicTriggerListDataItemsNotification model constructor.
+     * @property {module:model/PostAlertingPricesBasicTriggerListDataItemsNotification}
      */
-    OffsetBasedPaginationOutputObjectWithoutTotal,
+    PostAlertingPricesBasicTriggerListDataItemsNotification,
 
     /**
-     * The PartialOutputObject model constructor.
-     * @property {module:model/PartialOutputObject}
+     * The PostAlertingPricesBasicTriggerListDataItemsPrice model constructor.
+     * @property {module:model/PostAlertingPricesBasicTriggerListDataItemsPrice}
      */
-    PartialOutputObject,
+    PostAlertingPricesBasicTriggerListDataItemsPrice,
+
+    /**
+     * The PostAlertingPricesBasicTriggerListDataItemsRange model constructor.
+     * @property {module:model/PostAlertingPricesBasicTriggerListDataItemsRange}
+     */
+    PostAlertingPricesBasicTriggerListDataItemsRange,
+
+    /**
+     * The PostAlertingPricesBasicTriggerListDataItemsStatus model constructor.
+     * @property {module:model/PostAlertingPricesBasicTriggerListDataItemsStatus}
+     */
+    PostAlertingPricesBasicTriggerListDataItemsStatus,
+
+    /**
+     * The PostAlertingPricesBasicTriggerListDataNotificationChannelItems model constructor.
+     * @property {module:model/PostAlertingPricesBasicTriggerListDataNotificationChannelItems}
+     */
+    PostAlertingPricesBasicTriggerListDataNotificationChannelItems,
 
     /**
      * The PostAlertingPricesBasicTriggerListRequest model constructor.

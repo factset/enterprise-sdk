@@ -8,7 +8,7 @@ Notification information of the alert.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**java.util.List&lt;InlineResponse200DataNotificationStatus&gt;**](InlineResponse200DataNotificationStatus.md) | Status of a notification per channel. |  [optional]
+**status** | [**java.util.List&lt;GetAlertingPricesBasicAlertGetDataNotificationStatusItems&gt;**](GetAlertingPricesBasicAlertGetDataNotificationStatusItems.md) | Status of a notification per channel. |  [optional]
 
 
 ## Implemented Interfaces

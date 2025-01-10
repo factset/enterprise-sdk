@@ -1,4 +1,5 @@
 # FactSet.SDK.OverviewReportBuilder.Model.ErrorObjectSource
+source of the error
 
 ## Properties
 

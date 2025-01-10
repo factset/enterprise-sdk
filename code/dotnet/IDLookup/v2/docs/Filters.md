@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Include** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 
-**Exclude** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 
+**Include** | **Dictionary&lt;string, List&lt;string&gt;&gt;** | Include Object | [optional] 
+**Exclude** | **Dictionary&lt;string, List&lt;string&gt;&gt;** | Exclude Object | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

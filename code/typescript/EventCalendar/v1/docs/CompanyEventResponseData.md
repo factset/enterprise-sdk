@@ -24,29 +24,29 @@ Name | Type | Description | Notes
 ## Enum: EventTypeEnum
 
 
-* `E` (value: `"E"`)
+* `Earnings` (value: `"Earnings"`)
 
-* `SA` (value: `"SA"`)
+* `SalesRevenueCall` (value: `"SalesRevenueCall"`)
 
-* `G` (value: `"G"`)
+* `GuidanceCall` (value: `"GuidanceCall"`)
 
-* `AM` (value: `"AM"`)
+* `AnalystsInvestorsMeeting` (value: `"AnalystsInvestorsMeeting"`)
 
-* `SM` (value: `"SM"`)
+* `ShareholdersMeeting` (value: `"ShareholdersMeeting"`)
 
-* `SS` (value: `"SS"`)
+* `SpecialSituation` (value: `"SpecialSituation"`)
 
-* `CP` (value: `"CP"`)
+* `Conference` (value: `"Conference"`)
 
-* `confirmedER` (value: `"confirmedER"`)
+* `ConfirmedEarningsRelease` (value: `"ConfirmedEarningsRelease"`)
 
-* `SR` (value: `"SR"`)
+* `ProjectedEarningsRelease` (value: `"ProjectedEarningsRelease"`)
 
-* `projectedER` (value: `"projectedER"`)
+* `SalesRevenueRelease` (value: `"SalesRevenueRelease"`)
 
-* `S` (value: `"S"`)
+* `Split` (value: `"Split"`)
 
-* `D` (value: `"D"`)
+* `Dividend` (value: `"Dividend"`)
 
 
 

@@ -4,38 +4,38 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | [**CompanyEventRequestDataDate**](CompanyEventRequestDataDate.md) |  | [optional] 
+**dateTime** | [**CompanyEventRequestDataDateTime**](CompanyEventRequestDataDateTime.md) |  | [optional] 
 **universe** | [**CompanyEventRequestDataUniverse**](CompanyEventRequestDataUniverse.md) |  | [optional] 
-**types** | **[String]** | The type of events returned in the response | [optional] 
+**eventTypes** | **[String]** | The type of events returned in the response | [optional] 
 
 
 
-## Enum: [TypesEnum]
+## Enum: [EventTypesEnum]
 
 
-* `E` (value: `"E"`)
+* `Earnings` (value: `"Earnings"`)
 
-* `SA` (value: `"SA"`)
+* `SalesRevenueCall` (value: `"SalesRevenueCall"`)
 
-* `G` (value: `"G"`)
+* `GuidanceCall` (value: `"GuidanceCall"`)
 
-* `AM` (value: `"AM"`)
+* `AnalystsInvestorsMeeting` (value: `"AnalystsInvestorsMeeting"`)
 
-* `SM` (value: `"SM"`)
+* `ShareholdersMeeting` (value: `"ShareholdersMeeting"`)
 
-* `SS` (value: `"SS"`)
+* `SpecialSituation` (value: `"SpecialSituation"`)
 
-* `CP` (value: `"CP"`)
+* `Conference` (value: `"Conference"`)
 
-* `confirmedER` (value: `"confirmedER"`)
+* `ConfirmedEarningsRelease` (value: `"ConfirmedEarningsRelease"`)
 
-* `SR` (value: `"SR"`)
+* `ProjectedEarningsRelease` (value: `"ProjectedEarningsRelease"`)
 
-* `projectedER` (value: `"projectedER"`)
+* `SalesRevenueRelease` (value: `"SalesRevenueRelease"`)
 
-* `S` (value: `"S"`)
+* `Split` (value: `"Split"`)
 
-* `D` (value: `"D"`)
+* `Dividend` (value: `"Dividend"`)
 
 
 

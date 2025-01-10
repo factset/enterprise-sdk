@@ -1,10 +1,10 @@
 # fds.sdk.EventCalendar.CompanyApi
 
-All URIs are relative to *https://api.factset.com/event-calendar/v1*
+All URIs are relative to *https://api.factset.com/events/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_company_event**](CompanyApi.md#get_company_event) | **POST** /company/event/list | Retrieve Company Event data
+[**get_company_event**](CompanyApi.md#get_company_event) | **POST** /calendar/events | Retrieve Company Event data
 
 
 
@@ -62,16 +62,16 @@ with fds.sdk.EventCalendar.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     company_event_request = CompanyEventRequest(
         data=CompanyEventRequestData(
-            date=CompanyEventRequestDataDate(
+            date_time=CompanyEventRequestDataDateTime(
                 start=dateutil_parser('2022-12-01T00:00:00Z'),
                 end=dateutil_parser('2022-12-31T22:59:02Z'),
             ),
             universe=CompanyEventRequestDataUniverse(
                 symbols=["AAPL-US","MSFT-US","FDS-US"],
-                type="tickers",
+                type="Tickers",
             ),
-            types=[
-                "E",
+            event_types=[
+                "Earnings",
             ],
         ),
     ) # CompanyEventRequest | Company Event request body
