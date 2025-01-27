@@ -2,17 +2,17 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Publisher API",
-    "description": "Allow clients to fetch Publisher Analytics through APIs.",
+    "description": "Allow clients to fetch Analytics through APIs.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3"
+    "version": "3.12.6"
   },
   "servers": [
     {
@@ -32,12 +32,12 @@
           {
             "name": "path",
             "in": "path",
-            "description": "The directory to get the accounts and sub-directories in",
+            "description": "The directory to get the accounts and sub-directories.",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The directory to get the accounts and sub-directories in",
-              "default": "Client:Foo/Bar"
+              "description": "The directory to get the accounts and sub-directories.",
+              "example": "Client:"
             }
           }
         ],
@@ -82,6 +82,24 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AccountDirectoriesRoot"
+                },
+                "examples": {
+                  "200 - List of Accounts & Directories": {
+                    "value": {
+                      "data": {
+                        "accounts": [
+                          "SAMPLE_ACCOUNT.ACCT",
+                          "TEST20240523.ACCT",
+                          "TEST_201BENCH.ACCT",
+                          "TEST_201RESPONSE.ACCT"
+                        ],
+                        "directories": [
+                          "$$lmac_holdings",
+                          "notes"
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -119,6 +137,27 @@
                 "description": "Number of seconds remaining till rate limit resets.",
                 "schema": {
                   "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -212,6 +251,27 @@
                 "description": "Number of seconds remaining till rate limit resets.",
                 "schema": {
                   "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BDDBB7D633388",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Path not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -368,6 +428,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CurrencyRoot"
+                },
+                "examples": {
+                  "200 - Sample list": {
+                    "value": {
+                      "data": {
+                        "AZN": {
+                          "name": "Azerbaijan New Manat"
+                        },
+                        "BSD": {
+                          "name": "Bahamas Dollar"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -548,7 +622,7 @@
             "schema": {
               "type": "string",
               "description": "The directory to get the documents in",
-              "default": "Client:folder1/folder2"
+              "example": "Client:"
             }
           }
         ],
@@ -593,6 +667,22 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DocumentDirectoriesRoot"
+                },
+                "examples": {
+                  "200 - Valid Path": {
+                    "value": {
+                      "data": {
+                        "documents": [
+                          "TEST_PUB1",
+                          "TEST_PUB2"
+                        ],
+                        "directories": [
+                          "$$lmac_holdings",
+                          "notes"
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -630,6 +720,27 @@
                 "description": "Number of seconds remaining till rate limit resets.",
                 "schema": {
                   "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -723,6 +834,27 @@
                 "description": "Number of seconds remaining till rate limit resets.",
                 "schema": {
                   "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BDDBB7D633388",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Path not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -842,15 +974,16 @@
           {
             "name": "X-FactSet-Api-Long-Running-Deadline",
             "in": "header",
-            "description": "Long running deadline in seconds when only one unit is passed in the POST body.",
+            "description": "Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 10
             }
           },
           {
             "name": "Cache-Control",
             "in": "header",
-            "description": "Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.",
+            "description": "Standard HTTP header.  Accepts max-stale.",
             "schema": {
               "type": "string"
             }
@@ -862,6 +995,52 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PubCalculationParametersRoot"
+              },
+              "examples": {
+                "Single Unit Request": {
+                  "value": {
+                    "data": {
+                      "pub1": {
+                        "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                        "account": {
+                          "id": "Client:Pub_Attribution.ACCT",
+                          "holdingsmode": "B&H"
+                        },
+                        "dates": {
+                          "startdate": "20240101",
+                          "enddate": "20240331"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Multi Unit Request": {
+                  "value": {
+                    "data": {
+                      "pub1": {
+                        "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                        "account": {
+                          "id": "Client:Pub_Attribution1.ACCT",
+                          "holdingsmode": "B&H"
+                        },
+                        "dates": {
+                          "enddate": "20240331"
+                        }
+                      },
+                      "pub2": {
+                        "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                        "account": {
+                          "id": "Client:Pub_Attribution2.ACCT",
+                          "holdingsmode": "B&H"
+                        },
+                        "dates": {
+                          "startdate": "20240201",
+                          "enddate": "20240331"
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -904,14 +1083,32 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
-                }
-              },
-              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
-                "schema": {
-                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "Invalid document identifier": {
+                    "value": {
+                      "data": {
+                        "calculationid": "995520b92015451abbd1c0b19da4eaaf",
+                        "status": "Completed",
+                        "units": {
+                          "pub1": {
+                            "status": "Failed",
+                            "errors": [
+                              {
+                                "id": "c5903a43b5004da4a03d84b54ce65472:1",
+                                "code": "404",
+                                "title": "ErrorMessage",
+                                "detail": "Invalid document Client:/Pub/TestDoc1.Pub_bridge_pdf"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -955,12 +1152,14 @@
             "content": {
               "application/pdf": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectRoot"
+                  "type": "string",
+                  "format": "binary"
                 }
               },
               "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectRoot"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -1009,14 +1208,27 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
-                }
-              },
-              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
-                "schema": {
-                  "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "calculationid": "29843eee5bf94fb584717cd0bc2c27a5",
+                        "status": "Queued",
+                        "units": {
+                          "pub1": {
+                            "status": "Executing"
+                          },
+                          "pub2": {
+                            "status": "Queued"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1058,14 +1270,23 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66619C6CAE74BDEC",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "\"\":[\"Invalid field value specified\"]"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1163,14 +1384,23 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1295,6 +1525,390 @@
           }
         },
         "x-factset-different-success-responses": true
+      },
+      "get": {
+        "tags": [
+          "PubCalculations"
+        ],
+        "summary": "Get all calculations",
+        "description": "This endpoints returns all calculation requests.",
+        "operationId": "getAllCalculations",
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of calculation requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationsSummaryRoot"
+                },
+                "examples": {
+                  "200 - Successful Response": {
+                    "value": {
+                      "data": {
+                        "87f9d3d7e4cd42099863fcc61e7e8953": {
+                          "status": "Queued",
+                          "units": 1,
+                          "requestTime": "2024-12-18T10:17:49.5329486Z",
+                          "lastPollTime": "2024-12-18T10:17:49.5329749Z"
+                        },
+                        "15ad5008f9134ed89b52a40e9d4b2739": {
+                          "status": "Completed",
+                          "units": 1,
+                          "requestTime": "2024-12-18T10:17:49.5330329Z",
+                          "lastPollTime": "2024-12-18T10:17:49.533033Z"
+                        },
+                        "58d6a3e3864a45fabd958096e960a96e": {
+                          "status": "Completed",
+                          "units": 1,
+                          "requestTime": "2024-12-18T10:17:49.5330332Z",
+                          "lastPollTime": "2024-12-18T10:17:49.5330332Z"
+                        }
+                      },
+                      "meta": {
+                        "pagination": {
+                          "pageNumber": 1,
+                          "pageSize": 20,
+                          "totalPages": 1,
+                          "totalCalculations": 3
+                        }
+                      }
+                    }
+                  },
+                  "200 - Successful Response - No calculation in database": {
+                    "value": {
+                      "data": {},
+                      "meta": {
+                        "pagination": {
+                          "pageNumber": 1,
+                          "pageSize": 20,
+                          "totalPages": 0,
+                          "totalCalculations": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid page number.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Invalid page number": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66851540C4CE19B6",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid page number"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No calculation found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/analytics/engines/pub/v3/calculations/{id}": {
@@ -1319,15 +1933,16 @@
           {
             "name": "X-FactSet-Api-Long-Running-Deadline",
             "in": "header",
-            "description": "Long running deadline in seconds when only one unit is passed in the PUT body.",
+            "description": "Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.",
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 10
             }
           },
           {
             "name": "Cache-Control",
             "in": "header",
-            "description": "Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.",
+            "description": "Standard HTTP header.  Accepts max-stale.",
             "schema": {
               "type": "string"
             }
@@ -1339,6 +1954,52 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PubCalculationParametersRoot"
+              },
+              "examples": {
+                "Single Unit Request": {
+                  "value": {
+                    "data": {
+                      "pub1": {
+                        "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                        "account": {
+                          "id": "Client:Pub_Attribution.ACCT",
+                          "holdingsmode": "B&H"
+                        },
+                        "dates": {
+                          "startdate": "20240101",
+                          "enddate": "20240331"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Multi Unit Request": {
+                  "value": {
+                    "data": {
+                      "pub1": {
+                        "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                        "account": {
+                          "id": "Client:Pub_Attribution1.ACCT",
+                          "holdingsmode": "B&H"
+                        },
+                        "dates": {
+                          "enddate": "20240331"
+                        }
+                      },
+                      "pub2": {
+                        "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                        "account": {
+                          "id": "Client:Pub_Attribution2.ACCT",
+                          "holdingsmode": "B&H"
+                        },
+                        "dates": {
+                          "startdate": "20240201",
+                          "enddate": "20240331"
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -1395,9 +2056,32 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "Invalid document identifier": {
+                    "value": {
+                      "data": {
+                        "calculationid": "995520b92015451abbd1c0b19da4eaaf",
+                        "status": "Completed",
+                        "units": {
+                          "pub1": {
+                            "status": "Failed",
+                            "errors": [
+                              {
+                                "id": "c5903a43b5004da4a03d84b54ce65472:1",
+                                "code": "404",
+                                "title": "ErrorMessage",
+                                "detail": "Invalid document Client:/Pub/TestDoc1.Pub_bridge_pdf"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1455,7 +2139,14 @@
             "content": {
               "application/pdf": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectRoot"
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -1518,9 +2209,27 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "calculationid": "29843eee5bf94fb584717cd0bc2c27a5",
+                        "status": "Queued",
+                        "units": {
+                          "pub1": {
+                            "status": "Executing"
+                          },
+                          "pub2": {
+                            "status": "Queued"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1576,9 +2285,23 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66619C6CAE74BDEC",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "\"\":[\"Invalid field value specified\"]"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1718,9 +2441,98 @@
               }
             },
             "content": {
-              "application/pdf": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Duplicate calculation exists with same parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FI request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FI request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FI requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FI requests remaining till request limit reached."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Duplicate Calculation Id": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6687CD4B6574E222",
+                          "code": "Conflict",
+                          "title": "Failed to process request",
+                          "detail": "Cannot create/update the calculation as the duplicate calculation id (80931ca92c7b432380dcd51f539c79f5) exists",
+                          "source": {
+                            "pointer": "/data"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1983,6 +2795,25 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PubCalculationParametersRoot"
+                },
+                "examples": {
+                  "200 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "pub1": {
+                          "document": "Client:/Pub_Attribution.Pub_bridge_pdf",
+                          "account": {
+                            "id": "Client:Pub_Attribution.ACCT",
+                            "holdingsmode": "B&H"
+                          },
+                          "dates": {
+                            "startdate": "20240101",
+                            "enddate": "20240331"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2027,6 +2858,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2127,6 +2972,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Calculation Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6687DEF23DEB1DD6",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2265,19 +3124,23 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2375,19 +3238,23 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Calculation Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6687DEF23DEB1DD6",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2439,7 +3306,7 @@
           "PubCalculations"
         ],
         "summary": "Get Pub calculation status by id",
-        "description": "This is the endpoint to check on the progress of a previously requested calculation.\r\nIf the calculation has finished computing, the result field in the response body will point to the result url.\r\nOtherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.",
+        "description": "This is the endpoint to check on the progress of a previously requested calculation.\r\nIf the calculation has finished computing, the location header will point to the result url.",
         "operationId": "getCalculationStatusById",
         "parameters": [
           {
@@ -2515,6 +3382,43 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "200 - Single Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "80931ca92c7b432380dcd51f539c79f5",
+                        "status": "Completed",
+                        "units": {
+                          "pub1": {
+                            "status": "Success",
+                            "result": "https://api.factset.com/analytics/engines/pub/v3/calculations/08ba51659d4640bcbd9046d78b153a3e/units/pub1/result",
+                            "progress": "100"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "200 - Multi Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "29843eee5bf94fb584717cd0bc2c27a5",
+                        "status": "Completed",
+                        "units": {
+                          "pub1": {
+                            "status": "Success",
+                            "result": "https://api.factset.com/analytics/engines/pub/v3/calculations/29843eee5bf94fb584717cd0bc2c27a5/units/pub1/result",
+                            "progress": "100"
+                          },
+                          "pub2": {
+                            "status": "Success",
+                            "result": "https://api.factset.com/analytics/engines/pub/v3/calculations/29843eee5bf94fb584717cd0bc2c27a5/units/pub2/result",
+                            "progress": "100"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2573,6 +3477,40 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Single Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "6b98d723eb5649aea2ddc824f224f886",
+                        "status": "Executing",
+                        "units": {
+                          "pub1": {
+                            "status": "Executing",
+                            "progress": "0"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "202 - Multi Unit Calculation": {
+                    "value": {
+                      "data": {
+                        "calculationid": "b5d74179e3aa455da07e8d24819b462b",
+                        "status": "Executing",
+                        "units": {
+                          "pub1": {
+                            "status": "Executing",
+                            "progress": "0"
+                          },
+                          "pub2": {
+                            "status": "Executing",
+                            "progress": "0"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2617,6 +3555,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2717,6 +3669,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Calculation Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6687DEF23DEB1DD6",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2790,14 +3756,6 @@
               "type": "string",
               "description": "from url, provided from the location header in the Get Pub calculation status by id endpoint"
             }
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or *",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -2859,19 +3817,16 @@
               }
             },
             "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ObjectRoot"
-                }
-              },
-              "application/x-protobuf": {
-                "schema": {
-                  "$ref": "#/components/schemas/ObjectRoot"
-                }
-              },
               "application/pdf": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectRoot"
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -2916,16 +3871,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "application/x-protobuf": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "application/pdf": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -3026,16 +3985,32 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "application/x-protobuf": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "application/pdf": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Invalid Calculation Id provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BA563FDF6EACF",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Invalid Unit Id provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BA4C43D4DA77E",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation Unit Identifier 10 not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -3092,22 +4067,80 @@
             "items": {
               "type": "string"
             },
-            "description": "List of account and composite files."
+            "description": "List of account and composite files.",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
         }
       },
       "AccountDirectoriesRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/AccountDirectories"
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
+      },
+      "ErrorSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string",
+            "nullable": true
+          },
+          "parameter": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          }
+        }
+      },
+      "ClientErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "nullable": true
           }
         }
       },
@@ -3116,11 +4149,15 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Name of currency."
+            "description": "Name of currency.",
+            "nullable": true
           }
         }
       },
       "CurrencyRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
@@ -3128,6 +4165,10 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/Currency"
             }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
           }
         }
       },
@@ -3138,22 +4179,32 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "List of documents",
+            "nullable": true
           },
           "directories": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of directories."
+            "description": "List of directories.",
+            "nullable": true
           }
         }
       },
       "DocumentDirectoriesRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/DocumentDirectories"
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
           }
         }
       },
@@ -3169,7 +4220,8 @@
           },
           "holdingsmode": {
             "type": "string",
-            "description": "Holdings Mode can be B&H, TBR, OMS or EXT."
+            "description": "Holdings Mode can be B&H, TBR, OMS or EXT.",
+            "nullable": true
           }
         }
       },
@@ -3181,7 +4233,8 @@
         "properties": {
           "startdate": {
             "type": "string",
-            "description": "Calculation's start date."
+            "description": "Calculation's start date.",
+            "nullable": true
           },
           "enddate": {
             "type": "string",
@@ -3221,35 +4274,11 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/PubCalculationParameters"
             },
-            "description": "List of calculation parameters."
+            "description": "List of calculation parameters.",
+            "nullable": true
           },
           "meta": {
             "$ref": "#/components/schemas/PubCalculationMeta"
-          }
-        }
-      },
-      "ErrorSource": {
-        "type": "object",
-        "properties": {
-          "pointer": {
-            "type": "string"
-          },
-          "parameter": {
-            "type": "string"
-          }
-        }
-      },
-      "Error": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "$ref": "#/components/schemas/ErrorSource"
           }
         }
       },
@@ -3272,15 +4301,32 @@
             "items": {
               "$ref": "#/components/schemas/Error"
             },
-            "description": "The error in a calculation unit."
+            "description": "The error in a calculation unit.",
+            "nullable": true
           },
           "result": {
             "type": "string",
-            "description": "The result URL of the calculation."
+            "description": "The result URL of the calculation.",
+            "nullable": true
           },
           "progress": {
             "type": "string",
-            "description": "The progress of the calculation unit."
+            "description": "The progress of the calculation unit.",
+            "nullable": true
+          },
+          "points": {
+            "type": "integer",
+            "description": "The points for the calculation unit.",
+            "format": "int32",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The warnings in a calculation unit.",
+            "nullable": true
           }
         }
       },
@@ -3288,7 +4334,9 @@
         "type": "object",
         "properties": {
           "calculationid": {
-            "type": "string"
+            "type": "string",
+            "description": "Calculation's identifier",
+            "nullable": true
           },
           "status": {
             "enum": [
@@ -3297,41 +4345,137 @@
               "Completed",
               "Cancelled"
             ],
-            "type": "string"
+            "type": "string",
+            "description": "Calculation's status"
           },
           "units": {
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/CalculationUnitStatus"
             },
-            "description": "Number of calculation units in batch."
+            "description": "Number of calculation units in batch.",
+            "nullable": true
+          }
+        }
+      },
+      "CalculationUnitStatusMeta": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "string",
+            "description": "The Info URL of the calculation.",
+            "nullable": true
+          }
+        }
+      },
+      "CalculationStatusMeta": {
+        "type": "object",
+        "properties": {
+          "units": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CalculationUnitStatusMeta"
+            },
+            "description": "Meta of calculation units in batch.",
+            "nullable": true
           }
         }
       },
       "CalculationStatusRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
             "$ref": "#/components/schemas/CalculationStatus"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/CalculationStatusMeta"
           }
         }
       },
-      "ObjectRoot": {
+      "CalculationsSummary": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Queued",
+              "Executing",
+              "Completed",
+              "Cancelled"
+            ],
+            "type": "string",
+            "description": "Last poll status of the calculation."
+          },
+          "units": {
+            "type": "integer",
+            "description": "Number of calculation units in batch.",
+            "format": "int32"
+          },
+          "requestTime": {
+            "type": "string",
+            "description": "Request time of calculation.",
+            "format": "date-time"
+          },
+          "lastPollTime": {
+            "type": "string",
+            "description": "Last poll time of calculation.",
+            "format": "date-time"
+          }
+        }
+      },
+      "PaginationInfo": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCalculations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfo"
+          }
+        }
+      },
+      "CalculationsSummaryRoot": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
-            "type": "object"
-          }
-        }
-      },
-      "ClientErrorResponse": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Error"
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CalculationsSummary"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       }
@@ -3359,5 +4503,23 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "tags": [
+    {
+      "name": "Accounts"
+    },
+    {
+      "name": "Currencies"
+    },
+    {
+      "name": "Documents"
+    },
+    {
+      "name": "PubCalculations"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/"
+  }
 }

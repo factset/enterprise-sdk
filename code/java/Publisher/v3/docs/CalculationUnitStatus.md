@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **errors** | [**java.util.List&lt;Error&gt;**](Error.md) | The error in a calculation unit. |  [optional]
 **result** | **String** | The result URL of the calculation. |  [optional]
 **progress** | **String** | The progress of the calculation unit. |  [optional]
+**points** | **Integer** | The points for the calculation unit. |  [optional]
+**warnings** | **java.util.List&lt;String&gt;** | The warnings in a calculation unit. |  [optional]
 
 
 

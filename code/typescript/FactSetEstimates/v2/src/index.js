@@ -1,6 +1,6 @@
 /**
  * FactSet Estimates
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
  * The version of the OpenAPI document: 2.6.0
  * Contact: api@factset.com
@@ -12,6 +12,9 @@
  */
 
 import ApiClient from './ApiClient';
+import Actual from './model/Actual';
+import ActualsRequest from './model/ActualsRequest';
+import ActualsResponse from './model/ActualsResponse';
 import AnalystRating from './model/AnalystRating';
 import AnalystRatingResponse from './model/AnalystRatingResponse';
 import Category from './model/Category';
@@ -47,6 +50,9 @@ import PeriodicitySurprise from './model/PeriodicitySurprise';
 import RatingsCount from './model/RatingsCount';
 import RollingConsensusRequest from './model/RollingConsensusRequest';
 import RollingDetailRequest from './model/RollingDetailRequest';
+import SegmentActuals from './model/SegmentActuals';
+import SegmentActualsRequest from './model/SegmentActualsRequest';
+import SegmentActualsResponse from './model/SegmentActualsResponse';
 import SegmentType from './model/SegmentType';
 import SegmentsEstimate from './model/SegmentsEstimate';
 import SegmentsRequest from './model/SegmentsRequest';
@@ -61,11 +67,13 @@ import SurpriseRequest from './model/SurpriseRequest';
 import SurpriseResponse from './model/SurpriseResponse';
 import TargetPrice from './model/TargetPrice';
 
+import ActualsApi from './api/ActualsApi';
 import BrokerDetailApi from './api/BrokerDetailApi';
 import ConsensusApi from './api/ConsensusApi';
 import DataItemsApi from './api/DataItemsApi';
 import EstimatesAndRatingsReportsApi from './api/EstimatesAndRatingsReportsApi';
 import RatingsApi from './api/RatingsApi';
+import SegmentActualsApi from './api/SegmentActualsApi';
 import SegmentsApi from './api/SegmentsApi';
 import SurpriseApi from './api/SurpriseApi';
 
@@ -106,6 +114,24 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The Actual model constructor.
+     * @property {module:model/Actual}
+     */
+    Actual,
+
+    /**
+     * The ActualsRequest model constructor.
+     * @property {module:model/ActualsRequest}
+     */
+    ActualsRequest,
+
+    /**
+     * The ActualsResponse model constructor.
+     * @property {module:model/ActualsResponse}
+     */
+    ActualsResponse,
 
     /**
      * The AnalystRating model constructor.
@@ -318,6 +344,24 @@ export {
     RollingDetailRequest,
 
     /**
+     * The SegmentActuals model constructor.
+     * @property {module:model/SegmentActuals}
+     */
+    SegmentActuals,
+
+    /**
+     * The SegmentActualsRequest model constructor.
+     * @property {module:model/SegmentActualsRequest}
+     */
+    SegmentActualsRequest,
+
+    /**
+     * The SegmentActualsResponse model constructor.
+     * @property {module:model/SegmentActualsResponse}
+     */
+    SegmentActualsResponse,
+
+    /**
      * The SegmentType model constructor.
      * @property {module:model/SegmentType}
      */
@@ -396,6 +440,12 @@ export {
     TargetPrice,
 
     /**
+    * The ActualsApi service constructor.
+    * @property {module:api/ActualsApi}
+    */
+    ActualsApi,
+
+    /**
     * The BrokerDetailApi service constructor.
     * @property {module:api/BrokerDetailApi}
     */
@@ -424,6 +474,12 @@ export {
     * @property {module:api/RatingsApi}
     */
     RatingsApi,
+
+    /**
+    * The SegmentActualsApi service constructor.
+    * @property {module:api/SegmentActualsApi}
+    */
+    SegmentActualsApi,
 
     /**
     * The SegmentsApi service constructor.

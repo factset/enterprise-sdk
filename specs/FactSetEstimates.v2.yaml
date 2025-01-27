@@ -22,6 +22,8 @@ info:
 
     - **Segments**
 
+    - **Actuals**
+
     - **New Estimates and Ratings Reports Endpoints**
 
 
@@ -83,8 +85,12 @@ tags:
     description: >-
       The Surprise Events reflecting the company's reported financials against
       the broker's estimates.
+  - name: Actuals
+    description: The Estimate Actuals for the requested metric.
   - name: Segments
-    description: The Product or Geographic Segment Estimates
+    description: The Product or Geographic Segment Estimates.
+  - name: Segment Actuals
+    description: The Segment Actuals data for company product or geographic segments.
   - name: Data Items
     description: Available Data Item Catalog to be used as input to the metrics parameters
   - name: Estimates and Ratings Reports
@@ -859,7 +865,6 @@ paths:
         Returns historical monthly view of analyst ratings for given identifier
         upto a period of 12 months.
       operationId: getAnalystRatings
-      x-factset-sdk-ignore: true
       parameters:
         - $ref: '#/components/parameters/id'
       responses:
@@ -991,6 +996,149 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-estimates/v2/actuals:
+    get:
+      tags:
+        - Actuals
+      summary: >-
+        Retrieves actuals for a requested list of ids and reported fiscal
+        periods.
+      operationId: getActuals
+      description: |
+        Returns FactSet Estimates actuals data using reported fiscal dates. <p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/relativeFiscalStartActuals'
+        - $ref: '#/components/parameters/relativeFiscalEndActuals'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/actualsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Actuals
+      summary: >-
+        Retrieves actuals for a requested list of ids and reported fiscal
+        periods.
+      description: |
+        Returns FactSet Estimates actuals data using reported fiscal dates. <p>
+      operationId: getActualsForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/actualsRequest'
+      responses:
+        '200':
+          description: List of Estimate metric Ids
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/actualsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/segment-actuals:
+    get:
+      tags:
+        - Segment Actuals
+      summary: >-
+        Retrieves Segment Actuals for a requested list of ids and reported
+        fiscal periods.
+      operationId: getSegmentActuals
+      description: >
+        Returns FactSet Estimates Actuals data using rolling fiscal dates for
+        company business and geographic segments. <p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/segmentType'
+        - $ref: '#/components/parameters/metricSegments'
+        - $ref: '#/components/parameters/relativeFiscalStartActuals'
+        - $ref: '#/components/parameters/relativeFiscalEndActuals'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/segmentActualsResponse'
+              examples:
+                Segment Actuals Response:
+                  $ref: '#/components/examples/segmentActuals'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Segment Actuals
+      summary: >-
+        Retrieves Segment Actuals for a requested list of ids and reported
+        fiscal periods.
+      description: >
+        Returns FactSet Estimates Actuals data using rolling fiscal dates for
+        company business and geographic segments. <p>
+      operationId: getSegmentActualsForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/segmentActualsRequest'
+      responses:
+        '200':
+          description: List of Estimate metric Ids
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/segmentActualsResponse'
+              examples:
+                Segment Actuals Response:
+                  $ref: '#/components/examples/segmentActuals'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -1065,10 +1213,10 @@ components:
       explode: false
       description: >
         Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
-        SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> *
-        Make Note - id limit of 3000 for defaults, otherwise the service is
+        SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p>
+        _Make Note - id limit of 3000 for defaults, otherwise the service is
         limited to a 30 second duration. This can be reached when increasing
-        total number of metrics requested and depth of history. *
+        total number of metrics requested and depth of history._
       examples:
         oneId:
           summary: One Market Identifier
@@ -1093,10 +1241,10 @@ components:
       explode: false
       description: >
         Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
-        SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> *
-        Make Note - id limit of 50 for defaults, otherwise the service is
-        limited to a 30 second duration. This can be reached when increasing
-        total number of metrics requested and depth of history. *
+        SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> _Make
+        Note - id limit of 50 for defaults, otherwise the service is limited to
+        a 30 second duration. This can be reached when increasing total number
+        of metrics requested and depth of history._
       examples:
         oneId:
           summary: One Market Identifier
@@ -1132,6 +1280,37 @@ components:
         estimate period. For example, set to 2 and periodicity to ANN to ask for
         relative Fiscal Year 1 (FY2).
       example: 2
+    relativeFiscalStartActuals:
+      name: relativeFiscalStart
+      in: query
+      required: false
+      schema:
+        type: integer
+        maximum: 0
+        exclusiveMaximum: false
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period. FactSet Estimates Actuals provides data for past
+        periods. Therefore, the input for `relativeFiscalStart` must be an
+        integer that is zero or less. For example, set to 0 and periodicity to
+        ANN to ask for the current reported year (FY0). 
+      example: -2
+    relativeFiscalEndActuals:
+      name: relativeFiscalEnd
+      in: query
+      required: false
+      schema:
+        type: integer
+        maximum: 0
+        exclusiveMaximum: false
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period.Therefore, the input for `relativeFiscalEnd` must be an
+        integer that is zero or less.  For example, set to -2 and periodicity to
+        ANN to ask for two fiscal years before the latest (FY-2).
+      example: 0
     fiscalPeriodStart:
       name: fiscalPeriodStart
       in: query
@@ -1239,7 +1418,7 @@ components:
         minItems: 1
       explode: false
       description: >
-        Requested metrics. Use the /metrics endpoint to return a list of
+        Requested metrics. Use the `/metrics` endpoint to return a list of
         available estimate items. Note, the number of metrics you are allowed to
         supply is limited to 1 for now. **Top 10** most used metrics are **EPS,
         SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. 
@@ -1272,7 +1451,7 @@ components:
       schema:
         type: string
       description: >-
-        Currency code for adjusting the data. Use 'ESTIMATE' as input value for
+        Currency code for adjusting the data. Use `ESTIMATE` as input value for
         the values in Estimate Currency. For a list of currency ISO codes, visit
         [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
       example: USD
@@ -1305,7 +1484,7 @@ components:
           - AM
           - AQ
           - AY
-        default: D
+        default: AM
       description: |
         Controls the frequency of the data returned.
           * **D** = Daily
@@ -1446,6 +1625,163 @@ components:
         Geographic:
           summary: GEO - Geographic Segments
           value: GEO
+    metricSegments:
+      name: metrics
+      in: query
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - ASP
+            - ARR
+            - CAPEX
+            - CCUR_GRTH
+            - COS
+            - CFO_GAAP
+            - DELIVERIES_UNITS
+            - EPS
+            - EBIT
+            - EBIT_REP
+            - EBITDA
+            - EBITDA_REP
+            - G_A_EXP
+            - GROSS_INC
+            - GMV
+            - LCUR_GRTH
+            - NET_ADDS
+            - NET_INC
+            - NET_SALES
+            - SUBSCRIBERS_NB
+            - ORGANICGROWTH
+            - PTX_INC
+            - RATEBASE
+            - AVGRATEBASE
+            - SALES
+            - SAMESTORESALES
+            - SGA
+            - S_M_EXP
+            - REV_TOT
+            - UNITS
+            - NEW_ORDERS_VALUE
+            - BACKLOG_VALUE
+            - MCR
+            - CASH_COST
+            - REAL_PRICE
+            - DAU
+            - ARPU
+            - CONTR_PROF
+            - PAIDNADDS
+        default:
+          - SALES
+      description: >
+        Requested metrics for segment actuals. An asterisk denotes metric items
+        included for geographic segments. Note, the number of metrics you are
+        allowed to supply is limited to 1 for now. For more details, visit
+        [Online Assistant Page
+
+        #15034](https://oa.apps.factset.com/pages/15034).
+
+
+        <h3>Financial Metrics</h3>
+
+        |field|description|
+
+        |---|---|
+
+        |ASP|Average Selling Price|
+
+        |ARR|Annual Recurring Revenue|
+
+        |CAPEX|Capital Expenditures|
+
+        |CCUR_GRTH*|Constant Currency Revenue Growth*|
+
+        |COS*|Cost of Sales*|
+
+        |CFO_GAAP|Chief Financial Officer (GAAP)|
+
+        |DELIVERIES_UNITS|Deliveries Units|
+
+        |EPS|Earnings Per Share|
+
+        |EBIT*|Earnings Before Interest and Taxes*|
+
+        |EBIT_REP|Earnings Before Interest and Taxes - Reported|
+
+        |EBITDA*|Earnings Before Interest, Taxes, Depreciation, and
+        Amortization*|
+
+        |EBITDA_REP|Earnings Before Interest, Taxes, Depreciation, and
+        Amortization - Reported|
+
+        |G_A_EXP|General & Admin Expense|
+
+        |GROSS_INC*|Gross Income*|
+
+        |GMV*|Gross Merchandise Volume*|
+
+        |LCUR_GRTH*|Local Currency Revenue Growth*|
+
+        |NET_ADDS|Net Adds|
+
+        |NET_INC*|Net Profit*|
+
+        |NET_SALES*|Net Sales*|
+
+        |SUBSCRIBERS_NB*|Number of Subscribers*|
+
+        |ORGANICGROWTH*|Organic Growth*|
+
+        |PTX_INC|Pre-Tax Income|
+
+        |RATEBASE*|Ratebase*|
+
+        |AVGRATEBASE|Avg. Ratebase|
+
+        |SALES*|Sales*|
+
+        |SAMESTORESALES|Same Store Sales|
+
+        |SGA|Selling, General & Administrative Expenses|
+
+        |S_M_EXP|Selling & Marketing Expenses|
+
+        |REV_TOT*|Total Revenues*|
+
+
+
+        <h3>Industry Metrics</h3>
+
+        |field|description|
+
+        |---|---|
+
+        |UNITS|Units|
+
+        |NEW_ORDERS_VALUE*|Home Builders - New Orders Value*|
+
+        |BACKLOG_VALUE|Home Builders - Backlog Value|
+
+        |MCR|Hospitals - Medical Cost Ratio (%)|
+
+        |CASH_COST|Mining - Cash Cost|
+
+        |REAL_PRICE|Mining - Real Price|
+
+        |DAU*|Social Media/Games - Daily Active Users*|
+
+        |ARPU|Telecoms - Average Revenue Per User (ARPU)|
+
+        |CONTR_PROF|Telecoms - Contribution Profit|
+
+        |PAIDNADDS|Telecoms - Paid Net Adds|
+      examples:
+        Metric:
+          summary: Metrics
+          value:
+            - SALES
   schemas:
     ErrorResponse:
       type: object
@@ -1937,9 +2273,8 @@ components:
           nullable: true
         estimateCount:
           description: >-
-            Count or NEST of estimates in consensus calculation. Will be `null`
-            when `periodicity` is `LTMA` or `NTMA`. For more details, visit
-            [Online Assistant Page
+            Count or NEST of estimates in consensus calculation. For more
+            details, visit [Online Assistant Page
             #16598](https://oa.apps.factset.com/pages/16114)
           type: integer
           example: 20
@@ -2430,7 +2765,7 @@ components:
           nullable: true
         overweightCount:
           description: >-
-            The number of overweight ratings taken into account in the
+            The number of overWeight ratings taken into account in the
             calculation of a consensus. This information is shown only for a
             100-day consensus.
           type: integer
@@ -2445,7 +2780,7 @@ components:
           nullable: true
         underweightCount:
           description: >-
-            The number of underweight ratings taken into account in the
+            The number of underWeight ratings taken into account in the
             calculation of a consensus. This information is shown only for a
             100-day consensus.
           type: integer
@@ -2675,7 +3010,10 @@ components:
           example: SJY281-R
           nullable: true
         segmentType:
-          description: Segment selected
+          description: |
+            Type of segment requested.
+              * **BUS** = Business / Product Segment
+              * **GEO** = Geographic Segment
           type: string
           example: BUS
           nullable: true
@@ -2992,6 +3330,179 @@ components:
       type: integer
       description: Relative fiscal period, expressed as an integer, used to filter results.
       example: 3
+    relativeFiscalStartActuals:
+      type: integer
+      maximum: 0
+      exclusiveMaximum: false
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period. FactSet Estimates Actuals provides data for past
+        periods. Therefore, the input for `relativeFiscalStart` must be an
+        integer that is zero or less. For example, set to 0 and periodicity to
+        ANN to ask for the current reported year (FY0).
+      example: -2
+    relativeFiscalEndActuals:
+      type: integer
+      maximum: 0
+      exclusiveMaximum: false
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period.Therefore, the input for `relativeFiscalEnd` must be an
+        integer that is zero or less. For example, set to -2 and periodicity to
+        ANN to ask for two fiscal years before the latest (FY-2).
+      example: 0
+    metricSegments:
+      type: array
+      items:
+        type: string
+        enum:
+          - ASP
+          - ARR
+          - CAPEX
+          - CCUR_GRTH
+          - COS
+          - CFO_GAAP
+          - DELIVERIES_UNITS
+          - EPS
+          - EBIT
+          - EBIT_REP
+          - EBITDA
+          - EBITDA_REP
+          - G_A_EXP
+          - GROSS_INC
+          - GMV
+          - LCUR_GRTH
+          - NET_ADDS
+          - NET_INC
+          - NET_SALES
+          - SUBSCRIBERS_NB
+          - ORGANICGROWTH
+          - PTX_INC
+          - RATEBASE
+          - AVGRATEBASE
+          - SALES
+          - SAMESTORESALES
+          - SGA
+          - S_M_EXP
+          - REV_TOT
+          - UNITS
+          - NEW_ORDERS_VALUE
+          - BACKLOG_VALUE
+          - MCR
+          - CASH_COST
+          - REAL_PRICE
+          - DAU
+          - ARPU
+          - CONTR_PROF
+          - PAIDNADDS
+      default:
+        - SALES
+      description: >
+        Requested metrics for segment actuals. An asterisk denotes metric items
+        included for geographic segments. Note, the number of metrics you   are
+        allowed to supply is limited to 1 for now. For more details, visit
+        [Online Assistant Page
+
+        #15034](https://oa.apps.factset.com/pages/15034).
+
+
+        <h3>Financial Metrics</h3>
+
+        |field|description|
+
+        |---|---|
+
+        |ASP|Average Selling Price|
+
+        |ARR|Annual Recurring Revenue|
+
+        |CAPEX|Capital Expenditures|
+
+        |CCUR_GRTH*|Constant Currency Revenue Growth*|
+
+        |COS*|Cost of Sales*|
+
+        |CFO_GAAP|Chief Financial Officer (GAAP)|
+
+        |DELIVERIES_UNITS|Deliveries Units|
+
+        |EPS|Earnings Per Share|
+
+        |EBIT*|Earnings Before Interest and Taxes*|
+
+        |EBIT_REP|Earnings Before Interest and Taxes - Reported|
+
+        |EBITDA*|Earnings Before Interest, Taxes, Depreciation, and
+        Amortization*|
+
+        |EBITDA_REP|Earnings Before Interest, Taxes, Depreciation, and
+        Amortization - Reported|
+
+        |G_A_EXP|General & Admin Expense|
+
+        |GROSS_INC*|Gross Income*|
+
+        |GMV*|Gross Merchandise Volume*|
+
+        |LCUR_GRTH*|Local Currency Revenue Growth*|
+
+        |NET_ADDS|Net Adds|
+
+        |NET_INC*|Net Profit*|
+
+        |NET_SALES*|Net Sales*|
+
+        |SUBSCRIBERS_NB*|Number of Subscribers*|
+
+        |ORGANICGROWTH*|Organic Growth*|
+
+        |PTX_INC|Pre-Tax Income|
+
+        |RATEBASE*|Ratebase*|
+
+        |AVGRATEBASE|Avg. Ratebase|
+
+        |SALES*|Sales*|
+
+        |SAMESTORESALES|Same Store Sales|
+
+        |SGA|Selling, General & Administrative Expenses|
+
+        |S_M_EXP|Selling & Marketing Expenses|
+
+        |REV_TOT*|Total Revenues*|
+
+
+        <h3>Industry Metrics</h3>
+
+        |field|description|
+
+        |---|---|
+
+        |UNITS|Units|
+
+        |NEW_ORDERS_VALUE*|Home Builders - New Orders Value*|
+
+        |BACKLOG_VALUE|Home Builders - Backlog Value|
+
+        |MCR|Hospitals - Medical Cost Ratio (%)|
+
+        |CASH_COST|Mining - Cash Cost|
+
+        |REAL_PRICE|Mining - Real Price|
+
+        |DAU*|Social Media/Games - Daily Active Users*|
+
+        |ARPU|Telecoms - Average Revenue Per User (ARPU)|
+
+        |CONTR_PROF|Telecoms - Contribution Profit|
+
+        |PAIDNADDS|Telecoms - Paid Net Adds|
+      example:
+        - SALES
+      minItems: 1
     fiscalPeriodStart:
       type: string
       description: >
@@ -3049,7 +3560,7 @@ components:
       items:
         type: string
       description: >-
-        Requested metrics. Use the metrics endpoint for a list of estimate
+        Requested metrics. Use the `/metrics` endpoint for a list of estimate
         items. Note, the number of metrics you are allowed to supply is limited
         to 1 for now. For more details, visit [Online Assistant Page
         #15034](https://oa.apps.factset.com/pages/15034).
@@ -3310,6 +3821,297 @@ components:
           type: number
           format: double
           example: 146.01
+    actualsRequest:
+      title: Actuals Request Body
+      description: Request object for requesting actual estimates.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStartActuals'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEndActuals'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    actualsResponse:
+      type: object
+      title: Actuals Response
+      properties:
+        data:
+          description: >
+            Array of objects representing the FactSet Estimates actual for the
+            requested metric
+          type: array
+          items:
+            $ref: '#/components/schemas/actual'
+    actual:
+      title: Actuals Object
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL-USA
+        fsymId:
+          type: string
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          example: SJY281-R
+          nullable: true
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034).
+          type: string
+          example: SALES
+          nullable: true
+        periodicity:
+          description: >-
+            The reporting interval for the estimate. This is derived from
+            Estimate Date and is translated to the Period List = ANN, QTR, SEMI,
+            LTMA, or NMTA.
+          type: string
+          example: ANN
+          nullable: true
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record.  'Periodicity'
+            defines context for period.
+          type: integer
+          example: 1
+          nullable: true
+        fiscalYear:
+          description: Company's 'fiscal year' for the estimate record
+          type: integer
+          example: 2023
+          nullable: true
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal year' for the estimate record. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2023-06-30'
+          nullable: true
+        actualValue:
+          description: >-
+            The Online Assistant Page URL, used to lookup the definition and
+            methodology of the requested item.
+          type: number
+          example: 383285
+          nullable: true
+        actualType:
+          description: >
+            The type of actual returned. The following is returned:
+              * **Company Actual**. This is collected directly from a company’s press release for the corresponding past period. 
+              * **European Actual**. This is also collected directly from a company's press release before January 2017 for European countries. However, **Company Actual ** is used from 2017 onwards to fetch actual irrespective of country or listing.
+              * **Broker Actual**. A broker actual is a median consensus that can be updated up to 100 days post the fiscal period’s report date. Broker actuals are a post-event only consensus if a report date is collected from an earnings release, unless no brokers have contributed to the post-event consensus yet, in which case the broker actual will be a pre-event consensus.  The broker actual is a pre and post event consensus if the report date is a calculation
+
+            For more details on the actual types, visit [Online Assistant Page
+            #13379](https://my.apps.factset.com/oa/pages/13379).
+              
+          type: string
+          enum:
+            - company
+            - european
+            - broker
+          example: company
+          nullable: true
+        reportDate:
+          description: >-
+            Date at which Actual has been reported and/or fiscal period has
+            rolled.
+          type: string
+          format: date
+          example: '2023-11-03'
+          nullable: true
+        currency:
+          description: >-
+            Currency code for adjusting the data. Use 'ESTIMATE' as input value
+            for the values in Estimate Currency. For a list of currency ISO
+            codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
+    segmentActualsRequest:
+      title: Segment Actuals Request Body
+      description: Request object for requesting segment actuals.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metricSegments'
+        segmentType:
+          $ref: '#/components/schemas/segmentType'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStartActuals'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEndActuals'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    segmentActualsResponse:
+      type: object
+      title: Segment Actuals Response
+      properties:
+        data:
+          description: >
+            Array of objects representing the FactSet Estimates actual of the
+            business or geographic segments for the requested metric
+          type: array
+          items:
+            $ref: '#/components/schemas/segmentActuals'
+    segmentActuals:
+      title: Segment Actuals Object
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL-USA
+        fsymId:
+          type: string
+          description: >-
+            FactSet Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          example: SJY281-R
+          nullable: true
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034).
+          type: string
+          example: SALES
+          nullable: true
+        periodicity:
+          description: >-
+            The reporting interval for the estimate. This is derived from
+            Estimate Date and is translated to the Period List = ANN, QTR, SEMI,
+            LTMA, or NMTA.
+          type: string
+          example: ANN
+          nullable: true
+        fiscalYear:
+          description: Company's 'fiscal year' for the estimate record
+          type: integer
+          example: 2023
+          nullable: true
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record.  'Periodicity'
+            defines context for period.
+          type: integer
+          example: 1
+          nullable: true
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal year' for the estimate record. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2023-06-30'
+          nullable: true
+        segmentType:
+          description: |
+            Type of segment requested.
+              * **BUS** = Business / Product Segment
+              * **GEO** = Geographic Segment
+          type: string
+          example: Productivity and Business Processes
+          nullable: true
+        segmentLabel:
+          description: Displays the specific label of the segment.
+          type: string
+          example: Productivity and Business Processes
+          nullable: true
+        segmentLevel:
+          description: >-
+            Returns the level of the segment item as either P = Parent or S =
+            Subordinate
+          type: string
+          example: S
+          nullable: true
+        segmentActualValue:
+          description: Actual value of the specified segment for the requested metric.
+          type: number
+          example: 69274
+          nullable: true
+        segmentActualType:
+          description: >
+            The type of actual returned. The following is returned:
+              * **Company Actual**. This is collected directly from a company’s press release for the corresponding past period. 
+              * **European Actual**. This is also collected directly from a company's press release before January 2017 for European countries. However, **Company Actual ** is used from 2017 onwards to fetch actual irrespective of country or listing.
+              * **Broker Actual**. A broker actual is a median consensus that can be updated up to 100 days post the fiscal period’s report date. Broker actuals are a post-event only consensus if a report date is collected from an earnings release, unless no brokers have contributed to the post-event consensus yet, in which case the broker actual will be a pre-event consensus.  The broker actual is a pre and post event consensus if the report date is a calculation
+
+            For more details on the actual types, visit [Online Assistant Page
+            #13379](https://my.apps.factset.com/oa/pages/13379).
+              
+          type: string
+          enum:
+            - company
+            - european
+            - broker
+          example: company
+          nullable: true
+        reportDate:
+          description: >-
+            Date at which Actual has been reported and/or fiscal period has
+            rolled.
+          type: string
+          format: date
+          example: '2023-07-26'
+          nullable: true
+        currency:
+          description: >-
+            Currency code for adjusting the data. Use 'ESTIMATE' as input value
+            for the values in Estimate Currency. For a list of currency ISO
+            codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
   responses:
     '400':
       description: >-
@@ -3968,7 +4770,7 @@ components:
             sellCount: '4'
             ratingsNestTotal: '40'
             ratingsNote: '1.6125'
-            ratingsNoteText: OVERWEIGHT
+            ratingsNoteText: overWeight
             requestId: AAPL-USA
     detailRating:
       summary: Detail Ratings response of AAPL-USA for SALES metrics
@@ -4059,6 +4861,146 @@ components:
             estimateCount: '21'
             up: '2'
             down: '0'
+    segmentActuals:
+      summary: Segment actuals example
+      description: Example response for segmentActuals.
+      value:
+        data:
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: P
+            segmentLabel: Products
+            segmentActualValue: 298085
+            segmentActualType: company
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: S
+            segmentLabel: iPhone
+            segmentActualValue: 200583
+            segmentActualType: company
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: S
+            segmentLabel: iPad
+            segmentActualValue: 28300
+            segmentActualType: company
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: S
+            segmentLabel: Mac
+            segmentActualValue: 29357
+            segmentActualType: company
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: S
+            segmentLabel: Apple Watch
+            segmentActualValue: 23803
+            segmentActualType: broker
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: P
+            segmentLabel: Accessories
+            segmentActualValue: 12933.5
+            segmentActualType: broker
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: S
+            segmentLabel: Wearables, Home and Accessories
+            segmentActualValue: 39845
+            segmentActualType: company
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: P
+            segmentLabel: Services
+            segmentActualValue: 85200
+            segmentActualType: company
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
+          - requestId: AAPL-USA
+            fsymId: SJY281-R
+            metric: Sales
+            periodicity: ANN
+            fiscalYear: 2023
+            fiscalPeriod: 1
+            fiscalEndDate: '2023-09-30'
+            segmentType: BUS
+            segmentLevel: P
+            segmentLabel: Other Products
+            segmentActualValue: 6050
+            segmentActualType: broker
+            reportDate: '2023-11-03'
+            currency: USD
+            estimateCurrency: USD
     metricsExample:
       summary: >-
         Mertics response with 'FINANCIAL_STATEMENT' category and '--'

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documents** | **[String]** |  | [optional] 
+**documents** | **[String]** | List of documents | [optional] 
 **directories** | **[String]** | List of directories. | [optional] 
 
 

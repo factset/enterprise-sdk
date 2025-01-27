@@ -94,10 +94,10 @@ public class RatingsApi {
   /**
    * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
-   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
+   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
+   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
    * @return ConsensusRatingsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -118,10 +118,10 @@ public class RatingsApi {
   /**
    * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
-   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
+   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
+   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
    * @return ApiResponse&lt;ConsensusRatingsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -270,7 +270,7 @@ public class RatingsApi {
   /**
    * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
-   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
+   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)
@@ -294,7 +294,7 @@ public class RatingsApi {
   /**
    * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
    * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. &lt;p&gt;The &#x60;startDate&#x60; and &#x60;endDate&#x60; parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company&#39;s reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.&lt;/p&gt; 
-   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required)
+   * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)

@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **errors** | [**[Error]**](Error.md) | The error in a calculation unit. | [optional] 
 **result** | **String** | The result URL of the calculation. | [optional] 
 **progress** | **String** | The progress of the calculation unit. | [optional] 
+**points** | **Number** | The points for the calculation unit. | [optional] 
+**warnings** | **[String]** | The warnings in a calculation unit. | [optional] 
 
 
 

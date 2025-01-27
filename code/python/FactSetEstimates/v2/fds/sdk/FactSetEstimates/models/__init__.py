@@ -9,6 +9,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.FactSetEstimates.model.actual import Actual
+from fds.sdk.FactSetEstimates.model.actuals_request import ActualsRequest
+from fds.sdk.FactSetEstimates.model.actuals_response import ActualsResponse
 from fds.sdk.FactSetEstimates.model.analyst_rating import AnalystRating
 from fds.sdk.FactSetEstimates.model.analyst_rating_response import AnalystRatingResponse
 from fds.sdk.FactSetEstimates.model.category import Category
@@ -36,6 +39,7 @@ from fds.sdk.FactSetEstimates.model.frequency import Frequency
 from fds.sdk.FactSetEstimates.model.ids import Ids
 from fds.sdk.FactSetEstimates.model.meta import Meta
 from fds.sdk.FactSetEstimates.model.metric import Metric
+from fds.sdk.FactSetEstimates.model.metric_segments import MetricSegments
 from fds.sdk.FactSetEstimates.model.metrics import Metrics
 from fds.sdk.FactSetEstimates.model.metrics_request import MetricsRequest
 from fds.sdk.FactSetEstimates.model.metrics_response import MetricsResponse
@@ -44,8 +48,13 @@ from fds.sdk.FactSetEstimates.model.periodicity import Periodicity
 from fds.sdk.FactSetEstimates.model.periodicity_detail import PeriodicityDetail
 from fds.sdk.FactSetEstimates.model.periodicity_surprise import PeriodicitySurprise
 from fds.sdk.FactSetEstimates.model.ratings_count import RatingsCount
+from fds.sdk.FactSetEstimates.model.relative_fiscal_end_actuals import RelativeFiscalEndActuals
+from fds.sdk.FactSetEstimates.model.relative_fiscal_start_actuals import RelativeFiscalStartActuals
 from fds.sdk.FactSetEstimates.model.rolling_consensus_request import RollingConsensusRequest
 from fds.sdk.FactSetEstimates.model.rolling_detail_request import RollingDetailRequest
+from fds.sdk.FactSetEstimates.model.segment_actuals import SegmentActuals
+from fds.sdk.FactSetEstimates.model.segment_actuals_request import SegmentActualsRequest
+from fds.sdk.FactSetEstimates.model.segment_actuals_response import SegmentActualsResponse
 from fds.sdk.FactSetEstimates.model.segment_ids import SegmentIds
 from fds.sdk.FactSetEstimates.model.segment_type import SegmentType
 from fds.sdk.FactSetEstimates.model.segments_estimate import SegmentsEstimate

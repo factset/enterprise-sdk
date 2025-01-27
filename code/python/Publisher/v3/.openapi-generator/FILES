@@ -8,8 +8,12 @@ docs/AccountDirectories.md
 docs/AccountDirectoriesRoot.md
 docs/AccountsApi.md
 docs/CalculationStatus.md
+docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
+docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/CurrenciesApi.md
 docs/Currency.md
@@ -19,7 +23,8 @@ docs/DocumentDirectoriesRoot.md
 docs/DocumentsApi.md
 docs/Error.md
 docs/ErrorSource.md
-docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PubCalculationParameters.md
 docs/PubCalculationParametersRoot.md
 docs/PubCalculationsApi.md
@@ -40,8 +45,12 @@ fds/sdk/Publisher/model/__init__.py
 fds/sdk/Publisher/model/account_directories.py
 fds/sdk/Publisher/model/account_directories_root.py
 fds/sdk/Publisher/model/calculation_status.py
+fds/sdk/Publisher/model/calculation_status_meta.py
 fds/sdk/Publisher/model/calculation_status_root.py
 fds/sdk/Publisher/model/calculation_unit_status.py
+fds/sdk/Publisher/model/calculation_unit_status_meta.py
+fds/sdk/Publisher/model/calculations_summary.py
+fds/sdk/Publisher/model/calculations_summary_root.py
 fds/sdk/Publisher/model/client_error_response.py
 fds/sdk/Publisher/model/currency.py
 fds/sdk/Publisher/model/currency_root.py
@@ -49,7 +58,8 @@ fds/sdk/Publisher/model/document_directories.py
 fds/sdk/Publisher/model/document_directories_root.py
 fds/sdk/Publisher/model/error.py
 fds/sdk/Publisher/model/error_source.py
-fds/sdk/Publisher/model/object_root.py
+fds/sdk/Publisher/model/pagination_info.py
+fds/sdk/Publisher/model/pagination_meta.py
 fds/sdk/Publisher/model/pub_calculation_parameters.py
 fds/sdk/Publisher/model/pub_calculation_parameters_root.py
 fds/sdk/Publisher/model/pub_date_parameters.py

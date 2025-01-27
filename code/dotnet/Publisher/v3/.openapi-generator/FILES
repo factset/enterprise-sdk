@@ -8,8 +8,12 @@ docs/AccountDirectories.md
 docs/AccountDirectoriesRoot.md
 docs/AccountsApi.md
 docs/CalculationStatus.md
+docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
+docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/CurrenciesApi.md
 docs/Currency.md
@@ -19,7 +23,8 @@ docs/DocumentDirectoriesRoot.md
 docs/DocumentsApi.md
 docs/Error.md
 docs/ErrorSource.md
-docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PubCalculationParameters.md
 docs/PubCalculationParametersRoot.md
 docs/PubCalculationsApi.md
@@ -51,8 +56,12 @@ src/FactSet.SDK.Publisher/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.Publisher/Model/AccountDirectories.cs
 src/FactSet.SDK.Publisher/Model/AccountDirectoriesRoot.cs
 src/FactSet.SDK.Publisher/Model/CalculationStatus.cs
+src/FactSet.SDK.Publisher/Model/CalculationStatusMeta.cs
 src/FactSet.SDK.Publisher/Model/CalculationStatusRoot.cs
 src/FactSet.SDK.Publisher/Model/CalculationUnitStatus.cs
+src/FactSet.SDK.Publisher/Model/CalculationUnitStatusMeta.cs
+src/FactSet.SDK.Publisher/Model/CalculationsSummary.cs
+src/FactSet.SDK.Publisher/Model/CalculationsSummaryRoot.cs
 src/FactSet.SDK.Publisher/Model/ClientErrorResponse.cs
 src/FactSet.SDK.Publisher/Model/Currency.cs
 src/FactSet.SDK.Publisher/Model/CurrencyRoot.cs
@@ -60,7 +69,8 @@ src/FactSet.SDK.Publisher/Model/DocumentDirectories.cs
 src/FactSet.SDK.Publisher/Model/DocumentDirectoriesRoot.cs
 src/FactSet.SDK.Publisher/Model/Error.cs
 src/FactSet.SDK.Publisher/Model/ErrorSource.cs
-src/FactSet.SDK.Publisher/Model/ObjectRoot.cs
+src/FactSet.SDK.Publisher/Model/PaginationInfo.cs
+src/FactSet.SDK.Publisher/Model/PaginationMeta.cs
 src/FactSet.SDK.Publisher/Model/PubCalculationParameters.cs
 src/FactSet.SDK.Publisher/Model/PubCalculationParametersRoot.cs
 src/FactSet.SDK.Publisher/Model/PubDateParameters.cs

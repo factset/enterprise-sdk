@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.ConversationalAPIPoweredbyFactSetMercury",
   "projectName": "fds.sdk.ConversationalAPIPoweredbyFactSetMercury",
-  "packageVersion": "1.0.2",
+  "packageVersion": "1.0.3",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Conversational API Powered by FactSet Mercury client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ConversationalAPIPoweredbyFactSetMercury/v1",
-  "httpUserAgent": "fds-sdk/python/ConversationalAPIPoweredbyFactSetMercury/1.0.2",
+  "httpUserAgent": "fds-sdk/python/ConversationalAPIPoweredbyFactSetMercury/1.0.3",
   "files": {
     "LICENSE": {}
   }

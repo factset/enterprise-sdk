@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_calculation_by_id**](PubCalculationsApi.md#cancel_calculation_by_id) | **DELETE** /analytics/engines/pub/v3/calculations/{id} | Cancel Pub calculation by id
+[**get_all_calculations**](PubCalculationsApi.md#get_all_calculations) | **GET** /analytics/engines/pub/v3/calculations | Get all calculations
 [**get_calculation_parameters**](PubCalculationsApi.md#get_calculation_parameters) | **GET** /analytics/engines/pub/v3/calculations/{id} | Get Pub calculation parameters by id
 [**get_calculation_status_by_id**](PubCalculationsApi.md#get_calculation_status_by_id) | **GET** /analytics/engines/pub/v3/calculations/{id}/status | Get Pub calculation status by id
 [**get_calculation_unit_result_by_id**](PubCalculationsApi.md#get_calculation_unit_result_by_id) | **GET** /analytics/engines/pub/v3/calculations/{id}/units/{unitId}/result | Get Pub calculation result by id
@@ -95,7 +96,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -107,6 +108,109 @@ void (empty response body)
 **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **404** | There was no request for the calculation identifier provided, or the request was already canceled for the provided identifier. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+**503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_all_calculations**
+> CalculationsSummaryRoot get_all_calculations()
+
+Get all calculations
+
+This endpoints returns all calculation requests.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.Publisher
+from fds.sdk.Publisher.api import pub_calculations_api
+from fds.sdk.Publisher.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.Publisher.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.Publisher.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.Publisher.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    page_number = 1 # int |  (optional) if omitted the server will use the default value of 1
+
+    try:
+        # Get all calculations
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_all_calculations(page_number=page_number)
+
+        pprint(api_response)
+
+    except fds.sdk.Publisher.ApiException as e:
+        print("Exception when calling PubCalculationsApi->get_all_calculations: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_number** | **int**|  | [optional] if omitted the server will use the default value of 1
+
+### Return type
+
+[**CalculationsSummaryRoot**](CalculationsSummaryRoot.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of calculation requests. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**400** | Invalid page number. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+**403** | User is forbidden with current credentials. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**404** | No calculation found. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**406** | Unsupported Accept header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**429** | Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
@@ -217,7 +321,7 @@ Name | Type | Description  | Notes
 
 Get Pub calculation status by id
 
-This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the result field in the response body will point to the result url.  Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
+This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the location header will point to the result url.
 
 ### Example
 
@@ -314,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_calculation_unit_result_by_id**
-> ObjectRoot get_calculation_unit_result_by_id(id, unit_id)
+> file_type get_calculation_unit_result_by_id(id, unit_id)
 
 Get Pub calculation result by id
 
@@ -367,13 +471,11 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Get Pub calculation status by id endpoint
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get Pub calculation status by id endpoint
-    accept = "Accept_example" # str | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)
 
     try:
         # Get Pub calculation result by id
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id, accept=accept)
+        api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id)
 
         pprint(api_response)
 
@@ -388,11 +490,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| from url, provided from the location header in the Get Pub calculation status by id endpoint |
  **unit_id** | **str**| from url, provided from the location header in the Get Pub calculation status by id endpoint |
- **accept** | **str**| Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * | [optional]
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+**file_type**
 
 ### Authorization
 
@@ -401,7 +502,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/x-protobuf, application/pdf
+ - **Accept**: application/pdf, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/json
 
 
 ### HTTP response details
@@ -470,8 +571,8 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
-    cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
+    cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     pub_calculation_parameters_root = PubCalculationParametersRoot(
         data={
             "key": PubCalculationParameters(
@@ -515,15 +616,15 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional]
- **cache_control** | **str**| Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
+ **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **pub_calculation_parameters_root** | [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)| Calculation Parameters | [optional]
 
 ### Return type
 
 The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
 - **200**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
-- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **201**: [**file_type**](file_type.md)
 - **202**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 
@@ -534,7 +635,7 @@ The endpoint generates varying objects correlating with the successful status co
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/pdf, application/vnd.openxmlformats-officedocument.presentationml.presentation
+ - **Accept**: application/json, application/pdf, application/vnd.openxmlformats-officedocument.presentationml.presentation
 
 
 ### HTTP response details
@@ -608,8 +709,8 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
-    x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
-    cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
+    x_fact_set_api_long_running_deadline = 10 # int | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)
+    cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     pub_calculation_parameters_root = PubCalculationParametersRoot(
         data={
             "key": PubCalculationParameters(
@@ -654,15 +755,15 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| from url, provided from the location header in the Create and Run Pub calculation endpoint |
- **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional]
- **cache_control** | **str**| Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. | [optional]
+ **x_fact_set_api_long_running_deadline** | **int**| Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional]
+ **cache_control** | **str**| Standard HTTP header.  Accepts max-stale. | [optional]
  **pub_calculation_parameters_root** | [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)| Calculation Parameters | [optional]
 
 ### Return type
 
 The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
 - **200**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
-- **201**: [**ObjectRoot**](ObjectRoot.md)
+- **201**: [**file_type**](file_type.md)
 - **202**: [**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 
@@ -673,7 +774,7 @@ The endpoint generates varying objects correlating with the successful status co
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/pdf
+ - **Accept**: application/json, application/pdf, application/vnd.openxmlformats-officedocument.presentationml.presentation
 
 
 ### HTTP response details
@@ -687,6 +788,7 @@ The endpoint generates varying objects correlating with the successful status co
 **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  |
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **404** | One or more calculation settings were unavailable. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+**409** | Duplicate calculation exists with same parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **429** | Rate limit reached. Cancel older requests using Cancel Calculation endpoint or wait for older requests to finish/expire. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  * Retry-After - Time to wait in seconds before making a new request as the rate limit has reached. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  |

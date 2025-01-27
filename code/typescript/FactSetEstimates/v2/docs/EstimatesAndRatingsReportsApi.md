@@ -4,10 +4,90 @@ All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getAnalystRatings**](EstimatesAndRatingsReportsApi.md#getAnalystRatings) | **GET** /factset-estimates/v2/company-reports/analyst-ratings | Retrieves the historical monthly view of analyst ratings for a given identifier.
 [**getEstimateTypes**](EstimatesAndRatingsReportsApi.md#getEstimateTypes) | **GET** /factset-estimates/v2/company-reports/estimate-types | Returns a list of valid estimate types.
 [**getEstimates**](EstimatesAndRatingsReportsApi.md#getEstimates) | **GET** /factset-estimates/v2/company-reports/forecast | Returns forecasted estimates.
 [**getSurpriseHistory**](EstimatesAndRatingsReportsApi.md#getSurpriseHistory) | **GET** /factset-estimates/v2/company-reports/surprise-history | Surprise History
 
+
+
+## getAnalystRatings
+
+> AnalystRatingResponse getAnalystRatings(id)
+
+Retrieves the historical monthly view of analyst ratings for a given identifier.
+
+Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, EstimatesAndRatingsReportsApi } = require('@factset/sdk-factsetestimates');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new EstimatesAndRatingsReportsApi();
+const id = AAPL-US; // String | The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
+
+// Call api endpoint
+apiInstance.getAnalystRatings(id).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.  | 
+
+### Return type
+
+[**AnalystRatingResponse**](AnalystRatingResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getEstimateTypes

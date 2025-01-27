@@ -71,6 +71,20 @@ info:
     better serve you content, we encourage you to use the `/feedback` endpoint. 
 
 
+    #### Receive updates on changes to the Conversational API
+
+    Subscribe to our FactSet Notify by clicking "Subscribe to notifications" in
+    the upper right above the API overview. You will receive email updates when
+    any updates occur to the API
+
+
+    #### FAQ & Troubleshooting
+
+    Please find FAQs and troubleshooting tips in the [FAQs
+    section](https://my.apps.factset.com/oa/pages/23440) of the Conversational
+    API OA page
+
+
     ##### Current Limitations
 
 
@@ -81,24 +95,7 @@ info:
     queries per minute and 200 per hour for an individual consumer. If you
     anticipate your needs to be greater than these limits, please reach out to
     FactSet Support.
-
-
-    #### FAQ 
-
-
-    **How can I receive updates on changes to the Conversational API?** - Please
-    subscribe to our FactSet Notify by clicking "Subscribe to notifications" in
-    the upper right above the API overview. You will receive email updates when
-    any updates occur to the API.
-
-    **Why am I receiving a 403 error with a valid API key?** - Please ensure
-    that your current public IP is within the IP range allocated to the API key
-    you are using to authenticate API requests. You can update your API key's
-    allowable IP range via the [FactSet Developer Portal API Authentication
-    page](https://developer.factset.com/api-authentication). If this does not
-    resolve the issue, please reach out to FactSet Support to ensure you are
-    appropriately authorized to access the Conversational API.
-  version: 1.0.5
+  version: 1.0.7
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -138,6 +135,7 @@ paths:
         answer.
       tags:
         - Chat
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/QueryChatRequestBody'
       responses:
@@ -176,6 +174,7 @@ paths:
         status code if the response is ready.
       tags:
         - Chat
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/ChatPollingRequestBody'
       responses:
@@ -225,6 +224,7 @@ paths:
         response.
       tags:
         - Chat
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/ChatPollingRequestBody'
       responses:
@@ -262,6 +262,7 @@ paths:
         representative.
       tags:
         - Feedback
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/FeedbackRequestBody'
       responses:
@@ -304,6 +305,7 @@ paths:
         * STACH Table (as Excel)
       tags:
         - Download
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/FileDownloadRequestBody'
       responses:
@@ -835,6 +837,7 @@ components:
       schema:
         type: string
       example: 65C6BC290A11FB4F
+  parameters: {}
   schemas:
     QueryChatRequest:
       description: >-

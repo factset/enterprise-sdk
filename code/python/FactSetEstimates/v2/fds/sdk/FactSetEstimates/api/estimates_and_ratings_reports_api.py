@@ -1,7 +1,7 @@
 """
     FactSet Estimates
 
-    With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)   # noqa: E501
+    With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)   # noqa: E501
 
     The version of the OpenAPI document: 2.6.0
     Contact: api@factset.com
@@ -46,6 +46,62 @@ class EstimatesAndRatingsReportsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        self.get_analyst_ratings_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (AnalystRatingResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 404: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset-estimates/v2/company-reports/analyst-ratings',
+                'operation_id': 'get_analyst_ratings',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
 
         self.get_estimate_types_endpoint = _Endpoint(
             settings={
@@ -269,6 +325,197 @@ class EstimatesAndRatingsReportsApi(object):
         kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
+
+
+    def get_analyst_ratings(
+        self,
+        id,
+        **kwargs
+    ) -> AnalystRatingResponse:
+        """Retrieves the historical monthly view of analyst ratings for a given identifier.  # noqa: E501
+
+        Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            id (str): The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            AnalystRatingResponse
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_analyst_ratings_endpoint.call_with_http_info(**kwargs)
+
+    def get_analyst_ratings_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[AnalystRatingResponse, int, typing.MutableMapping]:
+        """Retrieves the historical monthly view of analyst ratings for a given identifier.  # noqa: E501
+
+        Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            AnalystRatingResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_analyst_ratings_endpoint.call_with_http_info(**kwargs)
+
+    def get_analyst_ratings_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[AnalystRatingResponse]":
+        """Retrieves the historical monthly view of analyst ratings for a given identifier.  # noqa: E501
+
+        Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[AnalystRatingResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_analyst_ratings_endpoint.call_with_http_info(**kwargs)
+
+    def get_analyst_ratings_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[AnalystRatingResponse, int, typing.MutableMapping]]":
+        """Retrieves the historical monthly view of analyst ratings for a given identifier.  # noqa: E501
+
+        Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(AnalystRatingResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_analyst_ratings_endpoint.call_with_http_info(**kwargs)
 
 
     def get_estimate_types(

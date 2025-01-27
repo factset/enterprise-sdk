@@ -1,7 +1,7 @@
 /*
  * FactSet Estimates
  *
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
  * The version of the OpenAPI document: 2.6.0
  * Contact: api@factset.com
@@ -28,6 +28,27 @@ namespace FactSet.SDK.FactSetEstimates.Api
     public interface IEstimatesAndRatingsReportsApiSync : IApiAccessor
     {
         #region Synchronous Operations
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier.
+        /// </summary>
+        /// <remarks>
+        /// Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <returns>AnalystRatingResponse</returns>
+        AnalystRatingResponse GetAnalystRatings(string id);
+
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier.
+        /// </summary>
+        /// <remarks>
+        /// Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <returns>ApiResponse of AnalystRatingResponse</returns>
+        ApiResponse<AnalystRatingResponse> GetAnalystRatingsWithHttpInfo(string id);
         /// <summary>
         /// Returns a list of valid estimate types.
         /// </summary>
@@ -110,6 +131,29 @@ namespace FactSet.SDK.FactSetEstimates.Api
     public interface IEstimatesAndRatingsReportsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier.
+        /// </summary>
+        /// <remarks>
+        /// Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AnalystRatingResponse</returns>
+        System.Threading.Tasks.Task<AnalystRatingResponse> GetAnalystRatingsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier.
+        /// </summary>
+        /// <remarks>
+        /// Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AnalystRatingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AnalystRatingResponse>> GetAnalystRatingsWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns a list of valid estimate types.
         /// </summary>
@@ -209,6 +253,17 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
         # region Response Type Disctionaries
         
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAnalystRatingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(AnalystRatingResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimateTypesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(EstimateTypesResponse) },
@@ -349,6 +404,183 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier. Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <returns>AnalystRatingResponse</returns>
+        public AnalystRatingResponse GetAnalystRatings(string id)
+        {
+            var localVarResponse = GetAnalystRatingsWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier. Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <returns>ApiResponse of AnalystRatingResponse</returns>
+        public ApiResponse<AnalystRatingResponse> GetAnalystRatingsWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'id' when calling EstimatesAndRatingsReportsApi->GetAnalystRatings");
+            }
+
+            FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetAnalystRatingsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            AnalystRatingResponse>("/factset-estimates/v2/company-reports/analyst-ratings", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAnalystRatings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier. Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AnalystRatingResponse</returns>
+        public async System.Threading.Tasks.Task<AnalystRatingResponse>GetAnalystRatingsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetAnalystRatingsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves the historical monthly view of analyst ratings for a given identifier. Returns historical monthly view of analyst ratings for given identifier upto a period of 12 months. 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The requested security identifier. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. </param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AnalystRatingResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<AnalystRatingResponse>> GetAnalystRatingsWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'id' when calling EstimatesAndRatingsReportsApi->GetAnalystRatings");
+            }
+
+
+            FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetAnalystRatingsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AnalystRatingResponse>("/factset-estimates/v2/company-reports/analyst-ratings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAnalystRatings", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

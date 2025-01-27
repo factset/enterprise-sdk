@@ -1,20 +1,28 @@
 openapi: 3.0.1
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
-  description: Allow clients to fetch Publisher Analytics through APIs.
+  description: Allow clients to fetch Analytics through APIs.
   license:
-    name: Apache License 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Publisher API
-  version: "3"
+  version: 3.12.6
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
 servers:
 - url: https://api.factset.com
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: Accounts
+- name: Currencies
+- name: Documents
+- name: PubCalculations
 paths:
   /analytics/lookups/v3/accounts/{path}:
     get:
@@ -22,20 +30,32 @@ paths:
         in a given directory.
       operationId: getAccounts
       parameters:
-      - description: The directory to get the accounts and sub-directories in
+      - description: The directory to get the accounts and sub-directories.
         explode: false
         in: path
         name: path
         required: true
         schema:
-          default: Client:Foo/Bar
-          description: The directory to get the accounts and sub-directories in
+          description: The directory to get the accounts and sub-directories.
+          example: 'Client:'
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - List of Accounts & Directories":
+                  value:
+                    data:
+                      accounts:
+                      - SAMPLE_ACCOUNT.ACCT
+                      - TEST20240523.ACCT
+                      - TEST_201BENCH.ACCT
+                      - TEST_201RESPONSE.ACCT
+                      directories:
+                      - $$lmac_holdings
+                      - notes
               schema:
                 $ref: '#/components/schemas/AccountDirectoriesRoot'
           description: Expected response, returns a list of accounts and directories
@@ -75,6 +95,18 @@ paths:
                 type: string
               style: simple
         "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -168,6 +200,18 @@ paths:
                 type: string
               style: simple
         "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path Not Found":
+                  value:
+                    errors:
+                    - id: 668BDDBB7D633388
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -320,6 +364,14 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Sample list":
+                  value:
+                    data:
+                      AZN:
+                        name: Azerbaijan New Manat
+                      BSD:
+                        name: Bahamas Dollar
               schema:
                 $ref: '#/components/schemas/CurrencyRoot'
           description: Expected response, returns a list of currencies.
@@ -533,14 +585,24 @@ paths:
         name: path
         required: true
         schema:
-          default: Client:folder1/folder2
           description: The directory to get the documents in
+          example: 'Client:'
           type: string
         style: simple
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Valid Path":
+                  value:
+                    data:
+                      documents:
+                      - TEST_PUB1
+                      - TEST_PUB2
+                      directories:
+                      - $$lmac_holdings
+                      - notes
               schema:
                 $ref: '#/components/schemas/DocumentDirectoriesRoot'
           description: Expected response, returns a list of Publisher documents and
@@ -581,6 +643,18 @@ paths:
                 type: string
               style: simple
         "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -674,6 +748,18 @@ paths:
                 type: string
               style: simple
         "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path Not Found":
+                  value:
+                    errors:
+                    - id: 668BDDBB7D633388
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -818,21 +904,373 @@ paths:
       - Documents
       x-accepts: application/json
   /analytics/engines/pub/v3/calculations:
+    get:
+      description: This endpoints returns all calculation requests.
+      operationId: getAllCalculations
+      parameters:
+      - explode: true
+        in: query
+        name: pageNumber
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - Successful Response":
+                  value:
+                    data:
+                      "87f9d3d7e4cd42099863fcc61e7e8953":
+                        status: Queued
+                        units: 1
+                        requestTime: 2024-12-18T10:17:49.5329486Z
+                        lastPollTime: 2024-12-18T10:17:49.5329749Z
+                      "15ad5008f9134ed89b52a40e9d4b2739":
+                        status: Completed
+                        units: 1
+                        requestTime: 2024-12-18T10:17:49.5330329Z
+                        lastPollTime: 2024-12-18T10:17:49.533033Z
+                      "58d6a3e3864a45fabd958096e960a96e":
+                        status: Completed
+                        units: 1
+                        requestTime: 2024-12-18T10:17:49.5330332Z
+                        lastPollTime: 2024-12-18T10:17:49.5330332Z
+                    meta:
+                      pagination:
+                        pageNumber: 1
+                        pageSize: 20
+                        totalPages: 1
+                        totalCalculations: 3
+                "200 - Successful Response - No calculation in database":
+                  value:
+                    data: {}
+                    meta:
+                      pagination:
+                        pageNumber: 1
+                        pageSize: 20
+                        totalPages: 0
+                        totalCalculations: 0
+              schema:
+                $ref: '#/components/schemas/CalculationsSummaryRoot'
+          description: List of calculation requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Invalid page number:
+                  value:
+                    errors:
+                    - id: 66851540C4CE19B6
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Invalid page number
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid page number.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Not Found":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: No calculation found.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get all calculations
+      tags:
+      - PubCalculations
+      x-accepts: application/json
     post:
       description: "This endpoint runs the Pub calculation specified in the POST body\
         \ parameters.\r\nIt can take one or more units as input."
       operationId: postAndCalculate
       parameters:
       - description: Long running deadline in seconds when only one unit is passed
-          in the POST body.
+          in the POST body. Example value is set to 10s. Please update it as per requirement
+          before triggering a calculation.
         explode: false
         in: header
         name: X-FactSet-Api-Long-Running-Deadline
         required: false
         schema:
+          example: 10
           type: integer
         style: simple
-      - description: Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.
+      - description: Standard HTTP header.  Accepts max-stale.
         explode: false
         in: header
         name: Cache-Control
@@ -843,16 +1281,57 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Single Unit Request:
+                value:
+                  data:
+                    pub1:
+                      document: Client:/Pub_Attribution.Pub_bridge_pdf
+                      account:
+                        id: Client:Pub_Attribution.ACCT
+                        holdingsmode: B&H
+                      dates:
+                        startdate: "20240101"
+                        enddate: "20240331"
+              Multi Unit Request:
+                value:
+                  data:
+                    pub1:
+                      document: Client:/Pub_Attribution.Pub_bridge_pdf
+                      account:
+                        id: Client:Pub_Attribution1.ACCT
+                        holdingsmode: B&H
+                      dates:
+                        enddate: "20240331"
+                    pub2:
+                      document: Client:/Pub_Attribution.Pub_bridge_pdf
+                      account:
+                        id: Client:Pub_Attribution2.ACCT
+                        holdingsmode: B&H
+                      dates:
+                        startdate: "20240201"
+                        enddate: "20240331"
             schema:
               $ref: '#/components/schemas/PubCalculationParametersRoot'
         description: Calculation Parameters
       responses:
         "200":
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/CalculationStatusRoot'
-            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+            application/json:
+              examples:
+                Invalid document identifier:
+                  value:
+                    data:
+                      calculationid: 995520b92015451abbd1c0b19da4eaaf
+                      status: Completed
+                      units:
+                        pub1:
+                          status: Failed
+                          errors:
+                          - id: c5903a43b5004da4a03d84b54ce65472:1
+                            code: "404"
+                            title: ErrorMessage
+                            detail: Invalid document Client:/Pub/TestDoc1.Pub_bridge_pdf
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response, if the calculation has one unit and is completed
@@ -896,10 +1375,12 @@ paths:
           content:
             application/pdf:
               schema:
-                $ref: '#/components/schemas/ObjectRoot'
+                format: binary
+                type: string
             application/vnd.openxmlformats-officedocument.presentationml.presentation:
               schema:
-                $ref: '#/components/schemas/ObjectRoot'
+                format: binary
+                type: string
           description: Expected response if the calculation has one unit and is completed
             in a short span, returns JSON in the format specified in the Calculation
             parameters.
@@ -940,10 +1421,18 @@ paths:
               style: simple
         "202":
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/CalculationStatusRoot'
-            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+            application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      calculationid: 29843eee5bf94fb584717cd0bc2c27a5
+                      status: Queued
+                      units:
+                        pub1:
+                          status: Executing
+                        pub2:
+                          status: Queued
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response, contains the poll URL in the Location header.
@@ -991,10 +1480,15 @@ paths:
               style: simple
         "400":
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+            application/json:
+              examples:
+                Bad Request:
+                  value:
+                    errors:
+                    - id: 66619C6CAE74BDEC
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: '"":["Invalid field value specified"]'
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid calculation parameters.
@@ -1091,10 +1585,15 @@ paths:
               style: simple
         "404":
           content:
-            application/pdf:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+            application/json:
+              examples:
+                "404 - Not Found":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Error processing the request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: One or more calculation settings were unavailable.
@@ -1260,7 +1759,7 @@ paths:
       - PubCalculations
       x-factset-different-success-responses: true
       x-contentType: application/json
-      x-accepts: application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation
+      x-accepts: application/json
   /analytics/engines/pub/v3/calculations/{id}:
     delete:
       description: This is the endpoint to cancel a previously submitted calculation.
@@ -1317,13 +1816,15 @@ paths:
               style: simple
         "400":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -1420,13 +1921,15 @@ paths:
               style: simple
         "404":
           content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            text/json:
+              examples:
+                Calculation Not Found:
+                  value:
+                    errors:
+                    - id: 6687DEF23DEB1DD6
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: There was no request for the calculation identifier provided,
@@ -1529,6 +2032,18 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      pub1:
+                        document: Client:/Pub_Attribution.Pub_bridge_pdf
+                        account:
+                          id: Client:Pub_Attribution.ACCT
+                          holdingsmode: B&H
+                        dates:
+                          startdate: "20240101"
+                          enddate: "20240331"
               schema:
                 $ref: '#/components/schemas/PubCalculationParametersRoot'
           description: Expected response, returns the Pub calculation parameters.
@@ -1595,6 +2110,14 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -1692,6 +2215,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                Calculation Not Found:
+                  value:
+                    errors:
+                    - id: 6687DEF23DEB1DD6
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Calculation id not found
@@ -1793,15 +2324,17 @@ paths:
           type: string
         style: simple
       - description: Long running deadline in seconds when only one unit is passed
-          in the PUT body.
+          in the PUT body. Example value is set to 10s. Please update it as per requirement
+          before triggering a calculation.
         explode: false
         in: header
         name: X-FactSet-Api-Long-Running-Deadline
         required: false
         schema:
+          example: 10
           type: integer
         style: simple
-      - description: Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.
+      - description: Standard HTTP header.  Accepts max-stale.
         explode: false
         in: header
         name: Cache-Control
@@ -1812,13 +2345,57 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Single Unit Request:
+                value:
+                  data:
+                    pub1:
+                      document: Client:/Pub_Attribution.Pub_bridge_pdf
+                      account:
+                        id: Client:Pub_Attribution.ACCT
+                        holdingsmode: B&H
+                      dates:
+                        startdate: "20240101"
+                        enddate: "20240331"
+              Multi Unit Request:
+                value:
+                  data:
+                    pub1:
+                      document: Client:/Pub_Attribution.Pub_bridge_pdf
+                      account:
+                        id: Client:Pub_Attribution1.ACCT
+                        holdingsmode: B&H
+                      dates:
+                        enddate: "20240331"
+                    pub2:
+                      document: Client:/Pub_Attribution.Pub_bridge_pdf
+                      account:
+                        id: Client:Pub_Attribution2.ACCT
+                        holdingsmode: B&H
+                      dates:
+                        startdate: "20240201"
+                        enddate: "20240331"
             schema:
               $ref: '#/components/schemas/PubCalculationParametersRoot'
         description: Calculation Parameters
       responses:
         "200":
           content:
-            application/pdf:
+            application/json:
+              examples:
+                Invalid document identifier:
+                  value:
+                    data:
+                      calculationid: 995520b92015451abbd1c0b19da4eaaf
+                      status: Completed
+                      units:
+                        pub1:
+                          status: Failed
+                          errors:
+                          - id: c5903a43b5004da4a03d84b54ce65472:1
+                            code: "404"
+                            title: ErrorMessage
+                            detail: Invalid document Client:/Pub/TestDoc1.Pub_bridge_pdf
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response, if the calculation has one unit and is completed
@@ -1876,7 +2453,12 @@ paths:
           content:
             application/pdf:
               schema:
-                $ref: '#/components/schemas/ObjectRoot'
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+              schema:
+                format: binary
+                type: string
           description: Expected response if the calculation has one unit and is completed
             in a short span, returns JSON in the format specified in the Calculation
             parameters.
@@ -1931,7 +2513,18 @@ paths:
               style: simple
         "202":
           content:
-            application/pdf:
+            application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      calculationid: 29843eee5bf94fb584717cd0bc2c27a5
+                      status: Queued
+                      units:
+                        pub1:
+                          status: Executing
+                        pub2:
+                          status: Queued
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response, contains the poll URL in the Location header.
@@ -1993,7 +2586,15 @@ paths:
               style: simple
         "400":
           content:
-            application/pdf:
+            application/json:
+              examples:
+                Bad Request:
+                  value:
+                    errors:
+                    - id: 66619C6CAE74BDEC
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: '"":["Invalid field value specified"]'
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid Calculation Parameters.
@@ -2132,10 +2733,84 @@ paths:
               style: simple
         "404":
           content:
-            application/pdf:
+            application/json:
+              examples:
+                "404 - Not Found":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Error processing the request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: One or more calculation settings were unavailable.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-Calculations-Limit:
+              description: Maximum FI request limit.
+              explode: false
+              schema:
+                description: Maximum FI request limit.
+                type: string
+              style: simple
+            X-FactSet-Api-Calculations-Remaining:
+              description: Number of FI requests remaining till request limit reached.
+              explode: false
+              schema:
+                description: Number of FI requests remaining till request limit reached.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "409":
+          content:
+            application/json:
+              examples:
+                Duplicate Calculation Id:
+                  value:
+                    errors:
+                    - id: 6687CD4B6574E222
+                      code: Conflict
+                      title: Failed to process request
+                      detail: Cannot create/update the calculation as the duplicate
+                        calculation id (80931ca92c7b432380dcd51f539c79f5) exists
+                      source:
+                        pointer: /data
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Duplicate calculation exists with same parameters.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -2368,14 +3043,12 @@ paths:
       - PubCalculations
       x-factset-different-success-responses: true
       x-contentType: application/json
-      x-accepts: application/pdf
+      x-accepts: application/json
   /analytics/engines/pub/v3/calculations/{id}/status:
     get:
       description: "This is the endpoint to check on the progress of a previously\
         \ requested calculation.\r\nIf the calculation has finished computing, the\
-        \ result field in the response body will point to the result url.\r\nOtherwise,\
-        \ the calculation is still running and the X-FactSet-Api-PickUp-Progress header\
-        \ will contain a progress percentage."
+        \ location header will point to the result url."
       operationId: getCalculationStatusById
       parameters:
       - description: from url, provided from the location header in the Create and
@@ -2393,6 +3066,31 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Single Unit Calculation":
+                  value:
+                    data:
+                      calculationid: 80931ca92c7b432380dcd51f539c79f5
+                      status: Completed
+                      units:
+                        pub1:
+                          status: Success
+                          result: https://api.factset.com/analytics/engines/pub/v3/calculations/08ba51659d4640bcbd9046d78b153a3e/units/pub1/result
+                          progress: "100"
+                "200 - Multi Unit Calculation":
+                  value:
+                    data:
+                      calculationid: 29843eee5bf94fb584717cd0bc2c27a5
+                      status: Completed
+                      units:
+                        pub1:
+                          status: Success
+                          result: https://api.factset.com/analytics/engines/pub/v3/calculations/29843eee5bf94fb584717cd0bc2c27a5/units/pub1/result
+                          progress: "100"
+                        pub2:
+                          status: Success
+                          result: https://api.factset.com/analytics/engines/pub/v3/calculations/29843eee5bf94fb584717cd0bc2c27a5/units/pub2/result
+                          progress: "100"
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response once calculation is completed.
@@ -2459,6 +3157,28 @@ paths:
         "202":
           content:
             application/json:
+              examples:
+                "202 - Single Unit Calculation":
+                  value:
+                    data:
+                      calculationid: 6b98d723eb5649aea2ddc824f224f886
+                      status: Executing
+                      units:
+                        pub1:
+                          status: Executing
+                          progress: "0"
+                "202 - Multi Unit Calculation":
+                  value:
+                    data:
+                      calculationid: b5d74179e3aa455da07e8d24819b462b
+                      status: Executing
+                      units:
+                        pub1:
+                          status: Executing
+                          progress: "0"
+                        pub2:
+                          status: Executing
+                          progress: "0"
               schema:
                 $ref: '#/components/schemas/CalculationStatusRoot'
           description: Expected response returned if the calculation is not yet completed.
@@ -2516,6 +3236,14 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -2613,6 +3341,14 @@ paths:
         "404":
           content:
             application/json:
+              examples:
+                Calculation Not Found:
+                  value:
+                    errors:
+                    - id: 6687DEF23DEB1DD6
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Calculation was already returned, provided id was not a requested
@@ -2724,27 +3460,17 @@ paths:
             calculation status by id endpoint
           type: string
         style: simple
-      - description: Standard HTTP header. Value can be gzip, compress, deflate, br,
-          identity and/or *
-        explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectRoot'
-            application/x-protobuf:
-              schema:
-                $ref: '#/components/schemas/ObjectRoot'
             application/pdf:
               schema:
-                $ref: '#/components/schemas/ObjectRoot'
+                format: binary
+                type: string
+            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+              schema:
+                format: binary
+                type: string
           description: Expected response once calculation is completed, returns result
             in the format specified in the Calculation parameters.
           headers:
@@ -2810,12 +3536,14 @@ paths:
         "400":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            application/x-protobuf:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            application/pdf:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -2913,12 +3641,21 @@ paths:
         "404":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            application/x-protobuf:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
-            application/pdf:
+              examples:
+                "404 - Invalid Calculation Id provided":
+                  value:
+                    errors:
+                    - id: 668BA563FDF6EACF
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation not found
+                "404 - Invalid Unit Id provided":
+                  value:
+                    errors:
+                    - id: 668BA4C43D4DA77E
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Calculation Unit Identifier 10 not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Calculation was already returned, provided id was not a requested
@@ -3016,11 +3753,13 @@ components:
           description: List of account and composite files.
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     AccountDirectoriesRoot:
@@ -3032,9 +3771,60 @@ components:
           accounts:
           - accounts
           - accounts
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/AccountDirectories'
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+    ErrorSource:
+      example:
+        pointer: pointer
+        parameter: parameter
+      properties:
+        pointer:
+          nullable: true
+          type: string
+        parameter:
+          nullable: true
+          type: string
+      type: object
+    Error:
+      example:
+        code: code
+        id: id
+        detail: detail
+        source:
+          pointer: pointer
+          parameter: parameter
+        title: title
+      properties:
+        id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        detail:
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      type: object
+    ClientErrorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          nullable: true
+          type: array
       type: object
     Currency:
       example:
@@ -3042,6 +3832,7 @@ components:
       properties:
         name:
           description: Name of currency.
+          nullable: true
           type: string
       type: object
     CurrencyRoot:
@@ -3049,11 +3840,17 @@ components:
         data:
           key:
             name: name
+        meta: '{}'
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/Currency'
           type: object
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
       type: object
     DocumentDirectories:
       example:
@@ -3065,13 +3862,16 @@ components:
         - directories
       properties:
         documents:
+          description: List of documents
           items:
             type: string
+          nullable: true
           type: array
         directories:
           description: List of directories.
           items:
             type: string
+          nullable: true
           type: array
       type: object
     DocumentDirectoriesRoot:
@@ -3083,9 +3883,15 @@ components:
           directories:
           - directories
           - directories
+        meta: '{}'
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
       type: object
     PubIdentifier:
       example:
@@ -3097,6 +3903,7 @@ components:
           type: string
         holdingsmode:
           description: Holdings Mode can be B&H, TBR, OMS or EXT.
+          nullable: true
           type: string
       required:
       - id
@@ -3109,6 +3916,7 @@ components:
       properties:
         startdate:
           description: Calculation's start date.
+          nullable: true
           type: string
         enddate:
           description: Calculation's end date or as of date.
@@ -3157,51 +3965,35 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/PubCalculationParameters'
           description: List of calculation parameters.
+          nullable: true
           type: object
         meta:
           type: object
       type: object
-    ErrorSource:
-      example:
-        pointer: pointer
-        parameter: parameter
-      properties:
-        pointer:
-          type: string
-        parameter:
-          type: string
-      type: object
-    Error:
-      example:
-        id: id
-        detail: detail
-        source:
-          pointer: pointer
-          parameter: parameter
-      properties:
-        id:
-          type: string
-        detail:
-          type: string
-        source:
-          $ref: '#/components/schemas/ErrorSource'
-      type: object
     CalculationUnitStatus:
       example:
         result: result
+        warnings:
+        - warnings
+        - warnings
         progress: progress
         errors:
-        - id: id
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
-        - id: id
+          title: title
+        - code: code
+          id: id
           detail: detail
           source:
             pointer: pointer
             parameter: parameter
+          title: title
         status: Queued
+        points: 0
       properties:
         status:
           description: The status of calculation unit.
@@ -3216,13 +4008,27 @@ components:
           description: The error in a calculation unit.
           items:
             $ref: '#/components/schemas/Error'
+          nullable: true
           type: array
         result:
           description: The result URL of the calculation.
+          nullable: true
           type: string
         progress:
           description: The progress of the calculation unit.
+          nullable: true
           type: string
+        points:
+          description: The points for the calculation unit.
+          format: int32
+          nullable: true
+          type: integer
+        warnings:
+          description: The warnings in a calculation unit.
+          items:
+            type: string
+          nullable: true
+          type: array
       type: object
     CalculationStatus:
       example:
@@ -3230,24 +4036,35 @@ components:
         units:
           key:
             result: result
+            warnings:
+            - warnings
+            - warnings
             progress: progress
             errors:
-            - id: id
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
-            - id: id
+              title: title
+            - code: code
+              id: id
               detail: detail
               source:
                 pointer: pointer
                 parameter: parameter
+              title: title
             status: Queued
+            points: 0
         status: Queued
       properties:
         calculationid:
+          description: Calculation's identifier
+          nullable: true
           type: string
         status:
+          description: Calculation's status
           enum:
           - Queued
           - Executing
@@ -3258,6 +4075,29 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/CalculationUnitStatus'
           description: Number of calculation units in batch.
+          nullable: true
+          type: object
+      type: object
+    CalculationUnitStatusMeta:
+      example:
+        info: info
+      properties:
+        info:
+          description: The Info URL of the calculation.
+          nullable: true
+          type: string
+      type: object
+    CalculationStatusMeta:
+      example:
+        units:
+          key:
+            info: info
+      properties:
+        units:
+          additionalProperties:
+            $ref: '#/components/schemas/CalculationUnitStatusMeta'
+          description: Meta of calculation units in batch.
+          nullable: true
           type: object
       type: object
     CalculationStatusRoot:
@@ -3267,37 +4107,134 @@ components:
           units:
             key:
               result: result
+              warnings:
+              - warnings
+              - warnings
               progress: progress
               errors:
-              - id: id
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
-              - id: id
+                title: title
+              - code: code
+                id: id
                 detail: detail
                 source:
                   pointer: pointer
                   parameter: parameter
+                title: title
               status: Queued
+              points: 0
           status: Queued
+        meta:
+          units:
+            key:
+              info: info
       properties:
         data:
           $ref: '#/components/schemas/CalculationStatus'
+        meta:
+          $ref: '#/components/schemas/CalculationStatusMeta'
+      required:
+      - data
       type: object
-    ObjectRoot:
+    CalculationsSummary:
       example:
-        data: '{}'
+        requestTime: 2000-01-23T04:56:07.000+00:00
+        lastPollTime: 2000-01-23T04:56:07.000+00:00
+        units: 0
+        status: Queued
+      properties:
+        status:
+          description: Last poll status of the calculation.
+          enum:
+          - Queued
+          - Executing
+          - Completed
+          - Cancelled
+          type: string
+        units:
+          description: Number of calculation units in batch.
+          format: int32
+          type: integer
+        requestTime:
+          description: Request time of calculation.
+          format: date-time
+          type: string
+        lastPollTime:
+          description: Last poll time of calculation.
+          format: date-time
+          type: string
+      type: object
+    PaginationInfo:
+      example:
+        pageNumber: 6
+        previousPage: previousPage
+        nextPage: nextPage
+        totalPages: 5
+        pageSize: 1
+        totalCalculations: 5
+      properties:
+        pageNumber:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        totalPages:
+          format: int32
+          type: integer
+        totalCalculations:
+          format: int32
+          type: integer
+        nextPage:
+          nullable: true
+          type: string
+        previousPage:
+          nullable: true
+          type: string
+      type: object
+    PaginationMeta:
+      example:
+        pagination:
+          pageNumber: 6
+          previousPage: previousPage
+          nextPage: nextPage
+          totalPages: 5
+          pageSize: 1
+          totalCalculations: 5
+      properties:
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+      type: object
+    CalculationsSummaryRoot:
+      example:
+        data:
+          key:
+            requestTime: 2000-01-23T04:56:07.000+00:00
+            lastPollTime: 2000-01-23T04:56:07.000+00:00
+            units: 0
+            status: Queued
+        meta:
+          pagination:
+            pageNumber: 6
+            previousPage: previousPage
+            nextPage: nextPage
+            totalPages: 5
+            pageSize: 1
+            totalCalculations: 5
       properties:
         data:
+          additionalProperties:
+            $ref: '#/components/schemas/CalculationsSummary'
           type: object
-      type: object
-    ClientErrorResponse:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/Error'
-          type: array
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - data
       type: object
   securitySchemes:
     FactSetOAuth2:

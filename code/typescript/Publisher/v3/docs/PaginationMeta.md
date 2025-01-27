@@ -1,17 +1,9 @@
-
-
-# ObjectRoot
-
+# publisher.PaginationMeta
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** |  |  [optional]
-
-
-## Implemented Interfaces
-
-* Serializable
+**pagination** | [**PaginationInfo**](PaginationInfo.md) |  | [optional] 
 
 

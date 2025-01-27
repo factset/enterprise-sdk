@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**{String: Currency}**](Currency.md) |  | [optional] 
+**data** | [**{String: Currency}**](Currency.md) |  | 
+**meta** | **Object** |  | [optional] 
 
 

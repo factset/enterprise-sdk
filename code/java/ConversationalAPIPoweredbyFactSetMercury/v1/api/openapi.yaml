@@ -30,27 +30,22 @@ info:
     \ contains a file ID, such as for an Excel chart or a [FactSet ActiveGraph](https://my.apps.factset.com/oa/pages/20355),\
     \ retrieve it using the file ID at the `/download/file` endpoint.\n- To provide\
     \ feedback on your response and help the Conversational API better serve you content,\
-    \ we encourage you to use the `/feedback` endpoint. \n\n##### Current Limitations\n\
-    \n- \"Natural language\" in this documentation refers to modern conversational\
-    \ English. Support for other languages is currently unavailable.\n- The Conversational\
-    \ API is currently limited to accept 10 natural language queries per minute and\
-    \ 200 per hour for an individual consumer. If you anticipate your needs to be\
-    \ greater than these limits, please reach out to FactSet Support.\n\n#### FAQ\
-    \ \n\n**How can I receive updates on changes to the Conversational API?** - Please\
-    \ subscribe to our FactSet Notify by clicking \"Subscribe to notifications\" in\
-    \ the upper right above the API overview. You will receive email updates when\
-    \ any updates occur to the API.\n**Why am I receiving a 403 error with a valid\
-    \ API key?** - Please ensure that your current public IP is within the IP range\
-    \ allocated to the API key you are using to authenticate API requests. You can\
-    \ update your API key's allowable IP range via the [FactSet Developer Portal API\
-    \ Authentication page](https://developer.factset.com/api-authentication). If this\
-    \ does not resolve the issue, please reach out to FactSet Support to ensure you\
-    \ are appropriately authorized to access the Conversational API.\n"
+    \ we encourage you to use the `/feedback` endpoint. \n\n#### Receive updates on\
+    \ changes to the Conversational API\nSubscribe to our FactSet Notify by clicking\
+    \ \"Subscribe to notifications\" in the upper right above the API overview. You\
+    \ will receive email updates when any updates occur to the API\n\n#### FAQ & Troubleshooting\n\
+    Please find FAQs and troubleshooting tips in the [FAQs section](https://my.apps.factset.com/oa/pages/23440)\
+    \ of the Conversational API OA page\n\n##### Current Limitations\n\n- \"Natural\
+    \ language\" in this documentation refers to modern conversational English. Support\
+    \ for other languages is currently unavailable.\n- The Conversational API is currently\
+    \ limited to accept 10 natural language queries per minute and 200 per hour for\
+    \ an individual consumer. If you anticipate your needs to be greater than these\
+    \ limits, please reach out to FactSet Support.\n"
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Conversational API Powered by FactSet Mercury
-  version: 1.0.5
+  version: 1.0.7
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury
@@ -81,6 +76,7 @@ paths:
 
         Please see the [Conversational API Online Assistant page](https://my.apps.factset.com/oa/pages/23209) for details around available content and types of questions the Conversational API can answer.
       operationId: sendQuery
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/QueryChatRequestBody'
       responses:
@@ -239,6 +235,7 @@ paths:
 
         Returns a 202 status code if the response is still processing, and a 201 status code if the response is ready.
       operationId: getChatStatus
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/ChatPollingRequestBody'
       responses:
@@ -432,6 +429,7 @@ paths:
         \ use this response ID at the `/feedback` endpoint to provide feedback on\
         \ the response.\n"
       operationId: getChatResult
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/ChatPollingRequestBody'
       responses:
@@ -587,6 +585,7 @@ paths:
 
         Feedback will only be accepted within 24 hours of the original response, and only once for each response ID. If you would like to provide additional feedback, please reach out to your FactSet Support Team representative.
       operationId: sendFeedback
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/FeedbackRequestBody'
       responses:
@@ -722,6 +721,7 @@ paths:
         * ExcelChart
         * STACH Table (as Excel)
       operationId: downloadFile
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/FileDownloadRequestBody'
       responses:
@@ -1535,6 +1535,7 @@ components:
       schema:
         type: string
       style: simple
+  parameters: {}
   requestBodies:
     QueryChatRequestBody:
       content:

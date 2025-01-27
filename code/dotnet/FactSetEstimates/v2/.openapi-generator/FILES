@@ -4,6 +4,10 @@ FactSet.SDK.FactSetEstimates.sln
 LICENSE
 README.md
 appveyor.yml
+docs/Actual.md
+docs/ActualsApi.md
+docs/ActualsRequest.md
+docs/ActualsResponse.md
 docs/AnalystRating.md
 docs/AnalystRatingResponse.md
 docs/BrokerDetailApi.md
@@ -44,6 +48,10 @@ docs/RatingsApi.md
 docs/RatingsCount.md
 docs/RollingConsensusRequest.md
 docs/RollingDetailRequest.md
+docs/SegmentActuals.md
+docs/SegmentActualsApi.md
+docs/SegmentActualsRequest.md
+docs/SegmentActualsResponse.md
 docs/SegmentType.md
 docs/SegmentsApi.md
 docs/SegmentsEstimate.md
@@ -60,11 +68,13 @@ docs/SurpriseRequest.md
 docs/SurpriseResponse.md
 docs/TargetPrice.md
 git_push.sh
+src/FactSet.SDK.FactSetEstimates/Api/ActualsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/BrokerDetailApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/ConsensusApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/DataItemsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/EstimatesAndRatingsReportsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/RatingsApi.cs
+src/FactSet.SDK.FactSetEstimates/Api/SegmentActualsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/SegmentsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/SurpriseApi.cs
 src/FactSet.SDK.FactSetEstimates/Client/ApiClient.cs
@@ -85,6 +95,9 @@ src/FactSet.SDK.FactSetEstimates/Client/RequestOptions.cs
 src/FactSet.SDK.FactSetEstimates/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetEstimates/FactSet.SDK.FactSetEstimates.csproj
 src/FactSet.SDK.FactSetEstimates/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.FactSetEstimates/Model/Actual.cs
+src/FactSet.SDK.FactSetEstimates/Model/ActualsRequest.cs
+src/FactSet.SDK.FactSetEstimates/Model/ActualsResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/AnalystRating.cs
 src/FactSet.SDK.FactSetEstimates/Model/AnalystRatingResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/Category.cs
@@ -120,6 +133,9 @@ src/FactSet.SDK.FactSetEstimates/Model/PeriodicitySurprise.cs
 src/FactSet.SDK.FactSetEstimates/Model/RatingsCount.cs
 src/FactSet.SDK.FactSetEstimates/Model/RollingConsensusRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/RollingDetailRequest.cs
+src/FactSet.SDK.FactSetEstimates/Model/SegmentActuals.cs
+src/FactSet.SDK.FactSetEstimates/Model/SegmentActualsRequest.cs
+src/FactSet.SDK.FactSetEstimates/Model/SegmentActualsResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentType.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentsEstimate.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentsRequest.cs

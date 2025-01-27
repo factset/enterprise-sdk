@@ -8,8 +8,12 @@ docs/AccountDirectories.md
 docs/AccountDirectoriesRoot.md
 docs/AccountsApi.md
 docs/CalculationStatus.md
+docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
+docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/CurrenciesApi.md
 docs/Currency.md
@@ -19,7 +23,8 @@ docs/DocumentDirectoriesRoot.md
 docs/DocumentsApi.md
 docs/Error.md
 docs/ErrorSource.md
-docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PubCalculationParameters.md
 docs/PubCalculationParametersRoot.md
 docs/PubCalculationsApi.md
@@ -37,8 +42,12 @@ src/index.js
 src/model/AccountDirectories.js
 src/model/AccountDirectoriesRoot.js
 src/model/CalculationStatus.js
+src/model/CalculationStatusMeta.js
 src/model/CalculationStatusRoot.js
 src/model/CalculationUnitStatus.js
+src/model/CalculationUnitStatusMeta.js
+src/model/CalculationsSummary.js
+src/model/CalculationsSummaryRoot.js
 src/model/ClientErrorResponse.js
 src/model/Currency.js
 src/model/CurrencyRoot.js
@@ -46,7 +55,8 @@ src/model/DocumentDirectories.js
 src/model/DocumentDirectoriesRoot.js
 src/model/Error.js
 src/model/ErrorSource.js
-src/model/ObjectRoot.js
+src/model/PaginationInfo.js
+src/model/PaginationMeta.js
 src/model/PubCalculationParameters.js
 src/model/PubCalculationParametersRoot.js
 src/model/PubDateParameters.js

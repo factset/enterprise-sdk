@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.Publisher.models.AccountDirectoriesRoot;
+import com.factset.sdk.Publisher.models.ClientErrorResponse;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -29,6 +30,8 @@ public class AccountsApi {
   private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAccountsResponseTypeMap.put(200, new GenericType<AccountDirectoriesRoot>(){});
+    getAccountsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getAccountsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
   
@@ -55,7 +58,7 @@ public class AccountsApi {
   /**
    * Get accounts and sub-directories in a directory
    * This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
-   * @param path The directory to get the accounts and sub-directories in (required)
+   * @param path The directory to get the accounts and sub-directories. (required)
    * @return AccountDirectoriesRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -79,7 +82,7 @@ public class AccountsApi {
   /**
    * Get accounts and sub-directories in a directory
    * This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
-   * @param path The directory to get the accounts and sub-directories in (required)
+   * @param path The directory to get the accounts and sub-directories. (required)
    * @return ApiResponse&lt;AccountDirectoriesRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **RelativeFiscalStart** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **RelativeFiscalEnd** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **Periodicity** | [**PeriodicityDetail**](PeriodicityDetail.md) |  | [optional] 
-**Metrics** | **List&lt;string&gt;** | Requested metrics. Use the metrics endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). | 
+**Metrics** | **List&lt;string&gt;** | Requested metrics. Use the &#x60;/metrics&#x60; endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). | 
 **Currency** | **string** | Currency code for adjusting the data. Use input as &#39;ESTIMATE&#39; for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

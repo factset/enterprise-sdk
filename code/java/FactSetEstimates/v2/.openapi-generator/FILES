@@ -6,6 +6,10 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/Actual.md
+docs/ActualsApi.md
+docs/ActualsRequest.md
+docs/ActualsResponse.md
 docs/AnalystRating.md
 docs/AnalystRatingResponse.md
 docs/BrokerDetailApi.md
@@ -46,6 +50,10 @@ docs/RatingsApi.md
 docs/RatingsCount.md
 docs/RollingConsensusRequest.md
 docs/RollingDetailRequest.md
+docs/SegmentActuals.md
+docs/SegmentActualsApi.md
+docs/SegmentActualsRequest.md
+docs/SegmentActualsResponse.md
 docs/SegmentType.md
 docs/SegmentsApi.md
 docs/SegmentsEstimate.md
@@ -81,11 +89,13 @@ src/main/java/com/factset/sdk/FactSetEstimates/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/FactSetEstimates/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetEstimates/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetEstimates/StringUtil.java
+src/main/java/com/factset/sdk/FactSetEstimates/api/ActualsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/BrokerDetailApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/ConsensusApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/DataItemsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/EstimatesAndRatingsReportsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/RatingsApi.java
+src/main/java/com/factset/sdk/FactSetEstimates/api/SegmentActualsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/SegmentsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/SurpriseApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/auth/ApiKeyAuth.java
@@ -96,6 +106,9 @@ src/main/java/com/factset/sdk/FactSetEstimates/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/FactSetEstimates/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetEstimates/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/Actual.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/ActualsRequest.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/ActualsResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/AnalystRating.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/AnalystRatingResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Category.java
@@ -131,6 +144,9 @@ src/main/java/com/factset/sdk/FactSetEstimates/models/PeriodicitySurprise.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/RatingsCount.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/RollingConsensusRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/RollingDetailRequest.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentActuals.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentActualsRequest.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentActualsResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentType.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsEstimate.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsRequest.java

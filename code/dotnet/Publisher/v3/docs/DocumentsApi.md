@@ -60,7 +60,7 @@ namespace Example
 
             var apiInstance = new DocumentsApi(config);
 
-            var path = "\"Client:folder1/folder2\"";  // string | The directory to get the documents in (default to "Client:folder1/folder2")
+            var path = "Client:";  // string | The directory to get the documents in
 
             try
             {
@@ -83,7 +83,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents in | [default to &quot;Client:folder1/folder2&quot;]
+ **path** | **string**| The directory to get the documents in | 
 
 ### Return type
 [**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)

@@ -1,9 +1,9 @@
-# publisher.ObjectRoot
+# publisher.CalculationUnitStatusMeta
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** |  | [optional] 
+**info** | **String** | The Info URL of the calculation. | [optional] 
 
 

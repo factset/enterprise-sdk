@@ -57,7 +57,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DocumentsApi apiInstance = new DocumentsApi(defaultClient);
-        String path = "Client:folder1/folder2"; // String | The directory to get the documents in
+        String path = "Client:"; // String | The directory to get the documents in
         try {
             DocumentDirectoriesRoot result = apiInstance.getPubDocuments(path);
             System.out.println(result);
@@ -78,7 +78,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the documents in | [default to Client:folder1/folder2]
+ **path** | **String**| The directory to get the documents in |
 
 ### Return type
 

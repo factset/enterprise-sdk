@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.Publisher.models.ClientErrorResponse;
 import com.factset.sdk.Publisher.models.DocumentDirectoriesRoot;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -29,6 +30,8 @@ public class DocumentsApi {
   private static final Map<Integer, GenericType> getPubDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getPubDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
+    getPubDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getPubDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
   
