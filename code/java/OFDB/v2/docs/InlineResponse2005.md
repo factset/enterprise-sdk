@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**SymbolsWithId**](SymbolsWithId.md) |  |  [optional]
+**data** | **java.util.List&lt;Integer&gt;** |  |  [optional]
 
 
 ## Implemented Interfaces

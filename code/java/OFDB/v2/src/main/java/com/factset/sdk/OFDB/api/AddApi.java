@@ -17,6 +17,7 @@ import com.factset.sdk.OFDB.models.AddSymbols;
 import com.factset.sdk.OFDB.models.InlineResponse202;
 import com.factset.sdk.OFDB.models.InlineResponse400;
 import com.factset.sdk.OFDB.models.InlineResponse403;
+import com.factset.sdk.OFDB.models.SuccessPostResponse;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -33,6 +34,7 @@ public class AddApi {
   
   private static final Map<Integer, GenericType> addDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
+    addDatesResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     addDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     addDatesResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     addDatesResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -44,6 +46,7 @@ public class AddApi {
 
   private static final Map<Integer, GenericType> addFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
+    addFieldsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     addFieldsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     addFieldsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     addFieldsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -54,6 +57,7 @@ public class AddApi {
 
   private static final Map<Integer, GenericType> addSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
+    addSymbolsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
     addSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
     addSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
     addSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
@@ -89,11 +93,12 @@ public class AddApi {
    * Creates a new date with single/multiple symbols for a 3d database(OFDB).
    * @param path Encode database path (required)
    * @param addDates Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
-   * @return InlineResponse202
+   * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -105,7 +110,7 @@ public class AddApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse202 addDates(String path, AddDates addDates) throws ApiException {
+  public SuccessPostResponse addDates(String path, AddDates addDates) throws ApiException {
     return addDatesWithHttpInfo(path, addDates).getData();
   }
 
@@ -114,11 +119,12 @@ public class AddApi {
    * Creates a new date with single/multiple symbols for a 3d database(OFDB).
    * @param path Encode database path (required)
    * @param addDates Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
-   * @return ApiResponse&lt;InlineResponse202&gt;
+   * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -130,7 +136,7 @@ public class AddApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse202> addDatesWithHttpInfo(String path, AddDates addDates) throws ApiException {
+  public ApiResponse<SuccessPostResponse> addDatesWithHttpInfo(String path, AddDates addDates) throws ApiException {
     Object localVarPostBody = addDates;
     
     // verify the required parameter 'path' is set
@@ -172,7 +178,7 @@ public class AddApi {
 
     ApiResponse<
         
-        InlineResponse202
+        SuccessPostResponse
       
     > apiResponse = apiClient.invokeAPI("AddApi.addDates", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -186,11 +192,12 @@ public class AddApi {
    * Allows users to add fields to existing OFDBs
    * @param path Encode database path (required)
    * @param addFields Data for creating fields in the database. (required)
-   * @return InlineResponse202
+   * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -201,7 +208,7 @@ public class AddApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse202 addFields(String path, AddFields addFields) throws ApiException {
+  public SuccessPostResponse addFields(String path, AddFields addFields) throws ApiException {
     return addFieldsWithHttpInfo(path, addFields).getData();
   }
 
@@ -210,11 +217,12 @@ public class AddApi {
    * Allows users to add fields to existing OFDBs
    * @param path Encode database path (required)
    * @param addFields Data for creating fields in the database. (required)
-   * @return ApiResponse&lt;InlineResponse202&gt;
+   * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -225,7 +233,7 @@ public class AddApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse202> addFieldsWithHttpInfo(String path, AddFields addFields) throws ApiException {
+  public ApiResponse<SuccessPostResponse> addFieldsWithHttpInfo(String path, AddFields addFields) throws ApiException {
     Object localVarPostBody = addFields;
     
     // verify the required parameter 'path' is set
@@ -267,7 +275,7 @@ public class AddApi {
 
     ApiResponse<
         
-        InlineResponse202
+        SuccessPostResponse
       
     > apiResponse = apiClient.invokeAPI("AddApi.addFields", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -281,11 +289,12 @@ public class AddApi {
    * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
    * @param path Encode database path (required)
    * @param addSymbols Data for creating symbol in the database (required)
-   * @return InlineResponse202
+   * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -297,7 +306,7 @@ public class AddApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse202 addSymbols(String path, AddSymbols addSymbols) throws ApiException {
+  public SuccessPostResponse addSymbols(String path, AddSymbols addSymbols) throws ApiException {
     return addSymbolsWithHttpInfo(path, addSymbols).getData();
   }
 
@@ -306,11 +315,12 @@ public class AddApi {
    * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
    * @param path Encode database path (required)
    * @param addSymbols Data for creating symbol in the database (required)
-   * @return ApiResponse&lt;InlineResponse202&gt;
+   * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -322,7 +332,7 @@ public class AddApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse202> addSymbolsWithHttpInfo(String path, AddSymbols addSymbols) throws ApiException {
+  public ApiResponse<SuccessPostResponse> addSymbolsWithHttpInfo(String path, AddSymbols addSymbols) throws ApiException {
     Object localVarPostBody = addSymbols;
     
     // verify the required parameter 'path' is set
@@ -364,7 +374,7 @@ public class AddApi {
 
     ApiResponse<
         
-        InlineResponse202
+        SuccessPostResponse
       
     > apiResponse = apiClient.invokeAPI("AddApi.addSymbols", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

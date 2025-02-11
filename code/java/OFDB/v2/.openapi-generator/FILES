@@ -39,8 +39,6 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
-docs/InlineResponse2007.md
-docs/InlineResponse2008.md
 docs/InlineResponse200Data.md
 docs/InlineResponse201.md
 docs/InlineResponse201Data.md
@@ -122,8 +120,6 @@ src/main/java/com/factset/sdk/OFDB/models/InlineResponse2003.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse2004.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse2005.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse2006.java
-src/main/java/com/factset/sdk/OFDB/models/InlineResponse2007.java
-src/main/java/com/factset/sdk/OFDB/models/InlineResponse2008.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse200Data.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse201.java
 src/main/java/com/factset/sdk/OFDB/models/InlineResponse201Data.java

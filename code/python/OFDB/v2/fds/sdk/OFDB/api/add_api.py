@@ -31,6 +31,7 @@ from fds.sdk.OFDB.model.add_symbols import AddSymbols
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
+from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
 
 
 
@@ -51,7 +52,7 @@ class AddApi(object):
         self.add_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -114,7 +115,7 @@ class AddApi(object):
         self.add_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -177,7 +178,7 @@ class AddApi(object):
         self.add_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -256,7 +257,7 @@ class AddApi(object):
         path,
         add_dates,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """add_dates  # noqa: E501
 
         Creates a new date with single/multiple symbols for a 3d database(OFDB).  # noqa: E501
@@ -292,7 +293,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -307,7 +308,7 @@ class AddApi(object):
         path,
         add_dates,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """add_dates  # noqa: E501
 
         Creates a new date with single/multiple symbols for a 3d database(OFDB).  # noqa: E501
@@ -343,7 +344,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -362,7 +363,7 @@ class AddApi(object):
         path,
         add_dates,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """add_dates  # noqa: E501
 
         Creates a new date with single/multiple symbols for a 3d database(OFDB).  # noqa: E501
@@ -398,7 +399,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -412,7 +413,7 @@ class AddApi(object):
         path,
         add_dates,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """add_dates  # noqa: E501
 
         Creates a new date with single/multiple symbols for a 3d database(OFDB).  # noqa: E501
@@ -448,7 +449,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -463,7 +464,7 @@ class AddApi(object):
         path,
         add_fields,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """add_fields  # noqa: E501
 
         Allows users to add fields to existing OFDBs  # noqa: E501
@@ -499,7 +500,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -514,7 +515,7 @@ class AddApi(object):
         path,
         add_fields,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """add_fields  # noqa: E501
 
         Allows users to add fields to existing OFDBs  # noqa: E501
@@ -550,7 +551,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -569,7 +570,7 @@ class AddApi(object):
         path,
         add_fields,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """add_fields  # noqa: E501
 
         Allows users to add fields to existing OFDBs  # noqa: E501
@@ -605,7 +606,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -619,7 +620,7 @@ class AddApi(object):
         path,
         add_fields,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """add_fields  # noqa: E501
 
         Allows users to add fields to existing OFDBs  # noqa: E501
@@ -655,7 +656,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -670,7 +671,7 @@ class AddApi(object):
         path,
         add_symbols,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """add_symbols  # noqa: E501
 
         Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)  # noqa: E501
@@ -706,7 +707,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -721,7 +722,7 @@ class AddApi(object):
         path,
         add_symbols,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """add_symbols  # noqa: E501
 
         Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)  # noqa: E501
@@ -757,7 +758,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -776,7 +777,7 @@ class AddApi(object):
         path,
         add_symbols,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """add_symbols  # noqa: E501
 
         Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)  # noqa: E501
@@ -812,7 +813,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -826,7 +827,7 @@ class AddApi(object):
         path,
         add_symbols,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """add_symbols  # noqa: E501
 
         Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)  # noqa: E501
@@ -862,7 +863,7 @@ class AddApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \

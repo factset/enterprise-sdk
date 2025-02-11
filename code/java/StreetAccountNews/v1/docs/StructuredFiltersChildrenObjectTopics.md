@@ -9,7 +9,7 @@ Elements of structured filters children topics object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | The name of the children. |  [optional]
-**value** | **java.util.List&lt;String&gt;** |  |  [optional]
+**children** | [**java.util.List&lt;StructuredFiltersChildrenObjectTopicsNested&gt;**](StructuredFiltersChildrenObjectTopicsNested.md) | An array of children objects. |  [optional]
 
 
 ## Implemented Interfaces

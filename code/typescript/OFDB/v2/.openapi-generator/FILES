@@ -37,8 +37,6 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
-docs/InlineResponse2007.md
-docs/InlineResponse2008.md
 docs/InlineResponse200Data.md
 docs/InlineResponse201.md
 docs/InlineResponse201Data.md
@@ -97,8 +95,6 @@ src/model/InlineResponse2003.js
 src/model/InlineResponse2004.js
 src/model/InlineResponse2005.js
 src/model/InlineResponse2006.js
-src/model/InlineResponse2007.js
-src/model/InlineResponse2008.js
 src/model/InlineResponse200Data.js
 src/model/InlineResponse201.js
 src/model/InlineResponse201Data.js

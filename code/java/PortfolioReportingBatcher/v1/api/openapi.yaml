@@ -1,0 +1,1752 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: The Portfolio Reporting Batcher (PRB) API allows clients to systematically
+    leverage functionalities of the PRB application.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Portfolio Reporting Batcher
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api
+servers:
+- url: https://api.factset.com/analytics/prb/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: These endpoints relate to PRB jobs
+  name: Jobs
+- description: These endpoints refer to specific runs for a PRB job
+  name: Runs
+paths:
+  /jobs:
+    get:
+      description: |
+        Use this endpoint with the optional 'type' or 'name' filters to get a list of PRB jobs.
+      operationId: v1GetPrbJobs
+      parameters:
+      - description: The job type
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/JobTypes'
+        style: form
+      - description: The job name
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The number of jobs to skip (please note the jobs are ordered
+          by last modified in descending order, i.e. most recently modified will show
+          on the
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          example: 0
+          type: integer
+        style: form
+      - description: The number of jobs to bring back (maximum 50)
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          maximum: 50
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Example 1:
+                  value:
+                    data:
+                    - name: my_vault_job
+                      type: vault
+                      serialNumber: "894550"
+                      status: created
+                      runId: 4d0544b6-f327-45dd-856b-7990181f695a
+                      isApiTriggered: true
+                    - name: my_pa_job
+                      type: PA
+                      serialNumber: "894550"
+                      status: failed
+                      runId: "128756"
+                      isApiTriggered: false
+                    meta:
+                      pagination:
+                        hasNext: false
+                Example 2:
+                  description: Only `name`, `type`, and `serialNumber` will be shown
+                    if the jobs have not been run before
+                  value:
+                    data:
+                    - name: my_new_vault_job
+                      type: vault
+                      serialNumber: "310361"
+                    - name: my_new_pa_job
+                      type: PA
+                      serialNumber: "310362"
+                    meta:
+                      pagination:
+                        hasNext: false
+                Example 3:
+                  description: An empty `data` array can be expected if no jobs are
+                    found, please expand the query parameters
+                  value:
+                    data: []
+                    meta:
+                      pagination:
+                        hasNext: false
+              schema:
+                $ref: '#/components/schemas/JobListResponse'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid input parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get a list of existing jobs
+      tags:
+      - Jobs
+      x-accepts: application/json
+  /jobs/{type}/{name}:
+    get:
+      description: Use this endpoint to fetch the documents, tasks, accounts, and/or
+        runs for the PRB job given in the path. Please note jobs with type PD will
+        not return tasks nor accounts so this will be ignored if given as part of
+        the array of attributes in the request.
+      operationId: v1GetDetailsForJob
+      parameters:
+      - description: The jobs type
+        explode: false
+        in: path
+        name: type
+        required: true
+        schema:
+          $ref: '#/components/schemas/JobTypes'
+        style: simple
+      - description: The jobs name
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The attribute parameter accepts a list of the given enums, separated
+          by commas. Each of them returns the respective data associated with the
+          job. Runs returns the run history of the job.
+        explode: false
+        in: query
+        name: attribute
+        required: false
+        schema:
+          items:
+            enum:
+            - documents
+            - tasks
+            - accounts
+            - runs
+            type: string
+          maxItems: 4
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                PA:
+                  value:
+                    data:
+                      documents:
+                        my_task_1:
+                        - Client:/equity/long_short/my PA document
+                        my_task_2:
+                        - Client:/equity/long_short/my other PA document
+                        - Client:/equity/long_only/my PA document
+                      tasks:
+                      - my_task_1
+                      - my_task_2
+                      accounts:
+                        my_task_1:
+                        - portfolioId: client:/some_path/some_portfolio.actm
+                          isSplit: true
+                          includeParent: true
+                          level: "1"
+                          latestComponentsOnly: true
+                        my_task_2:
+                        - portfolioId: client:/some_other_path/some__other_portfolio.acct
+                          isSplit: true
+                          includeParent: true
+                          level: all
+                          latestComponentsOnly: true
+                      runs:
+                      - statusDescription: job has completed with success
+                        status: created
+                        prbStatus: success
+                        submitTime: 2019-08-24T14:15:22Z
+                        startTime: 2019-08-24T14:15:22Z
+                        endTime: 2019-08-24T14:15:22Z
+                        runDuration: 0
+                        isApiTriggered: true
+                        id: "565642"
+                PD:
+                  value:
+                    data:
+                      documents:
+                        default:
+                        - Client:/equity/long_short/my document1
+                      runs:
+                      - statusDescription: job has completed with success
+                        status: created
+                        prbStatus: success
+                        submitTime: 2019-08-24T14:15:22Z
+                        startTime: 2019-08-24T14:15:22Z
+                        endTime: 2019-08-24T14:15:22Z
+                        runDuration: 1235
+                        isApiTriggered: true
+                        id: "3456"
+                PI:
+                  value:
+                    data:
+                      documents:
+                        my_task_1:
+                        - Client:/equity/long_short/my PA document
+                      tasks:
+                      - my_task_1
+                      accounts:
+                        my_task_1:
+                        - portfolioId: client:/some_path/some_portfolio.actm
+                      runs:
+                      - statusDescription: job has completed with success
+                        status: created
+                        prbStatus: success
+                        submitTime: 2019-08-24T14:15:22Z
+                        startTime: 2019-08-24T14:15:22Z
+                        endTime: 2019-08-24T14:15:22Z
+                        runDuration: 4567
+                        isApiTriggered: true
+                        id: "1234"
+              schema:
+                $ref: '#/components/schemas/JobDetailsResponse'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid input parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not Found - invalid inputs
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get details for the given PRB job
+      tags:
+      - Jobs
+      x-accepts: application/json
+  /runs:
+    post:
+      description: Use this endpoint with with POST method to trigger PRB jobs.
+      operationId: v1StartJobRun
+      requestBody:
+        content:
+          application/json:
+            examples:
+              ADF - date range:
+                value:
+                  data:
+                    jobType: ADF
+                    jobName: adf_multi_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        dateRange:
+                          start: 2023-11-10
+                          end: 2023-12-10
+                          frequency: daily
+                          calendar: sevenDay
+                      - accounts:
+                        - CLIENT:/PRB/VAULTED_RETURNS/DEMO1.ACCT
+                        dateRange:
+                          start: 2022-11-21
+                          end: 2022-11-25
+                          frequency: weekly
+                          calendar: fiveDay
+                      runAsSerialNumber: "894550"
+              ADF - individual dates:
+                value:
+                  data:
+                    jobType: ADF
+                    jobName: adf_weekly_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        dates:
+                        - 2022-12-24
+                        - 2022-12-23
+                      runAsSerialNumber: "894550"
+              ADF - tasks and accounts:
+                value:
+                  data:
+                    jobType: ADF
+                    jobName: adf_weekly_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        tasks:
+                        - my_task_1
+                        - my_task_2
+                      runAsSerialNumber: "894550"
+              PA:
+                value:
+                  data:
+                    jobType: PA
+                    jobName: pa_multi_date
+                    overrides:
+                      combinations:
+                      - tasks:
+                        - Task1
+                        - Task2
+                      runAsSerialNumber: "894550"
+              PA - all tasks:
+                description: Sending `allTasks` will also run tasks that have been
+                  disabled
+                value:
+                  data:
+                    jobType: PA
+                    jobName: pa_multi_date
+                    overrides:
+                      combinations:
+                      - allTasks: true
+                      runAsSerialNumber: "894550"
+              PD:
+                value:
+                  data:
+                    jobType: PD
+                    jobName: my_pd_job
+              PI:
+                value:
+                  data:
+                    jobType: PI
+                    jobName: my_pi_job
+                    overrides:
+                      runAsSerialNumber: "894550"
+              PUB:
+                value:
+                  data:
+                    jobType: PUB
+                    jobName: pub_run_daily
+                    overrides:
+                      combinations:
+                      - dates:
+                        - 2023-02-05
+                      runAsSerialNumber: "894550"
+              PUB - with tasks and accounts:
+                value:
+                  data:
+                    jobType: PUB
+                    jobName: pub_run_daily
+                    overrides:
+                      combinations:
+                      - dates:
+                        - 2023-02-05
+                        tasks:
+                        - my_task_1
+                      - tasks:
+                        - my_task_1
+                        accounts:
+                        - client:/equity/uk_funds.acct
+                      runAsSerialNumber: "894550"
+              Vault - date range:
+                description: Please note only daily or monthly is supported as frequency
+                  for Vault jobs
+                value:
+                  data:
+                    jobType: vault
+                    jobName: vault_multi_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        dateRange:
+                          start: 2023-11-10
+                          end: 2023-12-10
+                          frequency: daily
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        dateRange:
+                          start: 2023-10-21
+                          end: 2023-12-21
+                          frequency: monthly
+              Vault - no overrides:
+                value:
+                  data:
+                    jobType: vault
+                    jobName: vault_multi_date
+              Vault - with overrides:
+                value:
+                  data:
+                    jobType: vault
+                    jobName: vault_multi_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        dates:
+                        - 2022-12-24
+                        - 2022-12-23
+            schema:
+              $ref: '#/components/schemas/StartJobRoot'
+        description: The main object in the request body contains details for the
+          job to be triggered. The "name" and "type" fields will uniquely identify
+          the job and both must be provided. Other fields can be provided depending
+          on the job's type.
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                ADF:
+                  value:
+                    data:
+                      jobName: adf_multi_date
+                      jobType: ADF
+                      id: "123456"
+                      status: queued
+              schema:
+                $ref: '#/components/schemas/StartJobRunResponse'
+          description: Expected response, the job has been accepted, please use /runs/{id}/status
+            to poll status and check progress
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid post body parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not Found - invalid inputs
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: trigger PRB jobs
+      tags:
+      - Runs
+      x-contentType: application/json
+      x-accepts: application/json
+  /runs/{id}/status:
+    get:
+      description: Use this endpoint to check the status of a run using the id from
+        the POST /runs endpoint
+      operationId: v1CheckRunStatus
+      parameters:
+      - description: run id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: "1013456"
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ADF (With Overrides):
+                  value:
+                    data:
+                      status: queued
+                      prbStatus: pending
+                      statusDescription: string
+                      inputs:
+                        jobName: my_adf_job
+                        jobType: ADF
+                        overrides:
+                          combinations:
+                          - dateRange:
+                              start: 2023-12-25
+                              end: 2023-12-27
+                              frequency: daily
+                              calendar: sevenDay
+                          runAsSerialNumber: "894550"
+                      id: "34578"
+                PA (With Overrides):
+                  value:
+                    data:
+                      status: executing
+                      prbStatus: running
+                      statusDescription: string
+                      inputs:
+                        jobName: my_pa_job
+                        jobType: PA
+                        overrides:
+                          combinations:
+                          - tasks:
+                            - task_1
+                            - task_2
+                          runAsSerialNumber: "894550"
+                      id: "123456"
+                PD (With Overrides):
+                  value:
+                    data:
+                      status: executing
+                      prbStatus: running
+                      statusDescription: string
+                      inputs:
+                        jobName: my_pd_job
+                        jobType: PD
+                        overrides:
+                          runAsSerialNumber: "894550"
+                      id: "78904"
+                PI:
+                  value:
+                    data:
+                      status: queued
+                      prbStatus: pending
+                      statusDescription: string
+                      inputs:
+                        jobName: my_pi_job
+                        jobType: PI
+                      id: "78904"
+                PUB (With Overrides):
+                  value:
+                    data:
+                      status: queued
+                      prbStatus: pending
+                      statusDescription: string
+                      inputs:
+                        jobName: my_pub_job
+                        jobType: PUB
+                        overrides:
+                          combinations:
+                          - dates:
+                            - 2023-02-05
+                      id: "3456789"
+                Vault (No Overrides):
+                  value:
+                    data:
+                      inputs:
+                        jobName: my_vault_job
+                        jobType: vault
+                      status: created
+                      prbStatus: success
+                      statusDescription: job has completed with success
+                      id: "123456"
+                Vault (With Overrides):
+                  value:
+                    data:
+                      inputs:
+                        jobName: my_vault_job
+                        jobType: vault
+                        overrides:
+                          combinations:
+                          - accounts:
+                            - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                            - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                            dates:
+                            - 2022-12-24
+                            - 2022-12-23
+                          runAsSerialNumber: "894550"
+                      status: created
+                      prbStatus: success
+                      statusDescription: job has completed with success
+                      id: "123456"
+              schema:
+                $ref: '#/components/schemas/IdStatus'
+          description: OK
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not Found - runID does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: check the status for a particular run ID
+      tags:
+      - Runs
+      x-accepts: application/json
+  /runs/{id}:
+    delete:
+      description: Use this endpoint with the DELETE method to cancel a specific run
+      operationId: v1CancelRunId
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content - expected response
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not Found - runID does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "409":
+          content:
+            application/json:
+              examples:
+                Job has already completed:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job has already completed its execution
+                      id: ABC123
+                      title: Failed to process request
+                Nothing to cancel as job has failed:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: There is nothing to cancel as the job has failed
+                      id: ABC123
+                      title: Failed to process request
+                Job failed to start:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job has failed to start
+                      id: ABC123
+                      title: Failed to process request
+                Job has not yet started:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job submission is in progress. Please retry after
+                        some time
+                      id: ABC123
+                      title: Failed to process request
+                Job has already been cancelled:
+                  value:
+                    errors:
+                    - code: Bad Request
+                      detail: The job has already been cancelled
+                      id: ABC123
+                      title: Failed to process request
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Cannot cancel run, run has already been cancelled, completed,
+            or failed (please see error details for more info)
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: cancel runs
+      tags:
+      - Runs
+      x-accepts: application/json
+components:
+  headers:
+    Retry-After:
+      description: Time to wait in seconds before making a new request as the rate
+        limit has reached.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-DataDirect-Request-Key:
+      description: FactSet's request key header.
+      explode: false
+      schema:
+        description: FactSet's request key header.
+        type: string
+      style: simple
+    X-FactSet-Api-Request-Key:
+      description: Key to uniquely identify an Analytics API request. Only available
+        after successful authentication.
+      explode: false
+      schema:
+        description: Key to uniquely identify an Analytics API request. Only available
+          after successful authentication.
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Limit:
+      description: Number of allowed requests for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Remaining:
+      description: Number of requests left for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Reset:
+      description: Number of seconds remaining till rate limit resets.
+      explode: false
+      schema:
+        type: string
+      style: simple
+  requestBodies: {}
+  responses: {}
+  schemas:
+    AccountsForJob:
+      additionalProperties:
+        description: An array of the details of the account/s under the task/s in
+          the object key/s
+        items:
+          $ref: '#/components/schemas/AccountsForJobAddProp'
+        type: array
+      description: Please note for PI jobs you will only see portfolioId
+      example:
+        my_task_1:
+        - includeParent: true
+          isSplit: true
+          latestComponentsOnly: true
+          level: string
+          portfolioId: string
+      title: AccountsForJob
+      type: object
+    AccountsForJobAddProp:
+      description: The details of the account under the task in the object key
+      properties:
+        includeParent:
+          description: Indicates whether or not the parent portfolio is included as
+            a separate portfolio when isSplit is true
+          nullable: true
+          type: boolean
+        isSplit:
+          description: Indicates whether the portfolio's components if any would be
+            treated as individual portfolios when the job is run
+          nullable: true
+          type: boolean
+        latestComponentsOnly:
+          description: When selected, the ACTM/CSTM will be split and will only return
+            components that are still held in the ACTM. I.e., when the end date is
+            "Latest," it will not return components where the end date occurs before
+            Latest.
+          nullable: true
+          type: boolean
+        level:
+          description: The number of levels when isSplit is true that the job will
+            expand down to for a composite portfolio (CSTM or ACTM). "1" means only
+            the first level will be expanded. "all" will be the value if all levels
+            are expanded down.
+          nullable: true
+          type: string
+        portfolioId:
+          description: The full file path including portfolio name and type
+          type: string
+      type: object
+    Calendar:
+      default: fiveDay
+      description: Used for ADF jobs only
+      enum:
+      - fiveDay
+      - sevenDay
+      example: fiveDay
+      title: Calendar
+      type: string
+    ClientErrorResponse:
+      description: The response schema for reporting errors
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      type: object
+    DocumentsForJob:
+      additionalProperties:
+        description: The tasks under each document
+        items:
+          type: string
+        type: array
+      description: Shows the documents for each job where relevant with a collection
+        of tasks under each document
+      example:
+        my_task_1:
+        - Client:/equity/long_short/my PA document
+        my_task_2:
+        - Client:/equity/long_only/my PA document
+        - Client:/equity/long_short/my other PA document
+      title: DocumentsForJob
+      type: object
+    Error:
+      description: Full details of any error
+      properties:
+        code:
+          description: The error code
+          type: string
+        detail:
+          description: Explanation specific to the occurrence of the error
+          type: string
+        id:
+          description: Identifier for the error (the Chain ID)
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+        title:
+          description: The title of the error
+          type: string
+      type: object
+    ErrorSource:
+      description: The pointer and parameter of the error
+      properties:
+        parameter:
+          description: Indicates which path or URI query parameter caused the error
+          type: string
+        pointer:
+          description: Pointer to the associated entity in the request body
+          type: string
+      type: object
+    Frequency:
+      default: daily
+      description: Used for ADF and Vault job types only. Will determine the frequency
+        between the start and end dates. Please note that 'weekly' frequency is not
+        available for Vault Job type.
+      enum:
+      - daily
+      - monthly
+      - weekly
+      type: string
+    IdStatus:
+      description: Details about the instance of the job run specified via id wrapped
+        in a data object
+      example:
+        data:
+          statusDescription: job has completed with success
+          inputs:
+            jobName: my_pa_job
+            overrides:
+              runAsSerialNumber: "123456"
+              tasks:
+              - my_task_1
+            jobType: PA
+          prbStatus: running
+          id: id
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/IdStatus_data'
+      type: object
+    JobDetailsResponse:
+      description: Provides the requested details for the specified job and if no
+        attributes are provided, full details will be given
+      example:
+        data:
+          documents:
+            my_task_1:
+            - Client:/equity/long_short/my PA document
+            my_task_2:
+            - Client:/equity/long_only/my PA document
+            - Client:/equity/long_short/my other PA document
+          accounts:
+            my_task_1:
+            - includeParent: true
+              isSplit: true
+              latestComponentsOnly: true
+              level: string
+              portfolioId: string
+          runs:
+          - endTime: 2019-08-24T14:15:22Z
+            id: "2365478"
+            isApiTriggered: true
+            prbStatus: success
+            runDuration: 6000
+            startTime: 2019-08-24T14:15:22Z
+            status: created
+            statusDescription: job has completed with success
+            submitTime: 2019-08-24T14:15:22Z
+          - endTime: 2019-08-24T14:15:22Z
+            id: "2365478"
+            isApiTriggered: true
+            prbStatus: success
+            runDuration: 6000
+            startTime: 2019-08-24T14:15:22Z
+            status: created
+            statusDescription: job has completed with success
+            submitTime: 2019-08-24T14:15:22Z
+          tasks:
+          - my_task_1
+      properties:
+        data:
+          $ref: '#/components/schemas/JobDetailsResponse_data'
+      title: JobDetailsResponse
+      type: object
+    JobListResponse:
+      description: Summary of the jobs available in PRB.
+      example:
+        data:
+        - serialNumber: serialNumber
+          isApiTriggered: true
+          name: my_vault_job
+          runId: runId
+          type: vault
+          status: queued
+        - serialNumber: serialNumber
+          isApiTriggered: true
+          name: my_vault_job
+          runId: runId
+          type: vault
+          status: queued
+        meta:
+          pagination:
+            hasNext: true
+      properties:
+        data:
+          description: The object that contains the main information requested
+          items:
+            $ref: '#/components/schemas/JobListResponseRoot'
+          type: array
+        meta:
+          $ref: '#/components/schemas/JobListResponse_meta'
+      title: JobListResponse
+      type: object
+    JobListResponseRoot:
+      description: Available details of a PRB job, please note limited details are
+        available if the job has not been run before, please see the examples
+      example:
+        serialNumber: serialNumber
+        isApiTriggered: true
+        name: my_vault_job
+        runId: runId
+        type: vault
+        status: queued
+      properties:
+        runId:
+          description: Latest run ID for the job
+          type: string
+        isApiTriggered:
+          description: Indicates if the latest run was triggered by this API
+          type: boolean
+        name:
+          description: The name of the job
+          example: my_vault_job
+          type: string
+        serialNumber:
+          description: The FactSet serial number which identifies the person or account
+            the job is assigned to
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+        type:
+          $ref: '#/components/schemas/JobTypes'
+      type: object
+    JobOverrides:
+      description: If this object is provided, the settings given here will override
+        the default settings of the job for the job run (settings will only be used
+        temporarily and no changes will be made to the default PRB job). Only certain
+        objects can be used for certain job types.
+      properties:
+        combinations:
+          description: An array of date, account, and tasks combinations
+          items:
+            $ref: '#/components/schemas/JobOverridesCombinationsRoot'
+          type: array
+        runAsSerialNumber:
+          description: The FactSet serial number which has the credentials wanted
+            to run the job
+          type: string
+      type: object
+    JobOverridesCombinationsRoot:
+      description: This creates a matrix of the given details. When the job is run,
+        it will only run for the accounts, dates and/or tasks within the objects given.
+        Dates can be specified either by giving individual dates in the `dates` parameter,
+        or by using the `dateRange` parameter for where these are supported. The job
+        will fail if both are provided. (Settings will only be used temporarily and
+        no changes will be made to the default PRB job.) Certain parameters are only
+        valid for certain job types. Please see below for more details.
+      properties:
+        accounts:
+          description: An array of accounts, used for jobs types ADF, PUB, and Vault
+          items:
+            type: string
+          type: array
+        dates:
+          description: An array of dates, used for jobs types ADF, PUB, and Vault.
+            Please see OA Page 20650 for more details
+          items:
+            format: date
+            type: string
+          type: array
+        dateRange:
+          $ref: '#/components/schemas/JobOverridesCombinationsRoot_dateRange'
+        tasks:
+          description: Used only for jobs where type is ADF, PA, PUB, or vault
+          items:
+            type: string
+          type: array
+        allTasks:
+          description: boolean flag to indicate if all tasks for given ADF, PA, PUB,
+            or vault job should be run, e.g. if account is newly created and not yet
+            added to any tasks
+          type: boolean
+      type: object
+    JobTypes:
+      description: PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed,
+        PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault
+      enum:
+      - ADF
+      - PA
+      - PD
+      - PI
+      - PUB
+      - vault
+      example: vault
+      title: JobTypes
+      type: string
+    PrbStatus:
+      description: The status of the job as per the application
+      enum:
+      - failed
+      - pending
+      - running
+      - soft
+      - stopped
+      - success
+      - warning
+      example: running
+      title: PrbStatus
+      type: string
+    RunsForJob:
+      description: Provides full details of when the job has been run
+      example:
+        endTime: 2019-08-24T14:15:22Z
+        id: "2365478"
+        isApiTriggered: true
+        prbStatus: success
+        runDuration: 6000
+        startTime: 2019-08-24T14:15:22Z
+        status: created
+        statusDescription: job has completed with success
+        submitTime: 2019-08-24T14:15:22Z
+      properties:
+        endTime:
+          description: The date and time the job was finished processing
+          format: date-time
+          type: string
+        id:
+          description: The ID of the run
+          type: string
+        isApiTriggered:
+          description: Indicates whether the job was triggered via the PRB API
+          type: boolean
+        prbStatus:
+          $ref: '#/components/schemas/PrbStatus'
+        runDuration:
+          description: Number of seconds between startTime and endTime
+          type: number
+        startTime:
+          description: The date and time the job started running after being submitted
+            and potentially waiting in any queue
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+        statusDescription:
+          description: Further details on the job's status
+          example: job has completed with success
+          maxLength: 500
+          title: StatusDescription
+          type: string
+        submitTime:
+          description: The date and time the job was submitted
+          format: date-time
+          type: string
+      title: RunsForJob
+      type: object
+    StartJob:
+      description: Details required to start a job
+      example:
+        jobName: my_pa_job
+        overrides:
+          runAsSerialNumber: "123456"
+          tasks:
+          - my_task_1
+        jobType: PA
+      properties:
+        jobName:
+          description: The name of the PRB job
+          type: string
+        overrides:
+          $ref: '#/components/schemas/JobOverrides'
+        jobType:
+          $ref: '#/components/schemas/JobTypes'
+      required:
+      - jobName
+      - jobType
+      title: StartJob
+      type: object
+    StartJobRoot:
+      description: Details required to start the job wrapped in a data object
+      example:
+        data:
+          jobName: my_pa_job
+          overrides:
+            runAsSerialNumber: "123456"
+            tasks:
+            - my_task_1
+          jobType: PA
+      properties:
+        data:
+          $ref: '#/components/schemas/StartJob'
+      required:
+      - data
+      type: object
+    StartJobRunResponse:
+      description: Gives details about the run which was requested wrapped in a data
+        object
+      example:
+        data:
+          jobName: jobName
+          id: id
+          jobType: vault
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/StartJobRunResponse_data'
+      required:
+      - data
+      type: object
+    Status:
+      description: The status of the job as per FactSets API standards
+      enum:
+      - cancelled
+      - created
+      - executing
+      - failed
+      - queued
+      example: queued
+      title: Status
+      type: string
+    StatusDescription:
+      description: Further details on the job's status
+      example: job has completed with success
+      maxLength: 500
+      title: StatusDescription
+      type: string
+    TasksForJob:
+      description: A list of tasks for the given job
+      example:
+      - my_task_1
+      items:
+        example: my_task_1
+        type: string
+      maxItems: 200
+      title: TasksForJob
+      type: array
+    IdStatus_data:
+      description: Details about the instance of the job run specified via id
+      example:
+        statusDescription: job has completed with success
+        inputs:
+          jobName: my_pa_job
+          overrides:
+            runAsSerialNumber: "123456"
+            tasks:
+            - my_task_1
+          jobType: PA
+        prbStatus: running
+        id: id
+        status: queued
+      properties:
+        id:
+          description: The run ID
+          type: string
+        inputs:
+          $ref: '#/components/schemas/StartJob'
+        prbStatus:
+          $ref: '#/components/schemas/PrbStatus'
+        status:
+          $ref: '#/components/schemas/Status'
+        statusDescription:
+          description: Further details on the job's status
+          example: job has completed with success
+          maxLength: 500
+          title: StatusDescription
+          type: string
+      type: object
+    JobDetailsResponse_data:
+      description: The main object in the JobDetailsResponse schema
+      example:
+        documents:
+          my_task_1:
+          - Client:/equity/long_short/my PA document
+          my_task_2:
+          - Client:/equity/long_only/my PA document
+          - Client:/equity/long_short/my other PA document
+        accounts:
+          my_task_1:
+          - includeParent: true
+            isSplit: true
+            latestComponentsOnly: true
+            level: string
+            portfolioId: string
+        runs:
+        - endTime: 2019-08-24T14:15:22Z
+          id: "2365478"
+          isApiTriggered: true
+          prbStatus: success
+          runDuration: 6000
+          startTime: 2019-08-24T14:15:22Z
+          status: created
+          statusDescription: job has completed with success
+          submitTime: 2019-08-24T14:15:22Z
+        - endTime: 2019-08-24T14:15:22Z
+          id: "2365478"
+          isApiTriggered: true
+          prbStatus: success
+          runDuration: 6000
+          startTime: 2019-08-24T14:15:22Z
+          status: created
+          statusDescription: job has completed with success
+          submitTime: 2019-08-24T14:15:22Z
+        tasks:
+        - my_task_1
+      properties:
+        accounts:
+          additionalProperties:
+            description: An array of the details of the account/s under the task/s
+              in the object key/s
+            items:
+              $ref: '#/components/schemas/AccountsForJobAddProp'
+            type: array
+          description: Please note for PI jobs you will only see portfolioId
+          example:
+            my_task_1:
+            - includeParent: true
+              isSplit: true
+              latestComponentsOnly: true
+              level: string
+              portfolioId: string
+          title: AccountsForJob
+          type: object
+        documents:
+          additionalProperties:
+            description: The tasks under each document
+            items:
+              type: string
+            type: array
+          description: Shows the documents for each job where relevant with a collection
+            of tasks under each document
+          example:
+            my_task_1:
+            - Client:/equity/long_short/my PA document
+            my_task_2:
+            - Client:/equity/long_only/my PA document
+            - Client:/equity/long_short/my other PA document
+          title: DocumentsForJob
+          type: object
+        runs:
+          description: An array of information for each run
+          items:
+            $ref: '#/components/schemas/RunsForJob'
+          type: array
+        tasks:
+          description: A list of tasks for the given job
+          example:
+          - my_task_1
+          items:
+            example: my_task_1
+            type: string
+          maxItems: 200
+          title: TasksForJob
+          type: array
+      type: object
+    JobListResponse_meta_pagination:
+      description: Contains pagination information
+      example:
+        hasNext: true
+      properties:
+        hasNext:
+          description: Indicates whether more information exists which can be requested
+            by changing the input pagination parameters
+          type: boolean
+      type: object
+    JobListResponse_meta:
+      description: Contains meta information, e.g. about pagination
+      example:
+        pagination:
+          hasNext: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/JobListResponse_meta_pagination'
+      type: object
+    JobOverridesCombinationsRoot_dateRange:
+      description: Used if the job needs to be executed for many dates periodically
+        spaced, used for jobs type ADF. Please see OA page 20650 for more details.
+      properties:
+        end:
+          description: The end date in format YYYY-MM-DD
+          format: date
+          type: string
+        start:
+          description: The start date in format YYYY-MM-DD
+          format: date
+          type: string
+        calendar:
+          $ref: '#/components/schemas/Calendar'
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+      type: object
+    StartJobRunResponse_data:
+      description: The main object within the StartJobRunResponse schema
+      example:
+        jobName: jobName
+        id: id
+        jobType: vault
+        status: queued
+      properties:
+        id:
+          description: The run ID for the job that has been triggered which is used
+            in the /runs/{id}/status endpoint
+          type: string
+        jobName:
+          description: Name of the job
+          maxLength: 29
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+        jobType:
+          $ref: '#/components/schemas/JobTypes'
+      required:
+      - id
+      - jobName
+      - jobType
+      - status
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

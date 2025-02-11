@@ -1,5 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.StructuredFiltersTopics
-Structured FiltersTopic Object
+Structured Filters Topic Object
 
 ## Properties
 

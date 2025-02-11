@@ -65,7 +65,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/OFDB/0.32.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/OFDB/0.33.0 (${process.platform}; node ${process.version})`
         };
 
         /**

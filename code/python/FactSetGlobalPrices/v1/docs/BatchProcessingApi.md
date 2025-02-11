@@ -4,15 +4,15 @@ All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_batch_data**](BatchProcessingApi.md#get_batch_data) | **GET** /factset-global-prices/v1/batch-result | Returns the response for a Batch Request 
-[**get_batch_status**](BatchProcessingApi.md#get_batch_status) | **GET** /factset-global-prices/v1/batch-status | Returns the status for a Batch Request 
+[**get_batch_data**](BatchProcessingApi.md#get_batch_data) | **GET** /factset-global-prices/v1/batch-result | Returns the response for a Batch Request
+[**get_batch_status**](BatchProcessingApi.md#get_batch_status) | **GET** /factset-global-prices/v1/batch-status | Returns the status for a Batch Request
 
 
 
 # **get_batch_data**
 > BatchResultResponse get_batch_data(id)
 
-Returns the response for a Batch Request 
+Returns the response for a Batch Request
 
 Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\". 
 
@@ -64,7 +64,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
     id = "id_example" # str | Batch Request identifier.
 
     try:
-        # Returns the response for a Batch Request 
+        # Returns the response for a Batch Request
         # example passing only required values which don't have defaults set
         api_response_wrapper = api_instance.get_batch_data(id)
 
@@ -118,7 +118,7 @@ The endpoint generates varying objects correlating with the successful status co
 # **get_batch_status**
 > BatchStatusResponse get_batch_status(id)
 
-Returns the status for a Batch Request 
+Returns the status for a Batch Request
 
 Return the status for the underlying batch request that is specified by the id.
 
@@ -170,7 +170,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
     id = "id_example" # str | Batch Request identifier.
 
     try:
-        # Returns the status for a Batch Request 
+        # Returns the status for a Batch Request
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_status(id)
 

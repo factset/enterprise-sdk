@@ -2,7 +2,7 @@
 
 # FilterTopicResponse
 
-FiltersTopic Object
+Filters Topic Object
 
 ## Properties
 

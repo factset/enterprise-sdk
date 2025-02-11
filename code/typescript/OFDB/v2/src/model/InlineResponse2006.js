@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SymbolAndFields from './SymbolAndFields';
 
 /**
  * The InlineResponse2006 model module.
@@ -47,7 +48,7 @@ class InlineResponse2006 {
             obj = obj || new InlineResponse2006();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], ['Number']);
+                obj['data'] = ApiClient.convertToType(data['data'], [SymbolAndFields]);
             }
         }
         return obj;
@@ -57,7 +58,7 @@ class InlineResponse2006 {
 }
 
 /**
- * @member {Array.<Number>} data
+ * @member {Array.<module:model/SymbolAndFields>} data
  */
 InlineResponse2006.prototype['data'] = undefined;
 

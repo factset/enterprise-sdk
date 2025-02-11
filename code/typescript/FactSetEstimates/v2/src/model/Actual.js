@@ -132,7 +132,7 @@ Actual.prototype['fiscalYear'] = undefined;
 Actual.prototype['fiscalEndDate'] = undefined;
 
 /**
- * The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.
+ * Actual value for the requested metric.
  * @member {Number} actualValue
  */
 Actual.prototype['actualValue'] = undefined;

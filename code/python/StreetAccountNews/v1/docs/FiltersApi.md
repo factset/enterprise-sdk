@@ -67,7 +67,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
-    ] # [str] | Pass a list of filters to return the respective type of filter. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+    ] # [str] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional)
 
     try:
         # Retrieve all StreetAccount filters
@@ -86,7 +86,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **[str]**| Pass a list of filters to return the respective type of filter. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional]
+ **attributes** | **[str]**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional]
 
 ### Return type
 
@@ -168,7 +168,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
-    ] # [str] | Pass a list of filters to return the respective type of filter categories. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+    ] # [str] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional)
 
     try:
         # Retrieve all StreetAccount filter categories
@@ -187,7 +187,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **[str]**| Pass a list of filters to return the respective type of filter categories. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional]
+ **attributes** | **[str]**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional]
 
 ### Return type
 
@@ -269,7 +269,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
-    ] # [str] | Pass a list of filters to return the respective type of filter Regions. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+    ] # [str] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional)
 
     try:
         # Retrieve all StreetAccount filter regions
@@ -288,7 +288,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **[str]**| Pass a list of filters to return the respective type of filter Regions. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional]
+ **attributes** | **[str]**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional]
 
 ### Return type
 
@@ -370,7 +370,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
-    ] # [str] | Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+    ] # [str] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional)
 
     try:
         # Retrieve all StreetAccount filter sectors
@@ -389,7 +389,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **[str]**| Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional]
+ **attributes** | **[str]**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional]
 
 ### Return type
 
@@ -471,7 +471,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
-    ] # [str] | Pass a list of filters to return the respective type of filter topics. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+    ] # [str] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional)
 
     try:
         # Retrieve all StreetAccount filter topics
@@ -490,7 +490,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **[str]**| Pass a list of filters to return the respective type of filter topics. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional]
+ **attributes** | **[str]**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional]
 
 ### Return type
 
@@ -572,7 +572,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     attributes = [
         "structured",
-    ] # [str] | Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+    ] # [str] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional)
 
     try:
         # Retrieve all StreetAccount filter watchlists
@@ -591,7 +591,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **[str]**| Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional]
+ **attributes** | **[str]**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional]
 
 ### Return type
 

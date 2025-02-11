@@ -111,6 +111,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetAudit"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -138,9 +141,9 @@
         }
       }
     },
-    "/database/{path}/audit/jobs/get/{id}": {
+    "/database/{path}/audit/{id}": {
       "get": {
-        "operationId": "getResourceGetAudit",
+        "operationId": "getResourceAudit",
         "tags": [
           "Long Running"
         ],
@@ -194,6 +197,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetStats"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -221,9 +227,9 @@
         }
       }
     },
-    "/database/{path}/stats/jobs/get/{id}": {
+    "/database/{path}/stats/{id}": {
       "get": {
-        "operationId": "getResourceGetStats",
+        "operationId": "getResourceStats",
         "tags": [
           "Long Running"
         ],
@@ -277,6 +283,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetFields"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -344,6 +353,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -371,52 +383,9 @@
         }
       }
     },
-    "/database/{path}/fields/jobs/get/{id}": {
+    "/database/{path}/fields/{id}": {
       "get": {
-        "operationId": "getResourceGetFields",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200GetFields"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/fields/jobs/post/{id}": {
-      "get": {
-        "operationId": "getResourcePostFields",
+        "operationId": "getResourceFields",
         "tags": [
           "Long Running"
         ],
@@ -479,6 +448,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200BulkDelete"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -506,9 +478,9 @@
         }
       }
     },
-    "/database/{path}/delete/jobs/post/{id}": {
+    "/database/{path}/delete/{id}": {
       "get": {
-        "operationId": "getResourceDeleteBulkItems",
+        "operationId": "getResourceBulkDelete",
         "tags": [
           "Long Running"
         ],
@@ -606,6 +578,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetSymbols"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -689,6 +664,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -774,6 +752,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -804,9 +785,9 @@
         }
       }
     },
-    "/database/{path}/symbols/jobs/get/{id}": {
+    "/database/{path}/symbols/{id}": {
       "get": {
-        "operationId": "getResourceGetSymbols",
+        "operationId": "getResourceSymbols",
         "tags": [
           "Long Running"
         ],
@@ -822,92 +803,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/200GetSymbols"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/symbols/jobs/post/{id}": {
-      "get": {
-        "operationId": "getResourcePostSymbols",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200AddSymbols"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/symbols/jobs/put/{id}": {
-      "get": {
-        "operationId": "getResourcePutSymbols",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200AddSymbols"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -991,6 +886,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -1038,6 +936,9 @@
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
+          "204": {
+            "$ref": "#/components/responses/204Response"
+          },
           "400": {
             "$ref": "#/components/responses/400Response"
           },
@@ -1062,9 +963,9 @@
         }
       }
     },
-    "/database/{path}/symbols/{symbol}/jobs/put/{id}": {
+    "/database/{path}/symbols/{symbol}/{id}": {
       "get": {
-        "operationId": "getResourcePutSymbol",
+        "operationId": "getResourceSymbol",
         "tags": [
           "Long Running"
         ],
@@ -1083,52 +984,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/symbols/{symbol}/jobs/delete/{id}": {
-      "get": {
-        "operationId": "getResourceDeleteSymbol",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/symbolPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200NoResponse"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1213,6 +1068,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetDates"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -1275,6 +1133,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -1327,6 +1188,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -1357,9 +1221,9 @@
         }
       }
     },
-    "/database/{path}/dates/jobs/get/{id}": {
+    "/database/{path}/dates/{id}": {
       "get": {
-        "operationId": "getResourceGetDates",
+        "operationId": "getResourceDates",
         "tags": [
           "Long Running"
         ],
@@ -1375,92 +1239,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/200GetDates"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/dates/jobs/post/{id}": {
-      "get": {
-        "operationId": "getResourcePostDates",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200AddDates"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/dates/jobs/put/{id}": {
-      "get": {
-        "operationId": "getResourcePutDates",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200AddDates"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1513,6 +1291,9 @@
           }
         },
         "responses": {
+          "201": {
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -1560,6 +1341,9 @@
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
+          "204": {
+            "$ref": "#/components/responses/204Response"
+          },
           "400": {
             "$ref": "#/components/responses/400Response"
           },
@@ -1584,9 +1368,9 @@
         }
       }
     },
-    "/database/{path}/dates/{date}/jobs/put/{id}": {
+    "/database/{path}/dates/{date}/{id}": {
       "get": {
-        "operationId": "getResourcePutDate",
+        "operationId": "getResourceDate",
         "tags": [
           "Long Running"
         ],
@@ -1605,55 +1389,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
-          },
-          "202": {
-            "$ref": "#/components/responses/202LongRunningResponse"
-          },
-          "400": {
-            "$ref": "#/components/responses/400Response"
-          },
-          "403": {
-            "$ref": "#/components/responses/403Response"
-          },
-          "404": {
-            "$ref": "#/components/responses/404Response"
-          },
-          "406": {
-            "$ref": "#/components/responses/406Response"
-          },
-          "429": {
-            "$ref": "#/components/responses/429Response"
-          },
-          "500": {
-            "$ref": "#/components/responses/500Response"
-          },
-          "503": {
-            "$ref": "#/components/responses/503Response"
-          }
-        }
-      }
-    },
-    "/database/{path}/dates/{date}/jobs/delete/{id}": {
-      "get": {
-        "operationId": "getResourceDeleteDate",
-        "tags": [
-          "Long Running"
-        ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/databaseLocationPathParam"
-          },
-          {
-            "$ref": "#/components/parameters/datePathParam"
-          },
-          {
-            "$ref": "#/components/parameters/idPathParam"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/200NoResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -1704,6 +1439,9 @@
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
+          "204": {
+            "$ref": "#/components/responses/204Response"
+          },
           "400": {
             "$ref": "#/components/responses/400Response"
           },
@@ -1728,13 +1466,13 @@
         }
       }
     },
-    "/database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}": {
-      "get": {
-        "operationId": "getResourceDeleteDateFromSymbol",
+    "/database/{path}/dates/{date}/symbols/{symbol}/{id}": {
+      "delete": {
+        "operationId": "getResourceDateFromSymbol",
         "tags": [
-          "Long Running"
+          "Delete"
         ],
-        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "description": "Deletes data specific to the symbol and date from a 3d database(OFDB).",
         "parameters": [
           {
             "$ref": "#/components/parameters/databaseLocationPathParam"
@@ -1751,7 +1489,10 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/200NoResponse"
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "204": {
+            "$ref": "#/components/responses/204Response"
           },
           "400": {
             "$ref": "#/components/responses/400Response"
@@ -1900,6 +1641,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetData"
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -1927,9 +1671,9 @@
         }
       }
     },
-    "/database/{path}/jobs/get/{id}": {
+    "/database/{path}/{id}": {
       "get": {
-        "operationId": "getResourceGetData",
+        "operationId": "getResourceData",
         "tags": [
           "Long Running"
         ],
@@ -1987,6 +1731,42 @@
           }
         },
         "responses": {
+          "201": {
+            "description": "Creates and responds with ofdb path",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDatabase"
+                }
+              }
+            },
+            "links": {
+              "GetDataByPath": {
+                "operationId": "getData",
+                "parameters": {
+                  "path": "$response.body#/path"
+                },
+                "description": "The `path` value returned in the response can be used as the `path` parameter in `GET /v1/database/{path}/data`.\n"
+              }
+            }
+          },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
           },
@@ -2014,14 +1794,17 @@
         }
       }
     },
-    "/database/jobs/post/{id}": {
+    "/database/{id}": {
       "get": {
-        "operationId": "getResourcePostDatabase",
+        "operationId": "getResourceDatabase",
         "tags": [
           "Long Running"
         ],
         "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/databaseLocationPathParam"
+          },
           {
             "$ref": "#/components/parameters/idPathParam"
           }
@@ -2055,7 +1838,7 @@
             },
             "links": {
               "GetDataByPath": {
-                "operationId": "GetData",
+                "operationId": "getData",
                 "parameters": {
                   "path": "$response.body#/path"
                 },
@@ -2725,70 +2508,6 @@
           }
         }
       },
-      "200AddDates": {
-        "description": "Successful output",
-        "headers": {
-          "X-DataDirect-Request-Key": {
-            "$ref": "#/components/headers/X-DataDirect-Request-Key"
-          },
-          "X-FactSet-Api-Request-Key": {
-            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
-          },
-          "X-RateLimit-Limit": {
-            "$ref": "#/components/headers/X-RateLimit-Limit"
-          },
-          "X-RateLimit-Remaining": {
-            "$ref": "#/components/headers/X-RateLimit-Remaining"
-          },
-          "X-RateLimit-Reset": {
-            "$ref": "#/components/headers/X-RateLimit-Reset"
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/DatesWithId"
-                }
-              }
-            }
-          }
-        }
-      },
-      "200AddSymbols": {
-        "description": "Successful symbols array within OFDB",
-        "headers": {
-          "X-DataDirect-Request-Key": {
-            "$ref": "#/components/headers/X-DataDirect-Request-Key"
-          },
-          "X-FactSet-Api-Request-Key": {
-            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
-          },
-          "X-RateLimit-Limit": {
-            "$ref": "#/components/headers/X-RateLimit-Limit"
-          },
-          "X-RateLimit-Remaining": {
-            "$ref": "#/components/headers/X-RateLimit-Remaining"
-          },
-          "X-RateLimit-Reset": {
-            "$ref": "#/components/headers/X-RateLimit-Reset"
-          }
-        },
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/SymbolsWithId"
-                }
-              }
-            }
-          }
-        }
-      },
       "200GetStats": {
         "description": "Returns an object with key OFDB stats",
         "headers": {
@@ -3177,8 +2896,25 @@
           }
         }
       },
-      "200NoResponse": {
-        "description": "Resource is deleted successfully"
+      "204Response": {
+        "description": "Resource is deleted successfully",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        }
       },
       "403Response": {
         "description": "User is forbidden with current credentials",

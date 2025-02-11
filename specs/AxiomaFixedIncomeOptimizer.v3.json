@@ -12,7 +12,7 @@
       "name": "Apache License 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
     },
-    "version": "v3"
+    "version": "3"
   },
   "servers": [
     {
@@ -415,17 +415,6 @@
             }
           }
         },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "202",
-            "response-type": "CalculationInfoRoot"
-          },
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          }
-        ],
         "x-factset-different-success-responses": true
       }
     },
@@ -878,17 +867,6 @@
             }
           }
         },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "202",
-            "response-type": "CalculationInfoRoot"
-          },
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          }
-        ],
         "x-factset-different-success-responses": true
       },
       "get": {
@@ -1158,14 +1136,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "AFIOptimizationParametersRoot"
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -1426,14 +1397,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "204",
-            "response-type": null
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/afi/v3/optimizations/{id}/status": {
@@ -1734,18 +1698,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          },
-          {
-            "status-code": "202",
-            "response-type": null
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/afi/v3/optimizations/{id}/result": {
@@ -2016,14 +1969,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "ObjectRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/afi/v3/strategies/{path}": {
@@ -2336,14 +2282,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "DocumentDirectoriesRoot"
-          }
-        ]
+        }
       }
     }
   },

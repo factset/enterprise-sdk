@@ -62,7 +62,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Pass a list of filters to return the respective type of filter. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
         try {
             FilterResponse result = apiInstance.getStreetAccountFilters(attributes);
             System.out.println(result);
@@ -83,7 +83,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **List&lt;String&gt;**| Pass a list of filters to return the respective type of filter. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] [enum: structured, flattened]
+ **attributes** | **List&lt;String&gt;**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] [enum: structured, flattened]
 
 ### Return type
 
@@ -157,7 +157,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Pass a list of filters to return the respective type of filter categories. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
         try {
             FilterCategoriesResponse result = apiInstance.getStreetAccountFiltersCategories(attributes);
             System.out.println(result);
@@ -178,7 +178,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **List&lt;String&gt;**| Pass a list of filters to return the respective type of filter categories. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] [enum: structured, flattened]
+ **attributes** | **List&lt;String&gt;**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] [enum: structured, flattened]
 
 ### Return type
 
@@ -252,7 +252,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Pass a list of filters to return the respective type of filter Regions. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
         try {
             FilterRegionsResponse result = apiInstance.getStreetAccountFiltersRegions(attributes);
             System.out.println(result);
@@ -273,7 +273,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **List&lt;String&gt;**| Pass a list of filters to return the respective type of filter Regions. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] [enum: structured, flattened]
+ **attributes** | **List&lt;String&gt;**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] [enum: structured, flattened]
 
 ### Return type
 
@@ -347,7 +347,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
         try {
             FilterSectorsResponse result = apiInstance.getStreetAccountFiltersSectors(attributes);
             System.out.println(result);
@@ -368,7 +368,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **List&lt;String&gt;**| Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] [enum: structured, flattened]
+ **attributes** | **List&lt;String&gt;**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] [enum: structured, flattened]
 
 ### Return type
 
@@ -442,7 +442,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Pass a list of filters to return the respective type of filter topics. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
         try {
             FilterTopicResponse result = apiInstance.getStreetAccountFiltersTopics(attributes);
             System.out.println(result);
@@ -463,7 +463,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **List&lt;String&gt;**| Pass a list of filters to return the respective type of filter topics. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] [enum: structured, flattened]
+ **attributes** | **List&lt;String&gt;**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] [enum: structured, flattened]
 
 ### Return type
 
@@ -537,7 +537,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
         try {
             FilterWatchlistsResponse result = apiInstance.getStreetAccountFiltersWatchlists(attributes);
             System.out.println(result);
@@ -558,7 +558,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | **List&lt;String&gt;**| Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] [enum: structured, flattened]
+ **attributes** | **List&lt;String&gt;**| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] [enum: structured, flattened]
 
 ### Return type
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## addDates
 
-> InlineResponse202 addDates(path, addDates)
+> SuccessPostResponse addDates(path, addDates)
 
 
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## addFields
 
-> InlineResponse202 addFields(path, addFields)
+> SuccessPostResponse addFields(path, addFields)
 
 
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ## addSymbols
 
-> InlineResponse202 addSymbols(path, addSymbols)
+> SuccessPostResponse addSymbols(path, addSymbols)
 
 
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 

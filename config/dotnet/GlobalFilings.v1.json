@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.GlobalFilings",
-  "packageVersion": "1.0.3",
+  "packageVersion": "1.1.0",
   "packageGuid": "{a35c4ae8-f888-5b00-82bf-cff858af299b}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/GlobalFilings/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/GlobalFilings/1.0.3",
+  "httpUserAgent": "fds-sdk/dotnet/GlobalFilings/1.1.0",
   "files": {
     "LICENSE": {}
   },

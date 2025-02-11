@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## getAudit
 
-> InlineResponse202 getAudit(path)
+> InlineResponse200 getAudit(path)
 
 
 
@@ -64,7 +64,7 @@ public class Example {
         GetApi apiInstance = new GetApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         try {
-            InlineResponse202 result = apiInstance.getAudit(path);
+            InlineResponse200 result = apiInstance.getAudit(path);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -101,6 +101,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Returns a list of the most recent \&quot;modificationTimes\&quot; in long datetime format |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -113,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## getData
 
-> InlineResponse202 getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder)
+> InlineResponse2006 getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder)
 
 
 
@@ -173,7 +174,7 @@ public class Example {
         String sortFieldName = "sortFieldName_example"; // String | Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested
         String sortFieldOrder = "ASC"; // String | Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested
         try {
-            InlineResponse202 result = apiInstance.getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
+            InlineResponse2006 result = apiInstance.getData(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -207,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -221,6 +222,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | successful output |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -233,7 +235,7 @@ Name | Type | Description  | Notes
 
 ## getDates
 
-> InlineResponse202 getDates(path, between, equals, before, after, orderBy)
+> InlineResponse2005 getDates(path, between, equals, before, after, orderBy)
 
 
 
@@ -287,7 +289,7 @@ public class Example {
         String after = "after_example"; // String | Returns list of dates which are after mentioned date
         String orderBy = "asc"; // String | Returns dates in the mentioned sorted order, should provide asc or desc
         try {
-            InlineResponse202 result = apiInstance.getDates(path, between, equals, before, after, orderBy);
+            InlineResponse2005 result = apiInstance.getDates(path, between, equals, before, after, orderBy);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -315,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -329,6 +331,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful output |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -341,7 +344,7 @@ Name | Type | Description  | Notes
 
 ## getFields
 
-> InlineResponse202 getFields(path)
+> InlineResponse2002 getFields(path)
 
 
 
@@ -390,7 +393,7 @@ public class Example {
         GetApi apiInstance = new GetApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         try {
-            InlineResponse202 result = apiInstance.getFields(path);
+            InlineResponse2002 result = apiInstance.getFields(path);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -413,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -427,6 +430,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | List of fields within the database |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -439,7 +443,7 @@ Name | Type | Description  | Notes
 
 ## getStats
 
-> InlineResponse202 getStats(path)
+> InlineResponse2001 getStats(path)
 
 
 
@@ -488,7 +492,7 @@ public class Example {
         GetApi apiInstance = new GetApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         try {
-            InlineResponse202 result = apiInstance.getStats(path);
+            InlineResponse2001 result = apiInstance.getStats(path);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -511,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -525,6 +529,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Returns an object with key OFDB stats |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -537,7 +542,7 @@ Name | Type | Description  | Notes
 
 ## getSymbols
 
-> InlineResponse202 getSymbols(path, startsWith, endsWith, contains, equals, orderBy)
+> InlineResponse2004 getSymbols(path, startsWith, endsWith, contains, equals, orderBy)
 
 
 
@@ -591,7 +596,7 @@ public class Example {
         String equals = "equals_example"; // String | Returns symbol which matches mentioned string
         String orderBy = "asc"; // String | Returns symbols in the mentioned sorted order, should provide asc or desc
         try {
-            InlineResponse202 result = apiInstance.getSymbols(path, startsWith, endsWith, contains, equals, orderBy);
+            InlineResponse2004 result = apiInstance.getSymbols(path, startsWith, endsWith, contains, equals, orderBy);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -619,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -633,6 +638,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | Successful symbols array within OFDB |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

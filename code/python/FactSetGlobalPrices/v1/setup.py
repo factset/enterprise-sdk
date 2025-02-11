@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetGlobalPrices"
-VERSION = "2.2.2"
+VERSION = "2.2.3"
 # To install the library, run the following
 #
 # python setup.py install

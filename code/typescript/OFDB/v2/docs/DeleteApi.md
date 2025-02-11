@@ -8,12 +8,13 @@ Method | HTTP request | Description
 [**deleteDate**](DeleteApi.md#deleteDate) | **DELETE** /database/{path}/dates/{date} | 
 [**deleteDateFromSymbol**](DeleteApi.md#deleteDateFromSymbol) | **DELETE** /database/{path}/dates/{date}/symbols/{symbol} | 
 [**deleteSymbol**](DeleteApi.md#deleteSymbol) | **DELETE** /database/{path}/symbols/{symbol} | 
+[**getResourceDateFromSymbol**](DeleteApi.md#getResourceDateFromSymbol) | **DELETE** /database/{path}/dates/{date}/symbols/{symbol}/{id} | 
 
 
 
 ## deleteBulkItems
 
-> InlineResponse202 deleteBulkItems(path, opts)
+> InlineResponse2003 deleteBulkItems(path, opts)
 
 
 
@@ -82,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -324,6 +325,91 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
  **symbol** | **String**| Symbol with in the ofdb | 
+
+### Return type
+
+[**InlineResponse202**](InlineResponse202.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getResourceDateFromSymbol
+
+> InlineResponse202 getResourceDateFromSymbol(path, date, symbol, id)
+
+
+
+Deletes data specific to the symbol and date from a 3d database(OFDB).
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, DeleteApi } = require('@factset/sdk-ofdb');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new DeleteApi();
+const path = "path_example"; // String | Encode database path
+const date = 56; // Number | Date in YYYYMMDD format
+const symbol = "symbol_example"; // String | Symbol with in the ofdb
+const id = "id_example"; // String | A unique pickup ID returned by the original request
+
+// Call api endpoint
+apiInstance.getResourceDateFromSymbol(path, date, symbol, id).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **String**| Encode database path | 
+ **date** | **Number**| Date in YYYYMMDD format | 
+ **symbol** | **String**| Symbol with in the ofdb | 
+ **id** | **String**| A unique pickup ID returned by the original request | 
 
 ### Return type
 

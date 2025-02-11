@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.OFDB.models.SymbolAndFields;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,17 +42,17 @@ public class InlineResponse2006 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<Integer> data = null;
+  private java.util.List<SymbolAndFields> data = null;
 
   public InlineResponse2006() { 
   }
 
-  public InlineResponse2006 data(java.util.List<Integer> data) {
+  public InlineResponse2006 data(java.util.List<SymbolAndFields> data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2006 addDataItem(Integer dataItem) {
+  public InlineResponse2006 addDataItem(SymbolAndFields dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -68,14 +69,14 @@ public class InlineResponse2006 implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<Integer> getData() {
+  public java.util.List<SymbolAndFields> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<Integer> data) {
+  public void setData(java.util.List<SymbolAndFields> data) {
     this.data = data;
   }
 

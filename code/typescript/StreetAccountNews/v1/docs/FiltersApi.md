@@ -55,7 +55,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FiltersApi();
 const opts = {
-  'attributes': ["null"] // [String] | Pass a list of filters to return the respective type of filter. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+  'attributes': ["null"] // [String] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
 };
 
 // Call api endpoint
@@ -78,7 +78,7 @@ apiInstance.getStreetAccountFilters(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**[String]**](String.md)| Pass a list of filters to return the respective type of filter. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**[String]**](String.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 
@@ -136,7 +136,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FiltersApi();
 const opts = {
-  'attributes': ["null"] // [String] | Pass a list of filters to return the respective type of filter categories. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+  'attributes': ["null"] // [String] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
 };
 
 // Call api endpoint
@@ -159,7 +159,7 @@ apiInstance.getStreetAccountFiltersCategories(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**[String]**](String.md)| Pass a list of filters to return the respective type of filter categories. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**[String]**](String.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 
@@ -217,7 +217,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FiltersApi();
 const opts = {
-  'attributes': ["null"] // [String] | Pass a list of filters to return the respective type of filter Regions. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+  'attributes': ["null"] // [String] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
 };
 
 // Call api endpoint
@@ -240,7 +240,7 @@ apiInstance.getStreetAccountFiltersRegions(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**[String]**](String.md)| Pass a list of filters to return the respective type of filter Regions. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**[String]**](String.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 
@@ -298,7 +298,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FiltersApi();
 const opts = {
-  'attributes': ["null"] // [String] | Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+  'attributes': ["null"] // [String] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
 };
 
 // Call api endpoint
@@ -321,7 +321,7 @@ apiInstance.getStreetAccountFiltersSectors(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**[String]**](String.md)| Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**[String]**](String.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 
@@ -379,7 +379,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FiltersApi();
 const opts = {
-  'attributes': ["null"] // [String] | Pass a list of filters to return the respective type of filter topics. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+  'attributes': ["null"] // [String] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
 };
 
 // Call api endpoint
@@ -402,7 +402,7 @@ apiInstance.getStreetAccountFiltersTopics(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**[String]**](String.md)| Pass a list of filters to return the respective type of filter topics. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**[String]**](String.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 
@@ -460,7 +460,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new FiltersApi();
 const opts = {
-  'attributes': ["null"] // [String] | Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response). 
+  'attributes': ["null"] // [String] | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned. 
 };
 
 // Call api endpoint
@@ -483,7 +483,7 @@ apiInstance.getStreetAccountFiltersWatchlists(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**[String]**](String.md)| Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**[String]**](String.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 

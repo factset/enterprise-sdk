@@ -25,6 +25,7 @@ from fds.sdk.OFDB.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.OFDB.exceptions import ApiException
+from fds.sdk.OFDB.model.create_database import CreateDatabase
 from fds.sdk.OFDB.model.database_schema import DatabaseSchema
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
@@ -49,7 +50,7 @@ class CreateApi(object):
         self.create_database_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (CreateDatabase,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -118,7 +119,7 @@ class CreateApi(object):
     def create_database(
         self,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> CreateDatabase:
         """create_database  # noqa: E501
 
         Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
@@ -152,7 +153,7 @@ class CreateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            CreateDatabase
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -161,7 +162,7 @@ class CreateApi(object):
     def create_database_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[CreateDatabase, int, typing.MutableMapping]:
         """create_database  # noqa: E501
 
         Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
@@ -195,7 +196,7 @@ class CreateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            CreateDatabase
                 Response Object
             int
                 Http Status Code
@@ -208,7 +209,7 @@ class CreateApi(object):
     def create_database_async(
         self,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[CreateDatabase]":
         """create_database  # noqa: E501
 
         Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
@@ -242,7 +243,7 @@ class CreateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[CreateDatabase]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.create_database_endpoint.call_with_http_info(**kwargs)
@@ -250,7 +251,7 @@ class CreateApi(object):
     def create_database_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[CreateDatabase, int, typing.MutableMapping]]":
         """create_database  # noqa: E501
 
         Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.  # noqa: E501
@@ -284,7 +285,7 @@ class CreateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(CreateDatabase, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_database_endpoint.call_with_http_info(**kwargs)

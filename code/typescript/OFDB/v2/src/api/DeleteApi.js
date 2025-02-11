@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import BulkDelete from '../model/BulkDelete';
+import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse403 from '../model/InlineResponse403';
@@ -42,7 +43,7 @@ export default class DeleteApi {
      * @param {String} path Encode database path
      * @param {Object} opts Optional parameters
      * @param {module:model/BulkDelete} opts.bulkDelete 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
     deleteBulkItemsWithHttpInfo(path, opts) {
       opts = opts || {};
@@ -67,7 +68,7 @@ export default class DeleteApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse2003;
 
       return this.apiClient.callApi(
         '/database/{path}/delete', 'POST',
@@ -81,7 +82,7 @@ export default class DeleteApi {
      * @param {String} path Encode database path
      * @param {Object} opts Optional parameters
      * @param {module:model/BulkDelete} opts.bulkDelete 
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     deleteBulkItems(path, opts) {
       return this.deleteBulkItemsWithHttpInfo(path, opts)
@@ -260,6 +261,76 @@ export default class DeleteApi {
      */
     deleteSymbol(path, symbol) {
       return this.deleteSymbolWithHttpInfo(path, symbol)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Deletes data specific to the symbol and date from a 3d database(OFDB).
+     * @param {String} path Encode database path
+     * @param {Number} date Date in YYYYMMDD format
+     * @param {String} symbol Symbol with in the ofdb
+     * @param {String} id A unique pickup ID returned by the original request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     */
+    getResourceDateFromSymbolWithHttpInfo(path, date, symbol, id) {
+      let postBody = null;
+      // verify the required parameter 'path' is set
+      if (path === undefined || path === null) {
+        throw new Error("Missing the required parameter 'path' when calling getResourceDateFromSymbol");
+      }
+      // verify the required parameter 'date' is set
+      if (date === undefined || date === null) {
+        throw new Error("Missing the required parameter 'date' when calling getResourceDateFromSymbol");
+      }
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getResourceDateFromSymbol");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getResourceDateFromSymbol");
+      }
+
+      let pathParams = {
+        'path': path,
+        'date': date,
+        'symbol': symbol,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse202;
+
+      return this.apiClient.callApi(
+        '/database/{path}/dates/{date}/symbols/{symbol}/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Deletes data specific to the symbol and date from a 3d database(OFDB).
+     * @param {String} path Encode database path
+     * @param {Number} date Date in YYYYMMDD format
+     * @param {String} symbol Symbol with in the ofdb
+     * @param {String} id A unique pickup ID returned by the original request
+     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     */
+    getResourceDateFromSymbol(path, date, symbol, id) {
+      return this.getResourceDateFromSymbolWithHttpInfo(path, date, symbol, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

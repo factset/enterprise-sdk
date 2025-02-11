@@ -4,8 +4,8 @@ All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getBatchData**](BatchProcessingApi.md#getBatchData) | **GET** /factset-global-prices/v1/batch-result | Returns the response for a Batch Request 
-[**getBatchStatus**](BatchProcessingApi.md#getBatchStatus) | **GET** /factset-global-prices/v1/batch-status | Returns the status for a Batch Request 
+[**getBatchData**](BatchProcessingApi.md#getBatchData) | **GET** /factset-global-prices/v1/batch-result | Returns the response for a Batch Request
+[**getBatchStatus**](BatchProcessingApi.md#getBatchStatus) | **GET** /factset-global-prices/v1/batch-status | Returns the status for a Batch Request
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > BatchResultResponse getBatchData(id)
 
-Returns the response for a Batch Request 
+Returns the response for a Batch Request
 
 Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 > BatchStatusResponse getBatchStatus(id)
 
-Returns the status for a Batch Request 
+Returns the status for a Batch Request
 
 Return the status for the underlying batch request that is specified by the id.
 

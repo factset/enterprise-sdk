@@ -1,6 +1,6 @@
 # FlattenedFiltersTopics
 
-Flattened FiltersTopic Object
+Flattened Filters Topic Object
 
 ## Properties
 Name | Type | Description | Notes

@@ -45,8 +45,6 @@ from fds.sdk.OFDB.model.inline_response2003 import InlineResponse2003
 from fds.sdk.OFDB.model.inline_response2004 import InlineResponse2004
 from fds.sdk.OFDB.model.inline_response2005 import InlineResponse2005
 from fds.sdk.OFDB.model.inline_response2006 import InlineResponse2006
-from fds.sdk.OFDB.model.inline_response2007 import InlineResponse2007
-from fds.sdk.OFDB.model.inline_response2008 import InlineResponse2008
 from fds.sdk.OFDB.model.inline_response200_data import InlineResponse200Data
 from fds.sdk.OFDB.model.inline_response201 import InlineResponse201
 from fds.sdk.OFDB.model.inline_response201_data import InlineResponse201Data

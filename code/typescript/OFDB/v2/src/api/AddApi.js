@@ -19,6 +19,7 @@ import AddSymbols from '../model/AddSymbols';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse403 from '../model/InlineResponse403';
+import SuccessPostResponse from '../model/SuccessPostResponse';
 
 /**
 * Add service.
@@ -43,7 +44,7 @@ export default class AddApi {
      * Creates a new date with single/multiple symbols for a 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {module:model/AddDates} addDates Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     addDatesWithHttpInfo(path, addDates) {
       let postBody = addDates;
@@ -71,7 +72,7 @@ export default class AddApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/dates', 'POST',
@@ -84,7 +85,7 @@ export default class AddApi {
      * Creates a new date with single/multiple symbols for a 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {module:model/AddDates} addDates Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     addDates(path, addDates) {
       return this.addDatesWithHttpInfo(path, addDates)
@@ -98,7 +99,7 @@ export default class AddApi {
      * Allows users to add fields to existing OFDBs
      * @param {String} path Encode database path
      * @param {module:model/AddFields} addFields Data for creating fields in the database.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     addFieldsWithHttpInfo(path, addFields) {
       let postBody = addFields;
@@ -126,7 +127,7 @@ export default class AddApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/fields', 'POST',
@@ -139,7 +140,7 @@ export default class AddApi {
      * Allows users to add fields to existing OFDBs
      * @param {String} path Encode database path
      * @param {module:model/AddFields} addFields Data for creating fields in the database.
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     addFields(path, addFields) {
       return this.addFieldsWithHttpInfo(path, addFields)
@@ -153,7 +154,7 @@ export default class AddApi {
      * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {module:model/AddSymbols} addSymbols Data for creating symbol in the database
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     addSymbolsWithHttpInfo(path, addSymbols) {
       let postBody = addSymbols;
@@ -181,7 +182,7 @@ export default class AddApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/symbols', 'POST',
@@ -194,7 +195,7 @@ export default class AddApi {
      * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {module:model/AddSymbols} addSymbols Data for creating symbol in the database
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     addSymbols(path, addSymbols) {
       return this.addSymbolsWithHttpInfo(path, addSymbols)

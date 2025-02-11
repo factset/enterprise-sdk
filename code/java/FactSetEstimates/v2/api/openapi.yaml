@@ -8353,8 +8353,7 @@ components:
           nullable: true
           type: string
         actualValue:
-          description: The Online Assistant Page URL, used to lookup the definition
-            and methodology of the requested item.
+          description: Actual value for the requested metric.
           example: 383285
           nullable: true
           type: number

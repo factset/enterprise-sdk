@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse403 from '../model/InlineResponse403';
+import SuccessPostResponse from '../model/SuccessPostResponse';
 import UpdateDate from '../model/UpdateDate';
 import UpdateDates from '../model/UpdateDates';
 import UpdateSymbol from '../model/UpdateSymbol';
@@ -45,7 +46,7 @@ export default class UpdateApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {module:model/UpdateDate} updateDate Required data for updating date in the database
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     updateDateWithHttpInfo(path, date, updateDate) {
       let postBody = updateDate;
@@ -78,7 +79,7 @@ export default class UpdateApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/dates/{date}', 'PUT',
@@ -92,7 +93,7 @@ export default class UpdateApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {module:model/UpdateDate} updateDate Required data for updating date in the database
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     updateDate(path, date, updateDate) {
       return this.updateDateWithHttpInfo(path, date, updateDate)
@@ -106,7 +107,7 @@ export default class UpdateApi {
      * Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {module:model/UpdateDates} updateDates Required data for updating date in the database
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     updateDatesWithHttpInfo(path, updateDates) {
       let postBody = updateDates;
@@ -134,7 +135,7 @@ export default class UpdateApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/dates', 'PUT',
@@ -147,7 +148,7 @@ export default class UpdateApi {
      * Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {module:model/UpdateDates} updateDates Required data for updating date in the database
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     updateDates(path, updateDates) {
       return this.updateDatesWithHttpInfo(path, updateDates)
@@ -162,7 +163,7 @@ export default class UpdateApi {
      * @param {String} path Encode database path
      * @param {String} symbol Symbol with in the ofdb
      * @param {module:model/UpdateSymbol} updateSymbol Data for updating symbol in the database
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     updateSymbolWithHttpInfo(path, symbol, updateSymbol) {
       let postBody = updateSymbol;
@@ -195,7 +196,7 @@ export default class UpdateApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/symbols/{symbol}', 'PUT',
@@ -209,7 +210,7 @@ export default class UpdateApi {
      * @param {String} path Encode database path
      * @param {String} symbol Symbol with in the ofdb
      * @param {module:model/UpdateSymbol} updateSymbol Data for updating symbol in the database
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     updateSymbol(path, symbol, updateSymbol) {
       return this.updateSymbolWithHttpInfo(path, symbol, updateSymbol)
@@ -223,7 +224,7 @@ export default class UpdateApi {
      * Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {module:model/UpdateSymbols} updateSymbols Data for updating symbol in the database
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
     updateSymbolsWithHttpInfo(path, updateSymbols) {
       let postBody = updateSymbols;
@@ -251,7 +252,7 @@ export default class UpdateApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
         '/database/{path}/symbols', 'PUT',
@@ -264,7 +265,7 @@ export default class UpdateApi {
      * Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {module:model/UpdateSymbols} updateSymbols Data for updating symbol in the database
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     updateSymbols(path, updateSymbols) {
       return this.updateSymbolsWithHttpInfo(path, updateSymbols)

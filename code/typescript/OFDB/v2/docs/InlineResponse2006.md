@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **[Number]** |  | [optional] 
+**data** | [**[SymbolAndFields]**](SymbolAndFields.md) |  | [optional] 
 
 

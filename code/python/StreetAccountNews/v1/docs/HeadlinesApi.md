@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 Retrieve StreetAccount headlines for given view
 
-This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the ‘Create Views’ endpoint.
+This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the 'Create Views' endpoint.
 
 ### Example
 
@@ -198,7 +198,7 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
         data=HeadlinesRequestByViewData(
             name="SA News View",
             predefined_range="today",
-            search_time=HeadlinesRequestDataSearchTime(
+            search_time=HeadlinesRequestByViewDataSearchTime(
                 start=dateutil_parser('2022-08-21T12:35:45Z'),
                 end=dateutil_parser('2022-08-29T08:10:30Z'),
             ),

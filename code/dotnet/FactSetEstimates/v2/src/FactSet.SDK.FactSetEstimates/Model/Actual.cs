@@ -76,7 +76,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="fiscalPeriod">Company&#39;s &#39;fiscal period&#39; for the estimate record.  &#39;Periodicity&#39; defines context for period..</param>
         /// <param name="fiscalYear">Company&#39;s &#39;fiscal year&#39; for the estimate record.</param>
         /// <param name="fiscalEndDate">Company&#39;s &#39;fiscal year&#39; for the estimate record. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598).</param>
-        /// <param name="actualValue">The Online Assistant Page URL, used to lookup the definition and methodology of the requested item..</param>
+        /// <param name="actualValue">Actual value for the requested metric..</param>
         /// <param name="actualType">The type of actual returned. The following is returned:   * **Company Actual**. This is collected directly from a company’s press release for the corresponding past period.    * **European Actual**. This is also collected directly from a company&#39;s press release before January 2017 for European countries. However, **Company Actual ** is used from 2017 onwards to fetch actual irrespective of country or listing.   * **Broker Actual**. A broker actual is a median consensus that can be updated up to 100 days post the fiscal period’s report date. Broker actuals are a post-event only consensus if a report date is collected from an earnings release, unless no brokers have contributed to the post-event consensus yet, in which case the broker actual will be a pre-event consensus.  The broker actual is a pre and post event consensus if the report date is a calculation  For more details on the actual types, visit [Online Assistant Page #13379](https://my.apps.factset.com/oa/pages/13379).    .</param>
         /// <param name="reportDate">Date at which Actual has been reported and/or fiscal period has rolled..</param>
         /// <param name="currency">Currency code for adjusting the data. Use &#39;ESTIMATE&#39; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
@@ -148,9 +148,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public DateTime? FiscalEndDate { get; set; }
 
         /// <summary>
-        /// The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.
+        /// Actual value for the requested metric.
         /// </summary>
-        /// <value>The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.</value>
+        /// <value>Actual value for the requested metric.</value>
         [DataMember(Name = "actualValue", EmitDefaultValue = true)]
         public decimal? ActualValue { get; set; }
 

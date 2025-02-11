@@ -21,8 +21,6 @@ import InlineResponse2003 from '../model/InlineResponse2003';
 import InlineResponse2004 from '../model/InlineResponse2004';
 import InlineResponse2005 from '../model/InlineResponse2005';
 import InlineResponse2006 from '../model/InlineResponse2006';
-import InlineResponse2007 from '../model/InlineResponse2007';
-import InlineResponse2008 from '../model/InlineResponse2008';
 import InlineResponse201 from '../model/InlineResponse201';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
@@ -52,269 +50,17 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
-     */
-    getResourceDeleteBulkItemsWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceDeleteBulkItems");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceDeleteBulkItems");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2003;
-
-      return this.apiClient.callApi(
-        '/database/{path}/delete/jobs/post/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
-     */
-    getResourceDeleteBulkItems(path, id) {
-      return this.getResourceDeleteBulkItemsWithHttpInfo(path, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {Number} date Date in YYYYMMDD format
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
-     */
-    getResourceDeleteDateWithHttpInfo(path, date, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceDeleteDate");
-      }
-      // verify the required parameter 'date' is set
-      if (date === undefined || date === null) {
-        throw new Error("Missing the required parameter 'date' when calling getResourceDeleteDate");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceDeleteDate");
-      }
-
-      let pathParams = {
-        'path': path,
-        'date': date,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/database/{path}/dates/{date}/jobs/delete/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {Number} date Date in YYYYMMDD format
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise } a Promise
-     */
-    getResourceDeleteDate(path, date, id) {
-      return this.getResourceDeleteDateWithHttpInfo(path, date, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {Number} date Date in YYYYMMDD format
-     * @param {String} symbol Symbol with in the ofdb
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
-     */
-    getResourceDeleteDateFromSymbolWithHttpInfo(path, date, symbol, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceDeleteDateFromSymbol");
-      }
-      // verify the required parameter 'date' is set
-      if (date === undefined || date === null) {
-        throw new Error("Missing the required parameter 'date' when calling getResourceDeleteDateFromSymbol");
-      }
-      // verify the required parameter 'symbol' is set
-      if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling getResourceDeleteDateFromSymbol");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceDeleteDateFromSymbol");
-      }
-
-      let pathParams = {
-        'path': path,
-        'date': date,
-        'symbol': symbol,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {Number} date Date in YYYYMMDD format
-     * @param {String} symbol Symbol with in the ofdb
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise } a Promise
-     */
-    getResourceDeleteDateFromSymbol(path, date, symbol, id) {
-      return this.getResourceDeleteDateFromSymbolWithHttpInfo(path, date, symbol, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} symbol Symbol with in the ofdb
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
-     */
-    getResourceDeleteSymbolWithHttpInfo(path, symbol, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceDeleteSymbol");
-      }
-      // verify the required parameter 'symbol' is set
-      if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling getResourceDeleteSymbol");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceDeleteSymbol");
-      }
-
-      let pathParams = {
-        'path': path,
-        'symbol': symbol,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/database/{path}/symbols/{symbol}/jobs/delete/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} symbol Symbol with in the ofdb
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise } a Promise
-     */
-    getResourceDeleteSymbol(path, symbol, id) {
-      return this.getResourceDeleteSymbolWithHttpInfo(path, symbol, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
-    getResourceGetAuditWithHttpInfo(path, id) {
+    getResourceAuditWithHttpInfo(path, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceGetAudit");
+        throw new Error("Missing the required parameter 'path' when calling getResourceAudit");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceGetAudit");
+        throw new Error("Missing the required parameter 'id' when calling getResourceAudit");
       }
 
       let pathParams = {
@@ -336,7 +82,7 @@ export default class LongRunningApi {
       let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
-        '/database/{path}/audit/jobs/get/{id}', 'GET',
+        '/database/{path}/audit/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -348,8 +94,8 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
-    getResourceGetAudit(path, id) {
-      return this.getResourceGetAuditWithHttpInfo(path, id)
+    getResourceAudit(path, id) {
+      return this.getResourceAuditWithHttpInfo(path, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -360,17 +106,17 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
-    getResourceGetDataWithHttpInfo(path, id) {
+    getResourceBulkDeleteWithHttpInfo(path, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceGetData");
+        throw new Error("Missing the required parameter 'path' when calling getResourceBulkDelete");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceGetData");
+        throw new Error("Missing the required parameter 'id' when calling getResourceBulkDelete");
       }
 
       let pathParams = {
@@ -389,10 +135,10 @@ export default class LongRunningApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2008;
+      let returnType = InlineResponse2003;
 
       return this.apiClient.callApi(
-        '/database/{path}/jobs/get/{id}', 'GET',
+        '/database/{path}/delete/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -402,10 +148,10 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
-    getResourceGetData(path, id) {
-      return this.getResourceGetDataWithHttpInfo(path, id)
+    getResourceBulkDelete(path, id) {
+      return this.getResourceBulkDeleteWithHttpInfo(path, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -418,15 +164,15 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
      */
-    getResourceGetDatesWithHttpInfo(path, id) {
+    getResourceDataWithHttpInfo(path, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceGetDates");
+        throw new Error("Missing the required parameter 'path' when calling getResourceData");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceGetDates");
+        throw new Error("Missing the required parameter 'id' when calling getResourceData");
       }
 
       let pathParams = {
@@ -448,7 +194,7 @@ export default class LongRunningApi {
       let returnType = InlineResponse2006;
 
       return this.apiClient.callApi(
-        '/database/{path}/dates/jobs/get/{id}', 'GET',
+        '/database/{path}/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -460,8 +206,8 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
-    getResourceGetDates(path, id) {
-      return this.getResourceGetDatesWithHttpInfo(path, id)
+    getResourceData(path, id) {
+      return this.getResourceDataWithHttpInfo(path, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -471,184 +217,22 @@ export default class LongRunningApi {
     /**
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
-     */
-    getResourceGetFieldsWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceGetFields");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceGetFields");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2002;
-
-      return this.apiClient.callApi(
-        '/database/{path}/fields/jobs/get/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
-     */
-    getResourceGetFields(path, id) {
-      return this.getResourceGetFieldsWithHttpInfo(path, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
-     */
-    getResourceGetStatsWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceGetStats");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceGetStats");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2001;
-
-      return this.apiClient.callApi(
-        '/database/{path}/stats/jobs/get/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
-     */
-    getResourceGetStats(path, id) {
-      return this.getResourceGetStatsWithHttpInfo(path, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
-     */
-    getResourceGetSymbolsWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourceGetSymbols");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourceGetSymbols");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2004;
-
-      return this.apiClient.callApi(
-        '/database/{path}/symbols/jobs/get/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
-     */
-    getResourceGetSymbols(path, id) {
-      return this.getResourceGetSymbolsWithHttpInfo(path, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} id A unique pickup ID returned by the original request
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateDatabase} and HTTP response
      */
-    getResourcePostDatabaseWithHttpInfo(id) {
+    getResourceDatabaseWithHttpInfo(path, id) {
       let postBody = null;
+      // verify the required parameter 'path' is set
+      if (path === undefined || path === null) {
+        throw new Error("Missing the required parameter 'path' when calling getResourceDatabase");
+      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePostDatabase");
+        throw new Error("Missing the required parameter 'id' when calling getResourceDatabase");
       }
 
       let pathParams = {
+        'path': path,
         'id': id
       };
       let queryParams = {
@@ -666,7 +250,7 @@ export default class LongRunningApi {
       let returnType = CreateDatabase;
 
       return this.apiClient.callApi(
-        '/database/jobs/post/{id}', 'GET',
+        '/database/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -674,179 +258,12 @@ export default class LongRunningApi {
 
     /**
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+     * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
      * @return { Promise.< module:model/CreateDatabase > } a Promise, with data of type {@link module:model/CreateDatabase }
      */
-    getResourcePostDatabase(id) {
-      return this.getResourcePostDatabaseWithHttpInfo(id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
-     */
-    getResourcePostDatesWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePostDates");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePostDates");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2007;
-
-      return this.apiClient.callApi(
-        '/database/{path}/dates/jobs/post/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
-     */
-    getResourcePostDates(path, id) {
-      return this.getResourcePostDatesWithHttpInfo(path, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
-     */
-    getResourcePostFieldsWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePostFields");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePostFields");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2002;
-
-      return this.apiClient.callApi(
-        '/database/{path}/fields/jobs/post/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
-     */
-    getResourcePostFields(path, id) {
-      return this.getResourcePostFieldsWithHttpInfo(path, id)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
-     */
-    getResourcePostSymbolsWithHttpInfo(path, id) {
-      let postBody = null;
-      // verify the required parameter 'path' is set
-      if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePostSymbols");
-      }
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePostSymbols");
-      }
-
-      let pathParams = {
-        'path': path,
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse2005;
-
-      return this.apiClient.callApi(
-        '/database/{path}/symbols/jobs/post/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-     * @param {String} path Encode database path
-     * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
-     */
-    getResourcePostSymbols(path, id) {
-      return this.getResourcePostSymbolsWithHttpInfo(path, id)
+    getResourceDatabase(path, id) {
+      return this.getResourceDatabaseWithHttpInfo(path, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -860,19 +277,19 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    getResourcePutDateWithHttpInfo(path, date, id) {
+    getResourceDateWithHttpInfo(path, date, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePutDate");
+        throw new Error("Missing the required parameter 'path' when calling getResourceDate");
       }
       // verify the required parameter 'date' is set
       if (date === undefined || date === null) {
-        throw new Error("Missing the required parameter 'date' when calling getResourcePutDate");
+        throw new Error("Missing the required parameter 'date' when calling getResourceDate");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePutDate");
+        throw new Error("Missing the required parameter 'id' when calling getResourceDate");
       }
 
       let pathParams = {
@@ -895,7 +312,7 @@ export default class LongRunningApi {
       let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
-        '/database/{path}/dates/{date}/jobs/put/{id}', 'GET',
+        '/database/{path}/dates/{date}/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -908,8 +325,8 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    getResourcePutDate(path, date, id) {
-      return this.getResourcePutDateWithHttpInfo(path, date, id)
+    getResourceDate(path, date, id) {
+      return this.getResourceDateWithHttpInfo(path, date, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -920,17 +337,17 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
-    getResourcePutDatesWithHttpInfo(path, id) {
+    getResourceDatesWithHttpInfo(path, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePutDates");
+        throw new Error("Missing the required parameter 'path' when calling getResourceDates");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePutDates");
+        throw new Error("Missing the required parameter 'id' when calling getResourceDates");
       }
 
       let pathParams = {
@@ -949,10 +366,10 @@ export default class LongRunningApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2007;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
-        '/database/{path}/dates/jobs/put/{id}', 'GET',
+        '/database/{path}/dates/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -962,10 +379,122 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
-    getResourcePutDates(path, id) {
-      return this.getResourcePutDatesWithHttpInfo(path, id)
+    getResourceDates(path, id) {
+      return this.getResourceDatesWithHttpInfo(path, id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+     * @param {String} path Encode database path
+     * @param {String} id A unique pickup ID returned by the original request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
+     */
+    getResourceFieldsWithHttpInfo(path, id) {
+      let postBody = null;
+      // verify the required parameter 'path' is set
+      if (path === undefined || path === null) {
+        throw new Error("Missing the required parameter 'path' when calling getResourceFields");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getResourceFields");
+      }
+
+      let pathParams = {
+        'path': path,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2002;
+
+      return this.apiClient.callApi(
+        '/database/{path}/fields/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+     * @param {String} path Encode database path
+     * @param {String} id A unique pickup ID returned by the original request
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
+     */
+    getResourceFields(path, id) {
+      return this.getResourceFieldsWithHttpInfo(path, id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+     * @param {String} path Encode database path
+     * @param {String} id A unique pickup ID returned by the original request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
+     */
+    getResourceStatsWithHttpInfo(path, id) {
+      let postBody = null;
+      // verify the required parameter 'path' is set
+      if (path === undefined || path === null) {
+        throw new Error("Missing the required parameter 'path' when calling getResourceStats");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getResourceStats");
+      }
+
+      let pathParams = {
+        'path': path,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2001;
+
+      return this.apiClient.callApi(
+        '/database/{path}/stats/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+     * @param {String} path Encode database path
+     * @param {String} id A unique pickup ID returned by the original request
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
+     */
+    getResourceStats(path, id) {
+      return this.getResourceStatsWithHttpInfo(path, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -979,19 +508,19 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    getResourcePutSymbolWithHttpInfo(path, symbol, id) {
+    getResourceSymbolWithHttpInfo(path, symbol, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePutSymbol");
+        throw new Error("Missing the required parameter 'path' when calling getResourceSymbol");
       }
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling getResourcePutSymbol");
+        throw new Error("Missing the required parameter 'symbol' when calling getResourceSymbol");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePutSymbol");
+        throw new Error("Missing the required parameter 'id' when calling getResourceSymbol");
       }
 
       let pathParams = {
@@ -1014,7 +543,7 @@ export default class LongRunningApi {
       let returnType = SuccessPostResponse;
 
       return this.apiClient.callApi(
-        '/database/{path}/symbols/{symbol}/jobs/put/{id}', 'GET',
+        '/database/{path}/symbols/{symbol}/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -1027,8 +556,8 @@ export default class LongRunningApi {
      * @param {String} id A unique pickup ID returned by the original request
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    getResourcePutSymbol(path, symbol, id) {
-      return this.getResourcePutSymbolWithHttpInfo(path, symbol, id)
+    getResourceSymbol(path, symbol, id) {
+      return this.getResourceSymbolWithHttpInfo(path, symbol, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1039,17 +568,17 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
-    getResourcePutSymbolsWithHttpInfo(path, id) {
+    getResourceSymbolsWithHttpInfo(path, id) {
       let postBody = null;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
-        throw new Error("Missing the required parameter 'path' when calling getResourcePutSymbols");
+        throw new Error("Missing the required parameter 'path' when calling getResourceSymbols");
       }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getResourcePutSymbols");
+        throw new Error("Missing the required parameter 'id' when calling getResourceSymbols");
       }
 
       let pathParams = {
@@ -1068,10 +597,10 @@ export default class LongRunningApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2005;
+      let returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
-        '/database/{path}/symbols/jobs/put/{id}', 'GET',
+        '/database/{path}/symbols/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -1081,10 +610,10 @@ export default class LongRunningApi {
      * Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
      * @param {String} path Encode database path
      * @param {String} id A unique pickup ID returned by the original request
-     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
-    getResourcePutSymbols(path, id) {
-      return this.getResourcePutSymbolsWithHttpInfo(path, id)
+    getResourceSymbols(path, id) {
+      return this.getResourceSymbolsWithHttpInfo(path, id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

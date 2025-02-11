@@ -28,6 +28,7 @@ from fds.sdk.OFDB.exceptions import ApiException
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
+from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
 from fds.sdk.OFDB.model.update_date import UpdateDate
 from fds.sdk.OFDB.model.update_dates import UpdateDates
 from fds.sdk.OFDB.model.update_symbol import UpdateSymbol
@@ -52,7 +53,7 @@ class UpdateApi(object):
         self.update_date_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -121,7 +122,7 @@ class UpdateApi(object):
         self.update_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -184,7 +185,7 @@ class UpdateApi(object):
         self.update_symbol_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -253,7 +254,7 @@ class UpdateApi(object):
         self.update_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 201: (SuccessPostResponse,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 413: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -333,7 +334,7 @@ class UpdateApi(object):
         date,
         update_date,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """update_date  # noqa: E501
 
         Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -370,7 +371,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -388,7 +389,7 @@ class UpdateApi(object):
         date,
         update_date,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """update_date  # noqa: E501
 
         Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -425,7 +426,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -447,7 +448,7 @@ class UpdateApi(object):
         date,
         update_date,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """update_date  # noqa: E501
 
         Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -484,7 +485,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -501,7 +502,7 @@ class UpdateApi(object):
         date,
         update_date,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """update_date  # noqa: E501
 
         Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -538,7 +539,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -555,7 +556,7 @@ class UpdateApi(object):
         path,
         update_dates,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """update_dates  # noqa: E501
 
         Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -591,7 +592,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -606,7 +607,7 @@ class UpdateApi(object):
         path,
         update_dates,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """update_dates  # noqa: E501
 
         Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -642,7 +643,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -661,7 +662,7 @@ class UpdateApi(object):
         path,
         update_dates,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """update_dates  # noqa: E501
 
         Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -697,7 +698,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -711,7 +712,7 @@ class UpdateApi(object):
         path,
         update_dates,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """update_dates  # noqa: E501
 
         Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).  # noqa: E501
@@ -747,7 +748,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -763,7 +764,7 @@ class UpdateApi(object):
         symbol,
         update_symbol,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """update_symbol  # noqa: E501
 
         Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -800,7 +801,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -818,7 +819,7 @@ class UpdateApi(object):
         symbol,
         update_symbol,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """update_symbol  # noqa: E501
 
         Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -855,7 +856,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -877,7 +878,7 @@ class UpdateApi(object):
         symbol,
         update_symbol,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """update_symbol  # noqa: E501
 
         Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -914,7 +915,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -931,7 +932,7 @@ class UpdateApi(object):
         symbol,
         update_symbol,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """update_symbol  # noqa: E501
 
         Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -968,7 +969,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -985,7 +986,7 @@ class UpdateApi(object):
         path,
         update_symbols,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> SuccessPostResponse:
         """update_symbols  # noqa: E501
 
         Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -1021,7 +1022,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1036,7 +1037,7 @@ class UpdateApi(object):
         path,
         update_symbols,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """update_symbols  # noqa: E501
 
         Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -1072,7 +1073,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            SuccessPostResponse
                 Response Object
             int
                 Http Status Code
@@ -1091,7 +1092,7 @@ class UpdateApi(object):
         path,
         update_symbols,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[SuccessPostResponse]":
         """update_symbols  # noqa: E501
 
         Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -1127,7 +1128,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[SuccessPostResponse]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -1141,7 +1142,7 @@ class UpdateApi(object):
         path,
         update_symbols,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """update_symbols  # noqa: E501
 
         Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)  # noqa: E501
@@ -1177,7 +1178,7 @@ class UpdateApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(SuccessPostResponse, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \

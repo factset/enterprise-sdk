@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "ofdb",
-  "artifactVersion": "0.32.1",
+  "artifactVersion": "0.33.0",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "OFDB client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/OFDB/0.32.1",
+  "httpUserAgent": "fds-sdk/java/OFDB/0.33.0",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

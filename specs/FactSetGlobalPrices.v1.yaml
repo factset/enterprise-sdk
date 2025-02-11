@@ -623,8 +623,7 @@ paths:
     get:
       tags:
         - Batch Processing
-      summary: |
-        Returns the status for a Batch Request
+      summary: Returns the status for a Batch Request
       description: >-
         Return the status for the underlying batch request that is specified by
         the id.
@@ -671,8 +670,7 @@ paths:
     get:
       tags:
         - Batch Processing
-      summary: |
-        Returns the response for a Batch Request
+      summary: Returns the response for a Batch Request
       description: >
         Returns the response data for the underlying batch request that is
         specified by the id.
@@ -894,7 +892,7 @@ components:
       required: false
       schema:
         type: string
-        default: 2021-08-27T00:00:00.000Z
+        default: '2021-08-27'
       description: >
         The start date requested for a given date range in **YYYY-MM-DD**
         format. The input start date must be before the input end date. Future
@@ -1402,61 +1400,43 @@ components:
             FactSet.
           type: string
           example: SJY281-R
-          x-fds-sdf: fsym_id
-          x-fds-dh: REGIONAL_FDS_ID
           nullable: true
         eventId:
           description: FactSet identifier that uniquely identifies the Event.
           type: string
           example: JTHPFN-A
-          x-fds-sdf: ca_event_id
-          x-fds-dh: EVENT_ID
           nullable: true
         eventTypeCode:
           description: >-
             Corporate Actions Event type code, possible values: [ DVC, DVCD,
             DRP, DVS, DVSS, BNS, BNSS, SPO, DSR, FSP, RSP, SPL ]
           type: string
-          x-fds-sdf: ca_event_type_code
-          x-fds-dh: EVENT_TYPE_CODE
           nullable: true
         eventTypeDesc:
           description: Corporate Actions Event type description.
           type: string
-          x-fds-sdf: null
-          x-fds-dh: EVENT_TYPE
           nullable: true
         divTypeCode:
           description: >
             Dividend Type Code. For code descriptions, visit [Online Assistant
             Page #8764] (https://oa.apps.factset.com/pages/8764).
           type: string
-          x-fds-sdf: div_type_code
-          x-fds-dh: DIVTYPE_NUM
           nullable: true
         announcementDate:
           description: Date Event was announced in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: announcement_date
-          x-fds-dh: ANNDATE
           nullable: true
         recordDate:
           description: Date of Record for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: record_date
-          x-fds-dh: RECORD_DATE
           nullable: true
         payDate:
           description: Date of Payment for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: pay_date
-          x-fds-dh: PAYDATE
           nullable: true
         effectiveDate:
           description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: effective_date
-          x-fds-dh: EFFECTIVE_DATE
           nullable: true
         requestId:
           description: Identifier that was used for the request.
@@ -1524,21 +1504,18 @@ components:
             FactSet.
           type: string
           example: SJY281-R
-          x-fds-dh: REGIONAL_FDS_ID
           nullable: true
         eventId:
           description: FactSet identifier that uniquely identifies the Event.
           type: string
           example: JTHPFN-A
-          x-fds-dh: EVENT_ID
           nullable: true
         effectiveDate:
           description: >-
             Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD
             format.
           type: string
-          example: 2022-03-11T00:00:00.000Z
-          x-fds-dh: IAD_EXDATE
+          example: '2022-03-11'
           nullable: true
         iadDefTradingAdj:
           description: >-
@@ -1546,7 +1523,6 @@ components:
             adjusted for splits
           type: number
           format: float
-          x-fds-dh: IAD_DEF_SPLIT
           example: 0.7584434
           nullable: true
         currency:
@@ -1556,7 +1532,6 @@ components:
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
-          x-fds-dh: IAD_DEF_CURR_ISO
           nullable: true
         requestId:
           description: Identifier that was used for the request.
@@ -2134,14 +2109,10 @@ components:
             FactSet.
           type: string
           example: SJY281-R
-          x-fds-sdf: fsym_id
-          x-fds-dh: REGIONAL_FDS_ID
         eventId:
           description: FactSet identifier that uniquely identifies the Event.
           type: string
           example: JTHPFN-A
-          x-fds-sdf: ca_event_id
-          x-fds-dh: EVENT_ID
         eventTypeCode:
           description: Corporate Actions Event type code.
           type: string
@@ -2149,48 +2120,32 @@ components:
             - DVC
             - DVCD
             - DRP
-          x-fds-sdf: ca_event_type_code
-          x-fds-dh: EVENT_TYPE_CODE
         eventTypeDesc:
           description: Corporate Actions Event type description.
           type: string
-          x-fds-sdf: null
-          x-fds-dh: EVENT_TYPE
         divTypeCode:
           description: >
             Dividend Type Code. For code descriptions, visit [Online Assistant
             Page #8764] (https://oa.apps.factset.com/pages/8764).
           type: string
-          x-fds-sdf: div_type_code
-          x-fds-dh: DIVTYPE_NUM
         announcementDate:
           description: Date Event was announced in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: announcement_date
-          x-fds-dh: ANNDATE
         recordDate:
           description: Date of Record for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: record_date
-          x-fds-dh: RECORD_DATE
         payDate:
           description: Date of Payment for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: pay_date
-          x-fds-dh: PAYDATE
         effectiveDate:
           description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: effective_date
-          x-fds-dh: EFFECTIVE_DATE
         currency:
           description: >-
             Currency ISO code. For more details, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
-          x-fds-sdf: trading_currency
-          x-fds-dh: DEF_CURR_ISO
         amtDefNetGrossIndicator:
           description: >-
             Net/Gross Marker Code. For details describing Net vs. Gross
@@ -2200,157 +2155,111 @@ components:
           enum:
             - 'N'
             - G
-          x-fds-sdf: amt_def_net_gross_indicator
-          x-fds-dh: NGFLAG
         amtDefTradingAdj:
           description: Default Amount - Trading Currency, Split Adjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_def_trading_adj
-          x-fds-dh: AMT_DEF_SPLIT
         amtDefTradingUnadj:
           description: Default Amount - Trading Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_def_trading_adj
-          x-fds-dh: AMT_DEF_UNSPLIT
         amtGrossTradingAdj:
           description: 'Gross Amount - Trading Currency, Split Adjusted '
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_gross_trading_adj
-          x-fds-dh: GROSS_DEF_SPLIT
         amtGrossTradingUnadj:
           description: 'Gross Amount - Trading Currency, Unadjusted '
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_gross_trading_unadj
-          x-fds-dh: GROSS_DEF_UNSPLIT
         amtNetTradingAdj:
           description: Net Amount - Trading Currency, Split Adjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_net_trading_adj
-          x-fds-dh: NET_DEF_SPLIT
         amtNetTradingUnadj:
           description: Net Amount - Trading Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_net_trading_unadj
-          x-fds-dh: NET_DEF_UNSPLIT
         declaredCurrency:
           description: Currency code for declared dividend.
           type: string
           example: USD
-          x-fds-sdf: declared_currency
-          x-fds-dh: DEC_CURR_ISO
         amtDefDecAdj:
           description: Default Amount - Declared Currency, Split Adjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_def_dec_adj
-          x-fds-dh: AMT_DEC_SPLIT
         amtDefDecUnadj:
           description: Default Amount - Declared Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_def_dec_unadj
-          x-fds-dh: AMT_DEC_UNSPLIT
         amtGrossDecAdj:
           description: 'Gross Amount - Declared Currency, Split Adjusted '
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_gross_dec_adj
-          x-fds-dh: GROSS_DEC_SPLIT
         amtGrossDecUnadj:
           description: 'Gross Amount - Declared Currency, Unadjusted '
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_gross_dec_unadj
-          x-fds-dh: GROSS_DEC_UNSPLIT
         amtNetDecAdj:
           description: 'Net Amount - Declared Currency, Split Adjusted '
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_net_dec_adj
-          x-fds-dh: NET_DEC_SPLIT
         amtNetDecUnadj:
           description: 'Net Amount - Declared Currency, Unadjusted '
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_net_dec_unadj
-          x-fds-dh: NET_DEC_UNSPLIT
         dividendStatus:
           description: Dividend Status Flag - 1=Yes, 0=No
           type: integer
           example: 0
-          x-fds-sdf: dividend_status
-          x-fds-dh: DIV_STATUS
         dividendActiveFlag:
           description: Dividend active Flag - 1=Yes, 0=No
           type: integer
           example: 1
-          x-fds-sdf: dividend_active_flag
-          x-fds-dh: ISACTIVE_FLAG
         dividendsSpecFlag:
           description: Special Dividend Flag - 1=Yes, 0=No
           type: integer
           example: 0
-          x-fds-sdf: dividend_spec_flag
-          x-fds-dh: SPEC_FLAG
         frankDefTradingAdj:
           description: Default Frank - Trading Currency, Split Adjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: frank_amt_trading_adj
-          x-fds-dh: FRANK_DEF_SPLIT
         frankDefTradingUnadj:
           description: Default Frank - Trading Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: frank_amt_trading_unadj
-          x-fds-dh: FRANK_DEF_UNSPLIT
         frankDefDecAdj:
           description: Default Frank - Declared Currency, Split Adjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: frank_amt_dec_adj
-          x-fds-dh: FRANK_DEC_SPLIT
         frankDefDecUnadj:
           description: Default Frank - Declared Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: frank_amt_dec_unadj
-          x-fds-dh: FRANK_DEC_UNSPLIT
         frankPct:
           description: Default Amount - Declared Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: frank_pct
-          x-fds-dh: FRANK_PCT
         taxRate:
           description: Tax Rate for on gross dividend for net dividend.
           type: number
           format: double
-          x-fds-sdf: tax_rate
-          x-fds-dh: TAX_RATE
         requestId:
           description: Identifier that was used for the request.
           type: string
@@ -2371,14 +2280,10 @@ components:
             FactSet.
           type: string
           example: SJY281-R
-          x-fds-sdf: fsym_id
-          x-fds-dh: REGIONAL_FDS_ID
         eventId:
           description: FactSet identifier that uniquely identifies the Event.
           type: string
           example: JTHPFN-A
-          x-fds-sdf: ca_event_id
-          x-fds-dh: EVENT_ID
         eventTypeCode:
           description: Corporate Actions Event type code.
           type: string
@@ -2389,34 +2294,22 @@ components:
             - BNSS
             - SPO
             - DSR
-          x-fds-sdf: ca_event_type_code
-          x-fds-dh: EVENT_TYPE_CODE
         eventTypeDesc:
           description: Corporate Actions Event type description.
           type: string
           example: Stock Dividend, Special
-          x-fds-sdf: null
-          x-fds-dh: EVENT_TYPE
         announcementDate:
           description: Date Event was announced in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: announcement_date
-          x-fds-dh: ANNDATE
         recordDate:
           description: Date of Record for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: record_date
-          x-fds-dh: RECORD_DATE
         payDate:
           description: Date of Payment for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: pay_date
-          x-fds-dh: PAYDATE
         effectiveDate:
           description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: effective_date
-          x-fds-dh: EFFECTIVE_DATE
         adjFactor:
           description: >
             Factor for adjusting price and shares.
@@ -2426,37 +2319,27 @@ components:
           type: number
           format: double
           example: 0.997262
-          x-fds-sdf: price_adj_factor
-          x-fds-dh: ADJ_FACTOR
         adjFactorCombined:
           description: Combined adjustment factor for all distribution events on that day.
           type: number
           format: double
           example: 0.997262
-          x-fds-sdf: null
-          x-fds-dh: ADJ_FACTOR_COMBINED
         amtDefTradingAdj:
           description: Default Amount - Trading Currency, Split Adjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_def_trading_adj
-          x-fds-dh: AMT_DEF_SPLIT
         amtDefTradingUnadj:
           description: Default Amount - Trading Currency, Unadjusted
           type: number
           format: double
           example: null
-          x-fds-sdf: amt_def_trading_adj
-          x-fds-dh: AMT_DEF_UNSPLIT
         currency:
           description: >-
             Currency ISO code. For more details, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
-          x-fds-sdf: trading_currency
-          x-fds-dh: DEF_CURR_ISO
         distPct:
           description: >-
             Distribution percentage of the event  (i.e. 10%). Typical for stock
@@ -2464,35 +2347,25 @@ components:
           type: number
           format: double
           example: 0.27455
-          x-fds-sdf: dist_pct
-          x-fds-dh: DIST_RATIO_PERCENT_RATE
         distOldTerm:
           description: Component of distribution ratio -  Number of shares held.
           type: number
           format: double
           example: 1
-          x-fds-sdf: dist_old_term
-          x-fds-dh: DIST_RATIO_TERM_OLD
         distNewTerm:
           description: Component of distribution ratio -  Number of shares received.
           type: number
           format: double
           example: 0.05
-          x-fds-sdf: dist_new_term
-          x-fds-dh: DIST_RATIO_TERM_NEW
         rightsIssuePrice:
           description: Description
           type: number
           format: double
           example: null
-          x-fds-sdf: rights_issue_price
-          x-fds-dh: RIGHTS_PRICE
         rightsIssueCurrency:
           type: string
           description: Description
           example: USD
-          x-fds-sdf: rights_issue_currency
-          x-fds-dh: RIGHTS_CURR
         shortDesc:
           description: Textual description identifying the event.
           type: string
@@ -2500,8 +2373,6 @@ components:
             Spin off (Company)- For every 1 share held of General Electric Co.
             (CUSIP- 369604103; SEDOL- 2380498), receive 0.005371 share of Wabtec
             Rg (CUSIP- 929740108; SEDOL- 2955733)"
-          x-fds-sdf: short-desc
-          x-fds-dh: EVENT_DESC_SHORT
         requestId:
           description: Identifier that was used for the request.
           type: string
@@ -2522,14 +2393,10 @@ components:
             FactSet.
           type: string
           example: SJY281-R
-          x-fds-sdf: fsym_id
-          x-fds-dh: REGIONAL_FDS_ID
         eventId:
           description: FactSet identifier that uniquely identifies the Event.
           type: string
           example: JTHPFN-A
-          x-fds-sdf: ca_event_id
-          x-fds-dh: EVENT_ID
         eventTypeCode:
           description: Character code that denotes the type of Event.
           type: string
@@ -2537,34 +2404,22 @@ components:
             - FSP
             - RSP
             - SPL
-          x-fds-sdf: ca_event_type_code
-          x-fds-dh: EVENT_TYPE_CODE
         eventTypeDesc:
           description: Corporate Actions Event type description.
           type: string
           example: Forward Split
-          x-fds-sdf: null
-          x-fds-dh: EVENT_TYPE
         announcementDate:
           description: Date Event was announced in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: announcement_date
-          x-fds-dh: ANNDATE
         recordDate:
           description: Date of Record for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: record_date
-          x-fds-dh: RECORD_DATE
         payDate:
           description: Date of Payment for distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: pay_date
-          x-fds-dh: PAYDATE
         effectiveDate:
           description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
           type: string
-          x-fds-sdf: effective_date
-          x-fds-dh: EFFECTIVE_DATE
         adjFactor:
           description: >
             Factor for adjusting price and shares.
@@ -2574,41 +2429,29 @@ components:
           type: number
           format: double
           example: 0.997262
-          x-fds-sdf: price_adj_factor
-          x-fds-dh: ADJ_FACTOR
         adjFactorCombined:
           description: Combined adjustment factor for all distribution events on that day.
           type: number
           format: double
           example: 0.997262
-          x-fds-sdf: null
-          x-fds-dh: ADJ_FACTOR_COMBINED
         distOldTerm:
           description: Component of distribution ratio -  Number of shares held.
           type: number
           format: double
           example: 1
-          x-fds-sdf: dist_old_term
-          x-fds-dh: DIST_RATIO_TERM_OLD
         distNewTerm:
           description: Component of distribution ratio -  Number of shares received.
           type: number
           format: double
           example: 0.05
-          x-fds-sdf: dist_new_term
-          x-fds-dh: DIST_RATIO_TERM_NEW
         distInstFsymId:
           description: Parent Spin-Off for a company
           type: string
           example: RGW4H5-S
-          x-fds-sdf: dist_inst_fsym_id
-          x-fds-dh: DIST_INST_ID
         shortDesc:
           description: Textual description identifying the event.
           type: string
           example: 'Split (Mandatory): 3 for 1.'
-          x-fds-sdf: short_desc
-          x-fds-dh: EVENT_DESC_SHORT
         requestId:
           description: Identifier that was used for the request.
           type: string

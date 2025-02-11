@@ -38,8 +38,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 UpdateDate(string path, int date, UpdateDate updateDate);
+        /// <returns>SuccessPostResponse</returns>
+        SuccessPostResponse UpdateDate(string path, int date, UpdateDate updateDate);
 
         /// <summary>
         /// 
@@ -51,8 +51,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> UpdateDateWithHttpInfo(string path, int date, UpdateDate updateDate);
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        ApiResponse<SuccessPostResponse> UpdateDateWithHttpInfo(string path, int date, UpdateDate updateDate);
         /// <summary>
         /// 
         /// </summary>
@@ -62,8 +62,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 UpdateDates(string path, UpdateDates updateDates);
+        /// <returns>SuccessPostResponse</returns>
+        SuccessPostResponse UpdateDates(string path, UpdateDates updateDates);
 
         /// <summary>
         /// 
@@ -74,8 +74,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> UpdateDatesWithHttpInfo(string path, UpdateDates updateDates);
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        ApiResponse<SuccessPostResponse> UpdateDatesWithHttpInfo(string path, UpdateDates updateDates);
         /// <summary>
         /// 
         /// </summary>
@@ -86,8 +86,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 UpdateSymbol(string path, string symbol, UpdateSymbol updateSymbol);
+        /// <returns>SuccessPostResponse</returns>
+        SuccessPostResponse UpdateSymbol(string path, string symbol, UpdateSymbol updateSymbol);
 
         /// <summary>
         /// 
@@ -99,8 +99,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> UpdateSymbolWithHttpInfo(string path, string symbol, UpdateSymbol updateSymbol);
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        ApiResponse<SuccessPostResponse> UpdateSymbolWithHttpInfo(string path, string symbol, UpdateSymbol updateSymbol);
         /// <summary>
         /// 
         /// </summary>
@@ -110,8 +110,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 UpdateSymbols(string path, UpdateSymbols updateSymbols);
+        /// <returns>SuccessPostResponse</returns>
+        SuccessPostResponse UpdateSymbols(string path, UpdateSymbols updateSymbols);
 
         /// <summary>
         /// 
@@ -122,8 +122,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> UpdateSymbolsWithHttpInfo(string path, UpdateSymbols updateSymbols);
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        ApiResponse<SuccessPostResponse> UpdateSymbolsWithHttpInfo(string path, UpdateSymbols updateSymbols);
         #endregion Synchronous Operations
     }
 
@@ -144,8 +144,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> UpdateDateAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of SuccessPostResponse</returns>
+        System.Threading.Tasks.Task<SuccessPostResponse> UpdateDateAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -158,8 +158,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateDateWithHttpInfoAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateDateWithHttpInfoAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -170,8 +170,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> UpdateDatesAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of SuccessPostResponse</returns>
+        System.Threading.Tasks.Task<SuccessPostResponse> UpdateDatesAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -183,8 +183,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateDatesWithHttpInfoAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateDatesWithHttpInfoAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -196,8 +196,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> UpdateSymbolAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of SuccessPostResponse</returns>
+        System.Threading.Tasks.Task<SuccessPostResponse> UpdateSymbolAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -210,8 +210,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateSymbolWithHttpInfoAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateSymbolWithHttpInfoAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -222,8 +222,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> UpdateSymbolsAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of SuccessPostResponse</returns>
+        System.Threading.Tasks.Task<SuccessPostResponse> UpdateSymbolsAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -235,8 +235,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateSymbolsWithHttpInfoAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateSymbolsWithHttpInfoAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -259,6 +259,7 @@ namespace FactSet.SDK.OFDB.Api
         
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -270,6 +271,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -281,6 +283,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -292,6 +295,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -417,8 +421,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 UpdateDate(string path, int date, UpdateDate updateDate)
+        /// <returns>SuccessPostResponse</returns>
+        public SuccessPostResponse UpdateDate(string path, int date, UpdateDate updateDate)
         {
             var localVarResponse = UpdateDateWithHttpInfo(path, date, updateDate);
             return localVarResponse.Data;
@@ -431,8 +435,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> UpdateDateWithHttpInfo(string path, int date, UpdateDate updateDate)
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        public ApiResponse<SuccessPostResponse> UpdateDateWithHttpInfo(string path, int date, UpdateDate updateDate)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -497,7 +501,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<
-            InlineResponse202>("/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration);
+            SuccessPostResponse>("/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateDate", localVarResponse);
@@ -517,8 +521,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>UpdateDateAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of SuccessPostResponse</returns>
+        public async System.Threading.Tasks.Task<SuccessPostResponse>UpdateDateAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await UpdateDateWithHttpInfoAsync(path, date, updateDate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -532,9 +536,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="updateDate">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateDateWithHttpInfoAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateDateWithHttpInfoAsync(string path, int date, UpdateDate updateDate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -599,7 +603,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = UpdateDateResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InlineResponse202>("/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -619,8 +623,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 UpdateDates(string path, UpdateDates updateDates)
+        /// <returns>SuccessPostResponse</returns>
+        public SuccessPostResponse UpdateDates(string path, UpdateDates updateDates)
         {
             var localVarResponse = UpdateDatesWithHttpInfo(path, updateDates);
             return localVarResponse.Data;
@@ -632,8 +636,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> UpdateDatesWithHttpInfo(string path, UpdateDates updateDates)
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        public ApiResponse<SuccessPostResponse> UpdateDatesWithHttpInfo(string path, UpdateDates updateDates)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -697,7 +701,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<
-            InlineResponse202>("/database/{path}/dates", localVarRequestOptions, this.Configuration);
+            SuccessPostResponse>("/database/{path}/dates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateDates", localVarResponse);
@@ -716,8 +720,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>UpdateDatesAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of SuccessPostResponse</returns>
+        public async System.Threading.Tasks.Task<SuccessPostResponse>UpdateDatesAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await UpdateDatesWithHttpInfoAsync(path, updateDates, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -730,9 +734,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateDates">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateDatesWithHttpInfoAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateDatesWithHttpInfoAsync(string path, UpdateDates updateDates, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -796,7 +800,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = UpdateDatesResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InlineResponse202>("/database/{path}/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/database/{path}/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -817,8 +821,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 UpdateSymbol(string path, string symbol, UpdateSymbol updateSymbol)
+        /// <returns>SuccessPostResponse</returns>
+        public SuccessPostResponse UpdateSymbol(string path, string symbol, UpdateSymbol updateSymbol)
         {
             var localVarResponse = UpdateSymbolWithHttpInfo(path, symbol, updateSymbol);
             return localVarResponse.Data;
@@ -831,8 +835,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> UpdateSymbolWithHttpInfo(string path, string symbol, UpdateSymbol updateSymbol)
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        public ApiResponse<SuccessPostResponse> UpdateSymbolWithHttpInfo(string path, string symbol, UpdateSymbol updateSymbol)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -903,7 +907,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<
-            InlineResponse202>("/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            SuccessPostResponse>("/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateSymbol", localVarResponse);
@@ -923,8 +927,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>UpdateSymbolAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of SuccessPostResponse</returns>
+        public async System.Threading.Tasks.Task<SuccessPostResponse>UpdateSymbolAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await UpdateSymbolWithHttpInfoAsync(path, symbol, updateSymbol, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -938,9 +942,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="updateSymbol">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateSymbolWithHttpInfoAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateSymbolWithHttpInfoAsync(string path, string symbol, UpdateSymbol updateSymbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1011,7 +1015,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = UpdateSymbolResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InlineResponse202>("/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1031,8 +1035,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 UpdateSymbols(string path, UpdateSymbols updateSymbols)
+        /// <returns>SuccessPostResponse</returns>
+        public SuccessPostResponse UpdateSymbols(string path, UpdateSymbols updateSymbols)
         {
             var localVarResponse = UpdateSymbolsWithHttpInfo(path, updateSymbols);
             return localVarResponse.Data;
@@ -1044,8 +1048,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> UpdateSymbolsWithHttpInfo(string path, UpdateSymbols updateSymbols)
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        public ApiResponse<SuccessPostResponse> UpdateSymbolsWithHttpInfo(string path, UpdateSymbols updateSymbols)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1109,7 +1113,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<
-            InlineResponse202>("/database/{path}/symbols", localVarRequestOptions, this.Configuration);
+            SuccessPostResponse>("/database/{path}/symbols", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateSymbols", localVarResponse);
@@ -1128,8 +1132,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>UpdateSymbolsAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of SuccessPostResponse</returns>
+        public async System.Threading.Tasks.Task<SuccessPostResponse>UpdateSymbolsAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await UpdateSymbolsWithHttpInfoAsync(path, updateSymbols, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1142,9 +1146,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="updateSymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> UpdateSymbolsWithHttpInfoAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> UpdateSymbolsWithHttpInfoAsync(string path, UpdateSymbols updateSymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1208,7 +1212,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = UpdateSymbolsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InlineResponse202>("/database/{path}/symbols", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/database/{path}/symbols", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

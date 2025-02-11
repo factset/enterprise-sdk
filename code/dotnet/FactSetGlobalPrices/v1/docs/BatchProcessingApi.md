@@ -4,8 +4,8 @@ All URIs are relative to *https://api.factset.com/content*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetBatchData**](BatchProcessingApi.md#getbatchdata) | **GET** /factset-global-prices/v1/batch-result | Returns the response for a Batch Request 
-[**GetBatchStatus**](BatchProcessingApi.md#getbatchstatus) | **GET** /factset-global-prices/v1/batch-status | Returns the status for a Batch Request 
+[**GetBatchData**](BatchProcessingApi.md#getbatchdata) | **GET** /factset-global-prices/v1/batch-result | Returns the response for a Batch Request
+[**GetBatchStatus**](BatchProcessingApi.md#getbatchstatus) | **GET** /factset-global-prices/v1/batch-status | Returns the status for a Batch Request
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **GetBatchData**
 > BatchResultResponse GetBatchData (Guid id)
 
-Returns the response for a Batch Request 
+Returns the response for a Batch Request
 
 Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\". 
 
@@ -66,7 +66,7 @@ namespace Example
 
             try
             {
-                // Returns the response for a Batch Request 
+                // Returns the response for a Batch Request
                 BatchProcessingApi.GetBatchDataResponseWrapper result = apiInstance.GetBatchData(id);
 
                 switch (result.StatusCode)
@@ -126,7 +126,7 @@ GetBatchDataResponseWrapper
 # **GetBatchStatus**
 > BatchStatusResponse GetBatchStatus (Guid id)
 
-Returns the status for a Batch Request 
+Returns the status for a Batch Request
 
 Return the status for the underlying batch request that is specified by the id.
 
@@ -178,7 +178,7 @@ namespace Example
 
             try
             {
-                // Returns the status for a Batch Request 
+                // Returns the status for a Batch Request
                 BatchStatusResponse result = apiInstance.GetBatchStatus(id);
                 Console.WriteLine(result.ToJson());
             }

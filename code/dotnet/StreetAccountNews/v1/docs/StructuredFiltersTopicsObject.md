@@ -5,7 +5,7 @@ Elements of structured filters topics object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The name of the topic. | [optional] 
+**Name** | **string** | The name of the topic. | 
 **Value** | **List&lt;string&gt;** |  | [optional] 
 **Children** | [**List&lt;StructuredFiltersChildrenObjectTopics&gt;**](StructuredFiltersChildrenObjectTopics.md) | An array of child objects. | [optional] 
 

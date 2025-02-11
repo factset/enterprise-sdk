@@ -369,11 +369,11 @@ public class Actual implements Serializable {
   }
 
    /**
-   * The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.
+   * Actual value for the requested metric.
    * @return actualValue
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "383285", value = "The Online Assistant Page URL, used to lookup the definition and methodology of the requested item.")
+  @ApiModelProperty(example = "383285", value = "Actual value for the requested metric.")
   @JsonIgnore
 
   public BigDecimal getActualValue() {

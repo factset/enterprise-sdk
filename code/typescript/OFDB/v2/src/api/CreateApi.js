@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateDatabase from '../model/CreateDatabase';
 import DatabaseSchema from '../model/DatabaseSchema';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
@@ -41,7 +42,7 @@ export default class CreateApi {
      * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
      * @param {Object} opts Optional parameters
      * @param {module:model/DatabaseSchema} opts.databaseSchema 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateDatabase} and HTTP response
      */
     createDatabaseWithHttpInfo(opts) {
       opts = opts || {};
@@ -61,7 +62,7 @@ export default class CreateApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = CreateDatabase;
 
       return this.apiClient.callApi(
         '/database', 'POST',
@@ -74,7 +75,7 @@ export default class CreateApi {
      * Creates a 2d or 3d database(OFDB). Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.
      * @param {Object} opts Optional parameters
      * @param {module:model/DatabaseSchema} opts.databaseSchema 
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/CreateDatabase > } a Promise, with data of type {@link module:model/CreateDatabase }
      */
     createDatabase(opts) {
       return this.createDatabaseWithHttpInfo(opts)

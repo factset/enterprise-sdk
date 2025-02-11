@@ -1,6 +1,6 @@
 # FilterTopicResponse
 
-FiltersTopic Object
+Filters Topic Object
 
 ## Properties
 Name | Type | Description | Notes

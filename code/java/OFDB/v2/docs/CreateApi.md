@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## createDatabase
 
-> InlineResponse202 createDatabase(databaseSchema)
+> CreateDatabase createDatabase(databaseSchema)
 
 
 
@@ -59,7 +59,7 @@ public class Example {
         CreateApi apiInstance = new CreateApi(defaultClient);
         DatabaseSchema databaseSchema = new DatabaseSchema(); // DatabaseSchema | 
         try {
-            InlineResponse202 result = apiInstance.createDatabase(databaseSchema);
+            CreateDatabase result = apiInstance.createDatabase(databaseSchema);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**CreateDatabase**](CreateDatabase.md)
 
 ### Authorization
 
@@ -96,6 +96,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Creates and responds with ofdb path |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

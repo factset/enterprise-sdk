@@ -25,6 +25,12 @@ from fds.sdk.OFDB.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.OFDB.exceptions import ApiException
+from fds.sdk.OFDB.model.inline_response200 import InlineResponse200
+from fds.sdk.OFDB.model.inline_response2001 import InlineResponse2001
+from fds.sdk.OFDB.model.inline_response2002 import InlineResponse2002
+from fds.sdk.OFDB.model.inline_response2004 import InlineResponse2004
+from fds.sdk.OFDB.model.inline_response2005 import InlineResponse2005
+from fds.sdk.OFDB.model.inline_response2006 import InlineResponse2006
 from fds.sdk.OFDB.model.inline_response202 import InlineResponse202
 from fds.sdk.OFDB.model.inline_response400 import InlineResponse400
 from fds.sdk.OFDB.model.inline_response403 import InlineResponse403
@@ -48,7 +54,7 @@ class GetApi(object):
         self.get_audit_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 200: (InlineResponse200,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -104,7 +110,7 @@ class GetApi(object):
         self.get_data_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 200: (InlineResponse2006,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -221,7 +227,7 @@ class GetApi(object):
         self.get_dates_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 200: (InlineResponse2005,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -308,7 +314,7 @@ class GetApi(object):
         self.get_fields_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 200: (InlineResponse2002,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -364,7 +370,7 @@ class GetApi(object):
         self.get_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 200: (InlineResponse2001,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -420,7 +426,7 @@ class GetApi(object):
         self.get_symbols_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
+                  { 200: (InlineResponse2004,), 202: (InlineResponse202,), 400: (InlineResponse400,), 403: (InlineResponse403,), 404: (InlineResponse403,), 406: (InlineResponse403,), 429: (InlineResponse403,),  },
                   None
                 ),
                 'auth': [
@@ -522,7 +528,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> InlineResponse200:
         """get_audit  # noqa: E501
 
         Returns a list of the most recent \"modificationTimes\" in long datetime format  # noqa: E501
@@ -557,7 +563,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse200
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -569,7 +575,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
         """get_audit  # noqa: E501
 
         Returns a list of the most recent \"modificationTimes\" in long datetime format  # noqa: E501
@@ -604,7 +610,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse200
                 Response Object
             int
                 Http Status Code
@@ -620,7 +626,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[InlineResponse200]":
         """get_audit  # noqa: E501
 
         Returns a list of the most recent \"modificationTimes\" in long datetime format  # noqa: E501
@@ -655,7 +661,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[InlineResponse200]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -666,7 +672,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
         """get_audit  # noqa: E501
 
         Returns a list of the most recent \"modificationTimes\" in long datetime format  # noqa: E501
@@ -701,7 +707,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(InlineResponse200, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -713,7 +719,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> InlineResponse2006:
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -759,7 +765,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2006
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -771,7 +777,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -817,7 +823,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2006
                 Response Object
             int
                 Http Status Code
@@ -833,7 +839,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[InlineResponse2006]":
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -879,7 +885,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[InlineResponse2006]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -890,7 +896,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
         """get_data  # noqa: E501
 
         Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required. For a range of dates symbol parameter is mandatory.  # noqa: E501
@@ -936,7 +942,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(InlineResponse2006, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -948,7 +954,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> InlineResponse2005:
         """get_dates  # noqa: E501
 
         Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -988,7 +994,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1000,7 +1006,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """get_dates  # noqa: E501
 
         Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1040,7 +1046,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -1056,7 +1062,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """get_dates  # noqa: E501
 
         Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1096,7 +1102,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -1107,7 +1113,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """get_dates  # noqa: E501
 
         Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1147,7 +1153,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -1159,7 +1165,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> InlineResponse2002:
         """get_fields  # noqa: E501
 
         Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1194,7 +1200,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2002
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1206,7 +1212,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
         """get_fields  # noqa: E501
 
         Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1241,7 +1247,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2002
                 Response Object
             int
                 Http Status Code
@@ -1257,7 +1263,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[InlineResponse2002]":
         """get_fields  # noqa: E501
 
         Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1292,7 +1298,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[InlineResponse2002]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -1303,7 +1309,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
         """get_fields  # noqa: E501
 
         Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1338,7 +1344,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(InlineResponse2002, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -1350,7 +1356,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> InlineResponse2001:
         """get_stats  # noqa: E501
 
         Returns a summary of OFDB metadata and data points  # noqa: E501
@@ -1385,7 +1391,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2001
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1397,7 +1403,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
         """get_stats  # noqa: E501
 
         Returns a summary of OFDB metadata and data points  # noqa: E501
@@ -1432,7 +1438,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2001
                 Response Object
             int
                 Http Status Code
@@ -1448,7 +1454,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[InlineResponse2001]":
         """get_stats  # noqa: E501
 
         Returns a summary of OFDB metadata and data points  # noqa: E501
@@ -1483,7 +1489,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[InlineResponse2001]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -1494,7 +1500,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
         """get_stats  # noqa: E501
 
         Returns a summary of OFDB metadata and data points  # noqa: E501
@@ -1529,7 +1535,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(InlineResponse2001, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
@@ -1541,7 +1547,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> InlineResponse202:
+    ) -> InlineResponse2004:
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1581,7 +1587,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2004
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1593,7 +1599,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> typing.Tuple[InlineResponse202, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1633,7 +1639,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse202
+            InlineResponse2004
                 Response Object
             int
                 Http Status Code
@@ -1649,7 +1655,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[InlineResponse202]":
+    ) -> "ApplyResult[InlineResponse2004]":
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1689,7 +1695,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse202]
+            ApplyResult[InlineResponse2004]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
@@ -1700,7 +1706,7 @@ class GetApi(object):
         self,
         path,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse202, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
         """get_symbols  # noqa: E501
 
         Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)  # noqa: E501
@@ -1740,7 +1746,7 @@ class GetApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse202, int, typing.Dict)]
+            ApplyResult[(InlineResponse2004, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \

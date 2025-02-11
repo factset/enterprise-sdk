@@ -10,19 +10,11 @@ info:
     **StreetAccount Filters, Headlines, and Views:**
 
     These endpoints allow for the retrieval of news headlines using filters such as Watchlists/Indices/Tickers, Categories (the equivalent of 'Subjects' within the Workstation), Market Topics, Regions, and Sectors.  Headlines can also be retrieved based on saved views within the Workstation.
-
-     **StreetAccount Historical Stories:**
-
-    These endpoints provide access to historical StreetAccount (SA) news. The API delivers SA stories in XML format based on user-specified date input parameters. Output files are securely available to users through a URL. This API has three endpoints: Create, Status, and Get.
-
-    Please note that this API only supports adhoc requests for historical files and does not support real-time files. If real-time push is required, consider using other methods such as SFTP, QNT account, or Azure Storage. Both historical and real-time Street Account news can be delivered via SFTP, QNT account, or Azure Storage.
-
-    The files delivered contain both metadata and content body, eliminating the need for multiple requests through multiple services to retrieve all the information.
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: StreetAccount News API
-  version: 1.1.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/streetaccount-news-api
@@ -39,8 +31,6 @@ tags:
   name: Headlines
 - description: Create, edit and delete views
   name: Views
-- description: Create, Status and Get files
-  name: StreetAccount Historical Stories
 paths:
   /headlines:
     post:
@@ -86,7 +76,7 @@ paths:
             application/json:
               examples:
                 default400ResponseExample:
-                  $ref: '#/components/examples/BadRequest'
+                  $ref: '#/components/examples/BadHeadlinesPostRequest'
               schema:
                 $ref: '#/components/schemas/Error'
           description: Bad Request. This can occur for invalid parameter.
@@ -139,7 +129,7 @@ paths:
     post:
       description: This endpoint allows you to pull all headlines produced by StreetAccount
         for a saved view. The full story body will be returned by the data set. Views
-        can be created via the ‘Create Views’ endpoint.
+        can be created via the 'Create Views' endpoint.
       operationId: getStreetAccountHeadlinesByView
       requestBody:
         $ref: '#/components/requestBodies/headlinesRequestByView'
@@ -657,7 +647,7 @@ paths:
       operationId: getStreetAccountFilters
       parameters:
       - description: |
-          Pass a list of filters to return the respective type of filter. Accepted list values are "structured" and/or "flattened". If no _atrributes are specified, all filters will be returned in the response (this is the default response).
+          Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
         explode: false
         in: query
         name: _attributes
@@ -804,7 +794,7 @@ paths:
       operationId: getStreetAccountFiltersCategories
       parameters:
       - description: |
-          Pass a list of filters to return the respective type of filter categories. Accepted list values are "structured" and/or "flattened". If no _atrributes are specified, all filters will be returned in the response (this is the default response).
+          Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
         explode: false
         in: query
         name: _attributes
@@ -908,7 +898,7 @@ paths:
       operationId: getStreetAccountFiltersTopics
       parameters:
       - description: |
-          Pass a list of filters to return the respective type of filter topics. Accepted list values are "structured" and/or "flattened". If no _atrributes are specified, all filters will be returned in the response (this is the default response).
+          Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
         explode: false
         in: query
         name: _attributes
@@ -1012,7 +1002,7 @@ paths:
       operationId: getStreetAccountFiltersRegions
       parameters:
       - description: |
-          Pass a list of filters to return the respective type of filter Regions. Accepted list values are "structured" and/or "flattened". If no _atrributes are specified, all filters will be returned in the response (this is the default response).
+          Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
         explode: false
         in: query
         name: _attributes
@@ -1116,7 +1106,7 @@ paths:
       operationId: getStreetAccountFiltersSectors
       parameters:
       - description: |
-          Pass a list of filters to return the respective type of filter Sectors. Accepted list values are "structured" and/or "flattened". If no _atrributes are specified, all filters will be returned in the response (this is the default response).
+          Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
         explode: false
         in: query
         name: _attributes
@@ -1219,7 +1209,7 @@ paths:
       operationId: getStreetAccountFiltersWatchlists
       parameters:
       - description: |
-          Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are "structured" and/or "flattened". If no _atrributes are specified, all filters will be returned in the response (this is the default response).
+          Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
         explode: false
         in: query
         name: _attributes
@@ -1309,326 +1299,6 @@ paths:
       tags:
       - Filters
       x-accepts: application/json
-  /historical/files/create:
-    post:
-      description: Data available from past 10 years, 2 years of data can be retrieved
-        per API request and an ID is returned.
-      operationId: requestFiles
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/createFilesRequest'
-        required: true
-      responses:
-        "202":
-          content:
-            application/json:
-              examples:
-                default202ResponseExample:
-                  $ref: '#/components/examples/acceptedResponseExample'
-              schema:
-                $ref: '#/components/schemas/acceptedResponse'
-          description: |
-            The Request has been Accepted.
-          headers:
-            Location:
-              description: Relative location to poll for status
-              explode: false
-              schema:
-                type: string
-              style: simple
-            X-FactSet-Api-RateLimit-Limit:
-              description: Number of allowed requests for the time window.
-              explode: false
-              schema:
-                type: string
-              style: simple
-            X-FactSet-Api-RateLimit-Remaining:
-              description: Number of requests left for the time window.
-              explode: false
-              schema:
-                type: string
-              style: simple
-            X-FactSet-Api-RateLimit-Reset:
-              description: Number of seconds remaining till rate limit resets.
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                default400ResponseExample:
-                  $ref: '#/components/examples/400Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad request
-        "401":
-          content:
-            application/json:
-              examples:
-                default401ResponseExample:
-                  $ref: '#/components/examples/AuthDetails'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              examples:
-                default403ResponseExample:
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Forbidden
-        "429":
-          content:
-            application/json:
-              examples:
-                default429ResponseExample:
-                  $ref: '#/components/examples/429Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Too many requests.
-        "500":
-          content:
-            application/json:
-              examples:
-                default500ResponseExample:
-                  $ref: '#/components/examples/500Details'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Requests the creation of StreetAccount News Files with historical data.
-      tags:
-      - StreetAccount Historical Stories
-      x-contentType: application/json
-      x-accepts: application/json
-  /historical/files/status:
-    get:
-      description: Need to plug-in the ID get from /historical/files/create endpoint
-        into /historical/files/status endpoint
-      operationId: getStatusData
-      parameters:
-      - description: ID returned by the /historical/files/create endpoint to know
-          the status
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: Specifies the maximum number of results to return per result
-        explode: true
-        in: query
-        name: _paginationLimit
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: Specifies the starting point for pagination. This parameter is
-          used to identify the beginning of next set of results
-        explode: true
-        in: query
-        name: _paginationOffset
-        required: false
-        schema:
-          type: integer
-        style: form
-      responses:
-        "201":
-          content:
-            application/json:
-              examples:
-                default201ResponseExample:
-                  $ref: '#/components/examples/submittedResponseExample'
-              schema:
-                $ref: '#/components/schemas/submittedResponse'
-          description: |
-            The Request has been Created.
-          headers:
-            Location:
-              description: Relative location to pick up results.
-              example: get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "202":
-          content:
-            application/json:
-              examples:
-                QueuedExample:
-                  $ref: '#/components/examples/sampleFilesResponseQueued'
-                ExecutingExample:
-                  $ref: '#/components/examples/sampleFilesResponseExecuting'
-                FailedExample:
-                  $ref: '#/components/examples/sampleFilesResponseFailed'
-                CancelledExample:
-                  $ref: '#/components/examples/sampleFilesResponseCancelled'
-              schema:
-                $ref: '#/components/schemas/acceptedResponse'
-          description: |
-            The Request has been Accepted.
-          headers:
-            Location:
-              description: Relative location to poll for status.
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              examples:
-                default400ResponseExample:
-                  $ref: '#/components/examples/400Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad request
-        "401":
-          content:
-            application/json:
-              examples:
-                default401ResponseExample:
-                  $ref: '#/components/examples/AuthDetails'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              examples:
-                default403ResponseExample:
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              examples:
-                default404ResponseExample:
-                  $ref: '#/components/examples/404Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              examples:
-                default500ResponseExample:
-                  $ref: '#/components/examples/500Details'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Returns the status of the request
-      tags:
-      - StreetAccount Historical Stories
-      x-factset-different-success-responses: true
-      x-accepts: application/json
-  /historical/files/get:
-    get:
-      description: Need to plug-in the ID got from /historical/files/create into /historical/files/status
-        endpoint
-      operationId: getFilesData
-      parameters:
-      - description: ID returned by the /historical/files/create endpoint to collect
-          the results of the query
-        explode: true
-        in: query
-        name: id
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: Specifies the maximum number of results to return per result
-        explode: true
-        in: query
-        name: _paginationLimit
-        required: false
-        schema:
-          type: integer
-        style: form
-      - description: Specifies the starting point for pagination. This parameter is
-          used to identify the   beginning of next set of results
-        explode: true
-        in: query
-        name: _paginationOffset
-        required: false
-        schema:
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              examples:
-                default200ResponseExample:
-                  $ref: '#/components/examples/200GetFilesExample'
-              schema:
-                $ref: '#/components/schemas/getfilesResponse'
-          description: success
-        "400":
-          content:
-            application/json:
-              examples:
-                default400ResponseExample:
-                  $ref: '#/components/examples/400ExampleOne'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Bad request
-          headers:
-            Location:
-              description: Relative location to poll for status.
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "401":
-          content:
-            application/json:
-              examples:
-                default401ResponseExample:
-                  $ref: '#/components/examples/AuthDetails'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              examples:
-                default403ResponseExample:
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              examples:
-                default404ResponseExample:
-                  $ref: '#/components/examples/404Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Not Found
-        "500":
-          content:
-            application/json:
-              examples:
-                default500ResponseExample:
-                  $ref: '#/components/examples/500Details'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Internal Server Error
-      summary: Returns the StreetAccount Historical data in files requested in the
-        /historical/files/create endpoint.
-      tags:
-      - StreetAccount Historical Stories
-      x-accepts: application/json
 components:
   examples:
     predefinedRange:
@@ -1704,6 +1374,13 @@ components:
         - code: Bad Request
           title: Invalid View Name.
           id: 7af3d86ca5954503b9244f2620fcf5eb
+    BadHeadlinesPostRequest:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Bad Request
+          title: Invalid request.
+          id: 7af3d86ca5954503b9244f2620fcf5eb
     AuthDetails:
       summary: Sample Error Response
       value:
@@ -1725,162 +1402,25 @@ components:
         - code: Internal Server error
           title: An unexpected error happened.
           id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
-    "400Example":
-      summary: Sample error Response
-      value:
-        errors:
-        - code: Bad Request
-          title: parameterError:['_id'] is not a valid parameter(s)
-          id: 7af3d86ca5954503b9244f2620fcf5eb
-    "400ExampleOne":
-      summary: Sample Error Response
-      value:
-        errors:
-        - code: Bad Request
-          title: Please use /historical/files/status endpoint to get the status until
-            the resource created.
-          id: 7af3d86ca5954503b9244f2620fcf5eb
-    "403Example":
-      summary: sample error response
-      value:
-        errors:
-        - code: Forbidden
-          title: USERNAME-SERIAL does not have permission
-          id: 7af3d86ca5954503b9244f2620fcf5eb
-    "429Example":
-      summary: sample error response
-      value:
-        errors:
-        - code: Too Many Requests
-          title: quantityLimitsExceeded
-          id: 7af3d86ca5954503b9244f2620fcf5eb
-    "404Example":
-      summary: sample error response
-      value:
-        errors:
-        - code: Not Found
-          title: id not found
-          id: 7af3d86ca5954503b9244f2620fcf5eb
-    acceptedResponseExample:
-      summary: Status Accepted
-      value:
-        data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: queued
-          error: null
-    submittedResponseExample:
-      summary: Status Done
-      value:
-        data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: created
-          resources:
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
-            status: created
-            error: null
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
-            status: created
-            error: null
-        meta:
-          pagination:
-            total: 105
-            isEstimatedTotal: false
-    sampleFilesResponseQueued:
-      summary: Status Queued
-      value:
-        data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: queued
-          resources:
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
-            status: queued
-            error: null
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
-            status: queued
-            error: null
-        meta:
-          pagination:
-            total: 105
-            isEstimatedTotal: false
-    sampleFilesResponseExecuting:
-      summary: Status Executing
-      value:
-        data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: executing
-          resources:
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
-            status: executing
-            error: null
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
-            status: executing
-            error: null
-        meta:
-          pagination:
-            total: 105
-            isEstimatedTotal: false
-    sampleFilesResponseFailed:
-      summary: Status Failed
-      value:
-        data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: failed
-          resources:
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
-            status: failed
-            error:
-              id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-              code: Geeneric Error
-              title: 'Not a valid request '
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
-            status: failed
-            error:
-              id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-              code: Geeneric Error
-              title: 'Not a valid request '
-        meta:
-          pagination:
-            total: 105
-            isEstimatedTotal: false
-    sampleFilesResponseCancelled:
-      summary: Status Cancelled
-      value:
-        data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: cancelled
-          resources:
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
-            status: cancelled
-            error:
-              id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-              code: Error
-              title: Request taking long time
-          - id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
-            status: cancelled
-            error:
-              id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-              code: Error
-              title: Request taking long time
-        meta:
-          pagination:
-            total: 105
-            isEstimatedTotal: false
-    "200GetFilesExample":
-      summary: Sample Response
-      value:
-        data:
-        - startDate: 2021-11-21T00:00:00Z
-          endDate: 2021-11-28T00:00:00Z
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 1
-          url: https://structured-data-delivery-streetaccount/download/get/link
-        - startDate: 2021-11-21T00:00:00Z
-          endDate: 2021-11-28T00:00:00Z
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786 - 2
-          url: https://structured-data-delivery-streetaccount/download/get/link
-        meta:
-          pagination:
-            total: 105
-            isEstimatedTotal: false
+  parameters:
+    attributes:
+      description: |
+        Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.
+      explode: false
+      in: query
+      name: _attributes
+      required: false
+      schema:
+        items:
+          enum:
+          - structured
+          - flattened
+          maxLength: 11
+          type: string
+        maxItems: 2
+        type: array
+        uniqueItems: true
+      style: form
   requestBodies:
     headlinesRequest:
       content:
@@ -1952,10 +1492,10 @@ components:
         errors:
           description: An array of error objects.
           items:
-            $ref: '#/components/schemas/errorObject'
+            $ref: '#/components/schemas/ErrorObject'
           type: array
       type: object
-    errorObject:
+    ErrorObject:
       description: An object representing an error.
       properties:
         id:
@@ -1966,332 +1506,6 @@ components:
           type: string
         code:
           description: The error code associated with the error.
-          type: string
-      type: object
-    createFilesRequest:
-      description: create-files request body elements
-      properties:
-        data:
-          $ref: '#/components/schemas/createFilesRequestObject'
-      required:
-      - data
-      title: create-files Request Body
-      type: object
-    createFilesRequestObject:
-      description: create-files request body elements
-      properties:
-        dateTimeRange:
-          $ref: '#/components/schemas/dateTimeRangeObject'
-        identifiers:
-          description: Returns files for specified CUSIP, SEDOL, ISIN, Entity Identifier,
-            Ticker and Regional Ticker. If this parameter is not specified, it will
-            return all the files that covered under specified category.
-          example:
-          - AAPL-US
-          - IBM-US
-          items:
-            maxItems: 500
-            minItems: 1
-            type: string
-          type: array
-        category:
-          description: "Each category corresponds to AT LEAST 1 output file. Depending\
-            \ on the date range provided, each category can produce any number of\
-            \ output files. If multiple files are created for one category, the files\
-            \ themselves have no specific order. \n\n* companyNewsAll = Company News\
-            \ - All Regions\n* companyNewsNA = Company News - North America Region\n\
-            * companyNewsEU = Company News -EU Region\n* companyNewsAPAC = Company\
-            \ News - APAC Region\n* companyNewsESG = Company News - ESG\n* macroTtnAll\
-            \ = Macro and Today's Top News - All Regions\n* macroTtnNA = Macro and\
-            \ Today's Top News - North America Region\n* macroTtnEU = Macro and Today's\
-            \ Top News - EU Region\n* macroTtnAPAC = Macro and Today's Top News -\
-            \ APAC  Region\n* macroTtnESG = Macro and Today's Top News - ESG\n* all\
-            \ = Content bundle includes \"Company News - All Regions\", \"Company\
-            \ News - ESG\", \"Macro and Today's Top News - All Regions\", and \"Macro\
-            \ and Today's Top News - ESG\"\n* macroTtnBanking = Macro and Today's\
-            \ Top News -Banking\n* macroTtnConsumer = Macro and Today's Top News -\
-            \ Consumer\n* macroTtnEnergy = Macro and Today's Top News - Energy\n*\
-            \ macroTtnHealthcare = Macro and Today's Top News - Healthcare\n* macroTtnIndustrials\
-            \ = Macro and Today's Top News - Industrials\n* macroTtnInsurance = Macro\
-            \ and Today's Top News - Insurance\n* macroTtnMedia =  Macro and Today's\
-            \ Top News - Media & Telecom\n* macroTtnMetals = Macro and Today's Top\
-            \ News - Metals & Mining\n* macroTtnPower = Macro and Today's Top News\
-            \ - Power & Utilities\n* macroTtnRealEstate = Macro and Today's Top News\
-            \ - Real Estate\n* macroTtnTech = Macro and Today's Top News -Technology\n\
-            * macroTtnAllSectors = Macro and Today's Top News - All Sectors"
-          items:
-            enum:
-            - companyNewsAll
-            - companyNewsNA
-            - companyNewsEU
-            - companyNewsAPAC
-            - companyNewsESG
-            - macroTtnAll
-            - macroTtnNA
-            - macroTtnEU
-            - macroTtnAPAC
-            - macroTtnESG
-            - all
-            - macroTtnBanking
-            - macroTtnConsumer
-            - macroTtnEnergy
-            - macroTtnHealthcare
-            - macroTtnIndustrials
-            - macroTtnInsurance
-            - macroTtnMedia
-            - macroTtnMetals
-            - macroTtnPower
-            - macroTtnRealEstate
-            - macroTtnTech
-            - macroTtnAllSectors
-            type: string
-          type: array
-      required:
-      - category
-      - dateTimeRange
-      title: create-files Request Body
-      type: object
-    dateTimeRange:
-      $ref: '#/components/schemas/dateTimeRangeObject'
-    dateTimeRangeObject:
-      description: Date Range
-      properties:
-        start:
-          description: |
-            The date for (or from which) the data is required.
-          example: 2012-01-01T12:35:45Z
-          format: date-time
-          type: string
-        end:
-          description: |
-            The date to which data is required.
-          example: 2012-01-30T08:10:30Z
-          format: date-time
-          type: string
-      type: object
-    identifiers:
-      description: Returns files for specified CUSIP, SEDOL, ISIN, Entity Identifier,
-        Ticker and Regional Ticker. If this parameter is not specified, it will return
-        all the files that covered under specified category.
-      example:
-      - AAPL-US
-      - IBM-US
-      items:
-        maxItems: 500
-        minItems: 1
-        type: string
-      type: array
-    category:
-      description: "Each category corresponds to AT LEAST 1 output file. Depending\
-        \ on the date range provided, each category can produce any number of output\
-        \ files. If multiple files are created for one category, the files themselves\
-        \ have no specific order. \n\n* companyNewsAll = Company News - All Regions\n\
-        * companyNewsNA = Company News - North America Region\n* companyNewsEU = Company\
-        \ News -EU Region\n* companyNewsAPAC = Company News - APAC Region\n* companyNewsESG\
-        \ = Company News - ESG\n* macroTtnAll = Macro and Today's Top News - All Regions\n\
-        * macroTtnNA = Macro and Today's Top News - North America Region\n* macroTtnEU\
-        \ = Macro and Today's Top News - EU Region\n* macroTtnAPAC = Macro and Today's\
-        \ Top News - APAC  Region\n* macroTtnESG = Macro and Today's Top News - ESG\n\
-        * all = Content bundle includes \"Company News - All Regions\", \"Company\
-        \ News - ESG\", \"Macro and Today's Top News - All Regions\", and \"Macro\
-        \ and Today's Top News - ESG\"\n* macroTtnBanking = Macro and Today's Top\
-        \ News -Banking\n* macroTtnConsumer = Macro and Today's Top News - Consumer\n\
-        * macroTtnEnergy = Macro and Today's Top News - Energy\n* macroTtnHealthcare\
-        \ = Macro and Today's Top News - Healthcare\n* macroTtnIndustrials = Macro\
-        \ and Today's Top News - Industrials\n* macroTtnInsurance = Macro and Today's\
-        \ Top News - Insurance\n* macroTtnMedia =  Macro and Today's Top News - Media\
-        \ & Telecom\n* macroTtnMetals = Macro and Today's Top News - Metals & Mining\n\
-        * macroTtnPower = Macro and Today's Top News - Power & Utilities\n* macroTtnRealEstate\
-        \ = Macro and Today's Top News - Real Estate\n* macroTtnTech = Macro and Today's\
-        \ Top News -Technology\n* macroTtnAllSectors = Macro and Today's Top News\
-        \ - All Sectors"
-      items:
-        enum:
-        - companyNewsAll
-        - companyNewsNA
-        - companyNewsEU
-        - companyNewsAPAC
-        - companyNewsESG
-        - macroTtnAll
-        - macroTtnNA
-        - macroTtnEU
-        - macroTtnAPAC
-        - macroTtnESG
-        - all
-        - macroTtnBanking
-        - macroTtnConsumer
-        - macroTtnEnergy
-        - macroTtnHealthcare
-        - macroTtnIndustrials
-        - macroTtnInsurance
-        - macroTtnMedia
-        - macroTtnMetals
-        - macroTtnPower
-        - macroTtnRealEstate
-        - macroTtnTech
-        - macroTtnAllSectors
-        type: string
-      type: array
-    acceptedResponse:
-      description: Returns Status of the id.
-      example:
-        data:
-          resources:
-          - '{}'
-          - '{}'
-          id: id
-          status: queued
-        meta:
-          pagination:
-            total: 0
-            isEstimatedTotal: true
-      properties:
-        data:
-          $ref: '#/components/schemas/StatusOne'
-        meta:
-          $ref: '#/components/schemas/metaOne'
-      title: Status Response
-      type: object
-    StatusOne:
-      description: request-files
-      example:
-        resources:
-        - '{}'
-        - '{}'
-        id: id
-        status: queued
-      properties:
-        id:
-          description: a unique identification for the query requested
-          type: string
-        status:
-          description: The status of the query
-          enum:
-          - queued
-          - executing
-          - created
-          - failed
-          - cancelled
-          type: string
-        resources:
-          items:
-            properties:
-              id:
-                description: a unique identification for the batch
-                type: string
-              status:
-                description: The status of the batch
-                type: string
-              error:
-                $ref: '#/components/schemas/202ErrorObject'
-          type: array
-      type: object
-    "202ErrorObject":
-      description: error
-      nullable: true
-      properties:
-        id:
-          description: A UUID for this particular occurrence of the problem.
-          type: string
-        code:
-          description: status
-          type: string
-        title:
-          description: The plain text error message
-          type: string
-      type: object
-    submittedResponse:
-      description: Returns Status of the id.
-      example:
-        data:
-          resources:
-          - '{}'
-          - '{}'
-          id: id
-          status: queued
-        meta:
-          pagination:
-            total: 0
-            isEstimatedTotal: true
-      properties:
-        data:
-          $ref: '#/components/schemas/StatusOne'
-        meta:
-          $ref: '#/components/schemas/metaOne'
-      title: Status Response
-      type: object
-    metaOne:
-      description: Array of metadata objects
-      example:
-        pagination:
-          total: 0
-          isEstimatedTotal: true
-      properties:
-        pagination:
-          $ref: '#/components/schemas/paginationOne'
-      title: Meta
-      type: object
-    paginationOne:
-      description: List of pagination objects
-      example:
-        total: 0
-        isEstimatedTotal: true
-      properties:
-        total:
-          description: Total number of files the API returns for a particular query
-          type: integer
-        isEstimatedTotal:
-          description: Boolean value that represents whether the total count of files
-            returned is exact or an estimate. This is defaulted to False. as the API
-            should always return the exact count
-          type: boolean
-      title: PaginationItems
-      type: object
-    getfilesResponse:
-      example:
-        data:
-        - endDate: 2000-01-23T04:56:07.000+00:00
-          id: id
-          startDate: 2000-01-23T04:56:07.000+00:00
-          url: url
-        - endDate: 2000-01-23T04:56:07.000+00:00
-          id: id
-          startDate: 2000-01-23T04:56:07.000+00:00
-          url: url
-        meta:
-          pagination:
-            total: 0
-            isEstimatedTotal: true
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/getfiles'
-          type: array
-        meta:
-          $ref: '#/components/schemas/metaOne'
-      type: object
-    getfiles:
-      example:
-        endDate: 2000-01-23T04:56:07.000+00:00
-        id: id
-        startDate: 2000-01-23T04:56:07.000+00:00
-        url: url
-      properties:
-        startDate:
-          description: The startDate from which the data is required in YYYY-MM-DDTHH:MM:SSZ
-            format
-          format: date-time
-          type: string
-        endDate:
-          description: The endDate until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ
-            format
-          format: date-time
-          type: string
-        id:
-          description: Unique id to get the xml files for the requested date
-          type: string
-        url:
-          description: Link to download the zip file which contains xml files
           type: string
       type: object
     HeadlinesRequest:
@@ -2437,12 +1651,12 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/searchResponseArrayObject'
+            $ref: '#/components/schemas/SearchResponseArrayObject'
           type: array
         meta:
           $ref: '#/components/schemas/HeadlinesResponse_meta'
       type: object
-    searchResponseArrayObject:
+    SearchResponseArrayObject:
       description: Elements of search response array object.
       example:
         storyTime: 2022-09-15T06:48:19Z
@@ -2544,7 +1758,7 @@ components:
         data:
           $ref: '#/components/schemas/DeleteViewBody_data'
       type: object
-    createOrEditViewTickers:
+    CreateOrEditViewTickers:
       description: Elements of create or edit view tickers object.
       example:
         name: Russell 1000
@@ -2628,10 +1842,10 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/viewsObject'
+            $ref: '#/components/schemas/ViewsObject'
           type: array
       type: object
-    viewsObject:
+    ViewsObject:
       description: Elements of views object.
       example:
         sectors:
@@ -2663,7 +1877,7 @@ components:
         tickers:
           description: An array of ticker symbols associated with the view.
           items:
-            $ref: '#/components/schemas/createOrEditViewTickers'
+            $ref: '#/components/schemas/CreateOrEditViewTickers'
           type: array
         isPrimary:
           description: "If true, then only stories with the provided ticker as a primary\
@@ -2802,27 +2016,99 @@ components:
               - value
             topics:
             - children:
-              - name: name
-                value:
-                - value
-                - value
-              - name: name
-                value:
-                - value
-                - value
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
               name: ESG Content Summary
               value:
               - SA_ESG_US
               - SA_ESG_US
             - children:
-              - name: name
-                value:
-                - value
-                - value
-              - name: name
-                value:
-                - value
-                - value
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
               name: ESG Content Summary
               value:
               - SA_ESG_US
@@ -2914,26 +2200,26 @@ components:
       properties:
         categories:
           items:
-            $ref: '#/components/schemas/flattenedFiltersCategoriesObject'
+            $ref: '#/components/schemas/FlattenedFiltersCategoriesObject'
           type: array
         topics:
           items:
-            $ref: '#/components/schemas/flattenedFiltersTopicsObject'
+            $ref: '#/components/schemas/FlattenedFiltersTopicsObject'
           type: array
         regions:
           items:
-            $ref: '#/components/schemas/flattenedFiltersRegionsObject'
+            $ref: '#/components/schemas/FlattenedFiltersRegionsObject'
           type: array
         sectors:
           items:
-            $ref: '#/components/schemas/flattenedFiltersSectorsObject'
+            $ref: '#/components/schemas/FlattenedFiltersSectorsObject'
           type: array
         watchlists:
           items:
-            $ref: '#/components/schemas/flattenedFiltersWatchlistsObject'
+            $ref: '#/components/schemas/FlattenedFiltersWatchlistsObject'
           type: array
       type: object
-    flattenedFiltersCategoriesObject:
+    FlattenedFiltersCategoriesObject:
       description: |
         Elements of flattened filters categories object.
 
@@ -2954,7 +2240,7 @@ components:
             type: string
           type: array
       type: object
-    flattenedFiltersTopicsObject:
+    FlattenedFiltersTopicsObject:
       description: |
         Elements of flattened filters topics object.
 
@@ -2974,7 +2260,7 @@ components:
             type: string
           type: array
       type: object
-    flattenedFiltersRegionsObject:
+    FlattenedFiltersRegionsObject:
       description: |
         Elements of flattened filters regions object.
 
@@ -2995,7 +2281,7 @@ components:
             type: string
           type: array
       type: object
-    flattenedFiltersSectorsObject:
+    FlattenedFiltersSectorsObject:
       description: |
         Elements of flattened filters sectors object.
 
@@ -3016,7 +2302,7 @@ components:
             type: number
           type: array
       type: object
-    flattenedFiltersWatchlistsObject:
+    FlattenedFiltersWatchlistsObject:
       description: Elements of flattened filters watchlists object.
       example:
         name: S&P 500
@@ -3094,27 +2380,99 @@ components:
           - value
         topics:
         - children:
-          - name: name
-            value:
-            - value
-            - value
-          - name: name
-            value:
-            - value
-            - value
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
           name: ESG Content Summary
           value:
           - SA_ESG_US
           - SA_ESG_US
         - children:
-          - name: name
-            value:
-            - value
-            - value
-          - name: name
-            value:
-            - value
-            - value
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
           name: ESG Content Summary
           value:
           - SA_ESG_US
@@ -3156,26 +2514,26 @@ components:
       properties:
         categories:
           items:
-            $ref: '#/components/schemas/structuredFiltersCategoriesObject'
+            $ref: '#/components/schemas/StructuredFiltersCategoriesObject'
           type: array
         topics:
           items:
-            $ref: '#/components/schemas/structuredFiltersTopicsObject'
+            $ref: '#/components/schemas/StructuredFiltersTopicsObject'
           type: array
         regions:
           items:
-            $ref: '#/components/schemas/structuredFiltersRegionsObject'
+            $ref: '#/components/schemas/StructuredFiltersRegionsObject'
           type: array
         sectors:
           items:
-            $ref: '#/components/schemas/structuredFiltersSectorsObject'
+            $ref: '#/components/schemas/StructuredFiltersSectorsObject'
           type: array
         watchlists:
           items:
-            $ref: '#/components/schemas/structuredFiltersWatchlistsObject'
+            $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
           type: array
       type: object
-    structuredFiltersCategoriesObject:
+    StructuredFiltersCategoriesObject:
       description: Elements of structured filters categories.
       example:
         children:
@@ -3205,27 +2563,86 @@ components:
         children:
           description: An array of children objects.
           items:
-            $ref: '#/components/schemas/structuredFiltersChildrenObjectCategories'
+            $ref: '#/components/schemas/StructuredFiltersChildrenObjectCategories'
           type: array
       type: object
-    structuredFiltersChildrenObjectTopics:
+    StructuredFiltersChildrenObjectTopics:
+      description: Elements of structured filters children topics object.
+      example:
+        children:
+        - children:
+          - name: name
+            value:
+            - SA_LITIGATION
+            - SA_LITIGATION
+          - name: name
+            value:
+            - SA_LITIGATION
+            - SA_LITIGATION
+          name: name
+        - children:
+          - name: name
+            value:
+            - SA_LITIGATION
+            - SA_LITIGATION
+          - name: name
+            value:
+            - SA_LITIGATION
+            - SA_LITIGATION
+          name: name
+        name: name
+      properties:
+        name:
+          description: The name of the children.
+          type: string
+        children:
+          description: An array of children objects.
+          items:
+            $ref: '#/components/schemas/StructuredFiltersChildrenObjectTopicsNested'
+          type: array
+      type: object
+    StructuredFiltersChildrenObjectTopicsNested:
+      description: Elements of structured filters children topics object.
+      example:
+        children:
+        - name: name
+          value:
+          - SA_LITIGATION
+          - SA_LITIGATION
+        - name: name
+          value:
+          - SA_LITIGATION
+          - SA_LITIGATION
+        name: name
+      properties:
+        name:
+          description: The name of the children.
+          type: string
+        children:
+          description: An array of children objects.
+          items:
+            $ref: '#/components/schemas/StructuredFiltersChildrenObjectTopicsNested2'
+          type: array
+      type: object
+    StructuredFiltersChildrenObjectTopicsNested2:
       description: Elements of structured filters children topics object.
       example:
         name: name
         value:
-        - value
-        - value
+        - SA_LITIGATION
+        - SA_LITIGATION
       properties:
         name:
           description: The name of the children.
           type: string
         value:
           items:
-            description: The values associated with the children.
+            description: The values associated with the category.
+            example: SA_LITIGATION
             type: string
           type: array
       type: object
-    structuredFiltersChildrenObjectCategories:
+    StructuredFiltersChildrenObjectCategories:
       description: Elements of structured filters children categories object.
       example:
         name: name
@@ -3242,7 +2659,7 @@ components:
             type: string
           type: array
       type: object
-    structuredFiltersChildrenObjectRegions:
+    StructuredFiltersChildrenObjectRegions:
       description: Elements of structured filters regions children object.
       example:
         name: name
@@ -3259,7 +2676,7 @@ components:
             type: string
           type: array
       type: object
-    structuredFiltersChildrenObjectSectors:
+    StructuredFiltersChildrenObjectSectors:
       description: Elements of structured filters sectors children object.
       example:
         name: name
@@ -3276,18 +2693,54 @@ components:
             type: number
           type: array
       type: object
-    structuredFiltersTopicsObject:
+    StructuredFiltersTopicsObject:
       description: Elements of structured filters topics object.
       example:
         children:
-        - name: name
-          value:
-          - value
-          - value
-        - name: name
-          value:
-          - value
-          - value
+        - children:
+          - children:
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            name: name
+          - children:
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            name: name
+          name: name
+        - children:
+          - children:
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            name: name
+          - children:
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            - name: name
+              value:
+              - SA_LITIGATION
+              - SA_LITIGATION
+            name: name
+          name: name
         name: ESG Content Summary
         value:
         - SA_ESG_US
@@ -3306,10 +2759,12 @@ components:
         children:
           description: An array of child objects.
           items:
-            $ref: '#/components/schemas/structuredFiltersChildrenObjectTopics'
+            $ref: '#/components/schemas/StructuredFiltersChildrenObjectTopics'
           type: array
+      required:
+      - name
       type: object
-    structuredFiltersRegionsObject:
+    StructuredFiltersRegionsObject:
       description: Elements of structured filters regions object.
       example:
         children:
@@ -3338,10 +2793,10 @@ components:
         children:
           description: An array of children objects.
           items:
-            $ref: '#/components/schemas/structuredFiltersChildrenObjectRegions'
+            $ref: '#/components/schemas/StructuredFiltersChildrenObjectRegions'
           type: array
       type: object
-    structuredFiltersSectorsObject:
+    StructuredFiltersSectorsObject:
       description: Elements of structured filters sectors object.
       example:
         expanded: true
@@ -3369,7 +2824,7 @@ components:
         children:
           description: An array of child objects representing sectors.
           items:
-            $ref: '#/components/schemas/structuredFiltersChildrenObjectSectors'
+            $ref: '#/components/schemas/StructuredFiltersChildrenObjectSectors'
           type: array
         value:
           items:
@@ -3378,7 +2833,7 @@ components:
             type: number
           type: array
       type: object
-    structuredFiltersWatchlistsObject:
+    StructuredFiltersWatchlistsObject:
       description: Elements of structured filters watchlists object.
       example:
         name: S&P 500
@@ -3399,7 +2854,7 @@ components:
           type: string
       type: object
     FilterTopicResponse:
-      description: FiltersTopic Object
+      description: Filters Topic Object
       example:
         data:
           flattened:
@@ -3415,27 +2870,99 @@ components:
           structured:
             topics:
             - children:
-              - name: name
-                value:
-                - value
-                - value
-              - name: name
-                value:
-                - value
-                - value
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
               name: ESG Content Summary
               value:
               - SA_ESG_US
               - SA_ESG_US
             - children:
-              - name: name
-                value:
-                - value
-                - value
-              - name: name
-                value:
-                - value
-                - value
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
+              - children:
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                - children:
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  - name: name
+                    value:
+                    - SA_LITIGATION
+                    - SA_LITIGATION
+                  name: name
+                name: name
               name: ESG Content Summary
               value:
               - SA_ESG_US
@@ -3445,7 +2972,7 @@ components:
           $ref: '#/components/schemas/FilterTopicResponse_data'
       type: object
     FlattenedFiltersTopics:
-      description: Flattened FiltersTopic Object
+      description: Flattened Filters Topic Object
       example:
         topics:
         - name: name
@@ -3459,35 +2986,107 @@ components:
       properties:
         topics:
           items:
-            $ref: '#/components/schemas/flattenedFiltersTopicsObject'
+            $ref: '#/components/schemas/FlattenedFiltersTopicsObject'
           type: array
       type: object
     StructuredFiltersTopics:
-      description: Structured FiltersTopic Object
+      description: Structured Filters Topic Object
       example:
         topics:
         - children:
-          - name: name
-            value:
-            - value
-            - value
-          - name: name
-            value:
-            - value
-            - value
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
           name: ESG Content Summary
           value:
           - SA_ESG_US
           - SA_ESG_US
         - children:
-          - name: name
-            value:
-            - value
-            - value
-          - name: name
-            value:
-            - value
-            - value
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
+          - children:
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            - children:
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              - name: name
+                value:
+                - SA_LITIGATION
+                - SA_LITIGATION
+              name: name
+            name: name
           name: ESG Content Summary
           value:
           - SA_ESG_US
@@ -3495,7 +3094,7 @@ components:
       properties:
         topics:
           items:
-            $ref: '#/components/schemas/structuredFiltersTopicsObject'
+            $ref: '#/components/schemas/StructuredFiltersTopicsObject'
           type: array
       type: object
     FilterCategoriesResponse:
@@ -3559,7 +3158,7 @@ components:
       properties:
         categories:
           items:
-            $ref: '#/components/schemas/flattenedFiltersCategoriesObject'
+            $ref: '#/components/schemas/FlattenedFiltersCategoriesObject'
           type: array
       type: object
     StructuredFiltersCategories:
@@ -3595,7 +3194,7 @@ components:
       properties:
         categories:
           items:
-            $ref: '#/components/schemas/structuredFiltersCategoriesObject'
+            $ref: '#/components/schemas/StructuredFiltersCategoriesObject'
           type: array
       type: object
     FilterRegionsResponse:
@@ -3659,7 +3258,7 @@ components:
       properties:
         regions:
           items:
-            $ref: '#/components/schemas/flattenedFiltersRegionsObject'
+            $ref: '#/components/schemas/FlattenedFiltersRegionsObject'
           type: array
       type: object
     StructuredFiltersRegions:
@@ -3695,7 +3294,7 @@ components:
       properties:
         regions:
           items:
-            $ref: '#/components/schemas/structuredFiltersRegionsObject'
+            $ref: '#/components/schemas/StructuredFiltersRegionsObject'
           type: array
       type: object
     FilterSectorsResponse:
@@ -3761,7 +3360,7 @@ components:
       properties:
         sectors:
           items:
-            $ref: '#/components/schemas/flattenedFiltersSectorsObject'
+            $ref: '#/components/schemas/FlattenedFiltersSectorsObject'
           type: array
       type: object
     StructuredFiltersSectors:
@@ -3799,7 +3398,7 @@ components:
       properties:
         sectors:
           items:
-            $ref: '#/components/schemas/structuredFiltersSectorsObject'
+            $ref: '#/components/schemas/StructuredFiltersSectorsObject'
           type: array
       type: object
     FilterWatchlistsResponse:
@@ -3839,7 +3438,7 @@ components:
       properties:
         watchlists:
           items:
-            $ref: '#/components/schemas/flattenedFiltersWatchlistsObject'
+            $ref: '#/components/schemas/FlattenedFiltersWatchlistsObject'
           type: array
       type: object
     StructuredFiltersWatchlists:
@@ -3855,7 +3454,7 @@ components:
       properties:
         watchlists:
           items:
-            $ref: '#/components/schemas/structuredFiltersWatchlistsObject'
+            $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
           type: array
       type: object
     HeadlinesRequest_data_searchTime:
@@ -3872,7 +3471,7 @@ components:
           format: date-time
           type: string
         end:
-          description: End time for custom search. If end time is not present end
+          description: End time for custom search. If end time is not present, end
             time is automatically set to the time of the search. endTime must follow
             the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports
             offsets ±[hh]:[mm]
@@ -4018,6 +3617,28 @@ components:
             type: string
           type: array
       type: object
+    HeadlinesRequestByView_data_searchTime:
+      description: Elements of search time.
+      example:
+        start: 2022-08-21T12:35:45Z
+        end: 2022-08-29T08:10:30Z
+      properties:
+        start:
+          description: Start time for custom search. startTime must follow the ISO
+            8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
+            ±[hh]:[mm]
+          example: 2022-08-21T12:35:45Z
+          format: date-time
+          type: string
+        end:
+          description: End time for custom search. If end time is not present end
+            time is automatically set to the time of the search. endTime must follow
+            the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports
+            offsets ±[hh]:[mm]
+          example: 2022-08-29T08:10:30Z
+          format: date-time
+          type: string
+      type: object
     HeadlinesRequestByView_data:
       example:
         searchTime:
@@ -4047,7 +3668,7 @@ components:
           - allAvailable
           type: string
         searchTime:
-          $ref: '#/components/schemas/HeadlinesRequest_data_searchTime'
+          $ref: '#/components/schemas/HeadlinesRequestByView_data_searchTime'
       type: object
     HeadlinesRequestByView_meta:
       description: Elements of meta object.
@@ -4133,7 +3754,7 @@ components:
         tickers:
           description: An array of ticker objects associated with the view.
           items:
-            $ref: '#/components/schemas/createOrEditViewTickers'
+            $ref: '#/components/schemas/CreateOrEditViewTickers'
           type: array
         isPrimary:
           description: |
@@ -4294,27 +3915,99 @@ components:
             - value
           topics:
           - children:
-            - name: name
-              value:
-              - value
-              - value
-            - name: name
-              value:
-              - value
-              - value
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
             name: ESG Content Summary
             value:
             - SA_ESG_US
             - SA_ESG_US
           - children:
-            - name: name
-              value:
-              - value
-              - value
-            - name: name
-              value:
-              - value
-              - value
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
             name: ESG Content Summary
             value:
             - SA_ESG_US
@@ -4374,27 +4067,99 @@ components:
         structured:
           topics:
           - children:
-            - name: name
-              value:
-              - value
-              - value
-            - name: name
-              value:
-              - value
-              - value
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
             name: ESG Content Summary
             value:
             - SA_ESG_US
             - SA_ESG_US
           - children:
-            - name: name
-              value:
-              - value
-              - value
-            - name: name
-              value:
-              - value
-              - value
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
+            - children:
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              - children:
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                - name: name
+                  value:
+                  - SA_LITIGATION
+                  - SA_LITIGATION
+                name: name
+              name: name
             name: ESG Content Summary
             value:
             - SA_ESG_US

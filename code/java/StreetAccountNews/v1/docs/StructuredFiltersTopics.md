@@ -2,7 +2,7 @@
 
 # StructuredFiltersTopics
 
-Structured FiltersTopic Object
+Structured Filters Topic Object
 
 ## Properties
 

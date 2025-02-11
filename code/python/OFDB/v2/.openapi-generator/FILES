@@ -44,8 +44,6 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
-docs/InlineResponse2007.md
-docs/InlineResponse2008.md
 docs/InlineResponse200Data.md
 docs/InlineResponse201.md
 docs/InlineResponse201Data.md
@@ -115,8 +113,6 @@ fds/sdk/OFDB/model/inline_response2003.py
 fds/sdk/OFDB/model/inline_response2004.py
 fds/sdk/OFDB/model/inline_response2005.py
 fds/sdk/OFDB/model/inline_response2006.py
-fds/sdk/OFDB/model/inline_response2007.py
-fds/sdk/OFDB/model/inline_response2008.py
 fds/sdk/OFDB/model/inline_response200_data.py
 fds/sdk/OFDB/model/inline_response201.py
 fds/sdk/OFDB/model/inline_response201_data.py

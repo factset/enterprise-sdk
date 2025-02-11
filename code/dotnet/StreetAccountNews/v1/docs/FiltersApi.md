@@ -65,7 +65,7 @@ namespace Example
 
             var apiInstance = new FiltersApi(config);
 
-            var attributes = new List<string>(); // List<string> | Pass a list of filters to return the respective type of filter. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional) 
+            var attributes = new List<string>(); // List<string> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional) 
 
             try
             {
@@ -88,7 +88,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**List&lt;string&gt;**](string.md)| Pass a list of filters to return the respective type of filter. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 [**FilterResponse**](FilterResponse.md)
@@ -167,7 +167,7 @@ namespace Example
 
             var apiInstance = new FiltersApi(config);
 
-            var attributes = new List<string>(); // List<string> | Pass a list of filters to return the respective type of filter categories. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional) 
+            var attributes = new List<string>(); // List<string> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional) 
 
             try
             {
@@ -190,7 +190,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**List&lt;string&gt;**](string.md)| Pass a list of filters to return the respective type of filter categories. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 [**FilterCategoriesResponse**](FilterCategoriesResponse.md)
@@ -269,7 +269,7 @@ namespace Example
 
             var apiInstance = new FiltersApi(config);
 
-            var attributes = new List<string>(); // List<string> | Pass a list of filters to return the respective type of filter Regions. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional) 
+            var attributes = new List<string>(); // List<string> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional) 
 
             try
             {
@@ -292,7 +292,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**List&lt;string&gt;**](string.md)| Pass a list of filters to return the respective type of filter Regions. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 [**FilterRegionsResponse**](FilterRegionsResponse.md)
@@ -371,7 +371,7 @@ namespace Example
 
             var apiInstance = new FiltersApi(config);
 
-            var attributes = new List<string>(); // List<string> | Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional) 
+            var attributes = new List<string>(); // List<string> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional) 
 
             try
             {
@@ -394,7 +394,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**List&lt;string&gt;**](string.md)| Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 [**FilterSectorsResponse**](FilterSectorsResponse.md)
@@ -473,7 +473,7 @@ namespace Example
 
             var apiInstance = new FiltersApi(config);
 
-            var attributes = new List<string>(); // List<string> | Pass a list of filters to return the respective type of filter topics. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional) 
+            var attributes = new List<string>(); // List<string> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional) 
 
             try
             {
@@ -496,7 +496,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**List&lt;string&gt;**](string.md)| Pass a list of filters to return the respective type of filter topics. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 [**FilterTopicResponse**](FilterTopicResponse.md)
@@ -575,7 +575,7 @@ namespace Example
 
             var apiInstance = new FiltersApi(config);
 
-            var attributes = new List<string>(); // List<string> | Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \"structured\" and/or \"flattened\". If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional) 
+            var attributes = new List<string>(); // List<string> | Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.  (optional) 
 
             try
             {
@@ -598,7 +598,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **attributes** | [**List&lt;string&gt;**](string.md)| Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  | [optional] 
 
 ### Return type
 [**FilterWatchlistsResponse**](FilterWatchlistsResponse.md)

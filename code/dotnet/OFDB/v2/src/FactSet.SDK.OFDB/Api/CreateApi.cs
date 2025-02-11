@@ -36,8 +36,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 CreateDatabase(DatabaseSchema databaseSchema = default(DatabaseSchema));
+        /// <returns>CreateDatabase</returns>
+        CreateDatabase CreateDatabase(DatabaseSchema databaseSchema = default(DatabaseSchema));
 
         /// <summary>
         /// 
@@ -47,8 +47,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> CreateDatabaseWithHttpInfo(DatabaseSchema databaseSchema = default(DatabaseSchema));
+        /// <returns>ApiResponse of CreateDatabase</returns>
+        ApiResponse<CreateDatabase> CreateDatabaseWithHttpInfo(DatabaseSchema databaseSchema = default(DatabaseSchema));
         #endregion Synchronous Operations
     }
 
@@ -67,8 +67,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> CreateDatabaseAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CreateDatabase</returns>
+        System.Threading.Tasks.Task<CreateDatabase> CreateDatabaseAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -79,8 +79,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CreateDatabaseWithHttpInfoAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CreateDatabase)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateDatabase>> CreateDatabaseWithHttpInfoAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -103,6 +103,7 @@ namespace FactSet.SDK.OFDB.Api
         
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)201, typeof(CreateDatabase) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -225,8 +226,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 CreateDatabase(DatabaseSchema databaseSchema = default(DatabaseSchema))
+        /// <returns>CreateDatabase</returns>
+        public CreateDatabase CreateDatabase(DatabaseSchema databaseSchema = default(DatabaseSchema))
         {
             var localVarResponse = CreateDatabaseWithHttpInfo(databaseSchema);
             return localVarResponse.Data;
@@ -237,8 +238,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> CreateDatabaseWithHttpInfo(DatabaseSchema databaseSchema = default(DatabaseSchema))
+        /// <returns>ApiResponse of CreateDatabase</returns>
+        public ApiResponse<CreateDatabase> CreateDatabaseWithHttpInfo(DatabaseSchema databaseSchema = default(DatabaseSchema))
         {
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -289,7 +290,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse202>("/database", localVarRequestOptions, this.Configuration);
+            CreateDatabase>("/database", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateDatabase", localVarResponse);
@@ -307,8 +308,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>CreateDatabaseAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreateDatabase</returns>
+        public async System.Threading.Tasks.Task<CreateDatabase>CreateDatabaseAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await CreateDatabaseWithHttpInfoAsync(databaseSchema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -320,9 +321,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="databaseSchema"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (CreateDatabase)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> CreateDatabaseWithHttpInfoAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<CreateDatabase>> CreateDatabaseWithHttpInfoAsync(DatabaseSchema databaseSchema = default(DatabaseSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -373,7 +374,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = CreateDatabaseResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse202>("/database", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateDatabase>("/database", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

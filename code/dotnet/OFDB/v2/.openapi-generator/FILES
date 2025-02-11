@@ -37,8 +37,6 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
-docs/InlineResponse2007.md
-docs/InlineResponse2008.md
 docs/InlineResponse200Data.md
 docs/InlineResponse201.md
 docs/InlineResponse201Data.md
@@ -111,8 +109,6 @@ src/FactSet.SDK.OFDB/Model/InlineResponse2003.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse2004.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse2005.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse2006.cs
-src/FactSet.SDK.OFDB/Model/InlineResponse2007.cs
-src/FactSet.SDK.OFDB/Model/InlineResponse2008.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse200Data.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse201.cs
 src/FactSet.SDK.OFDB/Model/InlineResponse201Data.cs

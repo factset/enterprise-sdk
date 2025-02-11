@@ -37,8 +37,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 DeleteBulkItems(string path, BulkDelete bulkDelete = default(BulkDelete));
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 DeleteBulkItems(string path, BulkDelete bulkDelete = default(BulkDelete));
 
         /// <summary>
         /// 
@@ -49,8 +49,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteBulkItemsWithHttpInfo(string path, BulkDelete bulkDelete = default(BulkDelete));
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> DeleteBulkItemsWithHttpInfo(string path, BulkDelete bulkDelete = default(BulkDelete));
         /// <summary>
         /// 
         /// </summary>
@@ -122,6 +122,33 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
         ApiResponse<InlineResponse202> DeleteSymbolWithHttpInfo(string path, string symbol);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>InlineResponse202</returns>
+        InlineResponse202 GetResourceDateFromSymbol(string path, int date, string symbol, string id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of InlineResponse202</returns>
+        ApiResponse<InlineResponse202> GetResourceDateFromSymbolWithHttpInfo(string path, int date, string symbol, string id);
         #endregion Synchronous Operations
     }
 
@@ -141,8 +168,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteBulkItemsAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> DeleteBulkItemsAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -154,8 +181,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteBulkItemsWithHttpInfoAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> DeleteBulkItemsWithHttpInfoAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -233,6 +260,35 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteSymbolWithHttpInfoAsync(string path, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse202</returns>
+        System.Threading.Tasks.Task<InlineResponse202> GetResourceDateFromSymbolAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetResourceDateFromSymbolWithHttpInfoAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -255,6 +311,7 @@ namespace FactSet.SDK.OFDB.Api
         
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteBulkItemsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -286,6 +343,16 @@ namespace FactSet.SDK.OFDB.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(InlineResponse202) },
+            { (HttpStatusCode)400, typeof(InlineResponse400) },
+            { (HttpStatusCode)403, typeof(InlineResponse403) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDateFromSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
             { (HttpStatusCode)404, typeof(InlineResponse403) },
@@ -408,8 +475,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 DeleteBulkItems(string path, BulkDelete bulkDelete = default(BulkDelete))
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 DeleteBulkItems(string path, BulkDelete bulkDelete = default(BulkDelete))
         {
             var localVarResponse = DeleteBulkItemsWithHttpInfo(path, bulkDelete);
             return localVarResponse.Data;
@@ -421,8 +488,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteBulkItemsWithHttpInfo(string path, BulkDelete bulkDelete = default(BulkDelete))
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse<InlineResponse2003> DeleteBulkItemsWithHttpInfo(string path, BulkDelete bulkDelete = default(BulkDelete))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -480,7 +547,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse202>("/database/{path}/delete", localVarRequestOptions, this.Configuration);
+            InlineResponse2003>("/database/{path}/delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteBulkItems", localVarResponse);
@@ -499,8 +566,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>DeleteBulkItemsAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003>DeleteBulkItemsAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await DeleteBulkItemsWithHttpInfoAsync(path, bulkDelete, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -513,9 +580,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="bulkDelete"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteBulkItemsWithHttpInfoAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> DeleteBulkItemsWithHttpInfoAsync(string path, BulkDelete bulkDelete = default(BulkDelete), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -573,7 +640,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = DeleteBulkItemsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse202>("/database/{path}/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/database/{path}/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1157,6 +1224,225 @@ namespace FactSet.SDK.OFDB.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteSymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>InlineResponse202</returns>
+        public InlineResponse202 GetResourceDateFromSymbol(string path, int date, string symbol, string id)
+        {
+            var localVarResponse = GetResourceDateFromSymbolWithHttpInfo(path, date, symbol, id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of InlineResponse202</returns>
+        public ApiResponse<InlineResponse202> GetResourceDateFromSymbolWithHttpInfo(string path, int date, string symbol, string id)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling DeleteApi->GetResourceDateFromSymbol");
+            }
+
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling DeleteApi->GetResourceDateFromSymbol");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling DeleteApi->GetResourceDateFromSymbol");
+            }
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDateFromSymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            InlineResponse202>("/database/{path}/dates/{date}/symbols/{symbol}/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceDateFromSymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse202</returns>
+        public async System.Threading.Tasks.Task<InlineResponse202>GetResourceDateFromSymbolAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetResourceDateFromSymbolWithHttpInfoAsync(path, date, symbol, id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Deletes data specific to the symbol and date from a 3d database(OFDB).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetResourceDateFromSymbolWithHttpInfoAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling DeleteApi->GetResourceDateFromSymbol");
+            }
+
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling DeleteApi->GetResourceDateFromSymbol");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling DeleteApi->GetResourceDateFromSymbol");
+            }
+
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDateFromSymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<InlineResponse202>("/database/{path}/dates/{date}/symbols/{symbol}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceDateFromSymbol", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

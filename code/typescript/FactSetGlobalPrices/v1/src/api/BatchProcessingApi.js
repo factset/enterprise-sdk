@@ -37,7 +37,7 @@ export default class BatchProcessingApi {
 
 
     /**
-     * Returns the response for a Batch Request 
+     * Returns the response for a Batch Request
      * Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\". 
      * @param {String} id Batch Request identifier.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BatchResultResponse} and HTTP response
@@ -73,7 +73,7 @@ export default class BatchProcessingApi {
     }
 
     /**
-     * Returns the response for a Batch Request 
+     * Returns the response for a Batch Request
      * Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\". 
      * @param {String} id Batch Request identifier.
      * @return { Promise.< GetBatchDataResponseWrapper > } a Promise, with data of type {@link GetBatchDataResponseWrapper }
@@ -87,7 +87,7 @@ export default class BatchProcessingApi {
 
 
     /**
-     * Returns the status for a Batch Request 
+     * Returns the status for a Batch Request
      * Return the status for the underlying batch request that is specified by the id.
      * @param {String} id Batch Request identifier.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BatchStatusResponse} and HTTP response
@@ -124,7 +124,7 @@ export default class BatchProcessingApi {
     }
 
     /**
-     * Returns the status for a Batch Request 
+     * Returns the status for a Batch Request
      * Return the status for the underlying batch request that is specified by the id.
      * @param {String} id Batch Request identifier.
      * @return { Promise.< module:model/BatchStatusResponse > } a Promise, with data of type {@link module:model/BatchStatusResponse }

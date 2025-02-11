@@ -9,7 +9,7 @@ info:
     name: Apache License 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.txt
   title: AFI Optimizer API
-  version: v3
+  version: "3"
 servers:
 - url: https://api.factset.com
 security:
@@ -400,12 +400,6 @@ paths:
       summary: Create and Run AFI optimization
       tags:
       - AFI Optimizer
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "202"
-        response-type: CalculationInfoRoot
-      - status-code: "201"
-        response-type: ObjectRoot
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
@@ -656,9 +650,6 @@ paths:
       summary: Cancel AFI optimization by id
       tags:
       - AFI Optimizer
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "204"
       x-accepts: application/json
     get:
       description: This is the endpoint that returns the optimization parameters passed
@@ -923,10 +914,6 @@ paths:
       summary: Get AFI optimization parameters by id
       tags:
       - AFI Optimizer
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: AFIOptimizationParametersRoot
       x-accepts: application/json
     put:
       description: This endpoint updates and run the AFI optimization specified in
@@ -1362,12 +1349,6 @@ paths:
       summary: Create or Update AFI optimization and run it.
       tags:
       - AFI Optimizer
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "202"
-        response-type: CalculationInfoRoot
-      - status-code: "201"
-        response-type: ObjectRoot
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
@@ -1668,11 +1649,6 @@ paths:
       summary: Get AFI optimization status by id
       tags:
       - AFI Optimizer
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "201"
-        response-type: ObjectRoot
-      - status-code: "202"
       x-accepts: application/json
   /analytics/engines/afi/v3/optimizations/{id}/result:
     get:
@@ -1939,10 +1915,6 @@ paths:
       summary: Get AFI optimization result by id
       tags:
       - AFI Optimizer
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: ObjectRoot
       x-accepts: application/json
   /analytics/engines/afi/v3/strategies/{path}:
     get:
@@ -2249,10 +2221,6 @@ paths:
       summary: Get Axioma FI strategy documents and sub-directories in a directory
       tags:
       - StrategyDocuments
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: DocumentDirectoriesRoot
       x-accepts: application/json
 components:
   schemas:

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="adddates"></a>
 # **AddDates**
-> InlineResponse202 AddDates (string path, AddDates addDates)
+> SuccessPostResponse AddDates (string path, AddDates addDates)
 
 
 
@@ -67,7 +67,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.AddDates(path, addDates);
+                SuccessPostResponse result = apiInstance.AddDates(path, addDates);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
  **addDates** | [**AddDates**](AddDates.md)| Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -104,6 +104,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -119,7 +120,7 @@ Name | Type | Description  | Notes
 
 <a name="addfields"></a>
 # **AddFields**
-> InlineResponse202 AddFields (string path, AddFields addFields)
+> SuccessPostResponse AddFields (string path, AddFields addFields)
 
 
 
@@ -174,7 +175,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.AddFields(path, addFields);
+                SuccessPostResponse result = apiInstance.AddFields(path, addFields);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -196,7 +197,7 @@ Name | Type | Description  | Notes
  **addFields** | [**AddFields**](AddFields.md)| Data for creating fields in the database. | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -211,6 +212,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -225,7 +227,7 @@ Name | Type | Description  | Notes
 
 <a name="addsymbols"></a>
 # **AddSymbols**
-> InlineResponse202 AddSymbols (string path, AddSymbols addSymbols)
+> SuccessPostResponse AddSymbols (string path, AddSymbols addSymbols)
 
 
 
@@ -280,7 +282,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.AddSymbols(path, addSymbols);
+                SuccessPostResponse result = apiInstance.AddSymbols(path, addSymbols);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -302,7 +304,7 @@ Name | Type | Description  | Notes
  **addSymbols** | [**AddSymbols**](AddSymbols.md)| Data for creating symbol in the database | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -317,6 +319,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Global Filings API
-  version: 1.0.0
+  version: 1.1.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -154,7 +154,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseSources'
+                $ref: '#/components/schemas/ResponseSources'
               examples:
                 sources:
                   summary: Sample 200 Response for Sources Parameter
@@ -184,6 +184,8 @@ paths:
                         description: ASX Company Announcements Delayed
                       - source: OMX
                         description: GlobeNewswire Europe
+                      - source: HKEX
+                        description: Hong Kong SE Company News
         '400':
           description: Bad request.
           content:
@@ -242,7 +244,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseFormtype'
+                $ref: '#/components/schemas/ResponseFormtype'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseFormtype'
@@ -306,7 +308,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseTime'
+                $ref: '#/components/schemas/ResponseTime'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseTime'
@@ -370,7 +372,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseCategies'
+                $ref: '#/components/schemas/ResponseCategies'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseCategories'
@@ -437,7 +439,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/responseCount'
+                $ref: '#/components/schemas/ResponseCount'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseCount'
@@ -616,7 +618,7 @@ components:
           description: >-
             Returns IDs used in the id's parameter. The identifier type is based
             on what was used in the parameter.
-    responseSources:
+    ResponseSources:
       description: Filings Response Object
       type: object
       properties:
@@ -624,8 +626,8 @@ components:
           type: array
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseSourcesObject'
-    responseSourcesObject:
+            $ref: '#/components/schemas/ResponseSourcesObject'
+    ResponseSourcesObject:
       type: object
       required:
         - source
@@ -639,7 +641,7 @@ components:
           type: string
           description: source description
           example: EDGAR
-    responseFormtype:
+    ResponseFormtype:
       description: Filings Response Object
       type: object
       properties:
@@ -647,8 +649,8 @@ components:
           type: array
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseFormtypeObject'
-    responseFormtypeObject:
+            $ref: '#/components/schemas/ResponseFormtypeObject'
+    ResponseFormtypeObject:
       type: object
       properties:
         source:
@@ -663,7 +665,7 @@ components:
           type: string
           description: source description
           example: Edgar
-    responseTime:
+    ResponseTime:
       description: Filings Response Time
       type: object
       properties:
@@ -671,15 +673,15 @@ components:
           type: array
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseTimeObject'
-    responseTimeObject:
+            $ref: '#/components/schemas/ResponseTimeObject'
+    ResponseTimeObject:
       type: object
       properties:
         timeZone:
           type: string
           description: timeZone
           example: Africa/Malabo
-    responseCategies:
+    ResponseCategies:
       description: Filings Response Object
       type: object
       properties:
@@ -687,8 +689,8 @@ components:
           type: array
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseCategoriesObject'
-    responseCategoriesObject:
+            $ref: '#/components/schemas/ResponseCategoriesObject'
+    ResponseCategoriesObject:
       type: object
       properties:
         subject:
@@ -703,7 +705,7 @@ components:
           type: string
           description: description
           example: Analysts Revisions
-    responseCount:
+    ResponseCount:
       description: Filings Response Object
       type: object
       properties:
@@ -711,8 +713,8 @@ components:
           type: array
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseCountObject'
-    responseCountObject:
+            $ref: '#/components/schemas/ResponseCountObject'
+    ResponseCountObject:
       type: object
       properties:
         id:

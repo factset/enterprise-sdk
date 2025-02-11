@@ -148,7 +148,7 @@ public class AnnualizedDividendsObject implements Serializable {
    * @return effectiveDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2022-03-11T00:00:00.000Z", value = "Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD format.")
+  @ApiModelProperty(example = "2022-03-11", value = "Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD format.")
   @JsonIgnore
 
   public String getEffectiveDate() {

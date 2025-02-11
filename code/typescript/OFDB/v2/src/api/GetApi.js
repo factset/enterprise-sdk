@@ -13,6 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineResponse200 from '../model/InlineResponse200';
+import InlineResponse2001 from '../model/InlineResponse2001';
+import InlineResponse2002 from '../model/InlineResponse2002';
+import InlineResponse2004 from '../model/InlineResponse2004';
+import InlineResponse2005 from '../model/InlineResponse2005';
+import InlineResponse2006 from '../model/InlineResponse2006';
 import InlineResponse202 from '../model/InlineResponse202';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse403 from '../model/InlineResponse403';
@@ -39,7 +45,7 @@ export default class GetApi {
     /**
      * Returns a list of the most recent \"modificationTimes\" in long datetime format
      * @param {String} path Encode database path
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
     getAuditWithHttpInfo(path) {
       let postBody = null;
@@ -63,7 +69,7 @@ export default class GetApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
         '/database/{path}/audit', 'GET',
@@ -75,7 +81,7 @@ export default class GetApi {
     /**
      * Returns a list of the most recent \"modificationTimes\" in long datetime format
      * @param {String} path Encode database path
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getAudit(path) {
       return this.getAuditWithHttpInfo(path)
@@ -100,7 +106,7 @@ export default class GetApi {
      * @param {String} opts.filterSymbolsValues Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided. 
      * @param {String} opts.sortFieldName Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested
      * @param {module:model/String} opts.sortFieldOrder Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
      */
     getDataWithHttpInfo(path, opts) {
       opts = opts || {};
@@ -136,7 +142,7 @@ export default class GetApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse2006;
 
       return this.apiClient.callApi(
         '/database/{path}', 'GET',
@@ -160,7 +166,7 @@ export default class GetApi {
      * @param {String} opts.filterSymbolsValues Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided. 
      * @param {String} opts.sortFieldName Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested
      * @param {module:model/String} opts.sortFieldOrder Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     getData(path, opts) {
       return this.getDataWithHttpInfo(path, opts)
@@ -179,7 +185,7 @@ export default class GetApi {
      * @param {String} opts.before Returns list of dates which are before mentioned date
      * @param {String} opts.after Returns list of dates which are after mentioned date
      * @param {module:model/String} opts.orderBy Returns dates in the mentioned sorted order, should provide asc or desc
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getDatesWithHttpInfo(path, opts) {
       opts = opts || {};
@@ -209,7 +215,7 @@ export default class GetApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/database/{path}/dates', 'GET',
@@ -227,7 +233,7 @@ export default class GetApi {
      * @param {String} opts.before Returns list of dates which are before mentioned date
      * @param {String} opts.after Returns list of dates which are after mentioned date
      * @param {module:model/String} opts.orderBy Returns dates in the mentioned sorted order, should provide asc or desc
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getDates(path, opts) {
       return this.getDatesWithHttpInfo(path, opts)
@@ -240,7 +246,7 @@ export default class GetApi {
     /**
      * Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
      * @param {String} path Encode database path
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
     getFieldsWithHttpInfo(path) {
       let postBody = null;
@@ -264,7 +270,7 @@ export default class GetApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse2002;
 
       return this.apiClient.callApi(
         '/database/{path}/fields', 'GET',
@@ -276,7 +282,7 @@ export default class GetApi {
     /**
      * Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
      * @param {String} path Encode database path
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getFields(path) {
       return this.getFieldsWithHttpInfo(path)
@@ -289,7 +295,7 @@ export default class GetApi {
     /**
      * Returns a summary of OFDB metadata and data points
      * @param {String} path Encode database path
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     getStatsWithHttpInfo(path) {
       let postBody = null;
@@ -313,7 +319,7 @@ export default class GetApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse2001;
 
       return this.apiClient.callApi(
         '/database/{path}/stats', 'GET',
@@ -325,7 +331,7 @@ export default class GetApi {
     /**
      * Returns a summary of OFDB metadata and data points
      * @param {String} path Encode database path
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     getStats(path) {
       return this.getStatsWithHttpInfo(path)
@@ -344,7 +350,7 @@ export default class GetApi {
      * @param {String} opts.contains Returns list of symbols which contains mentioned string
      * @param {String} opts.equals Returns symbol which matches mentioned string
      * @param {module:model/String} opts.orderBy Returns symbols in the mentioned sorted order, should provide asc or desc
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse202} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
     getSymbolsWithHttpInfo(path, opts) {
       opts = opts || {};
@@ -374,7 +380,7 @@ export default class GetApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse202;
+      let returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
         '/database/{path}/symbols', 'GET',
@@ -392,7 +398,7 @@ export default class GetApi {
      * @param {String} opts.contains Returns list of symbols which contains mentioned string
      * @param {String} opts.equals Returns symbol which matches mentioned string
      * @param {module:model/String} opts.orderBy Returns symbols in the mentioned sorted order, should provide asc or desc
-     * @return { Promise.< module:model/InlineResponse202 > } a Promise, with data of type {@link module:model/InlineResponse202 }
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     getSymbols(path, opts) {
       return this.getSymbolsWithHttpInfo(path, opts)

@@ -16,5 +16,4 @@
 # Import APIs into API package:
 from fds.sdk.StreetAccountNews.api.filters_api import FiltersApi
 from fds.sdk.StreetAccountNews.api.headlines_api import HeadlinesApi
-from fds.sdk.StreetAccountNews.api.street_account_historical_stories_api import StreetAccountHistoricalStoriesApi
 from fds.sdk.StreetAccountNews.api.views_api import ViewsApi

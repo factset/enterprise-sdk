@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **three_year_annualized** | **float, none_type** | The three-year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
 **five_year** | **float, none_type** | The five-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
 **five_year_annualized** | **float, none_type** | The five year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
+**ten_year** | **float, none_type** | The ten-year return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
+**ten_year_annualized** | **float, none_type** | The ten year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
 **date** | **date, none_type** | The date of the return in YYYY-MM-DD format. | [optional] 
 **request_id** | **str** | The requested Id sent as input. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

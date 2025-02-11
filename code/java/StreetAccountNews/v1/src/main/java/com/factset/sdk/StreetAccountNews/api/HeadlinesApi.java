@@ -144,7 +144,7 @@ public class HeadlinesApi {
   }
   /**
    * Retrieve StreetAccount headlines for given view
-   * This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the ‘Create Views’ endpoint.
+   * This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the &#39;Create Views&#39; endpoint.
    * @param headlinesRequestByView View body which needs to be sent with request (optional)
    * @return HeadlinesResponse
    * @throws ApiException if fails to make API call
@@ -164,7 +164,7 @@ public class HeadlinesApi {
 
   /**
    * Retrieve StreetAccount headlines for given view
-   * This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the ‘Create Views’ endpoint.
+   * This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the &#39;Create Views&#39; endpoint.
    * @param headlinesRequestByView View body which needs to be sent with request (optional)
    * @return ApiResponse&lt;HeadlinesResponse&gt;
    * @throws ApiException if fails to make API call

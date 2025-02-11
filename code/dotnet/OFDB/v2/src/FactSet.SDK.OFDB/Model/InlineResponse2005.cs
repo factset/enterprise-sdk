@@ -36,7 +36,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public InlineResponse2005(SymbolsWithId data = default(SymbolsWithId))
+        public InlineResponse2005(List<int> data = default(List<int>))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.OFDB.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public SymbolsWithId Data { get; set; }
+        public List<int> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,8 +93,9 @@ namespace FactSet.SDK.OFDB.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 

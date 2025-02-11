@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## updateDate
 
-> InlineResponse202 updateDate(path, date, updateDate)
+> SuccessPostResponse updateDate(path, date, updateDate)
 
 
 
@@ -64,7 +64,7 @@ public class Example {
         Integer date = 56; // Integer | Date in YYYYMMDD format
         UpdateDate updateDate = new UpdateDate(); // UpdateDate | Required data for updating date in the database
         try {
-            InlineResponse202 result = apiInstance.updateDate(path, date, updateDate);
+            SuccessPostResponse result = apiInstance.updateDate(path, date, updateDate);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -103,6 +103,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -116,7 +117,7 @@ Name | Type | Description  | Notes
 
 ## updateDates
 
-> InlineResponse202 updateDates(path, updateDates)
+> SuccessPostResponse updateDates(path, updateDates)
 
 
 
@@ -166,7 +167,7 @@ public class Example {
         String path = "path_example"; // String | Encode database path
         UpdateDates updateDates = new UpdateDates(); // UpdateDates | Required data for updating date in the database
         try {
-            InlineResponse202 result = apiInstance.updateDates(path, updateDates);
+            SuccessPostResponse result = apiInstance.updateDates(path, updateDates);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -190,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -204,6 +205,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -217,7 +219,7 @@ Name | Type | Description  | Notes
 
 ## updateSymbol
 
-> InlineResponse202 updateSymbol(path, symbol, updateSymbol)
+> SuccessPostResponse updateSymbol(path, symbol, updateSymbol)
 
 
 
@@ -268,7 +270,7 @@ public class Example {
         String symbol = "symbol_example"; // String | Symbol with in the ofdb
         UpdateSymbol updateSymbol = new UpdateSymbol(); // UpdateSymbol | Data for updating symbol in the database
         try {
-            InlineResponse202 result = apiInstance.updateSymbol(path, symbol, updateSymbol);
+            SuccessPostResponse result = apiInstance.updateSymbol(path, symbol, updateSymbol);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -293,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -307,6 +309,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -320,7 +323,7 @@ Name | Type | Description  | Notes
 
 ## updateSymbols
 
-> InlineResponse202 updateSymbols(path, updateSymbols)
+> SuccessPostResponse updateSymbols(path, updateSymbols)
 
 
 
@@ -370,7 +373,7 @@ public class Example {
         String path = "path_example"; // String | Encode database path
         UpdateSymbols updateSymbols = new UpdateSymbols(); // UpdateSymbols | Data for updating symbol in the database
         try {
-            InlineResponse202 result = apiInstance.updateSymbols(path, updateSymbols);
+            SuccessPostResponse result = apiInstance.updateSymbols(path, updateSymbols);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -394,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -408,6 +411,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

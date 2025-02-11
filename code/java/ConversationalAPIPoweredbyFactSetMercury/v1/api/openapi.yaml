@@ -45,7 +45,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Conversational API Powered by FactSet Mercury
-  version: 1.0.7
+  version: 1.0.8
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury

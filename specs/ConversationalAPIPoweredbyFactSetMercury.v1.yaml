@@ -95,7 +95,7 @@ info:
     queries per minute and 200 per hour for an individual consumer. If you
     anticipate your needs to be greater than these limits, please reach out to
     FactSet Support.
-  version: 1.0.7
+  version: 1.0.8
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0

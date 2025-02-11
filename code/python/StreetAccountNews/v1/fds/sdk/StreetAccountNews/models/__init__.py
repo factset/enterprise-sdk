@@ -9,17 +9,11 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from fds.sdk.StreetAccountNews.model.accepted_response import AcceptedResponse
-from fds.sdk.StreetAccountNews.model.category import Category
-from fds.sdk.StreetAccountNews.model.create_files_request import CreateFilesRequest
-from fds.sdk.StreetAccountNews.model.create_files_request_object import CreateFilesRequestObject
 from fds.sdk.StreetAccountNews.model.create_or_edit_view_body import CreateOrEditViewBody
 from fds.sdk.StreetAccountNews.model.create_or_edit_view_body_data import CreateOrEditViewBodyData
 from fds.sdk.StreetAccountNews.model.create_or_edit_view_tickers import CreateOrEditViewTickers
 from fds.sdk.StreetAccountNews.model.create_view_response import CreateViewResponse
 from fds.sdk.StreetAccountNews.model.create_view_response_data import CreateViewResponseData
-from fds.sdk.StreetAccountNews.model.date_time_range import DateTimeRange
-from fds.sdk.StreetAccountNews.model.date_time_range_object import DateTimeRangeObject
 from fds.sdk.StreetAccountNews.model.delete_view_body import DeleteViewBody
 from fds.sdk.StreetAccountNews.model.delete_view_body_data import DeleteViewBodyData
 from fds.sdk.StreetAccountNews.model.error import Error
@@ -47,11 +41,10 @@ from fds.sdk.StreetAccountNews.model.flattened_filters_topics import FlattenedFi
 from fds.sdk.StreetAccountNews.model.flattened_filters_topics_object import FlattenedFiltersTopicsObject
 from fds.sdk.StreetAccountNews.model.flattened_filters_watchlists import FlattenedFiltersWatchlists
 from fds.sdk.StreetAccountNews.model.flattened_filters_watchlists_object import FlattenedFiltersWatchlistsObject
-from fds.sdk.StreetAccountNews.model.getfiles import Getfiles
-from fds.sdk.StreetAccountNews.model.getfiles_response import GetfilesResponse
 from fds.sdk.StreetAccountNews.model.headlines_request import HeadlinesRequest
 from fds.sdk.StreetAccountNews.model.headlines_request_by_view import HeadlinesRequestByView
 from fds.sdk.StreetAccountNews.model.headlines_request_by_view_data import HeadlinesRequestByViewData
+from fds.sdk.StreetAccountNews.model.headlines_request_by_view_data_search_time import HeadlinesRequestByViewDataSearchTime
 from fds.sdk.StreetAccountNews.model.headlines_request_by_view_meta import HeadlinesRequestByViewMeta
 from fds.sdk.StreetAccountNews.model.headlines_request_data import HeadlinesRequestData
 from fds.sdk.StreetAccountNews.model.headlines_request_data_search_time import HeadlinesRequestDataSearchTime
@@ -61,15 +54,10 @@ from fds.sdk.StreetAccountNews.model.headlines_request_tickers_object import Hea
 from fds.sdk.StreetAccountNews.model.headlines_response import HeadlinesResponse
 from fds.sdk.StreetAccountNews.model.headlines_response_meta import HeadlinesResponseMeta
 from fds.sdk.StreetAccountNews.model.headlines_response_meta_pagination import HeadlinesResponseMetaPagination
-from fds.sdk.StreetAccountNews.model.identifiers import Identifiers
-from fds.sdk.StreetAccountNews.model.meta_one import MetaOne
-from fds.sdk.StreetAccountNews.model.model202_error_object import Model202ErrorObject
-from fds.sdk.StreetAccountNews.model.pagination_one import PaginationOne
 from fds.sdk.StreetAccountNews.model.quick_alerts_body import QuickAlertsBody
 from fds.sdk.StreetAccountNews.model.quick_alerts_body_data import QuickAlertsBodyData
 from fds.sdk.StreetAccountNews.model.quick_alerts_response import QuickAlertsResponse
 from fds.sdk.StreetAccountNews.model.search_response_array_object import SearchResponseArrayObject
-from fds.sdk.StreetAccountNews.model.status_one import StatusOne
 from fds.sdk.StreetAccountNews.model.structured_filters import StructuredFilters
 from fds.sdk.StreetAccountNews.model.structured_filters_categories import StructuredFiltersCategories
 from fds.sdk.StreetAccountNews.model.structured_filters_categories_object import StructuredFiltersCategoriesObject
@@ -77,6 +65,8 @@ from fds.sdk.StreetAccountNews.model.structured_filters_children_object_categori
 from fds.sdk.StreetAccountNews.model.structured_filters_children_object_regions import StructuredFiltersChildrenObjectRegions
 from fds.sdk.StreetAccountNews.model.structured_filters_children_object_sectors import StructuredFiltersChildrenObjectSectors
 from fds.sdk.StreetAccountNews.model.structured_filters_children_object_topics import StructuredFiltersChildrenObjectTopics
+from fds.sdk.StreetAccountNews.model.structured_filters_children_object_topics_nested import StructuredFiltersChildrenObjectTopicsNested
+from fds.sdk.StreetAccountNews.model.structured_filters_children_object_topics_nested2 import StructuredFiltersChildrenObjectTopicsNested2
 from fds.sdk.StreetAccountNews.model.structured_filters_regions import StructuredFiltersRegions
 from fds.sdk.StreetAccountNews.model.structured_filters_regions_object import StructuredFiltersRegionsObject
 from fds.sdk.StreetAccountNews.model.structured_filters_sectors import StructuredFiltersSectors
@@ -85,6 +75,5 @@ from fds.sdk.StreetAccountNews.model.structured_filters_topics import Structured
 from fds.sdk.StreetAccountNews.model.structured_filters_topics_object import StructuredFiltersTopicsObject
 from fds.sdk.StreetAccountNews.model.structured_filters_watchlists import StructuredFiltersWatchlists
 from fds.sdk.StreetAccountNews.model.structured_filters_watchlists_object import StructuredFiltersWatchlistsObject
-from fds.sdk.StreetAccountNews.model.submitted_response import SubmittedResponse
 from fds.sdk.StreetAccountNews.model.views import Views
 from fds.sdk.StreetAccountNews.model.views_object import ViewsObject

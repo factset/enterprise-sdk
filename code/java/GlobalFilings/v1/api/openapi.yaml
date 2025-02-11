@@ -17,7 +17,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Global Filings API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/global-filings-api
@@ -332,8 +332,10 @@ paths:
                       description: ASX Company Announcements Delayed
                     - source: OMX
                       description: GlobeNewswire Europe
+                    - source: HKEX
+                      description: Hong Kong SE Company News
               schema:
-                $ref: '#/components/schemas/responseSources'
+                $ref: '#/components/schemas/ResponseSources'
           description: Success
         "400":
           content:
@@ -394,7 +396,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseFormtype'
               schema:
-                $ref: '#/components/schemas/responseFormtype'
+                $ref: '#/components/schemas/ResponseFormtype'
           description: Success
         "400":
           content:
@@ -455,7 +457,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseTime'
               schema:
-                $ref: '#/components/schemas/responseTime'
+                $ref: '#/components/schemas/ResponseTime'
           description: Success
         "400":
           content:
@@ -516,7 +518,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseCategories'
               schema:
-                $ref: '#/components/schemas/responseCategies'
+                $ref: '#/components/schemas/ResponseCategies'
           description: Success
         "400":
           content:
@@ -647,7 +649,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleResponseCount'
               schema:
-                $ref: '#/components/schemas/responseCount'
+                $ref: '#/components/schemas/ResponseCount'
           description: Success
         "400":
           content:
@@ -1127,7 +1129,7 @@ components:
             is based on what was used in the parameter.
           type: string
       type: object
-    responseSources:
+    ResponseSources:
       description: Filings Response Object
       example:
         data:
@@ -1139,10 +1141,10 @@ components:
         data:
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseSourcesObject'
+            $ref: '#/components/schemas/ResponseSourcesObject'
           type: array
       type: object
-    responseSourcesObject:
+    ResponseSourcesObject:
       example:
         description: EDGAR
         source: EDG
@@ -1159,7 +1161,7 @@ components:
       - description
       - source
       type: object
-    responseFormtype:
+    ResponseFormtype:
       description: Filings Response Object
       example:
         data:
@@ -1173,10 +1175,10 @@ components:
         data:
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseFormtypeObject'
+            $ref: '#/components/schemas/ResponseFormtypeObject'
           type: array
       type: object
-    responseFormtypeObject:
+    ResponseFormtypeObject:
       example:
         formType: 8-K
         description: Edgar
@@ -1195,7 +1197,7 @@ components:
           example: Edgar
           type: string
       type: object
-    responseTime:
+    ResponseTime:
       description: Filings Response Time
       example:
         data:
@@ -1205,10 +1207,10 @@ components:
         data:
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseTimeObject'
+            $ref: '#/components/schemas/ResponseTimeObject'
           type: array
       type: object
-    responseTimeObject:
+    ResponseTimeObject:
       example:
         timeZone: Africa/Malabo
       properties:
@@ -1217,7 +1219,7 @@ components:
           example: Africa/Malabo
           type: string
       type: object
-    responseCategies:
+    ResponseCategies:
       description: Filings Response Object
       example:
         data:
@@ -1231,10 +1233,10 @@ components:
         data:
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseCategoriesObject'
+            $ref: '#/components/schemas/ResponseCategoriesObject'
           type: array
       type: object
-    responseCategoriesObject:
+    ResponseCategoriesObject:
       example:
         subject: SB
         description: Analysts Revisions
@@ -1253,7 +1255,7 @@ components:
           example: Analysts Revisions
           type: string
       type: object
-    responseCount:
+    ResponseCount:
       description: Filings Response Object
       example:
         data:
@@ -1267,10 +1269,10 @@ components:
         data:
           description: Data Array Object
           items:
-            $ref: '#/components/schemas/responseCountObject'
+            $ref: '#/components/schemas/ResponseCountObject'
           type: array
       type: object
-    responseCountObject:
+    ResponseCountObject:
       example:
         count: "8000"
         id: IBM-US

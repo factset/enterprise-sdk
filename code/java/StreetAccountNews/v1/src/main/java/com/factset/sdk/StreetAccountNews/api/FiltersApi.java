@@ -104,7 +104,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filters
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return FilterResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -124,7 +124,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filters
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return ApiResponse&lt;FilterResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -181,7 +181,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter categories
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter categories. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return FilterCategoriesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -201,7 +201,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter categories
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter categories. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return ApiResponse&lt;FilterCategoriesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -258,7 +258,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter regions
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter Regions. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return FilterRegionsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -278,7 +278,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter regions
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter Regions. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return ApiResponse&lt;FilterRegionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -335,7 +335,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter sectors
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return FilterSectorsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -355,7 +355,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter sectors
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter Sectors. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return ApiResponse&lt;FilterSectorsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -412,7 +412,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter topics
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter topics. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return FilterTopicResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -432,7 +432,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter topics
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter topics. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return ApiResponse&lt;FilterTopicResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -489,7 +489,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter watchlists
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return FilterWatchlistsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -509,7 +509,7 @@ public class FiltersApi {
   /**
    * Retrieve all StreetAccount filter watchlists
    * If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.
-   * @param attributes Pass a list of filters to return the respective type of filter Watchlists. Accepted list values are \&quot;structured\&quot; and/or \&quot;flattened\&quot;. If no _atrributes are specified, all filters will be returned in the response (this is the default response).  (optional)
+   * @param attributes Specify the type(s) of filters to be returned. Accepted values are &#x60;structured&#x60; and/or &#x60;flattened&#x60;. If not specified, all filters are returned.  (optional)
    * @return ApiResponse&lt;FilterWatchlistsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

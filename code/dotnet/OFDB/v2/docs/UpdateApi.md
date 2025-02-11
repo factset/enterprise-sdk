@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="updatedate"></a>
 # **UpdateDate**
-> InlineResponse202 UpdateDate (string path, int date, UpdateDate updateDate)
+> SuccessPostResponse UpdateDate (string path, int date, UpdateDate updateDate)
 
 
 
@@ -69,7 +69,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.UpdateDate(path, date, updateDate);
+                SuccessPostResponse result = apiInstance.UpdateDate(path, date, updateDate);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
  **updateDate** | [**UpdateDate**](UpdateDate.md)| Required data for updating date in the database | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -107,6 +107,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -122,7 +123,7 @@ Name | Type | Description  | Notes
 
 <a name="updatedates"></a>
 # **UpdateDates**
-> InlineResponse202 UpdateDates (string path, UpdateDates updateDates)
+> SuccessPostResponse UpdateDates (string path, UpdateDates updateDates)
 
 
 
@@ -177,7 +178,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.UpdateDates(path, updateDates);
+                SuccessPostResponse result = apiInstance.UpdateDates(path, updateDates);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -199,7 +200,7 @@ Name | Type | Description  | Notes
  **updateDates** | [**UpdateDates**](UpdateDates.md)| Required data for updating date in the database | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -214,6 +215,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -229,7 +231,7 @@ Name | Type | Description  | Notes
 
 <a name="updatesymbol"></a>
 # **UpdateSymbol**
-> InlineResponse202 UpdateSymbol (string path, string symbol, UpdateSymbol updateSymbol)
+> SuccessPostResponse UpdateSymbol (string path, string symbol, UpdateSymbol updateSymbol)
 
 
 
@@ -285,7 +287,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.UpdateSymbol(path, symbol, updateSymbol);
+                SuccessPostResponse result = apiInstance.UpdateSymbol(path, symbol, updateSymbol);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -308,7 +310,7 @@ Name | Type | Description  | Notes
  **updateSymbol** | [**UpdateSymbol**](UpdateSymbol.md)| Data for updating symbol in the database | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -323,6 +325,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -338,7 +341,7 @@ Name | Type | Description  | Notes
 
 <a name="updatesymbols"></a>
 # **UpdateSymbols**
-> InlineResponse202 UpdateSymbols (string path, UpdateSymbols updateSymbols)
+> SuccessPostResponse UpdateSymbols (string path, UpdateSymbols updateSymbols)
 
 
 
@@ -393,7 +396,7 @@ namespace Example
 
             try
             {
-                InlineResponse202 result = apiInstance.UpdateSymbols(path, updateSymbols);
+                SuccessPostResponse result = apiInstance.UpdateSymbols(path, updateSymbols);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -415,7 +418,7 @@ Name | Type | Description  | Notes
  **updateSymbols** | [**UpdateSymbols**](UpdateSymbols.md)| Data for updating symbol in the database | 
 
 ### Return type
-[**InlineResponse202**](InlineResponse202.md)
+[**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
 
@@ -430,6 +433,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **201** | Status message of creation |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

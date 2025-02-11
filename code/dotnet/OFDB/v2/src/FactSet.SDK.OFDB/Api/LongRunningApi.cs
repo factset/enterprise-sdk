@@ -37,108 +37,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetResourceDeleteBulkItems(string path, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetResourceDeleteBulkItemsWithHttpInfo(string path, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>void</returns>
-        void GetResourceDeleteDate(string path, int date, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetResourceDeleteDateWithHttpInfo(string path, int date, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>void</returns>
-        void GetResourceDeleteDateFromSymbol(string path, int date, string symbol, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetResourceDeleteDateFromSymbolWithHttpInfo(string path, int date, string symbol, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>void</returns>
-        void GetResourceDeleteSymbol(string path, string symbol, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetResourceDeleteSymbolWithHttpInfo(string path, string symbol, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetResourceGetAudit(string path, string id);
+        InlineResponse200 GetResourceAudit(string path, string id);
 
         /// <summary>
         /// 
@@ -150,7 +50,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetResourceGetAuditWithHttpInfo(string path, string id);
+        ApiResponse<InlineResponse200> GetResourceAuditWithHttpInfo(string path, string id);
         /// <summary>
         /// 
         /// </summary>
@@ -160,8 +60,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 GetResourceGetData(string path, string id);
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 GetResourceBulkDelete(string path, string id);
 
         /// <summary>
         /// 
@@ -172,8 +72,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> GetResourceGetDataWithHttpInfo(string path, string id);
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> GetResourceBulkDeleteWithHttpInfo(string path, string id);
         /// <summary>
         /// 
         /// </summary>
@@ -184,7 +84,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 GetResourceGetDates(string path, string id);
+        InlineResponse2006 GetResourceData(string path, string id);
 
         /// <summary>
         /// 
@@ -196,7 +96,78 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> GetResourceGetDatesWithHttpInfo(string path, string id);
+        ApiResponse<InlineResponse2006> GetResourceDataWithHttpInfo(string path, string id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>CreateDatabase</returns>
+        CreateDatabase GetResourceDatabase(string path, string id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of CreateDatabase</returns>
+        ApiResponse<CreateDatabase> GetResourceDatabaseWithHttpInfo(string path, string id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>SuccessPostResponse</returns>
+        SuccessPostResponse GetResourceDate(string path, int date, string id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        ApiResponse<SuccessPostResponse> GetResourceDateWithHttpInfo(string path, int date, string id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetResourceDates(string path, string id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetResourceDatesWithHttpInfo(string path, string id);
         /// <summary>
         /// 
         /// </summary>
@@ -207,7 +178,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetResourceGetFields(string path, string id);
+        InlineResponse2002 GetResourceFields(string path, string id);
 
         /// <summary>
         /// 
@@ -219,7 +190,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetResourceGetFieldsWithHttpInfo(string path, string id);
+        ApiResponse<InlineResponse2002> GetResourceFieldsWithHttpInfo(string path, string id);
         /// <summary>
         /// 
         /// </summary>
@@ -230,7 +201,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetResourceGetStats(string path, string id);
+        InlineResponse2001 GetResourceStats(string path, string id);
 
         /// <summary>
         /// 
@@ -242,7 +213,32 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetResourceGetStatsWithHttpInfo(string path, string id);
+        ApiResponse<InlineResponse2001> GetResourceStatsWithHttpInfo(string path, string id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>SuccessPostResponse</returns>
+        SuccessPostResponse GetResourceSymbol(string path, string symbol, string id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        ApiResponse<SuccessPostResponse> GetResourceSymbolWithHttpInfo(string path, string symbol, string id);
         /// <summary>
         /// 
         /// </summary>
@@ -253,7 +249,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetResourceGetSymbols(string path, string id);
+        InlineResponse2004 GetResourceSymbols(string path, string id);
 
         /// <summary>
         /// 
@@ -265,193 +261,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetResourceGetSymbolsWithHttpInfo(string path, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>CreateDatabase</returns>
-        CreateDatabase GetResourcePostDatabase(string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of CreateDatabase</returns>
-        ApiResponse<CreateDatabase> GetResourcePostDatabaseWithHttpInfo(string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 GetResourcePostDates(string path, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> GetResourcePostDatesWithHttpInfo(string path, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetResourcePostFields(string path, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetResourcePostFieldsWithHttpInfo(string path, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetResourcePostSymbols(string path, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetResourcePostSymbolsWithHttpInfo(string path, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>SuccessPostResponse</returns>
-        SuccessPostResponse GetResourcePutDate(string path, int date, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of SuccessPostResponse</returns>
-        ApiResponse<SuccessPostResponse> GetResourcePutDateWithHttpInfo(string path, int date, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 GetResourcePutDates(string path, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> GetResourcePutDatesWithHttpInfo(string path, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>SuccessPostResponse</returns>
-        SuccessPostResponse GetResourcePutSymbol(string path, string symbol, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of SuccessPostResponse</returns>
-        ApiResponse<SuccessPostResponse> GetResourcePutSymbolWithHttpInfo(string path, string symbol, string id);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetResourcePutSymbols(string path, string id);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetResourcePutSymbolsWithHttpInfo(string path, string id);
+        ApiResponse<InlineResponse2004> GetResourceSymbolsWithHttpInfo(string path, string id);
         /// <summary>
         /// 
         /// </summary>
@@ -492,116 +302,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetResourceDeleteBulkItemsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetResourceDeleteBulkItemsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetResourceDeleteDateAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetResourceDeleteDateWithHttpInfoAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetResourceDeleteDateFromSymbolAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetResourceDeleteDateFromSymbolWithHttpInfoAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetResourceDeleteSymbolAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetResourceDeleteSymbolWithHttpInfoAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetResourceGetAuditAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse200> GetResourceAuditAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -614,7 +316,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetResourceGetAuditWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetResourceAuditWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -625,8 +327,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> GetResourceGetDataAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> GetResourceBulkDeleteAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -638,8 +340,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetResourceGetDataWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetResourceBulkDeleteWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -651,7 +353,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> GetResourceGetDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2006> GetResourceDataAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -664,7 +366,84 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetResourceGetDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetResourceDataWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateDatabase</returns>
+        System.Threading.Tasks.Task<CreateDatabase> GetResourceDatabaseAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateDatabase)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateDatabase>> GetResourceDatabaseWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessPostResponse</returns>
+        System.Threading.Tasks.Task<SuccessPostResponse> GetResourceDateAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourceDateWithHttpInfoAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetResourceDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourceDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -676,7 +455,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetResourceGetFieldsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2002> GetResourceFieldsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -689,7 +468,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetResourceGetFieldsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetResourceFieldsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -701,7 +480,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetResourceGetStatsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2001> GetResourceStatsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -714,7 +493,34 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetResourceGetStatsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetResourceStatsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessPostResponse</returns>
+        System.Threading.Tasks.Task<SuccessPostResponse> GetResourceSymbolAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourceSymbolWithHttpInfoAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -726,7 +532,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetResourceGetSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2004> GetResourceSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -739,209 +545,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetResourceGetSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CreateDatabase</returns>
-        System.Threading.Tasks.Task<CreateDatabase> GetResourcePostDatabaseAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CreateDatabase)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateDatabase>> GetResourcePostDatabaseWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> GetResourcePostDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetResourcePostDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetResourcePostFieldsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetResourcePostFieldsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetResourcePostSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourcePostSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessPostResponse</returns>
-        System.Threading.Tasks.Task<SuccessPostResponse> GetResourcePutDateAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourcePutDateWithHttpInfoAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> GetResourcePutDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetResourcePutDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessPostResponse</returns>
-        System.Threading.Tasks.Task<SuccessPostResponse> GetResourcePutSymbolAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourcePutSymbolWithHttpInfoAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetResourcePutSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourcePutSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetResourceSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -985,29 +589,7 @@ namespace FactSet.SDK.OFDB.Api
 
         # region Response Type Disctionaries
         
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDeleteBulkItemsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2003) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDeleteDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDeleteDateFromSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDeleteSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceGetAuditResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceAuditResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
@@ -1017,9 +599,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceGetDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceBulkDeleteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2008) },
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
             { (HttpStatusCode)404, typeof(InlineResponse403) },
@@ -1027,7 +609,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceGetDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse2006) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
@@ -1037,37 +619,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceGetFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2002) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceGetStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2001) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceGetSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2004) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePostDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(CreateDatabase) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
@@ -1077,37 +629,7 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePostDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2007) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePostFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2002) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePostSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
-        {
-            { (HttpStatusCode)200, typeof(InlineResponse2005) },
-            { (HttpStatusCode)400, typeof(InlineResponse400) },
-            { (HttpStatusCode)403, typeof(InlineResponse403) },
-            { (HttpStatusCode)404, typeof(InlineResponse403) },
-            { (HttpStatusCode)406, typeof(InlineResponse403) },
-            { (HttpStatusCode)429, typeof(InlineResponse403) },
-        };
-
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePutDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SuccessPostResponse) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
@@ -1118,9 +640,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePutDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
             { (HttpStatusCode)404, typeof(InlineResponse403) },
@@ -1128,7 +650,27 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePutSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+            { (HttpStatusCode)400, typeof(InlineResponse400) },
+            { (HttpStatusCode)403, typeof(InlineResponse403) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+            { (HttpStatusCode)400, typeof(InlineResponse400) },
+            { (HttpStatusCode)403, typeof(InlineResponse403) },
+            { (HttpStatusCode)404, typeof(InlineResponse403) },
+            { (HttpStatusCode)406, typeof(InlineResponse403) },
+            { (HttpStatusCode)429, typeof(InlineResponse403) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(SuccessPostResponse) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
@@ -1138,9 +680,9 @@ namespace FactSet.SDK.OFDB.Api
             { (HttpStatusCode)429, typeof(InlineResponse403) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourcePutSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetResourceSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
             { (HttpStatusCode)404, typeof(InlineResponse403) },
@@ -1274,832 +816,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetResourceDeleteBulkItems(string path, string id)
-        {
-            var localVarResponse = GetResourceDeleteBulkItemsWithHttpInfo(path, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse<InlineResponse2003> GetResourceDeleteBulkItemsWithHttpInfo(string path, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteBulkItems");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteBulkItems");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteBulkItemsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            InlineResponse2003>("/database/{path}/delete/jobs/post/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteBulkItems", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003>GetResourceDeleteBulkItemsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourceDeleteBulkItemsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetResourceDeleteBulkItemsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteBulkItems");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteBulkItems");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteBulkItemsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/database/{path}/delete/jobs/post/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteBulkItems", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>void</returns>
-        public void GetResourceDeleteDate(string path, int date, string id)
-        {
-            GetResourceDeleteDateWithHttpInfo(path, date, id);
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetResourceDeleteDateWithHttpInfo(string path, int date, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteDate");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteDate");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteDateResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            Object>("/database/{path}/dates/{date}/jobs/delete/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteDate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetResourceDeleteDateAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await GetResourceDeleteDateWithHttpInfoAsync(path, date, id, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetResourceDeleteDateWithHttpInfoAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteDate");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteDate");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteDateResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/database/{path}/dates/{date}/jobs/delete/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteDate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>void</returns>
-        public void GetResourceDeleteDateFromSymbol(string path, int date, string symbol, string id)
-        {
-            GetResourceDeleteDateFromSymbolWithHttpInfo(path, date, symbol, id);
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetResourceDeleteDateFromSymbolWithHttpInfo(string path, int date, string symbol, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteDateFromSymbol");
-            }
-
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourceDeleteDateFromSymbol");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteDateFromSymbol");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteDateFromSymbolResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            Object>("/database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteDateFromSymbol", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetResourceDeleteDateFromSymbolAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await GetResourceDeleteDateFromSymbolWithHttpInfoAsync(path, date, symbol, id, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetResourceDeleteDateFromSymbolWithHttpInfoAsync(string path, int date, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteDateFromSymbol");
-            }
-
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourceDeleteDateFromSymbol");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteDateFromSymbol");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteDateFromSymbolResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/database/{path}/dates/{date}/symbols/{symbol}/jobs/delete/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteDateFromSymbol", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>void</returns>
-        public void GetResourceDeleteSymbol(string path, string symbol, string id)
-        {
-            GetResourceDeleteSymbolWithHttpInfo(path, symbol, id);
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetResourceDeleteSymbolWithHttpInfo(string path, string symbol, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteSymbol");
-            }
-
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourceDeleteSymbol");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteSymbol");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteSymbolResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            Object>("/database/{path}/symbols/{symbol}/jobs/delete/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteSymbol", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetResourceDeleteSymbolAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await GetResourceDeleteSymbolWithHttpInfoAsync(path, symbol, id, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetResourceDeleteSymbolWithHttpInfoAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDeleteSymbol");
-            }
-
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourceDeleteSymbol");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDeleteSymbol");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceDeleteSymbolResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/database/{path}/symbols/{symbol}/jobs/delete/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourceDeleteSymbol", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetResourceGetAudit(string path, string id)
+        public InlineResponse200 GetResourceAudit(string path, string id)
         {
-            var localVarResponse = GetResourceGetAuditWithHttpInfo(path, id);
+            var localVarResponse = GetResourceAuditWithHttpInfo(path, id);
             return localVarResponse.Data;
         }
 
@@ -2110,18 +830,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse<InlineResponse200> GetResourceGetAuditWithHttpInfo(string path, string id)
+        public ApiResponse<InlineResponse200> GetResourceAuditWithHttpInfo(string path, string id)
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetAudit");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceAudit");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetAudit");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceAudit");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -2169,14 +889,14 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetAuditResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceAuditResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse200>("/database/{path}/audit/jobs/get/{id}", localVarRequestOptions, this.Configuration);
+            InlineResponse200>("/database/{path}/audit/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetAudit", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceAudit", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2193,9 +913,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200>GetResourceGetAuditAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetResourceAuditAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetResourceGetAuditWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetResourceAuditWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2208,18 +928,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetResourceGetAuditWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetResourceAuditWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetAudit");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceAudit");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetAudit");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceAudit");
             }
 
 
@@ -2268,14 +988,14 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetAuditResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceAuditResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/database/{path}/audit/jobs/get/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/database/{path}/audit/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetAudit", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceAudit", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2291,10 +1011,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 GetResourceGetData(string path, string id)
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 GetResourceBulkDelete(string path, string id)
         {
-            var localVarResponse = GetResourceGetDataWithHttpInfo(path, id);
+            var localVarResponse = GetResourceBulkDeleteWithHttpInfo(path, id);
             return localVarResponse.Data;
         }
 
@@ -2304,19 +1024,19 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse<InlineResponse2008> GetResourceGetDataWithHttpInfo(string path, string id)
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse<InlineResponse2003> GetResourceBulkDeleteWithHttpInfo(string path, string id)
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetData");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceBulkDelete");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetData");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceBulkDelete");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -2364,14 +1084,14 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetDataResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceBulkDeleteResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2008>("/database/{path}/jobs/get/{id}", localVarRequestOptions, this.Configuration);
+            InlineResponse2003>("/database/{path}/delete/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetData", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceBulkDelete", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2387,10 +1107,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008>GetResourceGetDataAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003>GetResourceBulkDeleteAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetResourceGetDataWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetResourceBulkDeleteWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2401,20 +1121,20 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetResourceGetDataWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetResourceBulkDeleteWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetData");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceBulkDelete");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetData");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceBulkDelete");
             }
 
 
@@ -2463,14 +1183,14 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetDataResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceBulkDeleteResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2008>("/database/{path}/jobs/get/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/database/{path}/delete/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetData", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceBulkDelete", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2487,9 +1207,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 GetResourceGetDates(string path, string id)
+        public InlineResponse2006 GetResourceData(string path, string id)
         {
-            var localVarResponse = GetResourceGetDatesWithHttpInfo(path, id);
+            var localVarResponse = GetResourceDataWithHttpInfo(path, id);
             return localVarResponse.Data;
         }
 
@@ -2500,18 +1220,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse<InlineResponse2006> GetResourceGetDatesWithHttpInfo(string path, string id)
+        public ApiResponse<InlineResponse2006> GetResourceDataWithHttpInfo(string path, string id)
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetDates");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceData");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetDates");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceData");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -2559,14 +1279,14 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetDatesResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDataResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2006>("/database/{path}/dates/jobs/get/{id}", localVarRequestOptions, this.Configuration);
+            InlineResponse2006>("/database/{path}/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetDates", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceData", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2583,9 +1303,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006>GetResourceGetDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>GetResourceDataAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetResourceGetDatesWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetResourceDataWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2598,18 +1318,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetResourceGetDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetResourceDataWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetDates");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceData");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetDates");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceData");
             }
 
 
@@ -2658,14 +1378,14 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetDatesResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDataResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/database/{path}/dates/jobs/get/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/database/{path}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetDates", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceData", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2681,10 +1401,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetResourceGetFields(string path, string id)
+        /// <returns>CreateDatabase</returns>
+        public CreateDatabase GetResourceDatabase(string path, string id)
         {
-            var localVarResponse = GetResourceGetFieldsWithHttpInfo(path, id);
+            var localVarResponse = GetResourceDatabaseWithHttpInfo(path, id);
             return localVarResponse.Data;
         }
 
@@ -2694,19 +1414,19 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> GetResourceGetFieldsWithHttpInfo(string path, string id)
+        /// <returns>ApiResponse of CreateDatabase</returns>
+        public ApiResponse<CreateDatabase> GetResourceDatabaseWithHttpInfo(string path, string id)
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetFields");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDatabase");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetFields");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDatabase");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -2754,14 +1474,14 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetFieldsResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDatabaseResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2002>("/database/{path}/fields/jobs/get/{id}", localVarRequestOptions, this.Configuration);
+            CreateDatabase>("/database/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetFields", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceDatabase", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2777,10 +1497,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002>GetResourceGetFieldsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreateDatabase</returns>
+        public async System.Threading.Tasks.Task<CreateDatabase>GetResourceDatabaseAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetResourceGetFieldsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetResourceDatabaseWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2791,20 +1511,20 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        /// <returns>Task of ApiResponse (CreateDatabase)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetResourceGetFieldsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<CreateDatabase>> GetResourceDatabaseWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetFields");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDatabase");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetFields");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDatabase");
             }
 
 
@@ -2853,14 +1573,605 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetFieldsResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDatabaseResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/database/{path}/fields/jobs/get/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CreateDatabase>("/database/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetFields", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceDatabase", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>SuccessPostResponse</returns>
+        public SuccessPostResponse GetResourceDate(string path, int date, string id)
+        {
+            var localVarResponse = GetResourceDateWithHttpInfo(path, date, id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        public ApiResponse<SuccessPostResponse> GetResourceDateWithHttpInfo(string path, int date, string id)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDate");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDate");
+            }
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDateResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SuccessPostResponse>("/database/{path}/dates/{date}/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceDate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessPostResponse</returns>
+        public async System.Threading.Tasks.Task<SuccessPostResponse>GetResourceDateAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetResourceDateWithHttpInfoAsync(path, date, id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="date">Date in YYYYMMDD format</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourceDateWithHttpInfoAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDate");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDate");
+            }
+
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDateResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessPostResponse>("/database/{path}/dates/{date}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceDate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetResourceDates(string path, string id)
+        {
+            var localVarResponse = GetResourceDatesWithHttpInfo(path, id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetResourceDatesWithHttpInfo(string path, string id)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDates");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDates");
+            }
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDatesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2005>("/database/{path}/dates/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceDates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetResourceDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetResourceDatesWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourceDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceDates");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceDates");
+            }
+
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceDatesResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/database/{path}/dates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceDates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 GetResourceFields(string path, string id)
+        {
+            var localVarResponse = GetResourceFieldsWithHttpInfo(path, id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public ApiResponse<InlineResponse2002> GetResourceFieldsWithHttpInfo(string path, string id)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceFields");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceFields");
+            }
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceFieldsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/database/{path}/fields/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceFields", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetResourceFieldsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetResourceFieldsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetResourceFieldsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceFields");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceFields");
+            }
+
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceFieldsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/database/{path}/fields/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceFields", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2877,9 +2188,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetResourceGetStats(string path, string id)
+        public InlineResponse2001 GetResourceStats(string path, string id)
         {
-            var localVarResponse = GetResourceGetStatsWithHttpInfo(path, id);
+            var localVarResponse = GetResourceStatsWithHttpInfo(path, id);
             return localVarResponse.Data;
         }
 
@@ -2890,18 +2201,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> GetResourceGetStatsWithHttpInfo(string path, string id)
+        public ApiResponse<InlineResponse2001> GetResourceStatsWithHttpInfo(string path, string id)
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetStats");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceStats");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetStats");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceStats");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -2949,14 +2260,14 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetStatsResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceStatsResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2001>("/database/{path}/stats/jobs/get/{id}", localVarRequestOptions, this.Configuration);
+            InlineResponse2001>("/database/{path}/stats/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetStats", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceStats", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2973,9 +2284,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001>GetResourceGetStatsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetResourceStatsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetResourceGetStatsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetResourceStatsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2988,18 +2299,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetResourceGetStatsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetResourceStatsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetStats");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceStats");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetStats");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceStats");
             }
 
 
@@ -3048,14 +2359,227 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetStatsResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceStatsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/database/{path}/stats/jobs/get/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/database/{path}/stats/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetStats", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceStats", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>SuccessPostResponse</returns>
+        public SuccessPostResponse GetResourceSymbol(string path, string symbol, string id)
+        {
+            var localVarResponse = GetResourceSymbolWithHttpInfo(path, symbol, id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <returns>ApiResponse of SuccessPostResponse</returns>
+        public ApiResponse<SuccessPostResponse> GetResourceSymbolWithHttpInfo(string path, string symbol, string id)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceSymbol");
+            }
+
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourceSymbol");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceSymbol");
+            }
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceSymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SuccessPostResponse>("/database/{path}/symbols/{symbol}/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceSymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessPostResponse</returns>
+        public async System.Threading.Tasks.Task<SuccessPostResponse>GetResourceSymbolAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetResourceSymbolWithHttpInfoAsync(path, symbol, id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Encode database path</param>
+        /// <param name="symbol">Symbol with in the ofdb</param>
+        /// <param name="id">A unique pickup ID returned by the original request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourceSymbolWithHttpInfoAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceSymbol");
+            }
+
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourceSymbol");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceSymbol");
+            }
+
+
+            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
+            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceSymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessPostResponse>("/database/{path}/symbols/{symbol}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetResourceSymbol", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3072,9 +2596,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetResourceGetSymbols(string path, string id)
+        public InlineResponse2004 GetResourceSymbols(string path, string id)
         {
-            var localVarResponse = GetResourceGetSymbolsWithHttpInfo(path, id);
+            var localVarResponse = GetResourceSymbolsWithHttpInfo(path, id);
             return localVarResponse.Data;
         }
 
@@ -3085,18 +2609,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> GetResourceGetSymbolsWithHttpInfo(string path, string id)
+        public ApiResponse<InlineResponse2004> GetResourceSymbolsWithHttpInfo(string path, string id)
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetSymbols");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceSymbols");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetSymbols");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceSymbols");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -3144,14 +2668,14 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetSymbolsResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceSymbolsResponseTypeDictionary;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2004>("/database/{path}/symbols/jobs/get/{id}", localVarRequestOptions, this.Configuration);
+            InlineResponse2004>("/database/{path}/symbols/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetSymbols", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceSymbols", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3168,9 +2692,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="id">A unique pickup ID returned by the original request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004>GetResourceGetSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>GetResourceSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetResourceGetSymbolsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetResourceSymbolsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3183,18 +2707,18 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetResourceGetSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetResourceSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceGetSymbols");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourceSymbols");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceGetSymbols");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourceSymbols");
             }
 
 
@@ -3243,1580 +2767,14 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            localVarRequestOptions.ResponseTypeDictionary = GetResourceGetSymbolsResponseTypeDictionary;
+            localVarRequestOptions.ResponseTypeDictionary = GetResourceSymbolsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/database/{path}/symbols/jobs/get/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/database/{path}/symbols/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetResourceGetSymbols", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>CreateDatabase</returns>
-        public CreateDatabase GetResourcePostDatabase(string id)
-        {
-            var localVarResponse = GetResourcePostDatabaseWithHttpInfo(id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of CreateDatabase</returns>
-        public ApiResponse<CreateDatabase> GetResourcePostDatabaseWithHttpInfo(string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostDatabase");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostDatabaseResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            CreateDatabase>("/database/jobs/post/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostDatabase", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CreateDatabase</returns>
-        public async System.Threading.Tasks.Task<CreateDatabase>GetResourcePostDatabaseAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePostDatabaseWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CreateDatabase)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<CreateDatabase>> GetResourcePostDatabaseWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostDatabase");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostDatabaseResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CreateDatabase>("/database/jobs/post/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostDatabase", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 GetResourcePostDates(string path, string id)
-        {
-            var localVarResponse = GetResourcePostDatesWithHttpInfo(path, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse<InlineResponse2007> GetResourcePostDatesWithHttpInfo(string path, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePostDates");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostDates");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostDatesResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            InlineResponse2007>("/database/{path}/dates/jobs/post/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostDates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007>GetResourcePostDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePostDatesWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetResourcePostDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePostDates");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostDates");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostDatesResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2007>("/database/{path}/dates/jobs/post/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostDates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetResourcePostFields(string path, string id)
-        {
-            var localVarResponse = GetResourcePostFieldsWithHttpInfo(path, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> GetResourcePostFieldsWithHttpInfo(string path, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePostFields");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostFields");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostFieldsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            InlineResponse2002>("/database/{path}/fields/jobs/post/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostFields", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002>GetResourcePostFieldsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePostFieldsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetResourcePostFieldsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePostFields");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostFields");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostFieldsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/database/{path}/fields/jobs/post/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostFields", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetResourcePostSymbols(string path, string id)
-        {
-            var localVarResponse = GetResourcePostSymbolsWithHttpInfo(path, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> GetResourcePostSymbolsWithHttpInfo(string path, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePostSymbols");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostSymbols");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostSymbolsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            InlineResponse2005>("/database/{path}/symbols/jobs/post/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostSymbols", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005>GetResourcePostSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePostSymbolsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourcePostSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePostSymbols");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePostSymbols");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePostSymbolsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/database/{path}/symbols/jobs/post/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePostSymbols", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>SuccessPostResponse</returns>
-        public SuccessPostResponse GetResourcePutDate(string path, int date, string id)
-        {
-            var localVarResponse = GetResourcePutDateWithHttpInfo(path, date, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public ApiResponse<SuccessPostResponse> GetResourcePutDateWithHttpInfo(string path, int date, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutDate");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutDate");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutDateResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            SuccessPostResponse>("/database/{path}/dates/{date}/jobs/put/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutDate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse>GetResourcePutDateAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePutDateWithHttpInfoAsync(path, date, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourcePutDateWithHttpInfoAsync(string path, int date, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutDate");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutDate");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutDateResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessPostResponse>("/database/{path}/dates/{date}/jobs/put/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutDate", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 GetResourcePutDates(string path, string id)
-        {
-            var localVarResponse = GetResourcePutDatesWithHttpInfo(path, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse<InlineResponse2007> GetResourcePutDatesWithHttpInfo(string path, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutDates");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutDates");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutDatesResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            InlineResponse2007>("/database/{path}/dates/jobs/put/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutDates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007>GetResourcePutDatesAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePutDatesWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetResourcePutDatesWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutDates");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutDates");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutDatesResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2007>("/database/{path}/dates/jobs/put/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutDates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>SuccessPostResponse</returns>
-        public SuccessPostResponse GetResourcePutSymbol(string path, string symbol, string id)
-        {
-            var localVarResponse = GetResourcePutSymbolWithHttpInfo(path, symbol, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public ApiResponse<SuccessPostResponse> GetResourcePutSymbolWithHttpInfo(string path, string symbol, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutSymbol");
-            }
-
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourcePutSymbol");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutSymbol");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutSymbolResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            SuccessPostResponse>("/database/{path}/symbols/{symbol}/jobs/put/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutSymbol", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse>GetResourcePutSymbolAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePutSymbolWithHttpInfoAsync(path, symbol, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> GetResourcePutSymbolWithHttpInfoAsync(string path, string symbol, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutSymbol");
-            }
-
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling LongRunningApi->GetResourcePutSymbol");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutSymbol");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutSymbolResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessPostResponse>("/database/{path}/symbols/{symbol}/jobs/put/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutSymbol", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetResourcePutSymbols(string path, string id)
-        {
-            var localVarResponse = GetResourcePutSymbolsWithHttpInfo(path, id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> GetResourcePutSymbolsWithHttpInfo(string path, string id)
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutSymbols");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutSymbols");
-            }
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutSymbolsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<
-            InlineResponse2005>("/database/{path}/symbols/jobs/put/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutSymbols", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005>GetResourcePutSymbolsAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetResourcePutSymbolsWithHttpInfoAsync(path, id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">Encode database path</param>
-        /// <param name="id">A unique pickup ID returned by the original request</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetResourcePutSymbolsWithHttpInfoAsync(string path, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'path' is set
-            if (path == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling LongRunningApi->GetResourcePutSymbols");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'id' when calling LongRunningApi->GetResourcePutSymbols");
-            }
-
-
-            FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
-            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetResourcePutSymbolsResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/database/{path}/symbols/jobs/put/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetResourcePutSymbols", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetResourceSymbols", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

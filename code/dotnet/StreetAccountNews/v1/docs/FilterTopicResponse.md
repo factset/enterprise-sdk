@@ -1,5 +1,5 @@
 # FactSet.SDK.StreetAccountNews.Model.FilterTopicResponse
-FiltersTopic Object
+Filters Topic Object
 
 ## Properties
 

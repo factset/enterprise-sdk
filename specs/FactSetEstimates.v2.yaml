@@ -3912,9 +3912,7 @@ components:
           example: '2023-06-30'
           nullable: true
         actualValue:
-          description: >-
-            The Online Assistant Page URL, used to lookup the definition and
-            methodology of the requested item.
+          description: Actual value for the requested metric.
           type: number
           example: 383285
           nullable: true

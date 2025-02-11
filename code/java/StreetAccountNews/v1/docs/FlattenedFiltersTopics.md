@@ -2,7 +2,7 @@
 
 # FlattenedFiltersTopics
 
-Flattened FiltersTopic Object
+Flattened Filters Topic Object
 
 ## Properties
 

@@ -641,6 +641,8 @@ Get Fund Returns over pre-defined time horizons as of a specific date. Use the d
 * threeYearAnnualized
 * fiveYear
 * fiveYearAnnualized
+* tenYear
+* tenYearAnnualized
 
 
 ### Example
@@ -751,6 +753,8 @@ Get Fund Returns over pre-defined time horizons as of a specific date. Use the d
 * threeYearAnnualized
 * fiveYear
 * fiveYearAnnualized 
+* tenYear
+* tenYearAnnualized
 
 
 ### Example

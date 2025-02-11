@@ -36,8 +36,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 GetAudit(string path);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetAudit(string path);
 
         /// <summary>
         /// 
@@ -47,8 +47,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> GetAuditWithHttpInfo(string path);
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> GetAuditWithHttpInfo(string path);
         /// <summary>
         /// 
         /// </summary>
@@ -68,8 +68,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="filterSymbolsValues">Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)</param>
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 GetData(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string));
+        /// <returns>InlineResponse2006</returns>
+        InlineResponse2006 GetData(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string));
 
         /// <summary>
         /// 
@@ -90,8 +90,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="filterSymbolsValues">Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)</param>
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> GetDataWithHttpInfo(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string));
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        ApiResponse<InlineResponse2006> GetDataWithHttpInfo(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string));
         /// <summary>
         /// 
         /// </summary>
@@ -105,8 +105,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 GetDates(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string));
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetDates(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string));
 
         /// <summary>
         /// 
@@ -121,8 +121,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> GetDatesWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string));
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetDatesWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string));
         /// <summary>
         /// 
         /// </summary>
@@ -131,8 +131,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 GetFields(string path);
+        /// <returns>InlineResponse2002</returns>
+        InlineResponse2002 GetFields(string path);
 
         /// <summary>
         /// 
@@ -142,8 +142,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> GetFieldsWithHttpInfo(string path);
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        ApiResponse<InlineResponse2002> GetFieldsWithHttpInfo(string path);
         /// <summary>
         /// 
         /// </summary>
@@ -152,8 +152,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 GetStats(string path);
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetStats(string path);
 
         /// <summary>
         /// 
@@ -163,8 +163,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> GetStatsWithHttpInfo(string path);
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> GetStatsWithHttpInfo(string path);
         /// <summary>
         /// 
         /// </summary>
@@ -178,8 +178,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        InlineResponse202 GetSymbols(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string));
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 GetSymbols(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string));
 
         /// <summary>
         /// 
@@ -194,8 +194,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> GetSymbolsWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string));
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> GetSymbolsWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string));
         #endregion Synchronous Operations
     }
 
@@ -214,8 +214,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> GetAuditAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> GetAuditAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -226,8 +226,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetAuditWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAuditWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -248,8 +248,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> GetDataAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2006</returns>
+        System.Threading.Tasks.Task<InlineResponse2006> GetDataAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -271,8 +271,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetDataWithHttpInfoAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetDataWithHttpInfoAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -287,8 +287,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> GetDatesAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetDatesAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -304,8 +304,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetDatesWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetDatesWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -315,8 +315,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> GetFieldsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2002</returns>
+        System.Threading.Tasks.Task<InlineResponse2002> GetFieldsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -327,8 +327,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetFieldsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetFieldsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -338,8 +338,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> GetStatsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> GetStatsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -350,8 +350,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetStatsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStatsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -366,8 +366,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> GetSymbolsAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> GetSymbolsAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -383,8 +383,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetSymbolsWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetSymbolsWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -407,6 +407,7 @@ namespace FactSet.SDK.OFDB.Api
         
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAuditResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -417,6 +418,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -427,6 +429,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetDatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -437,6 +440,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetFieldsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -447,6 +451,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -457,6 +462,7 @@ namespace FactSet.SDK.OFDB.Api
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSymbolsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
             { (HttpStatusCode)202, typeof(InlineResponse202) },
             { (HttpStatusCode)400, typeof(InlineResponse400) },
             { (HttpStatusCode)403, typeof(InlineResponse403) },
@@ -579,8 +585,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 GetAudit(string path)
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 GetAudit(string path)
         {
             var localVarResponse = GetAuditWithHttpInfo(path);
             return localVarResponse.Data;
@@ -591,8 +597,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> GetAuditWithHttpInfo(string path)
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> GetAuditWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -648,7 +654,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse202>("/database/{path}/audit", localVarRequestOptions, this.Configuration);
+            InlineResponse200>("/database/{path}/audit", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAudit", localVarResponse);
@@ -666,8 +672,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>GetAuditAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200>GetAuditAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetAuditWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -679,9 +685,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetAuditWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAuditWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -737,7 +743,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = GetAuditResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse202>("/database/{path}/audit", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/database/{path}/audit", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -767,8 +773,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="filterSymbolsValues">Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)</param>
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 GetData(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
+        /// <returns>InlineResponse2006</returns>
+        public InlineResponse2006 GetData(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
         {
             var localVarResponse = GetDataWithHttpInfo(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
             return localVarResponse.Data;
@@ -790,8 +796,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="filterSymbolsValues">Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)</param>
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> GetDataWithHttpInfo(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        public ApiResponse<InlineResponse2006> GetDataWithHttpInfo(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -891,7 +897,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse202>("/database/{path}", localVarRequestOptions, this.Configuration);
+            InlineResponse2006>("/database/{path}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetData", localVarResponse);
@@ -920,8 +926,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>GetDataAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2006</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2006>GetDataAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetDataWithHttpInfoAsync(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -944,9 +950,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetDataWithHttpInfoAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetDataWithHttpInfoAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1046,7 +1052,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = GetDataResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse202>("/database/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/database/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1070,8 +1076,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 GetDates(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetDates(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
         {
             var localVarResponse = GetDatesWithHttpInfo(path, between, equals, before, after, orderBy);
             return localVarResponse.Data;
@@ -1087,8 +1093,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> GetDatesWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetDatesWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1164,7 +1170,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse202>("/database/{path}/dates", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/database/{path}/dates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDates", localVarResponse);
@@ -1187,8 +1193,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>GetDatesAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetDatesAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetDatesWithHttpInfoAsync(path, between, equals, before, after, orderBy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1205,9 +1211,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetDatesWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetDatesWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1283,7 +1289,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = GetDatesResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse202>("/database/{path}/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/database/{path}/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1302,8 +1308,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 GetFields(string path)
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 GetFields(string path)
         {
             var localVarResponse = GetFieldsWithHttpInfo(path);
             return localVarResponse.Data;
@@ -1314,8 +1320,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> GetFieldsWithHttpInfo(string path)
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public ApiResponse<InlineResponse2002> GetFieldsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1371,7 +1377,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse202>("/database/{path}/fields", localVarRequestOptions, this.Configuration);
+            InlineResponse2002>("/database/{path}/fields", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFields", localVarResponse);
@@ -1389,8 +1395,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>GetFieldsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetFieldsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetFieldsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1402,9 +1408,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetFieldsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetFieldsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1460,7 +1466,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = GetFieldsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse202>("/database/{path}/fields", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/database/{path}/fields", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1479,8 +1485,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 GetStats(string path)
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetStats(string path)
         {
             var localVarResponse = GetStatsWithHttpInfo(path);
             return localVarResponse.Data;
@@ -1491,8 +1497,8 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> GetStatsWithHttpInfo(string path)
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse<InlineResponse2001> GetStatsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1548,7 +1554,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse202>("/database/{path}/stats", localVarRequestOptions, this.Configuration);
+            InlineResponse2001>("/database/{path}/stats", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStats", localVarResponse);
@@ -1566,8 +1572,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>GetStatsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetStatsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStatsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1579,9 +1585,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetStatsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStatsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1637,7 +1643,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStatsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse202>("/database/{path}/stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/database/{path}/stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1661,8 +1667,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>InlineResponse202</returns>
-        public InlineResponse202 GetSymbols(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 GetSymbols(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
         {
             var localVarResponse = GetSymbolsWithHttpInfo(path, startsWith, endsWith, contains, equals, orderBy);
             return localVarResponse.Data;
@@ -1678,8 +1684,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> GetSymbolsWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse<InlineResponse2004> GetSymbolsWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1755,7 +1761,7 @@ namespace FactSet.SDK.OFDB.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse202>("/database/{path}/symbols", localVarRequestOptions, this.Configuration);
+            InlineResponse2004>("/database/{path}/symbols", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSymbols", localVarResponse);
@@ -1778,8 +1784,8 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202>GetSymbolsAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004>GetSymbolsAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetSymbolsWithHttpInfoAsync(path, startsWith, endsWith, contains, equals, orderBy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1796,9 +1802,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse202)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> GetSymbolsWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetSymbolsWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1874,7 +1880,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.ResponseTypeDictionary = GetSymbolsResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse202>("/database/{path}/symbols", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/database/{path}/symbols", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
