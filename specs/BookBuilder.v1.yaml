@@ -1,0 +1,818 @@
+openapi: 3.0.0
+info:
+  description: >-
+    The BookBuilder API is a powerful tool that combines detailed reports for
+    companies of interest. Save time by using a single source of knowledge
+    instead of relying on multiple APIs to create a presentation ready PDF, also
+    known as a Public Information Book(PIB). </br></br> Consistently create
+    books with the same content/reports for different companies by defining
+    templates with the set of reports saved for re-use. Or, use templates that
+    are created by FactSet for quick use. </br></br> With our powerful API
+    endpoints, you can get the information on companies of interest quickly
+    where and when you need it. </br></br> 
+  title: BookBuilder
+  version: 1.13.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  url: https://developer.factset.com/api-catalog/bookbuilder-api
+  description: API Documentation
+servers:
+  - url: https://api.factset.com/book-builder-api/v1
+    description: Base URL Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Templates - Fetch
+  - name: Templates - Creation
+  - name: Books - Creation
+  - name: Books - Fetch
+  - name: Custom Documents - Upload
+  - name: Custom Documents - Fetch
+paths:
+  /book-list:
+    get:
+      tags:
+        - Books - Fetch
+      summary: Check out the books that are in the book library
+      description: >-
+        Retrieves the list of books that were previously created and are
+        available in the client's book library
+      operationId: getBookList
+      responses:
+        '200':
+          description: >-
+            Successful response contains book name, book ID, created date,
+            shared status of the book and book type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enable_BookList_Info'
+              example:
+                - bookID: '20200623094829447'
+                  book_name: Financials
+                  created_on: '2020-06-23 09:48:29'
+        '401':
+          description: Missing or Invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+  /template-list:
+    get:
+      tags:
+        - Templates - Fetch
+      summary: Retrieves the list of templates that are available
+      description: >-
+        A template is a predefined list of content to be compiled in a PDF. This
+        end point works without any parameters and retrieves the list of
+        templates available for the user. Templates need to defined/created in
+        FactSet workstation.
+      operationId: getTemplateList
+      responses:
+        '200':
+          description: >-
+            Successful response contains an array with template name, template
+            ID, created date, template source and template type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enable_Template_Info'
+              example:
+                - template_id: '20200623094829447'
+                  template_name: Financials
+                  created_on: '2020-6-23 09:48:54'
+                  template_source: own_template
+                  type: Public
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+  /create-template:
+    post:
+      tags:
+        - Templates - Creation
+      summary: Kick off request to create template with reports of your choice
+      description: >-
+        This end point retrieves template name and template_id of the template
+        you create. All the book options such as name of the template, type, and
+        reports can be specified in the request body. Please refer to the
+        documentation for valid section ids and report ids.
+      operationId: createTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createTemplatePostRequest'
+            example:
+              tmpl_name: Quick Financials
+              tmpl_type: public
+              content:
+                - section_id: COMPANY_OVERVIEW
+                  reports:
+                    - COMPANY_SNAPSHOT_IB
+                    - COMPANY_SNAPSHOT_IM
+                    - ENTITY_STRUCTURE
+                    - SNP_REPORT
+      responses:
+        '200':
+          description: Successful response contains book name and book ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enable_Template_Info_Post'
+              example:
+                tmpl_id: '20200623094829447'
+                tmpl_name: Financials
+        '400':
+          description: Invalid template type/section_id/report_id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Template_Request'
+              example:
+                message: Template name already exists. Please select a different name.
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+  /create-book:
+    post:
+      tags:
+        - Books - Creation
+      summary: Kicks off request to create a book with reports of your choice
+      description: >-
+        This end point retrieves book name and book_id for the PDF book you
+        create. All the book options such as name of the book, ticker,
+        pagination options, and reports can be specified in the request body.
+        Please refer to the documentation for valid section ids and report ids.
+      operationId: createBook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createBookPostRequest'
+            example:
+              book_name: Company Book for FDS
+              ticker: FDS-US
+              pagination:
+                cover: true
+                divider: true
+                toc: true
+                footer: true
+                timestamp: false
+              content:
+                - section_id: COMPANY_OVERVIEW
+                  reports:
+                    - COMPANY_SNAPSHOT_IB
+                    - COMPANY_SNAPSHOT_IM
+                    - ENTITY_STRUCTURE
+      responses:
+        '200':
+          description: Successful response contains book name and book ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enable_Book_Info'
+              example:
+                book_name: Apple Inc.
+                book_id: '20200317133713794'
+                estimated_time: 240
+        '400':
+          description: Invalid ticker/section_id/report_id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Create_Book_Request'
+              example:
+                message: >-
+                  Please input a valid ticker for Public Company/Private
+                  Company/Private Equity/Fixed Income/MutualFund/ETF/Holder to
+                  build Book.
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+  /create-book-from-template:
+    post:
+      tags:
+        - Books - Creation
+      summary: Kicks off request to create a book with template
+      description: >-
+        This endpoint retrieves book status, book name, and book ID for ticker
+        requested in JSON format. This end-point excepts ticker and template_id
+        as inputs. If the template_id input is not used, a book will be created
+        with FactSet's default template.</br></br>Please try out the below
+        template ids to quickly get the FactSet curated books</br></br>Company
+        Quick Book - <b>g_20210415065838185</b></br>Post-Earnings Call -
+        <b>g_20210415070044785</b> </br>Public Information Book(PIB) -
+        <b>g_20210415070353151</b></br></br> Take a look at the example books
+        attached under API documentation below.</br></br>If you are scheduling
+        Post Earnings Call curated book, please note that in contains Corrected
+        Transcript that takes a little while to be available.</br> </br>Once a
+        Raw Transcript is published, FactSet's editors review the call to
+        produce a Corrected Transcript. They listen to the entire audio file
+        again to confirm that all of the terms and numbers are correctly
+        transcribed. FactSet aims to publish a Corrected Transcript within six
+        times the length of the event, measured from the beginning of the event.
+        That means for a typical one-hour call, FactSet will produce a Corrected
+        Transcript within approximately five hours of the call's completion.
+        Visit [OA 13208](https://my.apps.factset.com/oa/pages/13208)
+      operationId: createBookFromTemplate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createBookFromTemplatePostRequest'
+            example:
+              ticker: FDS-US
+              template_id: g_20210415065838185
+      responses:
+        '200':
+          description: Successful response contains request status, book name, and book ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enable_Book_Info_From_Template'
+              example:
+                status: OK
+                book_name: Apple Inc.
+                book_id: '20200317133713794'
+                estimated_time: 243
+        '400':
+          description: Invalid ticker or Unknown error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Create_Book_FromTemplate_Request'
+              example:
+                message: Book id cannot be generated.
+                status: 400
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+  /download-api-book-aws/{book_id}:
+    get:
+      tags:
+        - Books - Fetch
+      summary: Retrieves book in PDF format
+      description: >-
+        This endpoint uses the BookId returned from any of the request above.
+        Returns the URL to load the book for the book ID requested. The URL will
+        be in JSON format, the final book will be in PDF format. <br><br> NOTE
+        -- The execution of this endpoint requires an extra step within the
+        developer portal due to authentication limitations. When using the
+        actual API, a successful response for this endpoint will be the PDF book
+        rather than the URL to the PDF. <br><br><b><i>The actual endpoint is
+        </b><font
+        color=blue>https://api.factset.com/book-builder-api/v1/download-api-book/{book_id}</font></i>
+      operationId: downloadBook
+      parameters:
+        - in: path
+          name: book_id
+          schema:
+            type: string
+          required: true
+          description: >-
+            A string representing the unique ID for a specific book. This ID
+            must be provided in the URL path.
+          example: 20200331093828132
+      responses:
+        '200':
+          description: >-
+            Successful response contains URL to load the book for the BookID
+            requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enable_Book_Download'
+              example:
+                Message: >-
+                  Copy and paste the URL below into your browser to download
+                  your book. This book will be available for download for the
+                  next 30 minutes.
+                Url: >-
+                  https://fioaddon-s3-bridge-3399.s3.amazonaws.com/DD_20200331093828132.pdf?AWSAccessKeyId=AKIA46YVWD3IE4WEE4OI&Expires=1585663820&Signature=C2PQmOQJlgzbW67skirSuKAiP1A%3D
+                Status: done
+        '202':
+          description: Book is processing. Please check back later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book_Processing_Response'
+              example:
+                - Message: Book is processing. Please check back later.
+                  Status: '202'
+        '400':
+          description: Something went wrong. Please create a new request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Download_Book_Aws_Request'
+              example:
+                message: Unrecognized BookId.
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+        '503':
+          description: Unrecognized BookId
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Download_Book_Aws_Request'
+              example:
+                message: Unrecognized BookId.
+      x-factset-different-success-responses: true
+  /upload-custom-document:
+    post:
+      tags:
+        - Custom Documents - Upload
+      summary: Upload a custom document
+      description: >
+        Upload any third-party documents that need to be included in the final
+        PDF. Once uploaded, the successful response will be a unique fileurl
+        that can be used to add the files to the PDF output using the
+        create-book endpoint. Supported files include Powerpoint, Word, RTF, and
+        PDF. The total size should not exceed 250MB and each file should not
+        exceed 10MB.
+      operationId: uploadCustomDocument
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadCustomDocumentRequest'
+      responses:
+        '200':
+          description: Successful response contains file name, fileURL of the book uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Upload_Document_Response'
+              example:
+                - name: Custom Upload
+                  file_url: b33f6b758f2b12562251e5396e21f68ad46648bf19a8f3a9e55f74
+        '400':
+          description: Invalid ticker or Unknown error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Upload_Document_Request'
+              example:
+                message: File Error No files selected.
+                code: '400'
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+  /custom-upload-list:
+    get:
+      tags:
+        - Custom Documents - Fetch
+      summary: Check out the documents uploaded before to use them in creating books
+      description: >-
+        Retrieves the list of documents uploaded before using the endpoint
+        "/upload-custom-document". The documents uploaded are available for 30
+        days from the date of uploading.
+      operationId: getCustomUploadList
+      responses:
+        '200':
+          description: >-
+            Successful response contains file name, fileURL and the date and
+            time the book was uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Uploaded_Documents_List'
+              example:
+                - name: Custom Upload
+                  file_url: b33f6b758f2b12562251e5396e21f68ad46648bf19a8f3a9e55f74
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    createTemplatePostRequest:
+      title: Request Body for Template Request
+      description: The request body allows users to input the name of the template, ticker
+      type: object
+      properties:
+        tmpl_name:
+          type: string
+          description: name of the template
+          example: Quick Financials
+        tmpl_type:
+          type: string
+          description: Type of the template (public,pc,pe,fi)
+          example: public
+        content:
+          type: array
+          description: Content sections
+          items:
+            $ref: '#/components/schemas/TemplateContentSection'
+    TemplateContentSection:
+      type: object
+      properties:
+        section_id:
+          type: string
+          description: The identifier for the section, like COMPANY_OVERVIEW.
+          enum:
+            - COMPANY_OVERVIEW
+            - COMPANY_GUIDE_OVERVIEW
+            - COMPANY_GUIDE_SALES_EARNINGS
+            - COMPANY_GUIDE_VALUATION
+            - COMPANY_GUIDE_PROFITABILITY
+            - COMPANY_GUIDE_STATEMENT_ANALYSIS
+          example: COMPANY_OVERVIEW
+        reports:
+          type: array
+          description: A list of reports to be included in the section.
+          items:
+            type: string
+            description: Specific report identifier
+            enum:
+              - COMPANY_SNAPSHOT
+              - COMPANY_SNAPSHOT_IB
+              - COMPANY_SNAPSHOT_IM
+              - ENTITY_STRUCTURE
+              - EVENT_CALENDAR
+              - SUPPLY_CHAIN
+              - CAPITAL_STRUCTURE
+              - GEO_REV
+              - RBICS_REV
+              - ESG
+            example: COMPANY_SNAPSHOT_IB
+    createBookPostRequest:
+      title: Request Body for Post Request
+      description: The request body allows users to input the name of the book, ticker
+      type: object
+      properties:
+        book_name:
+          type: string
+          description: name of the book
+          example: Company Book for FDS
+        ticker:
+          type: string
+          description: Identifier.
+          example: FDS-US
+        pagination:
+          $ref: '#/components/schemas/PaginationOptions'
+        content:
+          type: array
+          description: Content sections.
+          items:
+            $ref: '#/components/schemas/ContentSection'
+    PaginationOptions:
+      type: object
+      description: Options for pagination.
+      properties:
+        cover:
+          type: boolean
+          description: Include a cover page.
+          example: true
+        divider:
+          type: boolean
+          description: Use dividers between sections.
+          example: true
+        toc:
+          type: boolean
+          description: Include a table of contents.
+          example: true
+        footer:
+          type: boolean
+          description: Include footers on pages.
+          example: true
+        timestamp:
+          type: boolean
+          description: Add a timestamp to pages.
+          example: false
+    ContentSection:
+      type: object
+      properties:
+        section_id:
+          type: string
+          description: Section ID within the book.
+          enum:
+            - COMPANY_OVERVIEW
+            - COMPANY_GUIDE_OVERVIEW
+            - COMPANY_GUIDE_SALES_EARNINGS
+            - COMPANY_GUIDE_VALUATION
+            - COMPANY_GUIDE_PROFITABILITY
+            - COMPANY_GUIDE_STATEMENT_ANALYSIS
+          example: COMPANY_OVERVIEW
+        reports:
+          type: array
+          description: Identifiers for reports within the section.
+          items:
+            type: string
+            description: Specific report identifier.
+            enum:
+              - COMPANY_SNAPSHOT
+              - COMPANY_SNAPSHOT_IB
+              - COMPANY_SNAPSHOT_IM
+              - ENTITY_STRUCTURE
+              - EVENT_CALENDAR
+              - SUPPLY_CHAIN
+              - CAPITAL_STRUCTURE
+              - GEO_REV
+              - RBICS_REV
+              - ESG
+            example: COMPANY_SNAPSHOT_IB
+    createBookFromTemplatePostRequest:
+      title: Request Body for Post Request
+      description: It is a request body to allow users to input ticker and template id.
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: ticker
+          example: FDS-US
+        template_id:
+          type: string
+          description: Template ID
+          example: g_20210415065838185
+    Enable_BookList_Info:
+      title: Booklist Request
+      description: Request to enable Book list information for the client.
+      type: array
+      items:
+        $ref: '#/components/schemas/BookInfo'
+    BookInfo:
+      type: object
+      properties:
+        book_id:
+          type: string
+          description: Book ID
+          example: '20200623094829447'
+        book_name:
+          type: string
+          description: Book Name
+          example: Financials
+        created_on:
+          type: string
+          description: Date on which the book was created
+          example: '2020-06-23 09:48:46'
+    Authentication_Failed_Response:
+      title: Authentication Failed Response
+      description: Response returned when authentication fails.
+      type: string
+      example: Authentication Failed
+    Enable_Book_Info:
+      title: Book Information Request
+      description: Request to enable book information for the client.
+      type: object
+      properties:
+        book_name:
+          type: string
+          description: Report Name
+          example: Apple Inc.
+        book_id:
+          type: string
+          description: Book ID
+          example: 20200317133713790
+        estimated_time:
+          type: integer
+          description: Estimated time in sec to create the book
+          example: 240
+    Invalid_Create_Book_Request:
+      title: Create Book Request
+      description: Invalid ticker/section_id/report_id
+      type: object
+      properties:
+        message:
+          type: string
+          description: Invalid Request Message
+          example: >-
+            Please input a valid ticker for Public Company/Private
+            Company/Private Equity/Fixed Income/MutualFund/ETF/Holder to build
+            Book.
+    Invalid_Create_Book_FromTemplate_Request:
+      title: Create Book Request
+      description: Invalid ticker/template_id
+      type: object
+      properties:
+        message:
+          type: string
+          description: Invalid Request Message
+          example: Book id cannot be generated.
+        status:
+          type: integer
+          description: Invalid Request Message
+          example: 400
+    Enable_Book_Info_From_Template:
+      title: Book Information Request
+      description: Request to enable book information for the client.
+      type: object
+      properties:
+        status:
+          type: string
+          description: Request status
+          example: OK
+        book_name:
+          type: string
+          description: Report Name
+          example: Apple Inc.
+        book_id:
+          type: string
+          description: Book ID
+          example: 20200317133713790
+        estimated_time:
+          type: integer
+          description: Estimated time in sec to create the book
+          example: 243
+    Enable_Template_Info:
+      title: Template Request
+      description: Request to enable template list information for the client.
+      type: array
+      items:
+        $ref: '#/components/schemas/TemplateInfo'
+    TemplateInfo:
+      type: object
+      properties:
+        template_id:
+          type: string
+          description: Template ID
+          example: '20200623094829447'
+        template_name:
+          type: string
+          description: Template name
+          example: Financials
+        created_on:
+          type: string
+          description: Date on which the template was created
+          example: '2020-06-23 09:45:54'
+        template_source:
+          type: string
+          description: Source of the template - Custom vs. Default
+          example: own_template
+        type:
+          type: string
+          description: Type of the template
+          example: Public
+    Enable_Template_Info_Post:
+      title: Template Request
+      description: Request to enable template list information for the client.
+      type: object
+      properties:
+        tmpl_id:
+          type: string
+          description: Template ID
+          example: 20200623094829450
+        tmpl_name:
+          type: string
+          description: Template name
+          example: Financials
+    Invalid_Template_Request:
+      title: Template Exists Error Response
+      description: Invalid template type/section_id/report_id
+      type: object
+      properties:
+        message:
+          type: string
+          description: Invalid request message
+          example: Template name already exists. Please select a different name.
+    Upload_Document_Response:
+      title: Upload Document Response
+      description: Response to Upload Document.
+      type: array
+      items:
+        properties:
+          name:
+            type: string
+            description: Name of the uploaded file
+            example: Custom Upload
+          file_url:
+            type: string
+            description: FIle url
+            example: b33f6b758f2b12562251e5396e21f68ad46648bf19a8f3a9e55f74
+    Invalid_Upload_Document_Request:
+      title: Invalid Upload Custom Request
+      description: Invalid ticker or Unknown error
+      type: object
+      properties:
+        message:
+          type: string
+          description: Invalid Request Message
+          example: File Error No files selected.
+        code:
+          type: integer
+          description: Invalid request code
+          example: 400
+    Uploaded_Documents_List:
+      title: Template Request
+      description: Request to enable template list information for the client.
+      type: array
+      items:
+        properties:
+          name:
+            type: string
+            description: Template ID
+            example: Custom Upload
+          file_url:
+            type: string
+            description: FIle url
+            example: b33f6b758f2b12562251e5396e21f68ad46648bf19a8f3a9e55f74
+    Enable_Book_Download:
+      title: Book Download
+      description: Request to download book.
+      type: object
+      properties:
+        Message:
+          type: string
+          description: Book status
+          example: >-
+            Copy and paste the URL below into your browser to download your
+            book. This book will be available for download for the next 30
+            minutes.
+        Url:
+          type: string
+          description: URL to book.
+          example: >-
+            https://fioaddon-s3-bridge-3399.s3.amazonaws.com/DD_20200331093828132.pdf?AWSAccessKeyId=AKIA46YVWD3IE4WEE4OI&Expires=1585663820&Signature=C2PQmOQJlgzbW67skirSuKAiP1A%3D
+        Status:
+          type: string
+          description: Book status
+          example: done
+    Book_Processing_Response:
+      title: Download Book AWS Processing Response
+      description: Response indicating that the book is currently processing.
+      type: array
+      items:
+        $ref: '#/components/schemas/Book_Processing_Response_Item'
+    Book_Processing_Response_Item:
+      type: object
+      properties:
+        Message:
+          type: string
+          description: Download Book AWS Processing message.
+          example: Book is processing. Please check back later.
+        Status:
+          type: string
+          description: Status code indicating the processing state.
+          example: '202'
+    Invalid_Download_Book_Aws_Request:
+      title: Invalid Download Book AWS Request
+      description: Unrecognized BookId.
+      type: object
+      properties:
+        message:
+          type: string
+          description: Invalid Request Message
+          example: Unrecognized BookId.
+    UploadCustomDocumentRequest:
+      type: object
+      properties:
+        file:
+          type: array
+          items:
+            type: string
+            format: binary
+          minItems: 1
+      example:
+        file:
+          - file1
+          - file2
