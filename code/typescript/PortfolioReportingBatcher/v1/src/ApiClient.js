@@ -65,7 +65,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/PortfolioReportingBatcher/0.25.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/PortfolioReportingBatcher/1.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**
