@@ -6,6 +6,7 @@ Data surfaced by processing the query through FactSet Mercury. Contains financia
 
 ## oneOf schemas
 * [AdaptiveCard](AdaptiveCard.md)
+* [MarkdownTable](MarkdownTable.md)
 * [NextStep](NextStep.md)
 * [ResponseText](ResponseText.md)
 * [SuggestedPrompts](SuggestedPrompts.md)
@@ -16,6 +17,7 @@ Data surfaced by processing the query through FactSet Mercury. Contains financia
 // Import classes:
 import com.factset.sdk.ConversationalAPIPoweredbyFactSetMercury.models.FederationData;
 import com.factset.sdk.ConversationalAPIPoweredbyFactSetMercury.models.AdaptiveCard;
+import com.factset.sdk.ConversationalAPIPoweredbyFactSetMercury.models.MarkdownTable;
 import com.factset.sdk.ConversationalAPIPoweredbyFactSetMercury.models.NextStep;
 import com.factset.sdk.ConversationalAPIPoweredbyFactSetMercury.models.ResponseText;
 import com.factset.sdk.ConversationalAPIPoweredbyFactSetMercury.models.SuggestedPrompts;
@@ -31,6 +33,13 @@ public class Example {
         exampleFederationData.setActualInstance(exampleAdaptiveCard);
         // to get back the AdaptiveCard set earlier
         AdaptiveCard testAdaptiveCard = (AdaptiveCard) exampleFederationData.getActualInstance();
+
+        // create a new MarkdownTable
+        MarkdownTable exampleMarkdownTable = new MarkdownTable();
+        // set FederationData to MarkdownTable
+        exampleFederationData.setActualInstance(exampleMarkdownTable);
+        // to get back the MarkdownTable set earlier
+        MarkdownTable testMarkdownTable = (MarkdownTable) exampleFederationData.getActualInstance();
 
         // create a new NextStep
         NextStep exampleNextStep = new NextStep();

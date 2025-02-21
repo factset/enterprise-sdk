@@ -28,6 +28,8 @@ docs/ForbiddenError.md
 docs/ForbiddenErrorObject.md
 docs/InternalServerError.md
 docs/InternalServerErrorObject.md
+docs/MarkdownTable.md
+docs/MarkdownTableMetadata.md
 docs/NextStep.md
 docs/NextStepItem.md
 docs/OpenUrl.md
@@ -82,6 +84,8 @@ fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/forbidden_error.py
 fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/forbidden_error_object.py
 fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/internal_server_error.py
 fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/internal_server_error_object.py
+fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/markdown_table.py
+fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/markdown_table_metadata.py
 fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/next_step.py
 fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/next_step_item.py
 fds/sdk/ConversationalAPIPoweredbyFactSetMercury/model/open_url.py

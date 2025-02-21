@@ -95,7 +95,7 @@ info:
     queries per minute and 200 per hour for an individual consumer. If you
     anticipate your needs to be greater than these limits, please reach out to
     FactSet Support.
-  version: 1.0.8
+  version: 1.1.0
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -502,7 +502,7 @@ components:
           examples:
             Adaptive Card:
               $ref: '#/components/examples/AdaptiveCardResponseExample'
-            STACH Table:
+            Table:
               $ref: '#/components/examples/TableResponseExample'
             Response with Citations:
               $ref: '#/components/examples/ResponseWithCitationsExample'
@@ -1333,6 +1333,7 @@ components:
       oneOf:
         - $ref: '#/components/schemas/ResponseText'
         - $ref: '#/components/schemas/AdaptiveCard'
+        - $ref: '#/components/schemas/MarkdownTable'
         - $ref: '#/components/schemas/Table'
         - $ref: '#/components/schemas/NextStep'
         - $ref: '#/components/schemas/SuggestedPrompts'
@@ -1341,6 +1342,7 @@ components:
         mapping:
           string: '#/components/schemas/ResponseText'
           AdaptiveCard: '#/components/schemas/AdaptiveCard'
+          MarkdownTable: '#/components/schemas/MarkdownTable'
           Table: '#/components/schemas/Table'
           NextStep: '#/components/schemas/NextStep'
           SuggestedPrompts: '#/components/schemas/SuggestedPrompts'
@@ -1523,6 +1525,32 @@ components:
             - Table
         value:
           $ref: '#/components/schemas/TableData'
+    MarkdownTable:
+      description: >
+        `Value` field contains tabular data surfaced from FactSet content sets
+        in markdown format.
+      type: object
+      properties:
+        type:
+          description: Datatype contained in this data object
+          type: string
+          enum:
+            - MarkdownTable
+        value:
+          description: Markdown formatted table data
+          type: string
+        metadata:
+          description: Metadata for the markdown formatted table
+          type: object
+          nullable: true
+          properties:
+            displayName:
+              description: Display name of the markdown formatted table
+              type: string
+              nullable: true
+      required:
+        - type
+        - value
     TableData:
       description: >-
         Data table represented in [FactSet STACH
@@ -1858,59 +1886,93 @@ components:
             - type: Table
               value:
                 version: '3.1'
-                table:
-                  primaryKeys:
-                    - Insider Holders
-                    - MV (M,$)
-                    - '% O/S'
-                  totalNumRows: 5
-                views:
-                  - name: view
-                    displayName: who are the suppliers of nike
-                    table:
-                      columns:
-                        - Insider Holders
-                        - MV (M,$)
-                        - '% O/S'
-                      headers:
-                        Insider Holders: Insider Holders
-                        MV (M,$): MV (M,$)
-                        '% O/S': '% O/S'
                 columns:
-                  - name: Insider Holders
+                  - name: Entity Id
                     contextualType: string
                     customMetadata:
                       relevancy:
                         contextualType: int32
-                        value: 100
-                  - name: MV (M,$)
-                    contextualType: real
+                        value: 1
+                      ContextualTypeDetail:
+                        contextualType: string
+                        value: identifier
+                  - name: Supplier Name
+                    contextualType: string
                     customMetadata:
                       relevancy:
                         contextualType: int32
-                        value: 67
-                  - name: '% O/S'
-                    contextualType: real
+                        value: 101
+                      ContextualTypeDetail:
+                        contextualType: string
+                        value: entityName
+                  - name: Total Estimated Revenue Percentage
+                    contextualType: int64
                     customMetadata:
                       relevancy:
                         contextualType: int32
-                        value: 34
+                        value: 60
+                  - name: Relation Significance Grade
+                    contextualType: int64
+                    customMetadata:
+                      relevancy:
+                        contextualType: int32
+                        value: 40
+                  - name: Ticker
+                    contextualType: string
+                    customMetadata:
+                      relevancy:
+                        contextualType: int32
+                        value: -1
+                table:
+                  primaryKeys:
+                    - Entity Id
+                    - Supplier Name
+                  totalNumRows: 4
+                views:
+                  - name: view
+                    displayName: Top 4 Suppliers of Nike
+                    table:
+                      columns:
+                        - Supplier Name
+                        - Total Estimated Revenue Percentage
+                        - Relation Significance Grade
+                        - Entity Id
+                      headers:
+                        Supplier Name: Supplier Name
+                        Total Estimated Revenue Percentage: Total Estimated Revenue Percentage
+                        Relation Significance Grade: Relation Significance Grade
+                        Entity Id: Entity Id
                 rows:
-                  - Insider Holders: Knight Philip Hampson
-                    MV (M,$): 3156.8
-                    '% O/S': 1.531
-                  - Insider Holders: Knight Travis A
-                    MV (M,$): 601.6
-                    '% O/S': 0.496
-                  - Insider Holders: Wellcome Trust Ltd. (Direct Investments)
-                    MV (M,$): 225.5
-                    '% O/S': 0.105
-                  - Insider Holders: Parker Mark G
-                    MV (M,$): 100.1
-                    '% O/S': 0.056
-                  - Insider Holders: Donahoe John J Ii
-                    MV (M,$): 19.8
-                    '% O/S': 0.018
+                  - Entity Id: 007331-E
+                    Supplier Name: Cooper-Standard Holdings, Inc. (CPS-US)
+                    Total Estimated Revenue Percentage: 0
+                    Relation Significance Grade: 11
+                    Ticker: CPS-US
+                  - Entity Id: 003LCJ-E
+                    Supplier Name: Delta Galil Industries Ltd. (DELG-IL)
+                    Total Estimated Revenue Percentage: 0
+                    Relation Significance Grade: 10
+                    Ticker: DELG-IL
+                  - Entity Id: 0DG6VX-E
+                    Supplier Name: Victory New Materials Ltd. Co. (1340-TW)
+                    Total Estimated Revenue Percentage: 0
+                    Relation Significance Grade: 10
+                    Ticker: 1340-TW
+                  - Entity Id: 0C0DNW-E
+                    Supplier Name: Lai Yih Footwear Co., Ltd. (6890-TW)
+                    Total Estimated Revenue Percentage: 0
+                    Relation Significance Grade: 10
+                    Ticker: 6890-TW
+            - type: MarkdownTable
+              value: |
+                | Supplier | Relation Signficance Grade | Ticker | Entity Id |
+                | -------- | -------------------------: | ------ | --------- |
+                | Cooper-Standard Holdings, Inc. | 11 | CPS-US | 007331-E |
+                | Delta Galil Industries Ltd. | 10 | DELG-IL | 003LCJ-E |
+                | Victory New Materials Ltd. Co. | 10 | 1340-TW | 0DG6VX-E |
+                | Lai Yih Footwear Co., Ltd. | 10 | 6890-TW | 0C0DNW-E |
+              metadata:
+                displayName: Suppliers of Nike
             - type: NextStep
               value:
                 - action: Download

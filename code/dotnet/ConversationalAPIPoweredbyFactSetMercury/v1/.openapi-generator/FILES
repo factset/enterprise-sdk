@@ -27,6 +27,8 @@ docs/ForbiddenError.md
 docs/ForbiddenErrorObject.md
 docs/InternalServerError.md
 docs/InternalServerErrorObject.md
+docs/MarkdownTable.md
+docs/MarkdownTableMetadata.md
 docs/NextStep.md
 docs/NextStepItem.md
 docs/OpenUrl.md
@@ -91,6 +93,8 @@ src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/ForbiddenError.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/ForbiddenErrorObject.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/InternalServerError.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/InternalServerErrorObject.cs
+src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/MarkdownTable.cs
+src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/MarkdownTableMetadata.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/NextStep.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/NextStepItem.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Model/OpenUrl.cs

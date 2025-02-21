@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** | Datatype contained in this data object | defaults to "SuggestedPrompts"
 **citations** | [**Citations**](Citations.md) |  | [optional] 
+**metadata** | [**MarkdownTableMetadata**](MarkdownTableMetadata.md) |  | [optional] 
 **value** | [**[PromptItem]**](PromptItem.md) | List of suggested prompts | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
