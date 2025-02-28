@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "factsetprices",
-  "artifactVersion": "2.0.2",
+  "artifactVersion": "2.0.3",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "FactSet Prices client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/FactSetPrices/2.0.2",
+  "httpUserAgent": "fds-sdk/java/FactSetPrices/2.0.3",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
