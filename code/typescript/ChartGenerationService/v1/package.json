@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-chartgenerationservice",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "Chart Generation Service client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@factset/sdk-utils": "^2.0.0",
-    "superagent": "^9.0.0",
-    "superagent-proxy": "^3.0.0"
+    "proxy-agent": "^6.0.0",
+    "superagent": "^9.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

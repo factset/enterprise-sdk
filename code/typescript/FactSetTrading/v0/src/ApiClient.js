@@ -14,9 +14,7 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
-import superagentProxy from 'superagent-proxy';
-
-superagentProxy(superagent);
+import {ProxyAgent} from "proxy-agent";
 
 /**
 * @module ApiClient
@@ -65,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/FactSetTrading/0.26.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/FactSetTrading/0.26.1 (${process.platform}; node ${process.version})`
         };
 
         /**
@@ -89,6 +87,15 @@ class ApiClient {
          * @default false
          */
         this.enableCookies = false;
+
+        /**
+        * Sets up a proxy agent with callback
+        * function to provide the proxy URL.
+        * @type {ProxyAgent}
+        */
+        this.proxyAgent = new ProxyAgent({
+          getProxyForUrl: () => this.proxyUrl
+        })
 
         /*
          * Used to save and return cookies in a node.js (non-browser) setting,
@@ -429,7 +436,7 @@ class ApiClient {
         var request = superagent(httpMethod, url);
 
         if (this.proxyUrl) {
-          request.proxy(this.proxyUrl);
+          request.agent(this.proxyAgent)
         }
 
         if (this.plugins !== null) {
