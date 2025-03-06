@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: EVENTS AND TRANSCRIPTS API
-  version: 1.1.0
+  version: 1.2.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -2953,6 +2953,7 @@ components:
             - ConferencePresentation
             - SalesRevenue
             - SpecialSituation
+            - SalesRevenueRelease
           description: |
             Specifies the type of event. Choose from the available options.
         categories:
@@ -3035,6 +3036,7 @@ components:
             - ConferencePresentation
             - SalesRevenue
             - SpecialSituation
+            - SalesRevenueRelease
           description: |
             Specifies the type of event. Choose from the available options.
         categories:
@@ -3437,6 +3439,7 @@ components:
             - ConferencePresentation
             - SalesRevenue
             - SpecialSituation
+            - SalesRevenueRelease
           description: |
             Specifies the type of event. Choose from the available options.
         categories:
@@ -4034,7 +4037,7 @@ components:
             - AnalystsInvestorsMeeting
             - ShareholdersMeeting
             - SpecialSituation
-            - ConferencePresentation
+            - Conference
             - ConfirmedEarningsRelease
             - SalesRevenueRelease
             - ProjectedEarningsRelease
@@ -4239,6 +4242,7 @@ components:
           - ConferencePresentation
           - SalesRevenue
           - SpecialSituation
+          - SalesRevenueRelease
       in: query
       name: eventType
       description: |-

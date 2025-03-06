@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 * `SpecialSituation` (value: `"SpecialSituation"`)
 
-* `ConferencePresentation` (value: `"ConferencePresentation"`)
+* `Conference` (value: `"Conference"`)
 
 * `ConfirmedEarningsRelease` (value: `"ConfirmedEarningsRelease"`)
 

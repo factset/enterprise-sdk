@@ -36,7 +36,7 @@ GUIDANCECALL | &quot;GuidanceCall&quot;
 ANALYSTSINVESTORSMEETING | &quot;AnalystsInvestorsMeeting&quot;
 SHAREHOLDERSMEETING | &quot;ShareholdersMeeting&quot;
 SPECIALSITUATION | &quot;SpecialSituation&quot;
-CONFERENCEPRESENTATION | &quot;ConferencePresentation&quot;
+CONFERENCE | &quot;Conference&quot;
 CONFIRMEDEARNINGSRELEASE | &quot;ConfirmedEarningsRelease&quot;
 SALESREVENUERELEASE | &quot;SalesRevenueRelease&quot;
 PROJECTEDEARNINGSRELEASE | &quot;ProjectedEarningsRelease&quot;

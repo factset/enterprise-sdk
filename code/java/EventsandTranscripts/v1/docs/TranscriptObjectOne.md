@@ -44,6 +44,7 @@ ANALYSTSSHAREHOLDERSMEETING | &quot;AnalystsShareholdersMeeting&quot;
 CONFERENCEPRESENTATION | &quot;ConferencePresentation&quot;
 SALESREVENUE | &quot;SalesRevenue&quot;
 SPECIALSITUATION | &quot;SpecialSituation&quot;
+SALESREVENUERELEASE | &quot;SalesRevenueRelease&quot;
 
 
 ## Implemented Interfaces

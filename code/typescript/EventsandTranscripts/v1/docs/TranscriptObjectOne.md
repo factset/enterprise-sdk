@@ -49,6 +49,8 @@ Name | Type | Description | Notes
 
 * `SpecialSituation` (value: `"SpecialSituation"`)
 
+* `SalesRevenueRelease` (value: `"SalesRevenueRelease"`)
+
 
 
 

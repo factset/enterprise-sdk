@@ -27,7 +27,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: EVENTS AND TRANSCRIPTS API
-  version: 1.1.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -2926,6 +2926,7 @@ paths:
           - ConferencePresentation
           - SalesRevenue
           - SpecialSituation
+          - SalesRevenueRelease
           type: string
         style: form
       - description: |
@@ -3478,6 +3479,7 @@ components:
         - ConferencePresentation
         - SalesRevenue
         - SpecialSituation
+        - SalesRevenueRelease
         type: string
       style: form
     primaryId:
@@ -4152,6 +4154,7 @@ components:
           - ConferencePresentation
           - SalesRevenue
           - SpecialSituation
+          - SalesRevenueRelease
           type: string
         categories:
           description: Categories are country, industry, and subject codes. This is
@@ -4248,6 +4251,7 @@ components:
           - ConferencePresentation
           - SalesRevenue
           - SpecialSituation
+          - SalesRevenueRelease
           type: string
         categories:
           description: Categories are country, industry, and subject codes. This is
@@ -4732,6 +4736,7 @@ components:
           - ConferencePresentation
           - SalesRevenue
           - SpecialSituation
+          - SalesRevenueRelease
           type: string
         categories:
           description: Categories are country, industry, and subject codes. This is
@@ -5358,7 +5363,7 @@ components:
           - AnalystsInvestorsMeeting
           - ShareholdersMeeting
           - SpecialSituation
-          - ConferencePresentation
+          - Conference
           - ConfirmedEarningsRelease
           - SalesRevenueRelease
           - ProjectedEarningsRelease
