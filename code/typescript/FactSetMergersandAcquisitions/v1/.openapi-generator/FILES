@@ -4,6 +4,9 @@
 .travis.yml
 LICENSE
 README.md
+docs/AdvisorParticipant.md
+docs/Advisors.md
+docs/BuyersAdvisor.md
 docs/DealCompany.md
 docs/DealPublic.md
 docs/DealValue.md
@@ -21,6 +24,7 @@ docs/DetailsResponse.md
 docs/ErrorObject.md
 docs/ErrorResponse.md
 docs/Participant.md
+docs/SellersAdvisor.md
 docs/Status.md
 docs/Target.md
 git_push.sh
@@ -29,6 +33,9 @@ package.json
 src/ApiClient.js
 src/api/DealsApi.js
 src/index.js
+src/model/AdvisorParticipant.js
+src/model/Advisors.js
+src/model/BuyersAdvisor.js
 src/model/DealCompany.js
 src/model/DealPublic.js
 src/model/DealValue.js
@@ -45,5 +52,6 @@ src/model/DetailsResponse.js
 src/model/ErrorObject.js
 src/model/ErrorResponse.js
 src/model/Participant.js
+src/model/SellersAdvisor.js
 src/model/Status.js
 src/model/Target.js

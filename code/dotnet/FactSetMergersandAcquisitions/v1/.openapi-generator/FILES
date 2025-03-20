@@ -4,6 +4,9 @@ FactSet.SDK.FactSetMergersandAcquisitions.sln
 LICENSE
 README.md
 appveyor.yml
+docs/AdvisorParticipant.md
+docs/Advisors.md
+docs/BuyersAdvisor.md
 docs/DealCompany.md
 docs/DealPublic.md
 docs/DealValue.md
@@ -21,6 +24,7 @@ docs/DetailsResponse.md
 docs/ErrorObject.md
 docs/ErrorResponse.md
 docs/Participant.md
+docs/SellersAdvisor.md
 docs/Status.md
 docs/Target.md
 git_push.sh
@@ -43,6 +47,9 @@ src/FactSet.SDK.FactSetMergersandAcquisitions/Client/RequestOptions.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/FactSet.SDK.FactSetMergersandAcquisitions.csproj
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.FactSetMergersandAcquisitions/Model/AdvisorParticipant.cs
+src/FactSet.SDK.FactSetMergersandAcquisitions/Model/Advisors.cs
+src/FactSet.SDK.FactSetMergersandAcquisitions/Model/BuyersAdvisor.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/DealCompany.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/DealPublic.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/DealValue.cs
@@ -59,5 +66,6 @@ src/FactSet.SDK.FactSetMergersandAcquisitions/Model/DetailsResponse.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/ErrorObject.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/ErrorResponse.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/Participant.cs
+src/FactSet.SDK.FactSetMergersandAcquisitions/Model/SellersAdvisor.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/Status.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Model/Target.cs

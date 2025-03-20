@@ -29,6 +29,7 @@ docs/ColumnsApi.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
 docs/ComponentsApi.md
+docs/ConfigurationsApi.md
 docs/CurrenciesApi.md
 docs/Currency.md
 docs/CurrencyRoot.md
@@ -66,9 +67,13 @@ docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACommentary.md
+docs/PACommentaryConfigurationSummary.md
+docs/PACommentaryConfigurationSummaryRoot.md
 docs/PACommentaryDate.md
 docs/PACommentaryGetStatus.md
 docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryParameters.md
+docs/PACommentaryParametersRoot.md
 docs/PACommentaryRoot.md
 docs/PACommentaryStatus.md
 docs/PACommentaryStatusRoot.md
@@ -137,6 +142,7 @@ src/main/java/com/factset/sdk/PAEngine/api/AccountsApi.java
 src/main/java/com/factset/sdk/PAEngine/api/ColumnStatisticsApi.java
 src/main/java/com/factset/sdk/PAEngine/api/ColumnsApi.java
 src/main/java/com/factset/sdk/PAEngine/api/ComponentsApi.java
+src/main/java/com/factset/sdk/PAEngine/api/ConfigurationsApi.java
 src/main/java/com/factset/sdk/PAEngine/api/CurrenciesApi.java
 src/main/java/com/factset/sdk/PAEngine/api/DatesApi.java
 src/main/java/com/factset/sdk/PAEngine/api/DocumentsApi.java
@@ -205,9 +211,13 @@ src/main/java/com/factset/sdk/PAEngine/models/PACalculationParameters.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationParametersRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationPricingSource.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentary.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryConfigurationSummary.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryConfigurationSummaryRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryDate.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryGetStatus.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryGetStatusRoot.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryParameters.java
+src/main/java/com/factset/sdk/PAEngine/models/PACommentaryParametersRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryStatus.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryStatusRoot.java

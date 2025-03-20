@@ -62,9 +62,13 @@ import PACalculationParameters from './model/PACalculationParameters';
 import PACalculationParametersRoot from './model/PACalculationParametersRoot';
 import PACalculationPricingSource from './model/PACalculationPricingSource';
 import PACommentary from './model/PACommentary';
+import PACommentaryConfigurationSummary from './model/PACommentaryConfigurationSummary';
+import PACommentaryConfigurationSummaryRoot from './model/PACommentaryConfigurationSummaryRoot';
 import PACommentaryDate from './model/PACommentaryDate';
 import PACommentaryGetStatus from './model/PACommentaryGetStatus';
 import PACommentaryGetStatusRoot from './model/PACommentaryGetStatusRoot';
+import PACommentaryParameters from './model/PACommentaryParameters';
+import PACommentaryParametersRoot from './model/PACommentaryParametersRoot';
 import PACommentaryRoot from './model/PACommentaryRoot';
 import PACommentaryStatus from './model/PACommentaryStatus';
 import PACommentaryStatusRoot from './model/PACommentaryStatusRoot';
@@ -110,6 +114,7 @@ import AccountsApi from './api/AccountsApi';
 import ColumnStatisticsApi from './api/ColumnStatisticsApi';
 import ColumnsApi from './api/ColumnsApi';
 import ComponentsApi from './api/ComponentsApi';
+import ConfigurationsApi from './api/ConfigurationsApi';
 import CurrenciesApi from './api/CurrenciesApi';
 import DatesApi from './api/DatesApi';
 import DocumentsApi from './api/DocumentsApi';
@@ -464,6 +469,18 @@ export {
     PACommentary,
 
     /**
+     * The PACommentaryConfigurationSummary model constructor.
+     * @property {module:model/PACommentaryConfigurationSummary}
+     */
+    PACommentaryConfigurationSummary,
+
+    /**
+     * The PACommentaryConfigurationSummaryRoot model constructor.
+     * @property {module:model/PACommentaryConfigurationSummaryRoot}
+     */
+    PACommentaryConfigurationSummaryRoot,
+
+    /**
      * The PACommentaryDate model constructor.
      * @property {module:model/PACommentaryDate}
      */
@@ -480,6 +497,18 @@ export {
      * @property {module:model/PACommentaryGetStatusRoot}
      */
     PACommentaryGetStatusRoot,
+
+    /**
+     * The PACommentaryParameters model constructor.
+     * @property {module:model/PACommentaryParameters}
+     */
+    PACommentaryParameters,
+
+    /**
+     * The PACommentaryParametersRoot model constructor.
+     * @property {module:model/PACommentaryParametersRoot}
+     */
+    PACommentaryParametersRoot,
 
     /**
      * The PACommentaryRoot model constructor.
@@ -744,6 +773,12 @@ export {
     * @property {module:api/ComponentsApi}
     */
     ComponentsApi,
+
+    /**
+    * The ConfigurationsApi service constructor.
+    * @property {module:api/ConfigurationsApi}
+    */
+    ConfigurationsApi,
 
     /**
     * The CurrenciesApi service constructor.

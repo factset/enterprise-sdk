@@ -27,6 +27,7 @@ docs/ColumnsApi.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
 docs/ComponentsApi.md
+docs/ConfigurationsApi.md
 docs/CurrenciesApi.md
 docs/Currency.md
 docs/CurrencyRoot.md
@@ -65,9 +66,13 @@ docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
 docs/PACommentary.md
+docs/PACommentaryConfigurationSummary.md
+docs/PACommentaryConfigurationSummaryRoot.md
 docs/PACommentaryDate.md
 docs/PACommentaryGetStatus.md
 docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryParameters.md
+docs/PACommentaryParametersRoot.md
 docs/PACommentaryRoot.md
 docs/PACommentaryStatus.md
 docs/PACommentaryStatusRoot.md
@@ -119,6 +124,7 @@ src/api/AccountsApi.js
 src/api/ColumnStatisticsApi.js
 src/api/ColumnsApi.js
 src/api/ComponentsApi.js
+src/api/ConfigurationsApi.js
 src/api/CurrenciesApi.js
 src/api/DatesApi.js
 src/api/DocumentsApi.js
@@ -180,9 +186,13 @@ src/model/PACalculationParameters.js
 src/model/PACalculationParametersRoot.js
 src/model/PACalculationPricingSource.js
 src/model/PACommentary.js
+src/model/PACommentaryConfigurationSummary.js
+src/model/PACommentaryConfigurationSummaryRoot.js
 src/model/PACommentaryDate.js
 src/model/PACommentaryGetStatus.js
 src/model/PACommentaryGetStatusRoot.js
+src/model/PACommentaryParameters.js
+src/model/PACommentaryParametersRoot.js
 src/model/PACommentaryRoot.js
 src/model/PACommentaryStatus.js
 src/model/PACommentaryStatusRoot.js

@@ -1,0 +1,1207 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "0.1.0",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "email": "api@factset.com",
+      "url": "https://developer.factset.com/contact"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "description": "This API provides read-only access to marketplace products and partners.",
+    "title": "Open:FactSet Marketplace API"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com/ofs/v0",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Open:FactSet Marketplace Products"
+    },
+    {
+      "name": "Partners",
+      "description": "Open:FactSet Marketplace Partners"
+    }
+  ],
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/openfactset-marketplace-api"
+  },
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Get all products published on the Open:FactSet Marketplace Catalog.",
+        "operationId": "getProducts",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/_paginationLimit"
+          },
+          {
+            "$ref": "#/components/parameters/_paginationOffset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response to get all products published on the Open:FactSet Marketplace Catalog.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductsSuccessResponse"
+                },
+                "examples": {
+                  "products": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": "product-1",
+                          "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-1",
+                          "title": "Product 1",
+                          "description": "Product 1 description",
+                          "createDate": "2021-09-01",
+                          "partner": {
+                            "id": "partner-1",
+                            "partnerPageUrl": "https://www.factset.com/partner/catalog#/partner-details/partner-1",
+                            "name": "Partner 1"
+                          },
+                          "relatedProducts": [
+                            {
+                              "id": "product-2",
+                              "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-2",
+                              "title": "Product 2"
+                            },
+                            {
+                              "id": "product-3",
+                              "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-3",
+                              "title": "Product 3"
+                            }
+                          ],
+                          "productStatus": "available",
+                          "type": [
+                            "dataFeed"
+                          ]
+                        }
+                      ],
+                      "meta": {
+                        "pagination": {
+                          "total": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "internalServerError": {
+                    "$ref": "#/components/examples/internalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Get a single Open:FactSet Marketplace Catalog product by ID.",
+        "operationId": "getProductById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a single Open:FactSet Marketplace Catalog product by ID.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductSuccessResponse"
+                },
+                "examples": {
+                  "product": {
+                    "value": {
+                      "data": {
+                        "id": "product-1",
+                        "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-1",
+                        "title": "Product 1",
+                        "description": "Product 1 description",
+                        "createDate": "2021-09-01",
+                        "partner": {
+                          "id": "partner-1",
+                          "partnerPageUrl": "https://www.factset.com/partner/catalog#/partner-details/partner-1",
+                          "name": "Partner 1"
+                        },
+                        "relatedProducts": [
+                          {
+                            "id": "product-2",
+                            "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-2",
+                            "title": "Product 2"
+                          },
+                          {
+                            "id": "product-3",
+                            "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-3",
+                            "title": "Product 3"
+                          }
+                        ],
+                        "productStatus": "available",
+                        "type": [
+                          "dataFeed"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "product-not-found",
+                      "title": "Product not found",
+                      "code": "404"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "internalServerError": {
+                    "$ref": "#/components/examples/internalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partners": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "description": "Get all partners published on FactSet's Partner Catalog.",
+        "operationId": "getPartners",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/_paginationLimit"
+          },
+          {
+            "$ref": "#/components/parameters/_paginationOffset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all partners published on FactSet's Partner Catalog.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnersSuccessResponse"
+                },
+                "examples": {
+                  "partners": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": "partner-1",
+                          "partnerPageUrl": "https://www.factset.com/partner/catalog#/partner-details/partner-1",
+                          "name": "Partner 1",
+                          "logo": "https://www.example.com/logo.png",
+                          "shortDescription": "Partner 1 short description",
+                          "fullDescription": "<p>Partner 1 full description</p>",
+                          "workflow": [
+                            "Workflow 1",
+                            "Workflow 2"
+                          ],
+                          "type": "technicalPartner",
+                          "videoUrl": "https://www.example.com/video.mp4",
+                          "companyUrl": "https://www.example.com",
+                          "address": {
+                            "addressLine1": "123 Main St.",
+                            "addressLine2": "Suite 100",
+                            "city": "New York",
+                            "country": "United States",
+                            "postCode": "10001",
+                            "state": "NY"
+                          },
+                          "socialMedia": {
+                            "linkedin": "https://www.linkedin.com/company/partner-1",
+                            "x": "https://x.com/partner-1",
+                            "facebook": "https://www.facebook.com/partner-1"
+                          }
+                        }
+                      ],
+                      "meta": {
+                        "pagination": {
+                          "total": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "internalServerError": {
+                    "$ref": "#/components/examples/internalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/partner/{id}": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "description": "Get a single FactSet Partner by ID.",
+        "operationId": "getPartnerById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a single FactSet Partner by ID.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerSuccessResponse"
+                },
+                "examples": {
+                  "partner": {
+                    "value": {
+                      "data": {
+                        "id": "partner-1",
+                        "partnerPageUrl": "https://www.factset.com/partner/catalog#/partner-details/partner-1",
+                        "name": "Partner 1",
+                        "logo": "https://www.example.com/logo.png",
+                        "shortDescription": "Partner 1 short description",
+                        "fullDescription": "<p>Partner 1 full description</p>",
+                        "workflow": [
+                          "Workflow 1",
+                          "Workflow 2"
+                        ],
+                        "type": "technicalPartner",
+                        "videoUrl": "https://www.example.com/video.mp4",
+                        "companyUrl": "https://www.example.com",
+                        "address": {
+                          "addressLine1": "123 Main St.",
+                          "addressLine2": "Suite 100",
+                          "city": "New York",
+                          "country": "United States",
+                          "postCode": "10001",
+                          "state": "NY"
+                        },
+                        "socialMedia": {
+                          "linkedin": "https://www.linkedin.com/company/partner-1",
+                          "x": "https://x.com/partner-1",
+                          "facebook": "https://www.facebook.com/partner-1"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "description": "Partner not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "id": "partner-not-found",
+                      "title": "Partner not found",
+                      "code": "404"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "internalServerError": {
+                    "$ref": "#/components/examples/internalServerError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "description": "ID of the product or partner",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "_paginationLimit": {
+        "name": "_paginationLimit",
+        "in": "query",
+        "description": "Limit for number of records returned per page",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 10
+        }
+      },
+      "_paginationOffset": {
+        "name": "_paginationOffset",
+        "in": "query",
+        "description": "Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "schemas": {
+      "ProductsSuccessResponse": {
+        "description": "A success response for getting all products",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "An array of products",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "required": [
+          "data",
+          "meta"
+        ]
+      },
+      "ProductSuccessResponse": {
+        "description": "A success response for getting a product",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Product"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "PartnersSuccessResponse": {
+        "description": "A success response for getting all partners",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "An array of partners",
+            "items": {
+              "$ref": "#/components/schemas/Partner"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "PartnerSuccessResponse": {
+        "description": "A success response for getting a partner",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Partner"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "AttributesGroupsItem": {
+        "type": "object",
+        "description": "Attribute group object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Attribute group key, corresponding to a category of attributes. For example, 'Region' or 'History'.",
+            "example": "Region"
+          },
+          "value": {
+            "type": "string",
+            "description": "Attribute group value, corresponding to a specific attribute within the category. For example, 'North America' or '10 + years'.",
+            "example": "North America"
+          },
+          "isPreviewTag": {
+            "type": "boolean",
+            "description": "Boolean flag indicating whether the attribute's value is displayed on the product's card within the Open:FactSet Marketplace.",
+            "example": false
+          }
+        }
+      },
+      "DocumentsItems": {
+        "type": "object",
+        "description": "Product documentation object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Document name",
+            "example": "FactSet Product Documentation"
+          },
+          "section": {
+            "type": "string",
+            "description": "String detailing which section of the product page this document should be displayed in, i.e. 'Documentation' or 'Sample Data'.",
+            "example": "Documentation"
+          },
+          "isPublic": {
+            "type": "boolean",
+            "description": "Boolean flag indicating whether the document is publicly accessible without authentication.",
+            "example": true
+          },
+          "isFile": {
+            "type": "boolean",
+            "description": "Boolean flag indicating whether the document is a file for download or a URL.",
+            "example": true
+          },
+          "url": {
+            "type": "string",
+            "format": "url",
+            "description": "Document URL",
+            "example": "https://www.example.com/factset-product-documentation.pdf"
+          },
+          "fileName": {
+            "type": "string",
+            "description": "Document file name, for file downloads.",
+            "example": "factset-product-documentation.pdf"
+          }
+        }
+      },
+      "Partner": {
+        "type": "object",
+        "description": "Partner object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Partner unique identifier, used in the request URL",
+            "example": "7GmIW2xGbdfZowcjuaMCmY"
+          },
+          "partnerPageUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "URL of the partner's page on the partner catalog.",
+            "example": "https://www.factset.com/partner/catalog#/partner-details/partner-1"
+          },
+          "name": {
+            "type": "string",
+            "description": "Partner name",
+            "example": "Partner 1"
+          },
+          "logo": {
+            "type": "string",
+            "format": "url",
+            "description": "Partner logo URL",
+            "example": "https://www.example.com/logo.png"
+          },
+          "shortDescription": {
+            "type": "string",
+            "description": "Partner short description (plain text), appearing on the partner's card within the FactSet Partner Catalog.",
+            "example": "Partner 1 short description"
+          },
+          "fullDescription": {
+            "type": "string",
+            "description": "Partner full description (HTML)",
+            "example": "<p>Partner 1 full description</p>"
+          },
+          "workflow": {
+            "type": "array",
+            "description": "An array of strings describing the Partner's workflow(s), used as categories on FactSet's Partner Catalog.",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Workflow 1",
+              "Workflow 2"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "capabilityPartner",
+              "consultant",
+              "openFactSetPartner",
+              "dataPartner",
+              "technicalPartner"
+            ],
+            "description": "Partner type, describing the Partner's relationship with FactSet",
+            "example": "technicalPartner"
+          },
+          "videoUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "Partner video URL",
+            "example": "https://www.example.com/video.mp4"
+          },
+          "socialMedia": {
+            "type": "object",
+            "properties": {
+              "linkedin": {
+                "type": "string",
+                "format": "url",
+                "description": "Partner LinkedIn URL",
+                "example": "https://www.linkedin.com/company/factset"
+              },
+              "x": {
+                "type": "string",
+                "format": "url",
+                "description": "Partner X URL",
+                "example": "https://x.com/factset"
+              },
+              "facebook": {
+                "type": "string",
+                "format": "url",
+                "description": "Partner Facebook URL",
+                "example": "https://www.facebook.com/factset"
+              }
+            },
+            "description": "Partner social media URLs",
+            "example": {
+              "linkedin": "https://www.linkedin.com/company/factset",
+              "twitter": "https://x.com/factset",
+              "facebook": "https://www.facebook.com/factset"
+            }
+          },
+          "companyUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "Partner company URL",
+            "example": "https://www.example.com"
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "addressLine1": {
+                "type": "string",
+                "description": "Partner address line 1",
+                "example": "123 Main St."
+              },
+              "addressLine2": {
+                "type": "string",
+                "description": "Partner address line 2, if applicable",
+                "example": "Suite 100"
+              },
+              "city": {
+                "type": "string",
+                "description": "Partner city",
+                "example": "New York"
+              },
+              "country": {
+                "type": "string",
+                "description": "Partner country",
+                "example": "United States"
+              },
+              "postCode": {
+                "type": "string",
+                "description": "Partner post code",
+                "example": "10001"
+              },
+              "state": {
+                "type": "string",
+                "description": "Partner state, if applicable",
+                "example": "NY"
+              }
+            },
+            "description": "Partner address",
+            "example": {
+              "addressLine1": "123 Main St.",
+              "addressLine2": "Suite 100",
+              "city": "New York",
+              "country": "United States",
+              "postCode": "10001",
+              "state": "NY"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "partnerPageUrl",
+          "name",
+          "logo",
+          "shortDescription",
+          "fullDescription",
+          "workflow",
+          "type"
+        ]
+      },
+      "Product": {
+        "type": "object",
+        "description": "Product object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Product unique identifier",
+            "example": "ahkl7OjFcr5Ud1dUNSFxW"
+          },
+          "productPageUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "URL of the product's page on the marketplace catalog.",
+            "example": "https://www.factset.com/marketplace/catalog/product/product-title"
+          },
+          "secondaryLink": {
+            "type": "string",
+            "format": "url",
+            "description": "Secondary link with additional information",
+            "example": "https://www.example.com"
+          },
+          "title": {
+            "type": "string",
+            "description": "Product title",
+            "example": "FactSet Product Title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Product description",
+            "example": "Short product description that appears on the product's card within the Open:FactSet Marketplace."
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Product creation date",
+            "example": "2021-09-01"
+          },
+          "partner": {
+            "type": "object",
+            "description": "Product partner object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Partner unique identifier, used in the URL"
+              },
+              "partnerPageUrl": {
+                "type": "string",
+                "format": "url",
+                "description": "URL of the partner's page on the partner catalog."
+              },
+              "name": {
+                "type": "string",
+                "description": "Partner name"
+              }
+            },
+            "example": {
+              "id": "partner-1",
+              "partnerPageUrl": "https://www.factset.com/partner/catalog#/partner-details/partner-1",
+              "name": "Partner 1"
+            }
+          },
+          "productStatus": {
+            "type": "string",
+            "enum": [
+              "available",
+              "candidate",
+              "comingSoon",
+              "developmentQueue",
+              "new",
+              "updated"
+            ],
+            "description": "Product status pertaining to its availability on the Open:FactSet Marketplace",
+            "example": "available"
+          },
+          "type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "dataFeed",
+                "api",
+                "platform"
+              ]
+            },
+            "description": "Product type",
+            "example": [
+              "dataFeed"
+            ]
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentsItems"
+            },
+            "description": "Product documents",
+            "example": [
+              {
+                "name": "FactSet Product Documentation",
+                "section": "Documentation",
+                "isPublic": true,
+                "isFile": true,
+                "url": "https://www.example.com/factset-product-documentation.pdf",
+                "fileName": "factset-product-documentation.pdf"
+              }
+            ]
+          },
+          "thirdPartyUrls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThirdPartyUrls"
+            },
+            "description": "Product third party URLs",
+            "example": [
+              {
+                "label": "Third Party URL Label",
+                "link": "https://www.example.com"
+              }
+            ]
+          },
+          "primaryLink": {
+            "type": "string",
+            "format": "url",
+            "description": "Link to primary product information, which is separate from the product's product page URL.",
+            "example": "https://www.example.com"
+          },
+          "previewLink": {
+            "type": "string",
+            "format": "url",
+            "description": "Link to additional information on the product, which is separate from the product's product page URL.",
+            "example": "https://www.example.com"
+          },
+          "relatedProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RelatedProducts"
+            },
+            "description": "Related products",
+            "example": [
+              {
+                "id": "product-2",
+                "productPageUrl": "https://www.factset.com/marketplace/catalog/product/product-2",
+                "title": "Product 2"
+              }
+            ]
+          },
+          "coverageTable": {
+            "type": "string",
+            "description": "Product coverage table (HTML)",
+            "example": "<table><tr><th><p><b>Name</b></p></th><th><p><b>Count</b></p></th><th><p><b>Type</b></p></th><th><p><b>Start Date</b></p></th></tr><tr><td><p>Registered Investment Advisors</p></td><td><p>19,000</p></td><td><p>Entities </p></td><td><p>2017</p></td></tr></table>"
+          },
+          "attributesGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributesGroupsItem"
+            },
+            "description": "Key-value pairs of product attributes that describe the product and its usage. These attributes groups are used to filter products on the marketplace catalog.",
+            "example": [
+              {
+                "key": "Region",
+                "value": "North America",
+                "isPreviewTag": false
+              }
+            ]
+          },
+          "videoUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "Product video URL",
+            "example": "https://www.example.com/video.mp4"
+          },
+          "navigatorUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "Product Data Navigator URL, on https://open.factset.com/navigator/",
+            "example": "https://open.factset.com/navigator/1234"
+          },
+          "updateFrequency": {
+            "type": "string",
+            "enum": [
+              "quarterly",
+              "monthly",
+              "daily",
+              "weekly",
+              "annual",
+              "event",
+              "intraday"
+            ],
+            "description": "Product update frequency, i.e. 'Daily', 'Weekly', etc.",
+            "example": "daily"
+          },
+          "deliveryFrequency": {
+            "type": "string",
+            "enum": [
+              "intradayDaily",
+              "quarterly",
+              "monthly",
+              "intraday",
+              "weekly",
+              "daily",
+              "annual",
+              "event"
+            ],
+            "description": "Product delivery frequency, i.e. 'Daily', 'Weekly', etc.",
+            "example": "daily"
+          }
+        },
+        "required": [
+          "id",
+          "productPageUrl",
+          "title",
+          "description",
+          "createDate",
+          "partner",
+          "productStatus",
+          "type"
+        ]
+      },
+      "RelatedProducts": {
+        "type": "object",
+        "description": "Related products object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Product unique identifier",
+            "example": "ahkl7OjFcr5Ud1dUNSFxW"
+          },
+          "productPageUrl": {
+            "type": "string",
+            "format": "url",
+            "description": "URL of the product's page on the marketplace catalog.",
+            "example": "https://www.factset.com/marketplace/catalog/product/product-title"
+          },
+          "title": {
+            "type": "string",
+            "description": "Product title",
+            "example": "FactSet Product Title"
+          }
+        },
+        "required": [
+          "id",
+          "productPageUrl",
+          "title"
+        ]
+      },
+      "ThirdPartyUrls": {
+        "type": "object",
+        "description": "Third party URLs object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Third party URL label",
+            "example": "Link to additional product information"
+          },
+          "link": {
+            "type": "string",
+            "format": "url",
+            "description": "Third party URL",
+            "example": "https://www.example.com"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Error response object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "description": "An array containing errors",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Error UUID",
+            "example": "7a496cbb-0c96-48ac-84c1-75b28532bb20"
+          },
+          "title": {
+            "type": "string",
+            "description": "Error message",
+            "example": "Internal Server Error"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code",
+            "example": "500"
+          },
+          "detail": {
+            "type": "string",
+            "description": "Error detail",
+            "example": "An internal server error occurred."
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "code"
+        ]
+      },
+      "Meta": {
+        "type": "object",
+        "description": "Metadata object",
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "description": "Pagination metadata",
+            "properties": {
+              "total": {
+                "type": "integer",
+                "description": "Total number of items returned",
+                "example": 300
+              },
+              "isEstimatedTotal": {
+                "type": "boolean",
+                "description": "Boolean flag indicating whether the total number of items is an estimate",
+                "example": false
+              }
+            }
+          }
+        }
+      },
+      "UnauthorizedError": {
+        "type": "string",
+        "description": "Error response for a user without authentication to use the API."
+      },
+      "ForbiddenError": {
+        "type": "string",
+        "description": "Error response for a user without entitlements to the API."
+      },
+      "RateLimitError": {
+        "type": "string",
+        "description": "Rate limit reached. Retry the requests after waiting the time specified in the Retry-After header."
+      }
+    },
+    "responses": {
+      "401": {
+        "description": "Unauthorized - You are not properly authenticated for use of this API. Please make sure you using a valid API key (managed via this developer portal page) or valid OAuth 2.0 credentials (see OAuth 2.0 documentation on the developer portal) for access. If you believe you are seeing this message in error, please reach out to your FactSet Support Team representative.",
+        "content": {
+          "text/plain": {
+            "schema": {
+              "$ref": "#/components/schemas/UnauthorizedError"
+            },
+            "example": "Authentication Failed"
+          }
+        }
+      },
+      "403": {
+        "description": "You do not have the proper permissions for this request. Please make sure you have the proper CACCESS entitlements enabled for this service and that you are using a resource ID that your account has access to. This may also be due to your IP address being unsupported by the API key you are currently using. Please ensure your IP address is whitelisted for the API key you are using. IP addresses can be managed per API key via this developer portal page.",
+        "content": {
+          "text/plain": {
+            "schema": {
+              "$ref": "#/components/schemas/ForbiddenError"
+            },
+            "example": "Client does not have the required CACCESS: {CACCESS}"
+          }
+        }
+      },
+      "429": {
+        "description": "Rate limit reached. Retry the requests after waiting the time specified in the Retry-After header.",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "FactSet request key header."
+          },
+          "RateLimit-Limit": {
+            "description": "The maximum number of requests that the consumer is permitted to make in a given time window.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "RateLimit-Remaining": {
+            "description": "The number of requests remaining in the current rate limit window.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "RateLimit-Reset": {
+            "description": "Time remaining (in seconds) until request limit is reset.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "X-RateLimit-Limit-Minute": {
+            "description": "The maximum number of requests that the consumer is permitted to make in a minute.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "X-RateLimit-Remaining-Minute": {
+            "description": "The number of requests remaining in the current minute.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "Retry-After": {
+            "description": "Time to wait in seconds before making a new request as the rate limit has been reached.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        },
+        "content": {
+          "text/plain": {
+            "schema": {
+              "$ref": "#/components/schemas/RateLimitError"
+            },
+            "example": "API rate limit exceeded"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "examples": {
+      "internalServerError": {
+        "summary": "Internal Server Error",
+        "value": {
+          "errors": [
+            {
+              "id": "internal-server-error",
+              "title": "Internal Server Error",
+              "code": "500"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

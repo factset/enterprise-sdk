@@ -2001,6 +2001,302 @@
         }
       }
     },
+    "/analytics/engines/pa/v3/commentary/configurations": {
+      "get": {
+        "tags": [
+          "Configurations"
+        ],
+        "summary": "Get PA commentary configurations in a directory",
+        "description": "This endpoint returns all PA commentary configurations in a given directory.",
+        "operationId": "getPACommentaryConfigurations",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "description": "The directory to get the PA commentary configurations",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The directory to get the PA commentary configurations",
+              "example": "Client:"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a map of configuration ID to PA commentary configuration",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PACommentaryConfigurationSummaryRoot"
+                },
+                "example": {
+                  "data": {
+                    "3E83EE61AB0DE3D796B01B7C3FCA5270DDBAC17041B8D20F576EC62C907C6971": {
+                      "name": "commentary_config_ex1.pa_commentary_config",
+                      "directory": "Client:"
+                    },
+                    "1CDF53871C5DA425002D7F6CCE5EE52AF997F259008144A8CDEE63E620BACD3A": {
+                      "name": "commentary_config_ex2.pa_commentary_config",
+                      "directory": "Personal:"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid path provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "example": {
+                  "data": {
+                    "errors": [
+                      {
+                        "id": "6698D8968BA1AA05",
+                        "code": "BadInput",
+                        "title": "Failed to process request",
+                        "detail": "Invalid path provided client:/example_path",
+                        "source": {
+                          "parameter": "path"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header.  Header needs to be set to application/json",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/analytics/lookups/v3/currencies": {
       "get": {
         "tags": [
@@ -7629,20 +7925,20 @@
                         "87f9d3d7e4cd42099863fcc61e7e8953": {
                           "status": "Queued",
                           "units": 1,
-                          "requestTime": "2024-09-19T11:12:51.2135178Z",
-                          "lastPollTime": "2024-09-19T11:12:51.2135415Z"
+                          "requestTime": "2024-11-22T09:25:00.5062222Z",
+                          "lastPollTime": "2024-11-22T09:25:00.5063377Z"
                         },
                         "15ad5008f9134ed89b52a40e9d4b2739": {
                           "status": "Completed",
                           "units": 1,
-                          "requestTime": "2024-09-19T11:12:51.2135931Z",
-                          "lastPollTime": "2024-09-19T11:12:51.2135931Z"
+                          "requestTime": "2024-11-22T09:25:00.5064546Z",
+                          "lastPollTime": "2024-11-22T09:25:00.5064548Z"
                         },
                         "58d6a3e3864a45fabd958096e960a96e": {
                           "status": "Completed",
                           "units": 1,
-                          "requestTime": "2024-09-19T11:12:51.2135933Z",
-                          "lastPollTime": "2024-09-19T11:12:51.2135934Z"
+                          "requestTime": "2024-11-22T09:25:00.5064552Z",
+                          "lastPollTime": "2024-11-22T09:25:00.5064553Z"
                         }
                       },
                       "meta": {
@@ -11310,7 +11606,7 @@
                   "$ref": "#/components/schemas/ObjectRoot"
                 },
                 "examples": {
-                  "201 - SimplifiedRow organised": {
+                  "200 - SimplifiedRow organised": {
                     "value": {
                       "data": {
                         "tables": {
@@ -11490,7 +11786,7 @@
                       }
                     }
                   },
-                  "201 - Row organised": {
+                  "200 - Row organised": {
                     "value": {
                       "data": {
                         "tables": {
@@ -11724,7 +12020,7 @@
                       }
                     }
                   },
-                  "201 - Column organised": {
+                  "200 - Column organised": {
                     "value": {
                       "data": {
                         "primaryTableIds": [
@@ -13018,7 +13314,7 @@
           "PACalculations"
         ],
         "summary": "Generate PA portfolio commentary by calculation and unit id.",
-        "description": "This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.\r\n\r\nRemarks:\r\n\r\n*   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability\r\n    and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>\r\n\r\n*\tThe PA component used in the calculation must be an attribution tile.\r\n    \r\n*   The \"Variation in Average Weight\" column must be included along with those required\r\n    as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)\r\n    in the component for successful commentary generation; otherwise, the request will result in an error.\r\n\r\n*   PA portfolio commentary generation is not supported for multi-port requests.\r\n\r\n*   The POST calculation must use a single portfolio and a benchmark to generate the commentary.\r\n\r\n*   PA portfolio commentary with sub-period analysis will be returned only when the frequency\r\n    is set to something other than \"single\" and the report contains more than one sub-period.",
+        "description": "This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.\r\n\r\nRemarks:\r\n\r\n*\tThe PA component used in the calculation must be an attribution tile.\r\n    \r\n*   The \"Variation in Average Weight\" column must be included along with those required\r\n    as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)\r\n    in the component for successful commentary generation; otherwise, the request will result in an error.\r\n\r\n*   PA portfolio commentary generation is not supported for multi-port requests.\r\n\r\n*   The POST calculation must use a single portfolio and a benchmark to generate the commentary.\r\n\r\n*   PA portfolio commentary with sub-period analysis will be returned only when the frequency\r\n    is set to something other than \"single\" and the report contains more than one sub-period.\r\n    \r\n*   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired. \r\n    If the configuration ID is not specified, the default commentary will be returned.",
         "operationId": "generatePAPortfolioCommentary",
         "parameters": [
           {
@@ -13042,6 +13338,21 @@
             }
           }
         ],
+        "requestBody": {
+          "description": "Request Parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PACommentaryParametersRoot"
+              },
+              "example": {
+                "data": {
+                  "configurationid": "39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Expected response if the commentary generation is completed in a short span, returns JSON.",
@@ -18755,6 +19066,39 @@
           }
         }
       },
+      "PACommentaryConfigurationSummary": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "PA commentary configuration name",
+            "nullable": true
+          },
+          "directory": {
+            "type": "string",
+            "description": "PA Commentary configuration directory",
+            "nullable": true
+          }
+        }
+      },
+      "PACommentaryConfigurationSummaryRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PACommentaryConfigurationSummary"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
+      },
       "Currency": {
         "type": "object",
         "properties": {
@@ -19551,6 +19895,31 @@
           },
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
+      "PACommentaryParameters": {
+        "type": "object",
+        "properties": {
+          "configurationid": {
+            "type": "string",
+            "description": "Commentary configuration id",
+            "nullable": true
+          }
+        }
+      },
+      "PACommentaryParametersRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/PACommentaryParameters"
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
           }
         }
       },
@@ -20554,6 +20923,9 @@
     },
     {
       "name": "Components"
+    },
+    {
+      "name": "Configurations"
     },
     {
       "name": "Currencies"

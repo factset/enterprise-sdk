@@ -6,6 +6,9 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/AdvisorParticipant.md
+docs/Advisors.md
+docs/BuyersAdvisor.md
 docs/DealCompany.md
 docs/DealPublic.md
 docs/DealValue.md
@@ -23,6 +26,7 @@ docs/DetailsResponse.md
 docs/ErrorObject.md
 docs/ErrorResponse.md
 docs/Participant.md
+docs/SellersAdvisor.md
 docs/Status.md
 docs/Target.md
 git_push.sh
@@ -54,6 +58,9 @@ src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/auth/HttpBearerAuth.
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/AdvisorParticipant.java
+src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/Advisors.java
+src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/BuyersAdvisor.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/DealCompany.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/DealPublic.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/DealValue.java
@@ -70,5 +77,6 @@ src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/DetailsRespon
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/ErrorObject.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/Participant.java
+src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/SellersAdvisor.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/Status.java
 src/main/java/com/factset/sdk/FactSetMergersandAcquisitions/models/Target.java

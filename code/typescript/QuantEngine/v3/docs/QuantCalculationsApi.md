@@ -56,7 +56,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant calculation endpoint
+const id = ed5830a029fd48f9a4bdb6abea51508b; // String | from url, provided from the location header in the Create and Run Quant calculation endpoint
 
 // Call api endpoint
 apiInstance.cancelCalculationById(id).then(
@@ -89,7 +89,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 
 ## getAllCalculations
@@ -214,7 +214,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+const id = 237d25247a8648b8b57e0d265039eff2; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
 // Call api endpoint
 apiInstance.getCalculationParameters(id).then(
@@ -293,7 +293,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+const id = ed5830a029fd48f9a4bdb6abea51508b; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
 // Call api endpoint
 apiInstance.getCalculationStatusById(id).then(
@@ -372,8 +372,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
-const unitId = "unitId_example"; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
+const id = ed5830a029fd48f9a4bdb6abea51508b; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
+const unitId = quant1; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
 
 // Call api endpoint
 apiInstance.getCalculationUnitInfoById(id, unitId).then(
@@ -453,8 +453,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
-const unitId = "unitId_example"; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+const id = ed5830a029fd48f9a4bdb6abea51508b; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+const unitId = quant1; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
 
 // Call api endpoint
 apiInstance.getCalculationUnitResultById(id, unitId).then(
@@ -535,7 +535,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new QuantCalculationsApi();
 const opts = {
-  'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
+  'cacheControl': max-stale=0, // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
   'quantCalculationParametersRoot': new quantengine.QuantCalculationParametersRoot() // QuantCalculationParametersRoot | 
 };
 
@@ -635,9 +635,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new QuantCalculationsApi();
-const id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+const id = quant_test_calc_id; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 const opts = {
-  'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
+  'cacheControl': max-stale=0, // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
   'quantCalculationParametersRoot': new quantengine.QuantCalculationParametersRoot() // QuantCalculationParametersRoot | Calculation Parameters
 };
 

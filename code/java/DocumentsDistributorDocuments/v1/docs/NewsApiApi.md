@@ -60,7 +60,7 @@ public class Example {
 
         NewsApiApi apiInstance = new NewsApiApi(defaultClient);
         String jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to know the status and percentDone
-        String source = "news_ukwd"; // String | This parameter filters the results based on the source of the filings document
+        String source = "hkex"; // String | This parameter filters the results based on the source of the filings document
         Integer paginationLimit = 56; // Integer | Specifies the maximum number of results to return per result
         Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
         try {
@@ -84,7 +84,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **jobID** | **String**| jobID returned by the request-files endpoint to know the status and percentDone |
- **source** | **String**| This parameter filters the results based on the source of the filings document | [enum: news_ukwd, hkex]
+ **source** | **String**| This parameter filters the results based on the source of the filings document | [enum: hkex, mt_newswire]
  **paginationLimit** | **Integer**| Specifies the maximum number of results to return per result | [optional]
  **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional]
 
@@ -158,7 +158,7 @@ public class Example {
 
         NewsApiApi apiInstance = new NewsApiApi(defaultClient);
         String jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to collect the results of the query
-        String source = "news_ukwd"; // String | This parameter filters the results based on the source of the filings document
+        String source = "hkex"; // String | This parameter filters the results based on the source of the filings document
         Integer paginationLimit = 56; // Integer | Specifies the maximum number of results to return per result
         Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
         try {
@@ -182,7 +182,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **jobID** | **String**| jobID returned by the request-files endpoint to collect the results of the query |
- **source** | **String**| This parameter filters the results based on the source of the filings document | [enum: news_ukwd, hkex]
+ **source** | **String**| This parameter filters the results based on the source of the filings document | [enum: hkex, mt_newswire]
  **paginationLimit** | **Integer**| Specifies the maximum number of results to return per result | [optional]
  **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional]
 
@@ -212,8 +212,9 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format
-This API only supports adhoc requests to retrieve historical files
+Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format. 
+This API only supports adhoc requests to retrieve historical files.
+<p>MT Newswire has two different products that enables 1 year of rolling history and 5 years of rolling history.</p>
 
 ### Example
 
@@ -259,7 +260,7 @@ public class Example {
         NewsApiApi apiInstance = new NewsApiApi(defaultClient);
         LocalDate startDate = LocalDate.now(); // LocalDate | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
         LocalDate endDate = LocalDate.now(); // LocalDate | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
-        String source = "news_ukwd"; // String | This parameter filters the results based on the source of the filings document
+        String source = "hkex"; // String | This parameter filters the results based on the document source.
         try {
             NewsrequestfilesResponse result = apiInstance.asynchNewsV1RequestFilesGet(startDate, endDate, source);
             System.out.println(result);
@@ -282,7 +283,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **LocalDate**| Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format |
  **endDate** | **LocalDate**| The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format |
- **source** | **String**| This parameter filters the results based on the source of the filings document | [enum: news_ukwd, hkex]
+ **source** | **String**| This parameter filters the results based on the document source. | [enum: hkex, mt_newswire]
 
 ### Return type
 

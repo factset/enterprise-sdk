@@ -1,0 +1,10 @@
+# securitizedderivativesapifordigitalportals.PostSecuritizedDerivativeNotationScreenerSearchRequestDataVolatilityMonths6
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**minimum** | [**PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPerformanceRelativeMinimum**](PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPerformanceRelativeMinimum.md) |  | [optional] 
+**maximum** | [**PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresMaximumYieldAnnualizedMaximum**](PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresMaximumYieldAnnualizedMaximum.md) |  | [optional] 
+
+

@@ -1101,8 +1101,8 @@ components:
       description: Top 5 Institution holders for FDS-US as of 2020-06-30.
       value:
         data:
-          - adjHolding: 3757653,
-            adjMarketValue: 1258362836.64,
+          - adjHolding: 3757653
+            adjMarketValue: 1258362836.64
             currency: USD
             date: '2020-06-30'
             fsymId: SQFMK3-R
@@ -1180,8 +1180,8 @@ components:
         holder types change the holderType parameter.
       value:
         data:
-          - adjHolding: 1240000,
-            adjMarketValue: 415251200,
+          - adjHolding: 1240000
+            adjMarketValue: 415251200
             currency: USD
             date: '2020-08-31'
             fsymId: SQFMK3-R

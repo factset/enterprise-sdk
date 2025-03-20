@@ -53,25 +53,27 @@ namespace FactSet.SDK.PAEngine.Api
         /// Generate PA portfolio commentary by calculation and unit id.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <returns>PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper</returns>
-        PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper GeneratePAPortfolioCommentary(string id, string unitId);
+        PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper GeneratePAPortfolioCommentary(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot));
 
         /// <summary>
         /// Generate PA portfolio commentary by calculation and unit id.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <returns>ApiResponse of PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper</returns>
-        ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper> GeneratePAPortfolioCommentaryWithHttpInfo(string id, string unitId);
+        ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper> GeneratePAPortfolioCommentaryWithHttpInfo(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot));
         /// <summary>
         /// Get all calculations
         /// </summary>
@@ -292,27 +294,29 @@ namespace FactSet.SDK.PAEngine.Api
         /// Generate PA portfolio commentary by calculation and unit id.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PACommentaryRoot</returns>
-        System.Threading.Tasks.Task<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper> GeneratePAPortfolioCommentaryAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper> GeneratePAPortfolioCommentaryAsync(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Generate PA portfolio commentary by calculation and unit id.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper>> GeneratePAPortfolioCommentaryWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper>> GeneratePAPortfolioCommentaryWithHttpInfoAsync(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get all calculations
         /// </summary>
@@ -1308,26 +1312,28 @@ namespace FactSet.SDK.PAEngine.Api
         }
 
         /// <summary>
-        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <returns>PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper</returns>
-        public PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper GeneratePAPortfolioCommentary(string id, string unitId)
+        public PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper GeneratePAPortfolioCommentary(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot))
         {
-            var localVarResponse = GeneratePAPortfolioCommentaryWithHttpInfo(id, unitId);
+            var localVarResponse = GeneratePAPortfolioCommentaryWithHttpInfo(id, unitId, pACommentaryParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <returns>ApiResponse of PACommentaryRoot</returns>
-        public ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper> GeneratePAPortfolioCommentaryWithHttpInfo(string id, string unitId)
+        public ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper> GeneratePAPortfolioCommentaryWithHttpInfo(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1344,6 +1350,7 @@ namespace FactSet.SDK.PAEngine.Api
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1365,6 +1372,7 @@ namespace FactSet.SDK.PAEngine.Api
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.PathParameters.Add("unitId", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(unitId)); // path parameter
+            localVarRequestOptions.Data = pACommentaryParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1404,29 +1412,31 @@ namespace FactSet.SDK.PAEngine.Api
         }
 
         /// <summary>
-        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PACommentaryRoot</returns>
-        public async System.Threading.Tasks.Task<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper>GeneratePAPortfolioCommentaryAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper>GeneratePAPortfolioCommentaryAsync(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GeneratePAPortfolioCommentaryWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GeneratePAPortfolioCommentaryWithHttpInfoAsync(id, unitId, pACommentaryParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate FactSet&#39;s AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   &lt;b&gt;These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.&lt;/b&gt;    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.
+        /// Generate PA portfolio commentary by calculation and unit id. This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \&quot;Variation in Average Weight\&quot; column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \&quot;single\&quot; and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Successful calculation id</param>
         /// <param name="unitId">Unit id associated with the successful calculation id</param>
+        /// <param name="pACommentaryParametersRoot">Request Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PACommentaryRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper>> GeneratePAPortfolioCommentaryWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.GeneratePAPortfolioCommentaryResponseWrapper>> GeneratePAPortfolioCommentaryWithHttpInfoAsync(string id, string unitId, PACommentaryParametersRoot pACommentaryParametersRoot = default(PACommentaryParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1444,6 +1454,7 @@ namespace FactSet.SDK.PAEngine.Api
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1465,6 +1476,7 @@ namespace FactSet.SDK.PAEngine.Api
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.PathParameters.Add("unitId", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(unitId)); // path parameter
+            localVarRequestOptions.Data = pACommentaryParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

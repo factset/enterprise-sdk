@@ -67,7 +67,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Quant calculation endpoint
+    id = "ed5830a029fd48f9a4bdb6abea51508b" # str | from url, provided from the location header in the Create and Run Quant calculation endpoint
 
     try:
         # Cancel Quant calculation by id
@@ -97,7 +97,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -269,7 +269,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+    id = "237d25247a8648b8b57e0d265039eff2" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
     try:
         # Get Quant Engine calculation parameters by id
@@ -369,7 +369,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+    id = "ed5830a029fd48f9a4bdb6abea51508b" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
     try:
         # Get Quant Engine calculation status by id
@@ -470,8 +470,8 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Get Quant calculation status by id endpoint
-    unit_id = "unitId_example" # str | from url, provided from the location header in the Get Quant calculation status by id endpoint
+    id = "ed5830a029fd48f9a4bdb6abea51508b" # str | from url, provided from the location header in the Get Quant calculation status by id endpoint
+    unit_id = "quant1" # str | from url, provided from the location header in the Get Quant calculation status by id endpoint
 
     try:
         # Get Quant Engine calculation metadata information by id
@@ -572,8 +572,8 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
-    unit_id = "unitId_example" # str | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+    id = "ed5830a029fd48f9a4bdb6abea51508b" # str | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+    unit_id = "quant1" # str | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
 
     try:
         # Get Quant Engine calculation result by id
@@ -674,7 +674,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
+    cache_control = "max-stale=0" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
     quant_calculation_parameters_root = QuantCalculationParametersRoot(
         data={
             "key": QuantCalculationParameters(
@@ -683,7 +683,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
                 formulas=OneOfQuantFormulasArray([
                     OneOfQuantFormulas(None),
                 ]),
-                job_description="job_description_example",
+                job_description="Quant Calculation",
             ),
         },
         meta=QuantCalculationMeta(
@@ -813,8 +813,8 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
     api_instance = quant_calculations_api.QuantCalculationsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
-    cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
+    id = "quant_test_calc_id" # str | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+    cache_control = "max-stale=0" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
     quant_calculation_parameters_root = QuantCalculationParametersRoot(
         data={
             "key": QuantCalculationParameters(
@@ -823,7 +823,7 @@ with fds.sdk.QuantEngine.ApiClient(configuration) as api_client:
                 formulas=OneOfQuantFormulasArray([
                     OneOfQuantFormulas(None),
                 ]),
-                job_description="job_description_example",
+                job_description="Quant Calculation",
             ),
         },
         meta=QuantCalculationMeta(

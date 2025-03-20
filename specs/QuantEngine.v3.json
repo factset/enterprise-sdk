@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.11.0"
+    "version": "3.12.1"
   },
   "servers": [
     {
@@ -34,7 +34,8 @@
             "in": "header",
             "description": "Standard HTTP header.  Accepts no-store, max-age, max-stale.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "max-stale=0"
             }
           }
         ],
@@ -44,6 +45,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/QuantCalculationParametersRoot"
+              },
+              "examples": {
+                "Single Unit Example": {
+                  "$ref": "#/components/examples/SingleUnitRequestBody"
+                },
+                "Multi Unit Example": {
+                  "$ref": "#/components/examples/MultiUnitRequestBody"
+                }
               }
             }
           }
@@ -194,6 +203,24 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "calculationid": "ed5830a029fd48f9a4bdb6abea51508b",
+                        "status": "Queued",
+                        "units": {
+                          "1": {
+                            "status": "Executing"
+                          },
+                          "2": {
+                            "status": "Queued"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -243,6 +270,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Request Body": {
+                    "$ref": "#/components/examples/400InvalidRequestBody"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -348,6 +380,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404-Not Found": {
+                    "$ref": "#/components/examples/404NotFound"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -397,6 +434,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "413-Request Body Size too Large": {
+                    "$ref": "#/components/examples/413ErrorResponse"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -586,6 +628,48 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationsSummaryRoot"
+                },
+                "examples": {
+                  "200 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "3d282d5ac10d4677b25b3582ac5499ae": {
+                          "status": "Queued",
+                          "units": 1,
+                          "requestTime": "2024-07-11T18:37:22.711542Z",
+                          "lastPollTime": "2024-07-11T18:37:22.711542Z"
+                        },
+                        "df76e138c68a48ccbed86241c05b16f9": {
+                          "status": "Queued",
+                          "units": 1,
+                          "requestTime": "2024-07-11T18:36:37.905591Z",
+                          "lastPollTime": "2024-07-11T18:36:37.905591Z"
+                        },
+                        "237d25247a8648b8b57e0d265039eff2": {
+                          "status": "Cancelled",
+                          "units": 1,
+                          "requestTime": "2024-07-11T16:13:55.362243Z",
+                          "lastPollTime": "2024-07-11T16:14:55.873936Z"
+                        },
+                        "996c54e095104dd993468c58febd07ad": {
+                          "status": "Completed",
+                          "units": 1,
+                          "requestTime": "2024-07-11T16:00:04.404233Z",
+                          "lastPollTime": "2024-07-11T16:00:15.688054Z"
+                        }
+                      },
+                      "meta": {
+                        "pagination": {
+                          "pageNumber": 1,
+                          "pageSize": 20,
+                          "totalPages": 1,
+                          "totalCalculations": 13,
+                          "nextPage": null,
+                          "previousPage": null
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -630,6 +714,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Expected Response when invalid page number provided": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66902729F42029FB",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Invalid page number"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -730,6 +828,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404-Not Found": {
+                    "$ref": "#/components/examples/404NotFound"
+                  }
                 }
               }
             }
@@ -853,7 +956,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint"
+              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint",
+              "example": "quant_test_calc_id"
             }
           },
           {
@@ -861,7 +965,8 @@
             "in": "header",
             "description": "Standard HTTP header.  Accepts no-store, max-age, max-stale.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "max-stale=0"
             }
           }
         ],
@@ -871,6 +976,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/QuantCalculationParametersRoot"
+              },
+              "examples": {
+                "Single Unit Example": {
+                  "$ref": "#/components/examples/SingleUnitRequestBody"
+                },
+                "Multi Unit Example": {
+                  "$ref": "#/components/examples/MultiUnitRequestBody"
+                }
               }
             }
           }
@@ -1021,6 +1134,24 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "calculationid": "ed5830a029fd48f9a4bdb6abea51508b",
+                        "status": "Queued",
+                        "units": {
+                          "1": {
+                            "status": "Executing"
+                          },
+                          "2": {
+                            "status": "Queued"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -1070,6 +1201,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Request Body": {
+                    "$ref": "#/components/examples/400InvalidRequestBody"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -1175,6 +1311,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404-Not Found": {
+                    "$ref": "#/components/examples/404NotFound"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -1224,6 +1365,23 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "409 - Expected Response due to Duplicate CalculationId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "669021907420A73D",
+                          "code": "Conflict",
+                          "title": "Failed to process request",
+                          "detail": "Cannot create/update the calculation as the duplicate calculation id (237d25247a8648b8b57e0d265039eff2) exists",
+                          "source": {
+                            "pointer": "/data"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -1273,6 +1431,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "413-Request Body Size too Large": {
+                    "$ref": "#/components/examples/413ErrorResponse"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -1418,7 +1581,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint"
+              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint",
+              "example": "237d25247a8648b8b57e0d265039eff2"
             }
           }
         ],
@@ -1484,6 +1648,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/QuantCalculationParametersRoot"
+                },
+                "examples": {
+                  "200 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "screen": {
+                          "universe": {
+                            "universeexpr": "((ff_mkt_val(ann_r,0,rp,usd)>300000)=1 and ison_sp500)=1",
+                            "universetype": "equity",
+                            "securityexpr": "sedol",
+                            "source": "screeningexpressionuniverse"
+                          },
+                          "dates": {
+                            "dates": [
+                              "2000-01-31",
+                              "2021-02-06",
+                              "2021-05-04"
+                            ],
+                            "source": "datelist",
+                            "frequency": "d",
+                            "calendar": "fiveday"
+                          },
+                          "formulas": [
+                            {
+                              "expr": "avail(proper_name, cn)",
+                              "name": "company_name",
+                              "source": "screeningexpression"
+                            },
+                            {
+                              "expr": "avail(fs_ticker_region, cusip)",
+                              "name": "ticker",
+                              "source": "screeningexpression"
+                            },
+                            {
+                              "expr": "ff_mkt_val(an_r,0,rp,usd)",
+                              "name": "market_value",
+                              "source": "screeningexpression"
+                            },
+                            {
+                              "expr": "ff_mkt_val(n_r,0,rp,usd)",
+                              "name": "market_value",
+                              "source": "screeningexpression"
+                            }
+                          ]
+                        }
+                      },
+                      "meta": {
+                        "allowarraydata": false,
+                        "contentorganization": "none",
+                        "stachcontentorganization": "simplifiedrow",
+                        "contenttype": "json",
+                        "format": "feather",
+                        "cachecontrol": null
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1528,6 +1748,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400-Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
                 }
               }
             }
@@ -1628,6 +1853,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Expected Response for Invalid CalculationId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6690211CF3B6BD25",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1687,7 +1926,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Create and Run Quant calculation endpoint"
+              "description": "from url, provided from the location header in the Create and Run Quant calculation endpoint",
+              "example": "ed5830a029fd48f9a4bdb6abea51508b"
             }
           }
         ],
@@ -1766,17 +2006,7 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 }
@@ -1876,19 +2106,23 @@
               }
             },
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Expected Response for invalid CalculationId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66900504881E771A",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1950,7 +2184,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint"
+              "description": "from url, provided from the location header in the Create and Run Quant Engine calculation endpoint",
+              "example": "ed5830a029fd48f9a4bdb6abea51508b"
             }
           }
         ],
@@ -2016,6 +2251,64 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "200 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "calculationid": "ed5830a029fd48f9a4bdb6abea51508b",
+                        "status": "Completed",
+                        "units": {
+                          "1": {
+                            "status": "Success",
+                            "result": "https://api.factset.com/analytics/engines/quant/v3/calculations/ed5830a029fd48f9a4bdb6abea51508b/units/1/result",
+                            "progress": "100"
+                          },
+                          "2": {
+                            "status": "Success",
+                            "result": "https://api.factset.com/analytics/engines/quant/v3/calculations/ed5830a029fd48f9a4bdb6abea51508b/units/2/result",
+                            "progress": "100"
+                          }
+                        }
+                      },
+                      "meta": {
+                        "units": {
+                          "1": {
+                            "info": "https://api.factset.com/analytics/engines/quant/v3/calculations/ed5830a029fd48f9a4bdb6abea51508b/units/1/info"
+                          },
+                          "2": {
+                            "info": "https://api.factset.com/analytics/engines/quant/v3/calculations/ed5830a029fd48f9a4bdb6abea51508b/units/2/info"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "200 - Expected Response with Warnings": {
+                    "value": {
+                      "data": {
+                        "calculationid": "996c54e095104dd993468c58febd07ad",
+                        "status": "Completed",
+                        "units": {
+                          "screen": {
+                            "status": "Success",
+                            "result": "https://api.factset.com/analytics/engines/quant/v3/calculations/996c54e095104dd993468c58febd07ad/units/screen/result",
+                            "progress": "100",
+                            "warnings": [
+                              "Failed to evaluate expression FF_MKT_VAL(N_R,0,RP,USD), possible syntax error, data will be NA",
+                              "Failed to evaluate expression FF_MKT_VAL(AN_R,0,RP,USD), possible syntax error, data will be NA"
+                            ]
+                          }
+                        }
+                      },
+                      "meta": {
+                        "units": {
+                          "screen": {
+                            "info": "https://api.factset.com/analytics/engines/quant/v3/calculations/996c54e095104dd993468c58febd07ad/units/screen/info"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2074,6 +2367,24 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CalculationStatusRoot"
+                },
+                "examples": {
+                  "202 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "calculationid": "ed5830a029fd48f9a4bdb6abea51508b",
+                        "status": "Queued",
+                        "units": {
+                          "1": {
+                            "status": "Executing"
+                          },
+                          "2": {
+                            "status": "Queued"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2118,6 +2429,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400-Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
                 }
               }
             }
@@ -2218,6 +2534,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Expected Response for invalid CalculationId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "669003DA1F663A5A",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2279,7 +2609,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint"
+              "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint",
+              "example": "ed5830a029fd48f9a4bdb6abea51508b"
             }
           },
           {
@@ -2289,7 +2620,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint"
+              "description": "from url, provided from the location header in the Get Quant Engine calculation status by id endpoint",
+              "example": "quant1"
             }
           }
         ],
@@ -2412,6 +2744,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400-Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -2522,6 +2859,32 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Expected Response for invalid CalculationId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66900237D321799B",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Expected Response for invalid UnitId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66900292F17A6EE0",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation Unit Identifier quant3 not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -2593,7 +2956,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint"
+              "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint",
+              "example": "ed5830a029fd48f9a4bdb6abea51508b"
             }
           },
           {
@@ -2603,7 +2967,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint"
+              "description": "from url, provided from the location header in the Get Quant calculation status by id endpoint",
+              "example": "quant1"
             }
           }
         ],
@@ -2726,6 +3091,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400-Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -2836,6 +3206,32 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Expected Response for invalid CalculatioId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6690031575B05965",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation not found"
+                        }
+                      ]
+                    }
+                  },
+                  "404 - Expected Response for invalid UnitId": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "66900380F58BDB08",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Calculation Unit Identifier quant3 not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               "application/x-protobuf": {
@@ -2907,17 +3303,20 @@
         ],
         "properties": {
           "universeExpr": {
-            "type": "string"
+            "type": "string",
+            "example": "FG_CONSTITUENTS(R.3000,0,CLOSE)=1"
           },
           "universeType": {
             "enum": [
               "Equity",
               "Debt"
             ],
-            "type": "string"
+            "type": "string",
+            "example": "Equity"
           },
           "securityExpr": {
             "type": "string",
+            "example": "SEDOL",
             "nullable": true
           }
         }
@@ -2939,12 +3338,14 @@
               "Equity",
               "Debt"
             ],
-            "type": "string"
+            "type": "string",
+            "example": "Equity"
           },
           "identifiers": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "FDS, AAPL"
             }
           }
         }
@@ -2961,7 +3362,8 @@
               "UniversalScreenUniverse",
               "IdentifierUniverse"
             ],
-            "type": "string"
+            "type": "string",
+            "example": "ScreeningExpressionUniverse"
           }
         }
       },
@@ -2977,7 +3379,8 @@
         ],
         "properties": {
           "screen": {
-            "type": "string"
+            "type": "string",
+            "example": "Client:/Folder1/Quant/ScreenUniverse"
           }
         }
       },
@@ -2992,7 +3395,8 @@
           "dates": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "20050701, 20050702"
             },
             "nullable": true
           }
@@ -3011,13 +3415,16 @@
               "FdsDate",
               "DateList"
             ],
-            "type": "string"
+            "type": "string",
+            "example": "FdsDate"
           },
           "frequency": {
-            "type": "string"
+            "type": "string",
+            "example": "D"
           },
           "calendar": {
-            "type": "string"
+            "type": "string",
+            "example": "FIVEDAY"
           },
           "overrideUniversalScreenCalendar": {
             "type": "boolean",
@@ -3038,10 +3445,12 @@
         ],
         "properties": {
           "startDate": {
-            "type": "string"
+            "type": "string",
+            "example": "20050701"
           },
           "endDate": {
-            "type": "string"
+            "type": "string",
+            "example": "20050704"
           }
         }
       },
@@ -3058,10 +3467,12 @@
         ],
         "properties": {
           "expr": {
-            "type": "string"
+            "type": "string",
+            "example": "P_PRICE(#DATE)"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "Price (FQL)"
           },
           "dateOffset": {
             "type": "string",
@@ -3069,6 +3480,7 @@
           },
           "isArrayReturnType": {
             "type": "boolean",
+            "example": true,
             "nullable": true
           }
         }
@@ -3086,10 +3498,12 @@
         ],
         "properties": {
           "referenceName": {
-            "type": "string"
+            "type": "string",
+            "example": "EPS"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "EPS (USC)"
           }
         }
       },
@@ -3114,7 +3528,8 @@
               "UniversalScreenParameter",
               "AllUniversalScreenParameters"
             ],
-            "type": "string"
+            "type": "string",
+            "example": "ScreeningExpression"
           }
         }
       },
@@ -3131,209 +3546,18 @@
         ],
         "properties": {
           "expr": {
-            "type": "string"
+            "type": "string",
+            "example": "PROPER_NAME(0,SECURITY,NAME)"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "Proper Name"
           },
           "dateOffset": {
             "type": "string",
             "nullable": true
           }
         }
-      },
-      "QuantScreeningExpressionUniverseObsolete": {
-        "required": [
-          "universeExpr",
-          "universeType"
-        ],
-        "type": "object",
-        "properties": {
-          "universeExpr": {
-            "type": "string"
-          },
-          "universeType": {
-            "enum": [
-              "Equity",
-              "Debt"
-            ],
-            "type": "string"
-          },
-          "securityExpr": {
-            "type": "string",
-            "nullable": true
-          },
-          "source": {
-            "enum": [
-              "ScreeningExpressionUniverse",
-              "UniversalScreenUniverse",
-              "IdentifierUniverse"
-            ],
-            "type": "string"
-          }
-        }
-      },
-      "QuantUniversalScreenUniverseObsolete": {
-        "required": [
-          "screen"
-        ],
-        "type": "object",
-        "properties": {
-          "screen": {
-            "type": "string"
-          },
-          "source": {
-            "enum": [
-              "ScreeningExpressionUniverse",
-              "UniversalScreenUniverse",
-              "IdentifierUniverse"
-            ],
-            "type": "string"
-          }
-        }
-      },
-      "QuantIdentifierUniverseObsolete": {
-        "required": [
-          "identifiers",
-          "universeType"
-        ],
-        "type": "object",
-        "properties": {
-          "universeType": {
-            "enum": [
-              "Equity",
-              "Debt"
-            ],
-            "type": "string"
-          },
-          "identifiers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "source": {
-            "enum": [
-              "ScreeningExpressionUniverse",
-              "UniversalScreenUniverse",
-              "IdentifierUniverse"
-            ],
-            "type": "string"
-          }
-        }
-      },
-      "QuantFdsDateObsolete": {
-        "required": [
-          "calendar",
-          "endDate",
-          "frequency",
-          "startDate"
-        ],
-        "type": "object",
-        "properties": {
-          "startDate": {
-            "type": "string"
-          },
-          "endDate": {
-            "type": "string"
-          },
-          "frequency": {
-            "type": "string"
-          },
-          "calendar": {
-            "type": "string"
-          },
-          "overrideUniversalScreenCalendar": {
-            "type": "boolean",
-            "nullable": true
-          }
-        }
-      },
-      "QuantDateListObsolete": {
-        "required": [
-          "calendar",
-          "frequency"
-        ],
-        "type": "object",
-        "properties": {
-          "dates": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "frequency": {
-            "type": "string"
-          },
-          "calendar": {
-            "type": "string"
-          },
-          "overrideUniversalScreenCalendar": {
-            "type": "boolean",
-            "nullable": true
-          }
-        }
-      },
-      "QuantScreeningExpressionObsolete": {
-        "required": [
-          "expr",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "expr": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "dateOffset": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "QuantFqlExpressionObsolete": {
-        "required": [
-          "expr",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "expr": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "dateOffset": {
-            "type": "string",
-            "nullable": true
-          },
-          "isArrayReturnType": {
-            "type": "boolean",
-            "nullable": true
-          }
-        }
-      },
-      "QuantUniversalScreenParameterObsolete": {
-        "required": [
-          "name",
-          "referenceName"
-        ],
-        "type": "object",
-        "properties": {
-          "referenceName": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "QuantAllUniversalScreenParametersObsolete": {
-        "type": "object"
       },
       "OneOfQuantUniverse": {
         "oneOf": [
@@ -3420,6 +3644,7 @@
           },
           "jobDescription": {
             "type": "string",
+            "example": "Quant Calculation",
             "nullable": true
           }
         }
@@ -3449,7 +3674,8 @@
               "SimplifiedRow"
             ],
             "type": "string",
-            "default": "SimplifiedRow"
+            "default": "SimplifiedRow",
+            "example": "SimplifiedRow"
           },
           "contenttype": {
             "enum": [
@@ -3473,7 +3699,8 @@
               "Feather"
             ],
             "type": "string",
-            "default": "JsonStach"
+            "default": "JsonStach",
+            "example": "JsonStach"
           }
         }
       },
@@ -3511,18 +3738,22 @@
         "properties": {
           "id": {
             "type": "string",
+            "example": "669022A3CFDCDB57",
             "nullable": true
           },
           "code": {
             "type": "string",
+            "example": "BadRequest",
             "nullable": true
           },
           "title": {
             "type": "string",
+            "example": "Failed to process request",
             "nullable": true
           },
           "detail": {
             "type": "string",
+            "example": "Calculation creation failed",
             "nullable": true
           },
           "source": {
@@ -3542,6 +3773,7 @@
               "Cancelled"
             ],
             "type": "string",
+            "example": "Success",
             "description": "The status of calculation unit."
           },
           "errors": {
@@ -3555,23 +3787,27 @@
           "result": {
             "type": "string",
             "description": "The result URL of the calculation.",
+            "example": "https://api.factset.com/analytics/engines/quant/v3/calculations/d620286fb100479ca1ded6e343f40ddd/units/1/result",
             "nullable": true
           },
           "progress": {
             "type": "string",
             "description": "The progress of the calculation unit.",
+            "example": "100",
             "nullable": true
           },
           "points": {
             "type": "integer",
             "description": "The points for the calculation unit.",
             "format": "int32",
+            "example": 1,
             "nullable": true
           },
           "warnings": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "example": "Failed to evaluate expression FF_MKT_VAL(N_R,0,RP,USD), possible syntax error, data will be NA"
             },
             "description": "The warnings in a calculation unit.",
             "nullable": true
@@ -3584,6 +3820,7 @@
           "calculationid": {
             "type": "string",
             "description": "Calculation's identifier",
+            "example": "ed5830a029fd48f9a4bdb6abea51508b",
             "nullable": true
           },
           "status": {
@@ -3594,6 +3831,7 @@
               "Cancelled"
             ],
             "type": "string",
+            "example": "Executing",
             "description": "Calculation's status"
           },
           "units": {
@@ -3612,6 +3850,7 @@
           "info": {
             "type": "string",
             "description": "The Info URL of the calculation.",
+            "example": "https://api.factset.com/analytics/engines/quant/v3/calculations/0b75d9f82f88495f97c2ef02ceed314d/units/quant1/info",
             "nullable": true
           }
         }
@@ -3649,8 +3888,11 @@
         ],
         "type": "object",
         "properties": {
-          "data": {},
+          "data": {
+            "type": "object"
+          },
           "meta": {
+            "type": "object",
             "nullable": true
           }
         }
@@ -3678,21 +3920,25 @@
               "Cancelled"
             ],
             "type": "string",
+            "example": "Completed",
             "description": "Last poll status of the calculation."
           },
           "units": {
             "type": "integer",
             "description": "Number of calculation units in batch.",
+            "example": 1,
             "format": "int32"
           },
           "requestTime": {
             "type": "string",
             "description": "Request time of calculation.",
+            "example": "2025-01-11T16:13:55.362243Z",
             "format": "date-time"
           },
           "lastPollTime": {
             "type": "string",
             "description": "Last poll time of calculation.",
+            "example": "2025-01-11T16:14:54.360243Z",
             "format": "date-time"
           }
         }
@@ -3702,26 +3948,32 @@
         "properties": {
           "pageNumber": {
             "type": "integer",
+            "example": 2,
             "format": "int32"
           },
           "pageSize": {
             "type": "integer",
+            "example": 20,
             "format": "int32"
           },
           "totalPages": {
             "type": "integer",
+            "example": 3,
             "format": "int32"
           },
           "totalCalculations": {
             "type": "integer",
+            "example": 51,
             "format": "int32"
           },
           "nextPage": {
             "type": "string",
+            "example": "3",
             "nullable": true
           },
           "previousPage": {
             "type": "string",
+            "example": "1",
             "nullable": true
           }
         }
@@ -3741,7 +3993,10 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/CalculationsSummary"
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CalculationsSummary"
+            }
           },
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
@@ -3763,6 +4018,181 @@
         "type": "http",
         "scheme": "basic"
       }
+    },
+    "examples": {
+      "SingleUnitRequestBody": {
+        "value": {
+          "data": {
+            "quant1": {
+              "universe": {
+                "source": "identifierUniverse",
+                "universeType": "EQUITY",
+                "identifiers": [
+                  "AAPL",
+                  "MSFT",
+                  "IBM"
+                ]
+              },
+              "dates": {
+                "source": "fdsDate",
+                "startdate": "20050701",
+                "enddate": "20050704",
+                "frequency": "D",
+                "calendar": "FIVEDAY"
+              },
+              "formulas": [
+                {
+                  "source": "screeningExpression",
+                  "expr": "P_PRICE",
+                  "name": "Price (SCR)"
+                }
+              ]
+            }
+          },
+          "meta": {
+            "format": "feather"
+          }
+        }
+      },
+      "MultiUnitRequestBody": {
+        "value": {
+          "data": {
+            "quant1": {
+              "universe": {
+                "source": "identifierUniverse",
+                "universeType": "EQUITY",
+                "identifiers": [
+                  "AAPL",
+                  "MSFT",
+                  "IBM"
+                ]
+              },
+              "dates": {
+                "source": "fdsDate",
+                "startdate": "20050701",
+                "enddate": "20050704",
+                "frequency": "D",
+                "calendar": "FIVEDAY"
+              },
+              "formulas": [
+                {
+                  "source": "screeningExpression",
+                  "expr": "P_PRICE",
+                  "name": "Price (SCR)"
+                }
+              ]
+            },
+            "quant2": {
+              "universe": {
+                "source": "identifierUniverse",
+                "universeType": "EQUITY",
+                "identifiers": [
+                  "75513E10",
+                  "59491810",
+                  "92826C83",
+                  "89417E10",
+                  "58933Y10",
+                  "43707610",
+                  "58013510",
+                  "14912310",
+                  "71708110",
+                  "17275R10",
+                  "93114210",
+                  "45814010",
+                  "25468710",
+                  "02581610",
+                  "65410610",
+                  "03783310",
+                  "30231G10",
+                  "09702310",
+                  "38141G10",
+                  "36960410",
+                  "74271810",
+                  "45920010",
+                  "16676410",
+                  "88579Y10",
+                  "92343V10",
+                  "47816010",
+                  "19121610",
+                  "46625H10",
+                  "91324P10",
+                  "26614N10"
+                ]
+              },
+              "dates": {
+                "source": "fdsDate",
+                "calendar": "SEVENDAY",
+                "startdate": "0",
+                "enddate": "-5M",
+                "frequency": "M"
+              },
+              "formulas": [
+                {
+                  "source": "fqlExpression",
+                  "expr": "P_PRICE(#DATE)",
+                  "name": "pp"
+                },
+                {
+                  "source": "fqlExpression",
+                  "expr": "OS_TOP_HLDR_POS(5,#DATE,#DATE,M,,S,SEC)",
+                  "name": "os_top_hldr_pos"
+                }
+              ]
+            }
+          },
+          "meta": {
+            "format": "feather"
+          }
+        }
+      },
+      "413ErrorResponse": {
+        "value": {
+          "errors": [
+            {
+              "id": "67A1AF5ECA868D4F",
+              "code": "RequestEntityTooLarge",
+              "title": "Failed to process request",
+              "detail": "Calculation creation failed"
+            }
+          ]
+        }
+      },
+      "400InvalidRequestBody": {
+        "value": {
+          "errors": [
+            {
+              "id": "669022A3CFDCDB57",
+              "code": "BadRequest",
+              "title": "Failed to process request",
+              "detail": "{\"data.screen.invalid\":[\"Could not find member 'invalid' on object of type 'QuantCalculationParameters'. Path 'data.screen.invalid', line 4, position 10.\"]}"
+            }
+          ]
+        }
+      },
+      "404NotFound": {
+        "value": {
+          "errors": [
+            {
+              "id": "667BBEFFBD1F4651",
+              "code": "NotFound",
+              "title": "Failed to process request",
+              "detail": "Error processing the request"
+            }
+          ]
+        }
+      },
+      "400BadRequest": {
+        "value": {
+          "errors": [
+            {
+              "id": "667BBEFFBD1F4651",
+              "code": "BadRequest",
+              "title": "Failed to process request",
+              "detail": "Error processing the request"
+            }
+          ]
+        }
+      }
     }
   },
   "security": [
@@ -3771,6 +4201,11 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "QuantCalculations"
     }
   ],
   "externalDocs": {

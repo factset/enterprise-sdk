@@ -27,6 +27,7 @@ docs/ColumnsApi.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
 docs/ComponentsApi.md
+docs/ConfigurationsApi.md
 docs/CurrenciesApi.md
 docs/Currency.md
 docs/CurrencyRoot.md
@@ -65,9 +66,13 @@ docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
 docs/PACommentary.md
+docs/PACommentaryConfigurationSummary.md
+docs/PACommentaryConfigurationSummaryRoot.md
 docs/PACommentaryDate.md
 docs/PACommentaryGetStatus.md
 docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryParameters.md
+docs/PACommentaryParametersRoot.md
 docs/PACommentaryRoot.md
 docs/PACommentaryStatus.md
 docs/PACommentaryStatusRoot.md
@@ -116,6 +121,7 @@ src/FactSet.SDK.PAEngine/Api/AccountsApi.cs
 src/FactSet.SDK.PAEngine/Api/ColumnStatisticsApi.cs
 src/FactSet.SDK.PAEngine/Api/ColumnsApi.cs
 src/FactSet.SDK.PAEngine/Api/ComponentsApi.cs
+src/FactSet.SDK.PAEngine/Api/ConfigurationsApi.cs
 src/FactSet.SDK.PAEngine/Api/CurrenciesApi.cs
 src/FactSet.SDK.PAEngine/Api/DatesApi.cs
 src/FactSet.SDK.PAEngine/Api/DocumentsApi.cs
@@ -194,9 +200,13 @@ src/FactSet.SDK.PAEngine/Model/PACalculationParameters.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationParametersRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationPricingSource.cs
 src/FactSet.SDK.PAEngine/Model/PACommentary.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryConfigurationSummary.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryConfigurationSummaryRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryDate.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryGetStatus.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryGetStatusRoot.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryParameters.cs
+src/FactSet.SDK.PAEngine/Model/PACommentaryParametersRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryStatus.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryStatusRoot.cs

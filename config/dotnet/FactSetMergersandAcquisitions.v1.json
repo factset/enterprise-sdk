@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetMergersandAcquisitions",
-  "packageVersion": "1.0.3",
+  "packageVersion": "1.1.0",
   "packageGuid": "{1f63a9ba-e5ad-515d-86cb-426167abf6ae}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetMergersandAcquisitions/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetMergersandAcquisitions/1.0.3",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetMergersandAcquisitions/1.1.0",
   "files": {
     "LICENSE": {}
   },

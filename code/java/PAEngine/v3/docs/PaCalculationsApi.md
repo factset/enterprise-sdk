@@ -115,16 +115,13 @@ null (empty response body)
 
 ## generatePAPortfolioCommentary
 
-> GeneratePAPortfolioCommentaryResponseWrapper generatePAPortfolioCommentary(id, unitId)
+> GeneratePAPortfolioCommentaryResponseWrapper generatePAPortfolioCommentary(id, unitId, paCommentaryParametersRoot)
 
 Generate PA portfolio commentary by calculation and unit id.
 
-This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.
+This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.
 
 Remarks:
-
-*   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability
-    and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>
 
 *	The PA component used in the calculation must be an attribution tile.
     
@@ -138,6 +135,9 @@ Remarks:
 
 *   PA portfolio commentary with sub-period analysis will be returned only when the frequency
     is set to something other than "single" and the report contains more than one sub-period.
+    
+*   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired. 
+    If the configuration ID is not specified, the default commentary will be returned.
 
 ### Example
 
@@ -183,8 +183,9 @@ public class Example {
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         String id = "id_example"; // String | Successful calculation id
         String unitId = "unitId_example"; // String | Unit id associated with the successful calculation id
+        PACommentaryParametersRoot paCommentaryParametersRoot = new PACommentaryParametersRoot(); // PACommentaryParametersRoot | Request Parameters
         try {
-            GeneratePAPortfolioCommentaryResponseWrapper result = apiInstance.generatePAPortfolioCommentary(id, unitId);
+            GeneratePAPortfolioCommentaryResponseWrapper result = apiInstance.generatePAPortfolioCommentary(id, unitId, paCommentaryParametersRoot);
             switch(result.getStatusCode()) {
             
                 case 201:
@@ -213,6 +214,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Successful calculation id |
  **unitId** | **String**| Unit id associated with the successful calculation id |
+ **paCommentaryParametersRoot** | [**PACommentaryParametersRoot**](PACommentaryParametersRoot.md)| Request Parameters | [optional]
 
 ### Return type
 
@@ -224,7 +226,7 @@ GeneratePAPortfolioCommentaryResponseWrapper
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

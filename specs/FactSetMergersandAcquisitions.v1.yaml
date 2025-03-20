@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
-  title: FACTSET MERGERS AND ACQUISITIONS API
+  version: 1.1.0
+  title: FactSet Mergers and Acquisitions API
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -282,6 +282,52 @@ components:
           $ref: '#/components/schemas/Industry'
       required:
         - fsymId
+    Advisors:
+      title: Advisors Object
+      description: Advisors Object
+      type: object
+      properties:
+        buyers:
+          $ref: '#/components/schemas/BuyersAdvisor'
+        sellers:
+          $ref: '#/components/schemas/SellersAdvisor'
+    SellersAdvisor:
+      title: Sellers Advisor Object
+      description: Sellers Advisor Object
+      type: object
+      properties:
+        financial:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+        legal:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+    BuyersAdvisor:
+      title: Buyers Advisor Object
+      description: Buyers Advisor Object
+      type: object
+      properties:
+        financial:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+        legal:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+    AdvisorParticipant:
+      title: Advisor Participant Object
+      description: Advisor Participant Object
+      type: object
+      properties:
+        fsymId:
+          $ref: '#/components/schemas/AdvisorFsymId'
+        name:
+          $ref: '#/components/schemas/AdvisorName'
+        fees:
+          $ref: '#/components/schemas/Fees'
     FsymId:
       type: string
       description: >-
@@ -292,6 +338,28 @@ components:
       type: string
       description: Entity name of the participant.
       example: International Business Machines Corp.
+    AdvisorFsymId:
+      type: string
+      description: >-
+        FactSet Permanent Identifier of the participant. Six alpha-numeric
+        characters, excluding vowels, with an -E suffix (XXXXXX-E). Null values
+        indicate that no data is available.
+      example: 000N1N-E
+      nullable: true
+    AdvisorName:
+      type: string
+      description: >-
+        Entity name of the advisor. Null values indicate that no data is
+        available.
+      example: Morgan Stanley & Co. LLC
+      nullable: true
+    Fees:
+      type: number
+      description: >-
+        Fees of the advisor. All values in millions of USD. Null values indicate
+        that no data is available.
+      example: 50
+      nullable: true
     Industry:
       type: string
       description: >-
@@ -670,6 +738,8 @@ components:
           items:
             $ref: '#/components/schemas/Participant'
           nullable: true
+        advisorsInfo:
+          $ref: '#/components/schemas/Advisors'
         status:
           description: Status of the deal.
           type: string
@@ -1231,6 +1301,43 @@ components:
                 name: Vista Equity Partners Management LLC
                 industry: null
                 ultimateParentId: 05W9HD-E
+            advisorsInfo:
+              buyers:
+                financial:
+                  - fsymId: 29977A10
+                    name: Evercore, Inc.
+                    fees: null
+                  - fsymId: BRJL17
+                    name: UBS Group AG
+                    fees: null
+                  - fsymId: 05FBK7-E
+                    name: Morgan Stanley & Co. LLC
+                    fees: null
+                legal:
+                  - fsymId: 05NYND-E
+                    name: Simpson Thacher & Bartlett LLP
+                    fees: null
+              sellers:
+                financial:
+                  - fsymId: 004GJQ-E
+                    name: JPMorgan Securities LLC
+                    fees: 4
+                  - fsymId: 00CJFN-E
+                    name: Qatalyst Partners LP
+                    fees: 50
+                legal:
+                  - fsymId: 05LGCB-E
+                    name: Kirkland & Ellis LLP
+                    fees: null
+                  - fsymId: 05M5BN-E
+                    name: Goodwin Procter LLP
+                    fees: null
+                  - fsymId: 05P04Y-E
+                    name: Sullivan & Cromwell LLP
+                    fees: null
+                  - fsymId: 06J8MJ-E
+                    name: Cooley LLP
+                    fees: null
             status: Complete
             rumorDate: '2023-01-31'
             announceDate: '2023-03-14'

@@ -67,7 +67,7 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Quant calculation endpoint
+            var id = "ed5830a029fd48f9a4bdb6abea51508b";  // string | from url, provided from the location header in the Create and Run Quant calculation endpoint
 
             try
             {
@@ -101,7 +101,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -276,7 +276,7 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+            var id = "237d25247a8648b8b57e0d265039eff2";  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
             try
             {
@@ -380,7 +380,7 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+            var id = "ed5830a029fd48f9a4bdb6abea51508b";  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
 
             try
             {
@@ -485,8 +485,8 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Get Quant calculation status by id endpoint
-            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get Quant calculation status by id endpoint
+            var id = "ed5830a029fd48f9a4bdb6abea51508b";  // string | from url, provided from the location header in the Get Quant calculation status by id endpoint
+            var unitId = "quant1";  // string | from url, provided from the location header in the Get Quant calculation status by id endpoint
 
             try
             {
@@ -591,8 +591,8 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
-            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+            var id = "ed5830a029fd48f9a4bdb6abea51508b";  // string | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+            var unitId = "quant1";  // string | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
 
             try
             {
@@ -698,7 +698,7 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = "max-stale=0";  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var quantCalculationParametersRoot = new QuantCalculationParametersRoot(); // QuantCalculationParametersRoot |  (optional) 
 
             try
@@ -826,8 +826,8 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
 
-            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
-            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var id = "quant_test_calc_id";  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+            var cacheControl = "max-stale=0";  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var quantCalculationParametersRoot = new QuantCalculationParametersRoot(); // QuantCalculationParametersRoot | Calculation Parameters (optional) 
 
             try

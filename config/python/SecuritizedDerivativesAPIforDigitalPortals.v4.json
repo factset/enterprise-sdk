@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.SecuritizedDerivativesAPIforDigitalPortals",
+  "projectName": "fds.sdk.SecuritizedDerivativesAPIforDigitalPortals",
+  "packageVersion": "0.40.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Securitized Derivatives API for Digital Portals client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/SecuritizedDerivativesAPIforDigitalPortals/v4",
+  "httpUserAgent": "fds-sdk/python/SecuritizedDerivativesAPIforDigitalPortals/0.40.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

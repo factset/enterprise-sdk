@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **target** | [**Target**](Target.md) |  | [optional] 
 **buyers** | [**[Participant]**](Participant.md) | Array of participants in the deal who are buyers. | [optional] 
 **sellers** | [**[Participant], none_type**](Participant.md) | Array of participants in the deal who are sellers. | [optional] 
+**advisors_info** | [**Advisors**](Advisors.md) |  | [optional] 
 **status** | **str** | Status of the deal. | [optional] 
 **rumor_date** | **date, none_type** | For a transaction that initially start out as a rumor, the date on which talks of the transaction first appeared in a major financial or trade publication. For so long as the transaction remains a rumor, the Rumor Date and the Announcement Date will be the same. Once confirmed and the transaction is no longer a rumor, the Rumor Date will remain unchanged and the Announcement Date will be updated to reflect the date upon which one of the parties involved in the deal disclosed the formal offer or a definitive agreement. | [optional] 
 **announce_date** | **date, none_type** | Date the deal was announced. | [optional] 

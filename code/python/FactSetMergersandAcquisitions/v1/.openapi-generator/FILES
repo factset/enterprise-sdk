@@ -4,6 +4,9 @@
 .travis.yml
 LICENSE
 README.md
+docs/AdvisorParticipant.md
+docs/Advisors.md
+docs/BuyersAdvisor.md
 docs/DealCompany.md
 docs/DealIds.md
 docs/DealPublic.md
@@ -23,6 +26,7 @@ docs/ErrorObject.md
 docs/ErrorResponse.md
 docs/Ids.md
 docs/Participant.md
+docs/SellersAdvisor.md
 docs/Status.md
 docs/Target.md
 fds/__init__.py
@@ -34,6 +38,9 @@ fds/sdk/FactSetMergersandAcquisitions/apis/__init__.py
 fds/sdk/FactSetMergersandAcquisitions/configuration.py
 fds/sdk/FactSetMergersandAcquisitions/exceptions.py
 fds/sdk/FactSetMergersandAcquisitions/model/__init__.py
+fds/sdk/FactSetMergersandAcquisitions/model/advisor_participant.py
+fds/sdk/FactSetMergersandAcquisitions/model/advisors.py
+fds/sdk/FactSetMergersandAcquisitions/model/buyers_advisor.py
 fds/sdk/FactSetMergersandAcquisitions/model/deal_company.py
 fds/sdk/FactSetMergersandAcquisitions/model/deal_ids.py
 fds/sdk/FactSetMergersandAcquisitions/model/deal_public.py
@@ -52,6 +59,7 @@ fds/sdk/FactSetMergersandAcquisitions/model/error_object.py
 fds/sdk/FactSetMergersandAcquisitions/model/error_response.py
 fds/sdk/FactSetMergersandAcquisitions/model/ids.py
 fds/sdk/FactSetMergersandAcquisitions/model/participant.py
+fds/sdk/FactSetMergersandAcquisitions/model/sellers_advisor.py
 fds/sdk/FactSetMergersandAcquisitions/model/status.py
 fds/sdk/FactSetMergersandAcquisitions/model/target.py
 fds/sdk/FactSetMergersandAcquisitions/model_utils.py

@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-openfactsetmarketplace",
+  "projectVersion": "0.0.1",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Open:FactSet Marketplace client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "openfactsetmarketplace",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/OpenFactSetMarketplace/0.0.1",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

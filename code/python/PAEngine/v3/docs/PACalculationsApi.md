@@ -121,7 +121,7 @@ void (empty response body)
 
 Generate PA portfolio commentary by calculation and unit id.
 
-This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.
+This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.
 
 ### Example
 
@@ -170,11 +170,18 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | Successful calculation id
     unit_id = "unitId_example" # str | Unit id associated with the successful calculation id
+    pa_commentary_parameters_root = PACommentaryParametersRoot(
+        data=PACommentaryParameters(
+            configurationid="configurationid_example",
+        ),
+        meta={},
+    ) # PACommentaryParametersRoot | Request Parameters (optional)
 
     try:
         # Generate PA portfolio commentary by calculation and unit id.
         # example passing only required values which don't have defaults set
-        api_response_wrapper = api_instance.generate_pa_portfolio_commentary(id, unit_id)
+        # and optional values
+        api_response_wrapper = api_instance.generate_pa_portfolio_commentary(id, unit_id, pa_commentary_parameters_root=pa_commentary_parameters_root)
 
         # This endpoint returns a response wrapper that contains different types of responses depending on the query.
         # To access the correct response type, you need to perform one additional step, as shown below.
@@ -196,6 +203,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Successful calculation id |
  **unit_id** | **str**| Unit id associated with the successful calculation id |
+ **pa_commentary_parameters_root** | [**PACommentaryParametersRoot**](PACommentaryParametersRoot.md)| Request Parameters | [optional]
 
 ### Return type
 
@@ -210,7 +218,7 @@ The endpoint generates varying objects correlating with the successful status co
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

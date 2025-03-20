@@ -27,6 +27,7 @@ docs/ColumnsApi.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
 docs/ComponentsApi.md
+docs/ConfigurationsApi.md
 docs/CurrenciesApi.md
 docs/Currency.md
 docs/CurrencyRoot.md
@@ -65,9 +66,13 @@ docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
 docs/PACommentary.md
+docs/PACommentaryConfigurationSummary.md
+docs/PACommentaryConfigurationSummaryRoot.md
 docs/PACommentaryDate.md
 docs/PACommentaryGetStatus.md
 docs/PACommentaryGetStatusRoot.md
+docs/PACommentaryParameters.md
+docs/PACommentaryParametersRoot.md
 docs/PACommentaryRoot.md
 docs/PACommentaryStatus.md
 docs/PACommentaryStatusRoot.md
@@ -118,6 +123,7 @@ fds/sdk/PAEngine/api/accounts_api.py
 fds/sdk/PAEngine/api/column_statistics_api.py
 fds/sdk/PAEngine/api/columns_api.py
 fds/sdk/PAEngine/api/components_api.py
+fds/sdk/PAEngine/api/configurations_api.py
 fds/sdk/PAEngine/api/currencies_api.py
 fds/sdk/PAEngine/api/dates_api.py
 fds/sdk/PAEngine/api/documents_api.py
@@ -183,9 +189,13 @@ fds/sdk/PAEngine/model/pa_calculation_parameters.py
 fds/sdk/PAEngine/model/pa_calculation_parameters_root.py
 fds/sdk/PAEngine/model/pa_calculation_pricing_source.py
 fds/sdk/PAEngine/model/pa_commentary.py
+fds/sdk/PAEngine/model/pa_commentary_configuration_summary.py
+fds/sdk/PAEngine/model/pa_commentary_configuration_summary_root.py
 fds/sdk/PAEngine/model/pa_commentary_date.py
 fds/sdk/PAEngine/model/pa_commentary_get_status.py
 fds/sdk/PAEngine/model/pa_commentary_get_status_root.py
+fds/sdk/PAEngine/model/pa_commentary_parameters.py
+fds/sdk/PAEngine/model/pa_commentary_parameters_root.py
 fds/sdk/PAEngine/model/pa_commentary_root.py
 fds/sdk/PAEngine/model/pa_commentary_status.py
 fds/sdk/PAEngine/model/pa_commentary_status_root.py

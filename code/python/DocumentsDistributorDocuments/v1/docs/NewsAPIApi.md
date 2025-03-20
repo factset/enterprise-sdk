@@ -63,7 +63,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to know the status and percentDone
-    source = "news_ukwd" # str | This parameter filters the results based on the source of the filings document
+    source = "hkex" # str | This parameter filters the results based on the source of the filings document
     pagination_limit = 1 # int | Specifies the maximum number of results to return per result (optional)
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional)
 
@@ -165,7 +165,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to collect the results of the query
-    source = "news_ukwd" # str | This parameter filters the results based on the source of the filings document
+    source = "hkex" # str | This parameter filters the results based on the source of the filings document
     pagination_limit = 1 # int | Specifies the maximum number of results to return per result (optional)
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional)
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format This API only supports adhoc requests to retrieve historical files
+Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format.  This API only supports adhoc requests to retrieve historical files. <p>MT Newswire has two different products that enables 1 year of rolling history and 5 years of rolling history.</p>
 
 ### Example
 
@@ -268,7 +268,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     start_date = dateutil_parser('1970-01-01').date() # date | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
     end_date = dateutil_parser('1970-01-01').date() # date | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
-    source = "news_ukwd" # str | This parameter filters the results based on the source of the filings document
+    source = "hkex" # str | This parameter filters the results based on the document source.
 
     try:
         # Returns the jobID
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_date** | **date**| Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format |
  **end_date** | **date**| The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format |
- **source** | **str**| This parameter filters the results based on the source of the filings document |
+ **source** | **str**| This parameter filters the results based on the document source. |
 
 ### Return type
 

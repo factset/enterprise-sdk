@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format This API only supports adhoc requests to retrieve historical files
+Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format.  This API only supports adhoc requests to retrieve historical files. &lt;p&gt;MT Newswire has two different products that enables 1 year of rolling history and 5 years of rolling history.&lt;/p&gt;
 
 ### Example
 
@@ -227,7 +227,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new NewsAPIApi();
 const startDate = new Date("2013-10-20"); // Date | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
 const endDate = new Date("2013-10-20"); // Date | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
-const source = "source_example"; // String | This parameter filters the results based on the source of the filings document
+const source = "source_example"; // String | This parameter filters the results based on the document source.
 
 // Call api endpoint
 apiInstance.asynchNewsV1RequestFilesGet(startDate, endDate, source).then(
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **Date**| Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format | 
  **endDate** | **Date**| The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format | 
- **source** | **String**| This parameter filters the results based on the source of the filings document | 
+ **source** | **String**| This parameter filters the results based on the document source. | 
 
 ### Return type
 

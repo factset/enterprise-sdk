@@ -31,6 +31,7 @@ from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from fds.sdk.PAEngine.model.object_root import ObjectRoot
 from fds.sdk.PAEngine.model.pa_calculation_parameters_root import PACalculationParametersRoot
 from fds.sdk.PAEngine.model.pa_commentary_get_status_root import PACommentaryGetStatusRoot
+from fds.sdk.PAEngine.model.pa_commentary_parameters_root import PACommentaryParametersRoot
 from fds.sdk.PAEngine.model.pa_commentary_root import PACommentaryRoot
 from fds.sdk.PAEngine.model.pa_commentary_status_root import PACommentaryStatusRoot
 
@@ -360,6 +361,7 @@ class PACalculationsApi(object):
                 'all': [
                     'id',
                     'unit_id',
+                    'pa_commentary_parameters_root',
                 ],
                 'required': [
                     'id',
@@ -382,6 +384,8 @@ class PACalculationsApi(object):
                         (str,),
                     'unit_id':
                         (str,),
+                    'pa_commentary_parameters_root':
+                        (PACommentaryParametersRoot,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -390,6 +394,7 @@ class PACalculationsApi(object):
                 'location_map': {
                     'id': 'path',
                     'unit_id': 'path',
+                    'pa_commentary_parameters_root': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -398,7 +403,9 @@ class PACalculationsApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -1108,7 +1115,7 @@ class PACalculationsApi(object):
     ) -> GeneratePaPortfolioCommentaryResponseWrapper:
         """Generate PA portfolio commentary by calculation and unit id.  # noqa: E501
 
-        This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.  # noqa: E501
+        This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -1116,6 +1123,7 @@ class PACalculationsApi(object):
             unit_id (str): Unit id associated with the successful calculation id
 
         Keyword Args:
+            pa_commentary_parameters_root (PACommentaryParametersRoot): Request Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1159,7 +1167,7 @@ class PACalculationsApi(object):
     ) -> typing.Tuple[GeneratePaPortfolioCommentaryResponseWrapper, int, typing.MutableMapping]:
         """Generate PA portfolio commentary by calculation and unit id.  # noqa: E501
 
-        This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.  # noqa: E501
+        This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -1167,6 +1175,7 @@ class PACalculationsApi(object):
             unit_id (str): Unit id associated with the successful calculation id
 
         Keyword Args:
+            pa_commentary_parameters_root (PACommentaryParametersRoot): Request Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1214,7 +1223,7 @@ class PACalculationsApi(object):
     ) -> "ApplyResult[GeneratePaPortfolioCommentaryResponseWrapper]":
         """Generate PA portfolio commentary by calculation and unit id.  # noqa: E501
 
-        This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.  # noqa: E501
+        This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -1222,6 +1231,7 @@ class PACalculationsApi(object):
             unit_id (str): Unit id associated with the successful calculation id
 
         Keyword Args:
+            pa_commentary_parameters_root (PACommentaryParametersRoot): Request Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1264,7 +1274,7 @@ class PACalculationsApi(object):
     ) -> "ApplyResult[typing.Tuple[GeneratePaPortfolioCommentaryResponseWrapper, int, typing.MutableMapping]]":
         """Generate PA portfolio commentary by calculation and unit id.  # noqa: E501
 
-        This endpoint can be used to generate FactSet's AI-generated PA portfolio commentary based on a previously successful calculation.    Remarks:    *   <b>These endpoints are currently beta and are exposed to elicit client feedback on the usability      and accuracy of the GenAI generated commentaries. A limit of five commentaries per day is set to control costs during testing.</b>    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.  # noqa: E501
+        This endpoint can be used to generate the PA portfolio commentary based on a previous successful calculation.    Remarks:    * The PA component used in the calculation must be an attribution tile.        *   The \"Variation in Average Weight\" column must be included along with those required      as specified on the [OA page](https://my.apps.factset.com/oa/pages/13632#portfolio_commentary)      in the component for successful commentary generation; otherwise, the request will result in an error.    *   PA portfolio commentary generation is not supported for multi-port requests.    *   The POST calculation must use a single portfolio and a benchmark to generate the commentary.    *   PA portfolio commentary with sub-period analysis will be returned only when the frequency      is set to something other than \"single\" and the report contains more than one sub-period.        *   Commentary customization is optional. Please include a configuration ID in the request body when customization is desired.       If the configuration ID is not specified, the default commentary will be returned.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -1272,6 +1282,7 @@ class PACalculationsApi(object):
             unit_id (str): Unit id associated with the successful calculation id
 
         Keyword Args:
+            pa_commentary_parameters_root (PACommentaryParametersRoot): Request Parameters. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

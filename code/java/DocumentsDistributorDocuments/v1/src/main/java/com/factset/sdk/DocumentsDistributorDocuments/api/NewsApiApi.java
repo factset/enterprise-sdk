@@ -251,10 +251,10 @@ public class NewsApiApi {
   }
   /**
    * Returns the jobID
-   * Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format This API only supports adhoc requests to retrieve historical files
+   * Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format.  This API only supports adhoc requests to retrieve historical files. &lt;p&gt;MT Newswire has two different products that enables 1 year of rolling history and 5 years of rolling history.&lt;/p&gt;
    * @param startDate Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
    * @param endDate The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
-   * @param source This parameter filters the results based on the source of the filings document (required)
+   * @param source This parameter filters the results based on the document source. (required)
    * @return NewsrequestfilesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -270,10 +270,10 @@ public class NewsApiApi {
 
   /**
    * Returns the jobID
-   * Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format This API only supports adhoc requests to retrieve historical files
+   * Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format.  This API only supports adhoc requests to retrieve historical files. &lt;p&gt;MT Newswire has two different products that enables 1 year of rolling history and 5 years of rolling history.&lt;/p&gt;
    * @param startDate Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
    * @param endDate The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
-   * @param source This parameter filters the results based on the source of the filings document (required)
+   * @param source This parameter filters the results based on the document source. (required)
    * @return ApiResponse&lt;NewsrequestfilesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

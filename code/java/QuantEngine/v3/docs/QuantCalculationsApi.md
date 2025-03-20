@@ -64,7 +64,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant calculation endpoint
+        String id = "ed5830a029fd48f9a4bdb6abea51508b"; // String | from url, provided from the location header in the Create and Run Quant calculation endpoint
         try {
             apiInstance.cancelCalculationById(id);
 
@@ -97,7 +97,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -259,7 +259,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+        String id = "237d25247a8648b8b57e0d265039eff2"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
         try {
             QuantCalculationParametersRoot result = apiInstance.getCalculationParameters(id);
             System.out.println(result);
@@ -358,7 +358,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+        String id = "ed5830a029fd48f9a4bdb6abea51508b"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
         try {
             CalculationStatusRoot result = apiInstance.getCalculationStatusById(id);
             System.out.println(result);
@@ -456,8 +456,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
-        String unitId = "unitId_example"; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
+        String id = "ed5830a029fd48f9a4bdb6abea51508b"; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
+        String unitId = "quant1"; // String | from url, provided from the location header in the Get Quant calculation status by id endpoint
         try {
             File result = apiInstance.getCalculationUnitInfoById(id, unitId);
             System.out.println(result);
@@ -556,8 +556,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
-        String unitId = "unitId_example"; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+        String id = "ed5830a029fd48f9a4bdb6abea51508b"; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
+        String unitId = "quant1"; // String | from url, provided from the location header in the Get Quant Engine calculation status by id endpoint
         try {
             File result = apiInstance.getCalculationUnitResultById(id, unitId);
             System.out.println(result);
@@ -657,7 +657,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
+        String cacheControl = "max-stale=0"; // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
         QuantCalculationParametersRoot quantCalculationParametersRoot = new QuantCalculationParametersRoot(); // QuantCalculationParametersRoot | 
         try {
             PostAndCalculateResponseWrapper result = apiInstance.postAndCalculate(cacheControl, quantCalculationParametersRoot);
@@ -774,8 +774,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         QuantCalculationsApi apiInstance = new QuantCalculationsApi(defaultClient);
-        String id = "id_example"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
-        String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
+        String id = "quant_test_calc_id"; // String | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
+        String cacheControl = "max-stale=0"; // String | Standard HTTP header.  Accepts no-store, max-age, max-stale.
         QuantCalculationParametersRoot quantCalculationParametersRoot = new QuantCalculationParametersRoot(); // QuantCalculationParametersRoot | Calculation Parameters
         try {
             PutAndCalculateResponseWrapper result = apiInstance.putAndCalculate(id, cacheControl, quantCalculationParametersRoot);

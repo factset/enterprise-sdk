@@ -18,6 +18,7 @@ from fds.sdk.PAEngine.api.accounts_api import AccountsApi
 from fds.sdk.PAEngine.api.column_statistics_api import ColumnStatisticsApi
 from fds.sdk.PAEngine.api.columns_api import ColumnsApi
 from fds.sdk.PAEngine.api.components_api import ComponentsApi
+from fds.sdk.PAEngine.api.configurations_api import ConfigurationsApi
 from fds.sdk.PAEngine.api.currencies_api import CurrenciesApi
 from fds.sdk.PAEngine.api.dates_api import DatesApi
 from fds.sdk.PAEngine.api.documents_api import DocumentsApi

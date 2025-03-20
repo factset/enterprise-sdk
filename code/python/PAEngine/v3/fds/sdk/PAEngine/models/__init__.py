@@ -59,9 +59,13 @@ from fds.sdk.PAEngine.model.pa_calculation_parameters import PACalculationParame
 from fds.sdk.PAEngine.model.pa_calculation_parameters_root import PACalculationParametersRoot
 from fds.sdk.PAEngine.model.pa_calculation_pricing_source import PACalculationPricingSource
 from fds.sdk.PAEngine.model.pa_commentary import PACommentary
+from fds.sdk.PAEngine.model.pa_commentary_configuration_summary import PACommentaryConfigurationSummary
+from fds.sdk.PAEngine.model.pa_commentary_configuration_summary_root import PACommentaryConfigurationSummaryRoot
 from fds.sdk.PAEngine.model.pa_commentary_date import PACommentaryDate
 from fds.sdk.PAEngine.model.pa_commentary_get_status import PACommentaryGetStatus
 from fds.sdk.PAEngine.model.pa_commentary_get_status_root import PACommentaryGetStatusRoot
+from fds.sdk.PAEngine.model.pa_commentary_parameters import PACommentaryParameters
+from fds.sdk.PAEngine.model.pa_commentary_parameters_root import PACommentaryParametersRoot
 from fds.sdk.PAEngine.model.pa_commentary_root import PACommentaryRoot
 from fds.sdk.PAEngine.model.pa_commentary_status import PACommentaryStatus
 from fds.sdk.PAEngine.model.pa_commentary_status_root import PACommentaryStatusRoot

@@ -13,8 +13,8 @@ info:
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: FACTSET MERGERS AND ACQUISITIONS API
-  version: 1.0.0
+  title: FactSet Mergers and Acquisitions API
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-mergers-acquisitions-api
@@ -467,6 +467,43 @@ components:
             name: Vista Equity Partners Management LLC
             industry: null
             ultimateParentId: 05W9HD-E
+          advisorsInfo:
+            buyers:
+              financial:
+              - fsymId: 29977A10
+                name: Evercore, Inc.
+                fees: null
+              - fsymId: BRJL17
+                name: UBS Group AG
+                fees: null
+              - fsymId: 05FBK7-E
+                name: Morgan Stanley & Co. LLC
+                fees: null
+              legal:
+              - fsymId: 05NYND-E
+                name: Simpson Thacher & Bartlett LLP
+                fees: null
+            sellers:
+              financial:
+              - fsymId: 004GJQ-E
+                name: JPMorgan Securities LLC
+                fees: 4
+              - fsymId: 00CJFN-E
+                name: Qatalyst Partners LP
+                fees: 50
+              legal:
+              - fsymId: 05LGCB-E
+                name: Kirkland & Ellis LLP
+                fees: null
+              - fsymId: 05M5BN-E
+                name: Goodwin Procter LLP
+                fees: null
+              - fsymId: 05P04Y-E
+                name: Sullivan & Cromwell LLP
+                fees: null
+              - fsymId: 06J8MJ-E
+                name: Cooley LLP
+                fees: null
           status: Complete
           rumorDate: 2023-01-31
           announceDate: 2023-03-14
@@ -1085,6 +1122,130 @@ components:
       - fsymId
       title: Target Object
       type: object
+    Advisors:
+      description: Advisors Object
+      example:
+        buyers:
+          financial:
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+          legal:
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+        sellers:
+          financial:
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+          legal:
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+          - fees: 50
+            fsymId: 000N1N-E
+            name: Morgan Stanley & Co. LLC
+      properties:
+        buyers:
+          $ref: '#/components/schemas/BuyersAdvisor'
+        sellers:
+          $ref: '#/components/schemas/SellersAdvisor'
+      title: Advisors Object
+      type: object
+    SellersAdvisor:
+      description: Sellers Advisor Object
+      example:
+        financial:
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+        legal:
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+      properties:
+        financial:
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+          type: array
+        legal:
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+          type: array
+      title: Sellers Advisor Object
+      type: object
+    BuyersAdvisor:
+      description: Buyers Advisor Object
+      example:
+        financial:
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+        legal:
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+        - fees: 50
+          fsymId: 000N1N-E
+          name: Morgan Stanley & Co. LLC
+      properties:
+        financial:
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+          type: array
+        legal:
+          items:
+            $ref: '#/components/schemas/AdvisorParticipant'
+          type: array
+      title: Buyers Advisor Object
+      type: object
+    AdvisorParticipant:
+      description: Advisor Participant Object
+      example:
+        fees: 50
+        fsymId: 000N1N-E
+        name: Morgan Stanley & Co. LLC
+      properties:
+        fsymId:
+          description: FactSet Permanent Identifier of the participant. Six alpha-numeric
+            characters, excluding vowels, with an -E suffix (XXXXXX-E). Null values
+            indicate that no data is available.
+          example: 000N1N-E
+          nullable: true
+          type: string
+        name:
+          description: Entity name of the advisor. Null values indicate that no data
+            is available.
+          example: Morgan Stanley & Co. LLC
+          nullable: true
+          type: string
+        fees:
+          description: Fees of the advisor. All values in millions of USD. Null values
+            indicate that no data is available.
+          example: 50
+          nullable: true
+          type: number
+      title: Advisor Participant Object
+      type: object
     FsymId:
       description: FactSet Permanent Identifier of the participant. Six alpha-numeric
         characters, excluding vowels, with an -E suffix (XXXXXX-E).
@@ -1094,6 +1255,25 @@ components:
       description: Entity name of the participant.
       example: International Business Machines Corp.
       type: string
+    AdvisorFsymId:
+      description: FactSet Permanent Identifier of the participant. Six alpha-numeric
+        characters, excluding vowels, with an -E suffix (XXXXXX-E). Null values indicate
+        that no data is available.
+      example: 000N1N-E
+      nullable: true
+      type: string
+    AdvisorName:
+      description: Entity name of the advisor. Null values indicate that no data is
+        available.
+      example: Morgan Stanley & Co. LLC
+      nullable: true
+      type: string
+    Fees:
+      description: Fees of the advisor. All values in millions of USD. Null values
+        indicate that no data is available.
+      example: 50
+      nullable: true
+      type: number
     Industry:
       description: Industry of the participant based on the FactSet Industry Classification
         system.
@@ -1509,6 +1689,37 @@ components:
           totalAssets: 2265.933
           purpose: Strategic
           dealId: 32870367MM
+          advisorsInfo:
+            buyers:
+              financial:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              legal:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+            sellers:
+              financial:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              legal:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
           targetPostMergerOwn: 0.52
           evEBITDA: 77.1398629173355
           sales: 516.405
@@ -1593,6 +1804,37 @@ components:
           totalAssets: 2265.933
           purpose: Strategic
           dealId: 32870367MM
+          advisorsInfo:
+            buyers:
+              financial:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              legal:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+            sellers:
+              financial:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              legal:
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
+              - fees: 50
+                fsymId: 000N1N-E
+                name: Morgan Stanley & Co. LLC
           targetPostMergerOwn: 0.52
           evEBITDA: 77.1398629173355
           sales: 516.405
@@ -1687,6 +1929,37 @@ components:
         totalAssets: 2265.933
         purpose: Strategic
         dealId: 32870367MM
+        advisorsInfo:
+          buyers:
+            financial:
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+            legal:
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+          sellers:
+            financial:
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+            legal:
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
+            - fees: 50
+              fsymId: 000N1N-E
+              name: Morgan Stanley & Co. LLC
         targetPostMergerOwn: 0.52
         evEBITDA: 77.1398629173355
         sales: 516.405
@@ -1774,6 +2047,8 @@ components:
             $ref: '#/components/schemas/Participant'
           nullable: true
           type: array
+        advisorsInfo:
+          $ref: '#/components/schemas/Advisors'
         status:
           description: Status of the deal.
           enum:

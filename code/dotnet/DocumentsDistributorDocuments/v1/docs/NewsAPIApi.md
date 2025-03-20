@@ -63,7 +63,7 @@ namespace Example
             var apiInstance = new NewsAPIApi(config);
 
             var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to know the status and percentDone
-            var source = "news_ukwd";  // string | This parameter filters the results based on the source of the filings document
+            var source = "hkex";  // string | This parameter filters the results based on the source of the filings document
             var paginationLimit = 56;  // int? | Specifies the maximum number of results to return per result (optional) 
             var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional) 
 
@@ -168,7 +168,7 @@ namespace Example
             var apiInstance = new NewsAPIApi(config);
 
             var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to collect the results of the query
-            var source = "news_ukwd";  // string | This parameter filters the results based on the source of the filings document
+            var source = "hkex";  // string | This parameter filters the results based on the source of the filings document
             var paginationLimit = 56;  // int? | Specifies the maximum number of results to return per result (optional) 
             var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional) 
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format This API only supports adhoc requests to retrieve historical files
+Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format.  This API only supports adhoc requests to retrieve historical files. <p>MT Newswire has two different products that enables 1 year of rolling history and 5 years of rolling history.</p>
 
 ### Example
 
@@ -274,7 +274,7 @@ namespace Example
 
             var startDate = DateTime.Parse("2013-10-20");  // DateTime | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
             var endDate = DateTime.Parse("2013-10-20");  // DateTime | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
-            var source = "news_ukwd";  // string | This parameter filters the results based on the source of the filings document
+            var source = "hkex";  // string | This parameter filters the results based on the document source.
 
             try
             {
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **DateTime**| Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format | 
  **endDate** | **DateTime**| The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format | 
- **source** | **string**| This parameter filters the results based on the source of the filings document | 
+ **source** | **string**| This parameter filters the results based on the document source. | 
 
 ### Return type
 [**NewsrequestfilesResponse**](NewsrequestfilesResponse.md)
