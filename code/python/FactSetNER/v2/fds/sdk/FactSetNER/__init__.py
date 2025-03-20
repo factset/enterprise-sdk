@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.21.13"
+__version__ = "0.21.14"
 
 # import ApiClient
 from fds.sdk.FactSetNER.api_client import ApiClient

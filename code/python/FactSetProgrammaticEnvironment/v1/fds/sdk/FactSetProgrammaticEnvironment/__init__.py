@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.22.0"
+__version__ = "0.22.1"
 
 # import ApiClient
 from fds.sdk.FactSetProgrammaticEnvironment.api_client import ApiClient

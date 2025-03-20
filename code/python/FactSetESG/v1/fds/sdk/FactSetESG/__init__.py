@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.3.5"
+__version__ = "1.3.6"
 
 # import ApiClient
 from fds.sdk.FactSetESG.api_client import ApiClient

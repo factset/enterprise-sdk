@@ -67,7 +67,7 @@ class GetTimeSeriesDataResponseWrapper:
         if self.status_code != 200:
             raise ApiException(
                 status=500,
-                reason="Invalid response getter called. get_response_200 can't return a " + self.status_code + " response"
+                reason="Invalid response getter called. get_response_200 can't return a " + str(self.status_code) + " response"
             )
         return self.response
 
@@ -80,7 +80,7 @@ class GetTimeSeriesDataResponseWrapper:
         if self.status_code != 202:
             raise ApiException(
                 status=500,
-                reason="Invalid response getter called. get_response_202 can't return a " + self.status_code + " response"
+                reason="Invalid response getter called. get_response_202 can't return a " + str(self.status_code) + " response"
             )
         return self.response
 
@@ -120,7 +120,7 @@ class GetTimeSeriesDataForListResponseWrapper:
         if self.status_code != 200:
             raise ApiException(
                 status=500,
-                reason="Invalid response getter called. get_response_200 can't return a " + self.status_code + " response"
+                reason="Invalid response getter called. get_response_200 can't return a " + str(self.status_code) + " response"
             )
         return self.response
 
@@ -133,7 +133,7 @@ class GetTimeSeriesDataForListResponseWrapper:
         if self.status_code != 202:
             raise ApiException(
                 status=500,
-                reason="Invalid response getter called. get_response_202 can't return a " + self.status_code + " response"
+                reason="Invalid response getter called. get_response_202 can't return a " + str(self.status_code) + " response"
             )
         return self.response
 

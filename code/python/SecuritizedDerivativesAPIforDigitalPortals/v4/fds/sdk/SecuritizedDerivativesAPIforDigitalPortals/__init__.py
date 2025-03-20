@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.40.0"
+__version__ = "0.40.1"
 
 # import ApiClient
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api_client import ApiClient

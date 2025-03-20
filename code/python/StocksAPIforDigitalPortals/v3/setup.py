@@ -15,7 +15,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.StocksAPIforDigitalPortals"
-VERSION = "0.10.19"
+VERSION = "0.10.20"
 # To install the library, run the following
 #
 # python setup.py install

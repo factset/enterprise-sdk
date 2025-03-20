@@ -430,7 +430,7 @@ conf = fds.sdk.OpenRisk.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.26.0\n"\
-               "SDK Package Version: 4.0.2".\
+               "SDK Package Version: 4.0.3".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

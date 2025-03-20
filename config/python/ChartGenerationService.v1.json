@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.ChartGenerationService",
   "projectName": "fds.sdk.ChartGenerationService",
-  "packageVersion": "0.21.14",
+  "packageVersion": "0.21.15",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Chart Generation Service client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ChartGenerationService/v1",
-  "httpUserAgent": "fds-sdk/python/ChartGenerationService/0.21.14",
+  "httpUserAgent": "fds-sdk/python/ChartGenerationService/0.21.15",
   "files": {
     "LICENSE": {}
   }

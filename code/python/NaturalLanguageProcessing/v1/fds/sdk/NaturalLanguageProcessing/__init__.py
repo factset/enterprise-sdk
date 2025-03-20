@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.23.6"
+__version__ = "0.23.7"
 
 # import ApiClient
 from fds.sdk.NaturalLanguageProcessing.api_client import ApiClient

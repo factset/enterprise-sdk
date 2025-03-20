@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetGeoRev",
   "projectName": "fds.sdk.FactSetGeoRev",
-  "packageVersion": "1.0.13",
+  "packageVersion": "1.0.14",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet GeoRev client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetGeoRev/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetGeoRev/1.0.13",
+  "httpUserAgent": "fds-sdk/python/FactSetGeoRev/1.0.14",
   "files": {
     "LICENSE": {}
   }
