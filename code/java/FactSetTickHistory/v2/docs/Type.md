@@ -7,5 +7,7 @@
 
 * `TRADES` (value: `"trades"`)
 
+* `QUOTES` (value: `"quotes"`)
+
 
 

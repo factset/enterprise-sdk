@@ -4,20 +4,22 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**usersGet**](UsersApi.md#usersGet) | **GET** /Users | Get a list of users.
-[**usersIdDelete**](UsersApi.md#usersIdDelete) | **DELETE** /Users/{id} | Delete a user
-[**usersIdGet**](UsersApi.md#usersIdGet) | **GET** /Users/{id} | Get a user.
-[**usersIdPatch**](UsersApi.md#usersIdPatch) | **PATCH** /Users/{id} | Patch a user (add, replace, or remove attributes of a user.)
-[**usersIdPut**](UsersApi.md#usersIdPut) | **PUT** /Users/{id} | Replace a user.
-[**usersPost**](UsersApi.md#usersPost) | **POST** /Users | Create a user.
+[**createUser**](UsersApi.md#createUser) | **POST** /Users | Create a user.
+[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /Users/{id} | Delete a user.
+[**getUser**](UsersApi.md#getUser) | **GET** /Users/{id} | Get a user.
+[**getUsers**](UsersApi.md#getUsers) | **GET** /Users | Get a list of users.
+[**modifyUser**](UsersApi.md#modifyUser) | **PATCH** /Users/{id} | Patch a user.
+[**replaceUser**](UsersApi.md#replaceUser) | **PUT** /Users/{id} | Replace a user.
 
 
 
-## usersGet
+## createUser
 
-> UserResourceList usersGet(filter, startIndex, count, attributes, excludedAttributes)
+> UserResource createUser(userResource)
 
-Get a list of users.
+Create a user.
+
+Create a user resource.
 
 ### Example
 
@@ -60,17 +62,13 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String filter = "filter_example"; // String | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against strings.
-        Integer startIndex = 56; // Integer | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument.
-        Integer count = 56; // Integer | Maximum resource count. The server will not return more resources than this value, although it may return fewer.
-        String attributes = "attributes_example"; // String | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter.
-        String excludedAttributes = "excludedAttributes_example"; // String | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter.
+        UserResource userResource = new UserResource(); // UserResource | User resource.
         try {
-            UserResourceList result = apiInstance.usersGet(filter, startIndex, count, attributes, excludedAttributes);
+            UserResource result = apiInstance.createUser(userResource);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#usersGet");
+            System.err.println("Exception when calling UsersApi#createUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -85,15 +83,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **String**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against strings. | [optional]
- **startIndex** | **Integer**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional]
- **count** | **Integer**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional]
- **attributes** | **String**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional]
- **excludedAttributes** | **String**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional]
+ **userResource** | [**UserResource**](UserResource.md)| User resource. |
 
 ### Return type
 
-[**UserResourceList**](UserResourceList.md)
+[**UserResource**](UserResource.md)
 
 ### Authorization
 
@@ -101,24 +95,27 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
-| **400** | Invalid filter value provided. |  -  |
+| **201** | Success. |  -  |
+| **400** | Provided resource contains invalid data. |  -  |
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 
 
-## usersIdDelete
+## deleteUser
 
-> usersIdDelete(id)
+> deleteUser(id)
 
-Delete a user
+Delete a user.
+
+Delete a specific user resource.
 
 ### Example
 
@@ -163,10 +160,10 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | ID of resource.
         try {
-            apiInstance.usersIdDelete(id);
+            apiInstance.deleteUser(id);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#usersIdDelete");
+            System.err.println("Exception when calling UsersApi#deleteUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -194,7 +191,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -203,14 +200,17 @@ null (empty response body)
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | User not found. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 
 
-## usersIdGet
+## getUser
 
-> UserResource usersIdGet(id)
+> UserResource getUser(id)
 
 Get a user.
+
+Get a specific user resource.
 
 ### Example
 
@@ -255,11 +255,11 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | ID of resource.
         try {
-            UserResource result = apiInstance.usersIdGet(id);
+            UserResource result = apiInstance.getUser(id);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#usersIdGet");
+            System.err.println("Exception when calling UsersApi#getUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -296,14 +296,125 @@ Name | Type | Description  | Notes
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | User not found. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 
 
-## usersIdPatch
+## getUsers
 
-> UserResource usersIdPatch(id, patch)
+> UserResourceList getUsers(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes)
 
-Patch a user (add, replace, or remove attributes of a user.)
+Get a list of users.
+
+Get a list of user resources.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.ProcuretoPayAPISCIM.ApiClient;
+import com.factset.sdk.ProcuretoPayAPISCIM.ApiException;
+import com.factset.sdk.ProcuretoPayAPISCIM.Configuration;
+import com.factset.sdk.ProcuretoPayAPISCIM.auth.*;
+import com.factset.sdk.ProcuretoPayAPISCIM.models.*;
+import com.factset.sdk.ProcuretoPayAPISCIM.api.UsersApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String filter = "filter_example"; // String | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against string attributes. When using the \"re\" operator, do not include slash characters as delimiters (e.g. use \"foo\" instead of \"/foo/\".) Also note the case-sensitivity of the regular expression corresponds to the \"caseExact\" characteristic of the target attribute.
+        String sortBy = "sortBy_example"; // String | Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order.
+        String sortOrder = "sortOrder_example"; // String | The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are ''ascending'' (the default value) or ''descending''. This parameter may not be used unless the *sortBy* parameter is also specified.
+        Integer startIndex = 56; // Integer | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument.
+        Integer count = 56; // Integer | Maximum resource count. The server will not return more resources than this value, although it may return fewer.
+        String attributes = "attributes_example"; // String | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter.
+        String excludedAttributes = "excludedAttributes_example"; // String | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter.
+        try {
+            UserResourceList result = apiInstance.getUsers(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#getUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **String**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. | [optional]
+ **sortBy** | **String**| Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order. | [optional]
+ **sortOrder** | **String**| The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. | [optional]
+ **startIndex** | **Integer**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional]
+ **count** | **Integer**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional]
+ **attributes** | **String**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional]
+ **excludedAttributes** | **String**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional]
+
+### Return type
+
+[**UserResourceList**](UserResourceList.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/scim+json, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success. |  -  |
+| **400** | Invalid filter value provided. |  -  |
+| **401** | User has not been authenticated. |  -  |
+| **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
+| **500** | Internal server error. |  -  |
+
+
+## modifyUser
+
+> UserResource modifyUser(id, patch)
+
+Patch a user.
+
+Modify a specific user resource (i.e. add, replace, or remove attributes of a user resource.)
 
 ### Example
 
@@ -349,11 +460,11 @@ public class Example {
         String id = "id_example"; // String | ID of resource.
         Patch patch = new Patch(); // Patch | 
         try {
-            UserResource result = apiInstance.usersIdPatch(id, patch);
+            UserResource result = apiInstance.modifyUser(id, patch);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#usersIdPatch");
+            System.err.println("Exception when calling UsersApi#modifyUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -382,7 +493,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -391,14 +502,18 @@ Name | Type | Description  | Notes
 | **400** | Patch request invalid. |  -  |
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
+| **501** | Operation is not supported. |  -  |
 
 
-## usersIdPut
+## replaceUser
 
-> UserResource usersIdPut(id, userResource)
+> UserResource replaceUser(id, userResource)
 
 Replace a user.
+
+Replace a specific user resource with another provided user resource.
 
 ### Example
 
@@ -444,11 +559,11 @@ public class Example {
         String id = "id_example"; // String | ID of resource.
         UserResource userResource = new UserResource(); // UserResource | User resource.
         try {
-            UserResource result = apiInstance.usersIdPut(id, userResource);
+            UserResource result = apiInstance.replaceUser(id, userResource);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#usersIdPut");
+            System.err.println("Exception when calling UsersApi#replaceUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -477,7 +592,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -487,98 +602,6 @@ Name | Type | Description  | Notes
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | User not found. |  -  |
-| **500** | Internal server error. |  -  |
-
-
-## usersPost
-
-> UserResource usersPost(userResource)
-
-Create a user.
-
-### Example
-
-> [!IMPORTANT]
-> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
-
-#### Example Code
-
-```java
-// Import classes:
-import com.factset.sdk.ProcuretoPayAPISCIM.ApiClient;
-import com.factset.sdk.ProcuretoPayAPISCIM.ApiException;
-import com.factset.sdk.ProcuretoPayAPISCIM.Configuration;
-import com.factset.sdk.ProcuretoPayAPISCIM.auth.*;
-import com.factset.sdk.ProcuretoPayAPISCIM.models.*;
-import com.factset.sdk.ProcuretoPayAPISCIM.api.UsersApi;
-
-import com.factset.sdk.utils.authentication.ConfidentialClient;
-
-public class Example {
-    public static void main(String[] args) throws Exception {
-        // Examples for each supported authentication method are below,
-        // choose one that satisfies your use case.
-
-        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-        // See https://github.com/FactSet/enterprise-sdk#oauth-20
-        // for information on how to create the app-config.json file
-        //
-        // The confidential client instance should be reused in production environments.
-        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
-        // for more information on using the ConfidentialClient class
-        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient()
-          .setFactSetOAuth2Client(confidentialClient);
-
-        /* Basic authentication: FactSetApiKey */
-        // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient()
-        //   .setUsername("YOUR USERNAME")
-        //   .setPassword("YOUR PASSWORD");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        UserResource userResource = new UserResource(); // UserResource | User resource.
-        try {
-            UserResource result = apiInstance.usersPost(userResource);
-            System.out.println(result);
-
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#usersPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userResource** | [**UserResource**](UserResource.md)| User resource. |
-
-### Return type
-
-[**UserResource**](UserResource.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Success. |  -  |
-| **400** | Provided resource contains invalid data. |  -  |
-| **401** | User has not been authenticated. |  -  |
-| **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**schemas** | **[String]** |  | [optional] 
+**schemas** | **[String]** | An array containing the standard schema URI used for identifying a service provider&#39;s configuration. See RFC 7643 section 5. | [optional] 
 **documentationUri** | **String** | An HTTP-addressable URL pointing to the service provider&#39;s human-consumable help documentation. | [optional] [readonly] 
 **patch** | [**ServiceProviderConfigPatch**](ServiceProviderConfigPatch.md) |  | 
 **bulk** | [**ServiceProviderConfigBulk**](ServiceProviderConfigBulk.md) |  | 
@@ -13,5 +13,14 @@ Name | Type | Description | Notes
 **sort** | [**ServiceProviderConfigSort**](ServiceProviderConfigSort.md) |  | 
 **etag** | [**ServiceProviderConfigEtag**](ServiceProviderConfigEtag.md) |  | 
 **authenticationSchemes** | [**ServiceProviderConfigAuthenticationSchemes**](ServiceProviderConfigAuthenticationSchemes.md) |  | 
+
+
+
+## Enum: [SchemasEnum]
+
+
+* `urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig` (value: `"urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig"`)
+
+
 
 

@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.ProcuretoPayAPISCIM.models.Error;
+import com.factset.sdk.ProcuretoPayAPISCIM.models.FileManagerAuditItem;
+import com.factset.sdk.ProcuretoPayAPISCIM.models.InlineResponse429;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -26,10 +28,13 @@ public class FileManagerAuditApi {
     this.apiClient = apiClient;
   }
   
-  private static final Map<Integer, GenericType> fileManagerAuditGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getFileManagerAuditResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    fileManagerAuditGetResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
-    fileManagerAuditGetResponseTypeMap.put(500, new GenericType<Error>(){});
+    getFileManagerAuditResponseTypeMap.put(200, new GenericType<java.util.List<FileManagerAuditItem>>(){});
+    getFileManagerAuditResponseTypeMap.put(401, new GenericType<Error>(){});
+    getFileManagerAuditResponseTypeMap.put(403, new GenericType<Error>(){});
+    getFileManagerAuditResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    getFileManagerAuditResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
   
@@ -55,33 +60,39 @@ public class FileManagerAuditApi {
 
   /**
    * Get File Manager audit data.
-   * 
-   * @return java.util.List<Object>
+   * Get a list of File Manager file paths and associated information, such as user permissions.
+   * @return java.util.List<FileManagerAuditItem>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<Object> fileManagerAuditGet() throws ApiException {
-    return fileManagerAuditGetWithHttpInfo().getData();
+  public java.util.List<FileManagerAuditItem> getFileManagerAudit() throws ApiException {
+    return getFileManagerAuditWithHttpInfo().getData();
   }
 
   /**
    * Get File Manager audit data.
-   * 
-   * @return ApiResponse&lt;java.util.List<Object>&gt;
+   * Get a list of File Manager file paths and associated information, such as user permissions.
+   * @return ApiResponse&lt;java.util.List<FileManagerAuditItem>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<Object>> fileManagerAuditGetWithHttpInfo() throws ApiException {
+  public ApiResponse<java.util.List<FileManagerAuditItem>> getFileManagerAuditWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -98,7 +109,7 @@ public class FileManagerAuditApi {
     
     
     final String[] localVarAccepts = {
-      "application/json", "application/scim+json"
+      "application/scim+json", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -112,11 +123,11 @@ public class FileManagerAuditApi {
 
     ApiResponse<
         
-        java.util.List<Object>
+        java.util.List<FileManagerAuditItem>
       
-    > apiResponse = apiClient.invokeAPI("FileManagerAuditApi.fileManagerAuditGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("FileManagerAuditApi.getFileManagerAudit", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, fileManagerAuditGetResponseTypeMap, false);
+                               localVarAuthNames, getFileManagerAuditResponseTypeMap, false);
 
     return apiResponse;
 

@@ -12,6 +12,7 @@ docs/AnalystRating.md
 docs/AnalystRatingResponse.md
 docs/BrokerDetailApi.md
 docs/Category.md
+docs/CompanyReportsErrorResponse.md
 docs/ConsensusApi.md
 docs/ConsensusEstimate.md
 docs/ConsensusRatings.md
@@ -87,6 +88,7 @@ src/model/ActualsResponse.js
 src/model/AnalystRating.js
 src/model/AnalystRatingResponse.js
 src/model/Category.js
+src/model/CompanyReportsErrorResponse.js
 src/model/ConsensusEstimate.js
 src/model/ConsensusRatings.js
 src/model/ConsensusRatingsRequest.js

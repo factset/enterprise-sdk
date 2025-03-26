@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **sort** | [**ServiceProviderConfigSort**](ServiceProviderConfigSort.md) |  | 
 **etag** | [**ServiceProviderConfigEtag**](ServiceProviderConfigEtag.md) |  | 
 **authentication_schemes** | [**ServiceProviderConfigAuthenticationSchemes**](ServiceProviderConfigAuthenticationSchemes.md) |  | 
-**schemas** | **[str]** |  | [optional] 
+**schemas** | **[str]** | An array containing the standard schema URI used for identifying a service provider&#39;s configuration. See RFC 7643 section 5. | [optional] 
 **documentation_uri** | **str** | An HTTP-addressable URL pointing to the service provider&#39;s human-consumable help documentation. | [optional] [readonly] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -34,7 +34,7 @@ info:
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.6.0
+  version: 2.6.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -2948,30 +2948,24 @@ paths:
           content:
             application/json:
               examples:
-                Bad Request - Date Format:
-                  $ref: '#/components/examples/badRequestDateFormat'
-                Bad Request - Missing Required Parameter:
-                  $ref: '#/components/examples/badRequestRequiredParameter'
-                Bad Request - Future Date:
-                  $ref: '#/components/examples/badRequestFutureDate'
                 Bad Request - Invalid Parameter:
-                  $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - Malformed JSON:
-                  $ref: '#/components/examples/badRequestMalformedJSON'
+                  $ref: '#/components/examples/companyReportsBadRequestInvalidParameters'
                 Bad Request - Read Timeout:
-                  $ref: '#/components/examples/badRequestReadTimeout'
+                  $ref: '#/components/examples/companyReportsBadRequestReadTimeout'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/companyReportsBadRequestRequiredParameter'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
           content:
             application/json:
               examples:
-                Unauthenticated:
-                  $ref: '#/components/examples/unauthenticated'
+                Bad Request - UnAuthenticated:
+                  $ref: '#/components/examples/companyReportsUnauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -2981,31 +2975,31 @@ paths:
           content:
             application/json:
               examples:
-                Forbidden:
-                  $ref: '#/components/examples/forbidden'
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/companyReportsForbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the server
-            is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
         "404":
           content:
             application/json:
               examples:
-                EndpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
+                Not Found - No Endpoint Found:
+                  $ref: '#/components/examples/companyReportsEndpointNotFound'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Not Found. The requested endpoint could not be found.
+                $ref: '#/components/schemas/companyReportsErrorResponse'
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
               examples:
-                UnsupportedMediaType:
-                  $ref: '#/components/examples/unsupportedMediaType'
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/companyReportsunsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -3015,11 +3009,11 @@ paths:
             application/json:
               examples:
                 Internal Server Error - Not Writable:
-                  $ref: '#/components/examples/notWritable'
+                  $ref: '#/components/examples/companyReportsNotWritable'
                 Internal Server Error - General Exception:
-                  $ref: '#/components/examples/generalException'
+                  $ref: '#/components/examples/companyReportsGeneralException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Internal Server Error.
       summary: Retrieves the historical monthly view of analyst ratings for a given
         identifier.
@@ -3084,30 +3078,24 @@ paths:
           content:
             application/json:
               examples:
-                Bad Request - Date Format:
-                  $ref: '#/components/examples/badRequestDateFormat'
-                Bad Request - Missing Required Parameter:
-                  $ref: '#/components/examples/badRequestRequiredParameter'
-                Bad Request - Future Date:
-                  $ref: '#/components/examples/badRequestFutureDate'
                 Bad Request - Invalid Parameter:
-                  $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - Malformed JSON:
-                  $ref: '#/components/examples/badRequestMalformedJSON'
+                  $ref: '#/components/examples/companyReportsBadRequestInvalidParameters'
                 Bad Request - Read Timeout:
-                  $ref: '#/components/examples/badRequestReadTimeout'
+                  $ref: '#/components/examples/companyReportsBadRequestReadTimeout'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/companyReportsBadRequestRequiredParameter'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
           content:
             application/json:
               examples:
-                Unauthenticated:
-                  $ref: '#/components/examples/unauthenticated'
+                Bad Request - UnAuthenticated:
+                  $ref: '#/components/examples/companyReportsUnauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -3117,31 +3105,31 @@ paths:
           content:
             application/json:
               examples:
-                Forbidden:
-                  $ref: '#/components/examples/forbidden'
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/companyReportsForbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the server
-            is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
         "404":
           content:
             application/json:
               examples:
-                EndpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
+                Not Found - No Endpoint Found:
+                  $ref: '#/components/examples/companyReportsEndpointNotFound'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Not Found. The requested endpoint could not be found.
+                $ref: '#/components/schemas/companyReportsErrorResponse'
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
               examples:
-                UnsupportedMediaType:
-                  $ref: '#/components/examples/unsupportedMediaType'
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/companyReportsunsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -3151,11 +3139,11 @@ paths:
             application/json:
               examples:
                 Internal Server Error - Not Writable:
-                  $ref: '#/components/examples/notWritable'
+                  $ref: '#/components/examples/companyReportsNotWritable'
                 Internal Server Error - General Exception:
-                  $ref: '#/components/examples/generalException'
+                  $ref: '#/components/examples/companyReportsGeneralException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Internal Server Error.
       summary: Returns forecasted estimates.
       tags:
@@ -3180,20 +3168,24 @@ paths:
           content:
             application/json:
               examples:
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/companyReportsBadRequestInvalidParameters'
                 Bad Request - Read Timeout:
-                  $ref: '#/components/examples/badRequestReadTimeout'
+                  $ref: '#/components/examples/companyReportsBadRequestReadTimeout'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/companyReportsBadRequestRequiredParameter'
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
           content:
             application/json:
               examples:
-                Unauthenticated:
-                  $ref: '#/components/examples/unauthenticated'
+                Bad Request - UnAuthenticated:
+                  $ref: '#/components/examples/companyReportsUnauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -3203,31 +3195,31 @@ paths:
           content:
             application/json:
               examples:
-                Forbidden:
-                  $ref: '#/components/examples/forbidden'
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/companyReportsForbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the server
-            is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
         "404":
           content:
             application/json:
               examples:
-                EndpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
+                Not Found - No Endpoint Found:
+                  $ref: '#/components/examples/companyReportsEndpointNotFound'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Not Found. The requested endpoint could not be found.
+                $ref: '#/components/schemas/companyReportsErrorResponse'
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
               examples:
-                UnsupportedMediaType:
-                  $ref: '#/components/examples/unsupportedMediaType'
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/companyReportsunsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -3237,11 +3229,11 @@ paths:
             application/json:
               examples:
                 Internal Server Error - Not Writable:
-                  $ref: '#/components/examples/notWritable'
+                  $ref: '#/components/examples/companyReportsNotWritable'
                 Internal Server Error - General Exception:
-                  $ref: '#/components/examples/generalException'
+                  $ref: '#/components/examples/companyReportsGeneralException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Internal Server Error.
       summary: Returns a list of valid estimate types.
       tags:
@@ -3321,30 +3313,24 @@ paths:
           content:
             application/json:
               examples:
-                Bad Request - Date Format:
-                  $ref: '#/components/examples/badRequestDateFormat'
-                Bad Request - Missing Required Parameter:
-                  $ref: '#/components/examples/badRequestRequiredParameter'
-                Bad Request - Future Date:
-                  $ref: '#/components/examples/badRequestFutureDate'
                 Bad Request - Invalid Parameter:
-                  $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - Malformed JSON:
-                  $ref: '#/components/examples/badRequestMalformedJSON'
+                  $ref: '#/components/examples/companyReportsBadRequestInvalidParameters'
                 Bad Request - Read Timeout:
-                  $ref: '#/components/examples/badRequestReadTimeout'
+                  $ref: '#/components/examples/companyReportsBadRequestReadTimeout'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/companyReportsBadRequestRequiredParameter'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
           content:
             application/json:
               examples:
-                Unauthenticated:
-                  $ref: '#/components/examples/unauthenticated'
+                Bad Request - UnAuthenticated:
+                  $ref: '#/components/examples/companyReportsUnauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -3354,31 +3340,31 @@ paths:
           content:
             application/json:
               examples:
-                Forbidden:
-                  $ref: '#/components/examples/forbidden'
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/companyReportsForbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the server
-            is refusing to respond. Please reach out to FactSet Account Team for assistance
-            with authorization.
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
         "404":
           content:
             application/json:
               examples:
-                EndpointNotFound:
-                  $ref: '#/components/examples/endpointNotFound'
+                Not Found - No Endpoint Found:
+                  $ref: '#/components/examples/companyReportsEndpointNotFound'
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Not Found. The requested endpoint could not be found.
+                $ref: '#/components/schemas/companyReportsErrorResponse'
+          description: The requested endpoint could not be found.
         "415":
           content:
             application/json:
               examples:
-                UnsupportedMediaType:
-                  $ref: '#/components/examples/unsupportedMediaType'
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/companyReportsunsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -3388,11 +3374,11 @@ paths:
             application/json:
               examples:
                 Internal Server Error - Not Writable:
-                  $ref: '#/components/examples/notWritable'
+                  $ref: '#/components/examples/companyReportsNotWritable'
                 Internal Server Error - General Exception:
-                  $ref: '#/components/examples/generalException'
+                  $ref: '#/components/examples/companyReportsGeneralException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/companyReportsErrorResponse'
           description: Internal Server Error.
       summary: Surprise History
       tags:
@@ -4911,6 +4897,18 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: The parameter 'ids' is required and may not be empty.
         subErrors: null
+    companyReportsBadRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisk
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-99ffa7b09226
+          code: parameterError
+          title: Missing/Invalid Parameters.
+          detail: The parameter 'id' / 'estimateType' / 'periodicity' is required
+            and must not be empty.
     badRequestFutureDate:
       description: This error message occurs when a future date is requested in the
         startDate and endDate parameters. Please revise your request to include dates
@@ -4937,6 +4935,17 @@ components:
           modify your request to use parameters outlined in the specification for
           this endpoint.'
         subErrors: null
+    companyReportsBadRequestInvalidParameters:
+      description: This error message occurs when the user is passing invalid estimate
+        type. Please use the helper endpoint */meta/estimateTypes* to find valid estimate
+        types.
+      summary: Bad Request - Passing invalid estimate type
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+          code: parameterError
+          title: Invalid Parameter Value
+          detail: 'Given input is not a valid value for parameter: `estimateType`.'
     badRequestMalformedJSON:
       description: This error may be returned when the request body is specified as
         JSON, but is not in proper JSON format.
@@ -4957,6 +4966,16 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    companyReportsBadRequestReadTimeout:
+      description: This error may be returned if it takes too long to get response
+        from the backend service.
+      summary: Bad Request - Read Timeout
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09225
+          code: readTimeout
+          title: Request Timed Out
+          detail: The request took too long. Try again.
     unauthenticated:
       description: This occurs when a user is not properly authenticated or recognized
         by the service. Please double check the USERNAME-SERIAL and API-Key used to
@@ -4969,6 +4988,18 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: User Authentication Failed.
         subErrors: null
+    companyReportsUnauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double-check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        the Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09226
+          code: notAuthenticated
+          title: Failed to authenticate user
+          detail: The credentials are missing, invalid, or expired.
     forbidden:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
@@ -4980,15 +5011,18 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: USERNAME-SERIAL does not have permission to use /factset-estimates/v2/{endpoint}
         subErrors: null
-    endpointNotFound:
-      description: The requested endpoint could not be found.
-      summary: Not Found
+    companyReportsForbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint/ID which
+        is not authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
       value:
         errors:
-        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
-          code: Not Found
-          title: No endpoint found
-          detail: The requested endpoint does not exist.
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09227
+          code: notAuthorized
+          title: User Not Authorized
+          detail: User is not authorized for the id/endpoint requested, please reach
+            out to FactSet for support
     unsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently the APIs only support 'application/json'.
@@ -5000,6 +5034,17 @@ components:
         message: text/html media type is not supported. Supported media types are
           application/json
         subErrors: null
+    companyReportsunsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+          code: notSupported
+          title: Unsupported Media Type
+          detail: text/html media type is not supported. Supported media types are
+            application/json.
     notWritable:
       description: This error may be returned when the server encounters an error
         writing the JSON response.
@@ -5010,6 +5055,17 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: Error writing JSON output
         subErrors: null
+    companyReportsNotWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09228
+          code: notWritable
+          title: Error writing JSON output
+          detail: The server encountered an error writing the JSON output. Please
+            `Report Issue` to FactSet.
     generalException:
       description: This is the most general error that can be returned to by the service.
         Please `Report Issue` to FactSet.
@@ -5020,6 +5076,26 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: Unexpected error
         subErrors: null
+    companyReportsGeneralException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09229
+          code: genericServerError
+          title: Unexpected error occured
+          detail: An unexpected error occurred while processing request. Please `Report
+            Issue` to FactSet.
+    companyReportsEndpointNotFound:
+      description: The requested endpoint could not be found.
+      summary: Not Found
+      value:
+        errors:
+        - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+          code: notFound
+          title: No endpoint found
+          detail: The requested endpoint does not exist.
   parameters:
     identifier:
       description: The requested security identifier. Accepted ID types include Market
@@ -5666,15 +5742,6 @@ components:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
         respond. Please reach out to FactSet Account Team for assistance with authorization.
-    "404":
-      content:
-        application/json:
-          examples:
-            EndpointNotFound:
-              $ref: '#/components/examples/endpointNotFound'
-          schema:
-            $ref: '#/components/schemas/errorResponse'
-      description: Not Found. The requested endpoint could not be found.
     "415":
       content:
         application/json:
@@ -5698,18 +5765,77 @@ components:
           schema:
             $ref: '#/components/schemas/errorResponse'
       description: Internal Server Error.
-    EstimateTypesMeta400:
+    "400Cr":
       content:
         application/json:
           examples:
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/companyReportsBadRequestInvalidParameters'
             Bad Request - Read Timeout:
-              $ref: '#/components/examples/badRequestReadTimeout'
+              $ref: '#/components/examples/companyReportsBadRequestReadTimeout'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/companyReportsBadRequestRequiredParameter'
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/companyReportsErrorResponse'
       description: Bad Request. This can occur for several reasons. Please review
         the "message" for more details.
+    "401Cr":
+      content:
+        application/json:
+          examples:
+            Bad Request - UnAuthenticated:
+              $ref: '#/components/examples/companyReportsUnauthenticated'
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403Cr":
+      content:
+        application/json:
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/companyReportsForbidden'
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond. Please
+        reach out to FactSet Account Team for assistance with authorization.
+    "404Cr":
+      content:
+        application/json:
+          examples:
+            Not Found - No Endpoint Found:
+              $ref: '#/components/examples/companyReportsEndpointNotFound'
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+      description: The requested endpoint could not be found.
+    "415Cr":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/companyReportsunsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500Cr":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/companyReportsNotWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/companyReportsGeneralException'
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+      description: Internal Server Error.
   schemas:
-    ErrorResponse:
+    companyReportsErrorResponse:
       description: Error Default Response
       properties:
         errors:

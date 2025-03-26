@@ -12,6 +12,7 @@ docs/AnalystRating.md
 docs/AnalystRatingResponse.md
 docs/BrokerDetailApi.md
 docs/Category.md
+docs/CompanyReportsErrorResponse.md
 docs/ConsensusApi.md
 docs/ConsensusEstimate.md
 docs/ConsensusRatings.md
@@ -101,6 +102,7 @@ src/FactSet.SDK.FactSetEstimates/Model/ActualsResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/AnalystRating.cs
 src/FactSet.SDK.FactSetEstimates/Model/AnalystRatingResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/Category.cs
+src/FactSet.SDK.FactSetEstimates/Model/CompanyReportsErrorResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/ConsensusEstimate.cs
 src/FactSet.SDK.FactSetEstimates/Model/ConsensusRatings.cs
 src/FactSet.SDK.FactSetEstimates/Model/ConsensusRatingsRequest.cs

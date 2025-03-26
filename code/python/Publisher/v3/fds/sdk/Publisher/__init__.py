@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.22.1"
+__version__ = "1.0.0"
 
 # import ApiClient
 from fds.sdk.Publisher.api_client import ApiClient

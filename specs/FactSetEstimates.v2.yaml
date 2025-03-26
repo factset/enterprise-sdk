@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.6.0
+  version: 2.6.1
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -878,17 +878,17 @@ paths:
                 Result of Single Company details:
                   $ref: '#/components/examples/resultOfSingleId'
         '400':
-          $ref: '#/components/responses/400'
+          $ref: '#/components/responses/400Cr'
         '401':
-          $ref: '#/components/responses/401'
+          $ref: '#/components/responses/401Cr'
         '403':
-          $ref: '#/components/responses/403'
+          $ref: '#/components/responses/403Cr'
         '404':
-          $ref: '#/components/responses/404'
+          $ref: '#/components/responses/404Cr'
         '415':
-          $ref: '#/components/responses/415'
+          $ref: '#/components/responses/415Cr'
         '500':
-          $ref: '#/components/responses/500'
+          $ref: '#/components/responses/500Cr'
   /factset-estimates/v2/company-reports/forecast:
     get:
       tags:
@@ -918,17 +918,17 @@ paths:
                 Result for a given identifier and estimate type:
                   $ref: '#/components/examples/EstimatesResponse'
         '400':
-          $ref: '#/components/responses/400'
+          $ref: '#/components/responses/400Cr'
         '401':
-          $ref: '#/components/responses/401'
+          $ref: '#/components/responses/401Cr'
         '403':
-          $ref: '#/components/responses/403'
+          $ref: '#/components/responses/403Cr'
         '404':
-          $ref: '#/components/responses/404'
+          $ref: '#/components/responses/404Cr'
         '415':
-          $ref: '#/components/responses/415'
+          $ref: '#/components/responses/415Cr'
         '500':
-          $ref: '#/components/responses/500'
+          $ref: '#/components/responses/500Cr'
   /factset-estimates/v2/company-reports/estimate-types:
     get:
       tags:
@@ -950,17 +950,17 @@ paths:
                 List of valid estimate types:
                   $ref: '#/components/examples/EstimateTypesResponse'
         '400':
-          $ref: '#/components/responses/EstimateTypesMeta400'
+          $ref: '#/components/responses/400Cr'
         '401':
-          $ref: '#/components/responses/401'
+          $ref: '#/components/responses/401Cr'
         '403':
-          $ref: '#/components/responses/403'
+          $ref: '#/components/responses/403Cr'
         '404':
-          $ref: '#/components/responses/404'
+          $ref: '#/components/responses/404Cr'
         '415':
-          $ref: '#/components/responses/415'
+          $ref: '#/components/responses/415Cr'
         '500':
-          $ref: '#/components/responses/500'
+          $ref: '#/components/responses/500Cr'
   /factset-estimates/v2/company-reports/surprise-history:
     get:
       tags:
@@ -985,17 +985,17 @@ paths:
                 Result for a given identifier and estimate type:
                   $ref: '#/components/examples/SurpriseHistoryResponse'
         '400':
-          $ref: '#/components/responses/400'
+          $ref: '#/components/responses/400Cr'
         '401':
-          $ref: '#/components/responses/401'
+          $ref: '#/components/responses/401Cr'
         '403':
-          $ref: '#/components/responses/403'
+          $ref: '#/components/responses/403Cr'
         '404':
-          $ref: '#/components/responses/404'
+          $ref: '#/components/responses/404Cr'
         '415':
-          $ref: '#/components/responses/415'
+          $ref: '#/components/responses/415Cr'
         '500':
-          $ref: '#/components/responses/500'
+          $ref: '#/components/responses/500Cr'
   /factset-estimates/v2/actuals:
     get:
       tags:
@@ -1783,7 +1783,7 @@ components:
           value:
             - SALES
   schemas:
-    ErrorResponse:
+    companyReportsErrorResponse:
       type: object
       title: Error Response
       description: Error Default Response
@@ -4159,15 +4159,6 @@ components:
           examples:
             Forbidden:
               $ref: '#/components/examples/forbidden'
-    '404':
-      description: Not Found. The requested endpoint could not be found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/errorResponse'
-          examples:
-            EndpointNotFound:
-              $ref: '#/components/examples/endpointNotFound'
     '415':
       description: >-
         Unsupported Media Type. This error may be returned when the caller sends
@@ -4192,17 +4183,81 @@ components:
               $ref: '#/components/examples/notWritable'
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
-    EstimateTypesMeta400:
+    400Cr:
       description: >-
         Bad Request. This can occur for several reasons. Please review the
         "message" for more details.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/companyReportsErrorResponse'
           examples:
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/companyReportsBadRequestInvalidParameters'
             Bad Request - Read Timeout:
-              $ref: '#/components/examples/badRequestReadTimeout'
+              $ref: '#/components/examples/companyReportsBadRequestReadTimeout'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/companyReportsBadRequestRequiredParameter'
+    401Cr:
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+          examples:
+            Bad Request - UnAuthenticated:
+              $ref: '#/components/examples/companyReportsUnauthenticated'
+    403Cr:
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond.
+        Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/companyReportsForbidden'
+    404Cr:
+      description: The requested endpoint could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+          examples:
+            Not Found - No Endpoint Found:
+              $ref: '#/components/examples/companyReportsEndpointNotFound'
+    415Cr:
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/companyReportsunsupportedMediaType'
+    500Cr:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/companyReportsErrorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/companyReportsNotWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/companyReportsGeneralException'
   examples:
     EstimatesResponse:
       summary: Estimates Response
@@ -5053,6 +5108,20 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: The parameter 'ids' is required and may not be empty.
         subErrors: null
+    companyReportsBadRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisk symbol
+        in the specification file.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-99ffa7b09226
+            code: parameterError
+            title: Missing/Invalid Parameters.
+            detail: >-
+              The parameter 'id' / 'estimateType' / 'periodicity' is required
+              and must not be empty.
     badRequestFutureDate:
       summary: Bad Request - Future Date
       description: >-
@@ -5083,6 +5152,18 @@ components:
           modify your request to use parameters outlined in the specification
           for this endpoint.
         subErrors: null
+    companyReportsBadRequestInvalidParameters:
+      summary: Bad Request - Passing invalid estimate type
+      description: >-
+        This error message occurs when the user is passing invalid estimate
+        type. Please use the helper endpoint */meta/estimateTypes* to find valid
+        estimate types.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+            code: parameterError
+            title: Invalid Parameter Value
+            detail: 'Given input is not a valid value for parameter: `estimateType`.'
     badRequestMalformedJSON:
       summary: Bad Request - Malformed JSON Request
       description: >-
@@ -5105,6 +5186,17 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    companyReportsBadRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes too long to get response from the
+        backend service.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09225
+            code: readTimeout
+            title: Request Timed Out
+            detail: The request took too long. Try again.
     unauthenticated:
       summary: User Authentication Failed
       description: >-
@@ -5118,6 +5210,19 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: User Authentication Failed.
         subErrors: null
+    companyReportsUnauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double-check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report the Issue under 401 error for help with troubleshooting.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09226
+            code: notAuthenticated
+            title: Failed to authenticate user
+            detail: The credentials are missing, invalid, or expired.
     forbidden:
       summary: Forbidden
       description: >-
@@ -5133,15 +5238,21 @@ components:
           USERNAME-SERIAL does not have permission to use
           /factset-estimates/v2/{endpoint}
         subErrors: null
-    endpointNotFound:
-      summary: Not Found
-      description: The requested endpoint could not be found.
+    companyReportsForbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
+        authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
       value:
         errors:
-          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
-            code: Not Found
-            title: No endpoint found
-            detail: The requested endpoint does not exist.
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09227
+            code: notAuthorized
+            title: User Not Authorized
+            detail: >-
+              User is not authorized for the id/endpoint requested, please reach
+              out to FactSet for support
     unsupportedMediaType:
       summary: Unsupported Media Type
       description: >-
@@ -5155,6 +5266,19 @@ components:
           text/html media type is not supported. Supported media types are
           application/json
         subErrors: null
+    companyReportsunsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+            code: notSupported
+            title: Unsupported Media Type
+            detail: >-
+              text/html media type is not supported. Supported media types are
+              application/json.
     notWritable:
       summary: Internal Server Error - Not Writable
       description: >-
@@ -5166,6 +5290,19 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: Error writing JSON output
         subErrors: null
+    companyReportsNotWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09228
+            code: notWritable
+            title: Error writing JSON output
+            detail: >-
+              The server encountered an error writing the JSON output. Please
+              `Report Issue` to FactSet.
     generalException:
       summary: Internal Server Error - General Exception
       description: >-
@@ -5177,3 +5314,25 @@ components:
         path: /factset-estimates/v2/{endpoint}
         message: Unexpected error
         subErrors: null
+    companyReportsGeneralException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09229
+            code: genericServerError
+            title: Unexpected error occured
+            detail: >-
+              An unexpected error occurred while processing request. Please
+              `Report Issue` to FactSet.
+    companyReportsEndpointNotFound:
+      summary: Not Found
+      description: The requested endpoint could not be found.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+            code: notFound
+            title: No endpoint found
+            detail: The requested endpoint does not exist.

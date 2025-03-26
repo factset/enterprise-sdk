@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Schemas** | **List&lt;string&gt;** |  | [optional] 
+**Schemas** | **List&lt;string&gt;** | An array containing the standard schema URI used for identifying a service provider&#39;s configuration. See RFC 7643 section 5. | [optional] 
 **DocumentationUri** | **string** | An HTTP-addressable URL pointing to the service provider&#39;s human-consumable help documentation. | [optional] [readonly] 
 **Patch** | [**ServiceProviderConfigPatch**](ServiceProviderConfigPatch.md) |  | 
 **Bulk** | [**ServiceProviderConfigBulk**](ServiceProviderConfigBulk.md) |  | 

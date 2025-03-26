@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**schemas** | **[str]** |  | [optional] 
+**schemas** | **[str]** | An array containing the standard schema URI used for identifying an error. See RFC 7644 section 3.12. | [optional] 
 **scim_type** | **str** |  | [optional] 
 **detail** | **str** | A detailed human-readable message. | [optional] 
 **status** | **str** | HTTP status code. | [optional] 

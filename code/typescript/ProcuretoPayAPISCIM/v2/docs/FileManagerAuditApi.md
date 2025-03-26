@@ -4,15 +4,17 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fileManagerAuditGet**](FileManagerAuditApi.md#fileManagerAuditGet) | **GET** /FileManagerAudit | Get File Manager audit data.
+[**getFileManagerAudit**](FileManagerAuditApi.md#getFileManagerAudit) | **GET** /FileManagerAudit | Get File Manager audit data.
 
 
 
-## fileManagerAuditGet
+## getFileManagerAudit
 
-> [Object] fileManagerAuditGet()
+> [FileManagerAuditItem] getFileManagerAudit()
 
 Get File Manager audit data.
+
+Get a list of File Manager file paths and associated information, such as user permissions.
 
 ### Example
 
@@ -49,7 +51,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new FileManagerAuditApi();
 
 // Call api endpoint
-apiInstance.fileManagerAuditGet().then(
+apiInstance.getFileManagerAudit().then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -69,7 +71,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**[Object]**
+[**[FileManagerAuditItem]**](FileManagerAuditItem.md)
 
 ### Authorization
 
@@ -78,5 +80,5 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/scim+json
+- **Accept**: application/scim+json, application/json
 

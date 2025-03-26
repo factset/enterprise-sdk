@@ -17,3 +17,14 @@ Name | Type | Description | Notes
 **meta** | [**ProductResourceMeta**](ProductResourceMeta.md) |  | [optional] 
 
 
+
+## Enum: RequiresApprovalEnum
+
+
+* `FactSet` (value: `"FactSet"`)
+
+* `Vendor` (value: `"Vendor"`)
+
+
+
+

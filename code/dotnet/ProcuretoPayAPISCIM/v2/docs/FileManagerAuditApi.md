@@ -4,15 +4,17 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**FileManagerAuditGet**](FileManagerAuditApi.md#filemanagerauditget) | **GET** /FileManagerAudit | Get File Manager audit data.
+[**GetFileManagerAudit**](FileManagerAuditApi.md#getfilemanageraudit) | **GET** /FileManagerAudit | Get File Manager audit data.
 
 
 
-<a name="filemanagerauditget"></a>
-# **FileManagerAuditGet**
-> List&lt;Object&gt; FileManagerAuditGet ()
+<a name="getfilemanageraudit"></a>
+# **GetFileManagerAudit**
+> List&lt;FileManagerAuditItem&gt; GetFileManagerAudit ()
 
 Get File Manager audit data.
+
+Get a list of File Manager file paths and associated information, such as user permissions.
 
 ### Example
 
@@ -31,7 +33,7 @@ using FactSet.SDK.ProcuretoPayAPISCIM.Model;
 
 namespace Example
 {
-    public class FileManagerAuditGetExample
+    public class GetFileManagerAuditExample
     {
         public static async Task Main()
         {
@@ -62,12 +64,12 @@ namespace Example
             try
             {
                 // Get File Manager audit data.
-                List<Object> result = apiInstance.FileManagerAuditGet();
+                List<FileManagerAuditItem> result = apiInstance.GetFileManagerAudit();
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling FileManagerAuditApi.FileManagerAuditGet: " + e.Message );
+                Console.WriteLine("Exception when calling FileManagerAuditApi.GetFileManagerAudit: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -80,7 +82,7 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-**List<Object>**
+[**List&lt;FileManagerAuditItem&gt;**](FileManagerAuditItem.md)
 
 ### Authorization
 
@@ -89,13 +91,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/scim+json
+ - **Accept**: application/scim+json, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success. |  -  |
+| **401** | User has not been authenticated. |  -  |
+| **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

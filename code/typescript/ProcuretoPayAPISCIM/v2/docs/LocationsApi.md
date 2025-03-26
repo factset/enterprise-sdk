@@ -4,19 +4,21 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**locationsGet**](LocationsApi.md#locationsGet) | **GET** /Locations | Get a list of locations.
-[**locationsIdGet**](LocationsApi.md#locationsIdGet) | **GET** /Locations/{id} | Get a location.
-[**locationsIdPatch**](LocationsApi.md#locationsIdPatch) | **PATCH** /Locations/{id} | Patch a location (add, replace, or remove attributes of a location.)
-[**locationsIdPut**](LocationsApi.md#locationsIdPut) | **PUT** /Locations/{id} | Replace a location.
-[**locationsPost**](LocationsApi.md#locationsPost) | **POST** /Locations | Create a location.
+[**createLocation**](LocationsApi.md#createLocation) | **POST** /Locations | Create a location.
+[**getLocation**](LocationsApi.md#getLocation) | **GET** /Locations/{id} | Get a location.
+[**getLocations**](LocationsApi.md#getLocations) | **GET** /Locations | Get a list of locations.
+[**modifyLocation**](LocationsApi.md#modifyLocation) | **PATCH** /Locations/{id} | Patch a location.
+[**replaceLocation**](LocationsApi.md#replaceLocation) | **PUT** /Locations/{id} | Replace a location.
 
 
 
-## locationsGet
+## createLocation
 
-> LocationResourceList locationsGet(opts)
+> LocationResource createLocation(locationResource)
 
-Get a list of locations.
+Create a location.
+
+Create a location resource.
 
 ### Example
 
@@ -51,16 +53,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new LocationsApi();
-const opts = {
-  'filter': "filter_example", // String | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against strings.
-  'startIndex': 56, // Number | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument.
-  'count': 56, // Number | Maximum resource count. The server will not return more resources than this value, although it may return fewer.
-  'attributes': "attributes_example", // String | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter.
-  'excludedAttributes': "excludedAttributes_example" // String | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter.
-};
+const locationResource = new procuretopayapiscim.LocationResource(); // LocationResource | Location resource.
 
 // Call api endpoint
-apiInstance.locationsGet(opts).then(
+apiInstance.createLocation(locationResource).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -79,15 +75,11 @@ apiInstance.locationsGet(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **String**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against strings. | [optional] 
- **startIndex** | **Number**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional] 
- **count** | **Number**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional] 
- **attributes** | **String**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional] 
- **excludedAttributes** | **String**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional] 
+ **locationResource** | [**LocationResource**](LocationResource.md)| Location resource. | 
 
 ### Return type
 
-[**LocationResourceList**](LocationResourceList.md)
+[**LocationResource**](LocationResource.md)
 
 ### Authorization
 
@@ -95,15 +87,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 
-## locationsIdGet
+## getLocation
 
-> LocationResource locationsIdGet(id)
+> LocationResource getLocation(id)
 
 Get a location.
+
+Get a specific location resource.
 
 ### Example
 
@@ -141,7 +135,7 @@ const apiInstance = new LocationsApi();
 const id = "id_example"; // String | ID of resource.
 
 // Call api endpoint
-apiInstance.locationsIdGet(id).then(
+apiInstance.getLocation(id).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -173,14 +167,109 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 
-## locationsIdPatch
+## getLocations
 
-> LocationResource locationsIdPatch(id, opts)
+> LocationResourceList getLocations(opts)
 
-Patch a location (add, replace, or remove attributes of a location.)
+Get a list of locations.
+
+Get a list of location resources.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, LocationsApi } = require('@factset/sdk-procuretopayapiscim');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new LocationsApi();
+const opts = {
+  'filter': "filter_example", // String | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against string attributes. When using the \"re\" operator, do not include slash characters as delimiters (e.g. use \"foo\" instead of \"/foo/\".) Also note the case-sensitivity of the regular expression corresponds to the \"caseExact\" characteristic of the target attribute.
+  'sortBy': "sortBy_example", // String | Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order.
+  'sortOrder': "sortOrder_example", // String | The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are ''ascending'' (the default value) or ''descending''. This parameter may not be used unless the *sortBy* parameter is also specified.
+  'startIndex': 56, // Number | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument.
+  'count': 56, // Number | Maximum resource count. The server will not return more resources than this value, although it may return fewer.
+  'attributes': "attributes_example", // String | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter.
+  'excludedAttributes': "excludedAttributes_example" // String | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter.
+};
+
+// Call api endpoint
+apiInstance.getLocations(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **String**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. | [optional] 
+ **sortBy** | **String**| Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order. | [optional] 
+ **sortOrder** | **String**| The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. | [optional] 
+ **startIndex** | **Number**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional] 
+ **count** | **Number**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional] 
+ **attributes** | **String**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional] 
+ **excludedAttributes** | **String**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional] 
+
+### Return type
+
+[**LocationResourceList**](LocationResourceList.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/scim+json, application/json
+
+
+## modifyLocation
+
+> LocationResource modifyLocation(id, opts)
+
+Patch a location.
+
+Modify a specific location resource (i.e. add, replace, or remove attributes of a location resource.)
 
 ### Example
 
@@ -217,11 +306,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new LocationsApi();
 const id = "id_example"; // String | ID of resource.
 const opts = {
-  'patch': {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"externalId","value":[{"value":"exampleExternalId"}]}]} // Patch | 
+  'patch': {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"externalId","value":"exampleExternalId"}]} // Patch | 
 };
 
 // Call api endpoint
-apiInstance.locationsIdPatch(id, opts).then(
+apiInstance.modifyLocation(id, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -254,14 +343,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 
 
-## locationsIdPut
+## replaceLocation
 
-> LocationResource locationsIdPut(id, locationResource)
+> LocationResource replaceLocation(id, locationResource)
 
 Replace a location.
+
+Replace a specific location resource with another provided location resource.
 
 ### Example
 
@@ -300,7 +391,7 @@ const id = "id_example"; // String | ID of resource.
 const locationResource = new procuretopayapiscim.LocationResource(); // LocationResource | Location resource.
 
 // Call api endpoint
-apiInstance.locationsIdPut(id, locationResource).then(
+apiInstance.replaceLocation(id, locationResource).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -333,82 +424,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
-
-
-## locationsPost
-
-> LocationResource locationsPost(locationResource)
-
-Create a location.
-
-### Example
-
-> [!IMPORTANT]
-> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
-
-#### Example Code
-
-```javascript
-const { ApiClient, LocationsApi } = require('@factset/sdk-procuretopayapiscim');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-//
-// The confidential client instance should be reused in production environments.
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new LocationsApi();
-const locationResource = new procuretopayapiscim.LocationResource(); // LocationResource | Location resource.
-
-// Call api endpoint
-apiInstance.locationsPost(locationResource).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **locationResource** | [**LocationResource**](LocationResource.md)| Location resource. | 
-
-### Return type
-
-[**LocationResource**](LocationResource.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json
-- **Accept**: application/scim+json
+- **Accept**: application/scim+json, application/json
 

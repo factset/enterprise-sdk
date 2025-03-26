@@ -4,15 +4,17 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fileManagerAuditGet**](FileManagerAuditApi.md#fileManagerAuditGet) | **GET** /FileManagerAudit | Get File Manager audit data.
+[**getFileManagerAudit**](FileManagerAuditApi.md#getFileManagerAudit) | **GET** /FileManagerAudit | Get File Manager audit data.
 
 
 
-## fileManagerAuditGet
+## getFileManagerAudit
 
-> java.util.List<Object> fileManagerAuditGet()
+> java.util.List<FileManagerAuditItem> getFileManagerAudit()
 
 Get File Manager audit data.
+
+Get a list of File Manager file paths and associated information, such as user permissions.
 
 ### Example
 
@@ -56,11 +58,11 @@ public class Example {
 
         FileManagerAuditApi apiInstance = new FileManagerAuditApi(defaultClient);
         try {
-            java.util.List<Object> result = apiInstance.fileManagerAuditGet();
+            java.util.List<FileManagerAuditItem> result = apiInstance.getFileManagerAudit();
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling FileManagerAuditApi#fileManagerAuditGet");
+            System.err.println("Exception when calling FileManagerAuditApi#getFileManagerAudit");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -76,7 +78,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**java.util.List&lt;Object&gt;**
+[**java.util.List&lt;FileManagerAuditItem&gt;**](FileManagerAuditItem.md)
 
 ### Authorization
 
@@ -85,11 +87,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json, application/scim+json
+- **Accept**: application/scim+json, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success. |  -  |
+| **401** | User has not been authenticated. |  -  |
+| **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 

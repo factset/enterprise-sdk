@@ -4,14 +4,16 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**file_manager_audit_get**](FileManagerAuditApi.md#file_manager_audit_get) | **GET** /FileManagerAudit | Get File Manager audit data.
+[**get_file_manager_audit**](FileManagerAuditApi.md#get_file_manager_audit) | **GET** /FileManagerAudit | Get File Manager audit data.
 
 
 
-# **file_manager_audit_get**
-> FileManagerAudit file_manager_audit_get()
+# **get_file_manager_audit**
+> FileManagerAudit get_file_manager_audit()
 
 Get File Manager audit data.
+
+Get a list of File Manager file paths and associated information, such as user permissions.
 
 ### Example
 
@@ -62,12 +64,12 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     try:
         # Get File Manager audit data.
         # example, this endpoint has no required or optional parameters
-        api_response = api_instance.file_manager_audit_get()
+        api_response = api_instance.get_file_manager_audit()
 
         pprint(api_response)
 
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
-        print("Exception when calling FileManagerAuditApi->file_manager_audit_get: %s\n" % e)
+        print("Exception when calling FileManagerAuditApi->get_file_manager_audit: %s\n" % e)
 ```
 
 
@@ -85,7 +87,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/scim+json
+ - **Accept**: application/scim+json, application/json
 
 
 ### HTTP response details
@@ -93,6 +95,9 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success. |  -  |
+**401** | User has not been authenticated. |  -  |
+**403** | User is not authorized to use this API. |  -  |
+**429** | User is accessing this API too frequently. |  -  |
 **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

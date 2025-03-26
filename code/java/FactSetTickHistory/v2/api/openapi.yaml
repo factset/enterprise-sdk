@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Tick History
-  version: 2.3.0
+  version: 2.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-tick-history-api
@@ -103,7 +103,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCoverageResponse'
               schema:
-                $ref: '#/components/schemas/coverageResponse'
+                $ref: '#/components/schemas/CoverageResponse'
           description: Success</p>
         "400":
           content:
@@ -112,7 +112,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Bad request
         "401":
           content:
@@ -121,7 +121,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -134,7 +134,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -146,7 +146,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Too many requests.
         "500":
           content:
@@ -155,7 +155,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Returns the coverage for the requested ticker/isin along with other
         response fields for Level1 data.
@@ -189,7 +189,7 @@ paths:
               ASX  tickers for a Regional ISO Code with default all fields for the given period:
                 $ref: '#/components/examples/postBodyOfASXTickersReg'
             schema:
-              $ref: '#/components/schemas/leveloneRequest'
+              $ref: '#/components/schemas/LeveloneRequest'
         required: true
       responses:
         "202":
@@ -199,7 +199,7 @@ paths:
                 default202ResponseExample:
                   $ref: '#/components/examples/sampleFilesResponse'
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
           description: The Request has been Accepted
           headers:
             Location:
@@ -233,7 +233,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Bad request
         "401":
           content:
@@ -242,7 +242,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -255,7 +255,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -267,7 +267,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Too many requests.
         "500":
           content:
@@ -276,7 +276,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Requests the creation of tick-by-tick file
       tags:
@@ -305,7 +305,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCompletedResponse'
               schema:
-                $ref: '#/components/schemas/completedResponse'
+                $ref: '#/components/schemas/CompletedResponse'
           description: |2
 
             The Request has been created and the response has been created.
@@ -330,7 +330,7 @@ paths:
                 CancelledExample:
                   $ref: '#/components/examples/sampleFilesResponseCancelled'
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
           description: |
             The Request has not finished and the result has NOT been created.
           headers:
@@ -347,7 +347,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -360,7 +360,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -372,7 +372,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: id not found
         "500":
           content:
@@ -381,7 +381,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Returns the status of the ID
       tags:
@@ -428,9 +428,9 @@ paths:
             application/json:
               examples:
                 default200ResponseExample:
-                  $ref: '#/components/examples/sampleGet-FilesResponse'
+                  $ref: '#/components/examples/sampleGetFilesResponse'
               schema:
-                $ref: '#/components/schemas/Get-FilesResponse'
+                $ref: '#/components/schemas/GetFilesResponse'
           description: Success</p> **To download the output file copy the response
             url in a browser**
         "202":
@@ -442,7 +442,7 @@ paths:
                 ExecutingExample:
                   $ref: '#/components/examples/sampleFilesResponseExecuting'
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
           description: |
             The Request has not finished and the result has NOT been created.
           headers:
@@ -459,7 +459,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Bad request
         "401":
           content:
@@ -468,7 +468,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -481,7 +481,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -493,7 +493,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: id not found
         "500":
           content:
@@ -502,7 +502,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Returns the tick-by-tick data in files requested in the /create endpoint
       tags:
@@ -523,7 +523,7 @@ paths:
               Multiple tickers  for the given period:
                 $ref: '#/components/examples/minMultipleTicker'
             schema:
-              $ref: '#/components/schemas/minRequest'
+              $ref: '#/components/schemas/MinRequest'
         required: true
       responses:
         "202":
@@ -533,7 +533,7 @@ paths:
                 default202ResponseExample:
                   $ref: '#/components/examples/sampleFilesResponse'
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
           description: The Request has been Accepted
           headers:
             Location:
@@ -567,7 +567,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Bad request
         "401":
           content:
@@ -576,7 +576,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -589,7 +589,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -601,7 +601,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Too many requests.
         "500":
           content:
@@ -610,7 +610,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Requests the creation of Minute bars file
       tags:
@@ -639,7 +639,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCompletedResponse'
               schema:
-                $ref: '#/components/schemas/completedResponse'
+                $ref: '#/components/schemas/CompletedResponse'
           description: |2
 
             The Request has been created and the response has been created.
@@ -664,7 +664,7 @@ paths:
                 CancelledExample:
                   $ref: '#/components/examples/sampleFilesResponseCancelled'
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
           description: |
             The Request has not finished and the result has NOT been created.
           headers:
@@ -681,7 +681,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -694,7 +694,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -706,7 +706,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: id not found
         "500":
           content:
@@ -715,7 +715,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Returns the status of the ID
       tags:
@@ -762,9 +762,11 @@ paths:
             application/json:
               examples:
                 default200ResponseExample:
-                  $ref: '#/components/examples/sampleMinGet-FilesResponse'
+                  $ref: '#/components/examples/sampleMinGetFilesResponse'
+                quotes200ResponseExample:
+                  $ref: '#/components/examples/sampleMinGetQuoteFilesResponse'
               schema:
-                $ref: '#/components/schemas/Get-FilesMinuteResponse'
+                $ref: '#/components/schemas/GetFilesMinuteResponse'
           description: Success</p> **To download the output file copy the response
             url in a browser**
         "202":
@@ -776,7 +778,7 @@ paths:
                 ExecutingExample:
                   $ref: '#/components/examples/sampleFilesResponseExecuting'
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
           description: |
             The Request has not finished and the result has NOT been created.
           headers:
@@ -793,7 +795,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Bad request
         "401":
           content:
@@ -802,7 +804,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
@@ -815,7 +817,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -827,7 +829,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: id not found
         "500":
           content:
@@ -836,7 +838,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
           description: Internal Error
       summary: Returns the Minute bars data in files requested in the /create endpoint
       tags:
@@ -977,7 +979,7 @@ components:
           single: false
     minSingleTicker:
       description: Post body request example to fetch details of the IBM tick data
-        for the period 2023-08-01T00:00:00Z to 2024-01-31T23:59:59Z.
+        for the period 2023-08-01T00:00:00Z to 2023-09-281T23:59:59Z.
       summary: Single ticker for the given period
       value:
         data:
@@ -1059,7 +1061,7 @@ components:
           id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
           status: created
           error: null
-    sampleGet-FilesResponse:
+    sampleGetFilesResponse:
       summary: sample Response data for Level1
       value:
         data:
@@ -1074,7 +1076,7 @@ components:
           pagination:
             total: 256
             isEstimatedTotal: false
-    sampleMinGet-FilesResponse:
+    sampleMinGetFilesResponse:
       summary: sample Response data for Minute bars Trades
       value:
         data:
@@ -1086,6 +1088,19 @@ components:
         meta:
           pagination:
             total: 256
+            isEstimatedTotal: false
+    sampleMinGetQuoteFilesResponse:
+      summary: sample Response data for Minute bars Quotes
+      value:
+        data:
+          requestTimestamp: 2022-11-23T03:38:02Z
+          updateTimestamp: 2022-11-23T03:41:39Z
+          listOfFiles:
+          - fileName: data_1_0_0.csv.gz
+            url: https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+        meta:
+          pagination:
+            total: 65
             isEstimatedTotal: false
     sampleCoverageResponse:
       summary: sample Response
@@ -1265,17 +1280,38 @@ components:
         type: integer
       style: form
   schemas:
-    leveloneRequest:
+    LeveloneRequest:
       description: Level1 request body elements
+      example:
+        data:
+          single: false
+          factsetExchangeCode: USA
+          dateTimeRange:
+            start: 2012-01-01T11:00:00Z
+            end: 2012-01-30T11:20:30Z
+          fields:
+          - ASK
+          tickers:
+          - FDS
       properties:
         data:
-          $ref: '#/components/schemas/level1RequestBody'
+          $ref: '#/components/schemas/Level1RequestBody'
       required:
       - data
       title: Level1 Request Body
       type: object
-    level1RequestBody:
+    Level1RequestBody:
       description: Level1 request body elements
+      example:
+        single: false
+        factsetExchangeCode: USA
+        dateTimeRange:
+          start: 2012-01-01T11:00:00Z
+          end: 2012-01-30T11:20:30Z
+        fields:
+        - ASK
+        tickers:
+        - FDS
       properties:
         tickers:
           description: "The requested list of one or more tickers. <p> NOTE: Maximum\
@@ -1297,7 +1333,7 @@ components:
           title: factsetExchangeCode
           type: string
         dateTimeRange:
-          $ref: '#/components/schemas/dateTimePeriod'
+          $ref: '#/components/schemas/DateTimePeriod'
         fields:
           description: |
             Fields for which data is requested
@@ -1368,7 +1404,7 @@ components:
       - tickers
       title: Level1 Request Body
       type: object
-    tickers:
+    Tickers:
       description: "The requested list of one or more tickers. <p> NOTE: Maximum 500\
         \ tickers per request.</p>.\n \n"
       example:
@@ -1378,7 +1414,7 @@ components:
         minItems: 1
         type: string
       type: array
-    factsetExchangeCode:
+    FactsetExchangeCode:
       description: |
         FactSet specific regional or composite exchange code and last exchange code.
         <p> NOTE:Does not support multiple factsetExchangeCodes</p>.
@@ -1387,14 +1423,18 @@ components:
       minItems: 1
       title: factsetExchangeCode
       type: string
-    dateTimeRange:
-      $ref: '#/components/schemas/dateTimePeriod'
-    dateTimePeriod:
+    DateTimeRange:
+      $ref: '#/components/schemas/DateTimePeriod'
+    DateTimePeriod:
       description: "\nNOTE: \n  \n  - Using start and end parameters within dateTimeRange\
         \ will fetch the data on particular days in between the timestamps given.\n\
         \  \n  - The start and end times are processed as the local time of the factsetExchangeCode\
         \ provided. Please refer to the **Data Model User Guide** for time zone to\
-        \ exchange mappings.\n"
+        \ exchange mappings.\n  \n  - Supports milliseconds, YYYY-MM-DDTHH:MM:SS.SSSZ\
+        \ where .SSS represents the milliseconds which is optional.\n"
+      example:
+        start: 2012-01-01T11:00:00Z
+        end: 2012-01-30T11:20:30Z
       properties:
         start:
           description: "The date for (or from which) the data is required. Supports\
@@ -1409,14 +1449,14 @@ components:
           format: date-time
           type: string
       type: object
-    single:
+    Single:
       default: false
       description: |
         <p> This parameter only works for smaller date/time requests where the file size is upto 128MB.</P>
         single=true  Returns data in a single file. single=false Returns data in multiple files.
         <p> Note: If parameter is not used it take default value as false and returns data in multiple files.</p>
       type: boolean
-    fields:
+    Fields:
       description: |
         Fields for which data is requested
       example:
@@ -1473,17 +1513,32 @@ components:
         - ISO
         type: string
       type: array
-    minRequest:
+    MinRequest:
       description: Level1 Minute bars request body elements
+      example:
+        data:
+          factsetExchangeCode: USA
+          dateTimeRange:
+            start: 2012-01-01T11:00:00Z
+            end: 2012-01-30T11:20:30Z
+          tickers:
+          - FDS
       properties:
         data:
-          $ref: '#/components/schemas/minutesbarRequestBody'
+          $ref: '#/components/schemas/MinutesbarRequestBody'
       required:
       - data
       title: Level1 Minute bars Request Body
       type: object
-    minutesbarRequestBody:
+    MinutesbarRequestBody:
       description: Level1 Minute bars request body elements
+      example:
+        factsetExchangeCode: USA
+        dateTimeRange:
+          start: 2012-01-01T11:00:00Z
+          end: 2012-01-30T11:20:30Z
+        tickers:
+        - FDS
       properties:
         tickers:
           description: "The requested list of one or more tickers. <p> NOTE: Maximum\
@@ -1505,11 +1560,11 @@ components:
           title: factsetExchangeCode
           type: string
         dateTimeRange:
-          $ref: '#/components/schemas/dateTimePeriodMin'
+          $ref: '#/components/schemas/DateTimePeriodMin'
         granularity:
-          $ref: '#/components/schemas/granularity'
+          $ref: '#/components/schemas/Granularity'
         type:
-          $ref: '#/components/schemas/type'
+          $ref: '#/components/schemas/Type'
       required:
       - dateTimeRange
       - factsetExchangeCode
@@ -1518,25 +1573,29 @@ components:
       - type
       title: Level1 Minute bars Request Body
       type: object
-    granularity:
+    Granularity:
       description: |
         This is the grantualrity in which minute bars data is shown. Possible values are 1 Minute (1m)
       enum:
       - 1m
       title: granularity
       type: string
-    type:
+    Type:
       description: |2
 
-        <p>'type=trades' gives  minute bars data calculated from trade data (price and volume)</p>
+        <p>'type=trades' gives  minute bars data calculated from trade data (price and volume)</p> <p>'type=quotes' gives minute bars data calculated from quote data (bid and ask)</p>
       enum:
       - trades
+      - quotes
       title: type
       type: string
-    dateTimePeriodMin:
+    DateTimePeriodMin:
       description: "\nNOTE: \n  \n  - The start and end times are processed as the\
         \ local time of the factsetExchangeCode provided. Please refer to the **Data\
         \ Model User Guide** for time zone to exchange mappings.\n  \n"
+      example:
+        start: 2012-01-01T11:00:00Z
+        end: 2012-01-30T11:20:30Z
       properties:
         start:
           description: "The date for (or from which) the data is required. Supports\
@@ -1554,7 +1613,7 @@ components:
       - end
       - start
       type: object
-    submittedResponse:
+    SubmittedResponse:
       description: Returns Status of the id.
       example:
         data:
@@ -1615,7 +1674,7 @@ components:
           example: Validation Error
           type: string
       type: object
-    completedResponse:
+    CompletedResponse:
       description: Returns status.
       example:
         data:
@@ -1627,10 +1686,10 @@ components:
           status: queued
       properties:
         data:
-          $ref: '#/components/schemas/checkFiles'
+          $ref: '#/components/schemas/CheckFiles'
       title: status
       type: object
-    checkFiles:
+    CheckFiles:
       description: check-files
       example:
         id: id
@@ -1655,7 +1714,7 @@ components:
         error:
           $ref: '#/components/schemas/ErrorObject'
       type: object
-    coverageResponse:
+    CoverageResponse:
       description: Returns coverage for Level1 Data
       example:
         data:
@@ -1683,10 +1742,10 @@ components:
         data:
           description: Returns Coverage Response
           items:
-            $ref: '#/components/schemas/coverageTickHistory'
+            $ref: '#/components/schemas/CoverageTickHistory'
           type: array
       type: object
-    coverageTickHistory:
+    CoverageTickHistory:
       description: Returns Coverage Response of the requested ticker with unique isocode
         within a date range
       example:
@@ -1735,16 +1794,16 @@ components:
           type: string
       title: Coverage Object
       type: object
-    status:
+    Status:
       description: specifies the error message fields in the response
       properties:
         errors:
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/errorExample'
+            $ref: '#/components/schemas/ErrorExample'
           type: array
       type: object
-    errorExample:
+    ErrorExample:
       description: Specifies the fields in the error message
       properties:
         code:
@@ -1757,7 +1816,7 @@ components:
           description: Specifies the id
           type: string
       type: object
-    Get-FilesResponse:
+    GetFilesResponse:
       description: Returns Tick History Files
       example:
         data:
@@ -1782,7 +1841,7 @@ components:
         data:
           $ref: '#/components/schemas/TickData'
         meta:
-          $ref: '#/components/schemas/meta'
+          $ref: '#/components/schemas/Meta'
       type: object
     TickData:
       description: ' Returns Tick History Response.'
@@ -1822,11 +1881,11 @@ components:
         listOfFiles:
           description: Contains list of Files
           items:
-            $ref: '#/components/schemas/files'
+            $ref: '#/components/schemas/Files'
           type: array
       title: Tick History Object
       type: object
-    Get-FilesMinuteResponse:
+    GetFilesMinuteResponse:
       description: Returns Tick History Files
       example:
         data:
@@ -1845,7 +1904,7 @@ components:
         data:
           $ref: '#/components/schemas/MinTickData'
         meta:
-          $ref: '#/components/schemas/meta'
+          $ref: '#/components/schemas/Meta'
       type: object
     MinTickData:
       description: ' Returns Tick History Response.'
@@ -1869,11 +1928,11 @@ components:
         listOfFiles:
           description: Contains list of Files
           items:
-            $ref: '#/components/schemas/filesOne'
+            $ref: '#/components/schemas/FilesOne'
           type: array
       title: Tick History Object
       type: object
-    files:
+    Files:
       description: Array of data objects
       example:
         fileName: fileName
@@ -1890,7 +1949,7 @@ components:
           type: string
       title: Files
       type: object
-    filesOne:
+    FilesOne:
       description: Array of data objects
       example:
         fileName: fileName
@@ -1900,14 +1959,42 @@ components:
           description: Name of the file(s) generated for the query requested
           type: string
         url:
-          description: "Download link for the TickHistory minute bars file with requested\
-            \ parameters. \n\n <p>The downloaded file contains isoCode, ticker, date,\
-            \ time, tradeOpen, tradeHigh, tradeLow, tradeClose, tradeVolume, tradeNumber,\
-            \ and tradeVWAP</P>\n \n <p>This download link will expire after 12 hours.</p>\n"
+          description: |
+            Download link for the TickHistory minute bars file with requested parameters.
+
+            For <b>trades</b>, the downloaded file contains the following fields:
+            - isoCode
+            - ticker
+            - date
+            - time
+            - tradeOpen
+            - tradeHigh
+            - tradeLow
+            - tradeClose
+            - tradeVolume
+            - securityType
+            - tradeNumber
+            - tradeVWAP
+
+            For <b>quotes</b>, the downloaded file contains the following fields:
+            - ticker
+            - isoCode
+            - date
+            - time
+            - bidOpenPrc
+            - bidClosePrc
+            - bidSumVol
+            - askOpenPrc
+            - askClosePrc
+            - askSumVol
+            - count
+            - medianSpread
+
+            This download link will expire after 12 hours.
           type: string
       title: Files
       type: object
-    meta:
+    Meta:
       description: Array of metadata objects
       example:
         pagination:
@@ -1915,10 +2002,10 @@ components:
           isEstimatedTotal: true
       properties:
         pagination:
-          $ref: '#/components/schemas/pagination'
+          $ref: '#/components/schemas/Pagination'
       title: Meta
       type: object
-    pagination:
+    Pagination:
       description: List of pagination objects
       example:
         total: 0

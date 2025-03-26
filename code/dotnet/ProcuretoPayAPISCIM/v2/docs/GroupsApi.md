@@ -4,18 +4,20 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GroupIdGet**](GroupsApi.md#groupidget) | **GET** /Group/{id} | Get a group.
-[**GroupIdPatch**](GroupsApi.md#groupidpatch) | **PATCH** /Group/{id} | Patch a group (add, replace, or remove attributes of a group.)
-[**GroupIdPut**](GroupsApi.md#groupidput) | **PUT** /Group/{id} | Replace a group.
-[**GroupsGet**](GroupsApi.md#groupsget) | **GET** /Groups | Get a list of groups.
+[**GetGroup**](GroupsApi.md#getgroup) | **GET** /Group/{id} | Get a group.
+[**GetGroups**](GroupsApi.md#getgroups) | **GET** /Groups | Get a list of groups.
+[**ModifyGroup**](GroupsApi.md#modifygroup) | **PATCH** /Group/{id} | Patch a group.
+[**ReplaceGroup**](GroupsApi.md#replacegroup) | **PUT** /Group/{id} | Replace a group.
 
 
 
-<a name="groupidget"></a>
-# **GroupIdGet**
-> GroupResource GroupIdGet (string id)
+<a name="getgroup"></a>
+# **GetGroup**
+> GroupResource GetGroup (string id)
 
 Get a group.
+
+Get a specific group resource.
 
 ### Example
 
@@ -34,7 +36,7 @@ using FactSet.SDK.ProcuretoPayAPISCIM.Model;
 
 namespace Example
 {
-    public class GroupIdGetExample
+    public class GetGroupExample
     {
         public static async Task Main()
         {
@@ -66,12 +68,12 @@ namespace Example
             try
             {
                 // Get a group.
-                GroupResource result = apiInstance.GroupIdGet(id);
+                GroupResource result = apiInstance.GetGroup(id);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling GroupsApi.GroupIdGet: " + e.Message );
+                Console.WriteLine("Exception when calling GroupsApi.GetGroup: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -96,7 +98,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/scim+json
+ - **Accept**: application/scim+json, application/json
 
 
 ### HTTP response details
@@ -106,16 +108,19 @@ Name | Type | Description  | Notes
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | Group not found. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-<a name="groupidpatch"></a>
-# **GroupIdPatch**
-> GroupResource GroupIdPatch (string id, Patch patch = null)
+<a name="getgroups"></a>
+# **GetGroups**
+> GroupResourceList GetGroups (string filter = null, string sortBy = null, string sortOrder = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
 
-Patch a group (add, replace, or remove attributes of a group.)
+Get a list of groups.
+
+Get a list of group resources.
 
 ### Example
 
@@ -134,7 +139,122 @@ using FactSet.SDK.ProcuretoPayAPISCIM.Model;
 
 namespace Example
 {
-    public class GroupIdPatchExample
+    public class GetGroupsExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.ProcuretoPayAPISCIM.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new GroupsApi(config);
+
+            var filter = "filter_example";  // string | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against string attributes. When using the \"re\" operator, do not include slash characters as delimiters (e.g. use \"foo\" instead of \"/foo/\".) Also note the case-sensitivity of the regular expression corresponds to the \"caseExact\" characteristic of the target attribute. (optional) 
+            var sortBy = "sortBy_example";  // string | Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order. (optional) 
+            var sortOrder = "sortOrder_example";  // string | The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are ''ascending'' (the default value) or ''descending''. This parameter may not be used unless the *sortBy* parameter is also specified. (optional) 
+            var startIndex = 56;  // int? | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional) 
+            var count = 56;  // int? | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional) 
+            var attributes = "attributes_example";  // string | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional) 
+            var excludedAttributes = "excludedAttributes_example";  // string | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional) 
+
+            try
+            {
+                // Get a list of groups.
+                GroupResourceList result = apiInstance.GetGroups(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling GroupsApi.GetGroups: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **string**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. | [optional] 
+ **sortBy** | **string**| Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order. | [optional] 
+ **sortOrder** | **string**| The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. | [optional] 
+ **startIndex** | **int?**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional] 
+ **count** | **int?**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional] 
+ **attributes** | **string**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional] 
+ **excludedAttributes** | **string**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional] 
+
+### Return type
+[**GroupResourceList**](GroupResourceList.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/scim+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success. |  -  |
+| **400** | Invalid filter value provided. |  -  |
+| **401** | User has not been authenticated. |  -  |
+| **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
+| **500** | Internal server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="modifygroup"></a>
+# **ModifyGroup**
+> GroupResource ModifyGroup (string id, Patch patch = null)
+
+Patch a group.
+
+Modify a specific group resource (i.e. add, replace, or remove attributes of a group resource.)
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.ProcuretoPayAPISCIM.Api;
+using FactSet.SDK.ProcuretoPayAPISCIM.Client;
+using FactSet.SDK.ProcuretoPayAPISCIM.Model;
+
+namespace Example
+{
+    public class ModifyGroupExample
     {
         public static async Task Main()
         {
@@ -166,13 +286,13 @@ namespace Example
 
             try
             {
-                // Patch a group (add, replace, or remove attributes of a group.)
-                GroupResource result = apiInstance.GroupIdPatch(id, patch);
+                // Patch a group.
+                GroupResource result = apiInstance.ModifyGroup(id, patch);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling GroupsApi.GroupIdPatch: " + e.Message );
+                Console.WriteLine("Exception when calling GroupsApi.ModifyGroup: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -198,7 +318,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/scim+json
- - **Accept**: application/scim+json
+ - **Accept**: application/scim+json, application/json
 
 
 ### HTTP response details
@@ -208,16 +328,20 @@ Name | Type | Description  | Notes
 | **400** | Patch request invalid. |  -  |
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
+| **501** | Operation is not supported. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-<a name="groupidput"></a>
-# **GroupIdPut**
-> GroupResource GroupIdPut (string id, GroupResource groupResource)
+<a name="replacegroup"></a>
+# **ReplaceGroup**
+> GroupResource ReplaceGroup (string id, GroupResource groupResource)
 
 Replace a group.
+
+Replace a specific group resource with another provided group resource.
 
 ### Example
 
@@ -236,7 +360,7 @@ using FactSet.SDK.ProcuretoPayAPISCIM.Model;
 
 namespace Example
 {
-    public class GroupIdPutExample
+    public class ReplaceGroupExample
     {
         public static async Task Main()
         {
@@ -269,12 +393,12 @@ namespace Example
             try
             {
                 // Replace a group.
-                GroupResource result = apiInstance.GroupIdPut(id, groupResource);
+                GroupResource result = apiInstance.ReplaceGroup(id, groupResource);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling GroupsApi.GroupIdPut: " + e.Message );
+                Console.WriteLine("Exception when calling GroupsApi.ReplaceGroup: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -300,7 +424,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/scim+json
- - **Accept**: application/scim+json
+ - **Accept**: application/scim+json, application/json
 
 
 ### HTTP response details
@@ -311,114 +435,7 @@ Name | Type | Description  | Notes
 | **401** | User has not been authenticated. |  -  |
 | **403** | User is not authorized to use this API. |  -  |
 | **404** | Group not found. |  -  |
-| **500** | Internal server error. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-<a name="groupsget"></a>
-# **GroupsGet**
-> GroupResourceList GroupsGet (string filter = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
-
-Get a list of groups.
-
-### Example
-
-> [!IMPORTANT]
-> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
-
-#### Example Code
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.ProcuretoPayAPISCIM.Api;
-using FactSet.SDK.ProcuretoPayAPISCIM.Client;
-using FactSet.SDK.ProcuretoPayAPISCIM.Model;
-
-namespace Example
-{
-    public class GroupsGetExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.ProcuretoPayAPISCIM.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            //
-            // The confidential client instance should be reused in production environments.
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new GroupsApi(config);
-
-            var filter = "filter_example";  // string | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against strings. (optional) 
-            var startIndex = 56;  // int? | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional) 
-            var count = 56;  // int? | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional) 
-            var attributes = "attributes_example";  // string | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional) 
-            var excludedAttributes = "excludedAttributes_example";  // string | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional) 
-
-            try
-            {
-                // Get a list of groups.
-                GroupResourceList result = apiInstance.GroupsGet(filter, startIndex, count, attributes, excludedAttributes);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling GroupsApi.GroupsGet: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter** | **string**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against strings. | [optional] 
- **startIndex** | **int?**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional] 
- **count** | **int?**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional] 
- **attributes** | **string**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional] 
- **excludedAttributes** | **string**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional] 
-
-### Return type
-[**GroupResourceList**](GroupResourceList.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success. |  -  |
-| **400** | Invalid filter value provided. |  -  |
-| **401** | User has not been authenticated. |  -  |
-| **403** | User is not authorized to use this API. |  -  |
+| **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

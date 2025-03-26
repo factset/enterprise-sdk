@@ -14,6 +14,7 @@ docs/AnalystRating.md
 docs/AnalystRatingResponse.md
 docs/BrokerDetailApi.md
 docs/Category.md
+docs/CompanyReportsErrorResponse.md
 docs/ConsensusApi.md
 docs/ConsensusEstimate.md
 docs/ConsensusRatings.md
@@ -112,6 +113,7 @@ src/main/java/com/factset/sdk/FactSetEstimates/models/ActualsResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/AnalystRating.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/AnalystRatingResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Category.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/CompanyReportsErrorResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/ConsensusEstimate.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/ConsensusRatings.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/ConsensusRatingsRequest.java

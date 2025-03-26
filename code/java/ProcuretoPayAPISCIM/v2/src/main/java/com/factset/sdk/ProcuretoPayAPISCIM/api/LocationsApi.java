@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.ProcuretoPayAPISCIM.models.Error;
+import com.factset.sdk.ProcuretoPayAPISCIM.models.InlineResponse429;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.LocationResource;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.LocationResourceList;
 import com.factset.sdk.ProcuretoPayAPISCIM.models.Patch;
@@ -29,50 +30,55 @@ public class LocationsApi {
     this.apiClient = apiClient;
   }
   
-  private static final Map<Integer, GenericType> locationsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> createLocationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    locationsGetResponseTypeMap.put(200, new GenericType<LocationResourceList>(){});
-    locationsGetResponseTypeMap.put(400, new GenericType<Error>(){});
-    locationsGetResponseTypeMap.put(401, new GenericType<Error>(){});
-    locationsGetResponseTypeMap.put(403, new GenericType<Error>(){});
-    locationsGetResponseTypeMap.put(500, new GenericType<Error>(){});
+    createLocationResponseTypeMap.put(201, new GenericType<LocationResource>(){});
+    createLocationResponseTypeMap.put(400, new GenericType<Error>(){});
+    createLocationResponseTypeMap.put(401, new GenericType<Error>(){});
+    createLocationResponseTypeMap.put(403, new GenericType<Error>(){});
+    createLocationResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    createLocationResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-  private static final Map<Integer, GenericType> locationsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getLocationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    locationsIdGetResponseTypeMap.put(200, new GenericType<LocationResource>(){});
-    locationsIdGetResponseTypeMap.put(401, new GenericType<Error>(){});
-    locationsIdGetResponseTypeMap.put(403, new GenericType<Error>(){});
-    locationsIdGetResponseTypeMap.put(404, new GenericType<Error>(){});
-    locationsIdGetResponseTypeMap.put(500, new GenericType<Error>(){});
+    getLocationResponseTypeMap.put(200, new GenericType<LocationResource>(){});
+    getLocationResponseTypeMap.put(401, new GenericType<Error>(){});
+    getLocationResponseTypeMap.put(403, new GenericType<Error>(){});
+    getLocationResponseTypeMap.put(404, new GenericType<Error>(){});
+    getLocationResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    getLocationResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-  private static final Map<Integer, GenericType> locationsIdPatchResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getLocationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    locationsIdPatchResponseTypeMap.put(200, new GenericType<LocationResource>(){});
-    locationsIdPatchResponseTypeMap.put(400, new GenericType<Error>(){});
-    locationsIdPatchResponseTypeMap.put(401, new GenericType<Error>(){});
-    locationsIdPatchResponseTypeMap.put(403, new GenericType<Error>(){});
-    locationsIdPatchResponseTypeMap.put(500, new GenericType<Error>(){});
+    getLocationsResponseTypeMap.put(200, new GenericType<LocationResourceList>(){});
+    getLocationsResponseTypeMap.put(400, new GenericType<Error>(){});
+    getLocationsResponseTypeMap.put(401, new GenericType<Error>(){});
+    getLocationsResponseTypeMap.put(403, new GenericType<Error>(){});
+    getLocationsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    getLocationsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-  private static final Map<Integer, GenericType> locationsIdPutResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> modifyLocationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    locationsIdPutResponseTypeMap.put(200, new GenericType<LocationResource>(){});
-    locationsIdPutResponseTypeMap.put(400, new GenericType<Error>(){});
-    locationsIdPutResponseTypeMap.put(401, new GenericType<Error>(){});
-    locationsIdPutResponseTypeMap.put(403, new GenericType<Error>(){});
-    locationsIdPutResponseTypeMap.put(404, new GenericType<Error>(){});
-    locationsIdPutResponseTypeMap.put(500, new GenericType<Error>(){});
+    modifyLocationResponseTypeMap.put(200, new GenericType<LocationResource>(){});
+    modifyLocationResponseTypeMap.put(400, new GenericType<Error>(){});
+    modifyLocationResponseTypeMap.put(401, new GenericType<Error>(){});
+    modifyLocationResponseTypeMap.put(403, new GenericType<Error>(){});
+    modifyLocationResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    modifyLocationResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
-  private static final Map<Integer, GenericType> locationsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> replaceLocationResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    locationsPostResponseTypeMap.put(201, new GenericType<LocationResource>(){});
-    locationsPostResponseTypeMap.put(400, new GenericType<Error>(){});
-    locationsPostResponseTypeMap.put(401, new GenericType<Error>(){});
-    locationsPostResponseTypeMap.put(403, new GenericType<Error>(){});
-    locationsPostResponseTypeMap.put(500, new GenericType<Error>(){});
+    replaceLocationResponseTypeMap.put(200, new GenericType<LocationResource>(){});
+    replaceLocationResponseTypeMap.put(400, new GenericType<Error>(){});
+    replaceLocationResponseTypeMap.put(401, new GenericType<Error>(){});
+    replaceLocationResponseTypeMap.put(403, new GenericType<Error>(){});
+    replaceLocationResponseTypeMap.put(404, new GenericType<Error>(){});
+    replaceLocationResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    replaceLocationResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 
   
@@ -97,9 +103,178 @@ public class LocationsApi {
   }
 
   /**
+   * Create a location.
+   * Create a location resource.
+   * @param locationResource Location resource. (required)
+   * @return LocationResource
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public LocationResource createLocation(LocationResource locationResource) throws ApiException {
+    return createLocationWithHttpInfo(locationResource).getData();
+  }
+
+  /**
+   * Create a location.
+   * Create a location resource.
+   * @param locationResource Location resource. (required)
+   * @return ApiResponse&lt;LocationResource&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<LocationResource> createLocationWithHttpInfo(LocationResource locationResource) throws ApiException {
+    Object localVarPostBody = locationResource;
+    
+    // verify the required parameter 'locationResource' is set
+    if (locationResource == null) {
+      throw new ApiException(400, "Missing the required parameter 'locationResource' when calling createLocation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/Locations";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/scim+json", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/scim+json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        LocationResource
+      
+    > apiResponse = apiClient.invokeAPI("LocationsApi.createLocation", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, createLocationResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Get a location.
+   * Get a specific location resource.
+   * @param id ID of resource. (required)
+   * @return LocationResource
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Location not found. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public LocationResource getLocation(String id) throws ApiException {
+    return getLocationWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get a location.
+   * Get a specific location resource.
+   * @param id ID of resource. (required)
+   * @return ApiResponse&lt;LocationResource&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Location not found. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<LocationResource> getLocationWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLocation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/Locations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/scim+json", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        LocationResource
+      
+    > apiResponse = apiClient.invokeAPI("LocationsApi.getLocation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getLocationResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
    * Get a list of locations.
-   * 
-   * @param filter Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against strings. (optional)
+   * Get a list of location resources.
+   * @param filter Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. (optional)
+   * @param sortBy Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order. (optional)
+   * @param sortOrder The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. (optional)
    * @param startIndex Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
    * @param count Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
    * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional)
@@ -113,17 +288,20 @@ public class LocationsApi {
        <tr><td> 400 </td><td> Invalid filter value provided. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResourceList locationsGet(String filter, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
-    return locationsGetWithHttpInfo(filter, startIndex, count, attributes, excludedAttributes).getData();
+  public LocationResourceList getLocations(String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
+    return getLocationsWithHttpInfo(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes).getData();
   }
 
   /**
    * Get a list of locations.
-   * 
-   * @param filter Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against strings. (optional)
+   * Get a list of location resources.
+   * @param filter Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. (optional)
+   * @param sortBy Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order. (optional)
+   * @param sortOrder The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. (optional)
    * @param startIndex Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
    * @param count Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
    * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional)
@@ -137,10 +315,11 @@ public class LocationsApi {
        <tr><td> 400 </td><td> Invalid filter value provided. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResourceList> locationsGetWithHttpInfo(String filter, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
+  public ApiResponse<LocationResourceList> getLocationsWithHttpInfo(String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -153,6 +332,8 @@ public class LocationsApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortBy", sortBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startIndex", startIndex));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attributes", attributes));
@@ -162,7 +343,7 @@ public class LocationsApi {
     
     
     final String[] localVarAccepts = {
-      "application/scim+json"
+      "application/scim+json", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -178,98 +359,16 @@ public class LocationsApi {
         
         LocationResourceList
       
-    > apiResponse = apiClient.invokeAPI("LocationsApi.locationsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("LocationsApi.getLocations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, locationsGetResponseTypeMap, false);
+                               localVarAuthNames, getLocationsResponseTypeMap, false);
 
     return apiResponse;
 
   }
   /**
-   * Get a location.
-   * 
-   * @param id ID of resource. (required)
-   * @return LocationResource
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Location not found. </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-   */
-  public LocationResource locationsIdGet(String id) throws ApiException {
-    return locationsIdGetWithHttpInfo(id).getData();
-  }
-
-  /**
-   * Get a location.
-   * 
-   * @param id ID of resource. (required)
-   * @return ApiResponse&lt;LocationResource&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success. </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Location not found. </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<LocationResource> locationsIdGetWithHttpInfo(String id) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling locationsIdGet");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/Locations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        LocationResource
-      
-    > apiResponse = apiClient.invokeAPI("LocationsApi.locationsIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, locationsIdGetResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * Patch a location (add, replace, or remove attributes of a location.)
-   * 
+   * Patch a location.
+   * Modify a specific location resource (i.e. add, replace, or remove attributes of a location resource.)
    * @param id ID of resource. (required)
    * @param patch  (optional)
    * @return LocationResource
@@ -281,16 +380,17 @@ public class LocationsApi {
        <tr><td> 400 </td><td> Patch request invalid. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResource locationsIdPatch(String id, Patch patch) throws ApiException {
-    return locationsIdPatchWithHttpInfo(id, patch).getData();
+  public LocationResource modifyLocation(String id, Patch patch) throws ApiException {
+    return modifyLocationWithHttpInfo(id, patch).getData();
   }
 
   /**
-   * Patch a location (add, replace, or remove attributes of a location.)
-   * 
+   * Patch a location.
+   * Modify a specific location resource (i.e. add, replace, or remove attributes of a location resource.)
    * @param id ID of resource. (required)
    * @param patch  (optional)
    * @return ApiResponse&lt;LocationResource&gt;
@@ -302,15 +402,16 @@ public class LocationsApi {
        <tr><td> 400 </td><td> Patch request invalid. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResource> locationsIdPatchWithHttpInfo(String id, Patch patch) throws ApiException {
+  public ApiResponse<LocationResource> modifyLocationWithHttpInfo(String id, Patch patch) throws ApiException {
     Object localVarPostBody = patch;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling locationsIdPatch");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling modifyLocation");
     }
     
     // create path and map variables
@@ -328,7 +429,7 @@ public class LocationsApi {
     
     
     final String[] localVarAccepts = {
-      "application/scim+json"
+      "application/scim+json", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -344,16 +445,16 @@ public class LocationsApi {
         
         LocationResource
       
-    > apiResponse = apiClient.invokeAPI("LocationsApi.locationsIdPatch", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("LocationsApi.modifyLocation", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, locationsIdPatchResponseTypeMap, false);
+                               localVarAuthNames, modifyLocationResponseTypeMap, false);
 
     return apiResponse;
 
   }
   /**
    * Replace a location.
-   * 
+   * Replace a specific location resource with another provided location resource.
    * @param id ID of resource. (required)
    * @param locationResource Location resource. (required)
    * @return LocationResource
@@ -366,16 +467,17 @@ public class LocationsApi {
        <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Location not found. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResource locationsIdPut(String id, LocationResource locationResource) throws ApiException {
-    return locationsIdPutWithHttpInfo(id, locationResource).getData();
+  public LocationResource replaceLocation(String id, LocationResource locationResource) throws ApiException {
+    return replaceLocationWithHttpInfo(id, locationResource).getData();
   }
 
   /**
    * Replace a location.
-   * 
+   * Replace a specific location resource with another provided location resource.
    * @param id ID of resource. (required)
    * @param locationResource Location resource. (required)
    * @return ApiResponse&lt;LocationResource&gt;
@@ -388,20 +490,21 @@ public class LocationsApi {
        <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Location not found. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResource> locationsIdPutWithHttpInfo(String id, LocationResource locationResource) throws ApiException {
+  public ApiResponse<LocationResource> replaceLocationWithHttpInfo(String id, LocationResource locationResource) throws ApiException {
     Object localVarPostBody = locationResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling locationsIdPut");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling replaceLocation");
     }
     
     // verify the required parameter 'locationResource' is set
     if (locationResource == null) {
-      throw new ApiException(400, "Missing the required parameter 'locationResource' when calling locationsIdPut");
+      throw new ApiException(400, "Missing the required parameter 'locationResource' when calling replaceLocation");
     }
     
     // create path and map variables
@@ -419,7 +522,7 @@ public class LocationsApi {
     
     
     final String[] localVarAccepts = {
-      "application/scim+json"
+      "application/scim+json", "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -435,90 +538,9 @@ public class LocationsApi {
         
         LocationResource
       
-    > apiResponse = apiClient.invokeAPI("LocationsApi.locationsIdPut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("LocationsApi.replaceLocation", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, locationsIdPutResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * Create a location.
-   * 
-   * @param locationResource Location resource. (required)
-   * @return LocationResource
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-   */
-  public LocationResource locationsPost(LocationResource locationResource) throws ApiException {
-    return locationsPostWithHttpInfo(locationResource).getData();
-  }
-
-  /**
-   * Create a location.
-   * 
-   * @param locationResource Location resource. (required)
-   * @return ApiResponse&lt;LocationResource&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<LocationResource> locationsPostWithHttpInfo(LocationResource locationResource) throws ApiException {
-    Object localVarPostBody = locationResource;
-    
-    // verify the required parameter 'locationResource' is set
-    if (locationResource == null) {
-      throw new ApiException(400, "Missing the required parameter 'locationResource' when calling locationsPost");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/Locations";
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        LocationResource
-      
-    > apiResponse = apiClient.invokeAPI("LocationsApi.locationsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, locationsPostResponseTypeMap, false);
+                               localVarAuthNames, replaceLocationResponseTypeMap, false);
 
     return apiResponse;
 

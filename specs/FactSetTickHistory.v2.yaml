@@ -4,7 +4,7 @@ info:
   description: >-
     Tick History provides dynamic access to historical tick data for a specific
     security for specific dates or date range.
-  version: 2.3.0
+  version: 2.4.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -38,7 +38,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/coverageResponse'
+                $ref: '#/components/schemas/CoverageResponse'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCoverageResponse'
@@ -47,7 +47,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
@@ -61,7 +61,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -74,7 +74,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -83,7 +83,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
@@ -92,7 +92,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -108,7 +108,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/leveloneRequest'
+              $ref: '#/components/schemas/LeveloneRequest'
             examples:
               US Equity tickers with default all fields for the given period:
                 $ref: '#/components/examples/postBodyOfUSTickers'
@@ -134,7 +134,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
               examples:
                 default202ResponseExample:
                   $ref: '#/components/examples/sampleFilesResponse'
@@ -160,7 +160,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
@@ -174,7 +174,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -187,7 +187,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -196,7 +196,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
@@ -205,7 +205,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -226,7 +226,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/completedResponse'
+                $ref: '#/components/schemas/CompletedResponse'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCompletedResponse'
@@ -242,7 +242,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
               examples:
                 QueuedExample:
                   $ref: '#/components/examples/sampleFilesResponseQueued'
@@ -267,7 +267,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -280,7 +280,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -289,7 +289,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
@@ -298,7 +298,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -322,17 +322,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Get-FilesResponse'
+                $ref: '#/components/schemas/GetFilesResponse'
               examples:
                 default200ResponseExample:
-                  $ref: '#/components/examples/sampleGet-FilesResponse'
+                  $ref: '#/components/examples/sampleGetFilesResponse'
         '202':
           description: |
             The Request has not finished and the result has NOT been created.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
               examples:
                 QueuedExample:
                   $ref: '#/components/examples/sampleFilesResponseQueued'
@@ -348,7 +348,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
@@ -362,7 +362,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -375,7 +375,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -384,7 +384,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
@@ -393,7 +393,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -412,7 +412,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/minRequest'
+              $ref: '#/components/schemas/MinRequest'
             examples:
               Single ticker for the given period:
                 $ref: '#/components/examples/minSingleTicker'
@@ -424,7 +424,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
               examples:
                 default202ResponseExample:
                   $ref: '#/components/examples/sampleFilesResponse'
@@ -450,7 +450,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
@@ -464,7 +464,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -477,7 +477,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -486,7 +486,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
@@ -495,7 +495,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -516,7 +516,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/completedResponse'
+                $ref: '#/components/schemas/CompletedResponse'
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCompletedResponse'
@@ -532,7 +532,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
               examples:
                 QueuedExample:
                   $ref: '#/components/examples/sampleFilesResponseQueued'
@@ -557,7 +557,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -570,7 +570,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -579,7 +579,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
@@ -588,7 +588,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -612,17 +612,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Get-FilesMinuteResponse'
+                $ref: '#/components/schemas/GetFilesMinuteResponse'
               examples:
                 default200ResponseExample:
-                  $ref: '#/components/examples/sampleMinGet-FilesResponse'
+                  $ref: '#/components/examples/sampleMinGetFilesResponse'
+                quotes200ResponseExample:
+                  $ref: '#/components/examples/sampleMinGetQuoteFilesResponse'
         '202':
           description: |
             The Request has not finished and the result has NOT been created.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/submittedResponse'
+                $ref: '#/components/schemas/SubmittedResponse'
               examples:
                 QueuedExample:
                   $ref: '#/components/examples/sampleFilesResponseQueued'
@@ -638,7 +640,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
@@ -652,7 +654,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
@@ -665,7 +667,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
@@ -674,7 +676,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
@@ -683,7 +685,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/status'
+                $ref: '#/components/schemas/Status'
               examples:
                 default400ResponseExample:
                   $ref: '#/components/examples/500Example'
@@ -813,35 +815,35 @@ components:
         type: integer
         default: 0
   schemas:
-    leveloneRequest:
+    LeveloneRequest:
       title: Level1 Request Body
       description: Level1 request body elements
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/level1RequestBody'
+          $ref: '#/components/schemas/Level1RequestBody'
       required:
         - data
-    level1RequestBody:
+    Level1RequestBody:
       title: Level1 Request Body
       description: Level1 request body elements
       type: object
       properties:
         tickers:
-          $ref: '#/components/schemas/tickers'
+          $ref: '#/components/schemas/Tickers'
         factsetExchangeCode:
-          $ref: '#/components/schemas/factsetExchangeCode'
+          $ref: '#/components/schemas/FactsetExchangeCode'
         dateTimeRange:
-          $ref: '#/components/schemas/dateTimeRange'
+          $ref: '#/components/schemas/DateTimeRange'
         fields:
-          $ref: '#/components/schemas/fields'
+          $ref: '#/components/schemas/Fields'
         single:
-          $ref: '#/components/schemas/single'
+          $ref: '#/components/schemas/Single'
       required:
         - tickers
         - factsetExchangeCode
         - dateTimeRange
-    tickers:
+    Tickers:
       type: array
       items:
         type: string
@@ -853,7 +855,7 @@ components:
          
       example:
         - FDS
-    factsetExchangeCode:
+    FactsetExchangeCode:
       title: factsetExchangeCode
       description: >
         FactSet specific regional or composite exchange code and last exchange
@@ -864,9 +866,9 @@ components:
       minItems: 1
       maxItems: 1
       example: USA
-    dateTimeRange:
-      $ref: '#/components/schemas/dateTimePeriod'
-    dateTimePeriod:
+    DateTimeRange:
+      $ref: '#/components/schemas/DateTimePeriod'
+    DateTimePeriod:
       type: object
       description: |
 
@@ -875,6 +877,8 @@ components:
           - Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.
           
           - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
+          
+          - Supports milliseconds, YYYY-MM-DDTHH:MM:SS.SSSZ where .SSS represents the milliseconds which is optional.
       properties:
         start:
           description: >
@@ -890,7 +894,7 @@ components:
             The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ
             format. 
           example: '2012-01-30T11:20:30Z'
-    single:
+    Single:
       type: boolean
       description: >
         <p> This parameter only works for smaller date/time requests where the
@@ -902,7 +906,7 @@ components:
         <p> Note: If parameter is not used it take default value as false and
         returns data in multiple files.</p>
       default: false
-    fields:
+    Fields:
       type: array
       items:
         type: string
@@ -959,37 +963,37 @@ components:
         Fields for which data is requested
       example:
         - ASK
-    minRequest:
+    MinRequest:
       title: Level1 Minute bars Request Body
       description: Level1 Minute bars request body elements
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/minutesbarRequestBody'
+          $ref: '#/components/schemas/MinutesbarRequestBody'
       required:
         - data
-    minutesbarRequestBody:
+    MinutesbarRequestBody:
       title: Level1 Minute bars Request Body
       description: Level1 Minute bars request body elements
       type: object
       properties:
         tickers:
-          $ref: '#/components/schemas/tickers'
+          $ref: '#/components/schemas/Tickers'
         factsetExchangeCode:
-          $ref: '#/components/schemas/factsetExchangeCode'
+          $ref: '#/components/schemas/FactsetExchangeCode'
         dateTimeRange:
-          $ref: '#/components/schemas/dateTimePeriodMin'
+          $ref: '#/components/schemas/DateTimePeriodMin'
         granularity:
-          $ref: '#/components/schemas/granularity'
+          $ref: '#/components/schemas/Granularity'
         type:
-          $ref: '#/components/schemas/type'
+          $ref: '#/components/schemas/Type'
       required:
         - tickers
         - factsetExchangeCode
         - dateTimeRange
         - granularity
         - type
-    granularity:
+    Granularity:
       title: granularity
       description: >
         This is the grantualrity in which minute bars data is shown. Possible
@@ -997,16 +1001,18 @@ components:
       type: string
       enum:
         - 1m
-    type:
+    Type:
       title: type
       description: >
 
         <p>'type=trades' gives  minute bars data calculated from trade data
-        (price and volume)</p>
+        (price and volume)</p> <p>'type=quotes' gives minute bars data
+        calculated from quote data (bid and ask)</p>
       type: string
       enum:
         - trades
-    dateTimePeriodMin:
+        - quotes
+    DateTimePeriodMin:
       type: object
       description: |
 
@@ -1032,7 +1038,7 @@ components:
             The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ
             format. 
           example: '2012-01-30T11:20:30Z'
-    submittedResponse:
+    SubmittedResponse:
       type: object
       title: Status Response
       description: Returns Status of the id.
@@ -1074,14 +1080,14 @@ components:
           description: The plain text error message
           type: string
           example: Validation Error
-    completedResponse:
+    CompletedResponse:
       type: object
       title: status
       description: Returns status.
       properties:
         data:
-          $ref: '#/components/schemas/checkFiles'
-    checkFiles:
+          $ref: '#/components/schemas/CheckFiles'
+    CheckFiles:
       type: object
       description: check-files
       properties:
@@ -1099,7 +1105,7 @@ components:
             - cancelled
         error:
           $ref: '#/components/schemas/ErrorObject'
-    coverageResponse:
+    CoverageResponse:
       type: object
       description: Returns coverage for Level1 Data
       properties:
@@ -1107,8 +1113,8 @@ components:
           description: Returns Coverage Response
           type: array
           items:
-            $ref: '#/components/schemas/coverageTickHistory'
-    coverageTickHistory:
+            $ref: '#/components/schemas/CoverageTickHistory'
+    CoverageTickHistory:
       title: Coverage Object
       type: object
       description: >-
@@ -1147,7 +1153,7 @@ components:
         primaryTickerExchange:
           description: the primary ticker iso
           type: string
-    status:
+    Status:
       type: object
       description: specifies the error message fields in the response
       properties:
@@ -1155,8 +1161,8 @@ components:
           type: array
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/errorExample'
-    errorExample:
+            $ref: '#/components/schemas/ErrorExample'
+    ErrorExample:
       type: object
       description: Specifies the fields in the error message
       properties:
@@ -1169,14 +1175,14 @@ components:
         id:
           description: Specifies the id
           type: string
-    Get-FilesResponse:
+    GetFilesResponse:
       type: object
       description: Returns Tick History Files
       properties:
         data:
           $ref: '#/components/schemas/TickData'
         meta:
-          $ref: '#/components/schemas/meta'
+          $ref: '#/components/schemas/Meta'
     TickData:
       type: object
       title: Tick History Object
@@ -1204,15 +1210,15 @@ components:
           type: array
           description: Contains list of Files
           items:
-            $ref: '#/components/schemas/files'
-    Get-FilesMinuteResponse:
+            $ref: '#/components/schemas/Files'
+    GetFilesMinuteResponse:
       type: object
       description: Returns Tick History Files
       properties:
         data:
           $ref: '#/components/schemas/MinTickData'
         meta:
-          $ref: '#/components/schemas/meta'
+          $ref: '#/components/schemas/Meta'
     MinTickData:
       type: object
       title: Tick History Object
@@ -1230,8 +1236,8 @@ components:
           type: array
           description: Contains list of Files
           items:
-            $ref: '#/components/schemas/filesOne'
-    files:
+            $ref: '#/components/schemas/FilesOne'
+    Files:
       title: Files
       description: Array of data objects
       type: object
@@ -1245,7 +1251,7 @@ components:
             Download link for the TickHistory file with requested parameters
             <p>This download link will expire after 24 hours</p>
           type: string
-    filesOne:
+    FilesOne:
       title: Files
       description: Array of data objects
       type: object
@@ -1256,20 +1262,75 @@ components:
         url:
           description: >
             Download link for the TickHistory minute bars file with requested
-            parameters. 
+            parameters.
 
-             <p>The downloaded file contains isoCode, ticker, date, time, tradeOpen, tradeHigh, tradeLow, tradeClose, tradeVolume, tradeNumber, and tradeVWAP</P>
-             
-             <p>This download link will expire after 12 hours.</p>
+
+            For <b>trades</b>, the downloaded file contains the following
+            fields:
+
+            - isoCode
+
+            - ticker
+
+            - date
+
+            - time
+
+            - tradeOpen
+
+            - tradeHigh
+
+            - tradeLow
+
+            - tradeClose
+
+            - tradeVolume
+
+            - securityType
+
+            - tradeNumber
+
+            - tradeVWAP
+
+
+            For <b>quotes</b>, the downloaded file contains the following
+            fields:
+
+            - ticker
+
+            - isoCode
+
+            - date
+
+            - time
+
+            - bidOpenPrc
+
+            - bidClosePrc
+
+            - bidSumVol
+
+            - askOpenPrc
+
+            - askClosePrc
+
+            - askSumVol
+
+            - count
+
+            - medianSpread
+
+
+            This download link will expire after 12 hours.
           type: string
-    meta:
+    Meta:
       title: Meta
       description: Array of metadata objects
       type: object
       properties:
         pagination:
-          $ref: '#/components/schemas/pagination'
-    pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
       title: Pagination
       description: List of pagination objects
       type: object
@@ -1431,7 +1492,7 @@ components:
       summary: Single ticker for the given period
       description: >-
         Post body request example to fetch details of the IBM tick data for the
-        period 2023-08-01T00:00:00Z to 2024-01-31T23:59:59Z.
+        period 2023-08-01T00:00:00Z to 2023-09-281T23:59:59Z.
       value:
         data:
           tickers:
@@ -1513,7 +1574,7 @@ components:
           id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
           status: created
           error: null
-    sampleGet-FilesResponse:
+    sampleGetFilesResponse:
       summary: sample Response data for Level1
       value:
         data:
@@ -1529,7 +1590,7 @@ components:
           pagination:
             total: 256
             isEstimatedTotal: false
-    sampleMinGet-FilesResponse:
+    sampleMinGetFilesResponse:
       summary: sample Response data for Minute bars Trades
       value:
         data:
@@ -1542,6 +1603,20 @@ components:
         meta:
           pagination:
             total: 256
+            isEstimatedTotal: false
+    sampleMinGetQuoteFilesResponse:
+      summary: sample Response data for Minute bars Quotes
+      value:
+        data:
+          requestTimestamp: '2022-11-23T03:38:02Z'
+          updateTimestamp: '2022-11-23T03:41:39Z'
+          listOfFiles:
+            - fileName: data_1_0_0.csv.gz
+              url: >-
+                https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+        meta:
+          pagination:
+            total: 65
             isEstimatedTotal: false
     sampleCoverageResponse:
       summary: sample Response

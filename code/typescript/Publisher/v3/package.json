@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-publisher",
-  "version": "0.23.1",
+  "version": "1.0.0",
   "description": "Publisher client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
