@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.7.0
+  version: 1.8.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -1036,12 +1036,14 @@ components:
         enum:
           - SPLIT
           - SPLIT_SPINOFF
+          - DIV_SPIN_SPLITS
           - UNSPLIT
         default: SPLIT
       description: |
         Controls the split and spinoff adjustments for the prices.
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
           * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.
           * **UNSPLIT** = No Adjustments.
           
     idsBatchMax50:
@@ -2085,12 +2087,14 @@ components:
       enum:
         - SPLIT
         - SPLIT_SPINOFF
+        - DIV_SPIN_SPLITS
         - UNSPLIT
       default: SPLIT
       description: |
         Controls the split and spinoff adjustments for the prices.
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
           * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.
           * **UNSPLIT** = No Adjustments.
       example: SPLIT
     Dividend:

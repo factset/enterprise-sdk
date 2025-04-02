@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
   title: FactSet Global Prices API
-  version: 1.7.0
+  version: 1.8.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -169,7 +169,8 @@ paths:
         style: form
       - description: "Controls the split and spinoff adjustments for the prices.\n\
           \  * **SPLIT** = Split ONLY Adjusted. This is used by default.\n  * **SPLIT_SPINOFF**\
-          \ = Splits & Spinoff Adjusted.\n  * **UNSPLIT** = No Adjustments.\n  \n"
+          \ = Splits & Spinoff Adjusted.\n  * **DIV_SPIN_SPLITS** = Dividend adjustments,\
+          \ Spinoff, and Splits combined.\n  * **UNSPLIT** = No Adjustments.\n  \n"
         explode: true
         in: query
         name: adjust
@@ -179,6 +180,7 @@ paths:
           enum:
           - SPLIT
           - SPLIT_SPINOFF
+          - DIV_SPIN_SPLITS
           - UNSPLIT
           type: string
         style: form
@@ -3073,7 +3075,8 @@ components:
     adjust:
       description: "Controls the split and spinoff adjustments for the prices.\n \
         \ * **SPLIT** = Split ONLY Adjusted. This is used by default.\n  * **SPLIT_SPINOFF**\
-        \ = Splits & Spinoff Adjusted.\n  * **UNSPLIT** = No Adjustments.\n  \n"
+        \ = Splits & Spinoff Adjusted.\n  * **DIV_SPIN_SPLITS** = Dividend adjustments,\
+        \ Spinoff, and Splits combined.\n  * **UNSPLIT** = No Adjustments.\n  \n"
       explode: true
       in: query
       name: adjust
@@ -3083,6 +3086,7 @@ components:
         enum:
         - SPLIT
         - SPLIT_SPINOFF
+        - DIV_SPIN_SPLITS
         - UNSPLIT
         type: string
       style: form
@@ -4573,10 +4577,12 @@ components:
         Controls the split and spinoff adjustments for the prices.
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
           * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.
           * **UNSPLIT** = No Adjustments.
       enum:
       - SPLIT
       - SPLIT_SPINOFF
+      - DIV_SPIN_SPLITS
       - UNSPLIT
       example: SPLIT
       title: Adjust

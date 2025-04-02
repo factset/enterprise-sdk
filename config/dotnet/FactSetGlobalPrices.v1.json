@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetGlobalPrices",
-  "packageVersion": "2.2.2",
+  "packageVersion": "2.3.0",
   "packageGuid": "{a03d35ec-ee82-521d-a647-3d382e5cfa4f}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetGlobalPrices/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetGlobalPrices/2.2.2",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetGlobalPrices/2.3.0",
   "files": {
     "LICENSE": {}
   },

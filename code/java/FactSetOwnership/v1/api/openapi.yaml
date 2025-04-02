@@ -4,9 +4,9 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
   description: |
-    FactSet's Fund Ownership API gives access to both **Holdings** and **Holders** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position detils held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around 110 countries.  For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
+    FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**, and **Transactions** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position details held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders. FactSet also provides extensive insider and institutional transactions data for multiple countries including the United States, China, and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around 110 countries. For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
   title: FactSet Ownership API
-  version: 1.1.0
+  version: 1.2.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -92,6 +92,7 @@ paths:
         name: currency
         required: false
         schema:
+          default: LOCAL
           type: string
         style: form
       responses:
@@ -353,6 +354,7 @@ paths:
         name: currency
         required: false
         schema:
+          default: LOCAL
           type: string
         style: form
       responses:
@@ -538,6 +540,602 @@ paths:
       summary: Get security ownership data for a list of requested securities.
       tags:
       - Security Holders
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-ownership/v1/transactions/insider:
+    get:
+      description: |
+        Gets insider transaction details for a list of requested identifiers.
+      operationId: getOwnershipInsiderTransactions
+      parameters:
+      - description: Requested list of security identifiers. <p>***ids limit** =  10
+          per request*</p  >.
+        examples:
+          singleIdentifer:
+            summary: Single identifier
+            value:
+            - TSLA-US
+          multipleIdentifers:
+            summary: Multiple identifiers
+            value:
+            - TSLA-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+        example: 2020-06-30
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+        example: 2021-06-30
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.
+            * **A** = All Transaction Types - returns all available transaction types.
+            * **P** = Open Market Purchases - shares on the open market.
+            * **S** =  Open Market Sales - selling shares on the open market.
+            * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
+            * **O** = Options Exercised - executing stock options to acquire shares.
+            * **M** = Other Transactions - any other types of equity-related actions not covered above.
+        explode: true
+        in: query
+        name: transactionType
+        required: false
+        schema:
+          default: A
+          enum:
+          - A
+          - P
+          - S
+          - PS
+          - O
+          - M
+          type: string
+        style: form
+      - description: |
+          Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.
+            * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
+            * **B** = Blank Transaction Types - excludes only blank transaction types.
+            * **N** =   None - includes all transaction types without exclusion.
+        explode: true
+        in: query
+        name: rowExclusion
+        required: false
+        schema:
+          default: DB
+          enum:
+          - DB
+          - B
+          - "N"
+          type: string
+        style: form
+      - description: Currency code for adjusting prices. Default is Local. For a list
+          of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier request - Insider Transactions Example:
+                  $ref: '#/components/examples/insiderTransactionsSingle'
+                Multiple identifier request - Insider Transactions Example:
+                  $ref: '#/components/examples/insiderTransactionsMultiple'
+              schema:
+                $ref: '#/components/schemas/insiderTransactionsResponse'
+          description: Insider Transactions Response.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get insider transactions details for a list of requested identifiers.
+      tags:
+      - Transactions
+      x-accepts: application/json
+    post:
+      description: Gets insider transaction details for a list of requested identifiers.
+      operationId: postOwnershipInsiderTransactions
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request to fetch TSLA Insider Transaction Details:
+                $ref: '#/components/examples/insiderTransactionsPostRequest'
+            schema:
+              $ref: '#/components/schemas/insiderTransactionsRequest'
+        description: Requesting Insider Transaction Details
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier request:
+                  $ref: '#/components/examples/insiderTransactionsSingle'
+                Multiple identifier request:
+                  $ref: '#/components/examples/insiderTransactionsMultiple'
+              schema:
+                $ref: '#/components/schemas/insiderTransactionsResponse'
+          description: Insider Transactions Response.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get insider transactions details for a list of requested identifiers.
+      tags:
+      - Transactions
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-ownership/v1/transactions/institutional:
+    get:
+      description: |
+        Get institutional transaction details for a list of requested identifiers.
+      operationId: getOwnershipInstitutionalTransactions
+      parameters:
+      - description: Requested list of security identifiers. <p>***ids limit** =  10
+          per request*</p  >.
+        examples:
+          singleIdentifer:
+            summary: Single identifier
+            value:
+            - TSLA-US
+          multipleIdentifers:
+            summary: Multiple identifiers
+            value:
+            - TSLA-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+        example: 2020-06-30
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+        example: 2021-06-30
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Currency code for adjusting prices. Default is Local. For a list
+          of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          type: string
+        style: form
+      - description: |
+          Controls the display frequency of the data returned.
+            * **M** = Monthly, based on the last trading day of the month.
+            * **MTD** = Month-to-date
+            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+            * **CQTD** =  Calendar quarter-to-date
+            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+            * **CYTD** = Calendar Year-to-date.
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: M
+          enum:
+          - M
+          - MTD
+          - CQ
+          - CQTD
+          - CY
+          - CYTD
+          type: string
+        style: form
+      - description: |
+          Specifies the number of top holders whose data is returned.
+            * **ALL** = All holders
+            * **5** = Top 5 Institutional Holders
+            * **10** = Top 10 Institutional Holders
+            * **25** = Top 25 Institutional Holders
+            * **50** = Top 50 Institutional Holders
+            * **100** = Top 100 Institutional Holders
+        explode: true
+        in: query
+        name: topNHolders
+        required: false
+        schema:
+          default: "25"
+          enum:
+          - ALL
+          - "5"
+          - "10"
+          - "25"
+          - "50"
+          - "100"
+          type: string
+        style: form
+      - description: |
+          Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.
+            * **F** = Institutions
+            * **M** = Mutual Funds
+            * **S** =  Insiders/Stakeholders
+            * **FS** = Institutions/Insiders
+            * **B** = Beneficial Owners
+        explode: true
+        in: query
+        name: holderType
+        required: false
+        schema:
+          default: F
+          enum:
+          - F
+          - M
+          - S
+          - FS
+          - B
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier request - Institutional Transactions Example:
+                  $ref: '#/components/examples/institutionalTransactionsSingle'
+                Multiple identifier request - Institutional Transactions Example:
+                  $ref: '#/components/examples/institutionalTransactionsMultiple'
+              schema:
+                $ref: '#/components/schemas/institutionalTransactionsResponse'
+          description: Institutional Transactions Response.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get institutional transaction details for a list of requested identifiers.
+      tags:
+      - Transactions
+      x-accepts: application/json
+    post:
+      description: Gets institutional transaction details for a list of requested
+        identifiers.
+      operationId: postOwnershipInstituionalTransactions
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request to fetch the institutional transaction details for TSLA-US:
+                $ref: '#/components/examples/institutionalTransactionsPostRequest'
+            schema:
+              $ref: '#/components/schemas/institutionalTransactionsRequest'
+        description: Requesting Institutional Transaction Details
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier request:
+                  $ref: '#/components/examples/institutionalTransactionsSingle'
+              schema:
+                $ref: '#/components/schemas/institutionalTransactionsResponse'
+          description: Institutional Transactions Response.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets institutional transaction details for a list of requested identifiers.
+      tags:
+      - Transactions
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -988,6 +1586,700 @@ components:
         - TSLA-US
         topn: 5
         holderType: S
+    insiderTransactionsSingle:
+      description: 'Returns Insider Transaction Details for the following security:
+        TSLA-US'
+      summary: Single identifier request - Insider Transactions Example.
+      value:
+        data:
+        - fsymId: WWDPYB-S
+          holderId: S6276669
+          shares: -923
+          reportDate: 2025-02-06
+          holderName: MUSK KIMBAL
+          holderTitle: Director
+          price: 368.43
+          netValueChange: 340060.89
+          transactionDate: 2025-02-06
+          sharesOwned: 1463220
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-11
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S6276669
+          shares: -74077
+          reportDate: 2025-02-06
+          holderName: MUSK KIMBAL
+          holderTitle: Director
+          price: 367.87
+          netValueChange: 2.725070599E7
+          transactionDate: 2025-02-06
+          sharesOwned: 1464143
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-11
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -400
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 387.76
+          netValueChange: 155104.89
+          transactionDate: 2025-02-03
+          sharesOwned: 108965
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -450
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 386.78
+          netValueChange: 174051.99
+          transactionDate: 2025-02-03
+          sharesOwned: 109365
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -1401
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 385.69
+          netValueChange: 540351.69
+          transactionDate: 2025-02-03
+          sharesOwned: 109815
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -870
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 384.31
+          netValueChange: 334349.7
+          transactionDate: 2025-02-03
+          sharesOwned: 111216
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -1079
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 383.51
+          netValueChange: 413807.29
+          transactionDate: 2025-02-03
+          sharesOwned: 112086
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+    insiderTransactionsMultiple:
+      description: 'Returns Insider Transaction Details for the following securities:
+        TSLA-US and AAPL-US'
+      summary: Multiple identifier request - Insider Transactions Example.
+      value:
+        data:
+        - fsymId: WWDPYB-S
+          holderId: S6276669
+          shares: -923
+          reportDate: 2025-02-06
+          holderName: MUSK KIMBAL
+          holderTitle: Director
+          price: 368.43
+          netValueChange: 340060.89
+          transactionDate: 2025-02-06
+          sharesOwned: 1463220
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-11
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S6276669
+          shares: -74077
+          reportDate: 2025-02-06
+          holderName: MUSK KIMBAL
+          holderTitle: Director
+          price: 367.87
+          netValueChange: 2.725070599E7
+          transactionDate: 2025-02-06
+          sharesOwned: 1464143
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-11
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -400
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 387.76
+          netValueChange: 155104.89
+          transactionDate: 2025-02-03
+          sharesOwned: 108965
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -450
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 386.78
+          netValueChange: 174051.99
+          transactionDate: 2025-02-03
+          sharesOwned: 109365
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -1401
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 385.69
+          netValueChange: 540351.69
+          transactionDate: 2025-02-03
+          sharesOwned: 109815
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -870
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 384.31
+          netValueChange: 334349.7
+          transactionDate: 2025-02-03
+          sharesOwned: 111216
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: WWDPYB-S
+          holderId: S16370426
+          shares: -1079
+          reportDate: 2025-02-03
+          holderName: TANEJA VAIBHAV
+          holderTitle: Chief Financial Officer
+          price: 383.51
+          netValueChange: 413807.29
+          transactionDate: 2025-02-03
+          sharesOwned: 112086
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-06
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: TSLA-US
+        - fsymId: R85KLC-S
+          holderId: S5008060
+          shares: -1516
+          reportDate: 2025-02-01
+          holderName: LEVINSON ARTHUR D
+          holderTitle: Director
+          price: 226.35
+          netValueChange: 343146.6
+          transactionDate: 2025-02-03
+          sharesOwned: 4159576
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-05
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: AAPL-US
+        - fsymId: R85KLC-S
+          holderId: S61010
+          shares: 1516
+          reportDate: 2025-02-01
+          holderName: WAGNER SUSAN LYNNE
+          holderTitle: Director
+          price: 226.35
+          netValueChange: 155104.89
+          transactionDate: 2025-02-01
+          sharesOwned: 62491
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-05
+          isDerivative: false
+          isDirect: true
+          tradeType: Acquisition
+          formType: "4"
+          requestId: AAPL-US
+        - fsymId: R85KLC-S
+          holderId: S5086741
+          shares: 1516
+          reportDate: 2025-02-01
+          holderName: SUGAR RONALD D
+          holderTitle: Director
+          price: 226.35
+          netValueChange: 540351.69
+          transactionDate: 2025-02-01
+          sharesOwned: 109311
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-05
+          isDerivative: false
+          isDirect: true
+          tradeType: Acquisition
+          formType: "4"
+          requestId: AAPL-US
+        - fsymId: R85KLC-S
+          holderId: S5029367
+          shares: 1516
+          reportDate: 2025-02-01
+          holderName: LOZANO MONICA CECILIA
+          holderTitle: Director
+          price: 226.45
+          netValueChange: 334349.7
+          transactionDate: 2025-02-01
+          sharesOwned: 8607
+          secRule10b51: true
+          currency: USD
+          filingDate: 2025-02-05
+          isDerivative: false
+          isDirect: true
+          tradeType: Acquisition
+          formType: "4"
+          requestId: AAPL-US
+        - fsymId: R85KLC-S
+          shares: -8384
+          reportDate: 2024-12-16
+          holderName: WILLIAMS JEFFREY E
+          holderTitle: COO
+          price: 251.1
+          netValueChange: 2105222.4
+          transactionDate: 2024-12-16
+          sharesOwned: 389944
+          secRule10b51: true
+          currency: USD
+          filingDate: 2024-12-19
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: AAPL-US
+        - fsymId: R85KLC-S
+          holderId: S348639
+          shares: -42939
+          reportDate: 2024-12-16
+          holderName: WILLIAMS JEFFREY E
+          holderTitle: COO
+          price: 250.58
+          netValueChange: 1.075965462E7
+          transactionDate: 2024-12-16
+          sharesOwned: 398328
+          secRule10b51: true
+          currency: USD
+          filingDate: 2024-12-19
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: AAPL-US
+        - fsymId: R85KLC-S
+          holderId: S348639
+          shares: -34752
+          reportDate: 2024-12-16
+          holderName: WILLIAMS JEFFREY E
+          holderTitle: COO
+          price: 249.5
+          netValueChange: 8670624.89
+          transactionDate: 2024-12-16
+          sharesOwned: 441267
+          secRule10b51: true
+          currency: USD
+          filingDate: 2024-12-19
+          isDerivative: false
+          isDirect: true
+          tradeType: Disposition
+          formType: "4"
+          requestId: AAPL-US
+    insiderTransactionsPostRequest:
+      description: Requesting insider transactions details for TSLA-US.
+      summary: Request body for Insider Transactions.
+      value:
+        ids:
+        - TSLA-US
+        startDate: 2020-06-30
+        endDate: 2021-06-30
+        transactionType: A
+        rowExclusion: DB
+        currency: USD
+    institutionalTransactionsPostRequest:
+      description: Requesting institutional transactions details for TSLA-US.
+      summary: Request body for Institutional Transactions.
+      value:
+        ids:
+        - TSLA-US
+        startDate: 2020-06-30
+        endDate: 2021-06-30
+        topNHolders: "10"
+        holderType: F
+        frequency: MTD
+        currency: USD
+    institutionalTransactionsSingle:
+      description: 'Returns the top 10 Institutional Transactions for the following
+        security: TSLA-US'
+      summary: Single Identifier - Institutional Transactions Example.
+      value:
+        data:
+        - fsymId: Q2YN1N-R
+          holderName: T. Rowe Price Associates, Inc. (IM)
+          pctOS: 0.80580141
+          pctChange: 0.23686886
+          posChange: 7722331.47
+          marketVal: 8.92815224321E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Wellington Management Co. LLP
+          pctOS: 0.21301171
+          pctChange: 0.19691345
+          posChange: 6324398.37
+          marketVal: 2.36013608343E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Capital Research & Management Co. (Global Investors)
+          pctOS: 0.3311517
+          pctChange: 0.18669329
+          posChange: 6023105.36
+          marketVal: 3.66910844254E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: The Vanguard Group, Inc.
+          pctOS: 7.06986926
+          pctChange: 0.12602791
+          posChange: 5494299.3
+          marketVal: 7.833303376826E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: JPMorgan Investment Management, Inc.
+          pctOS: 0.6197582
+          pctChange: 0.16369943
+          posChange: 5349999.47
+          marketVal: 6.86682289724E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Amundi Asset Management US, Inc.
+          pctOS: 0.38204552
+          pctChange: 0.13255707
+          posChange: 4307213.68
+          marketVal: 4.23300392717E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Nomura Securities Co., Ltd. (Private Banking)
+          pctOS: 0.12961164
+          pctChange: 0.11928559
+          posChange: 3831293.12
+          marketVal: 1.43607649321E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Capital Research & Management Co. (World Investors)
+          pctOS: 1.33371316
+          pctChange: 0.10783275
+          posChange: 3717257.45
+          marketVal: 1.477733093867E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: UBS Asset Management Switzerland AG
+          pctOS: 0.28948602
+          pctChange: 0.10707332
+          posChange: 3475175.37
+          marketVal: 3.20745935824E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Marshall Wace LLP
+          pctOS: 0.11556988
+          pctChange: 0.10238869
+          posChange: 3289488.57
+          marketVal: 1.28049596854E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+    institutionalTransactionsMultiple:
+      description: 'Returns the top 10 Institutional Transactions for the following
+        security: TSLA-US and AAPL-US'
+      summary: Multiple Identifiers - Institutional Transactions Example.
+      value:
+        data:
+        - fsymId: Q2YN1N-R
+          holderName: T. Rowe Price Associates, Inc. (IM)
+          pctOS: 0.80580141
+          pctChange: 0.23686886
+          posChange: 7722331.57
+          marketVal: 8.92815224345E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Wellington Management Co. LLP
+          pctOS: 0.21301171
+          pctChange: 0.19691345
+          posChange: 6324398.35
+          marketVal: 2.36013608354E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Capital Research & Management Co. (Global Investors)
+          pctOS: 0.3311517
+          pctChange: 0.18669329
+          posChange: 6023105.92
+          marketVal: 3.66910844221E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: The Vanguard Group, Inc.
+          pctOS: 7.06986926
+          pctChange: 0.12602791
+          posChange: 5494299.47
+          marketVal: 7.833303376834E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: JPMorgan Investment Management, Inc.
+          pctOS: 0.6197582
+          pctChange: 0.16369943
+          posChange: 5349999.6
+          marketVal: 6.86682289724E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Amundi Asset Management US, Inc.
+          pctOS: 0.38204552
+          pctChange: 0.13255707
+          posChange: 4307213.38
+          marketVal: 4.23300392787E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Nomura Securities Co., Ltd. (Private Banking)
+          pctOS: 0.12961164
+          pctChange: 0.11928559
+          posChange: 3831293.68
+          marketVal: 1.43607649381E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Capital Research & Management Co. (World Investors)
+          pctOS: 1.33371316
+          pctChange: 0.10783275
+          posChange: 3717257.36
+          marketVal: 1.477733093835E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: UBS Asset Management Switzerland AG
+          pctOS: 0.28948602
+          pctChange: 0.10707332
+          posChange: 3475175.56
+          marketVal: 3.20745935835E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: Q2YN1N-R
+          holderName: Marshall Wace LLP
+          pctOS: 0.11556988
+          pctChange: 0.10238869
+          posChange: 3289488.34
+          marketVal: 1.2804959682E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: TSLA-US
+        - fsymId: AAPL-US^
+          holderName: Fidelity Management & Research Co. LLC
+          pctOS: 2.06702662
+          pctChange: 0.45564975
+          posChange: 6.53582359E7
+          marketVal: 7.41533040131E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: Capital Research & Management Co. (Global Investors)
+          pctOS: 0.47254658
+          pctChange: 0.26531349
+          posChange: 3.96520121E7
+          marketVal: 1.695231671867E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: BlackRock Fund Advisors
+          pctOS: 4.76310954
+          pctChange: 0.30731603
+          posChange: 3.672817723E7
+          marketVal: 1.2804959682E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: Wellington Management Co. LLP
+          pctOS: 0.58557911
+          pctChange: 0.22331868
+          posChange: 3.296579068E7
+          marketVal: 2.100728915823E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: T. Rowe Price Associates, Inc. (IM)
+          pctOS: 1.41610479
+          pctChange: 0.19653322
+          posChange: 2.704578923E7
+          marketVal: 5.080188508678E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: Geode Capital Management LLC
+          pctOS: 2.20866241
+          pctChange: 0.20188527
+          posChange: 2.613664876E7
+          marketVal: 7.923440047512E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: Capital Research & Management Co. (World Investors)
+          pctOS: 0.28673687
+          pctChange: 0.16259464
+          posChange: 2.430656635E7
+          marketVal: 1.028650803934E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: The Vanguard Group, Inc.
+          pctOS: 8.46124304
+          pctChange: 0.27515047
+          posChange: 2.372437476E7
+          marketVal: 1.2804959682E9
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: Capital Research & Management Co. (International Investors)
+          pctOS: 0.37972311
+          pctChange: 0.1374763
+          posChange: 2.025194821E7
+          marketVal: 1.36223321314E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
+        - fsymId: AAPL-US^
+          holderName: JPMorgan Investment Management, Inc.
+          pctOS: 0.74817705
+          pctChange: 0.10870149
+          posChange: 1.503541231E7
+          marketVal: 2.684038993267E10
+          reportDate: 2024-09-30
+          currency: USD
+          requestId: AAPL-US
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -1196,6 +2488,79 @@ components:
         minItems: 1
         type: array
       style: form
+    idTransactions:
+      description: Requested list of security identifiers. <p>***ids limit** =  10
+        per request*</p  >.
+      examples:
+        singleIdentifer:
+          summary: Single identifier
+          value:
+          - TSLA-US
+        multipleIdentifers:
+          summary: Multiple identifiers
+          value:
+          - TSLA-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 10
+        minItems: 1
+        type: array
+      style: form
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2020-06-30
+      explode: true
+      in: query
+      name: startDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2021-06-30
+      explode: true
+      in: query
+      name: endDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    topNHolders:
+      description: |
+        Specifies the number of top holders whose data is returned.
+          * **ALL** = All holders
+          * **5** = Top 5 Institutional Holders
+          * **10** = Top 10 Institutional Holders
+          * **25** = Top 25 Institutional Holders
+          * **50** = Top 50 Institutional Holders
+          * **100** = Top 100 Institutional Holders
+      explode: true
+      in: query
+      name: topNHolders
+      required: false
+      schema:
+        default: "25"
+        enum:
+        - ALL
+        - "5"
+        - "10"
+        - "25"
+        - "50"
+        - "100"
+        type: string
+      style: form
     frequency:
       description: |
         Controls the display frequency of the data returned.
@@ -1205,27 +2570,6 @@ components:
           * **CQTD** =  Calendar quarter-to-date
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
           * **CYTD** = Calendar Year-to-date.
-      examples:
-        Monthly:
-          summary: M - Monthly - based on the last trading day of the month.
-          value: M
-        Month To Date:
-          summary: MTD - Month-to-date
-          value: MTD
-        Calendar Quarterly:
-          summary: CQ - Calendar Quarterly - based on the last day of the week of
-            the startDate
-          value: CQ
-        Calendar quarter-to-date:
-          summary: CQTD - Calendar quarter-to-date
-          value: CQTD
-        Calendar Annual:
-          summary: CY - Calendar Annual - based on the last trading day of the calendar
-            year.
-          value: CY
-        Calendar Year-to-date:
-          summary: CYTD - Calendar Year-to-date
-          value: CYTD
       explode: true
       in: query
       name: frequency
@@ -1250,6 +2594,7 @@ components:
       name: currency
       required: false
       schema:
+        default: LOCAL
         type: string
       style: form
     holderType:
@@ -1272,6 +2617,48 @@ components:
         - S
         - FS
         - B
+        type: string
+      style: form
+    transactionType:
+      description: |
+        Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.
+          * **A** = All Transaction Types - returns all available transaction types.
+          * **P** = Open Market Purchases - shares on the open market.
+          * **S** =  Open Market Sales - selling shares on the open market.
+          * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
+          * **O** = Options Exercised - executing stock options to acquire shares.
+          * **M** = Other Transactions - any other types of equity-related actions not covered above.
+      explode: true
+      in: query
+      name: transactionType
+      required: false
+      schema:
+        default: A
+        enum:
+        - A
+        - P
+        - S
+        - PS
+        - O
+        - M
+        type: string
+      style: form
+    rowExclusion:
+      description: |
+        Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.
+          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
+          * **B** = Blank Transaction Types - excludes only blank transaction types.
+          * **N** =   None - includes all transaction types without exclusion.
+      explode: true
+      in: query
+      name: rowExclusion
+      required: false
+      schema:
+        default: DB
+        enum:
+        - DB
+        - B
+        - "N"
         type: string
       style: form
   responses:
@@ -1408,6 +2795,90 @@ components:
       - ids
       title: Security Holders Request
       type: object
+    insiderTransactionsRequest:
+      description: Insider Transactions Request
+      properties:
+        ids:
+          description: List of identifiers.
+          example:
+          - FDS-US
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2020-06-30
+          format: date
+          title: Start Date
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2021-06-30
+          format: date
+          title: End Date
+          type: string
+        transactionType:
+          $ref: '#/components/schemas/transactionType'
+        rowExclusion:
+          $ref: '#/components/schemas/rowExclusion'
+        currency:
+          description: Currency code for adjusting prices. Default is Local. For a
+            list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          type: string
+      required:
+      - endDate
+      - ids
+      - startDate
+      title: Insider Transactions Request
+      type: object
+    institutionalTransactionsRequest:
+      description: Institutional Transactions Request
+      properties:
+        ids:
+          description: List of identifiers.
+          example:
+          - FDS-US
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2020-06-30
+          format: date
+          title: Start Date
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2021-06-30
+          format: date
+          title: End Date
+          type: string
+        topNHolders:
+          $ref: '#/components/schemas/topNHolders'
+        holderType:
+          $ref: '#/components/schemas/holderType'
+        currency:
+          description: Currency code for adjusting prices. Default is Local. For a
+            list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+      - endDate
+      - ids
+      - startDate
+      title: Institutional Transactions Request
+      type: object
     fundHolding:
       description: fundHolding response object
       example:
@@ -1512,6 +2983,213 @@ components:
           nullable: true
           type: string
       title: Fund Holding
+      type: object
+    insiderTransactions:
+      description: insiderTransactions response object
+      example:
+        holderName: DENHOLM ROBYN M
+        formType: "4"
+        filingDate: 2025-02-11
+        fsymId: Q2YN1N-R
+        holderTitle: Director
+        isDerivative: false
+        transactionDate: 2024-11-15
+        holderId: S155166
+        shares: -1900
+        secRule10b51: true
+        requestId: TSLA-US
+        price: 320.12
+        sharesOwned: 85000.12
+        currency: USD
+        netValueChange: 60800.34
+        isDirect: true
+        tradeType: Disposition
+      properties:
+        requestId:
+          description: Identifier that was used in the request.
+          example: TSLA-US
+          type: string
+        fsymId:
+          description: FactSet Security Identifier of Fund. Identifies the security
+            level id of the Fund requested (not-representing the underlying holding).
+            Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S).
+            All equity and fixed income securities that exist on FactSet are allocated
+            a security-level permanent identifier.
+          example: Q2YN1N-R
+          nullable: true
+          type: string
+        currency:
+          description: 'Currency code. The service will default to the funds local
+            currency. For a list of currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+        holderName:
+          description: Returns the names of the insiders involved in the transactions
+            that occurred between the specified start and end dates.
+          example: DENHOLM ROBYN M
+          nullable: true
+          type: string
+        holderTitle:
+          description: Returns the titles of the insiders involved in the transactions
+            that occurred between the specified start and end dates.
+          example: Director
+          nullable: true
+          type: string
+        holderId:
+          description: Returns the holder IDs for the insiders involved in the transactions
+            that occurred between the specified start and end dates.
+          example: S155166
+          nullable: true
+          type: string
+        shares:
+          description: Returns the transaction shares for the transactions that occurred
+            between the specified start and end dates.
+          example: -1900
+          nullable: true
+          type: number
+        price:
+          description: Returns the transaction prices for the transactions that occurred
+            between the specified start and end dates.
+          example: 320.12
+          format: double
+          nullable: true
+          type: number
+        netValueChange:
+          description: Returns the transaction values for the transactions that occurred
+            between the specified start and end dates.
+          example: 60800.34
+          format: double
+          nullable: true
+          type: number
+        filingDate:
+          description: Returns the dates on which the transactions that occurred between
+            the specified start and end dates were processed.
+          example: 2025-02-11
+          nullable: true
+          type: string
+        isDerivative:
+          description: Returns a Derivative/Non-Derivative flag for the transactions
+            that occurred between the specified start and end dates. Returns true
+            for Derivative and false for Non-Derivative.
+          example: false
+          nullable: true
+          type: boolean
+        isDirect:
+          description: Returns a direct/indirect flag for the transactions that occurred
+            between the specified start and end dates.
+          example: true
+          nullable: true
+          type: boolean
+        tradeType:
+          description: Returns an acquisition/disposition flag for the transactions
+            that occurred between the specified start and end dates.
+          example: Disposition
+          nullable: true
+          type: string
+        formType:
+          description: Returns the form types for the transactions that occurred between
+            the specified start and end dates.
+          example: "4"
+          nullable: true
+          type: string
+        transactionDate:
+          description: Returns the transaction dates for the transactions that occurred
+            between the specified start and end dates.
+          example: 2024-11-15
+          nullable: true
+          type: string
+        sharesOwned:
+          description: Returns the shares owned data for the transactions that occurred
+            between the specified start and end dates.
+          example: 85000.12
+          nullable: true
+          type: number
+        secRule10b51:
+          description: Returns rule 10b5-1 flags for the insiders involved in the
+            transactions that occurred between the specified start and end dates.
+          example: true
+          nullable: true
+          type: boolean
+      title: Insider Transactions
+      type: object
+    institutionalTransactions:
+      description: institutionalTransactions response object
+      example:
+        holderName: T. Rowe Price Associates, Inc. (IM)
+        pctChange: 0.23686886
+        marketVal: 8928152243.21
+        reportDate: 2024-11-15
+        requestId: TSLA-US
+        fsymId: Q2YN1N-R
+        currency: USD
+        pctOS: 0.80580141
+        posChange: 7722331.34
+      properties:
+        requestId:
+          description: Identifier that was used in the request.
+          example: TSLA-US
+          type: string
+        fsymId:
+          description: FactSet Security Identifier of Fund. Identifies the security
+            level id of the Fund requested (not-representing the underlying holding).
+            Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S).
+            All equity and fixed income securities that exist on FactSet are allocated
+            a security-level permanent identifier.
+          example: Q2YN1N-R
+          nullable: true
+          type: string
+        currency:
+          description: 'Currency code. The service will default to the funds local
+            currency. For a list of currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+        holderName:
+          description: Returns the names of the institutions involved in the transactions
+            that occurred between the specified start and end dates.
+          example: T. Rowe Price Associates, Inc. (IM)
+          nullable: true
+          type: string
+        pctOS:
+          description: Returns position held as a percentage of total outstanding
+            data for the holders of the security whose ownership activity matches
+            the specified change type.
+          example: 0.80580141
+          format: double
+          nullable: true
+          type: number
+        pctChange:
+          description: Returns change in position held as a percentage of total outstanding
+            data for the holders of the security whose ownership activity matches
+            the specified change type.
+          example: 0.23686886
+          format: double
+          nullable: true
+          type: number
+        posChange:
+          description: Returns position change data for the holders of the security
+            whose ownership activity matches the specified change type.
+          example: 7722331.34
+          format: double
+          nullable: true
+          type: number
+        marketVal:
+          description: Returns market value data for the holders of the security whose
+            ownership activity matches the specified change type.
+          example: 8928152243.21
+          format: double
+          nullable: true
+          type: number
+        reportDate:
+          description: Returns the report date for the transactions that occurred
+            between the specified start and end dates.
+          example: 2024-11-15
+          nullable: true
+          type: string
+      title: Institutional Transactions
       type: object
     securityHolders:
       description: Security Holders response object
@@ -1671,6 +3349,82 @@ components:
           type: array
       title: Fund Holding Response
       type: object
+    insiderTransactionsResponse:
+      description: insiderTransactions response
+      example:
+        data:
+        - holderName: DENHOLM ROBYN M
+          formType: "4"
+          filingDate: 2025-02-11
+          fsymId: Q2YN1N-R
+          holderTitle: Director
+          isDerivative: false
+          transactionDate: 2024-11-15
+          holderId: S155166
+          shares: -1900
+          secRule10b51: true
+          requestId: TSLA-US
+          price: 320.12
+          sharesOwned: 85000.12
+          currency: USD
+          netValueChange: 60800.34
+          isDirect: true
+          tradeType: Disposition
+        - holderName: DENHOLM ROBYN M
+          formType: "4"
+          filingDate: 2025-02-11
+          fsymId: Q2YN1N-R
+          holderTitle: Director
+          isDerivative: false
+          transactionDate: 2024-11-15
+          holderId: S155166
+          shares: -1900
+          secRule10b51: true
+          requestId: TSLA-US
+          price: 320.12
+          sharesOwned: 85000.12
+          currency: USD
+          netValueChange: 60800.34
+          isDirect: true
+          tradeType: Disposition
+      properties:
+        data:
+          description: Array of Insider Transactions
+          items:
+            $ref: '#/components/schemas/insiderTransactions'
+          type: array
+      title: Insider Transactions Response
+      type: object
+    institutionalTransactionsResponse:
+      description: institutionalTransactions response
+      example:
+        data:
+        - holderName: T. Rowe Price Associates, Inc. (IM)
+          pctChange: 0.23686886
+          marketVal: 8928152243.21
+          reportDate: 2024-11-15
+          requestId: TSLA-US
+          fsymId: Q2YN1N-R
+          currency: USD
+          pctOS: 0.80580141
+          posChange: 7722331.34
+        - holderName: T. Rowe Price Associates, Inc. (IM)
+          pctChange: 0.23686886
+          marketVal: 8928152243.21
+          reportDate: 2024-11-15
+          requestId: TSLA-US
+          fsymId: Q2YN1N-R
+          currency: USD
+          pctOS: 0.80580141
+          posChange: 7722331.34
+      properties:
+        data:
+          description: Array of Institutional Transactions
+          items:
+            $ref: '#/components/schemas/institutionalTransactions'
+          type: array
+      title: Institutional Transactions Response
+      type: object
     securityHoldersResponse:
       description: securityHolders response
       example:
@@ -1743,6 +3497,15 @@ components:
       maxItems: 10
       minItems: 1
       type: array
+    idTransactions:
+      description: List of identifiers.
+      example:
+      - FDS-US
+      items:
+        type: string
+      maxItems: 10
+      minItems: 1
+      type: array
     requestedDate:
       description: Date of holdings expressed in YYYY-MM-DD format.
       example: 2019-09-30
@@ -1752,6 +3515,24 @@ components:
       description: Limits number of holdings or holders displayed by the top *n* securities.
         Default is ALL, or use integer to limit number.
       example: "5"
+      type: string
+    topNHolders:
+      default: "25"
+      description: |
+        Specifies the number of top holders whose data is returned.
+          * **ALL** = All holders
+          * **5** = Top 5 Institutional Holders
+          * **10** = Top 10 Institutional Holders
+          * **25** = Top 25 Institutional Holders
+          * **50** = Top 50 Institutional Holders
+          * **100** = Top 100 Institutional Holders
+      enum:
+      - ALL
+      - "5"
+      - "10"
+      - "25"
+      - "50"
+      - "100"
       type: string
     assetType:
       default: EQ
@@ -1771,10 +3552,42 @@ components:
       maxItems: 1
       minItems: 1
       type: array
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2020-06-30
+      format: date
+      title: Start Date
+      type: string
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2021-06-30
+      format: date
+      title: End Date
+      type: string
     currency:
       description: Currency code for adjusting prices. Default is Local. For a list
         of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
       example: USD
+      type: string
+    frequency:
+      default: M
+      description: |
+        Controls the display frequency of the data returned.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **MTD** = Month-to-date
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **CQTD** =  Calendar quarter-to-date
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **CYTD** = Calendar Year-to-date.
+      enum:
+      - M
+      - MTD
+      - CQ
+      - CQTD
+      - CY
+      - CYTD
       type: string
     holderType:
       default: F
@@ -1791,6 +3604,37 @@ components:
       - S
       - FS
       - B
+      type: string
+    transactionType:
+      default: A
+      description: |
+        Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.
+          * **A** = All Transaction Types - returns all available transaction types.
+          * **P** = Open Market Purchases - shares on the open market.
+          * **S** =  Open Market Sales - selling shares on the open market.
+          * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
+          * **O** = Options Exercised - executing stock options to acquire shares.
+          * **M** = Other Transactions - any other types of equity-related actions not covered above.
+      enum:
+      - A
+      - P
+      - S
+      - PS
+      - O
+      - M
+      type: string
+    rowExclusion:
+      default: DB
+      description: "Controls the exlcusion of specific transaction rows from the data\
+        \ returned. By default, the service will exclude Derivative and Blank Transaction\
+        \ Types.\n  * **DB** =  Derivative and Blank Transaction Types - excludes\
+        \ both derivative and blank transaction types.\n  * **B** = Blank Transaction\
+        \ Types - excludes only blank transaction types.\n  * **N** =   None - includes\
+        \ all transaction types without exclusion.   \n"
+      enum:
+      - DB
+      - B
+      - "N"
       type: string
     errorResponse_subErrors:
       description: subErrors related to the error message. Null if not applicable.

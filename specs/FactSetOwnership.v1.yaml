@@ -1,21 +1,23 @@
 openapi: 3.0.0
 info:
-  version: 1.1.0
+  version: 1.2.0
   title: FactSet Ownership API
   contact:
     name: FactSet Research Systems
     email: api@factset.com
   description: >
-    FactSet's Fund Ownership API gives access to both **Holdings** and
-    **Holders** data.<p> Factset's Holdings endpoints gives access to all the
-    underlying securities and their position detils held within a given fund.
-    Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds,
-    and Exchange Traded Funds. Security Holders information retrieves all
+    FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**,
+    and **Transactions** data.<p> Factset's Holdings endpoints gives access to
+    all the underlying securities and their position details held within a given
+    fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual
+    Funds, and Exchange Traded Funds. Security Holders information retrieves all
     "holder types" and their positions across institutions, funds, insiders, and
-    stakeholders.</p><p>The FactSet Ownership and Mutual Funds database collects
+    stakeholders. FactSet also provides extensive insider and institutional
+    transactions data for multiple countries including the United States, China,
+    and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects
     global equity ownership data for approximately 50,000 institutions, 60,000
-    unique Mutual Fund portfolios, and 400,000 Insider/Stake holders from around
-    110 countries.  For more details review our [Data
+    unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around
+    110 countries. For more details review our [Data
     Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079)
     methodology. </p>
 servers:
@@ -183,6 +185,162 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-ownership/v1/transactions/insider:
+    get:
+      tags:
+        - Transactions
+      summary: Get insider transactions details for a list of requested identifiers.
+      operationId: getOwnershipInsiderTransactions
+      description: |
+        Gets insider transaction details for a list of requested identifiers.
+      parameters:
+        - $ref: '#/components/parameters/idTransactions'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/transactionType'
+        - $ref: '#/components/parameters/rowExclusion'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Insider Transactions Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/insiderTransactionsResponse'
+              examples:
+                Single identifier request - Insider Transactions Example:
+                  $ref: '#/components/examples/insiderTransactionsSingle'
+                Multiple identifier request - Insider Transactions Example:
+                  $ref: '#/components/examples/insiderTransactionsMultiple'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Transactions
+      summary: Get insider transactions details for a list of requested identifiers.
+      description: Gets insider transaction details for a list of requested identifiers.
+      operationId: postOwnershipInsiderTransactions
+      requestBody:
+        required: true
+        description: Requesting Insider Transaction Details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/insiderTransactionsRequest'
+            examples:
+              Request to fetch TSLA Insider Transaction Details:
+                $ref: '#/components/examples/insiderTransactionsPostRequest'
+      responses:
+        '200':
+          description: Insider Transactions Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/insiderTransactionsResponse'
+              examples:
+                Single identifier request:
+                  $ref: '#/components/examples/insiderTransactionsSingle'
+                Multiple identifier request:
+                  $ref: '#/components/examples/insiderTransactionsMultiple'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-ownership/v1/transactions/institutional:
+    get:
+      tags:
+        - Transactions
+      summary: >-
+        Get institutional transaction details for a list of requested
+        identifiers.
+      operationId: getOwnershipInstitutionalTransactions
+      description: >
+        Get institutional transaction details for a list of requested
+        identifiers.
+      parameters:
+        - $ref: '#/components/parameters/idTransactions'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/topNHolders'
+        - $ref: '#/components/parameters/holderType'
+      responses:
+        '200':
+          description: Institutional Transactions Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/institutionalTransactionsResponse'
+              examples:
+                Single identifier request - Institutional Transactions Example:
+                  $ref: '#/components/examples/institutionalTransactionsSingle'
+                Multiple identifier request - Institutional Transactions Example:
+                  $ref: '#/components/examples/institutionalTransactionsMultiple'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Transactions
+      summary: >-
+        Gets institutional transaction details for a list of requested
+        identifiers.
+      description: >-
+        Gets institutional transaction details for a list of requested
+        identifiers.
+      operationId: postOwnershipInstituionalTransactions
+      requestBody:
+        required: true
+        description: Requesting Institutional Transaction Details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/institutionalTransactionsRequest'
+            examples:
+              Request to fetch the institutional transaction details for TSLA-US:
+                $ref: '#/components/examples/institutionalTransactionsPostRequest'
+      responses:
+        '200':
+          description: Institutional Transactions Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/institutionalTransactionsResponse'
+              examples:
+                Single identifier request:
+                  $ref: '#/components/examples/institutionalTransactionsSingle'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -278,6 +436,74 @@ components:
           summary: Requesting Holders information for FDS-US
           value:
             - FDS-US
+    idTransactions:
+      name: ids
+      description: >-
+        Requested list of security identifiers. <p>***ids limit** =  10 per
+        request*</p  >.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 10
+      required: true
+      explode: false
+      examples:
+        singleIdentifer:
+          summary: Single identifier
+          value:
+            - TSLA-US
+        multipleIdentifers:
+          summary: Multiple identifiers
+          value:
+            - TSLA-US
+            - AAPL-US
+            - MSFT-US
+    startDate:
+      name: startDate
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. Future dates (T+1) are not accepted in this endpoint.
+      example: '2020-06-30'
+      in: query
+      schema:
+        type: string
+        format: date
+      required: true
+    endDate:
+      name: endDate
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        Future dates (T+1) are not accepted in this endpoint.
+      example: '2021-06-30'
+      in: query
+      schema:
+        type: string
+        format: date
+      required: true
+    topNHolders:
+      name: topNHolders
+      in: query
+      schema:
+        type: string
+        enum:
+          - ALL
+          - '5'
+          - '10'
+          - '25'
+          - '50'
+          - '100'
+        default: '25'
+      description: |
+        Specifies the number of top holders whose data is returned.
+          * **ALL** = All holders
+          * **5** = Top 5 Institutional Holders
+          * **10** = Top 10 Institutional Holders
+          * **25** = Top 25 Institutional Holders
+          * **50** = Top 50 Institutional Holders
+          * **100** = Top 100 Institutional Holders
     frequency:
       name: frequency
       in: query
@@ -299,34 +525,12 @@ components:
           * **CQTD** =  Calendar quarter-to-date
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
           * **CYTD** = Calendar Year-to-date.
-      examples:
-        Monthly:
-          summary: M - Monthly - based on the last trading day of the month.
-          value: M
-        Month To Date:
-          summary: MTD - Month-to-date
-          value: MTD
-        Calendar Quarterly:
-          summary: >-
-            CQ - Calendar Quarterly - based on the last day of the week of the
-            startDate
-          value: CQ
-        Calendar quarter-to-date:
-          summary: CQTD - Calendar quarter-to-date
-          value: CQTD
-        Calendar Annual:
-          summary: >-
-            CY - Calendar Annual - based on the last trading day of the calendar
-            year.
-          value: CY
-        Calendar Year-to-date:
-          summary: CYTD - Calendar Year-to-date
-          value: CYTD
     currency:
       name: currency
       in: query
       schema:
         type: string
+        default: LOCAL
       description: >-
         Currency code for adjusting prices. Default is Local. For a list of
         currency ISO codes, visit [Online Assistant Page
@@ -353,6 +557,45 @@ components:
           * **S** =  Insiders/Stakeholders
           * **FS** = Institutions/Insiders
           * **B** = Beneficial Owners
+    transactionType:
+      name: transactionType
+      in: query
+      schema:
+        type: string
+        enum:
+          - A
+          - P
+          - S
+          - PS
+          - O
+          - M
+        default: A
+      description: >
+        Controls the Transaction Type of the data returned. By default, the
+        service will return All Transaction Types.
+          * **A** = All Transaction Types - returns all available transaction types.
+          * **P** = Open Market Purchases - shares on the open market.
+          * **S** =  Open Market Sales - selling shares on the open market.
+          * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
+          * **O** = Options Exercised - executing stock options to acquire shares.
+          * **M** = Other Transactions - any other types of equity-related actions not covered above.
+    rowExclusion:
+      name: rowExclusion
+      in: query
+      schema:
+        type: string
+        enum:
+          - DB
+          - B
+          - 'N'
+        default: DB
+      description: >
+        Controls the exlcusion of specific transaction rows from the data
+        returned. By default, the service will exclude Derivative and Blank
+        Transaction Types.
+          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
+          * **B** = Blank Transaction Types - excludes only blank transaction types.
+          * **N** =   None - includes all transaction types without exclusion.
   schemas:
     fundHoldingsRequest:
       title: Holdings Request
@@ -388,6 +631,50 @@ components:
           $ref: '#/components/schemas/currency'
       required:
         - ids
+    insiderTransactionsRequest:
+      title: Insider Transactions Request
+      description: Insider Transactions Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idTransactions'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        transactionType:
+          $ref: '#/components/schemas/transactionType'
+        rowExclusion:
+          $ref: '#/components/schemas/rowExclusion'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - startDate
+        - endDate
+    institutionalTransactionsRequest:
+      title: Institutional Transactions Request
+      description: Institutional Transactions Request
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idTransactions'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        topNHolders:
+          $ref: '#/components/schemas/topNHolders'
+        holderType:
+          $ref: '#/components/schemas/holderType'
+        currency:
+          $ref: '#/components/schemas/currency'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+        - ids
+        - startDate
+        - endDate
     fundHolding:
       title: Fund Holding
       description: fundHolding response object
@@ -493,6 +780,210 @@ components:
           description: Ticker of held security.
           type: string
           example: FB-US
+          nullable: true
+    insiderTransactions:
+      title: Insider Transactions
+      description: insiderTransactions response object
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used in the request.
+          type: string
+          example: TSLA-US
+        fsymId:
+          description: >-
+            FactSet Security Identifier of Fund. Identifies the security level
+            id of the Fund requested (not-representing the underlying holding).
+            Six alpha-numeric characters, excluding vowels, with an -S suffix
+            (XXXXXX-S). All equity and fixed income securities that exist on
+            FactSet are allocated a security-level permanent identifier.
+          type: string
+          example: Q2YN1N-R
+          nullable: true
+        currency:
+          description: >-
+            Currency code. The service will default to the funds local currency.
+            For a list of currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        holderName:
+          description: >-
+            Returns the names of the insiders involved in the transactions that
+            occurred between the specified start and end dates.
+          type: string
+          example: DENHOLM ROBYN M
+          nullable: true
+        holderTitle:
+          description: >-
+            Returns the titles of the insiders involved in the transactions that
+            occurred between the specified start and end dates.
+          type: string
+          example: Director
+          nullable: true
+        holderId:
+          description: >-
+            Returns the holder IDs for the insiders involved in the transactions
+            that occurred between the specified start and end dates.
+          type: string
+          example: S155166
+          nullable: true
+        shares:
+          description: >-
+            Returns the transaction shares for the transactions that occurred
+            between the specified start and end dates.
+          type: number
+          example: -1900
+          nullable: true
+        price:
+          description: >-
+            Returns the transaction prices for the transactions that occurred
+            between the specified start and end dates.
+          type: number
+          example: 320.12
+          nullable: true
+          format: double
+        netValueChange:
+          description: >-
+            Returns the transaction values for the transactions that occurred
+            between the specified start and end dates.
+          type: number
+          example: 60800.34
+          nullable: true
+          format: double
+        filingDate:
+          description: >-
+            Returns the dates on which the transactions that occurred between
+            the specified start and end dates were processed.
+          type: string
+          example: '2025-02-11'
+          nullable: true
+        isDerivative:
+          description: >-
+            Returns a Derivative/Non-Derivative flag for the transactions that
+            occurred between the specified start and end dates. Returns true for
+            Derivative and false for Non-Derivative.
+          type: boolean
+          example: false
+          nullable: true
+        isDirect:
+          description: >-
+            Returns a direct/indirect flag for the transactions that occurred
+            between the specified start and end dates.
+          type: boolean
+          example: true
+          nullable: true
+        tradeType:
+          description: >-
+            Returns an acquisition/disposition flag for the transactions that
+            occurred between the specified start and end dates.
+          type: string
+          example: Disposition
+          nullable: true
+        formType:
+          description: >-
+            Returns the form types for the transactions that occurred between
+            the specified start and end dates.
+          type: string
+          example: '4'
+          nullable: true
+        transactionDate:
+          description: >-
+            Returns the transaction dates for the transactions that occurred
+            between the specified start and end dates.
+          type: string
+          example: '2024-11-15'
+          nullable: true
+        sharesOwned:
+          description: >-
+            Returns the shares owned data for the transactions that occurred
+            between the specified start and end dates.
+          type: number
+          example: 85000.12
+          nullable: true
+        secRule10b51:
+          description: >-
+            Returns rule 10b5-1 flags for the insiders involved in the
+            transactions that occurred between the specified start and end
+            dates.
+          type: boolean
+          example: true
+          nullable: true
+    institutionalTransactions:
+      title: Institutional Transactions
+      description: institutionalTransactions response object
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used in the request.
+          type: string
+          example: TSLA-US
+        fsymId:
+          description: >-
+            FactSet Security Identifier of Fund. Identifies the security level
+            id of the Fund requested (not-representing the underlying holding).
+            Six alpha-numeric characters, excluding vowels, with an -S suffix
+            (XXXXXX-S). All equity and fixed income securities that exist on
+            FactSet are allocated a security-level permanent identifier.
+          type: string
+          example: Q2YN1N-R
+          nullable: true
+        currency:
+          description: >-
+            Currency code. The service will default to the funds local currency.
+            For a list of currency ISO codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        holderName:
+          description: >-
+            Returns the names of the institutions involved in the transactions
+            that occurred between the specified start and end dates.
+          type: string
+          example: T. Rowe Price Associates, Inc. (IM)
+          nullable: true
+        pctOS:
+          description: >-
+            Returns position held as a percentage of total outstanding data for
+            the holders of the security whose ownership activity matches the
+            specified change type.
+          type: number
+          example: 0.80580141
+          nullable: true
+          format: double
+        pctChange:
+          description: >-
+            Returns change in position held as a percentage of total outstanding
+            data for the holders of the security whose ownership activity
+            matches the specified change type.
+          type: number
+          example: 0.23686886
+          nullable: true
+          format: double
+        posChange:
+          description: >-
+            Returns position change data for the holders of the security whose
+            ownership activity matches the specified change type.
+          type: number
+          example: 7722331.34
+          nullable: true
+          format: double
+        marketVal:
+          description: >-
+            Returns market value data for the holders of the security whose
+            ownership activity matches the specified change type.
+          type: number
+          example: 8928152243.21
+          nullable: true
+          format: double
+        reportDate:
+          description: >-
+            Returns the report date for the transactions that occurred between
+            the specified start and end dates.
+          type: string
+          example: '2024-11-15'
           nullable: true
     securityHolders:
       title: Security Holders
@@ -631,6 +1122,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/fundHolding'
+    insiderTransactionsResponse:
+      title: Insider Transactions Response
+      type: object
+      description: insiderTransactions response
+      properties:
+        data:
+          description: Array of Insider Transactions
+          type: array
+          items:
+            $ref: '#/components/schemas/insiderTransactions'
+    institutionalTransactionsResponse:
+      title: Institutional Transactions Response
+      type: object
+      description: institutionalTransactions response
+      properties:
+        data:
+          description: Array of Institutional Transactions
+          type: array
+          items:
+            $ref: '#/components/schemas/institutionalTransactions'
     securityHoldersResponse:
       title: Security Holders Response
       type: object
@@ -690,6 +1201,15 @@ components:
       maxItems: 10
       example:
         - FDIVX-US
+    idTransactions:
+      description: List of identifiers.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 10
+      example:
+        - FDS-US
     requestedDate:
       description: Date of holdings expressed in YYYY-MM-DD format.
       type: string
@@ -701,6 +1221,24 @@ components:
       type: string
       default: ALL
       example: 5
+    topNHolders:
+      type: string
+      enum:
+        - ALL
+        - '5'
+        - '10'
+        - '25'
+        - '50'
+        - '100'
+      default: '25'
+      description: |
+        Specifies the number of top holders whose data is returned.
+          * **ALL** = All holders
+          * **5** = Top 5 Institutional Holders
+          * **10** = Top 10 Institutional Holders
+          * **25** = Top 25 Institutional Holders
+          * **50** = Top 50 Institutional Holders
+          * **100** = Top 100 Institutional Holders
     assetType:
       description: >-
         Select type of assets returned, whereby EQ = Equity, FI = Fixed Income,
@@ -720,6 +1258,22 @@ components:
       maxItems: 1
       example:
         - FDS-US
+    startDate:
+      title: Start Date
+      type: string
+      format: date
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. Future dates (T+1) are not accepted in this endpoint.
+      example: '2020-06-30'
+    endDate:
+      title: End Date
+      type: string
+      format: date
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        Future dates (T+1) are not accepted in this endpoint.
+      example: '2021-06-30'
     currency:
       description: >-
         Currency code for adjusting prices. Default is Local. For a list of
@@ -727,6 +1281,24 @@ components:
         1470](https://oa.apps.factset.com/pages/1470).
       type: string
       example: USD
+    frequency:
+      type: string
+      enum:
+        - M
+        - MTD
+        - CQ
+        - CQTD
+        - CY
+        - CYTD
+      default: M
+      description: |
+        Controls the display frequency of the data returned.
+          * **M** = Monthly, based on the last trading day of the month.
+          * **MTD** = Month-to-date
+          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+          * **CQTD** =  Calendar quarter-to-date
+          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          * **CYTD** = Calendar Year-to-date.
     holderType:
       type: string
       enum:
@@ -745,6 +1317,39 @@ components:
           * **S** =  Insiders/Stakeholders
           * **FS** = Institutions/Insiders
           * **B** = Beneficial Owners
+    transactionType:
+      type: string
+      enum:
+        - A
+        - P
+        - S
+        - PS
+        - O
+        - M
+      default: A
+      description: >
+        Controls the Transaction Type of the data returned. By default, the
+        service will return All Transaction Types.
+          * **A** = All Transaction Types - returns all available transaction types.
+          * **P** = Open Market Purchases - shares on the open market.
+          * **S** =  Open Market Sales - selling shares on the open market.
+          * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
+          * **O** = Options Exercised - executing stock options to acquire shares.
+          * **M** = Other Transactions - any other types of equity-related actions not covered above.
+    rowExclusion:
+      type: string
+      enum:
+        - DB
+        - B
+        - 'N'
+      default: DB
+      description: >
+        Controls the exlcusion of specific transaction rows from the data
+        returned. By default, the service will exclude Derivative and Blank
+        Transaction Types.
+          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
+          * **B** = Blank Transaction Types - excludes only blank transaction types.
+          * **N** =   None - includes all transaction types without exclusion.   
   responses:
     '400':
       description: >-
@@ -1272,6 +1877,702 @@ components:
           - TSLA-US
         topn: 5
         holderType: S
+    insiderTransactionsSingle:
+      summary: Single identifier request - Insider Transactions Example.
+      description: 'Returns Insider Transaction Details for the following security: TSLA-US'
+      value:
+        data:
+          - fsymId: WWDPYB-S
+            holderId: S6276669
+            shares: -923
+            reportDate: '2025-02-06'
+            holderName: MUSK KIMBAL
+            holderTitle: Director
+            price: 368.43
+            netValueChange: 340060.89
+            transactionDate: '2025-02-06'
+            sharesOwned: 1463220
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-11'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S6276669
+            shares: -74077
+            reportDate: '2025-02-06'
+            holderName: MUSK KIMBAL
+            holderTitle: Director
+            price: 367.87
+            netValueChange: 27250705.99
+            transactionDate: '2025-02-06'
+            sharesOwned: 1464143
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-11'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -400
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 387.76
+            netValueChange: 155104.89
+            transactionDate: '2025-02-03'
+            sharesOwned: 108965
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -450
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 386.78
+            netValueChange: 174051.99
+            transactionDate: '2025-02-03'
+            sharesOwned: 109365
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -1401
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 385.69
+            netValueChange: 540351.69
+            transactionDate: '2025-02-03'
+            sharesOwned: 109815
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -870
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 384.31
+            netValueChange: 334349.7
+            transactionDate: '2025-02-03'
+            sharesOwned: 111216
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -1079
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 383.51
+            netValueChange: 413807.29
+            transactionDate: '2025-02-03'
+            sharesOwned: 112086
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+    insiderTransactionsMultiple:
+      summary: Multiple identifier request - Insider Transactions Example.
+      description: >-
+        Returns Insider Transaction Details for the following securities:
+        TSLA-US and AAPL-US
+      value:
+        data:
+          - fsymId: WWDPYB-S
+            holderId: S6276669
+            shares: -923
+            reportDate: '2025-02-06'
+            holderName: MUSK KIMBAL
+            holderTitle: Director
+            price: 368.43
+            netValueChange: 340060.89
+            transactionDate: '2025-02-06'
+            sharesOwned: 1463220
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-11'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S6276669
+            shares: -74077
+            reportDate: '2025-02-06'
+            holderName: MUSK KIMBAL
+            holderTitle: Director
+            price: 367.87
+            netValueChange: 27250705.99
+            transactionDate: '2025-02-06'
+            sharesOwned: 1464143
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-11'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -400
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 387.76
+            netValueChange: 155104.89
+            transactionDate: '2025-02-03'
+            sharesOwned: 108965
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -450
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 386.78
+            netValueChange: 174051.99
+            transactionDate: '2025-02-03'
+            sharesOwned: 109365
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -1401
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 385.69
+            netValueChange: 540351.69
+            transactionDate: '2025-02-03'
+            sharesOwned: 109815
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -870
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 384.31
+            netValueChange: 334349.7
+            transactionDate: '2025-02-03'
+            sharesOwned: 111216
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: WWDPYB-S
+            holderId: S16370426
+            shares: -1079
+            reportDate: '2025-02-03'
+            holderName: TANEJA VAIBHAV
+            holderTitle: Chief Financial Officer
+            price: 383.51
+            netValueChange: 413807.29
+            transactionDate: '2025-02-03'
+            sharesOwned: 112086
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-06'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: TSLA-US
+          - fsymId: R85KLC-S
+            holderId: S5008060
+            shares: -1516
+            reportDate: '2025-02-01'
+            holderName: LEVINSON ARTHUR D
+            holderTitle: Director
+            price: 226.35
+            netValueChange: 343146.6
+            transactionDate: '2025-02-03'
+            sharesOwned: 4159576
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-05'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: AAPL-US
+          - fsymId: R85KLC-S
+            holderId: S61010
+            shares: 1516
+            reportDate: '2025-02-01'
+            holderName: WAGNER SUSAN LYNNE
+            holderTitle: Director
+            price: 226.35
+            netValueChange: 155104.89
+            transactionDate: '2025-02-01'
+            sharesOwned: 62491
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-05'
+            isDerivative: false
+            isDirect: true
+            tradeType: Acquisition
+            formType: '4'
+            requestId: AAPL-US
+          - fsymId: R85KLC-S
+            holderId: S5086741
+            shares: 1516
+            reportDate: '2025-02-01'
+            holderName: SUGAR RONALD D
+            holderTitle: Director
+            price: 226.35
+            netValueChange: 540351.69
+            transactionDate: '2025-02-01'
+            sharesOwned: 109311
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-05'
+            isDerivative: false
+            isDirect: true
+            tradeType: Acquisition
+            formType: '4'
+            requestId: AAPL-US
+          - fsymId: R85KLC-S
+            holderId: S5029367
+            shares: 1516
+            reportDate: '2025-02-01'
+            holderName: LOZANO MONICA CECILIA
+            holderTitle: Director
+            price: 226.45
+            netValueChange: 334349.7
+            transactionDate: '2025-02-01'
+            sharesOwned: 8607
+            secRule10b51: true
+            currency: USD
+            filingDate: '2025-02-05'
+            isDerivative: false
+            isDirect: true
+            tradeType: Acquisition
+            formType: '4'
+            requestId: AAPL-US
+          - fsymId: R85KLC-S
+            shares: -8384
+            reportDate: '2024-12-16'
+            holderName: WILLIAMS JEFFREY E
+            holderTitle: COO
+            price: 251.1
+            netValueChange: 2105222.4
+            transactionDate: '2024-12-16'
+            sharesOwned: 389944
+            secRule10b51: true
+            currency: USD
+            filingDate: '2024-12-19'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: AAPL-US
+          - fsymId: R85KLC-S
+            holderId: S348639
+            shares: -42939
+            reportDate: '2024-12-16'
+            holderName: WILLIAMS JEFFREY E
+            holderTitle: COO
+            price: 250.58
+            netValueChange: 10759654.62
+            transactionDate: '2024-12-16'
+            sharesOwned: 398328
+            secRule10b51: true
+            currency: USD
+            filingDate: '2024-12-19'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: AAPL-US
+          - fsymId: R85KLC-S
+            holderId: S348639
+            shares: -34752
+            reportDate: '2024-12-16'
+            holderName: WILLIAMS JEFFREY E
+            holderTitle: COO
+            price: 249.5
+            netValueChange: 8670624.89
+            transactionDate: '2024-12-16'
+            sharesOwned: 441267
+            secRule10b51: true
+            currency: USD
+            filingDate: '2024-12-19'
+            isDerivative: false
+            isDirect: true
+            tradeType: Disposition
+            formType: '4'
+            requestId: AAPL-US
+    insiderTransactionsPostRequest:
+      summary: Request body for Insider Transactions.
+      description: Requesting insider transactions details for TSLA-US.
+      value:
+        ids:
+          - TSLA-US
+        startDate: '2020-06-30'
+        endDate: '2021-06-30'
+        transactionType: A
+        rowExclusion: DB
+        currency: USD
+    institutionalTransactionsPostRequest:
+      summary: Request body for Institutional Transactions.
+      description: Requesting institutional transactions details for TSLA-US.
+      value:
+        ids:
+          - TSLA-US
+        startDate: '2020-06-30'
+        endDate: '2021-06-30'
+        topNHolders: '10'
+        holderType: F
+        frequency: MTD
+        currency: USD
+    institutionalTransactionsSingle:
+      summary: Single Identifier - Institutional Transactions Example.
+      description: >-
+        Returns the top 10 Institutional Transactions for the following
+        security: TSLA-US
+      value:
+        data:
+          - fsymId: Q2YN1N-R
+            holderName: T. Rowe Price Associates, Inc. (IM)
+            pctOS: 0.80580141
+            pctChange: 0.23686886
+            posChange: 7722331.47
+            marketVal: 8928152243.21
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Wellington Management Co. LLP
+            pctOS: 0.21301171
+            pctChange: 0.19691345
+            posChange: 6324398.37
+            marketVal: 2360136083.43
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Capital Research & Management Co. (Global Investors)
+            pctOS: 0.3311517
+            pctChange: 0.18669329
+            posChange: 6023105.36
+            marketVal: 3669108442.54
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: The Vanguard Group, Inc.
+            pctOS: 7.06986926
+            pctChange: 0.12602791
+            posChange: 5494299.3
+            marketVal: 78333033768.26
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: JPMorgan Investment Management, Inc.
+            pctOS: 0.6197582
+            pctChange: 0.16369943
+            posChange: 5349999.47
+            marketVal: 6866822897.24
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Amundi Asset Management US, Inc.
+            pctOS: 0.38204552
+            pctChange: 0.13255707
+            posChange: 4307213.68
+            marketVal: 4233003927.17
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Nomura Securities Co., Ltd. (Private Banking)
+            pctOS: 0.12961164
+            pctChange: 0.11928559
+            posChange: 3831293.12
+            marketVal: 1436076493.21
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Capital Research & Management Co. (World Investors)
+            pctOS: 1.33371316
+            pctChange: 0.10783275
+            posChange: 3717257.45
+            marketVal: 14777330938.67
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: UBS Asset Management Switzerland AG
+            pctOS: 0.28948602
+            pctChange: 0.10707332
+            posChange: 3475175.37
+            marketVal: 3207459358.24
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Marshall Wace LLP
+            pctOS: 0.11556988
+            pctChange: 0.10238869
+            posChange: 3289488.57
+            marketVal: 1280495968.54
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+    institutionalTransactionsMultiple:
+      summary: Multiple Identifiers - Institutional Transactions Example.
+      description: >-
+        Returns the top 10 Institutional Transactions for the following
+        security: TSLA-US and AAPL-US
+      value:
+        data:
+          - fsymId: Q2YN1N-R
+            holderName: T. Rowe Price Associates, Inc. (IM)
+            pctOS: 0.80580141
+            pctChange: 0.23686886
+            posChange: 7722331.57
+            marketVal: 8928152243.45
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Wellington Management Co. LLP
+            pctOS: 0.21301171
+            pctChange: 0.19691345
+            posChange: 6324398.35
+            marketVal: 2360136083.54
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Capital Research & Management Co. (Global Investors)
+            pctOS: 0.3311517
+            pctChange: 0.18669329
+            posChange: 6023105.92
+            marketVal: 3669108442.21
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: The Vanguard Group, Inc.
+            pctOS: 7.06986926
+            pctChange: 0.12602791
+            posChange: 5494299.47
+            marketVal: 78333033768.34
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: JPMorgan Investment Management, Inc.
+            pctOS: 0.6197582
+            pctChange: 0.16369943
+            posChange: 5349999.6
+            marketVal: 6866822897.24
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Amundi Asset Management US, Inc.
+            pctOS: 0.38204552
+            pctChange: 0.13255707
+            posChange: 4307213.38
+            marketVal: 4233003927.87
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Nomura Securities Co., Ltd. (Private Banking)
+            pctOS: 0.12961164
+            pctChange: 0.11928559
+            posChange: 3831293.68
+            marketVal: 1436076493.81
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Capital Research & Management Co. (World Investors)
+            pctOS: 1.33371316
+            pctChange: 0.10783275
+            posChange: 3717257.36
+            marketVal: 14777330938.35
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: UBS Asset Management Switzerland AG
+            pctOS: 0.28948602
+            pctChange: 0.10707332
+            posChange: 3475175.56
+            marketVal: 3207459358.35
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: Q2YN1N-R
+            holderName: Marshall Wace LLP
+            pctOS: 0.11556988
+            pctChange: 0.10238869
+            posChange: 3289488.34
+            marketVal: 1280495968.2
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: TSLA-US
+          - fsymId: AAPL-US^
+            holderName: Fidelity Management & Research Co. LLC
+            pctOS: 2.06702662
+            pctChange: 0.45564975
+            posChange: 65358235.9
+            marketVal: 74153304013.1
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: Capital Research & Management Co. (Global Investors)
+            pctOS: 0.47254658
+            pctChange: 0.26531349
+            posChange: 39652012.1
+            marketVal: 16952316718.67
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: BlackRock Fund Advisors
+            pctOS: 4.76310954
+            pctChange: 0.30731603
+            posChange: 36728177.23
+            marketVal: 1280495968.2
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: Wellington Management Co. LLP
+            pctOS: 0.58557911
+            pctChange: 0.22331868
+            posChange: 32965790.68
+            marketVal: 21007289158.23
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: T. Rowe Price Associates, Inc. (IM)
+            pctOS: 1.41610479
+            pctChange: 0.19653322
+            posChange: 27045789.23
+            marketVal: 50801885086.78
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: Geode Capital Management LLC
+            pctOS: 2.20866241
+            pctChange: 0.20188527
+            posChange: 26136648.76
+            marketVal: 79234400475.12
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: Capital Research & Management Co. (World Investors)
+            pctOS: 0.28673687
+            pctChange: 0.16259464
+            posChange: 24306566.35
+            marketVal: 10286508039.34
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: The Vanguard Group, Inc.
+            pctOS: 8.46124304
+            pctChange: 0.27515047
+            posChange: 23724374.76
+            marketVal: 1280495968.2
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: Capital Research & Management Co. (International Investors)
+            pctOS: 0.37972311
+            pctChange: 0.1374763
+            posChange: 20251948.21
+            marketVal: 13622332131.4
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
+          - fsymId: AAPL-US^
+            holderName: JPMorgan Investment Management, Inc.
+            pctOS: 0.74817705
+            pctChange: 0.10870149
+            posChange: 15035412.31
+            marketVal: 26840389932.67
+            reportDate: '2024-09-30'
+            currency: USD
+            requestId: AAPL-US
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

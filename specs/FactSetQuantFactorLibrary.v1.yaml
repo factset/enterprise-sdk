@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: FactSet Quant Factor Library API
-  version: 1.0.1
+  version: 1.0.2
   description: >
     The FactSet FactSet Quant Factor Library (QFL) API helps to detect
     investment themes across global equity markets, incorporate ideas into your
@@ -200,7 +200,7 @@ components:
         oneId:
           summary: Single id
           value:
-            - FDS-US
+            - TSLA-US
         multipleIds:
           summary: Multiple ids
           value:
@@ -210,7 +210,7 @@ components:
     factors:
       name: factors
       in: query
-      required: true
+      required: false
       schema:
         type: array
         items:
@@ -222,10 +222,6 @@ components:
         Array of individual Factor Items requested. For a list of all available
         factors and descriptions use the `/library` endpoint.***<p>factors
         limit** = 20 individual factors per request*
-      example:
-        - rsi21D
-        - ulcer252D
-        - turbulence21D
     factorsLibrary:
       name: factors
       in: query
@@ -534,7 +530,6 @@ components:
           $ref: '#/components/schemas/frequency'
       required:
         - ids
-        - factors
         - startDate
         - endDate
     factorsResponse:
@@ -662,7 +657,7 @@ components:
         to a 30 second duration. This can be reached when increasing total
         number of metrics requested and depth of history. *
       example:
-        - FDS-US
+        - TSLA-US
     factorsParam:
       type: array
       items:

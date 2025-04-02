@@ -16,7 +16,7 @@ info:
     url: http://www.factset.com/api/license.html
   termsOfService: http://www.factset.com/api/terms.html
   title: FactSet Quant Factor Library API
-  version: 1.0.1
+  version: 1.0.2
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -48,7 +48,7 @@ paths:
           oneId:
             summary: Single id
             value:
-            - FDS-US
+            - TSLA-US
           multipleIds:
             summary: Multiple ids
             value:
@@ -68,14 +68,10 @@ paths:
         style: form
       - description: |
           Array of individual Factor Items requested. For a list of all available factors and descriptions use the `/library` endpoint.***<p>factors limit** = 20 individual factors per request*
-        example:
-        - rsi21D
-        - ulcer252D
-        - turbulence21D
         explode: false
         in: query
         name: factors
-        required: true
+        required: false
         schema:
           items:
             type: string
@@ -939,7 +935,7 @@ components:
         oneId:
           summary: Single id
           value:
-          - FDS-US
+          - TSLA-US
         multipleIds:
           summary: Multiple ids
           value:
@@ -960,14 +956,10 @@ components:
     factors:
       description: |
         Array of individual Factor Items requested. For a list of all available factors and descriptions use the `/library` endpoint.***<p>factors limit** = 20 individual factors per request*
-      example:
-      - rsi21D
-      - ulcer252D
-      - turbulence21D
       explode: false
       in: query
       name: factors
-      required: true
+      required: false
       schema:
         items:
           type: string
@@ -1177,7 +1169,7 @@ components:
           description: |
             The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *
           example:
-          - FDS-US
+          - TSLA-US
           items:
             type: string
           maxItems: 3500
@@ -1219,7 +1211,6 @@ components:
           $ref: '#/components/schemas/frequency'
       required:
       - endDate
-      - factors
       - ids
       - startDate
       title: Factors Request Body
@@ -1385,7 +1376,7 @@ components:
       description: |
         The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *
       example:
-      - FDS-US
+      - TSLA-US
       items:
         type: string
       maxItems: 3500
