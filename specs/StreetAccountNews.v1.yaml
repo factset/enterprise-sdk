@@ -1265,6 +1265,10 @@ components:
                 relevant, for example, "North America". Use the
                 `/filters/regions` endpoint to get the list of available
                 regions.
+
+
+                **Note:** Filtering is possible only for top-level regions, not
+                individual countries.
               items:
                 type: string
                 example: North America
@@ -1590,7 +1594,12 @@ components:
               type: array
               items:
                 type: string
-                description: An array of regions associated with the view.
+                description: >
+                  An array of regions associated with the view.
+
+
+                  **Note:** Filtering is possible only for top-level regions,
+                  not individual countries.
                 example: North America
             sectors:
               type: array

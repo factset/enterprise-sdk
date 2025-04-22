@@ -271,12 +271,13 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-US"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
     currency = "USD" # str | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids.  (optional) if omitted the server will use the default value of "LOCAL"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  = Annual - Original,   * **QTR**  = Quarterly - Original   * **SEMI** = Semi-Annual  (optional)
 
     try:
         # Returns company fundamentals for a given list of identifiers.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_fundamentals(ids, currency=currency)
+        api_response = api_instance.get_fundamentals(ids, currency=currency, periodicity=periodicity)
 
         pprint(api_response)
 
@@ -291,6 +292,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt;  |
  **currency** | **str**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  | [optional] if omitted the server will use the default value of "LOCAL"
+ **periodicity** | **str**| Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  &#x3D; Annual - Original,   * **QTR**  &#x3D; Quarterly - Original   * **SEMI** &#x3D; Semi-Annual  | [optional]
 
 ### Return type
 

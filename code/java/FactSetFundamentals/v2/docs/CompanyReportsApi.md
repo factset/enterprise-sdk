@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## getFundamentals
 
-> CompanyFundamentalsResponse getFundamentals(ids, currency)
+> CompanyFundamentalsResponse getFundamentals(ids, currency, periodicity)
 
 Returns company fundamentals for a given list of identifiers.
 
@@ -266,8 +266,9 @@ public class Example {
         CompanyReportsApi apiInstance = new CompanyReportsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
         String currency = "LOCAL"; // String | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. 
+        String periodicity = "ANN"; // String | Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  = Annual - Original,   * **QTR**  = Quarterly - Original   * **SEMI** = Semi-Annual 
         try {
-            CompanyFundamentalsResponse result = apiInstance.getFundamentals(ids, currency);
+            CompanyFundamentalsResponse result = apiInstance.getFundamentals(ids, currency, periodicity);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -288,6 +289,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt;  |
  **currency** | **String**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  | [optional] [default to LOCAL]
+ **periodicity** | **String**| Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  &#x3D; Annual - Original,   * **QTR**  &#x3D; Quarterly - Original   * **SEMI** &#x3D; Semi-Annual  | [optional] [enum: ANN, QTR, SEMI]
 
 ### Return type
 

@@ -1,0 +1,1153 @@
+openapi: 3.0.0
+info:
+  title: Global Filings API
+  version: 2.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  description: >-
+
+    The Filings API provides a comprehensive set of functionalities for
+    searching and retrieving filing documents from various sources.
+
+
+    This API is designed to expose document search and document retrieval
+    functionality. A document search will allow a request to query FactSet
+    document databases based on certain search criteria specified in the
+    request.
+
+
+    In addition, a document count request will provide information on the number
+    of stories available for a particular security.
+
+
+    The meta endpoints, such as sources, formTypes, timeZones, and categories,
+    provide comprehensive lists of available sources, form types, time zones,
+    and categories, respectively.
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/global-filings-api
+servers:
+  - url: https://api.factset.com/content/global-filings/v2
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /search:
+    get:
+      summary: >-
+        Returns the filings documents and related metadata within FactSet
+        coverage.
+      tags:
+        - Filings API
+      responses:
+        '200':
+          description: >-
+            Array of downloadable URLs consisting of Filings documents with
+            related metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                      - requestId: IBM-US
+                        documents:
+                          - headline: >-
+                              Zukin's Next Week Today 4/7/2023 (Wolf Research)
+                              97 pages
+                            source: EDG
+                            allIds:
+                              - IBM-US
+                            primaryIds:
+                              - IBM-US
+                            filingsDateTime: '2023-03-07T19:40:26Z'
+                            categories:
+                              - CN:US
+                              - DT:AN-FILNS
+                              - DT:FILNS
+                            filingsLink: >-
+                              https://api.factset.com/global-filings/v2/filings?report=story&timezone=America/New_York&key=U2FsdGVkX19SkoP9grB4gEvwp4tWYdoXCbUUu4NtCmZgsJSCwsJPD8kj5o0SrR9o6eqHlEUBovdn8Ie2uMnx7WYY1NvalwYx20RXhICaBjfklpaFfiHJyfim5gedDeah
+                            documentId: 20230307-5b36f2cf-49bd-ed11-abc3
+                            filingSize: 12MB
+                            formTypes:
+                              - 10-K
+                            accession: 0001493152-24-004069
+                          - headline: INTERNATIONAL BUSINESS MACHINE files  (IBM-US)
+                            source: EDG
+                            allIds:
+                              - IBM-US
+                            primaryIds:
+                              - IBM-US
+                            filingsDateTime: '2025-03-07T17:14:51Z'
+                            categories:
+                              - CN:US
+                              - DT:AN-FILNS
+                              - DT:FILNS
+                              - RN:AM
+                              - RN:NA
+                            filingsLink: >-
+                              https://api.factset.com/global-filings/v2/filings?report=story&timezone=America/New_York&key=U2FsdGVkX19SkoP9grB4gEvwp4tWYdoXCbUUu4NtCmZgsJSCwsJPD8kj5o0SrR9o6eqHlEUBovdn8Ie2uMnx7WYY1NvalwYx20RXhICaBjfklpaFfiHJyfim5gedDeru
+                            documentId: 0001104659-25-024498-1
+                            filingSize: 10MB
+                            formTypes:
+                              - 10-K
+                            accession: 0001493152-24-004069
+                      - requestId: MSFT-US
+                        documents: []
+                      - requestId: M
+                        error:
+                          code: parameterError
+                          title: Invalid id
+                          detail: >-
+                            This id does not follow the format of FactSet
+                            exchange symbol, CUSIP, or SEDOL.
+
+                             
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+                        total: 25
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+      operationId: getFilings
+      description: >-
+        Returns the filings documents within FactSet coverage along with other
+        response fields.
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+        - $ref: '#/components/parameters/timezone'
+        - $ref: '#/components/parameters/sort'
+        - $ref: '#/components/parameters/sourcesRequired'
+        - $ref: '#/components/parameters/categories'
+        - $ref: '#/components/parameters/primaryId'
+        - $ref: '#/components/parameters/searchText'
+        - $ref: '#/components/parameters/formTypes'
+        - $ref: '#/components/parameters/edgarAccession'
+  /count:
+    get:
+      tags:
+        - Filings API
+      operationId: getCount
+      summary: Returns the count of filings for specified source.
+      description: Returns the count of filings documents along with other response fields.
+      parameters:
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/countIds'
+        - $ref: '#/components/parameters/sources'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleCountResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/sources:
+    get:
+      tags:
+        - Meta
+      operationId: getSources
+      summary: Returns the sources.
+      description: Retrieves and delivers a comprehensive list of all available `sources`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponse'
+              examples:
+                sources:
+                  summary: Sample 200 Response for Sources Parameter
+                  value:
+                    data:
+                      - source: EDG
+                        description: EDGAR
+                      - source: EDJ
+                        description: EDINET
+                      - source: FBLK
+                        description: Factset Blackline Report
+                      - source: FFR
+                        description: Factset Annuals & Interims
+                      - source: HNX
+                        description: Hanoi Stock Exchange - HNX News
+                      - source: SDR
+                        description: SEDAR
+                      - source: SDRP
+                        description: SEDAR PLUS
+                      - source: SENS
+                        description: Stock Exchange News Service
+                      - source: TDT
+                        description: TDnet
+                      - source: TWSE
+                        description: Taiwan Stock Exchange
+                      - source: ASXD
+                        description: ASX Company Announcements Delayed
+                      - source: OMX
+                        description: GlobeNewswire Europe
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/form-types:
+    get:
+      tags:
+        - Meta
+      operationId: getFormtype
+      summary: Returns the form types of specified sources.
+      description: ' Retrieves and delivers a comprehensive list of all available  `formTypes`.'
+      parameters:
+        - $ref: '#/components/parameters/sourcesOptional'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormTypeResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleFormTypeResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/time-zones:
+    get:
+      tags:
+        - Meta
+      operationId: getTimezone
+      summary: Returns the time zones.
+      description: >-
+        Retrieves and delivers a comprehensive list of all available
+        `timeZones`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeZoneResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleTimeZoneResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/categories:
+    get:
+      tags:
+        - Meta
+      operationId: getcategories
+      summary: Returns the categories.
+      description: >-
+        Retrieves and delivers a comprehensive list of all available
+        `categories`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/sampleCategoryResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    ErrorResponse:
+      type: object
+      description: Error Response Object
+      properties:
+        errors:
+          type: array
+          description: Errors Array Object
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      description: Error Example Object
+      properties:
+        code:
+          description: Specifies the error code.
+          type: string
+        title:
+          description: ' Specifies the error message.'
+          type: string
+        id:
+          description: Specifies the id.
+          type: string
+        detail:
+          description: Specifies the error message in detail.
+          type: string
+    SearchResponse:
+      description: |
+        Response with list of documents for the provided `ids` and `sources`.
+      type: object
+      properties:
+        data:
+          type: array
+          description: >
+            Provides the list of documents for the requested `ids` and
+            `sources`.
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        meta:
+          type: object
+          description: Meta Object
+          properties:
+            pagination:
+              type: object
+              description: Pagination Object
+              properties:
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results.
+                total:
+                  type: integer
+                  description: >-
+                    Total number of files the API returns for a particular
+                    query.
+    SearchResult:
+      type: object
+      description: >
+        The data being returned in the search response are search results, and
+        under each search result, the documents are organized by requested
+        identifiers.
+      properties:
+        requestId:
+          type: string
+          description: The requested identifier associated with this group of documents.
+        documents:
+          type: array
+          description: Contains list of documents
+          items:
+            $ref: '#/components/schemas/Document'
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+    Document:
+      title: Files
+      description: Array of data objects
+      type: object
+      properties:
+        headline:
+          type: string
+          description: Headline of the story, actual time and date of the event.
+        source:
+          type: string
+          description: >-
+            Provides the source of the document, and the source value is one
+            among those provided by the `/meta/sources` endpoint.
+        primaryIds:
+          type: array
+          items:
+            type: string
+          description: Refers to the main company a particular document refers to.
+        allIds:
+          type: array
+          items:
+            type: string
+          description: >-
+            Refers to all companies mentioned in the document. This could also
+            include the primary company id as well.
+
+
+
+            **Note:** For the "allIds" and "primaryIds" fields:
+              - These identifiers can be either SEDOLs or CUSIPs, depending on the search criteria and the type of identifiers specified in your request.
+              - The API will return the corresponding identifiers based on the search parameters provided.
+        filingsDateTime:
+          type: string
+          description: >-
+            Publish date and time of the latest version (in ISO 8601 format,
+            UTC).
+        categories:
+          type: array
+          items:
+            type: string
+          description: >-
+            Categories are Country, Industry, and Subject codes. This is a
+            comma-separated list retrieved from `/meta/categories`
+        filingsLink:
+          type: string
+          description: A secure HTTPS link for downloading the associated document.
+        documentId:
+          type: string
+          description: Unique identifier for a document.
+        filingSize:
+          type: string
+          description: >-
+            Filings specific metadata providing info around the size of the
+            document.
+        formTypes:
+          type: array
+          items:
+            type: string
+          description: >-
+            Filings specific metadata providing info around the form type (e.g.
+            8K, 10K, etc.)
+        accession:
+          type: string
+          description: A unique identifier given to each EDGAR filings document.
+    InvalidIdErrorObject:
+      type: object
+      nullable: true
+      description: error
+      properties:
+        code:
+          description: status
+          type: string
+          example: GenericError
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        detail:
+          description: Error details explanation
+          type: string
+          example: Validation Error
+    SourceResponse:
+      description: Response with list of available sources
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available sources
+          items:
+            $ref: '#/components/schemas/Source'
+    Source:
+      type: object
+      required:
+        - source
+        - description
+      properties:
+        source:
+          type: string
+          description: source value
+          example: EDG
+        description:
+          type: string
+          description: source description
+          example: EDGAR
+    FormTypeResponse:
+      description: Response with list of available form-types
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available form-types
+          items:
+            $ref: '#/components/schemas/FormType'
+    FormType:
+      type: object
+      properties:
+        source:
+          type: string
+          description: source
+          example: EDG
+        formType:
+          type: string
+          description: formType
+          example: 8-K
+        description:
+          type: string
+          description: source description
+          example: Edgar
+    TimeZoneResponse:
+      description: Response with list of time-zones
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available time-zones
+          items:
+            $ref: '#/components/schemas/TimeZone'
+    TimeZone:
+      type: object
+      properties:
+        timeZone:
+          type: string
+          description: timeZone
+          example: Africa/Malabo
+    CategoryResponse:
+      description: Response with list of available categories
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available categories
+          items:
+            $ref: '#/components/schemas/Category'
+    Category:
+      type: object
+      properties:
+        subject:
+          type: string
+          description: subject code
+          example: SB
+        category:
+          type: string
+          description: category
+          example: SB:ANLCH
+        description:
+          type: string
+          description: description
+          example: Analysts Revisions
+    CountResponse:
+      description: Response with count of documents for provided source
+      type: object
+      properties:
+        data:
+          type: array
+          description: Provides the count of documents
+          items:
+            $ref: '#/components/schemas/Count'
+    Count:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: id
+          example: IBM-US
+        source:
+          type: string
+          description: source
+          example: FFR
+        count:
+          type: string
+          description: source value
+          example: '8000'
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+  examples:
+    ErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Bad Request
+            title: Not a valid parameter
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: parameterError:['_paginationLimit'] is not a valid parameter(s).
+    AuthErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Not Authenticated
+            title: Unauthenticated USERNAME-SERIAL.
+            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+            detail: User is not authenticated properly
+    AuthorizationErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Forbidden
+            title: USERNAME-SERIAL does not have permission.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: User is not authorized for this endpoint
+    ServerErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Internal Server Error
+            title: An unexpected error happened.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: The service you have requested has encountered an error
+    sampleFormTypeResponse:
+      summary: Sample 200 response for formTypes parameter.
+      value:
+        data:
+          - source: EDG
+            description: Edgar
+            formType: 10-K
+          - source: EDG
+            description: Edgar
+            formType: 8-K
+    sampleTimeZoneResponse:
+      summary: Sample 200 Response for timeZones parameter
+      value:
+        data:
+          - timeZone: Africa/Malabo
+    sampleCategoryResponse:
+      summary: Sample 200 Response for categories parameter.
+      value:
+        data:
+          - subject: SB
+            category: SB:ANLCH
+            description: Analysts Revisions
+    sampleCountResponse:
+      summary: Sample Response
+      value:
+        data:
+          - requestId: IBM-US
+            source: FFR
+            count: '8000'
+          - requestId: IBM-US
+            source: EDG
+            count: '10000'
+          - requestId: M
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: >-
+                This id does not follow the format of FactSet exchange symbol,
+                CUSIP, or SEDOL.
+  parameters:
+    ids:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: ids
+      required: true
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+            - MODN-US
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+            - MODN-US
+            - OSIS-US
+      description: >-
+        Requested symbols or securities.  This is a comma-separated list with a
+        maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+        CUSIP, or SEDOL.
+      explode: false
+    countIds:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: ids
+      required: true
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+            - MODN-US
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+            - MODN-US
+            - OSIS-US
+      description: >-
+        Requested symbols or securities.  This is a comma-separated list with a
+        maximum limit of 10.  Each symbol can be a FactSet exchange symbol,
+        CUSIP, or SEDOL.
+      explode: false
+    startDate:
+      schema:
+        type: string
+      in: query
+      name: startDate
+      example: '20240601'
+      description: |
+        Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+    endDate:
+      schema:
+        type: string
+      in: query
+      name: endDate
+      example: '20241101'
+      description: End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+    primaryId:
+      schema:
+        type: boolean
+        enum:
+          - true
+          - false
+        default: false
+      in: query
+      name: primaryId
+      description: >-
+        Type of identifier search
+
+        * true - Returns headlines of stories that have the searched
+        identifier(s) as the primary  identifier.
+
+        * false - Returns headlines of stories that mentioned or referred to
+        the  identifier.
+    paginationLimit:
+      schema:
+        type: integer
+        format: int32
+        default: 25
+      in: query
+      name: _paginationLimit
+      example: 20
+      description: Number of results to return per page.
+    paginationOffset:
+      schema:
+        type: integer
+        format: int32
+        default: 0
+      in: query
+      name: _paginationOffset
+      description: 'Page number of the results to return. '
+    timezone:
+      schema:
+        type: string
+        default: America/New_York
+      in: query
+      name: timeZone
+      description: >-
+        timeZone to return story dates and times.Time zones, represented in
+        POSIX format, are automatically adjusted for daylight savings. timeZone
+        names are sourced from the IANA timezone registry.
+    sort:
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - filingsDateTime
+            - '-filingsDateTime'
+        maxItems: 1
+        default:
+          - '-filingsDateTime'
+      in: query
+      name: _sort
+      style: form
+      explode: false
+      examples:
+        filingsDateTime:
+          summary: filingsDateTime
+          value:
+            - filingsDateTime
+        '-filingsDateTime':
+          summary: '-filingsDateTime'
+          value:
+            - '-filingsDateTime'
+      description: >-
+        Enables sorting data in ascending or descending  order based on
+        filingsDateTime.
+
+         * `filingsDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the
+           API has a 10-year searching limitation. 
+         *  `-filingsDateTime` - sorting results in reverse chronological (descending) order. This is the default value if
+            the sort parameter isn't used in the query.
+    sources:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: sources
+      required: true
+      explode: false
+      examples:
+        oneSource:
+          summary: One Source
+          value:
+            - EDG
+        multipleSources:
+          summary: Multiple Sources
+          value:
+            - EDG
+            - FFR
+      description: >-
+        Code for document source to include.This is a comma-separated list. Use
+        the `/meta/sources` endpoint to get the list of available sources.
+         
+    sourcesRequired:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: sources
+      required: true
+      examples:
+        oneSource:
+          summary: One Source
+          value:
+            - EDG
+        multipleSources:
+          summary: Multiple Sources
+          value:
+            - EDG
+            - FFR
+    sourcesOptional:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: sources
+      required: false
+      examples:
+        oneSource:
+          summary: One Source
+          value:
+            - EDG
+        multipleSources:
+          summary: Multiple Sources
+          value:
+            - EDG
+            - FFR
+      description: >-
+        Code for document source to include.  This is a comma-separated list.
+        Use the `/meta/sources` endpoint to get the list of available sources.
+      explode: false
+    categories:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: categories
+      example:
+        - CN:US
+      description: >-
+        Code for categories to include.  This is a comma-separated list. Use the
+        `/meta/categories` endpoint to get the list of available categories.
+
+
+        Default = All categories.
+      explode: false
+    searchText:
+      schema:
+        type: string
+      in: query
+      name: searchText
+      example: Officer
+      description: >-
+        Restricts the search to include only document stories which include the
+        text searched.
+    formTypes:
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+      name: formTypes
+      required: false
+      explode: false
+      description: The search to include any form types of given sources
+      examples:
+        oneFormType:
+          summary: One formType
+          value:
+            - 15-12G
+        multipleFormTypes:
+          summary: Multiple formTypes
+          value:
+            - 15-12G
+            - '4'
+    edgarAccession:
+      schema:
+        type: string
+      in: query
+      description: >-
+        A unique identifier given to each EDGAR filings document. e.g.
+
+        accession=0001013237-21-000069&sources=EDG.
+
+
+
+        > **Note:**
+
+
+        > When used in conjunction with the 'sources' parameter set to 'EDGAR,
+        the API considers this accession for data retrieval.
+
+
+        > For non-EDGAR sources, this parameter is ignored.
+      name: edgarAccession
+      required: false
+tags:
+  - name: Filings API
+    description: >-
+      These endpoints provide access to search and download filings documents
+      from various sources.
+  - name: Meta
+    description: >-
+      These endpoints provide access to a comprehensive list of all available
+      values used in the Filings API endpoint parameters.

@@ -152,7 +152,6 @@ const opts = {
   'cikColumn': "cikColumn_example", // String | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys`
   'crdColumn': "crdColumn_example", // String | Header Name of the column in the input file for the type CRD, `Central Registration Depository`.
   'cusipColumn': "cusipColumn_example", // String | Header Name of the column in the input file for the type `CUSIP`
-  'dunsColumn': "dunsColumn_example", // String | Header Name of the column in the input file for the type DUNS, `Dun&Bradstreet`.
   'einColumn': "einColumn_example", // String | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`.
   'factsetIdColumn': "factsetIdColumn_example", // String | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`.
   'fitchColumn': "fitchColumn_example", // String | Header Name of the column in the input file for the type FitchCreditRating, `Fitch Ratings Identifier`.
@@ -177,7 +176,8 @@ const opts = {
   'excludeEntityType': ["EXT"], // [String] | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** 
   'includeEntitySubType': ["PR"], // [String] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
   'excludeEntitySubType': ["IB"], // [String] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
-  'additionalContextColumns': ["Address"] // [String] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
+  'additionalContextColumns': ["Address"], // [String] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
+  'autoRemap': true // Boolean | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.** 
 };
 
 // Call api endpoint
@@ -215,7 +215,6 @@ Name | Type | Description  | Notes
  **cikColumn** | **String**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional] 
  **crdColumn** | **String**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional] 
  **cusipColumn** | **String**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional] 
- **dunsColumn** | **String**| Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. | [optional] 
  **einColumn** | **String**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional] 
  **factsetIdColumn** | **String**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional] 
  **fitchColumn** | **String**| Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. | [optional] 
@@ -241,6 +240,7 @@ Name | Type | Description  | Notes
  **includeEntitySubType** | [**[String]**](String.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **excludeEntitySubType** | [**[String]**](String.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **additionalContextColumns** | [**[String]**](String.md)| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
+ **autoRemap** | **Boolean**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional] 
 
 ### Return type
 

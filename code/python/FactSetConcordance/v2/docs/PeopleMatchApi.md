@@ -61,19 +61,20 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = people_match_api.PeopleMatchApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    entity = "Microsoft" # str | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match.
+    entity = "Microsoft" # str | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name.
     person_name = "Bill Gates" # str | Name of Person to match. (optional)
     salutation = "Mr" # str | Title in person's name. This parameter should not be provided when the person name is provided as the input. (optional)
     first_name = "Bill" # str | First name of person. This parameter should not be provided when the person name is provided as the input. (optional)
     middle_name = "Henry" # str | Middle name of person.This parameter should not be provided when the person name is provided as the input. (optional)
     last_name = "Gates" # str | Last name of person. This parameter should not be provided when the person name is provided as the input. (optional)
     suffix = "III" # str | Suffix in person's name. This parameter should not be provided when the person name is provided as the input. (optional)
+    candidates_count = 40 # int | Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. <p>*minimum - 20*</p> <p>*maximum - 100*</p> (optional)
 
     try:
         # Find potential people matches given a person's name.People matches can be retrieved using person's name and other attributes like firstname, middlename and lastname.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_people_match(entity, person_name=person_name, salutation=salutation, first_name=first_name, middle_name=middle_name, last_name=last_name, suffix=suffix)
+        api_response = api_instance.get_people_match(entity, person_name=person_name, salutation=salutation, first_name=first_name, middle_name=middle_name, last_name=last_name, suffix=suffix, candidates_count=candidates_count)
 
         pprint(api_response)
 
@@ -86,13 +87,14 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity** | **str**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match. |
+ **entity** | **str**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. |
  **person_name** | **str**| Name of Person to match. | [optional]
  **salutation** | **str**| Title in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional]
  **first_name** | **str**| First name of person. This parameter should not be provided when the person name is provided as the input. | [optional]
  **middle_name** | **str**| Middle name of person.This parameter should not be provided when the person name is provided as the input. | [optional]
  **last_name** | **str**| Last name of person. This parameter should not be provided when the person name is provided as the input. | [optional]
  **suffix** | **str**| Suffix in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional]
+ **candidates_count** | **int**| Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. &lt;p&gt;*minimum - 20*&lt;/p&gt; &lt;p&gt;*maximum - 100*&lt;/p&gt; | [optional]
 
 ### Return type
 
@@ -189,6 +191,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
                 entity="Microsoft",
             ),
         ],
+        candidates_count=40,
         universe_id=1,
     ) # PeopleMatchRequest | A request to People match.
 

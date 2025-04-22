@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getPeopleMatch
 
-> PeopleMatchesResponse getPeopleMatch(entity, personName, salutation, firstName, middleName, lastName, suffix)
+> PeopleMatchesResponse getPeopleMatch(entity, personName, salutation, firstName, middleName, lastName, suffix, candidatesCount)
 
 Find potential people matches given a person&#39;s name.People matches can be retrieved using person&#39;s name and other attributes like firstname, middlename and lastname.
 
@@ -59,15 +59,16 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PeopleMatchApi apiInstance = new PeopleMatchApi(defaultClient);
-        String entity = "Microsoft"; // String | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match.
+        String entity = "Microsoft"; // String | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name.
         String personName = "Bill Gates"; // String | Name of Person to match.
         String salutation = "Mr"; // String | Title in person's name. This parameter should not be provided when the person name is provided as the input.
         String firstName = "Bill"; // String | First name of person. This parameter should not be provided when the person name is provided as the input.
         String middleName = "Henry"; // String | Middle name of person.This parameter should not be provided when the person name is provided as the input.
         String lastName = "Gates"; // String | Last name of person. This parameter should not be provided when the person name is provided as the input.
         String suffix = "III"; // String | Suffix in person's name. This parameter should not be provided when the person name is provided as the input.
+        Integer candidatesCount = 40; // Integer | Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. <p>*minimum - 20*</p> <p>*maximum - 100*</p>
         try {
-            PeopleMatchesResponse result = apiInstance.getPeopleMatch(entity, personName, salutation, firstName, middleName, lastName, suffix);
+            PeopleMatchesResponse result = apiInstance.getPeopleMatch(entity, personName, salutation, firstName, middleName, lastName, suffix, candidatesCount);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -86,13 +87,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity** | **String**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match. |
+ **entity** | **String**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. |
  **personName** | **String**| Name of Person to match. | [optional]
  **salutation** | **String**| Title in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional]
  **firstName** | **String**| First name of person. This parameter should not be provided when the person name is provided as the input. | [optional]
  **middleName** | **String**| Middle name of person.This parameter should not be provided when the person name is provided as the input. | [optional]
  **lastName** | **String**| Last name of person. This parameter should not be provided when the person name is provided as the input. | [optional]
  **suffix** | **String**| Suffix in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional]
+ **candidatesCount** | **Integer**| Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. &lt;p&gt;*minimum - 20*&lt;/p&gt; &lt;p&gt;*maximum - 100*&lt;/p&gt; | [optional]
 
 ### Return type
 

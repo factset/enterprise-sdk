@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **UniverseName** | **string** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **UserFullName** | **string** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **UserSerial** | **string** | user-serial of the person who initiated the people task  | [optional] 
+**AutoRemap** | **bool** | When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

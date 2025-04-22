@@ -149,7 +149,8 @@ const opts = {
   'personNameColumn': "personNameColumn_example", // String | Header name of the column in the input file that contains the name of the person to be matched. **Do not include with `firstNameColumn` and `lastNameColumn`.** 
   'priorityColumn': "priorityColumn_example", // String | Priority associated to the clientId. Used for manual mapping. 
   'salutationColumn': "salutationColumn_example", // String | The salutation of the person.**Do not include with `personNameColumn`**. 
-  'suffixColumn': "suffixColumn_example" // String | A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**. 
+  'suffixColumn': "suffixColumn_example", // String | A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**. 
+  'autoRemap': true // Boolean | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.** 
 };
 
 // Call api endpoint
@@ -185,6 +186,7 @@ Name | Type | Description  | Notes
  **priorityColumn** | **String**| Priority associated to the clientId. Used for manual mapping.  | [optional] 
  **salutationColumn** | **String**| The salutation of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
  **suffixColumn** | **String**| A name suffix, that follows a person&#39;s full name and provides additional information about the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
+ **autoRemap** | **Boolean**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional] 
 
 ### Return type
 

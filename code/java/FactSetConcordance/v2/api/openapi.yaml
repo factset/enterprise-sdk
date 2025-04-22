@@ -19,7 +19,7 @@ info:
     \ the concordance of up to 25 names in a single request. The response returns\
     \ a list of 20 candidates as well as a proposed match.\n \n <b>Entity & People\
     \ Match - Bulk:</b> The second workflow allows you to input a large list of names\
-    \ within a .CSV file in a single request With this workflow, a task is created\
+    \ within a .CSV file in a single request. With this workflow, a task is created\
     \ for uploading a set of queries. Once the task has completed, the client retrieves\
     \ the concordance results through the /entity-decisions or /people-decisions endpoint.\
     \ Note that in the Bulk workflow, only the matches for the records are returned.\
@@ -30,7 +30,7 @@ info:
     \ Methodology Guide link: \n [https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d](https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d)\n\
     \n \n"
   title: FactSet Concordance API
-  version: 2.8.0
+  version: 2.10.0
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -73,7 +73,7 @@ paths:
         style: form
       - description: ISO2 country code corresponding to the entity name that is used
           when evaluating candidates for a match. For a list of ISO2 Country codes,
-          visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+          visit [OA 8754](https://my.apps.factset.com/oa/pages/8754#country).
         example: US
         explode: true
         in: query
@@ -111,23 +111,23 @@ paths:
           Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas.
             |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
             |---|---|---|---|
-            |ABS|Asset-Backed||MED|Broadcast Call Sign|
-            |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-            |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-            |CMD|Commodity||MUT|Mutual Fd-Open End|
-            |COL|College/University||NPO|Non-Profit Organization|
-            |CUR|Currency||OPD|Operating Division|
-            |ESP|Emp Stk Ownership Plan||OTH|Other|
-            |EXT|Extinct||PEF|Pension Fund|
-            |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-            |FND|Foundation/Endowment||PUB|Public Company|
-            |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-            |FRX|ForEx||PVT|Private Company|
-            |GOV|Government||SOV|Sovereign Wealth Fund|
-            |HED|Hedge Fund||SUB|Subsidiary|
-            |HOL|Holding Company||TRU|Trust/Trustee|
-            |IDX|Index||UMB|Umbrella Fund|
-            |VEN|Venture Capital Fund||JVT|Joint Venture|
+            |ABS|Asset-Backed|MED|Broadcast Call Sign|
+            |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+            |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+            |CMD|Commodity|MUT|Mutual Fd-Open End|
+            |COL|College/University|NPO|Non-Profit Organization|
+            |CUR|Currency|OPD|Operating Division|
+            |ESP|Emp Stk Ownership Plan|OTH|Other|
+            |EXT|Extinct|PEF|Pension Fund|
+            |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+            |FND|Foundation/Endowment|PUB|Public Company|
+            |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+            |FRX|ForEx|PVT|Private Company|
+            |GOV|Government|SOV|Sovereign Wealth Fund|
+            |HED|Hedge Fund|SUB|Subsidiary|
+            |HOL|Holding Company|TRU|Trust/Trustee|
+            |IDX|Index|UMB|Umbrella Fund|
+            |VEN|Venture Capital Fund|JVT|Joint Venture|
         explode: true
         in: query
         name: includeEntityType
@@ -144,23 +144,23 @@ paths:
           Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Candidates with an entity type specified will *not* be considered for the final match result. Multiple types can be entered separated by commas.
             |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
             |---|---|---|---|
-          |ABS|Asset-Backed||MED|Broadcast Call Sign|
-          |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-          |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-          |CMD|Commodity||MUT|Mutual Fd-Open End|
-          |COL|College/University||NPO|Non-Profit Organization|
-          |CUR|Currency||OPD|Operating Division|
-          |ESP|Emp Stk Ownership Plan||OTH|Other|
-          |EXT|Extinct||PEF|Pension Fund|
-          |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-          |FND|Foundation/Endowment||PUB|Public Company|
-          |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-          |FRX|ForEx||PVT|Private Company|
-          |GOV|Government||SOV|Sovereign Wealth Fund|
-          |HED|Hedge Fund||SUB|Subsidiary|
-          |HOL|Holding Company||TRU|Trust/Trustee|
-          |IDX|Index||UMB|Umbrella Fund|
-          |VEN|Venture Capital Fund||JVT|Joint Venture|
+          |ABS|Asset-Backed|MED|Broadcast Call Sign|
+          |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+          |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+          |CMD|Commodity|MUT|Mutual Fd-Open End|
+          |COL|College/University|NPO|Non-Profit Organization|
+          |CUR|Currency|OPD|Operating Division|
+          |ESP|Emp Stk Ownership Plan|OTH|Other|
+          |EXT|Extinct|PEF|Pension Fund|
+          |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+          |FND|Foundation/Endowment|PUB|Public Company|
+          |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+          |FRX|ForEx|PVT|Private Company|
+          |GOV|Government|SOV|Sovereign Wealth Fund|
+          |HED|Hedge Fund|SUB|Subsidiary|
+          |HOL|Holding Company|TRU|Trust/Trustee|
+          |IDX|Index|UMB|Umbrella Fund|
+          |VEN|Venture Capital Fund|JVT|Joint Venture|
         explode: true
         in: query
         name: excludeEntityType
@@ -303,16 +303,6 @@ paths:
         required: false
         schema:
           example: 88160R101
-          type: string
-        style: form
-      - description: Input identifiers for the DUNS - Dun & Bradstreet Data Universal
-          Numbering System symbol type.
-        explode: true
-        in: query
-        name: duns
-        required: false
-        schema:
-          example: Dun&Bradstreet
           type: string
         style: form
       - description: Input identifiers for the EIN - Employer Identification Number
@@ -504,6 +494,19 @@ paths:
         schema:
           example: A1CX3T
           type: string
+        style: form
+      - description: Maximum number of candidates to be returned. Parent entities,
+          when includeParent is true, are not included in this count. <p>*minimum
+          - 20*</p> <p>*maximum - 100*</p>
+        explode: true
+        in: query
+        name: candidatesCount
+        required: false
+        schema:
+          example: 40
+          maximum: 100
+          minimum: 20
+          type: integer
         style: form
       responses:
         "200":
@@ -758,11 +761,6 @@ paths:
                     type `CUSIP`
                   example: CUSIP
                   type: string
-                dunsColumn:
-                  description: Header Name of the column in the input file for the
-                    type DUNS, `Dun&Bradstreet`.
-                  example: Dun&Bradstreet
-                  type: string
                 einColumn:
                   description: Header Name of the column in the input file for the
                     type EIN, `EmployerIdentificationNumber`.
@@ -911,6 +909,10 @@ paths:
                     type: string
                   maxItems: 5
                   type: array
+                autoRemap:
+                  description: |
+                    When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+                  type: boolean
               required:
               - clientIdColumn
               - inputFile
@@ -2527,8 +2529,7 @@ paths:
           type: string
         style: form
       - description: Entity the person is associated with. It is used to filter the
-          candidates before taking a match decision. Can be entity ID or name. The
-          supported entity types match the what is supported via the /company match.
+          candidates before taking a match decision. Can be entity ID or name.
         example: Microsoft
         explode: true
         in: query
@@ -2536,6 +2537,19 @@ paths:
         required: true
         schema:
           type: string
+        style: form
+      - description: Maximum number of candidates to be returned. Parent entities,
+          when includeParent is true, are not included in this count. <p>*minimum
+          - 20*</p> <p>*maximum - 100*</p>
+        explode: true
+        in: query
+        name: candidatesCount
+        required: false
+        schema:
+          example: 40
+          maximum: 100
+          minimum: 20
+          type: integer
         style: form
       responses:
         "200":
@@ -2787,6 +2801,10 @@ paths:
                     A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**.
                   example: HIGH
                   type: string
+                autoRemap:
+                  description: |
+                    When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+                  type: boolean
               required:
               - clientIdColumn
               - entityColumn
@@ -3173,7 +3191,6 @@ components:
           cik: "0001318605"
           crd: ""
           cusip: 88160R101
-          duns: ""
           ein: ""
           factsetId: 006XY7-E
           fitch: ""
@@ -3206,6 +3223,7 @@ components:
         - ""
         excludeEntitySubType:
         - HF
+        candidatesCount: 20
         includeParent: false
         universeId: 1
     EntityMatches:
@@ -3221,7 +3239,6 @@ components:
           clientCountry: US
           clientCrd: 149722
           clientCusip: 02079K305
-          clientDuns: 687741991
           clientEin: 953540776
           clientFactsetId: 0013TZ-E
           clientFitch: 47504
@@ -3276,6 +3293,16 @@ components:
           parentMatchFlag: null
           nameMatchString: factset
           nameMatchSource: Domain Name
+          clientExcludeEntityType:
+          - PUB
+          - PVT
+          clientExcludeEntitySubType:
+          - CP
+          - IB
+          clientIncludeEntityType:
+          - PEF
+          clientIncludeEntitySubType:
+          - PR
     SuccessfulEntityTasks:
       description: Example of the status of a successful Entity Concordance Task.
       summary: Successful Entity Task
@@ -3297,7 +3324,6 @@ components:
           cikColumn: cikColumn
           crdColumn: crdColumn
           cusipColumn: cusipColumn
-          dunsColumn: dunsColumn
           einColumn: einColumn
           factsetIdColumn: factsetIdColumn
           fitchColumn: fitchColumn
@@ -3346,6 +3372,7 @@ components:
           - Address
           - Phone
           - City
+          autoRemap: true
     SuccessfulPeopleTasks:
       description: Example of the status of a successful People Concordance Task.
       summary: Successful People Task
@@ -3378,6 +3405,7 @@ components:
           - Address
           - Phone
           - City
+          autoRemap: true
     PeopleTask:
       value:
         data:
@@ -3404,6 +3432,7 @@ components:
           - Address
           - Phone
           - City
+          autoRemap: true
     PendingTask:
       description: Example of the status of a Task pending input file.
       summary: Status pending input file
@@ -3420,7 +3449,6 @@ components:
           cikColumn: cikColumn
           crdColumn: crdColumn
           cusipColumn: cusipColumn
-          dunsColumn: dunsColumn
           einColumn: einColumn
           factsetIdColumn: factsetIdColumn
           fitchColumn: fitchColumn
@@ -3474,6 +3502,7 @@ components:
           - Address
           - Phone
           - City
+          autoRemap: true
     PendingTasks:
       description: Example of the status of a Task pending input file.
       summary: Status pending input file
@@ -3740,7 +3769,6 @@ components:
           clientCountry: US
           clientCrd: 149722
           clientCusip: 02079K305
-          clientDuns: 687741991
           clientEin: 953540776
           clientFactsetId: 0013TZ-E
           clientFitch: 47504
@@ -3800,7 +3828,7 @@ components:
       description: 404 - Not Found
       value:
         status: Not Found
-        timestamp: 2019-11-01T11:09:41.918Z
+        timestamp: 2019-11-01T11:09:41.918
         path: /factset-concordance/v2/fakeendpoint
         message: '''/factset-concordance/v2/fake-endpoint'' is not a valid endpoint'
         subErrors: null
@@ -3842,6 +3870,7 @@ components:
         createdOn: 2020-01-01T00:00:00.000
         updatedBy: FDSQAR_C-000000
         updatedOn: 2020-01-01T00:00:00.000
+        autoRemap: true
     UniversesExample:
       description: Universes response
       value:
@@ -3855,6 +3884,7 @@ components:
           createdOn: 2020-01-01T00:00:00.000
           updatedBy: FDSQAR_C-000000
           updatedOn: 2020-01-01T00:00:00.000
+          autoRemap: true
     EntityUniverseStatisticsExample:
       description: Entity Universe Statistics response
       value:
@@ -3903,7 +3933,6 @@ components:
         clientCik: "100331"
         clientCrd: "149722"
         clientCusip: 02079K305
-        clientDuns: "687741991"
         clientEin: "953540776"
         clientFactsetId: 0013TZ-E
         clientFitch: "47504"
@@ -3925,6 +3954,16 @@ components:
         clientUkch: CE012494
         clientValoren: "685558"
         clientWkn: A0MU9T
+        clientExcludeEntityType:
+        - PUB
+        - PVT
+        clientExcludeEntitySubType:
+        - CP
+        - IB
+        clientIncludeEntityType:
+        - PEF
+        clientIncludeEntitySubType:
+        - PR
         clientAdditionalContext:
           Address: 123 Main St
           Phone: 555-555-5555
@@ -3953,7 +3992,6 @@ components:
           clientCik: "100331"
           clientCrd: "149722"
           clientCusip: 02079K305
-          clientDuns: "687741991"
           clientEin: "953540776"
           clientFactsetId: 0013TZ-E
           clientFitch: "47504"
@@ -3983,6 +4021,17 @@ components:
           updatedTime: 2020-06-24T22:02:21.000
           mapStatus: MAPPED
           universeId: 1
+          clientExcludeEntityType:
+          - PUB
+          - PVT
+          clientExcludeEntitySubType:
+          - CP
+          - IB
+          clientIncludeEntityType:
+          - PEF
+          clientIncludeEntitySubType:
+          - PR
+          - VC
     PeopleMatchPostRequest:
       description: People Match request
       value:
@@ -3999,6 +4048,7 @@ components:
             City: New York
           suffix: III
           entity: Microsoft
+        candidatesCount: 20
         universeId: 1
     PeopleUniversePostRequest:
       description: People Universe request
@@ -4052,8 +4102,8 @@ components:
           clientCountry: us
           clientState: ct
           clientUrl: www.factset.com
-          createdTime: 2020-09-04T20:14:13.123Z
-          updatedTime: 2020-10-04T20:14:13.123Z
+          createdTime: 2020-09-04T20:14:13.123
+          updatedTime: 2020-10-04T20:14:13.123
           mapStatus: MAPPED
           universeId: 1
           clientAdditionalContext:
@@ -4069,8 +4119,8 @@ components:
           clientCountry: us
           clientState: ca
           clientUrl: www.apple.com
-          createdTime: 2020-07-04T20:14:13.123Z
-          updatedTime: 2020-08-04T20:14:13.123Z
+          createdTime: 2020-07-04T20:14:13.123
+          updatedTime: 2020-08-04T20:14:13.123
           mapStatus: UNMAPPED
           universeId: 1
           clientAdditionalContext:
@@ -4090,12 +4140,12 @@ components:
           clientPriority: HIGH
           clientSalutation: Mr
           clientSuffix: III
-          createdTime: 2020-06-24T22:02:21.000Z
+          createdTime: 2020-06-24T22:02:21+00:00
           mapStatus: MAPPED
           personId: 00118X-E
           personName: GATES WILLIAM H III
           universeId: 1
-          updatedTime: 2020-06-24T22:02:21.000Z
+          updatedTime: 2020-06-24T22:02:21+00:00
           clientAdditionalContext:
             Address: 123 Main St
             Phone: 555-555-5555
@@ -4109,12 +4159,12 @@ components:
           clientPriority: HIGH
           clientSalutation: Mr
           clientSuffix: III
-          createdTime: 2020-06-24T22:02:21.000Z
+          createdTime: 2020-06-24T22:02:21+00:00
           mapStatus: MAPPED
           personId: 00118X-E
           personName: GATES WILLIAM H III
           universeId: 1
-          updatedTime: 2020-06-24T22:02:21.000Z
+          updatedTime: 2020-06-24T22:02:21+00:00
           clientAdditionalContext:
             Address: 123 Main St
             Phone: 555-555-5555
@@ -4140,6 +4190,17 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+          clientExcludeEntityType:
+          - PUB
+          - PVT
+          clientExcludeEntitySubType:
+          - CP
+          - IB
+          clientIncludeEntityType:
+          - PEF
+          clientIncludeEntitySubType:
+          - PR
+          - VC
     EntityMappingRequest:
       description: Entity Mapping Request
       value:
@@ -4361,7 +4422,7 @@ components:
     country:
       description: ISO2 country code corresponding to the entity name that is used
         when evaluating candidates for a match. For a list of ISO2 Country codes,
-        visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+        visit [OA 8754](https://my.apps.factset.com/oa/pages/8754#country).
       example: US
       explode: true
       in: query
@@ -4402,23 +4463,23 @@ components:
         Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas.
           |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
           |---|---|---|---|
-          |ABS|Asset-Backed||MED|Broadcast Call Sign|
-          |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-          |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-          |CMD|Commodity||MUT|Mutual Fd-Open End|
-          |COL|College/University||NPO|Non-Profit Organization|
-          |CUR|Currency||OPD|Operating Division|
-          |ESP|Emp Stk Ownership Plan||OTH|Other|
-          |EXT|Extinct||PEF|Pension Fund|
-          |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-          |FND|Foundation/Endowment||PUB|Public Company|
-          |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-          |FRX|ForEx||PVT|Private Company|
-          |GOV|Government||SOV|Sovereign Wealth Fund|
-          |HED|Hedge Fund||SUB|Subsidiary|
-          |HOL|Holding Company||TRU|Trust/Trustee|
-          |IDX|Index||UMB|Umbrella Fund|
-          |VEN|Venture Capital Fund||JVT|Joint Venture|
+          |ABS|Asset-Backed|MED|Broadcast Call Sign|
+          |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+          |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+          |CMD|Commodity|MUT|Mutual Fd-Open End|
+          |COL|College/University|NPO|Non-Profit Organization|
+          |CUR|Currency|OPD|Operating Division|
+          |ESP|Emp Stk Ownership Plan|OTH|Other|
+          |EXT|Extinct|PEF|Pension Fund|
+          |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+          |FND|Foundation/Endowment|PUB|Public Company|
+          |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+          |FRX|ForEx|PVT|Private Company|
+          |GOV|Government|SOV|Sovereign Wealth Fund|
+          |HED|Hedge Fund|SUB|Subsidiary|
+          |HOL|Holding Company|TRU|Trust/Trustee|
+          |IDX|Index|UMB|Umbrella Fund|
+          |VEN|Venture Capital Fund|JVT|Joint Venture|
       explode: true
       in: query
       name: includeEntityType
@@ -4436,23 +4497,23 @@ components:
         Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Candidates with an entity type specified will *not* be considered for the final match result. Multiple types can be entered separated by commas.
           |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
           |---|---|---|---|
-        |ABS|Asset-Backed||MED|Broadcast Call Sign|
-        |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-        |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-        |CMD|Commodity||MUT|Mutual Fd-Open End|
-        |COL|College/University||NPO|Non-Profit Organization|
-        |CUR|Currency||OPD|Operating Division|
-        |ESP|Emp Stk Ownership Plan||OTH|Other|
-        |EXT|Extinct||PEF|Pension Fund|
-        |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-        |FND|Foundation/Endowment||PUB|Public Company|
-        |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-        |FRX|ForEx||PVT|Private Company|
-        |GOV|Government||SOV|Sovereign Wealth Fund|
-        |HED|Hedge Fund||SUB|Subsidiary|
-        |HOL|Holding Company||TRU|Trust/Trustee|
-        |IDX|Index||UMB|Umbrella Fund|
-        |VEN|Venture Capital Fund||JVT|Joint Venture|
+        |ABS|Asset-Backed|MED|Broadcast Call Sign|
+        |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+        |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+        |CMD|Commodity|MUT|Mutual Fd-Open End|
+        |COL|College/University|NPO|Non-Profit Organization|
+        |CUR|Currency|OPD|Operating Division|
+        |ESP|Emp Stk Ownership Plan|OTH|Other|
+        |EXT|Extinct|PEF|Pension Fund|
+        |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+        |FND|Foundation/Endowment|PUB|Public Company|
+        |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+        |FRX|ForEx|PVT|Private Company|
+        |GOV|Government|SOV|Sovereign Wealth Fund|
+        |HED|Hedge Fund|SUB|Subsidiary|
+        |HOL|Holding Company|TRU|Trust/Trustee|
+        |IDX|Index|UMB|Umbrella Fund|
+        |VEN|Venture Capital Fund|JVT|Joint Venture|
       explode: true
       in: query
       name: excludeEntityType
@@ -4593,17 +4654,6 @@ components:
       required: false
       schema:
         example: 88160R101
-        type: string
-      style: form
-    duns:
-      description: Input identifiers for the DUNS - Dun & Bradstreet Data Universal
-        Numbering System symbol type.
-      explode: true
-      in: query
-      name: duns
-      required: false
-      schema:
-        example: Dun&Bradstreet
         type: string
       style: form
     ein:
@@ -5093,8 +5143,7 @@ components:
       style: form
     entity:
       description: Entity the person is associated with. It is used to filter the
-        candidates before taking a match decision. Can be entity ID or name. The supported
-        entity types match the what is supported via the /company match.
+        candidates before taking a match decision. Can be entity ID or name.
       example: Microsoft
       explode: true
       in: query
@@ -5102,6 +5151,20 @@ components:
       required: true
       schema:
         type: string
+      style: form
+    candidatesCount:
+      description: Maximum number of candidates to be returned. Parent entities, when
+        includeParent is true, are not included in this count. <p>*minimum - 20*</p>
+        <p>*maximum - 100*</p>
+      explode: true
+      in: query
+      name: candidatesCount
+      required: false
+      schema:
+        example: 40
+        maximum: 100
+        minimum: 20
+        type: integer
       style: form
     peopleTaskDecisionId:
       description: Concordance Task Identifier. The taskId is created in response
@@ -5566,6 +5629,7 @@ components:
     EntityMatchRequest:
       description: Request object for a requesting multiple Entity Matches.
       example:
+        candidatesCount: 40
         input:
         - country: US
           cusip: 88160R101
@@ -5601,7 +5665,6 @@ components:
           spr: "562703"
           name: Tesla
           fitch: ""
-          duns: ""
           bic: TSLAUS66
           isin: US88160R1014
         - country: US
@@ -5638,7 +5701,6 @@ components:
           spr: "562703"
           name: Tesla
           fitch: ""
-          duns: ""
           bic: TSLAUS66
           isin: US88160R1014
         - country: US
@@ -5675,7 +5737,6 @@ components:
           spr: "562703"
           name: Tesla
           fitch: ""
-          duns: ""
           bic: TSLAUS66
           isin: US88160R1014
         - country: US
@@ -5712,7 +5773,6 @@ components:
           spr: "562703"
           name: Tesla
           fitch: ""
-          duns: ""
           bic: TSLAUS66
           isin: US88160R1014
         - country: US
@@ -5749,7 +5809,6 @@ components:
           spr: "562703"
           name: Tesla
           fitch: ""
-          duns: ""
           bic: TSLAUS66
           isin: US88160R1014
         includeParent: false
@@ -5778,23 +5837,23 @@ components:
             Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas
               |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
               |---|---|---|---|
-              |ABS|Asset-Backed||MED|Broadcast Call Sign|
-              |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-              |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-              |CMD|Commodity||MUT|Mutual Fd-Open End|
-              |COL|College/University||NPO|Non-Profit Organization|
-              |CUR|Currency||OPD|Operating Division|
-              |ESP|Emp Stk Ownership Plan||OTH|Other|
-              |EXT|Extinct||PEF|Pension Fund|
-              |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-              |FND|Foundation/Endowment||PUB|Public Company|
-              |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-              |FRX|ForEx||PVT|Private Company|
-              |GOV|Government||SOV|Sovereign Wealth Fund|
-              |HED|Hedge Fund||SUB|Subsidiary|
-              |HOL|Holding Company||TRU|Trust/Trustee|
-              |IDX|Index||UMB|Umbrella Fund|
-              |VEN|Venture Capital Fund||JVT|Joint Venture|
+              |ABS|Asset-Backed|MED|Broadcast Call Sign|
+              |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+              |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+              |CMD|Commodity|MUT|Mutual Fd-Open End|
+              |COL|College/University|NPO|Non-Profit Organization|
+              |CUR|Currency|OPD|Operating Division|
+              |ESP|Emp Stk Ownership Plan|OTH|Other|
+              |EXT|Extinct|PEF|Pension Fund|
+              |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+              |FND|Foundation/Endowment|PUB|Public Company|
+              |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+              |FRX|ForEx|PVT|Private Company|
+              |GOV|Government|SOV|Sovereign Wealth Fund|
+              |HED|Hedge Fund|SUB|Subsidiary|
+              |HOL|Holding Company|TRU|Trust/Trustee|
+              |IDX|Index|UMB|Umbrella Fund|
+              |VEN|Venture Capital Fund|JVT|Joint Venture|
           items:
             example: ""
             maxLength: 3
@@ -5806,29 +5865,37 @@ components:
             Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Candidates with an entity type specified will not be considered for the final match result. Multiple types can be entered separated by commas.
               |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
               |---|---|---|---|
-              |ABS|Asset-Backed||MED|Broadcast Call Sign|
-              |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-              |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-              |CMD|Commodity||MUT|Mutual Fd-Open End|
-              |COL|College/University||NPO|Non-Profit Organization|
-              |CUR|Currency||OPD|Operating Division|
-              |ESP|Emp Stk Ownership Plan||OTH|Other|
-              |EXT|Extinct||PEF|Pension Fund|
-              |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-              |FND|Foundation/Endowment||PUB|Public Company|
-              |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-              |FRX|ForEx||PVT|Private Company|
-              |GOV|Government||SOV|Sovereign Wealth Fund|
-              |HED|Hedge Fund||SUB|Subsidiary|
-              |HOL|Holding Company||TRU|Trust/Trustee|
-              |IDX|Index||UMB|Umbrella Fund|
-              |VEN|Venture Capital Fund||JVT|Joint Venture|
+              |ABS|Asset-Backed|MED|Broadcast Call Sign|
+              |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+              |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+              |CMD|Commodity|MUT|Mutual Fd-Open End|
+              |COL|College/University|NPO|Non-Profit Organization|
+              |CUR|Currency|OPD|Operating Division|
+              |ESP|Emp Stk Ownership Plan|OTH|Other|
+              |EXT|Extinct|PEF|Pension Fund|
+              |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+              |FND|Foundation/Endowment|PUB|Public Company|
+              |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+              |FRX|ForEx|PVT|Private Company|
+              |GOV|Government|SOV|Sovereign Wealth Fund|
+              |HED|Hedge Fund|SUB|Subsidiary|
+              |HOL|Holding Company|TRU|Trust/Trustee|
+              |IDX|Index|UMB|Umbrella Fund|
+              |VEN|Venture Capital Fund|JVT|Joint Venture|
           items:
             example: EXT
             maxLength: 3
             minLength: 3
             type: string
           type: array
+        candidatesCount:
+          default: 20
+          description: |
+            Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count.
+          example: 40
+          maximum: 100
+          minimum: 20
+          type: integer
         includeEntitySubType:
           description: |
             Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.
@@ -5905,6 +5972,8 @@ components:
         clientCrd: "149722"
         clientIsin: US02079K305
         clientJcn: "3120001077477"
+        clientIncludeEntityType:
+        - PEF
         clientTickerRegion: GOOGL-US
         clientWkn: A0MU9T
         clientUkch: CE012494
@@ -5928,13 +5997,20 @@ components:
         entityId: 0016YD-E
         clientFitch: "47504"
         clientSpr: "301939"
+        clientExcludeEntityType:
+        - PUB
+        - PVT
         clientCountry: US
-        clientDuns: "687741991"
+        clientExcludeEntitySubType:
+        - CP
+        - IB
         clientBic: ABXXHKH1
         clientFactsetId: 0013TZ-E
         clientState: CT
         clientValoren: "685558"
         clientCik: "100331"
+        clientIncludeEntitySubType:
+        - PR
         clientEin: "953540776"
       properties:
         universeId:
@@ -5999,10 +6075,6 @@ components:
         clientCusip:
           description: User provided input for CUSIP symbol type.
           example: 02079K305
-          type: string
-        clientDuns:
-          description: User provided input for DUNS, Dun&Bradstreet symbol type.
-          example: "687741991"
           type: string
         clientEin:
           description: User provided input for EmployerIdentificationNumber, EIN symbol
@@ -6112,6 +6184,40 @@ components:
             City: New York
           maxProperties: 5
           type: object
+        clientExcludeEntityType:
+          description: |
+            Entity types excluded by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).
+          example:
+          - PUB
+          - PVT
+          items:
+            type: string
+          type: array
+        clientExcludeEntitySubType:
+          description: |
+            Entity sub-types excluded by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).
+          example:
+          - CP
+          - IB
+          items:
+            type: string
+          type: array
+        clientIncludeEntityType:
+          description: |
+            Entity types included by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).
+          example:
+          - PEF
+          items:
+            type: string
+          type: array
+        clientIncludeEntitySubType:
+          description: |
+            Entity sub-types included by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).
+          example:
+          - PR
+          items:
+            type: string
+          type: array
       required:
       - clientId
       - clientName
@@ -6506,6 +6612,7 @@ components:
     PeopleMatchRequest:
       description: Request object for a requesting multiple People Matches.
       example:
+        candidatesCount: 40
         input:
         - personName: Bill Gates
           firstName: Bill
@@ -6537,6 +6644,13 @@ components:
           items:
             $ref: '#/components/schemas/PeopleMatchRequest_input'
           type: array
+        candidatesCount:
+          description: |
+            Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count.
+          example: 40
+          maximum: 100
+          minimum: 20
+          type: integer
         universeId:
           description: |
             The universeId to save this set of inputs to
@@ -6557,6 +6671,8 @@ components:
           clientIsin: ISIN
           clientJcn: "3120001077477"
           nameMatchString: factset
+          clientIncludeEntityType:
+          - PEF
           mapStatus: MAPPED
           similarityScore: 1
           entitySubTypeCode: PR
@@ -6568,11 +6684,15 @@ components:
           clientTicker: PriceTicker
           clientLxid: LX113630
           clientUrl: www.factset.com
-          clientDuns: "687741991"
+          clientExcludeEntityType:
+          - PUB
+          - PVT
           clientBic: BICCode
           parentName: parentName
           stateCode: CT
           countryName: United States
+          clientIncludeEntitySubType:
+          - PR
           locationCity: Norwalk
           matchFlag: true
           clientLei: 549300A6K7JX8EX2QZ33
@@ -6605,6 +6725,9 @@ components:
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
+          clientExcludeEntitySubType:
+          - CP
+          - IB
           clientFactsetId: 0013TZ-E
           sicCode: "7374"
           entityTypeCode: PUB
@@ -6623,6 +6746,8 @@ components:
           clientIsin: ISIN
           clientJcn: "3120001077477"
           nameMatchString: factset
+          clientIncludeEntityType:
+          - PEF
           mapStatus: MAPPED
           similarityScore: 1
           entitySubTypeCode: PR
@@ -6634,11 +6759,15 @@ components:
           clientTicker: PriceTicker
           clientLxid: LX113630
           clientUrl: www.factset.com
-          clientDuns: "687741991"
+          clientExcludeEntityType:
+          - PUB
+          - PVT
           clientBic: BICCode
           parentName: parentName
           stateCode: CT
           countryName: United States
+          clientIncludeEntitySubType:
+          - PR
           locationCity: Norwalk
           matchFlag: true
           clientLei: 549300A6K7JX8EX2QZ33
@@ -6671,6 +6800,9 @@ components:
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
+          clientExcludeEntitySubType:
+          - CP
+          - IB
           clientFactsetId: 0013TZ-E
           sicCode: "7374"
           entityTypeCode: PUB
@@ -6700,9 +6832,10 @@ components:
           redCodeColumn: Red Code
           userSerial: FDSQAR_C-000000
           nameColumn: Name
-          processStartTime: 2020-07-03T15:12:06.722Z
+          processStartTime: 2000-01-23T04:56:07.000+00:00
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          autoRemap: true
           universeName: My Universe
           lxidColumn: LXID
           tickerRegionColumn: TickerRegion
@@ -6730,7 +6863,6 @@ components:
           - Phone
           - City
           crdColumn: CRD
-          dunsColumn: Dun&Bradstreet
           factsetIdColumn: FactSet Identifier
           bicColumn: BICCode
           valorenColumn: VALOR
@@ -6757,7 +6889,7 @@ components:
           jcnColumn: JCN
           urlColumn: URL
           tryCount: 3
-          taskSubmitTime: 2020-06-24T22:02:21Z
+          taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
           tickerExchangeColumn: TickerExch
           taskId: 31
@@ -6783,10 +6915,11 @@ components:
           error: error
           userSerial: FDSQAR_C-000000
           inputFile: test31.csv
-          processStartTime: 2020-07-03T15:12:06.722Z
+          processStartTime: 2000-01-23T04:56:07.000+00:00
           errorTitle: errorTitle
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          autoRemap: true
           salutationColumn: Mr
           unmappedCount: 2
           universeName: Jane Smith
@@ -6798,7 +6931,7 @@ components:
           taskAction: processfile
           priorityColumn: priorityColumn
           tryCount: 3
-          taskSubmitTime: 2020-06-24T22:02:21Z
+          taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
           taskName: Analysis1
           lastNameColumn: Snow
@@ -6822,9 +6955,10 @@ components:
           redCodeColumn: Red Code
           userSerial: FDSQAR_C-000000
           nameColumn: Name
-          processStartTime: 2020-07-03T15:12:06.722Z
+          processStartTime: 2000-01-23T04:56:07.000+00:00
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          autoRemap: true
           universeName: My Universe
           lxidColumn: LXID
           tickerRegionColumn: TickerRegion
@@ -6852,7 +6986,6 @@ components:
           - Phone
           - City
           crdColumn: CRD
-          dunsColumn: Dun&Bradstreet
           factsetIdColumn: FactSet Identifier
           bicColumn: BICCode
           valorenColumn: VALOR
@@ -6879,7 +7012,7 @@ components:
           jcnColumn: JCN
           urlColumn: URL
           tryCount: 3
-          taskSubmitTime: 2020-06-24T22:02:21Z
+          taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
           tickerExchangeColumn: TickerExch
           taskId: 31
@@ -6893,9 +7026,10 @@ components:
           redCodeColumn: Red Code
           userSerial: FDSQAR_C-000000
           nameColumn: Name
-          processStartTime: 2020-07-03T15:12:06.722Z
+          processStartTime: 2000-01-23T04:56:07.000+00:00
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          autoRemap: true
           universeName: My Universe
           lxidColumn: LXID
           tickerRegionColumn: TickerRegion
@@ -6923,7 +7057,6 @@ components:
           - Phone
           - City
           crdColumn: CRD
-          dunsColumn: Dun&Bradstreet
           factsetIdColumn: FactSet Identifier
           bicColumn: BICCode
           valorenColumn: VALOR
@@ -6950,7 +7083,7 @@ components:
           jcnColumn: JCN
           urlColumn: URL
           tryCount: 3
-          taskSubmitTime: 2020-06-24T22:02:21Z
+          taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
           tickerExchangeColumn: TickerExch
           taskId: 31
@@ -6975,6 +7108,8 @@ components:
           clientIsin: ISIN
           clientJcn: "3120001077477"
           nameMatchString: factset
+          clientIncludeEntityType:
+          - PEF
           mapStatus: MAPPED
           similarityScore: 1
           entitySubTypeCode: PR
@@ -6986,11 +7121,15 @@ components:
           clientTicker: PriceTicker
           clientLxid: LX113630
           clientUrl: www.factset.com
-          clientDuns: "687741991"
+          clientExcludeEntityType:
+          - PUB
+          - PVT
           clientBic: BICCode
           parentName: parentName
           stateCode: CT
           countryName: United States
+          clientIncludeEntitySubType:
+          - PR
           locationCity: Norwalk
           matchFlag: true
           clientLei: 549300A6K7JX8EX2QZ33
@@ -7023,6 +7162,9 @@ components:
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
+          clientExcludeEntitySubType:
+          - CP
+          - IB
           clientFactsetId: 0013TZ-E
           sicCode: "7374"
           entityTypeCode: PUB
@@ -7041,6 +7183,8 @@ components:
           clientIsin: ISIN
           clientJcn: "3120001077477"
           nameMatchString: factset
+          clientIncludeEntityType:
+          - PEF
           mapStatus: MAPPED
           similarityScore: 1
           entitySubTypeCode: PR
@@ -7052,11 +7196,15 @@ components:
           clientTicker: PriceTicker
           clientLxid: LX113630
           clientUrl: www.factset.com
-          clientDuns: "687741991"
+          clientExcludeEntityType:
+          - PUB
+          - PVT
           clientBic: BICCode
           parentName: parentName
           stateCode: CT
           countryName: United States
+          clientIncludeEntitySubType:
+          - PR
           locationCity: Norwalk
           matchFlag: true
           clientLei: 549300A6K7JX8EX2QZ33
@@ -7089,6 +7237,9 @@ components:
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
+          clientExcludeEntitySubType:
+          - CP
+          - IB
           clientFactsetId: 0013TZ-E
           sicCode: "7374"
           entityTypeCode: PUB
@@ -7192,6 +7343,8 @@ components:
           clientCrd: "149722"
           clientIsin: US02079K305
           clientJcn: "3120001077477"
+          clientIncludeEntityType:
+          - PEF
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
@@ -7202,12 +7355,12 @@ components:
           entityName: FactSet Inc.
           clientBbgFigi: BBG009S39JY5
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           clientTicker: GOOGL
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientLxid: LX113630
-          updatedTime: 2020-06-24T22:02:21Z
+          updatedTime: 2000-01-23T04:56:07.000+00:00
           clientId: abc-1234
           clientAdditionalContext:
             Address: 123 Main St
@@ -7219,13 +7372,18 @@ components:
           entityId: 00456-E
           clientFitch: "47504"
           clientSpr: "301939"
+          clientExcludeEntityType:
+          - PUB
           clientCountry: us
-          clientDuns: "687741991"
+          clientExcludeEntitySubType:
+          - CP
           clientBic: ABXXHKH1
           clientFactsetId: 0013TZ-E
           clientState: ct
           clientValoren: "685558"
           clientCik: "100331"
+          clientIncludeEntitySubType:
+          - PR
           clientEin: "953540776"
         - clientLei: 549300A6K7JX8EX2QZ33
           clientName: factset
@@ -7235,6 +7393,8 @@ components:
           clientCrd: "149722"
           clientIsin: US02079K305
           clientJcn: "3120001077477"
+          clientIncludeEntityType:
+          - PEF
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
@@ -7245,12 +7405,12 @@ components:
           entityName: FactSet Inc.
           clientBbgFigi: BBG009S39JY5
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           clientTicker: GOOGL
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientLxid: LX113630
-          updatedTime: 2020-06-24T22:02:21Z
+          updatedTime: 2000-01-23T04:56:07.000+00:00
           clientId: abc-1234
           clientAdditionalContext:
             Address: 123 Main St
@@ -7262,13 +7422,18 @@ components:
           entityId: 00456-E
           clientFitch: "47504"
           clientSpr: "301939"
+          clientExcludeEntityType:
+          - PUB
           clientCountry: us
-          clientDuns: "687741991"
+          clientExcludeEntitySubType:
+          - CP
           clientBic: ABXXHKH1
           clientFactsetId: 0013TZ-E
           clientState: ct
           clientValoren: "685558"
           clientCik: "100331"
+          clientIncludeEntitySubType:
+          - PR
           clientEin: "953540776"
       properties:
         data:
@@ -7280,7 +7445,7 @@ components:
     PeopleUniverseResponse:
       example:
         data:
-        - updatedTime: 2020-06-24T22:02:21Z
+        - updatedTime: 2000-01-23T04:56:07.000+00:00
           clientLastName: Gates
           clientId: BGA-123
           clientAdditionalContext:
@@ -7297,9 +7462,9 @@ components:
           clientFirstName: William
           clientSuffix: III
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           personId: 00118X-E
-        - updatedTime: 2020-06-24T22:02:21Z
+        - updatedTime: 2000-01-23T04:56:07.000+00:00
           clientLastName: Gates
           clientId: BGA-123
           clientAdditionalContext:
@@ -7316,7 +7481,7 @@ components:
           clientFirstName: William
           clientSuffix: III
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           personId: 00118X-E
       properties:
         data:
@@ -7336,6 +7501,8 @@ components:
           clientCrd: "149722"
           clientIsin: US02079K305
           clientJcn: "3120001077477"
+          clientIncludeEntityType:
+          - PEF
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
@@ -7346,12 +7513,12 @@ components:
           entityName: FactSet Inc.
           clientBbgFigi: BBG009S39JY5
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           clientTicker: GOOGL
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientLxid: LX113630
-          updatedTime: 2020-06-24T22:02:21Z
+          updatedTime: 2000-01-23T04:56:07.000+00:00
           clientId: abc-1234
           clientAdditionalContext:
             Address: 123 Main St
@@ -7363,13 +7530,18 @@ components:
           entityId: 00456-E
           clientFitch: "47504"
           clientSpr: "301939"
+          clientExcludeEntityType:
+          - PUB
           clientCountry: us
-          clientDuns: "687741991"
+          clientExcludeEntitySubType:
+          - CP
           clientBic: ABXXHKH1
           clientFactsetId: 0013TZ-E
           clientState: ct
           clientValoren: "685558"
           clientCik: "100331"
+          clientIncludeEntitySubType:
+          - PR
           clientEin: "953540776"
       properties:
         data:
@@ -7385,7 +7557,7 @@ components:
     PeopleMappingResponse:
       example:
         data:
-          updatedTime: 2020-06-24T22:02:21Z
+          updatedTime: 2000-01-23T04:56:07.000+00:00
           clientLastName: Gates
           clientId: BGA-123
           clientAdditionalContext:
@@ -7402,7 +7574,7 @@ components:
           clientFirstName: William
           clientSuffix: III
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           personId: 00118X-E
       properties:
         data:
@@ -7419,6 +7591,7 @@ components:
           updatedOn: 2000-01-23T04:56:07.000+00:00
           selfManaged: true
           createdOn: 2000-01-23T04:56:07.000+00:00
+          autoRemap: true
           universeName: My Universe
           universeType: ENTITY
       properties:
@@ -7476,6 +7649,7 @@ components:
           updatedOn: 2000-01-23T04:56:07.000+00:00
           selfManaged: true
           createdOn: 2000-01-23T04:56:07.000+00:00
+          autoRemap: true
           universeName: My Universe
           universeType: ENTITY
         - updatedBy: FDSQAR_C-000000
@@ -7485,6 +7659,7 @@ components:
           updatedOn: 2000-01-23T04:56:07.000+00:00
           selfManaged: true
           createdOn: 2000-01-23T04:56:07.000+00:00
+          autoRemap: true
           universeName: My Universe
           universeType: ENTITY
       properties:
@@ -7586,7 +7761,6 @@ components:
             clientCountry: US
             clientCrd: null
             clientCusip: null
-            clientDuns: null
             clientEin: null
             clientFitch: null
             clientId: 1004_1
@@ -7627,7 +7801,6 @@ components:
             clientCountry: null
             clientCrd: null
             clientCusip: null
-            clientDuns: null
             clientEin: null
             clientFitch: null
             clientId: 1004_2
@@ -7684,6 +7857,8 @@ components:
           clientCrd: "149722"
           clientIsin: US02079K305
           clientJcn: "3120001077477"
+          clientIncludeEntityType:
+          - PEF
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
@@ -7694,12 +7869,12 @@ components:
           entityName: FactSet Inc.
           clientBbgFigi: BBG009S39JY5
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           clientTicker: GOOGL
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientLxid: LX113630
-          updatedTime: 2020-06-24T22:02:21Z
+          updatedTime: 2000-01-23T04:56:07.000+00:00
           clientId: abc-1234
           clientAdditionalContext:
             Address: 123 Main St
@@ -7711,13 +7886,18 @@ components:
           entityId: 00456-E
           clientFitch: "47504"
           clientSpr: "301939"
+          clientExcludeEntityType:
+          - PUB
           clientCountry: us
-          clientDuns: "687741991"
+          clientExcludeEntitySubType:
+          - CP
           clientBic: ABXXHKH1
           clientFactsetId: 0013TZ-E
           clientState: ct
           clientValoren: "685558"
           clientCik: "100331"
+          clientIncludeEntitySubType:
+          - PR
           clientEin: "953540776"
         - clientLei: 549300A6K7JX8EX2QZ33
           clientName: factset
@@ -7727,6 +7907,8 @@ components:
           clientCrd: "149722"
           clientIsin: US02079K305
           clientJcn: "3120001077477"
+          clientIncludeEntityType:
+          - PEF
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
@@ -7737,12 +7919,12 @@ components:
           entityName: FactSet Inc.
           clientBbgFigi: BBG009S39JY5
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           clientTicker: GOOGL
           clientGvkeyIid: "107481001"
           clientRedCode: 4C933G
           clientLxid: LX113630
-          updatedTime: 2020-06-24T22:02:21Z
+          updatedTime: 2000-01-23T04:56:07.000+00:00
           clientId: abc-1234
           clientAdditionalContext:
             Address: 123 Main St
@@ -7754,13 +7936,18 @@ components:
           entityId: 00456-E
           clientFitch: "47504"
           clientSpr: "301939"
+          clientExcludeEntityType:
+          - PUB
           clientCountry: us
-          clientDuns: "687741991"
+          clientExcludeEntitySubType:
+          - CP
           clientBic: ABXXHKH1
           clientFactsetId: 0013TZ-E
           clientState: ct
           clientValoren: "685558"
           clientCik: "100331"
+          clientIncludeEntitySubType:
+          - PR
           clientEin: "953540776"
       properties:
         data:
@@ -7774,7 +7961,7 @@ components:
     PeopleMappingDeleteResponse:
       example:
         data:
-        - updatedTime: 2020-06-24T22:02:21Z
+        - updatedTime: 2000-01-23T04:56:07.000+00:00
           clientLastName: Gates
           clientId: BGA-123
           clientAdditionalContext:
@@ -7791,9 +7978,9 @@ components:
           clientFirstName: William
           clientSuffix: III
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           personId: 00118X-E
-        - updatedTime: 2020-06-24T22:02:21Z
+        - updatedTime: 2000-01-23T04:56:07.000+00:00
           clientLastName: Gates
           clientId: BGA-123
           clientAdditionalContext:
@@ -7810,7 +7997,7 @@ components:
           clientFirstName: William
           clientSuffix: III
           clientPriority: HIGH
-          createdTime: 2020-06-24T22:02:21Z
+          createdTime: 2000-01-23T04:56:07.000+00:00
           personId: 00118X-E
       properties:
         data:
@@ -7913,10 +8100,11 @@ components:
           error: error
           userSerial: FDSQAR_C-000000
           inputFile: test31.csv
-          processStartTime: 2020-07-03T15:12:06.722Z
+          processStartTime: 2000-01-23T04:56:07.000+00:00
           errorTitle: errorTitle
           decisionRate: 0
           mappedCount: 8
+          autoRemap: true
           unmappedCount: 2
           salutationColumn: Salutation
           universeName: Jane Smith
@@ -7930,7 +8118,7 @@ components:
           tryCount: 3
           processDuration: 1.51603
           taskName: test31
-          taskSubmitTime: 2020-06-24T22:02:21Z
+          taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           lastNameColumn: lastName
           taskId: 31
           inputCount: 11
@@ -7948,10 +8136,11 @@ components:
           error: error
           userSerial: FDSQAR_C-000000
           inputFile: test31.csv
-          processStartTime: 2020-07-03T15:12:06.722Z
+          processStartTime: 2000-01-23T04:56:07.000+00:00
           errorTitle: errorTitle
           decisionRate: 0
           mappedCount: 8
+          autoRemap: true
           unmappedCount: 2
           salutationColumn: Salutation
           universeName: Jane Smith
@@ -7965,7 +8154,7 @@ components:
           tryCount: 3
           processDuration: 1.51603
           taskName: test31
-          taskSubmitTime: 2020-06-24T22:02:21Z
+          taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           lastNameColumn: lastName
           taskId: 31
           inputCount: 11
@@ -8013,6 +8202,8 @@ components:
         clientIsin: ISIN
         clientJcn: "3120001077477"
         nameMatchString: factset
+        clientIncludeEntityType:
+        - PEF
         mapStatus: MAPPED
         similarityScore: 1
         entitySubTypeCode: PR
@@ -8024,11 +8215,15 @@ components:
         clientTicker: PriceTicker
         clientLxid: LX113630
         clientUrl: www.factset.com
-        clientDuns: "687741991"
+        clientExcludeEntityType:
+        - PUB
+        - PVT
         clientBic: BICCode
         parentName: parentName
         stateCode: CT
         countryName: United States
+        clientIncludeEntitySubType:
+        - PR
         locationCity: Norwalk
         matchFlag: true
         clientLei: 549300A6K7JX8EX2QZ33
@@ -8061,6 +8256,9 @@ components:
         url: www.factset.com
         factsetSectorCode: "3300"
         clientCountry: US
+        clientExcludeEntitySubType:
+        - CP
+        - IB
         clientFactsetId: 0013TZ-E
         sicCode: "7374"
         entityTypeCode: PUB
@@ -8126,11 +8324,6 @@ components:
         clientCusip:
           description: Name of the column as provided by the user -  CUSIP.
           example: 02079K305
-          nullable: true
-          type: string
-        clientDuns:
-          description: Name of the column as provided by the user -  DUNS, Dun&Bradstreet.
-          example: "687741991"
           nullable: true
           type: string
         clientEin:
@@ -8430,6 +8623,40 @@ components:
           example: Domain Name
           nullable: true
           type: string
+        clientExcludeEntityType:
+          description: |
+            Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered.
+          example:
+          - PUB
+          - PVT
+          items:
+            type: string
+          type: array
+        clientExcludeEntitySubType:
+          description: |
+            Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered.
+          example:
+          - CP
+          - IB
+          items:
+            type: string
+          type: array
+        clientIncludeEntityType:
+          description: |
+            Entity types to include in the search. If provided, only entities with the specified entity types will be considered.
+          example:
+          - PEF
+          items:
+            type: string
+          type: array
+        clientIncludeEntitySubType:
+          description: |
+            Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered.
+          example:
+          - PR
+          items:
+            type: string
+          type: array
       title: Entity Match
       type: object
     EntityTaskStatus:
@@ -8445,9 +8672,10 @@ components:
         redCodeColumn: Red Code
         userSerial: FDSQAR_C-000000
         nameColumn: Name
-        processStartTime: 2020-07-03T15:12:06.722Z
+        processStartTime: 2000-01-23T04:56:07.000+00:00
         decisionRate: 0.7272727272727273
         mappedCount: 8
+        autoRemap: true
         universeName: My Universe
         lxidColumn: LXID
         tickerRegionColumn: TickerRegion
@@ -8475,7 +8703,6 @@ components:
         - Phone
         - City
         crdColumn: CRD
-        dunsColumn: Dun&Bradstreet
         factsetIdColumn: FactSet Identifier
         bicColumn: BICCode
         valorenColumn: VALOR
@@ -8502,7 +8729,7 @@ components:
         jcnColumn: JCN
         urlColumn: URL
         tryCount: 3
-        taskSubmitTime: 2020-06-24T22:02:21Z
+        taskSubmitTime: 2000-01-23T04:56:07.000+00:00
         processDuration: 1.51603
         tickerExchangeColumn: TickerExch
         taskId: 31
@@ -8588,12 +8815,6 @@ components:
         cusipColumn:
           description: Header Name of the column in the input file for the type CUSIP.
           example: CUSIP
-          nullable: true
-          type: string
-        dunsColumn:
-          description: Header Name of the column in the input file for the type DUNS,
-            Dun&Bradstreet.
-          example: Dun&Bradstreet
           nullable: true
           type: string
         einColumn:
@@ -8752,7 +8973,6 @@ components:
           type: boolean
         taskSubmitTime:
           description: Time the Task was submitted in UTC.
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
@@ -8783,7 +9003,6 @@ components:
           type: integer
         processStartTime:
           description: Process start time in UTC.
-          example: 2020-07-03T15:12:06.722Z
           format: date-time
           nullable: true
           type: string
@@ -8865,6 +9084,10 @@ components:
           example: My Universe
           nullable: true
           type: string
+        autoRemap:
+          description: |
+            When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+          type: boolean
       title: Entity Task Status
       type: object
     EntityMapping:
@@ -8879,6 +9102,8 @@ components:
         clientCrd: "149722"
         clientIsin: US02079K305
         clientJcn: "3120001077477"
+        clientIncludeEntityType:
+        - PEF
         clientTickerRegion: GOOGL-US
         clientWkn: A0MU9T
         mapStatus: MAPPED
@@ -8889,12 +9114,12 @@ components:
         entityName: FactSet Inc.
         clientBbgFigi: BBG009S39JY5
         clientPriority: HIGH
-        createdTime: 2020-06-24T22:02:21Z
+        createdTime: 2000-01-23T04:56:07.000+00:00
         clientTicker: GOOGL
         clientGvkeyIid: "107481001"
         clientRedCode: 4C933G
         clientLxid: LX113630
-        updatedTime: 2020-06-24T22:02:21Z
+        updatedTime: 2000-01-23T04:56:07.000+00:00
         clientId: abc-1234
         clientAdditionalContext:
           Address: 123 Main St
@@ -8906,13 +9131,18 @@ components:
         entityId: 00456-E
         clientFitch: "47504"
         clientSpr: "301939"
+        clientExcludeEntityType:
+        - PUB
         clientCountry: us
-        clientDuns: "687741991"
+        clientExcludeEntitySubType:
+        - CP
         clientBic: ABXXHKH1
         clientFactsetId: 0013TZ-E
         clientState: ct
         clientValoren: "685558"
         clientCik: "100331"
+        clientIncludeEntitySubType:
+        - PR
         clientEin: "953540776"
       properties:
         entityId:
@@ -8985,12 +9215,6 @@ components:
         clientCusip:
           description: Name as provided by the user for the type CUSIP.
           example: 02079K305
-          nullable: true
-          type: string
-        clientDuns:
-          description: Name as provided by the user for the type DUNS - Dun & Bradstreet
-            Data Universal Numbering System.
-          example: "687741991"
           nullable: true
           type: string
         clientEin:
@@ -9123,13 +9347,11 @@ components:
           type: string
         createdTime:
           description: Time when entity was created in UTC.
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
         updatedTime:
           description: Time when the submitted entity was last updated in UTC.
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
@@ -9147,13 +9369,45 @@ components:
           example: 1
           nullable: true
           type: integer
+        clientExcludeEntityType:
+          description: |
+            Entity types excluded by the user. If provided, entities with the specified entity types will not be considered.
+          example:
+          - PUB
+          items:
+            type: string
+          type: array
+        clientExcludeEntitySubType:
+          description: |
+            Entity sub-types excluded by the user. If provided, entities with the specified entity sub-types will not be considered.
+          example:
+          - CP
+          items:
+            type: string
+          type: array
+        clientIncludeEntityType:
+          description: |
+            Entity types included by the user. If provided, only entities with the specified entity types will be considered.
+          example:
+          - PEF
+          items:
+            type: string
+          type: array
+        clientIncludeEntitySubType:
+          description: |
+            Entity sub-types included by the user. If provided, only entities with the specified entity sub-types will be considered.
+          example:
+          - PR
+          items:
+            type: string
+          type: array
       title: Entity Mapping
       type: object
     PeopleMapping:
       description: |
         Concordance People Mapping object. Shows the mapping detail related to user's universe.
       example:
-        updatedTime: 2020-06-24T22:02:21Z
+        updatedTime: 2000-01-23T04:56:07.000+00:00
         clientLastName: Gates
         clientId: BGA-123
         clientAdditionalContext:
@@ -9170,7 +9424,7 @@ components:
         clientFirstName: William
         clientSuffix: III
         clientPriority: HIGH
-        createdTime: 2020-06-24T22:02:21Z
+        createdTime: 2000-01-23T04:56:07.000+00:00
         personId: 00118X-E
       properties:
         clientEntity:
@@ -9232,7 +9486,6 @@ components:
           type: object
         createdTime:
           description: It indicates the time of the creation
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
@@ -9264,7 +9517,6 @@ components:
           type: integer
         updatedTime:
           description: It indicates the time of the updation
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
@@ -9350,6 +9602,7 @@ components:
         updatedOn: 2000-01-23T04:56:07.000+00:00
         selfManaged: true
         createdOn: 2000-01-23T04:56:07.000+00:00
+        autoRemap: true
         universeName: My Universe
         universeType: ENTITY
       properties:
@@ -9399,6 +9652,11 @@ components:
           format: date-time
           nullable: true
           type: string
+        autoRemap:
+          description: When `true`, allows automatic re-evaluation and overwriting
+            of existing mappings in the universe when new metadata is submitted.
+          example: true
+          type: boolean
       title: Universe Meta
       type: object
     Universe:
@@ -9411,6 +9669,7 @@ components:
         updatedOn: 2000-01-23T04:56:07.000+00:00
         selfManaged: true
         createdOn: 2000-01-23T04:56:07.000+00:00
+        autoRemap: true
         universeName: My Universe
         universeType: ENTITY
       properties:
@@ -9460,6 +9719,11 @@ components:
           format: date-time
           nullable: true
           type: string
+        autoRemap:
+          description: When `true`, allows automatic re-evaluation and overwriting
+            of existing mappings in the universe when new metadata is submitted.
+          example: true
+          type: boolean
       title: Universe Meta
       type: object
     PeopleMatch:
@@ -9689,10 +9953,11 @@ components:
         error: error
         userSerial: FDSQAR_C-000000
         inputFile: test31.csv
-        processStartTime: 2020-07-03T15:12:06.722Z
+        processStartTime: 2000-01-23T04:56:07.000+00:00
         errorTitle: errorTitle
         decisionRate: 0.7272727272727273
         mappedCount: 8
+        autoRemap: true
         salutationColumn: Mr
         unmappedCount: 2
         universeName: Jane Smith
@@ -9704,7 +9969,7 @@ components:
         taskAction: processfile
         priorityColumn: priorityColumn
         tryCount: 3
-        taskSubmitTime: 2020-06-24T22:02:21Z
+        taskSubmitTime: 2000-01-23T04:56:07.000+00:00
         processDuration: 1.51603
         taskName: Analysis1
         lastNameColumn: Snow
@@ -9800,7 +10065,6 @@ components:
           type: string
         taskSubmitTime:
           description: Time the Task was submitted in UTC.
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
@@ -9822,7 +10086,6 @@ components:
           type: number
         processStartTime:
           description: Process start time in UTC.
-          example: 2020-07-03T15:12:06.722Z
           format: date-time
           nullable: true
           type: string
@@ -9891,6 +10154,10 @@ components:
           example: FDSQAR_C-000000
           nullable: true
           type: string
+        autoRemap:
+          description: |
+            When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+          type: boolean
       title: People Task
       type: object
     PeopleTaskStatus:
@@ -9910,10 +10177,11 @@ components:
         error: error
         userSerial: FDSQAR_C-000000
         inputFile: test31.csv
-        processStartTime: 2020-07-03T15:12:06.722Z
+        processStartTime: 2000-01-23T04:56:07.000+00:00
         errorTitle: errorTitle
         decisionRate: 0
         mappedCount: 8
+        autoRemap: true
         unmappedCount: 2
         salutationColumn: Salutation
         universeName: Jane Smith
@@ -9927,7 +10195,7 @@ components:
         tryCount: 3
         processDuration: 1.51603
         taskName: test31
-        taskSubmitTime: 2020-06-24T22:02:21Z
+        taskSubmitTime: 2000-01-23T04:56:07.000+00:00
         lastNameColumn: lastName
         taskId: 31
         inputCount: 11
@@ -10018,7 +10286,6 @@ components:
           type: string
         processStartTime:
           description: Process start time in UTC.
-          example: 2020-07-03T15:12:06.722Z
           format: date-time
           nullable: true
           type: string
@@ -10069,6 +10336,10 @@ components:
           example: processfile
           nullable: true
           type: string
+        autoRemap:
+          description: |
+            When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+          type: boolean
         taskId:
           description: Identifier denoting a specific Concordance task submitted by
             the user.
@@ -10082,7 +10353,6 @@ components:
           type: string
         taskSubmitTime:
           description: Time the Task was submitted in UTC.
-          example: 2020-06-24T22:02:21Z
           format: date-time
           nullable: true
           type: string
@@ -10410,11 +10680,6 @@ components:
           description: Header Name of the column in the input file for the type `CUSIP`
           example: CUSIP
           type: string
-        dunsColumn:
-          description: Header Name of the column in the input file for the type DUNS,
-            `Dun&Bradstreet`.
-          example: Dun&Bradstreet
-          type: string
         einColumn:
           description: Header Name of the column in the input file for the type EIN,
             `EmployerIdentificationNumber`.
@@ -10557,6 +10822,10 @@ components:
             type: string
           maxItems: 5
           type: array
+        autoRemap:
+          description: |
+            When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+          type: boolean
       required:
       - clientIdColumn
       - inputFile
@@ -10635,6 +10904,10 @@ components:
             A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**.
           example: HIGH
           type: string
+        autoRemap:
+          description: |
+            When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**
+          type: boolean
       required:
       - clientIdColumn
       - entityColumn
@@ -10678,7 +10951,6 @@ components:
         spr: "562703"
         name: Tesla
         fitch: ""
-        duns: ""
         bic: TSLAUS66
         isin: US88160R1014
       properties:
@@ -10693,7 +10965,7 @@ components:
           type: string
         country:
           description: |
-            ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+            ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754#country).
           example: US
           maxLength: 2
           minLength: 2
@@ -10742,10 +11014,6 @@ components:
         cusip:
           description: Name for the type CUSIP.
           example: 88160R101
-          type: string
-        duns:
-          description: Name for the type DUNS, Dun&Bradstreet.
-          example: ""
           type: string
         ein:
           description: Name for the type EmployerIdentificationNumber, EIN.

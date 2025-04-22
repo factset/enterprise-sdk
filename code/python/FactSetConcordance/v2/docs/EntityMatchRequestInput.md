@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The Name of the entity to match. | 
 **client_id** | **str** | A unique identifier supplied by the user. ClientId is saved to the user&#39;s Concordance universe and will be used as the identifier for that entity within the universe.  | [optional] 
-**country** | **str** | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).  | [optional] 
+**country** | **str** | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754#country).  | [optional] 
 **state** | **str** | Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.Two character state or province code to filter on.  | [optional] 
 **url** | **str** | URL corresponding to the entity name that is used when evaluating candidates for a match.  | [optional] 
 **priority** | **str** | Priority associated to the id. | [optional] 
@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **cik** | **str** | Name for the type CIK, Edgar Central Index Keys | [optional] 
 **crd** | **str** | Name for the type CRD, Central Registration Depository | [optional] 
 **cusip** | **str** | Name for the type CUSIP. | [optional] 
-**duns** | **str** | Name for the type DUNS, Dun&amp;Bradstreet. | [optional] 
 **ein** | **str** | Name for the type EmployerIdentificationNumber, EIN. | [optional] 
 **factset_id** | **str** | Name for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 
 **fitch** | **str** | Name for the type FitchCreditRating, Fitch Ratings Identifier. | [optional] 

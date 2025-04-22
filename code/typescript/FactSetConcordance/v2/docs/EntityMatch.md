@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **clientCountry** | **String** | ISO2 country code specified in the request. | [optional] 
 **clientCrd** | **String** | Name of the column as provided by the user -  CRD, Central Registration Depository | [optional] 
 **clientCusip** | **String** | Name of the column as provided by the user -  CUSIP. | [optional] 
-**clientDuns** | **String** | Name of the column as provided by the user -  DUNS, Dun&amp;Bradstreet. | [optional] 
 **clientEin** | **String** | Name of the column as provided by the user -  EmployerIdentificationNumber, EIN. | [optional] 
 **clientFactsetId** | **String** | Name of the column as provided by the user -  FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 
 **clientFitch** | **String** | Name of the column as provided by the user -  FitchCreditRating, Fitch Ratings Identifier. | [optional] 
@@ -67,6 +66,10 @@ Name | Type | Description | Notes
 **parentMatchFlag** | **Boolean** | Flag denoting that the matched entity is the parent of another match. | [optional] 
 **nameMatchString** | **String** | String on which the Concordance algorithm mapped the submitted entity. | [optional] 
 **nameMatchSource** | **String** | Type of name that the nameMatchString matched. | [optional] 
+**clientExcludeEntityType** | **[String]** | Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered.  | [optional] 
+**clientExcludeEntitySubType** | **[String]** | Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
+**clientIncludeEntityType** | **[String]** | Entity types to include in the search. If provided, only entities with the specified entity types will be considered.  | [optional] 
+**clientIncludeEntitySubType** | **[String]** | Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
 
 
 

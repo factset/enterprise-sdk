@@ -231,6 +231,7 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
             { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)403, typeof(Errors) },
             { (HttpStatusCode)413, typeof(Errors) },
+            { (HttpStatusCode)422, typeof(Errors) },
             { (HttpStatusCode)500, typeof(Errors) },
         };
 
@@ -817,6 +818,7 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
 
             string[] _contentTypes = new string[] {
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "application/vnd.ms-excel.sheet.macroenabled.12",
                 "application/json"
             };
 
@@ -927,6 +929,7 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
 
             string[] _contentTypes = new string[] {
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
+                "application/vnd.ms-excel.sheet.macroenabled.12", 
                 "application/json"
             };
 

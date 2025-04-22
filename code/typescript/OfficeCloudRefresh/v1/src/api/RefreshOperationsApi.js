@@ -174,7 +174,7 @@ export default class RefreshOperationsApi {
       };
 
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/json'];
+      let contentTypes = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel.sheet.macroenabled.12', 'application/json'];
       let accepts = ['application/json'];
 
 

@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **cikColumn** | **String** | Header Name of the column in the input file for the type CIK, Edgar Central Index Keys. |  [optional]
 **crdColumn** | **String** | Header Name of the column in the input file for the type CRD, Central Registration Depository. |  [optional]
 **cusipColumn** | **String** | Header Name of the column in the input file for the type CUSIP. |  [optional]
-**dunsColumn** | **String** | Header Name of the column in the input file for the type DUNS, Dun&amp;Bradstreet. |  [optional]
 **einColumn** | **String** | Header Name of the column in the input file for the type EmployerIdentificationNumber, EIN. |  [optional]
 **factsetIdColumn** | **String** | Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier. |  [optional]
 **fitchColumn** | **String** | Header Name of the column in the input file for the type FitchCreditRating, Fitch Ratings Identifier. |  [optional]
@@ -68,6 +67,7 @@ Name | Type | Description | Notes
 **userFullName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]
 **universeId** | **Integer** | The universe id this task was submitted to.  |  [optional]
 **universeName** | **String** | The name of the universe this task was submitted to.  |  [optional]
+**autoRemap** | **Boolean** | When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  |  [optional]
 
 
 

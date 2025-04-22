@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **client_cik** | **str, none_type** | Name as provided by the user for the type CIK - Edgar Central Index Keys. | [optional] 
 **client_crd** | **str, none_type** | Name as provided by the user for the type CRD - Central Registration Depository. | [optional] 
 **client_cusip** | **str, none_type** | Name as provided by the user for the type CUSIP. | [optional] 
-**client_duns** | **str, none_type** | Name as provided by the user for the type DUNS - Dun &amp; Bradstreet Data Universal Numbering System. | [optional] 
 **client_ein** | **str, none_type** | Name as provided by the user for the type EIN - Employer Identification Number. | [optional] 
 **client_factset_id** | **str, none_type** | Name as provided by the user for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 
 **client_fitch** | **str, none_type** | Name as provided by the user for the type Fitch - Fitch Ratings Identifier. | [optional] 
@@ -45,6 +44,10 @@ Name | Type | Description | Notes
 **updated_time** | **datetime, none_type** | Time when the submitted entity was last updated in UTC. | [optional] 
 **map_status** | **str, none_type** | Current status of the entity mapping. | [optional] 
 **universe_id** | **int, none_type** | The universe this mapping belongs to. Only set in v2 endpoints  | [optional] 
+**client_exclude_entity_type** | **[str]** | Entity types excluded by the user. If provided, entities with the specified entity types will not be considered.  | [optional] 
+**client_exclude_entity_sub_type** | **[str]** | Entity sub-types excluded by the user. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
+**client_include_entity_type** | **[str]** | Entity types included by the user. If provided, only entities with the specified entity types will be considered.  | [optional] 
+**client_include_entity_sub_type** | **[str]** | Entity sub-types included by the user. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

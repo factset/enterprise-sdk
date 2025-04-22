@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **universeName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]
 **userFullName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]
 **userSerial** | **String** | user-serial of the person who initiated the people task  |  [optional]
+**autoRemap** | **Boolean** | When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  |  [optional]
 
 
 

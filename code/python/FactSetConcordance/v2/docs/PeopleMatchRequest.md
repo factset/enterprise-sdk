@@ -6,6 +6,7 @@ Request object for a requesting multiple People Matches.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **input** | [**[PeopleMatchRequestInput]**](PeopleMatchRequestInput.md) |  | [optional] 
+**candidates_count** | **int** | Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count.  | [optional] 
 **universe_id** | **int** | The universeId to save this set of inputs to  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

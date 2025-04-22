@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **ClientCik** | **string** | Name as provided by the user for the type CIK - Edgar Central Index Keys. | [optional] 
 **ClientCrd** | **string** | Name as provided by the user for the type CRD - Central Registration Depository. | [optional] 
 **ClientCusip** | **string** | Name as provided by the user for the type CUSIP. | [optional] 
-**ClientDuns** | **string** | Name as provided by the user for the type DUNS - Dun &amp; Bradstreet Data Universal Numbering System. | [optional] 
 **ClientEin** | **string** | Name as provided by the user for the type EIN - Employer Identification Number. | [optional] 
 **ClientFactsetId** | **string** | Name as provided by the user for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 
 **ClientFitch** | **string** | Name as provided by the user for the type Fitch - Fitch Ratings Identifier. | [optional] 
@@ -45,6 +44,10 @@ Name | Type | Description | Notes
 **UpdatedTime** | **DateTime?** | Time when the submitted entity was last updated in UTC. | [optional] 
 **MapStatus** | **string** | Current status of the entity mapping. | [optional] 
 **UniverseId** | **int?** | The universe this mapping belongs to. Only set in v2 endpoints  | [optional] 
+**ClientExcludeEntityType** | **List&lt;string&gt;** | Entity types excluded by the user. If provided, entities with the specified entity types will not be considered.  | [optional] 
+**ClientExcludeEntitySubType** | **List&lt;string&gt;** | Entity sub-types excluded by the user. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
+**ClientIncludeEntityType** | **List&lt;string&gt;** | Entity types included by the user. If provided, only entities with the specified entity types will be considered.  | [optional] 
+**ClientIncludeEntitySubType** | **List&lt;string&gt;** | Entity sub-types included by the user. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

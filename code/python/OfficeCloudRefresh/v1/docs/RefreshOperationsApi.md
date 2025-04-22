@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/json
+ - **Content-Type**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroenabled.12, application/json
  - **Accept**: application/json
 
 
@@ -322,6 +322,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **403** | Forbidden. The user&#39;s subscription is missing required CACCESS. |  -  |
 **413** | File Too Large.  Currently only accepting files up to 50MB. |  -  |
+**422** | Unable to process input file, possibly because it&#39;s a macro-enabled file that is not validly signed.&#39; |  -  |
 **429** | Limit Exceeded |  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Limit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Limit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 **500** | Server Error |  -  |
 

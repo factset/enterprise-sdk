@@ -3533,10 +3533,10 @@ components:
             type: string
           type: array
         regions:
-          description: A list of regions used to filter the headlines. Regions specify
-            the geographical location or market to which the headlines are relevant,
-            for example, "North America". Use the `/filters/regions` endpoint to get
-            the list of available regions.
+          description: |-
+            A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, "North America". Use the `/filters/regions` endpoint to get the list of available regions.
+
+            **Note:** Filtering is possible only for top-level regions, not individual countries.
           items:
             example: North America
             type: string
@@ -3775,7 +3775,10 @@ components:
           type: array
         regions:
           items:
-            description: An array of regions associated with the view.
+            description: |
+              An array of regions associated with the view.
+
+              **Note:** Filtering is possible only for top-level regions, not individual countries.
             example: North America
             type: string
           type: array

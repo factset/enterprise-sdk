@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **clientCik** | **String** | Name as provided by the user for the type CIK - Edgar Central Index Keys. | [optional] 
 **clientCrd** | **String** | Name as provided by the user for the type CRD - Central Registration Depository. | [optional] 
 **clientCusip** | **String** | Name as provided by the user for the type CUSIP. | [optional] 
-**clientDuns** | **String** | Name as provided by the user for the type DUNS - Dun &amp; Bradstreet Data Universal Numbering System. | [optional] 
 **clientEin** | **String** | Name as provided by the user for the type EIN - Employer Identification Number. | [optional] 
 **clientFactsetId** | **String** | Name as provided by the user for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 
 **clientFitch** | **String** | Name as provided by the user for the type Fitch - Fitch Ratings Identifier. | [optional] 
@@ -44,6 +43,10 @@ Name | Type | Description | Notes
 **updatedTime** | **Date** | Time when the submitted entity was last updated in UTC. | [optional] 
 **mapStatus** | **String** | Current status of the entity mapping. | [optional] 
 **universeId** | **Number** | The universe this mapping belongs to. Only set in v2 endpoints  | [optional] 
+**clientExcludeEntityType** | **[String]** | Entity types excluded by the user. If provided, entities with the specified entity types will not be considered.  | [optional] 
+**clientExcludeEntitySubType** | **[String]** | Entity sub-types excluded by the user. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
+**clientIncludeEntityType** | **[String]** | Entity types included by the user. If provided, only entities with the specified entity types will be considered.  | [optional] 
+**clientIncludeEntitySubType** | **[String]** | Entity sub-types included by the user. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
 
 
 

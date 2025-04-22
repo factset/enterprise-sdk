@@ -181,12 +181,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     priority_column = "HIGH" # str | Priority associated to the clientId. Used for manual mapping.  (optional)
     salutation_column = "Mr." # str | The salutation of the person.**Do not include with `personNameColumn`**.  (optional)
     suffix_column = "HIGH" # str | A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**.  (optional)
+    auto_remap = True # bool | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional)
 
     try:
         # Create a People Concordance Task.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_people_task_for_list(universe_id, task_name, input_file, client_id_column, entity_column, additional_context_columns=additional_context_columns, first_name_column=first_name_column, last_name_column=last_name_column, middle_name_column=middle_name_column, person_name_column=person_name_column, priority_column=priority_column, salutation_column=salutation_column, suffix_column=suffix_column)
+        api_response = api_instance.get_people_task_for_list(universe_id, task_name, input_file, client_id_column, entity_column, additional_context_columns=additional_context_columns, first_name_column=first_name_column, last_name_column=last_name_column, middle_name_column=middle_name_column, person_name_column=person_name_column, priority_column=priority_column, salutation_column=salutation_column, suffix_column=suffix_column, auto_remap=auto_remap)
 
         pprint(api_response)
 
@@ -212,6 +213,7 @@ Name | Type | Description  | Notes
  **priority_column** | **str**| Priority associated to the clientId. Used for manual mapping.  | [optional]
  **salutation_column** | **str**| The salutation of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
  **suffix_column** | **str**| A name suffix, that follows a person&#39;s full name and provides additional information about the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
+ **auto_remap** | **bool**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional]
 
 ### Return type
 

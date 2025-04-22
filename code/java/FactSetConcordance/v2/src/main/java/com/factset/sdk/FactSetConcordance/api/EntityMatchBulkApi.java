@@ -189,7 +189,6 @@ public class EntityMatchBulkApi {
    * @param cikColumn Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; (optional)
    * @param crdColumn Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. (optional)
    * @param cusipColumn Header Name of the column in the input file for the type &#x60;CUSIP&#x60; (optional)
-   * @param dunsColumn Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. (optional)
    * @param einColumn Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. (optional)
    * @param factsetIdColumn Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. (optional)
    * @param fitchColumn Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. (optional)
@@ -215,6 +214,7 @@ public class EntityMatchBulkApi {
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param additionalContextColumns Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
+   * @param autoRemap When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional)
    * @return EntityTaskResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -228,8 +228,8 @@ public class EntityMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityTaskResponse getEntityTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, String priorityColumn, String bbgFigiColumn, String bbgTickerColumn, String bicColumn, String cikColumn, String crdColumn, String cusipColumn, String dunsColumn, String einColumn, String factsetIdColumn, String fitchColumn, String gvkeyColumn, String gvkeyIidColumn, String isinColumn, String jcnColumn, String leiColumn, String lxidColumn, String mdColumn, String redCodeColumn, String rssdColumn, String sedolColumn, String sprColumn, String tickerColumn, String tickerExchangeColumn, String tickerRegionColumn, String ukchColumn, String valorenColumn, String wknColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, java.util.List<String> additionalContextColumns) throws ApiException {
-    return getEntityTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns).getData();
+  public EntityTaskResponse getEntityTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, String priorityColumn, String bbgFigiColumn, String bbgTickerColumn, String bicColumn, String cikColumn, String crdColumn, String cusipColumn, String einColumn, String factsetIdColumn, String fitchColumn, String gvkeyColumn, String gvkeyIidColumn, String isinColumn, String jcnColumn, String leiColumn, String lxidColumn, String mdColumn, String redCodeColumn, String rssdColumn, String sedolColumn, String sprColumn, String tickerColumn, String tickerExchangeColumn, String tickerRegionColumn, String ukchColumn, String valorenColumn, String wknColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, java.util.List<String> additionalContextColumns, Boolean autoRemap) throws ApiException {
+    return getEntityTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap).getData();
   }
 
   /**
@@ -250,7 +250,6 @@ public class EntityMatchBulkApi {
    * @param cikColumn Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; (optional)
    * @param crdColumn Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. (optional)
    * @param cusipColumn Header Name of the column in the input file for the type &#x60;CUSIP&#x60; (optional)
-   * @param dunsColumn Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. (optional)
    * @param einColumn Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. (optional)
    * @param factsetIdColumn Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. (optional)
    * @param fitchColumn Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. (optional)
@@ -276,6 +275,7 @@ public class EntityMatchBulkApi {
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param additionalContextColumns Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
+   * @param autoRemap When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional)
    * @return ApiResponse&lt;EntityTaskResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -289,7 +289,7 @@ public class EntityMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityTaskResponse> getEntityTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, String priorityColumn, String bbgFigiColumn, String bbgTickerColumn, String bicColumn, String cikColumn, String crdColumn, String cusipColumn, String dunsColumn, String einColumn, String factsetIdColumn, String fitchColumn, String gvkeyColumn, String gvkeyIidColumn, String isinColumn, String jcnColumn, String leiColumn, String lxidColumn, String mdColumn, String redCodeColumn, String rssdColumn, String sedolColumn, String sprColumn, String tickerColumn, String tickerExchangeColumn, String tickerRegionColumn, String ukchColumn, String valorenColumn, String wknColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, java.util.List<String> additionalContextColumns) throws ApiException {
+  public ApiResponse<EntityTaskResponse> getEntityTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, String priorityColumn, String bbgFigiColumn, String bbgTickerColumn, String bicColumn, String cikColumn, String crdColumn, String cusipColumn, String einColumn, String factsetIdColumn, String fitchColumn, String gvkeyColumn, String gvkeyIidColumn, String isinColumn, String jcnColumn, String leiColumn, String lxidColumn, String mdColumn, String redCodeColumn, String rssdColumn, String sedolColumn, String sprColumn, String tickerColumn, String tickerExchangeColumn, String tickerRegionColumn, String ukchColumn, String valorenColumn, String wknColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, java.util.List<String> additionalContextColumns, Boolean autoRemap) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'universeId' is set
@@ -359,8 +359,6 @@ if (crdColumn != null)
       localVarFormParams.put("crdColumn", crdColumn);
 if (cusipColumn != null)
       localVarFormParams.put("cusipColumn", cusipColumn);
-if (dunsColumn != null)
-      localVarFormParams.put("dunsColumn", dunsColumn);
 if (einColumn != null)
       localVarFormParams.put("einColumn", einColumn);
 if (factsetIdColumn != null)
@@ -411,6 +409,8 @@ if (excludeEntitySubType != null)
       localVarFormParams.put("excludeEntitySubType", excludeEntitySubType);
 if (additionalContextColumns != null)
       localVarFormParams.put("additionalContextColumns", additionalContextColumns);
+if (autoRemap != null)
+      localVarFormParams.put("autoRemap", autoRemap);
 
     final String[] localVarAccepts = {
       "application/json;charset=utf-8", "application/json"

@@ -271,11 +271,11 @@ public class HeadlinesRequestData implements Serializable {
   }
 
    /**
-   * A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \&quot;North America\&quot;. Use the &#x60;/filters/regions&#x60; endpoint to get the list of available regions.
+   * A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \&quot;North America\&quot;. Use the &#x60;/filters/regions&#x60; endpoint to get the list of available regions.  **Note:** Filtering is possible only for top-level regions, not individual countries.
    * @return regions
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"North America\". Use the `/filters/regions` endpoint to get the list of available regions.")
+  @ApiModelProperty(value = "A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"North America\". Use the `/filters/regions` endpoint to get the list of available regions.  **Note:** Filtering is possible only for top-level regions, not individual countries.")
   @JsonProperty(JSON_PROPERTY_REGIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

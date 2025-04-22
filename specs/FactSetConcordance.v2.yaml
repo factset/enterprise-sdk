@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.8.0
+  version: 2.10.0
   title: FactSet Concordance API
   description: >
 
@@ -18,7 +18,7 @@ info:
      
      <b>Entity & People Match:</b> The first workflow follows traditional API conventions in that a request is accepted and a response is returned synchronously enabling the concordance of up to 25 names in a single request. The response returns a list of 20 candidates as well as a proposed match.
      
-     <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.
+     <b>Entity & People Match - Bulk:</b> The second workflow allows you to input a large list of names within a .CSV file in a single request. With this workflow, a task is created for uploading a set of queries. Once the task has completed, the client retrieves the concordance results through the /entity-decisions or /people-decisions endpoint. Note that in the Bulk workflow, only the matches for the records are returned. Candidates are not included.
      
      Once the service has provided a list of concorded FactSet Identifiers, you can then use our Entity Mappings and People Mappings endpoints to further review the universe of mapped identifiers or modify existing records. </p><p><b>Rate limit is set to 10 requests per second</b>.</p>
      
@@ -86,7 +86,6 @@ paths:
         - $ref: '#/components/parameters/cik'
         - $ref: '#/components/parameters/crd'
         - $ref: '#/components/parameters/cusip'
-        - $ref: '#/components/parameters/duns'
         - $ref: '#/components/parameters/ein'
         - $ref: '#/components/parameters/factsetId'
         - $ref: '#/components/parameters/fitch'
@@ -107,6 +106,7 @@ paths:
         - $ref: '#/components/parameters/ukch'
         - $ref: '#/components/parameters/valoren'
         - $ref: '#/components/parameters/wkn'
+        - $ref: '#/components/parameters/candidatesCount'
       responses:
         '200':
           $ref: '#/components/responses/EntityMatchResponse'
@@ -281,12 +281,6 @@ paths:
                     `CUSIP`
                   type: string
                   example: CUSIP
-                dunsColumn:
-                  description: >-
-                    Header Name of the column in the input file for the type
-                    DUNS, `Dun&Bradstreet`.
-                  type: string
-                  example: Dun&Bradstreet
                 einColumn:
                   description: >-
                     Header Name of the column in the input file for the type
@@ -482,6 +476,13 @@ paths:
                   items:
                     type: string
                     example: Address
+                autoRemap:
+                  description: >
+                    When `true`, automatically re-evaluates and overwrites
+                    existing mappings using updated metadata submitted in this
+                    task. Applicable when the specified universe has auto-remap
+                    set to true. **Caution: Mapping updates cannot be undone.**
+                  type: boolean
               required:
                 - universeId
                 - taskName
@@ -924,6 +925,7 @@ paths:
         - $ref: '#/components/parameters/lastName'
         - $ref: '#/components/parameters/suffix'
         - $ref: '#/components/parameters/entity'
+        - $ref: '#/components/parameters/candidatesCount'
       responses:
         '200':
           $ref: '#/components/responses/PeopleMatchResponse'
@@ -1079,6 +1081,13 @@ paths:
                     include with `personNameColumn`**.
                   type: string
                   example: HIGH
+                autoRemap:
+                  description: >
+                    When `true`, automatically re-evaluates and overwrites
+                    existing mappings using updated metadata submitted in this
+                    task. Applicable when the specified universe has auto-remap
+                    set to true. **Caution: Mapping updates cannot be undone.**
+                  type: boolean
               required:
                 - universeId
                 - taskName
@@ -1187,7 +1196,7 @@ components:
       description: >-
         ISO2 country code corresponding to the entity name that is used when
         evaluating candidates for a match. For a list of ISO2 Country codes,
-        visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+        visit [OA 8754](https://my.apps.factset.com/oa/pages/8754#country).
       in: query
       schema:
         type: string
@@ -1224,23 +1233,23 @@ components:
         Multiple types can be entered separated by commas.
           |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
           |---|---|---|---|
-          |ABS|Asset-Backed||MED|Broadcast Call Sign|
-          |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-          |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-          |CMD|Commodity||MUT|Mutual Fd-Open End|
-          |COL|College/University||NPO|Non-Profit Organization|
-          |CUR|Currency||OPD|Operating Division|
-          |ESP|Emp Stk Ownership Plan||OTH|Other|
-          |EXT|Extinct||PEF|Pension Fund|
-          |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-          |FND|Foundation/Endowment||PUB|Public Company|
-          |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-          |FRX|ForEx||PVT|Private Company|
-          |GOV|Government||SOV|Sovereign Wealth Fund|
-          |HED|Hedge Fund||SUB|Subsidiary|
-          |HOL|Holding Company||TRU|Trust/Trustee|
-          |IDX|Index||UMB|Umbrella Fund|
-          |VEN|Venture Capital Fund||JVT|Joint Venture|
+          |ABS|Asset-Backed|MED|Broadcast Call Sign|
+          |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+          |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+          |CMD|Commodity|MUT|Mutual Fd-Open End|
+          |COL|College/University|NPO|Non-Profit Organization|
+          |CUR|Currency|OPD|Operating Division|
+          |ESP|Emp Stk Ownership Plan|OTH|Other|
+          |EXT|Extinct|PEF|Pension Fund|
+          |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+          |FND|Foundation/Endowment|PUB|Public Company|
+          |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+          |FRX|ForEx|PVT|Private Company|
+          |GOV|Government|SOV|Sovereign Wealth Fund|
+          |HED|Hedge Fund|SUB|Subsidiary|
+          |HOL|Holding Company|TRU|Trust/Trustee|
+          |IDX|Index|UMB|Umbrella Fund|
+          |VEN|Venture Capital Fund|JVT|Joint Venture|
       in: query
       schema:
         type: array
@@ -1258,39 +1267,39 @@ components:
         Multiple types can be entered separated by commas.
           |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
           |---|---|---|---|
-        |ABS|Asset-Backed||MED|Broadcast Call Sign|
+        |ABS|Asset-Backed|MED|Broadcast Call Sign|
 
-        |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
+        |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
 
-        |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
+        |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
 
-        |CMD|Commodity||MUT|Mutual Fd-Open End|
+        |CMD|Commodity|MUT|Mutual Fd-Open End|
 
-        |COL|College/University||NPO|Non-Profit Organization|
+        |COL|College/University|NPO|Non-Profit Organization|
 
-        |CUR|Currency||OPD|Operating Division|
+        |CUR|Currency|OPD|Operating Division|
 
-        |ESP|Emp Stk Ownership Plan||OTH|Other|
+        |ESP|Emp Stk Ownership Plan|OTH|Other|
 
-        |EXT|Extinct||PEF|Pension Fund|
+        |EXT|Extinct|PEF|Pension Fund|
 
-        |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
+        |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
 
-        |FND|Foundation/Endowment||PUB|Public Company|
+        |FND|Foundation/Endowment|PUB|Public Company|
 
-        |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
+        |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
 
-        |FRX|ForEx||PVT|Private Company|
+        |FRX|ForEx|PVT|Private Company|
 
-        |GOV|Government||SOV|Sovereign Wealth Fund|
+        |GOV|Government|SOV|Sovereign Wealth Fund|
 
-        |HED|Hedge Fund||SUB|Subsidiary|
+        |HED|Hedge Fund|SUB|Subsidiary|
 
-        |HOL|Holding Company||TRU|Trust/Trustee|
+        |HOL|Holding Company|TRU|Trust/Trustee|
 
-        |IDX|Index||UMB|Umbrella Fund|
+        |IDX|Index|UMB|Umbrella Fund|
 
-        |VEN|Venture Capital Fund||JVT|Joint Venture|
+        |VEN|Venture Capital Fund|JVT|Joint Venture|
       in: query
       schema:
         type: array
@@ -1432,15 +1441,6 @@ components:
       schema:
         type: string
         example: 88160R101
-    duns:
-      description: >-
-        Input identifiers for the DUNS - Dun & Bradstreet Data Universal
-        Numbering System symbol type.
-      name: duns
-      in: query
-      schema:
-        type: string
-        example: Dun&Bradstreet
     ein:
       description: >-
         Input identifiers for the EIN - Employer Identification Number symbol
@@ -1845,14 +1845,24 @@ components:
       name: entity
       description: >-
         Entity the person is associated with. It is used to filter the
-        candidates before taking a match decision. Can be entity ID or name. The
-        supported entity types match the what is supported via the /company
-        match.
+        candidates before taking a match decision. Can be entity ID or name.
       in: query
       schema:
         type: string
       required: true
       example: Microsoft
+    candidatesCount:
+      name: candidatesCount
+      description: >-
+        Maximum number of candidates to be returned. Parent entities, when
+        includeParent is true, are not included in this count. <p>*minimum -
+        20*</p> <p>*maximum - 100*</p>
+      in: query
+      schema:
+        type: integer
+        minimum: 20
+        maximum: 100
+        example: 40
     peopleTaskDecisionId:
       name: taskId
       description: >-
@@ -2327,7 +2337,7 @@ components:
                   ISO2 country code corresponding to the entity name that is
                   used when evaluating candidates for a match. For a list of ISO
                   Country codes, visit [OA
-                  8754](https://my.apps.factset.com/oa/pages/8754).
+                  8754](https://my.apps.factset.com/oa/pages/8754#country).
                 type: string
                 maxLength: 2
                 minLength: 2
@@ -2381,10 +2391,6 @@ components:
                 description: Name for the type CUSIP.
                 type: string
                 example: 88160R101
-              duns:
-                description: Name for the type DUNS, Dun&Bradstreet.
-                type: string
-                example: ''
               ein:
                 description: Name for the type EmployerIdentificationNumber, EIN.
                 type: string
@@ -2496,23 +2502,23 @@ components:
             result. Multiple types can be entered separated by commas
               |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
               |---|---|---|---|
-              |ABS|Asset-Backed||MED|Broadcast Call Sign|
-              |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-              |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-              |CMD|Commodity||MUT|Mutual Fd-Open End|
-              |COL|College/University||NPO|Non-Profit Organization|
-              |CUR|Currency||OPD|Operating Division|
-              |ESP|Emp Stk Ownership Plan||OTH|Other|
-              |EXT|Extinct||PEF|Pension Fund|
-              |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-              |FND|Foundation/Endowment||PUB|Public Company|
-              |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-              |FRX|ForEx||PVT|Private Company|
-              |GOV|Government||SOV|Sovereign Wealth Fund|
-              |HED|Hedge Fund||SUB|Subsidiary|
-              |HOL|Holding Company||TRU|Trust/Trustee|
-              |IDX|Index||UMB|Umbrella Fund|
-              |VEN|Venture Capital Fund||JVT|Joint Venture|
+              |ABS|Asset-Backed|MED|Broadcast Call Sign|
+              |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+              |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+              |CMD|Commodity|MUT|Mutual Fd-Open End|
+              |COL|College/University|NPO|Non-Profit Organization|
+              |CUR|Currency|OPD|Operating Division|
+              |ESP|Emp Stk Ownership Plan|OTH|Other|
+              |EXT|Extinct|PEF|Pension Fund|
+              |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+              |FND|Foundation/Endowment|PUB|Public Company|
+              |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+              |FRX|ForEx|PVT|Private Company|
+              |GOV|Government|SOV|Sovereign Wealth Fund|
+              |HED|Hedge Fund|SUB|Subsidiary|
+              |HOL|Holding Company|TRU|Trust/Trustee|
+              |IDX|Index|UMB|Umbrella Fund|
+              |VEN|Venture Capital Fund|JVT|Joint Venture|
           type: array
           items:
             type: string
@@ -2527,29 +2533,38 @@ components:
             result. Multiple types can be entered separated by commas.
               |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
               |---|---|---|---|
-              |ABS|Asset-Backed||MED|Broadcast Call Sign|
-              |BAS|Business Association (JP)||MUC|Mutual Fd-Closed End|
-              |CAC|Consolidated Accounting||MUE|Mutual Fd-ETF|
-              |CMD|Commodity||MUT|Mutual Fd-Open End|
-              |COL|College/University||NPO|Non-Profit Organization|
-              |CUR|Currency||OPD|Operating Division|
-              |ESP|Emp Stk Ownership Plan||OTH|Other|
-              |EXT|Extinct||PEF|Pension Fund|
-              |FAF|Family of Fds (VC/Pvt EQ)||PRO|Real Property|
-              |FND|Foundation/Endowment||PUB|Public Company|
-              |FNS|Financing Subsidiary/SPE||PVF|Private Eq Fd/Alt Invt|
-              |FRX|ForEx||PVT|Private Company|
-              |GOV|Government||SOV|Sovereign Wealth Fund|
-              |HED|Hedge Fund||SUB|Subsidiary|
-              |HOL|Holding Company||TRU|Trust/Trustee|
-              |IDX|Index||UMB|Umbrella Fund|
-              |VEN|Venture Capital Fund||JVT|Joint Venture|
+              |ABS|Asset-Backed|MED|Broadcast Call Sign|
+              |BAS|Business Association (JP)|MUC|Mutual Fd-Closed End|
+              |CAC|Consolidated Accounting|MUE|Mutual Fd-ETF|
+              |CMD|Commodity|MUT|Mutual Fd-Open End|
+              |COL|College/University|NPO|Non-Profit Organization|
+              |CUR|Currency|OPD|Operating Division|
+              |ESP|Emp Stk Ownership Plan|OTH|Other|
+              |EXT|Extinct|PEF|Pension Fund|
+              |FAF|Family of Fds (VC/Pvt EQ)|PRO|Real Property|
+              |FND|Foundation/Endowment|PUB|Public Company|
+              |FNS|Financing Subsidiary/SPE|PVF|Private Eq Fd/Alt Invt|
+              |FRX|ForEx|PVT|Private Company|
+              |GOV|Government|SOV|Sovereign Wealth Fund|
+              |HED|Hedge Fund|SUB|Subsidiary|
+              |HOL|Holding Company|TRU|Trust/Trustee|
+              |IDX|Index|UMB|Umbrella Fund|
+              |VEN|Venture Capital Fund|JVT|Joint Venture|
           type: array
           items:
             type: string
             example: EXT
             maxLength: 3
             minLength: 3
+        candidatesCount:
+          description: >
+            Maximum number of candidates to be returned. Parent entities, when
+            includeParent is true, are not included in this count.
+          type: integer
+          default: 20
+          minimum: 20
+          maximum: 100
+          example: 40
         includeEntitySubType:
           description: >
             Two-character FactSet entity subtype code used to filter candidates
@@ -2695,10 +2710,6 @@ components:
           description: User provided input for CUSIP symbol type.
           type: string
           example: 02079K305
-        clientDuns:
-          description: User provided input for DUNS, Dun&Bradstreet symbol type.
-          type: string
-          example: 687741991
         clientEin:
           description: >-
             User provided input for EmployerIdentificationNumber, EIN symbol
@@ -2818,6 +2829,56 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+        clientExcludeEntityType:
+          description: >
+            Entity types excluded by the user. If the request contains a FactSet
+            identifier, this field is ignored and the provided FactSet
+            identifier is the match.  If the request does not contain a FactSet
+            identifier, it is saved with the submitted metadata and may be used
+            for mapping (self or by FactSet Managed Services).
+          type: array
+          items:
+            type: string
+          example:
+            - PUB
+            - PVT
+        clientExcludeEntitySubType:
+          description: >
+            Entity sub-types excluded by the user. If the request contains a
+            FactSet identifier, this field is ignored and the provided FactSet
+            identifier is the match.  If the request does not contain a FactSet
+            identifier, it is saved with the submitted metadata and may be used
+            for mapping (self or by FactSet Managed Services).
+          type: array
+          items:
+            type: string
+          example:
+            - CP
+            - IB
+        clientIncludeEntityType:
+          description: >
+            Entity types included by the user. If the request contains a FactSet
+            identifier, this field is ignored and the provided FactSet
+            identifier is the match.  If the request does not contain a FactSet
+            identifier, it is saved with the submitted metadata and may be used
+            for mapping (self or by FactSet Managed Services).
+          type: array
+          items:
+            type: string
+          example:
+            - PEF
+        clientIncludeEntitySubType:
+          description: >
+            Entity sub-types included by the user. If the request contains a
+            FactSet identifier, this field is ignored and the provided FactSet
+            identifier is the match.  If the request does not contain a FactSet
+            identifier, it is saved with the submitted metadata and may be used
+            for mapping (self or by FactSet Managed Services).
+          type: array
+          items:
+            type: string
+          example:
+            - PR
     PeopleMappingRequest:
       type: object
       required:
@@ -3168,6 +3229,14 @@ components:
                   The enity of the Person.
                 type: string
                 example: Microsoft
+        candidatesCount:
+          description: >
+            Maximum number of candidates to be returned. Parent entities, when
+            includeParent is true, are not included in this count.
+          type: integer
+          minimum: 20
+          maximum: 100
+          example: 40
         universeId:
           description: |
             The universeId to save this set of inputs to
@@ -3380,7 +3449,6 @@ components:
               clientCountry: US
               clientCrd: null
               clientCusip: null
-              clientDuns: null
               clientEin: null
               clientFitch: null
               clientId: '1004_1'
@@ -3421,7 +3489,6 @@ components:
               clientCountry: null
               clientCrd: null
               clientCusip: null
-              clientDuns: null
               clientEin: null
               clientFitch: null
               clientId: '1004_2'
@@ -3616,11 +3683,6 @@ components:
           description: Name of the column as provided by the user -  CUSIP.
           type: string
           example: 02079K305
-          nullable: true
-        clientDuns:
-          description: Name of the column as provided by the user -  DUNS, Dun&Bradstreet.
-          type: string
-          example: 687741991
           nullable: true
         clientEin:
           description: >-
@@ -3947,6 +4009,44 @@ components:
           type: string
           example: Domain Name
           nullable: true
+        clientExcludeEntityType:
+          description: >
+            Entity types to exclude from the search. If provided, entities with
+            the specified entity types will not be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - PUB
+            - PVT
+        clientExcludeEntitySubType:
+          description: >
+            Entity sub-types to exclude from the search. If provided, entities
+            with the specified entity sub-types will not be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - CP
+            - IB
+        clientIncludeEntityType:
+          description: >
+            Entity types to include in the search. If provided, only entities
+            with the specified entity types will be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - PEF
+        clientIncludeEntitySubType:
+          description: >
+            Entity sub-types to include in the search. If provided, only
+            entities with the specified entity sub-types will be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - PR
     EntityTaskStatus:
       title: Entity Task Status
       description: >
@@ -4044,13 +4144,6 @@ components:
           description: Header Name of the column in the input file for the type CUSIP.
           type: string
           example: CUSIP
-          nullable: true
-        dunsColumn:
-          description: >-
-            Header Name of the column in the input file for the type DUNS,
-            Dun&Bradstreet.
-          type: string
-          example: Dun&Bradstreet
           nullable: true
         einColumn:
           description: >-
@@ -4238,7 +4331,7 @@ components:
           description: Time the Task was submitted in UTC.
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
         message:
           description: Textual message for the status.
@@ -4269,7 +4362,7 @@ components:
           description: Process start time in UTC.
           type: string
           format: date-time
-          example: 2020-07-03T15:12:06.722Z
+          example: '2020-07-03T15:12:06.722'
           nullable: true
         processDuration:
           description: Process duration in seconds.
@@ -4349,6 +4442,13 @@ components:
           type: string
           example: My Universe
           nullable: true
+        autoRemap:
+          description: >
+            When `true`, automatically re-evaluates and overwrites existing
+            mappings using updated metadata submitted in this task. Applicable
+            when the specified universe has auto-remap set to true. **Caution:
+            Mapping updates cannot be undone.**
+          type: boolean
     EntityMapping:
       title: Entity Mapping
       description: >
@@ -4432,13 +4532,6 @@ components:
           description: Name as provided by the user for the type CUSIP.
           type: string
           example: 02079K305
-          nullable: true
-        clientDuns:
-          description: >-
-            Name as provided by the user for the type DUNS - Dun & Bradstreet
-            Data Universal Numbering System.
-          type: string
-          example: 687741991
           nullable: true
         clientEin:
           description: >-
@@ -4591,13 +4684,13 @@ components:
           description: Time when entity was created in UTC.
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
         updatedTime:
           description: Time when the submitted entity was last updated in UTC.
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
         mapStatus:
           description: Current status of the entity mapping.
@@ -4613,6 +4706,42 @@ components:
           type: integer
           example: 1
           nullable: true
+        clientExcludeEntityType:
+          description: >
+            Entity types excluded by the user. If provided, entities with the
+            specified entity types will not be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - PUB
+        clientExcludeEntitySubType:
+          description: >
+            Entity sub-types excluded by the user. If provided, entities with
+            the specified entity sub-types will not be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - CP
+        clientIncludeEntityType:
+          description: >
+            Entity types included by the user. If provided, only entities with
+            the specified entity types will be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - PEF
+        clientIncludeEntitySubType:
+          description: >
+            Entity sub-types included by the user. If provided, only entities
+            with the specified entity sub-types will be considered.
+          type: array
+          items:
+            type: string
+          example:
+            - PR
     PeopleMapping:
       title: People Mapping
       description: >
@@ -4682,7 +4811,7 @@ components:
           description: It indicates the time of the creation
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
         mapStatus:
           description: Current status of the people mapping.
@@ -4714,7 +4843,7 @@ components:
           description: It indicates the time of the updation
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
     UniverseStatistics:
       title: Universe Statistics
@@ -4828,6 +4957,12 @@ components:
           format: date-time
           example: '2020-01-01T00:00:00.000'
           nullable: true
+        autoRemap:
+          description: >-
+            When `true`, allows automatic re-evaluation and overwriting of
+            existing mappings in the universe when new metadata is submitted.
+          type: boolean
+          example: true
     Universe:
       title: Universe Meta
       description: Metadata about a single universe
@@ -4882,6 +5017,12 @@ components:
           format: date-time
           example: '2020-01-01T00:00:00.000'
           nullable: true
+        autoRemap:
+          description: >-
+            When `true`, allows automatic re-evaluation and overwriting of
+            existing mappings in the universe when new metadata is submitted.
+          type: boolean
+          example: true
     PeopleMatch:
       title: People Match
       description: |
@@ -5178,7 +5319,7 @@ components:
           description: Time the Task was submitted in UTC.
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
         unmappedCount:
           description: Number of records with status of UNMAPPED the Input File.
@@ -5200,7 +5341,7 @@ components:
           description: Process start time in UTC.
           type: string
           format: date-time
-          example: 2020-07-03T15:12:06.722Z
+          example: '2020-07-03T15:12:06.722'
           nullable: true
         processDuration:
           description: Process duration in seconds.
@@ -5267,6 +5408,13 @@ components:
           type: string
           example: FDSQAR_C-000000
           nullable: true
+        autoRemap:
+          description: >
+            When `true`, automatically re-evaluates and overwrites existing
+            mappings using updated metadata submitted in this task. Applicable
+            when the specified universe has auto-remap set to true. **Caution:
+            Mapping updates cannot be undone.**
+          type: boolean
     PeopleTaskStatus:
       title: People Task Status
       description: >
@@ -5362,7 +5510,7 @@ components:
           description: Process start time in UTC.
           type: string
           format: date-time
-          example: 2020-07-03T15:12:06.722Z
+          example: '2020-07-03T15:12:06.722'
           nullable: true
         processDuration:
           description: Process duration in seconds.
@@ -5414,6 +5562,13 @@ components:
           type: string
           example: processfile
           nullable: true
+        autoRemap:
+          description: >
+            When `true`, automatically re-evaluates and overwrites existing
+            mappings using updated metadata submitted in this task. Applicable
+            when the specified universe has auto-remap set to true. **Caution:
+            Mapping updates cannot be undone.**
+          type: boolean
         taskId:
           description: >-
             Identifier denoting a specific Concordance task submitted by the
@@ -5430,7 +5585,7 @@ components:
           description: Time the Task was submitted in UTC.
           type: string
           format: date-time
-          example: 2020-06-24T22:02:21.000Z
+          example: '2020-06-24T22:02:21.000'
           nullable: true
         universeId:
           description: The universe identifier
@@ -5698,7 +5853,6 @@ components:
             cik: '0001318605'
             crd: ''
             cusip: 88160R101
-            duns: ''
             ein: ''
             factsetId: 006XY7-E
             fitch: ''
@@ -5731,6 +5885,7 @@ components:
           - ''
         excludeEntitySubType:
           - HF
+        candidatesCount: 20
         includeParent: false
         universeId: 1
     EntityMatches:
@@ -5746,7 +5901,6 @@ components:
             clientCountry: US
             clientCrd: 149722
             clientCusip: 02079K305
-            clientDuns: 687741991
             clientEin: 953540776
             clientFactsetId: 0013TZ-E
             clientFitch: 47504
@@ -5801,6 +5955,16 @@ components:
             parentMatchFlag: null
             nameMatchString: factset
             nameMatchSource: Domain Name
+            clientExcludeEntityType:
+              - PUB
+              - PVT
+            clientExcludeEntitySubType:
+              - CP
+              - IB
+            clientIncludeEntityType:
+              - PEF
+            clientIncludeEntitySubType:
+              - PR
     SuccessfulEntityTasks:
       summary: Successful Entity Task
       description: Example of the status of a successful Entity Concordance Task.
@@ -5822,7 +5986,6 @@ components:
             cikColumn: cikColumn
             crdColumn: crdColumn
             cusipColumn: cusipColumn
-            dunsColumn: dunsColumn
             einColumn: einColumn
             factsetIdColumn: factsetIdColumn
             fitchColumn: fitchColumn
@@ -5871,6 +6034,7 @@ components:
               - Address
               - Phone
               - City
+            autoRemap: true
     SuccessfulPeopleTasks:
       summary: Successful People Task
       description: Example of the status of a successful People Concordance Task.
@@ -5903,6 +6067,7 @@ components:
               - Address
               - Phone
               - City
+            autoRemap: true
     PeopleTask:
       value:
         data:
@@ -5929,6 +6094,7 @@ components:
             - Address
             - Phone
             - City
+          autoRemap: true
     PendingTask:
       summary: Status pending input file
       description: Example of the status of a Task pending input file.
@@ -5945,7 +6111,6 @@ components:
           cikColumn: cikColumn
           crdColumn: crdColumn
           cusipColumn: cusipColumn
-          dunsColumn: dunsColumn
           einColumn: einColumn
           factsetIdColumn: factsetIdColumn
           fitchColumn: fitchColumn
@@ -5999,6 +6164,7 @@ components:
             - Address
             - Phone
             - City
+          autoRemap: true
     PendingTasks:
       summary: Status pending input file
       description: Example of the status of a Task pending input file.
@@ -6269,7 +6435,6 @@ components:
             clientCountry: US
             clientCrd: 149722
             clientCusip: 02079K305
-            clientDuns: 687741991
             clientEin: 953540776
             clientFactsetId: 0013TZ-E
             clientFitch: 47504
@@ -6329,7 +6494,7 @@ components:
       description: 404 - Not Found
       value:
         status: Not Found
-        timestamp: 2019-11-01T11:09:41.918Z
+        timestamp: '2019-11-01T11:09:41.918'
         path: /factset-concordance/v2/fakeendpoint
         message: '''/factset-concordance/v2/fake-endpoint'' is not a valid endpoint'
         subErrors: null
@@ -6371,6 +6536,7 @@ components:
         createdOn: '2020-01-01T00:00:00.000'
         updatedBy: FDSQAR_C-000000
         updatedOn: '2020-01-01T00:00:00.000'
+        autoRemap: true
     UniversesExample:
       description: Universes response
       value:
@@ -6384,6 +6550,7 @@ components:
             createdOn: '2020-01-01T00:00:00.000'
             updatedBy: FDSQAR_C-000000
             updatedOn: '2020-01-01T00:00:00.000'
+            autoRemap: true
     EntityUniverseStatisticsExample:
       description: Entity Universe Statistics response
       value:
@@ -6432,7 +6599,6 @@ components:
         clientCik: '100331'
         clientCrd: '149722'
         clientCusip: 02079K305
-        clientDuns: '687741991'
         clientEin: '953540776'
         clientFactsetId: 0013TZ-E
         clientFitch: '47504'
@@ -6454,6 +6620,16 @@ components:
         clientUkch: CE012494
         clientValoren: '685558'
         clientWkn: A0MU9T
+        clientExcludeEntityType:
+          - PUB
+          - PVT
+        clientExcludeEntitySubType:
+          - CP
+          - IB
+        clientIncludeEntityType:
+          - PEF
+        clientIncludeEntitySubType:
+          - PR
         clientAdditionalContext:
           Address: 123 Main St
           Phone: 555-555-5555
@@ -6482,7 +6658,6 @@ components:
             clientCik: '100331'
             clientCrd: '149722'
             clientCusip: 02079K305
-            clientDuns: '687741991'
             clientEin: '953540776'
             clientFactsetId: 0013TZ-E
             clientFitch: '47504'
@@ -6512,6 +6687,17 @@ components:
             updatedTime: '2020-06-24T22:02:21.000'
             mapStatus: MAPPED
             universeId: 1
+            clientExcludeEntityType:
+              - PUB
+              - PVT
+            clientExcludeEntitySubType:
+              - CP
+              - IB
+            clientIncludeEntityType:
+              - PEF
+            clientIncludeEntitySubType:
+              - PR
+              - VC
     PeopleMatchPostRequest:
       description: People Match request
       value:
@@ -6528,6 +6714,7 @@ components:
               City: New York
             suffix: III
             entity: Microsoft
+        candidatesCount: 20
         universeId: 1
     PeopleUniversePostRequest:
       description: People Universe request
@@ -6581,8 +6768,8 @@ components:
             clientCountry: us
             clientState: ct
             clientUrl: www.factset.com
-            createdTime: 2020-09-04T20:14:13.123Z
-            updatedTime: 2020-10-04T20:14:13.123Z
+            createdTime: '2020-09-04T20:14:13.123'
+            updatedTime: '2020-10-04T20:14:13.123'
             mapStatus: MAPPED
             universeId: 1
             clientAdditionalContext:
@@ -6598,8 +6785,8 @@ components:
             clientCountry: us
             clientState: ca
             clientUrl: www.apple.com
-            createdTime: 2020-07-04T20:14:13.123Z
-            updatedTime: 2020-08-04T20:14:13.123Z
+            createdTime: '2020-07-04T20:14:13.123'
+            updatedTime: '2020-08-04T20:14:13.123'
             mapStatus: UNMAPPED
             universeId: 1
             clientAdditionalContext:
@@ -6619,12 +6806,12 @@ components:
             clientPriority: HIGH
             clientSalutation: Mr
             clientSuffix: III
-            createdTime: 2020-06-24T22:02:21.000Z
+            createdTime: '2020-06-24T22:02:21+00:00'
             mapStatus: MAPPED
             personId: 00118X-E
             personName: GATES WILLIAM H III
             universeId: 1
-            updatedTime: 2020-06-24T22:02:21.000Z
+            updatedTime: '2020-06-24T22:02:21+00:00'
             clientAdditionalContext:
               Address: 123 Main St
               Phone: 555-555-5555
@@ -6638,12 +6825,12 @@ components:
             clientPriority: HIGH
             clientSalutation: Mr
             clientSuffix: III
-            createdTime: 2020-06-24T22:02:21.000Z
+            createdTime: '2020-06-24T22:02:21+00:00'
             mapStatus: MAPPED
             personId: 00118X-E
             personName: GATES WILLIAM H III
             universeId: 1
-            updatedTime: 2020-06-24T22:02:21.000Z
+            updatedTime: '2020-06-24T22:02:21+00:00'
             clientAdditionalContext:
               Address: 123 Main St
               Phone: 555-555-5555
@@ -6669,6 +6856,17 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+          clientExcludeEntityType:
+            - PUB
+            - PVT
+          clientExcludeEntitySubType:
+            - CP
+            - IB
+          clientIncludeEntityType:
+            - PEF
+          clientIncludeEntitySubType:
+            - PR
+            - VC
     EntityMappingRequest:
       description: Entity Mapping Request
       value:

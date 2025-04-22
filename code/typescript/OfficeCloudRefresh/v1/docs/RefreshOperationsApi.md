@@ -268,6 +268,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/json
+- **Content-Type**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroenabled.12, application/json
 - **Accept**: application/json
 

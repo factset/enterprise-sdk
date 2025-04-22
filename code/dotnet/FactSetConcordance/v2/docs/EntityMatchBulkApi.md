@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a name="getentitytaskforlist"></a>
 # **GetEntityTaskForList**
-> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bbgFigiColumn = null, string bbgTickerColumn = null, string bicColumn = null, string cikColumn = null, string crdColumn = null, string cusipColumn = null, string dunsColumn = null, string einColumn = null, string factsetIdColumn = null, string fitchColumn = null, string gvkeyColumn = null, string gvkeyIidColumn = null, string isinColumn = null, string jcnColumn = null, string leiColumn = null, string lxidColumn = null, string mdColumn = null, string redCodeColumn = null, string rssdColumn = null, string sedolColumn = null, string sprColumn = null, string tickerColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, List<string> additionalContextColumns = null)
+> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bbgFigiColumn = null, string bbgTickerColumn = null, string bicColumn = null, string cikColumn = null, string crdColumn = null, string cusipColumn = null, string einColumn = null, string factsetIdColumn = null, string fitchColumn = null, string gvkeyColumn = null, string gvkeyIidColumn = null, string isinColumn = null, string jcnColumn = null, string leiColumn = null, string lxidColumn = null, string mdColumn = null, string redCodeColumn = null, string rssdColumn = null, string sedolColumn = null, string sprColumn = null, string tickerColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, List<string> additionalContextColumns = null, bool? autoRemap = null)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -184,7 +184,6 @@ namespace Example
             var cikColumn = "cikColumn_example";  // string | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys` (optional) 
             var crdColumn = "crdColumn_example";  // string | Header Name of the column in the input file for the type CRD, `Central Registration Depository`. (optional) 
             var cusipColumn = "cusipColumn_example";  // string | Header Name of the column in the input file for the type `CUSIP` (optional) 
-            var dunsColumn = "dunsColumn_example";  // string | Header Name of the column in the input file for the type DUNS, `Dun&Bradstreet`. (optional) 
             var einColumn = "einColumn_example";  // string | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`. (optional) 
             var factsetIdColumn = "factsetIdColumn_example";  // string | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`. (optional) 
             var fitchColumn = "fitchColumn_example";  // string | Header Name of the column in the input file for the type FitchCreditRating, `Fitch Ratings Identifier`. (optional) 
@@ -210,11 +209,12 @@ namespace Example
             var includeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
             var excludeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
             var additionalContextColumns = new List<string>(); // List<string> | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional) 
+            var autoRemap = true;  // bool? | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional) 
 
             try
             {
                 // Input a file with names and attributes, creating a taskId.
-                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns);
+                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -247,7 +247,6 @@ Name | Type | Description  | Notes
  **cikColumn** | **string**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional] 
  **crdColumn** | **string**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional] 
  **cusipColumn** | **string**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional] 
- **dunsColumn** | **string**| Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. | [optional] 
  **einColumn** | **string**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional] 
  **factsetIdColumn** | **string**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional] 
  **fitchColumn** | **string**| Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. | [optional] 
@@ -273,6 +272,7 @@ Name | Type | Description  | Notes
  **includeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **excludeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **additionalContextColumns** | [**List&lt;string&gt;**](string.md)| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional] 
+ **autoRemap** | **bool?**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional] 
 
 ### Return type
 [**EntityTaskResponse**](EntityTaskResponse.md)

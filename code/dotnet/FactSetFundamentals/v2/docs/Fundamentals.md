@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FsymId** | **string** | FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. | [optional] 
 **AsOfDate** | **DateTime?** | Date on which the specified fundamentals data or information is accurate or relevant. | [optional] 
 **Currency** | **string** | Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**Periodicity** | **string** | Periodicity or frequency of the fiscal periods. | [optional] 
 **PerShare** | [**PerShare**](PerShare.md) |  | [optional] 
 **Ratios** | [**Ratios**](Ratios.md) |  | [optional] 
 **Dividend** | [**Dividend**](Dividend.md) |  | [optional] 

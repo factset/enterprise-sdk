@@ -72,13 +72,14 @@ public class PeopleMatchApi {
   /**
    * Find potential people matches given a person&#39;s name.People matches can be retrieved using person&#39;s name and other attributes like firstname, middlename and lastname.
    * Finds the best people candidates matching the given name. &lt;p&gt;**Max of 1 Name permitted in a single GET request.** Use the POST method for /people-match to fetch up to 25 names. Otherwise, use the \&quot;People Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; 
-   * @param entity Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match. (required)
+   * @param entity Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. (required)
    * @param personName Name of Person to match. (optional)
    * @param salutation Title in person&#39;s name. This parameter should not be provided when the person name is provided as the input. (optional)
    * @param firstName First name of person. This parameter should not be provided when the person name is provided as the input. (optional)
    * @param middleName Middle name of person.This parameter should not be provided when the person name is provided as the input. (optional)
    * @param lastName Last name of person. This parameter should not be provided when the person name is provided as the input. (optional)
    * @param suffix Suffix in person&#39;s name. This parameter should not be provided when the person name is provided as the input. (optional)
+   * @param candidatesCount Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. &lt;p&gt;*minimum - 20*&lt;/p&gt; &lt;p&gt;*maximum - 100*&lt;/p&gt; (optional)
    * @return PeopleMatchesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -92,20 +93,21 @@ public class PeopleMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public PeopleMatchesResponse getPeopleMatch(String entity, String personName, String salutation, String firstName, String middleName, String lastName, String suffix) throws ApiException {
-    return getPeopleMatchWithHttpInfo(entity, personName, salutation, firstName, middleName, lastName, suffix).getData();
+  public PeopleMatchesResponse getPeopleMatch(String entity, String personName, String salutation, String firstName, String middleName, String lastName, String suffix, Integer candidatesCount) throws ApiException {
+    return getPeopleMatchWithHttpInfo(entity, personName, salutation, firstName, middleName, lastName, suffix, candidatesCount).getData();
   }
 
   /**
    * Find potential people matches given a person&#39;s name.People matches can be retrieved using person&#39;s name and other attributes like firstname, middlename and lastname.
    * Finds the best people candidates matching the given name. &lt;p&gt;**Max of 1 Name permitted in a single GET request.** Use the POST method for /people-match to fetch up to 25 names. Otherwise, use the \&quot;People Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; 
-   * @param entity Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match. (required)
+   * @param entity Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. (required)
    * @param personName Name of Person to match. (optional)
    * @param salutation Title in person&#39;s name. This parameter should not be provided when the person name is provided as the input. (optional)
    * @param firstName First name of person. This parameter should not be provided when the person name is provided as the input. (optional)
    * @param middleName Middle name of person.This parameter should not be provided when the person name is provided as the input. (optional)
    * @param lastName Last name of person. This parameter should not be provided when the person name is provided as the input. (optional)
    * @param suffix Suffix in person&#39;s name. This parameter should not be provided when the person name is provided as the input. (optional)
+   * @param candidatesCount Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. &lt;p&gt;*minimum - 20*&lt;/p&gt; &lt;p&gt;*maximum - 100*&lt;/p&gt; (optional)
    * @return ApiResponse&lt;PeopleMatchesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -119,7 +121,7 @@ public class PeopleMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PeopleMatchesResponse> getPeopleMatchWithHttpInfo(String entity, String personName, String salutation, String firstName, String middleName, String lastName, String suffix) throws ApiException {
+  public ApiResponse<PeopleMatchesResponse> getPeopleMatchWithHttpInfo(String entity, String personName, String salutation, String firstName, String middleName, String lastName, String suffix, Integer candidatesCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'entity' is set
@@ -143,6 +145,7 @@ public class PeopleMatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "lastName", lastName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "suffix", suffix));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "entity", entity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "candidatesCount", candidatesCount));
 
     
     

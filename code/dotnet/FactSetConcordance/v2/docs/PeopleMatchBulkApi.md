@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a name="getpeopletaskforlist"></a>
 # **GetPeopleTaskForList**
-> PeopleTaskResponse GetPeopleTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string entityColumn, List<string> additionalContextColumns = null, string firstNameColumn = null, string lastNameColumn = null, string middleNameColumn = null, string personNameColumn = null, string priorityColumn = null, string salutationColumn = null, string suffixColumn = null)
+> PeopleTaskResponse GetPeopleTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string entityColumn, List<string> additionalContextColumns = null, string firstNameColumn = null, string lastNameColumn = null, string middleNameColumn = null, string personNameColumn = null, string priorityColumn = null, string salutationColumn = null, string suffixColumn = null, bool? autoRemap = null)
 
 Create a People Concordance Task.
 
@@ -182,11 +182,12 @@ namespace Example
             var priorityColumn = "priorityColumn_example";  // string | Priority associated to the clientId. Used for manual mapping.  (optional) 
             var salutationColumn = "salutationColumn_example";  // string | The salutation of the person.**Do not include with `personNameColumn`**.  (optional) 
             var suffixColumn = "suffixColumn_example";  // string | A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**.  (optional) 
+            var autoRemap = true;  // bool? | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional) 
 
             try
             {
                 // Create a People Concordance Task.
-                PeopleTaskResponse result = apiInstance.GetPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn);
+                PeopleTaskResponse result = apiInstance.GetPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn, autoRemap);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -217,6 +218,7 @@ Name | Type | Description  | Notes
  **priorityColumn** | **string**| Priority associated to the clientId. Used for manual mapping.  | [optional] 
  **salutationColumn** | **string**| The salutation of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
  **suffixColumn** | **string**| A name suffix, that follows a person&#39;s full name and provides additional information about the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
+ **autoRemap** | **bool?**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional] 
 
 ### Return type
 [**PeopleTaskResponse**](PeopleTaskResponse.md)

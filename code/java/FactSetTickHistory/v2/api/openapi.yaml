@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Tick History
-  version: 2.4.0
+  version: 2.4.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-tick-history-api
@@ -849,7 +849,7 @@ components:
   examples:
     postBodyOfUSTickers:
       description: Post body request example to fetch details of the US Equity tick
-        data for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: US Equity tickers with default all fields for the given period
       value:
         data:
@@ -858,14 +858,15 @@ components:
           - F
           - AAPL
           - GOOG
+          - TSLA
           factsetExchangeCode: USA
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfUSTickersReg:
       description: Post body request example to fetch details of the US Equity tick
-        data for a Regional ISO Code for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        data for a Regional ISO Code for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: US Equity tickers for a Regional ISO Code with default all fields for
         the given period
       value:
@@ -875,14 +876,15 @@ components:
           - F
           - AAPL
           - GOOG
+          - TSLA
           factsetExchangeCode: NYS
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfASXTickers:
       description: Post body request example to fetch details of the AUS tick data
-        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: AUS tickers with default all fields for the given period
       value:
         data:
@@ -891,12 +893,12 @@ components:
           - BHP
           factsetExchangeCode: AUS
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfASXTickersReg:
       description: Post body request example to fetch details of the ASX tick data
-        for a Regional ISO Code for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        for a Regional ISO Code for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: ASX tickers for a Regional ISO Code with default all fields for the
         given period
       value:
@@ -906,12 +908,12 @@ components:
           - BHP
           factsetExchangeCode: ASX
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfLSETickers:
       description: Post body request example to fetch details of the LSE tick data
-        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: LSE tickers with default all fields for the given period
       value:
         data:
@@ -920,12 +922,12 @@ components:
           - VOD
           factsetExchangeCode: LON
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfTokyoTickers:
       description: Post body request example to fetch details of the Tokyo tick data
-        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: Tokyo tickers with default all fields for the given period
       value:
         data:
@@ -934,12 +936,12 @@ components:
           - "4307"
           factsetExchangeCode: TKS
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfSwissTickers:
       description: Post body request example to fetch details of the Swiss tick data
-        for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: Swiss tickers with default all fields for the given period
       value:
         data:
@@ -948,12 +950,12 @@ components:
           - COTN
           factsetExchangeCode: SWX
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfSingaporeTickers:
       description: Post body request example to fetch details of the Singapore tick
-        data for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: Singapore tickers with default all fields for the given period
       value:
         data:
@@ -961,12 +963,12 @@ components:
           - J36
           factsetExchangeCode: SES
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     postBodyOfHongKongTickers:
       description: Post body request example to fetch details of the Hong Kong tick
-        data for the period 2021-01-01T00:00:00Z to 2021-01-31T23:59:59Z.
+        data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: Hong Kong tickers with default all fields for the given period
       value:
         data:
@@ -974,12 +976,12 @@ components:
           - "700"
           factsetExchangeCode: HKG
           dateTimeRange:
-            start: 2021-01-01T00:00:00Z
-            end: 2021-01-31T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           single: false
     minSingleTicker:
       description: Post body request example to fetch details of the IBM tick data
-        for the period 2023-08-01T00:00:00Z to 2023-09-281T23:59:59Z.
+        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: Single ticker for the given period
       value:
         data:
@@ -987,30 +989,26 @@ components:
           - IBM
           factsetExchangeCode: USA
           dateTimeRange:
-            start: 2023-08-01T00:00:00Z
-            end: 2023-09-28T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           granularity: 1m
           type: trades
     minMultipleTicker:
-      description: Post body request example to fetch details of the AMZN, FDS, MSFT,
-        AAPL, TSLA, CL00, ES00 and NQ00 tick data for the period 2023-08-01T00:00:00Z
-        to 2024-01-31T23:59:59Z.
+      description: Post body request example to fetch details of the IBM, F, AAPL,
+        GOOG and TSLA tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
       summary: Multiple tickers for the given period
       value:
         data:
           tickers:
-          - AMZN
-          - FDS
-          - MSFT
+          - IBM
+          - F
           - AAPL
+          - GOOG
           - TSLA
-          - CL00
-          - ES00
-          - NQ00
           factsetExchangeCode: USA
           dateTimeRange:
-            start: 2023-08-01T00:00:00Z
-            end: 2023-09-28T23:59:59Z
+            start: 2024-11-01T00:00:00Z
+            end: 2024-11-10T23:59:59Z
           granularity: 1m
           type: trades
     sampleFilesResponse:

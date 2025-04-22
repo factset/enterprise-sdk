@@ -25,6 +25,8 @@
 
 * `LTM_SEMI` (value: `"LTM_SEMI"`)
 
+* `LTM_SEMI_R` (value: `"LTM_SEMI_R"`)
+
 * `YTD` (value: `"YTD"`)
 
 

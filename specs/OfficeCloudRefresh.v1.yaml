@@ -57,6 +57,9 @@ paths:
           application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
             schema:
               $ref: '#/components/schemas/SpreadsheetFile'
+          application/vnd.ms-excel.sheet.macroenabled.12:
+            schema:
+              $ref: '#/components/schemas/MacroEnabledFile'
           application/json:
             schema:
               $ref: '#/components/schemas/FileGroupInfo'
@@ -95,6 +98,14 @@ paths:
                 $ref: '#/components/schemas/Errors'
         '413':
           description: File Too Large.  Currently only accepting files up to 50MB.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '422':
+          description: >-
+            Unable to process input file, possibly because it's a macro-enabled
+            file that is not validly signed.'
           content:
             application/json:
               schema:
@@ -331,6 +342,10 @@ components:
   schemas:
     SpreadsheetFile:
       description: An Open Office XML spreadsheet file.
+      type: string
+      format: binary
+    MacroEnabledFile:
+      description: An Excel workbook with embedded macros.
       type: string
       format: binary
     FileGroupInfo:

@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **status** | **str, none_type** | Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results. | [optional] 
 **suffix_column** | **str, none_type** | Name of the column in the input file that contains the person&#39;s suffix.  | [optional] 
 **task_action** | **str, none_type** | Action status for the Concordance Task process. | [optional] 
+**auto_remap** | **bool** | When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional] 
 **task_id** | **int, none_type** | Identifier denoting a specific Concordance task submitted by the user. | [optional] 
 **task_name** | **str, none_type** | User-defined name for the task used to name the output file. | [optional] 
 **task_submit_time** | **datetime, none_type** | Time the Task was submitted in UTC. | [optional] 

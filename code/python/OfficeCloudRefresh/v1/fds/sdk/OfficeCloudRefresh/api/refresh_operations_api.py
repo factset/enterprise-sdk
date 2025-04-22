@@ -219,7 +219,7 @@ class RefreshOperationsApi(object):
         self.post_workbook_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (JobStatus,), 400: (Errors,), 403: (Errors,), 413: (Errors,), 500: (Errors,),  },
+                  { 202: (JobStatus,), 400: (Errors,), 403: (Errors,), 413: (Errors,), 422: (Errors,), 500: (Errors,),  },
                   None
                 ),
                 'auth': [
@@ -283,6 +283,7 @@ class RefreshOperationsApi(object):
                 ],
                 'content_type': [
                     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'application/vnd.ms-excel.sheet.macroenabled.12',
                     'application/json'
                 ]
             },

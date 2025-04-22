@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetEstimates",
-  "packageVersion": "1.3.2",
+  "packageVersion": "1.3.3",
   "packageGuid": "{400b5367-9eb9-599a-8a6c-6af8dd3f1b3d}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetEstimates/v2",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimates/1.3.2",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimates/1.3.3",
   "files": {
     "LICENSE": {}
   },

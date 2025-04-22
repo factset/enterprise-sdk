@@ -50,14 +50,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PeopleMatchApi();
-const entity = Microsoft; // String | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match.
+const entity = Microsoft; // String | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name.
 const opts = {
   'personName': Bill Gates, // String | Name of Person to match.
   'salutation': Mr, // String | Title in person's name. This parameter should not be provided when the person name is provided as the input.
   'firstName': Bill, // String | First name of person. This parameter should not be provided when the person name is provided as the input.
   'middleName': Henry, // String | Middle name of person.This parameter should not be provided when the person name is provided as the input.
   'lastName': Gates, // String | Last name of person. This parameter should not be provided when the person name is provided as the input.
-  'suffix': III // String | Suffix in person's name. This parameter should not be provided when the person name is provided as the input.
+  'suffix': III, // String | Suffix in person's name. This parameter should not be provided when the person name is provided as the input.
+  'candidatesCount': 40 // Number | Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. <p>*minimum - 20*</p> <p>*maximum - 100*</p>
 };
 
 // Call api endpoint
@@ -80,13 +81,14 @@ apiInstance.getPeopleMatch(entity, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity** | **String**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match. | 
+ **entity** | **String**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. | 
  **personName** | **String**| Name of Person to match. | [optional] 
  **salutation** | **String**| Title in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional] 
  **firstName** | **String**| First name of person. This parameter should not be provided when the person name is provided as the input. | [optional] 
  **middleName** | **String**| Middle name of person.This parameter should not be provided when the person name is provided as the input. | [optional] 
  **lastName** | **String**| Last name of person. This parameter should not be provided when the person name is provided as the input. | [optional] 
  **suffix** | **String**| Suffix in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional] 
+ **candidatesCount** | **Number**| Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. &lt;p&gt;*minimum - 20*&lt;/p&gt; &lt;p&gt;*maximum - 100*&lt;/p&gt; | [optional] 
 
 ### Return type
 

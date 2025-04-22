@@ -55,6 +55,7 @@ public class RefreshOperationsApi {
     postWorkbookResponseTypeMap.put(400, new GenericType<Errors>(){});
     postWorkbookResponseTypeMap.put(403, new GenericType<Errors>(){});
     postWorkbookResponseTypeMap.put(413, new GenericType<Errors>(){});
+    postWorkbookResponseTypeMap.put(422, new GenericType<Errors>(){});
     postWorkbookResponseTypeMap.put(500, new GenericType<Errors>(){});
   }
 
@@ -355,6 +356,7 @@ public class RefreshOperationsApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden. The user&#39;s subscription is missing required CACCESS. </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> File Too Large.  Currently only accepting files up to 50MB. </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unable to process input file, possibly because it&#39;s a macro-enabled file that is not validly signed.&#39; </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Limit Exceeded </td><td>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Limit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Limit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
@@ -379,6 +381,7 @@ public class RefreshOperationsApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden. The user&#39;s subscription is missing required CACCESS. </td><td>  -  </td></tr>
        <tr><td> 413 </td><td> File Too Large.  Currently only accepting files up to 50MB. </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unable to process input file, possibly because it&#39;s a macro-enabled file that is not validly signed.&#39; </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> Limit Exceeded </td><td>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Limit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Limit-Reset - Number of seconds remaining till rate limit resets. <br>  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
@@ -413,7 +416,7 @@ public class RefreshOperationsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/json"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.ms-excel.sheet.macroenabled.12", "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

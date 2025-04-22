@@ -187,6 +187,7 @@ public class PeopleMatchBulkApi {
    * @param priorityColumn Priority associated to the clientId. Used for manual mapping.  (optional)
    * @param salutationColumn The salutation of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param suffixColumn A name suffix, that follows a person&#39;s full name and provides additional information about the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
+   * @param autoRemap When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional)
    * @return PeopleTaskResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -200,8 +201,8 @@ public class PeopleMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public PeopleTaskResponse getPeopleTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, java.util.List<String> additionalContextColumns, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn) throws ApiException {
-    return getPeopleTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn).getData();
+  public PeopleTaskResponse getPeopleTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, java.util.List<String> additionalContextColumns, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn, Boolean autoRemap) throws ApiException {
+    return getPeopleTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn, autoRemap).getData();
   }
 
   /**
@@ -220,6 +221,7 @@ public class PeopleMatchBulkApi {
    * @param priorityColumn Priority associated to the clientId. Used for manual mapping.  (optional)
    * @param salutationColumn The salutation of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param suffixColumn A name suffix, that follows a person&#39;s full name and provides additional information about the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
+   * @param autoRemap When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional)
    * @return ApiResponse&lt;PeopleTaskResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -233,7 +235,7 @@ public class PeopleMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PeopleTaskResponse> getPeopleTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, java.util.List<String> additionalContextColumns, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn) throws ApiException {
+  public ApiResponse<PeopleTaskResponse> getPeopleTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String entityColumn, java.util.List<String> additionalContextColumns, String firstNameColumn, String lastNameColumn, String middleNameColumn, String personNameColumn, String priorityColumn, String salutationColumn, String suffixColumn, Boolean autoRemap) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'universeId' is set
@@ -299,6 +301,8 @@ if (salutationColumn != null)
       localVarFormParams.put("salutationColumn", salutationColumn);
 if (suffixColumn != null)
       localVarFormParams.put("suffixColumn", suffixColumn);
+if (autoRemap != null)
+      localVarFormParams.put("autoRemap", autoRemap);
 
     final String[] localVarAccepts = {
       "application/json;charset=utf-8", "application/json"

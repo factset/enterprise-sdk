@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.2.0
+  version: 2.3.0
   title: FactSet Fundamentals API
   contact:
     name: FactSet Research Systems
@@ -409,6 +409,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/fundamentalPeriodicity'
       responses:
         '200':
           description: Fundamental data items
@@ -623,6 +624,7 @@ components:
           - LTM
           - LTM_R
           - LTM_SEMI
+          - LTM_SEMI_R
           - LTMSG
           - YTD
         default: ANN
@@ -639,6 +641,7 @@ components:
           * **LTM_R**  = Last Twelve Months - Latest - *Includes Restatements*,
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),
           * **LTM_SEMI**  = Last Twelve Months, Semi-Annually Reported Data,
+          * **LTM_SEMI_R**  = Last Twelve Months, Semi-Annual - Latest - *Includes Restatements*,
           * **YTD** = Year-to-date.
           <br>
 
@@ -675,6 +678,9 @@ components:
         LTM_SEMI:
           summary: LTM_SEMI - Last Twelve Months - Semi Annual
           value: LTM_SEMI
+        LTM_SEMI_R:
+          summary: LTM_SEMI_R - Last Twelve Months - Semi Annual Latest
+          value: LTM_SEMI_R
         YTD:
           summary: YTD - Year-to-date.
           value: YTD
@@ -732,6 +738,33 @@ components:
         YTD:
           summary: YTD - Year-to-date.
           value: YTD
+    fundamentalPeriodicity:
+      name: periodicity
+      in: query
+      schema:
+        type: string
+        enum:
+          - ANN
+          - QTR
+          - SEMI
+      required: false
+      description: >
+        Periodicity or frequency of the fiscal periods. If not specified,
+        default will be empty, which will return the latest available data
+        irrespective of the periodicity.
+          * **ANN**  = Annual - Original,
+          * **QTR**  = Quarterly - Original
+          * **SEMI** = Semi-Annual
+      examples:
+        ANN:
+          summary: ANN - Annual Original.
+          value: ANN
+        QTR:
+          summary: QTR - Quarterly Original.
+          value: QTR
+        SEMI:
+          summary: SEMI - Semi-Annual Original.
+          value: SEMI
     segmentsPeriodicity:
       name: periodicity
       in: query
@@ -1374,8 +1407,9 @@ components:
             Latest, LTM = Last Twelve Months Original, LTM_R = Last Twelve
             Months Latest, LTMSG = Last Twelve Months Global,
             [OA17959](https://my.apps.factset.com/oa/pages/17959), LTM_SEMI =
-            Last Twelve Months - Semi-Annual Data and YTD = Year-to-date. Please
-            note that the coverage for SEMI_R and LTM_R may be limited as fewer
+            Last Twelve Months - Semi-Annual Data, LTM_SEMI_R = Last Twelve
+            Months - Semi-Annual Latest Data and YTD = Year-to-date. Please note
+            that the coverage for SEMI_R and LTM_R may be limited as fewer
             companies report with these periodicities.
           type: string
           example: QTR
@@ -1391,6 +1425,7 @@ components:
             - LTM_R
             - LTMSG
             - LTM_SEMI
+            - LTM_SEMI_R
             - YTD
           nullable: true
         fiscalPeriod:
@@ -1980,6 +2015,11 @@ components:
           type: string
           example: USD
           nullable: true
+        periodicity:
+          type: string
+          description: Periodicity or frequency of the fiscal periods.
+          example: ANN
+          nullable: true
         perShare:
           $ref: '#/components/schemas/PerShare'
         ratios:
@@ -2558,6 +2598,7 @@ components:
           * **LTM** = Last Twelve Months,
           * **LTM_R** = Last Twelve Months Latest - *Includes Restatements*,
           * **LTM_SEMI** = Last Twelve Months - Semi-Annually Reported Data,
+          * **LTM_SEMI_R** = Last Twelve Months - Semi-Annual Latest - *Includes Restatements*,
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959) and
           * **YTD** = Year-to-date
         <br><br>
@@ -2575,6 +2616,7 @@ components:
         - LTM_R
         - LTMSG
         - LTM_SEMI
+        - LTM_SEMI_R
         - YTD
       default: ANN
       example: QTR
@@ -3324,6 +3366,7 @@ components:
             fsymId: MH33D6-R
             asOfDate: '2024-03-31'
             currency: USD
+            periodicity: ANN
             perShare:
               bookValuePerShare: 25.27711
               cashFlowPerShare: 10.4268994512216

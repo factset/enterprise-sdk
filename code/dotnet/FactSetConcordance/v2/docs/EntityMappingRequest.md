@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **ClientCik** | **string** | User provided input for CIK, Edgar Central Index Keys symbol type. | [optional] 
 **ClientCrd** | **string** | User provided input for CRD, Central Registration Depository symbol type. | [optional] 
 **ClientCusip** | **string** | User provided input for CUSIP symbol type. | [optional] 
-**ClientDuns** | **string** | User provided input for DUNS, Dun&amp;Bradstreet symbol type. | [optional] 
 **ClientEin** | **string** | User provided input for EmployerIdentificationNumber, EIN symbol type. | [optional] 
 **ClientFactsetId** | **string** | User provided input for FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional] 
 **ClientFitch** | **string** | User provided input for FitchCreditRating, Fitch Ratings Identifier symbol type. | [optional] 
@@ -40,6 +39,10 @@ Name | Type | Description | Notes
 **ClientValoren** | **string** | User provided input for VALOR, Valoren (\&quot;Valor\&quot;) Identification symbol type. | [optional] 
 **ClientWkn** | **string** | User provided input for WKN, German Securities Identification symbol type. | [optional] 
 **ClientAdditionalContext** | **Dictionary&lt;string, string&gt;** | Any additional context information that can be saved along with other input values for mapping. To be used by Managed Service for mapping any unmapped records.   | [optional] 
+**ClientExcludeEntityType** | **List&lt;string&gt;** | Entity types excluded by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).  | [optional] 
+**ClientExcludeEntitySubType** | **List&lt;string&gt;** | Entity sub-types excluded by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).  | [optional] 
+**ClientIncludeEntityType** | **List&lt;string&gt;** | Entity types included by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).  | [optional] 
+**ClientIncludeEntitySubType** | **List&lt;string&gt;** | Entity sub-types included by the user. If the request contains a FactSet identifier, this field is ignored and the provided FactSet identifier is the match.  If the request does not contain a FactSet identifier, it is saved with the submitted metadata and may be used for mapping (self or by FactSet Managed Services).  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -104,7 +104,7 @@ HeadlinesRequestData.prototype['categories'] = undefined;
 HeadlinesRequestData.prototype['topics'] = undefined;
 
 /**
- * A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"North America\". Use the `/filters/regions` endpoint to get the list of available regions.
+ * A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"North America\". Use the `/filters/regions` endpoint to get the list of available regions.  **Note:** Filtering is possible only for top-level regions, not individual countries.
  * @member {Array.<String>} regions
  */
 HeadlinesRequestData.prototype['regions'] = undefined;

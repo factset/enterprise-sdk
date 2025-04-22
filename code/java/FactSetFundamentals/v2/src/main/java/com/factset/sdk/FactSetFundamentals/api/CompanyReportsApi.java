@@ -271,6 +271,7 @@ public class CompanyReportsApi {
    * Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
    * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt;  (required)
    * @param currency Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to LOCAL)
+   * @param periodicity Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  &#x3D; Annual - Original,   * **QTR**  &#x3D; Quarterly - Original   * **SEMI** &#x3D; Semi-Annual  (optional)
    * @return CompanyFundamentalsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -283,8 +284,8 @@ public class CompanyReportsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public CompanyFundamentalsResponse getFundamentals(java.util.List<String> ids, String currency) throws ApiException {
-    return getFundamentalsWithHttpInfo(ids, currency).getData();
+  public CompanyFundamentalsResponse getFundamentals(java.util.List<String> ids, String currency, String periodicity) throws ApiException {
+    return getFundamentalsWithHttpInfo(ids, currency, periodicity).getData();
   }
 
   /**
@@ -292,6 +293,7 @@ public class CompanyReportsApi {
    * Returns detailed insights on specified publicly traded company&#39;s various key financial measures or fundamentals like cash per share, dividend, EPS, EBIT etc. All values provided in the response are absolute.&lt;br&gt; **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation. 
    * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt;  (required)
    * @param currency Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  (optional, default to LOCAL)
+   * @param periodicity Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  &#x3D; Annual - Original,   * **QTR**  &#x3D; Quarterly - Original   * **SEMI** &#x3D; Semi-Annual  (optional)
    * @return ApiResponse&lt;CompanyFundamentalsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -304,7 +306,7 @@ public class CompanyReportsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CompanyFundamentalsResponse> getFundamentalsWithHttpInfo(java.util.List<String> ids, String currency) throws ApiException {
+  public ApiResponse<CompanyFundamentalsResponse> getFundamentalsWithHttpInfo(java.util.List<String> ids, String currency, String periodicity) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -323,6 +325,7 @@ public class CompanyReportsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "periodicity", periodicity));
 
     
     

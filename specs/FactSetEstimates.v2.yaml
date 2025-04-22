@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.6.1
+  version: 2.6.2
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -786,9 +786,9 @@ paths:
         Returns list of available Estimate metrics that can be used in the
         `metrics` parameter of related endpoints.
 
-        **By default, Factset provides Estimated items in millions. For specific
-        metric methodology definitions, reference the `OAurl` response items to
-        launch the available methodology page.** 
+        **By default, Factset provides Estimated items in millions across all
+        currencies. For specific metric methodology definitions, reference the
+        `OAurl` response items to launch the available methodology page.** 
       parameters:
         - $ref: '#/components/parameters/category'
         - $ref: '#/components/parameters/subcategory'
@@ -821,9 +821,9 @@ paths:
         Returns list of available Estimate metrics that can be used in the
         `metrics` parameter of related endpoints.
 
-        **By default, Factset provides Estimated items in millions. For specific
-        metric methodology definitions, reference the `OAurl` response items to
-        launch the available methodology page.** 
+        **By default, Factset provides Estimated items in millions across all
+        currencies. For specific metric methodology definitions, reference the
+        `OAurl` response items to launch the available methodology page.** 
       requestBody:
         required: true
         description: Request object for requesting estimates data

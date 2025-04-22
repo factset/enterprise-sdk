@@ -181,7 +181,6 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     cik_column = "CIK" # str | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys` (optional)
     crd_column = "CRD" # str | Header Name of the column in the input file for the type CRD, `Central Registration Depository`. (optional)
     cusip_column = "CUSIP" # str | Header Name of the column in the input file for the type `CUSIP` (optional)
-    duns_column = "Dun&Bradstreet" # str | Header Name of the column in the input file for the type DUNS, `Dun&Bradstreet`. (optional)
     ein_column = "EmployerIdentificationNumber" # str | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`. (optional)
     factset_id_column = "FactSetIdentifier" # str | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`. (optional)
     fitch_column = "FitchCreditRating" # str | Header Name of the column in the input file for the type FitchCreditRating, `Fitch Ratings Identifier`. (optional)
@@ -217,12 +216,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     additional_context_columns = [
         "Address",
     ] # [str] | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  (optional)
+    auto_remap = True # bool | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  (optional)
 
     try:
         # Input a file with names and attributes, creating a taskId.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, duns_column=duns_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, additional_context_columns=additional_context_columns)
+        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, additional_context_columns=additional_context_columns, auto_remap=auto_remap)
 
         pprint(api_response)
 
@@ -250,7 +250,6 @@ Name | Type | Description  | Notes
  **cik_column** | **str**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional]
  **crd_column** | **str**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional]
  **cusip_column** | **str**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional]
- **duns_column** | **str**| Header Name of the column in the input file for the type DUNS, &#x60;Dun&amp;Bradstreet&#x60;. | [optional]
  **ein_column** | **str**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional]
  **factset_id_column** | **str**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional]
  **fitch_column** | **str**| Header Name of the column in the input file for the type FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60;. | [optional]
@@ -276,6 +275,7 @@ Name | Type | Description  | Notes
  **include_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **exclude_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **additional_context_columns** | **[str]**| Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records.  | [optional]
+ **auto_remap** | **bool**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional]
 
 ### Return type
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getpeoplematch"></a>
 # **GetPeopleMatch**
-> PeopleMatchesResponse GetPeopleMatch (string entity, string personName = null, string salutation = null, string firstName = null, string middleName = null, string lastName = null, string suffix = null)
+> PeopleMatchesResponse GetPeopleMatch (string entity, string personName = null, string salutation = null, string firstName = null, string middleName = null, string lastName = null, string suffix = null, int? candidatesCount = null)
 
 Find potential people matches given a person's name.People matches can be retrieved using person's name and other attributes like firstname, middlename and lastname.
 
@@ -61,18 +61,19 @@ namespace Example
 
             var apiInstance = new PeopleMatchApi(config);
 
-            var entity = "Microsoft";  // string | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match.
+            var entity = "Microsoft";  // string | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name.
             var personName = "Bill Gates";  // string | Name of Person to match. (optional) 
             var salutation = "Mr";  // string | Title in person's name. This parameter should not be provided when the person name is provided as the input. (optional) 
             var firstName = "Bill";  // string | First name of person. This parameter should not be provided when the person name is provided as the input. (optional) 
             var middleName = "Henry";  // string | Middle name of person.This parameter should not be provided when the person name is provided as the input. (optional) 
             var lastName = "Gates";  // string | Last name of person. This parameter should not be provided when the person name is provided as the input. (optional) 
             var suffix = "III";  // string | Suffix in person's name. This parameter should not be provided when the person name is provided as the input. (optional) 
+            var candidatesCount = 40;  // int? | Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. <p>*minimum - 20*</p> <p>*maximum - 100*</p> (optional) 
 
             try
             {
                 // Find potential people matches given a person's name.People matches can be retrieved using person's name and other attributes like firstname, middlename and lastname.
-                PeopleMatchesResponse result = apiInstance.GetPeopleMatch(entity, personName, salutation, firstName, middleName, lastName, suffix);
+                PeopleMatchesResponse result = apiInstance.GetPeopleMatch(entity, personName, salutation, firstName, middleName, lastName, suffix, candidatesCount);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -90,13 +91,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity** | **string**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match. | 
+ **entity** | **string**| Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. | 
  **personName** | **string**| Name of Person to match. | [optional] 
  **salutation** | **string**| Title in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional] 
  **firstName** | **string**| First name of person. This parameter should not be provided when the person name is provided as the input. | [optional] 
  **middleName** | **string**| Middle name of person.This parameter should not be provided when the person name is provided as the input. | [optional] 
  **lastName** | **string**| Last name of person. This parameter should not be provided when the person name is provided as the input. | [optional] 
  **suffix** | **string**| Suffix in person&#39;s name. This parameter should not be provided when the person name is provided as the input. | [optional] 
+ **candidatesCount** | **int?**| Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. &lt;p&gt;*minimum - 20*&lt;/p&gt; &lt;p&gt;*maximum - 100*&lt;/p&gt; | [optional] 
 
 ### Return type
 [**PeopleMatchesResponse**](PeopleMatchesResponse.md)

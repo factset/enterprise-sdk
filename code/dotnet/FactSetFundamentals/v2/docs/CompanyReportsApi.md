@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 <a name="getfundamentals"></a>
 # **GetFundamentals**
-> CompanyFundamentalsResponse GetFundamentals (List<string> ids, string currency = null)
+> CompanyFundamentalsResponse GetFundamentals (List<string> ids, string currency = null, string periodicity = null)
 
 Returns company fundamentals for a given list of identifiers.
 
@@ -278,11 +278,12 @@ namespace Example
 
             var ids = new List<string>(); // List<string> | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> 
             var currency = "\"LOCAL\"";  // string | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids.  (optional)  (default to "LOCAL")
+            var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  = Annual - Original,   * **QTR**  = Quarterly - Original   * **SEMI** = Semi-Annual  (optional) 
 
             try
             {
                 // Returns company fundamentals for a given list of identifiers.
-                CompanyFundamentalsResponse result = apiInstance.GetFundamentals(ids, currency);
+                CompanyFundamentalsResponse result = apiInstance.GetFundamentals(ids, currency, periodicity);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -302,6 +303,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt;  | 
  **currency** | **string**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  | [optional] [default to &quot;LOCAL&quot;]
+ **periodicity** | **string**| Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.   * **ANN**  &#x3D; Annual - Original,   * **QTR**  &#x3D; Quarterly - Original   * **SEMI** &#x3D; Semi-Annual  | [optional] 
 
 ### Return type
 [**CompanyFundamentalsResponse**](CompanyFundamentalsResponse.md)

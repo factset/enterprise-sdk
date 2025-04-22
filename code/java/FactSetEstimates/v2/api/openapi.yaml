@@ -34,7 +34,7 @@ info:
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.6.1
+  version: 2.6.2
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -2643,9 +2643,9 @@ paths:
     get:
       description: "Returns list of available Estimate metrics that can be used in\
         \ the `metrics` parameter of related endpoints.\n**By default, Factset provides\
-        \ Estimated items in millions. For specific metric methodology definitions,\
-        \ reference the `OAurl` response items to launch the available methodology\
-        \ page.** \n"
+        \ Estimated items in millions across all currencies. For specific metric methodology\
+        \ definitions, reference the `OAurl` response items to launch the available\
+        \ methodology page.** \n"
       operationId: getEstimateMetrics
       parameters:
       - description: |
@@ -2821,9 +2821,9 @@ paths:
     post:
       description: "Returns list of available Estimate metrics that can be used in\
         \ the `metrics` parameter of related endpoints.\n**By default, Factset provides\
-        \ Estimated items in millions. For specific metric methodology definitions,\
-        \ reference the `OAurl` response items to launch the available methodology\
-        \ page.** \n"
+        \ Estimated items in millions across all currencies. For specific metric methodology\
+        \ definitions, reference the `OAurl` response items to launch the available\
+        \ methodology page.** \n"
       operationId: getEstimateMetricsForList
       requestBody:
         content:

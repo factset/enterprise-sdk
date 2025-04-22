@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Fundamentals API
-  version: 2.2.0
+  version: 2.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-fundamentals-api
@@ -78,6 +78,7 @@ paths:
             * **LTM_R**  = Last Twelve Months - Latest - *Includes Restatements*,
             * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),
             * **LTM_SEMI**  = Last Twelve Months, Semi-Annually Reported Data,
+            * **LTM_SEMI_R**  = Last Twelve Months, Semi-Annual - Latest - *Includes Restatements*,
             * **YTD** = Year-to-date.
             <br>
 
@@ -113,6 +114,9 @@ paths:
           LTM_SEMI:
             summary: LTM_SEMI - Last Twelve Months - Semi Annual
             value: LTM_SEMI
+          LTM_SEMI_R:
+            summary: LTM_SEMI_R - Last Twelve Months - Semi Annual Latest
+            value: LTM_SEMI_R
           YTD:
             summary: YTD - Year-to-date.
             value: YTD
@@ -132,6 +136,7 @@ paths:
           - LTM
           - LTM_R
           - LTM_SEMI
+          - LTM_SEMI_R
           - LTMSG
           - YTD
           type: string
@@ -1176,6 +1181,32 @@ paths:
           example: USD
           type: string
         style: form
+      - description: |
+          Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.
+            * **ANN**  = Annual - Original,
+            * **QTR**  = Quarterly - Original
+            * **SEMI** = Semi-Annual
+        examples:
+          ANN:
+            summary: ANN - Annual Original.
+            value: ANN
+          QTR:
+            summary: QTR - Quarterly Original.
+            value: QTR
+          SEMI:
+            summary: SEMI - Semi-Annual Original.
+            value: SEMI
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          enum:
+          - ANN
+          - QTR
+          - SEMI
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2143,6 +2174,7 @@ components:
           fsymId: MH33D6-R
           asOfDate: 2024-03-31
           currency: USD
+          periodicity: ANN
           perShare:
             bookValuePerShare: 25.27711
             cashFlowPerShare: 10.4268994512216
@@ -2637,6 +2669,7 @@ components:
           * **LTM_R**  = Last Twelve Months - Latest - *Includes Restatements*,
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),
           * **LTM_SEMI**  = Last Twelve Months, Semi-Annually Reported Data,
+          * **LTM_SEMI_R**  = Last Twelve Months, Semi-Annual - Latest - *Includes Restatements*,
           * **YTD** = Year-to-date.
           <br>
 
@@ -2672,6 +2705,9 @@ components:
         LTM_SEMI:
           summary: LTM_SEMI - Last Twelve Months - Semi Annual
           value: LTM_SEMI
+        LTM_SEMI_R:
+          summary: LTM_SEMI_R - Last Twelve Months - Semi Annual Latest
+          value: LTM_SEMI_R
         YTD:
           summary: YTD - Year-to-date.
           value: YTD
@@ -2691,6 +2727,7 @@ components:
         - LTM
         - LTM_R
         - LTM_SEMI
+        - LTM_SEMI_R
         - LTMSG
         - YTD
         type: string
@@ -2748,6 +2785,33 @@ components:
         - SEMI_R
         - LTM
         - YTD
+        type: string
+      style: form
+    fundamentalPeriodicity:
+      description: |
+        Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.
+          * **ANN**  = Annual - Original,
+          * **QTR**  = Quarterly - Original
+          * **SEMI** = Semi-Annual
+      examples:
+        ANN:
+          summary: ANN - Annual Original.
+          value: ANN
+        QTR:
+          summary: QTR - Quarterly Original.
+          value: QTR
+        SEMI:
+          summary: SEMI - Semi-Annual Original.
+          value: SEMI
+      explode: true
+      in: query
+      name: periodicity
+      required: false
+      schema:
+        enum:
+        - ANN
+        - QTR
+        - SEMI
         type: string
       style: form
     segmentsPeriodicity:
@@ -3551,9 +3615,10 @@ components:
             = Quarterly Latest, SEMI = Semi-Annual Original, SEMI_R = Semi-Annual
             Latest, LTM = Last Twelve Months Original, LTM_R = Last Twelve Months
             Latest, LTMSG = Last Twelve Months Global, [OA17959](https://my.apps.factset.com/oa/pages/17959),
-            LTM_SEMI = Last Twelve Months - Semi-Annual Data and YTD = Year-to-date.
-            Please note that the coverage for SEMI_R and LTM_R may be limited as fewer
-            companies report with these periodicities.
+            LTM_SEMI = Last Twelve Months - Semi-Annual Data, LTM_SEMI_R = Last Twelve
+            Months - Semi-Annual Latest Data and YTD = Year-to-date. Please note that
+            the coverage for SEMI_R and LTM_R may be limited as fewer companies report
+            with these periodicities.
           enum:
           - ANN
           - ANN_R
@@ -3566,6 +3631,7 @@ components:
           - LTM_R
           - LTMSG
           - LTM_SEMI
+          - LTM_SEMI_R
           - YTD
           example: QTR
           nullable: true
@@ -4395,6 +4461,7 @@ components:
           numberOfEmployees: 311300
           fiveYearDividendGrowthRate: 6.119162640901776
           requestId: IBM-US
+          periodicity: ANN
           dividend:
             indicativeDividendRate: "6.64"
             exDividendDate: 2017-12-30T00:00:00.000+0000
@@ -4451,6 +4518,7 @@ components:
           numberOfEmployees: 311300
           fiveYearDividendGrowthRate: 6.119162640901776
           requestId: IBM-US
+          periodicity: ANN
           dividend:
             indicativeDividendRate: "6.64"
             exDividendDate: 2017-12-30T00:00:00.000+0000
@@ -4517,6 +4585,7 @@ components:
         numberOfEmployees: 311300
         fiveYearDividendGrowthRate: 6.119162640901776
         requestId: IBM-US
+        periodicity: ANN
         dividend:
           indicativeDividendRate: "6.64"
           exDividendDate: 2017-12-30T00:00:00.000+0000
@@ -4581,6 +4650,11 @@ components:
           description: 'Currency code for the data. For a list of currency ISO codes,
             visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
+          type: string
+        periodicity:
+          description: Periodicity or frequency of the fiscal periods.
+          example: ANN
           nullable: true
           type: string
         perShare:
@@ -5258,6 +5332,7 @@ components:
           * **LTM** = Last Twelve Months,
           * **LTM_R** = Last Twelve Months Latest - *Includes Restatements*,
           * **LTM_SEMI** = Last Twelve Months - Semi-Annually Reported Data,
+          * **LTM_SEMI_R** = Last Twelve Months - Semi-Annual Latest - *Includes Restatements*,
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959) and
           * **YTD** = Year-to-date
         <br><br>
@@ -5273,6 +5348,7 @@ components:
       - LTM_R
       - LTMSG
       - LTM_SEMI
+      - LTM_SEMI_R
       - YTD
       example: QTR
       title: Periodicity

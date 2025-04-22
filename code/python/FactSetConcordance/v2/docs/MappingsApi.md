@@ -179,7 +179,6 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_cik="100331",
         client_crd="149722",
         client_cusip="02079K305",
-        client_duns="687741991",
         client_ein="953540776",
         client_factset_id="0013TZ-E",
         client_fitch="47504",
@@ -204,6 +203,10 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_additional_context={
             "key": "key_example",
         },
+        client_exclude_entity_type=["PUB","PVT"],
+        client_exclude_entity_sub_type=["CP","IB"],
+        client_include_entity_type=["PEF"],
+        client_include_entity_sub_type=["PR"],
     ) # EntityMappingRequest | A request to create a single mapping.
 
     try:

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **createdOn** | **OffsetDateTime** | When the universe was created |  [optional]
 **updatedBy** | **String** | The user who most recently updated the universe metadata |  [optional]
 **updatedOn** | **OffsetDateTime** | When the universe metadata was most recently updated |  [optional]
+**autoRemap** | **Boolean** | When &#x60;true&#x60;, allows automatic re-evaluation and overwriting of existing mappings in the universe when new metadata is submitted. |  [optional]
 
 
 ## Implemented Interfaces

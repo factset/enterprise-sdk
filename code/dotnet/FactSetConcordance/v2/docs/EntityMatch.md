@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **ClientCountry** | **string** | ISO2 country code specified in the request. | [optional] 
 **ClientCrd** | **string** | Name of the column as provided by the user -  CRD, Central Registration Depository | [optional] 
 **ClientCusip** | **string** | Name of the column as provided by the user -  CUSIP. | [optional] 
-**ClientDuns** | **string** | Name of the column as provided by the user -  DUNS, Dun&amp;Bradstreet. | [optional] 
 **ClientEin** | **string** | Name of the column as provided by the user -  EmployerIdentificationNumber, EIN. | [optional] 
 **ClientFactsetId** | **string** | Name of the column as provided by the user -  FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 
 **ClientFitch** | **string** | Name of the column as provided by the user -  FitchCreditRating, Fitch Ratings Identifier. | [optional] 
@@ -68,6 +67,10 @@ Name | Type | Description | Notes
 **ParentMatchFlag** | **bool?** | Flag denoting that the matched entity is the parent of another match. | [optional] 
 **NameMatchString** | **string** | String on which the Concordance algorithm mapped the submitted entity. | [optional] 
 **NameMatchSource** | **string** | Type of name that the nameMatchString matched. | [optional] 
+**ClientExcludeEntityType** | **List&lt;string&gt;** | Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered.  | [optional] 
+**ClientExcludeEntitySubType** | **List&lt;string&gt;** | Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
+**ClientIncludeEntityType** | **List&lt;string&gt;** | Entity types to include in the search. If provided, only entities with the specified entity types will be considered.  | [optional] 
+**ClientIncludeEntitySubType** | **List&lt;string&gt;** | Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

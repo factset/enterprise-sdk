@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ## getPeopleTaskForList
 
-> PeopleTaskResponse getPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn)
+> PeopleTaskResponse getPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn, autoRemap)
 
 Create a People Concordance Task.
 
@@ -180,8 +180,9 @@ public class Example {
         String priorityColumn = "priorityColumn_example"; // String | Priority associated to the clientId. Used for manual mapping. 
         String salutationColumn = "salutationColumn_example"; // String | The salutation of the person.**Do not include with `personNameColumn`**. 
         String suffixColumn = "suffixColumn_example"; // String | A name suffix, that follows a person's full name and provides additional information about the person.**Do not include with `personNameColumn`**. 
+        Boolean autoRemap = true; // Boolean | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.** 
         try {
-            PeopleTaskResponse result = apiInstance.getPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn);
+            PeopleTaskResponse result = apiInstance.getPeopleTaskForList(universeId, taskName, inputFile, clientIdColumn, entityColumn, additionalContextColumns, firstNameColumn, lastNameColumn, middleNameColumn, personNameColumn, priorityColumn, salutationColumn, suffixColumn, autoRemap);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -213,6 +214,7 @@ Name | Type | Description  | Notes
  **priorityColumn** | **String**| Priority associated to the clientId. Used for manual mapping.  | [optional]
  **salutationColumn** | **String**| The salutation of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
  **suffixColumn** | **String**| A name suffix, that follows a person&#39;s full name and provides additional information about the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
+ **autoRemap** | **Boolean**| When &#x60;true&#x60;, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.**  | [optional]
 
 ### Return type
 

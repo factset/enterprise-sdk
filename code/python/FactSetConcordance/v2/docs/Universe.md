@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **created_on** | **datetime, none_type** | When the universe was created | [optional] 
 **updated_by** | **str, none_type** | The user who most recently updated the universe metadata | [optional] 
 **updated_on** | **datetime, none_type** | When the universe metadata was most recently updated | [optional] 
+**auto_remap** | **bool** | When &#x60;true&#x60;, allows automatic re-evaluation and overwriting of existing mappings in the universe when new metadata is submitted. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
