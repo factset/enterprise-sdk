@@ -1,0 +1,938 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Allow clients to use Security Explanation through APIs.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Security Explanation API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/security-explanation-api
+servers:
+- url: https://api.factset.com/analytics/security-explanation/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Security Explanation
+  name: Security Explanation
+paths:
+  /explanation:
+    post:
+      description: Create a new Security Explanation request with parameters.
+      operationId: createExplanation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SecurityExplanationParametersRoot'
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      id: 80931ca92c7b432380dcd51f539c79f5
+                      status: executing
+              schema:
+                $ref: '#/components/schemas/ExplanationCreateResponseRoot'
+          description: Expected response, returns the poll ID in the status and poll
+            URL in location header.
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Symbols":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Explanation creation failed
+                "400 - Date before 2020-12-31":
+                  value:
+                    errors:
+                    - id: 67D988B0C43D9B11
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Dates should be greater than 2020-12-31
+                      source:
+                        parameter: endDate
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Invalid identifier provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: 'Missing or invalid authentication.  '
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Request explanation
+      tags:
+      - Security Explanation
+      x-contentType: application/json
+      x-accepts: application/json
+  /explanation/{id}/status:
+    get:
+      description: Use this endpoint to fetch the status of the given explanation
+        ID.
+      operationId: checkExplanationStatus
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 80931ca92c7b432380dcd51f539c79f5
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Completed request:
+                  value:
+                    data:
+                      result: https://api.factset.com/analytics/security-explanation/v0/explanation/b2af976907c7465b8ad48dc7ecd4a96b/result
+                      id: 80931ca92c7b432380dcd51f539c79f5
+                      status: completed
+              schema:
+                $ref: '#/components/schemas/ExplanationStatusRoot'
+          description: Expected response, explanation was created.
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+            Content-Encoding:
+              $ref: '#/components/headers/Content-Encoding'
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            Transfer-Encoding:
+              $ref: '#/components/headers/Transfer-Encoding'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "202":
+          content:
+            application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      id: 80931ca92c7b432380dcd51f539c79f5
+                      status: queued
+              schema:
+                $ref: '#/components/schemas/ExplanationCreateResponseRoot'
+          description: Expected response, returns the poll ID with status.
+          headers:
+            Location:
+              $ref: '#/components/headers/Location'
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Invalid identifier provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Invalid Explanation ID Provided":
+                  value:
+                    errors:
+                    - code: NotFound
+                      detail: Explanation not found
+                      id: 667BC1D3CCF1F383
+                      title: Failed to process request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Explanation was already returned, provided id was not a requested
+            explanation, or the explanation requested was cancelled.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get explanation status by id
+      tags:
+      - Security Explanation
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+  /explanation/{id}/result:
+    get:
+      description: Use this endpoint to fetch the results of the given explanation
+        ID.
+      operationId: fetchExplanationResults
+      parameters:
+      - description: id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 80931ca92c7b432380dcd51f539c79f5
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200- Expected Response":
+                  $ref: '#/components/examples/SecurityExplanationResponseRoot'
+              schema:
+                $ref: '#/components/schemas/SecurityExplanationResponseRoot'
+          description: Expected response if explanation is generated.
+          headers:
+            Content-Encoding:
+              $ref: '#/components/headers/Content-Encoding'
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            Transfer-Encoding:
+              $ref: '#/components/headers/Transfer-Encoding'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: |
+            Invalid identifier provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Invalid Explanation ID Provided":
+                  value:
+                    errors:
+                    - code: NotFound
+                      detail: Explanation not found
+                      id: 667BC1D3CCF1F383
+                      title: Failed to process request
+                "404 - Explanation Not Completed":
+                  value:
+                    errors:
+                    - code: NotFound
+                      detail: Explanation creation for 1 not completed yet
+                      id: 667BC1D3CCF1F383
+                      title: Failed to process request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Provided id was not a requested explanation.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get explanation results by id
+      tags:
+      - Security Explanation
+      x-accepts: application/json
+components:
+  examples:
+    SecurityExplanationResponseRoot:
+      value:
+        data:
+          explanation: x% return driven from A event at Y time
+  headers:
+    Content-Encoding:
+      description: Standard HTTP header. Header value based on Accept-Encoding Request
+        header.
+      explode: false
+      schema:
+        description: Standard HTTP header. Header value based on Accept-Encoding Request
+          header.
+        type: string
+      style: simple
+    Content-Type:
+      description: Standard HTTP header.
+      explode: false
+      schema:
+        description: Standard HTTP header.
+        type: string
+      style: simple
+    Location:
+      description: The URL to poll for status or fetch the results
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Retry-After:
+      description: Time to wait in seconds before making a new request as the rate
+        limit has reached.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Transfer-Encoding:
+      description: Standard HTTP header. Header value will be set to Chunked if Accept-Encoding
+        header is specified.
+      explode: false
+      schema:
+        description: Standard HTTP header. Header value will be set to Chunked if
+          Accept-Encoding header is specified.
+        type: string
+      style: simple
+    X-DataDirect-Request-Key:
+      description: FactSet's request key header.
+      explode: false
+      schema:
+        description: FactSet's request key header.
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Limit:
+      description: Number of allowed requests for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Remaining:
+      description: Number of requests left for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Reset:
+      description: Number of seconds remaining till rate limit resets.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-Request-Key:
+      description: Key to uniquely identify an Analytics API request. Only available
+        after successful authentication.
+      explode: false
+      schema:
+        description: Key to uniquely identify an Analytics API request. Only available
+          after successful authentication.
+        type: string
+      style: simple
+  parameters:
+    id:
+      description: id
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        example: 80931ca92c7b432380dcd51f539c79f5
+        type: string
+      style: simple
+  schemas:
+    ErrorSource:
+      description: The pointer and parameter of the error
+      properties:
+        parameter:
+          description: Indicates which path or URI query parameter caused the error
+          nullable: true
+          type: string
+        pointer:
+          description: Pointer to the associated entity in the request body
+          nullable: true
+          type: string
+      type: object
+    APIError:
+      description: Full details of any error
+      properties:
+        id:
+          description: Identifier for the error (the Chain ID)
+          type: string
+        code:
+          description: The error code
+          type: string
+        title:
+          description: The title of the error
+          type: string
+        detail:
+          description: Explanation specific to the occurrence of the error
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      required:
+      - code
+      - id
+      - title
+      type: object
+    APIClientErrorResponse:
+      description: The response schema for errors
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/APIError'
+          nullable: true
+          type: array
+      type: object
+    ExplanationStatus:
+      description: Details of the explanation.
+      example:
+        result: result
+        id: id
+        status: queued
+      properties:
+        result:
+          description: The result URL of the explanation
+          type: string
+        id:
+          description: Explanation identifier
+          nullable: true
+          type: string
+        status:
+          description: Explanation status
+          enum:
+          - queued
+          - executing
+          - completed
+          type: string
+      title: ExplanationStatus
+      type: object
+    ExplanationStatusRoot:
+      description: The status of the explnation as per FactSets API standards.
+      example:
+        data:
+          result: result
+          id: id
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/ExplanationStatus'
+      required:
+      - data
+      title: ExplanationStatusRoot
+      type: object
+    ExplanationCreateResponse:
+      description: Details of the explanation.
+      example:
+        id: id
+        status: queued
+      properties:
+        id:
+          description: Explanation identifier
+          nullable: true
+          type: string
+        status:
+          description: Explanation status
+          enum:
+          - queued
+          - executing
+          - completed
+          type: string
+      title: ExplanationCreateResponse
+      type: object
+    ExplanationCreateResponseRoot:
+      description: The status of the explnation as per FactSets API standards.
+      example:
+        data:
+          id: id
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/ExplanationCreateResponse'
+      required:
+      - data
+      title: ExplanationCreateResponseRoot
+      type: object
+    SecurityExplanationResponse:
+      description: Result from Security Explanation
+      example:
+        explanation: explanation
+      properties:
+        explanation:
+          description: Generated explanation for the security
+          type: string
+      type: object
+    SecurityExplanationResponseRoot:
+      description: Top-level response object
+      example:
+        data:
+          explanation: explanation
+        meta: '{}'
+      properties:
+        data:
+          $ref: '#/components/schemas/SecurityExplanationResponse'
+        meta:
+          description: Metadata of the response.
+          type: object
+      required:
+      - data
+      type: object
+    SecurityExplanationRequestParameters:
+      description: Parameters for the security explanation request
+      example:
+        enableLinks: false
+        includePerformance: false
+        explanationStyle: short
+        endDate: 2024-01-15T00:00:00.000+0000
+        id: FDS-US
+        startDate: 2024-01-01T00:00:00.000+0000
+      properties:
+        id:
+          description: Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs,
+            or FactSet Permanent Ids.
+          example: FDS-US
+          type: string
+        startDate:
+          description: Start date of the explain request in YYYY-MM-DD format
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: End date of the explain request in YYYY-MM-DD format
+          example: 2024-01-15
+          format: date
+          type: string
+        enableLinks:
+          default: false
+          description: If true, explain response will have link to the related news
+            articles
+          example: false
+          type: boolean
+        explanationStyle:
+          default: short
+          description: Determines the style of the Explanation
+          enum:
+          - short
+          - long
+          example: short
+          type: string
+        includePerformance:
+          default: false
+          description: If true, includes the performance statement in the explanation
+          example: false
+          type: boolean
+      required:
+      - endDate
+      - id
+      - startDate
+      type: object
+    SecurityExplanationParametersRoot:
+      description: Top-level data container object.
+      example:
+        data:
+          enableLinks: false
+          includePerformance: false
+          explanationStyle: short
+          endDate: 2024-01-15T00:00:00.000+0000
+          id: FDS-US
+          startDate: 2024-01-01T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/SecurityExplanationRequestParameters'
+      required:
+      - data
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

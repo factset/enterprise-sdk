@@ -1,0 +1,26 @@
+{
+  "packageName": "FactSet.SDK.SecurityExplanation",
+  "packageVersion": "1.0.0",
+  "packageGuid": "{23dd1ce9-36e5-5af4-b7fb-529d370c50fc}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/SecurityExplanation/v1",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Security Explanation client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Security Explanation",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/SecurityExplanation/1.0.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}
