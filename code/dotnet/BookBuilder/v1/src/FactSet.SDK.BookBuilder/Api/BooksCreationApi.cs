@@ -70,6 +70,27 @@ namespace FactSet.SDK.BookBuilder.Api
         /// <param name="createBookFromTemplatePostRequest"></param>
         /// <returns>ApiResponse of EnableBookInfoFromTemplate</returns>
         ApiResponse<EnableBookInfoFromTemplate> CreateBookFromTemplateWithHttpInfo(CreateBookFromTemplatePostRequest createBookFromTemplatePostRequest);
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <returns>AvailableReportsList</returns>
+        AvailableReportsList GetAvailableReports(string ticker);
+
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <returns>ApiResponse of AvailableReportsList</returns>
+        ApiResponse<AvailableReportsList> GetAvailableReportsWithHttpInfo(string ticker);
         #endregion Synchronous Operations
     }
 
@@ -125,6 +146,29 @@ namespace FactSet.SDK.BookBuilder.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EnableBookInfoFromTemplate)</returns>
         System.Threading.Tasks.Task<ApiResponse<EnableBookInfoFromTemplate>> CreateBookFromTemplateWithHttpInfoAsync(CreateBookFromTemplatePostRequest createBookFromTemplatePostRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AvailableReportsList</returns>
+        System.Threading.Tasks.Task<AvailableReportsList> GetAvailableReportsAsync(string ticker, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AvailableReportsList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AvailableReportsList>> GetAvailableReportsWithHttpInfoAsync(string ticker, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -156,6 +200,13 @@ namespace FactSet.SDK.BookBuilder.Api
         {
             { (HttpStatusCode)200, typeof(EnableBookInfoFromTemplate) },
             { (HttpStatusCode)400, typeof(InvalidCreateBookFromTemplateRequest) },
+            { (HttpStatusCode)401, typeof(string) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAvailableReportsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(AvailableReportsList) },
+            { (HttpStatusCode)400, typeof(InvalidAvailableReportRequest) },
             { (HttpStatusCode)401, typeof(string) },
         };
 
@@ -617,6 +668,183 @@ namespace FactSet.SDK.BookBuilder.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBookFromTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker. This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <returns>AvailableReportsList</returns>
+        public AvailableReportsList GetAvailableReports(string ticker)
+        {
+            var localVarResponse = GetAvailableReportsWithHttpInfo(ticker);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker. This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <returns>ApiResponse of AvailableReportsList</returns>
+        public ApiResponse<AvailableReportsList> GetAvailableReportsWithHttpInfo(string ticker)
+        {
+            // verify the required parameter 'ticker' is set
+            if (ticker == null)
+            {
+                throw new FactSet.SDK.BookBuilder.Client.ApiException(400, "Missing required parameter 'ticker' when calling BooksCreationApi->GetAvailableReports");
+            }
+
+            FactSet.SDK.BookBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.BookBuilder.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.BookBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.BookBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ticker", FactSet.SDK.BookBuilder.Client.ClientUtils.ParameterToString(ticker)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.BookBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetAvailableReportsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            AvailableReportsList>("/available-report/{ticker}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAvailableReports", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker. This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AvailableReportsList</returns>
+        public async System.Threading.Tasks.Task<AvailableReportsList>GetAvailableReportsAsync(string ticker, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetAvailableReportsWithHttpInfoAsync(ticker, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint retrieves all available sections and reports based on a ticker. This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.BookBuilder.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ticker">A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AvailableReportsList)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<AvailableReportsList>> GetAvailableReportsWithHttpInfoAsync(string ticker, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'ticker' is set
+            if (ticker == null)
+            {
+                throw new FactSet.SDK.BookBuilder.Client.ApiException(400, "Missing required parameter 'ticker' when calling BooksCreationApi->GetAvailableReports");
+            }
+
+
+            FactSet.SDK.BookBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.BookBuilder.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.BookBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.BookBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ticker", FactSet.SDK.BookBuilder.Client.ClientUtils.ParameterToString(ticker)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.BookBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetAvailableReportsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AvailableReportsList>("/available-report/{ticker}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAvailableReports", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

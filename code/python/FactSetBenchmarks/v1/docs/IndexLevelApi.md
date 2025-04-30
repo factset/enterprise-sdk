@@ -295,7 +295,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
     hedge_type = "UNHEDGED" # str | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional) if omitted the server will use the default value of "UNHEDGED"
     currency = "currency_example" # str | Currency for response. (optional)
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
+    calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional) if omitted the server will use the default value of "FIVEDAY"
     implied_date = "N" # str | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional) if omitted the server will use the default value of "N"
 
     try:
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
  **return_type** | **str**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] if omitted the server will use the default value of "GROSS"
  **hedge_type** | **str**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] if omitted the server will use the default value of "UNHEDGED"
  **currency** | **str**| Currency for response. | [optional]
- **calendar** | **str**| Calendar of data returned. SEVENDAY includes weekends. | [optional] if omitted the server will use the default value of "FIVEDAY"
+ **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] if omitted the server will use the default value of "FIVEDAY"
  **implied_date** | **str**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
@@ -412,7 +412,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         return_type=ReturnType("GROSS"),
         hedge_type=HedgeType("UNHEDGED"),
         currency="USD",
-        calendar=Calendar("FIVEDAY"),
+        calendar="FIVEDAY",
         implied_date=ImpliedDate("N"),
     ) # IndexHistoryRequest | Requests Index Level History Prices and Returns for a list of identifiers and specified date range.
 
@@ -519,7 +519,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
     currency = "currency_example" # str | Currency for response. (optional)
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
+    calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional) if omitted the server will use the default value of "FIVEDAY"
 
     try:
         # Index Level Prices, Returns, and related information as of a single date.
@@ -542,7 +542,7 @@ Name | Type | Description  | Notes
  **date** | **str**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **return_type** | **str**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] if omitted the server will use the default value of "GROSS"
  **currency** | **str**| Currency for response. | [optional]
- **calendar** | **str**| Calendar of data returned. SEVENDAY includes weekends. | [optional] if omitted the server will use the default value of "FIVEDAY"
+ **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] if omitted the server will use the default value of "FIVEDAY"
 
 ### Return type
 
@@ -628,7 +628,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         date="2020-08-06",
         return_type=ReturnType("GROSS"),
         currency="USD",
-        calendar=Calendar("FIVEDAY"),
+        calendar="FIVEDAY",
     ) # IndexSnapshotRequest | Requests the Index Level Snapshot for a requested list of identifiers and specified date.
 
     try:

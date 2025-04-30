@@ -3,7 +3,7 @@
   "info": {
     "description": "Cabot Models API",
     "title": "Cabot Models API",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "contact": {
       "name": "FactSet Research Systems",
       "email": "api@factset.com",
@@ -25,10 +25,10 @@
     "url": "https://developer.factset.com/api-catalog/cabot"
   },
   "paths": {
-    "/models/add-trim": {
+    "/classifications": {
       "get": {
-        "description": "Cabot main path for Add Trim API",
-        "operationId": "getAddTrimModelAnalytic",
+        "description": "Cabot main path for Classifications API",
+        "operationId": "getPortfolioClassifications",
         "parameters": [
           {
             "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
@@ -47,58 +47,251 @@
             "schema": {
               "$ref": "#/components/schemas/BenchmarkPath"
             }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "addDown",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/AddTrimHoldings"
-            }
           }
         ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Default classifications": {
+                    "value": {
+                      "data": {
+                        "regionOfDomicile": [
+                          "northAmerica",
+                          "westernEurope",
+                          "middleEast",
+                          "pacificRim"
+                        ],
+                        "sectorName": [
+                          "energy",
+                          "materials",
+                          "industrials",
+                          "healthCare"
+                        ]
+                      }
+                    }
+                  },
+                  "Custom classifications": {
+                    "value": {
+                      "data": {
+                        "myRegion": [
+                          "germany",
+                          "france",
+                          "italy",
+                          "spain",
+                          "netherlands",
+                          "sweden",
+                          "norway",
+                          "switzerland"
+                        ],
+                        "mySector": [
+                          "automotive",
+                          "energy",
+                          "financialServices",
+                          "technology",
+                          "tourism",
+                          "transportation",
+                          "utilities",
+                          "pharmaceuticals"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationsResponseRoot"
+                }
+              }
+            },
+            "description": "Successful response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Bad request, invalid query parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout. Retry the request in sometime."
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "summary": "Cabot main path for Classifications API",
+        "tags": [
+          "Classifications"
+        ]
+      },
+      "parameters": []
+    },
+    "/models/add-trim": {
+      "post": {
+        "description": "Cabot main path for Add Trim API",
+        "operationId": "getAddTrimModelAnalytic",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTrimRequestBodyRoot"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -425,69 +618,19 @@
       "parameters": []
     },
     "/models/buy-context": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Buy Context API",
         "operationId": "getBuyContextModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "example": "BENCH:SP50",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyContextRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -789,79 +932,19 @@
       "parameters": []
     },
     "/models/buy-timing": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Buy Timing API. \r\n\nBuy timing examines the timeliness of entry points and measures how quickly new buys contribute to results. This is done by delaying the buys by the specified number of days to see if buying into the position early would have benefited the portfolio.",
         "operationId": "getBuyTimingModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "3 days",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/BuyTimingHoldings"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyTimingRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -1380,39 +1463,19 @@
       "parameters": []
     },
     "/models/construction": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Construction API",
         "operationId": "getConstructionModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConstructionRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -1621,59 +1684,19 @@
       "parameters": []
     },
     "/models/hit-rate": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Hit Rate API",
         "operationId": "getHitRateModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HitRateRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -1878,79 +1901,19 @@
       "parameters": []
     },
     "/models/ramp-down": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Ramp Down API",
         "operationId": "getRampDownModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "a month",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/RampDownHoldings"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RampDownRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -2373,79 +2336,19 @@
       "parameters": []
     },
     "/models/ramp-up": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Ramp Up API",
         "operationId": "getRampUpModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "months",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/RampUpHoldings"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RampUpRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -2868,49 +2771,19 @@
       "parameters": []
     },
     "/models/results": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Results API. \r\n\n Describes portfolio returns in comparison to its benchmark. A positive value indicates excess returns while a negative value indicates underperformance.",
         "operationId": "getResultsModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "In which currency you want to see the data. By default the API uses USD.<br /><br />",
-            "example": "USD",
-            "in": "query",
-            "name": "currency",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Currency"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultsRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -3130,79 +3003,19 @@
       "parameters": []
     },
     "/models/sell-timing": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Sell Timing API",
         "operationId": "getSellTimingModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "olderLoser",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/SellTimingHoldings"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SellTimingRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -3529,79 +3342,19 @@
       "parameters": []
     },
     "/models/skills": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Skills API",
         "operationId": "getSkillsModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "example": "BENCH:SP50",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "buySkill",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/SkillsHoldings"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SkillsRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -3916,79 +3669,19 @@
       "parameters": []
     },
     "/models/stop-loss": {
-      "get": {
+      "post": {
         "description": "Cabot main path for Stop Loss API",
         "operationId": "getStopLossModelAnalytic",
-        "parameters": [
-          {
-            "description": "The account path of the portfolio you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "accountPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/AccountPath"
-            }
-          },
-          {
-            "description": "The path of the benchmark you want to retrieve the data for.<br /><br />",
-            "in": "query",
-            "name": "benchmarkPath",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/BenchmarkPath"
-            }
-          },
-          {
-            "description": "For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />",
-            "example": "2015-2017",
-            "in": "query",
-            "name": "period",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Period"
-            }
-          },
-          {
-            "description": "The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />",
-            "example": "QFL_EY",
-            "in": "query",
-            "name": "attribute",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Attributes"
-            }
-          },
-          {
-            "description": "Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "energy",
-            "in": "query",
-            "name": "sector",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Sectors"
-            }
-          },
-          {
-            "description": "Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />",
-            "example": "northAmerica",
-            "in": "query",
-            "name": "region",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Regions"
-            }
-          },
-          {
-            "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />",
-            "example": "-20",
-            "in": "query",
-            "name": "holdings",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/StopLossHoldings"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StopLossRequestBodyRoot"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "content": {
@@ -4460,7 +4153,7 @@
         "type": "string"
       },
       "AddTrimHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "addDown",
@@ -4515,6 +4208,48 @@
           }
         },
         "type": "object"
+      },
+      "AddTrimRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AddTrimRequestBody"
+          }
+        }
+      },
+      "AddTrimRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/AddTrimHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
       },
       "Attributes": {
         "description": "All currently available attributes.<br/><br/>QFL_EY : EPS for the most recent 12-month period/Share price<br/>QFL_PEG : Price to Earnings/Growth rate<br/>QFL_OCFY : Operating cash flow (FF_OPER_CF)/Market value<br/>QFL_BP : Price/book value per share ratio<br/>QFL_SP : Sales to Price (SP) Net sales/Market value<br/>QFL_OCF_EARNINGS_VAR : Differences of earnings per share in both positive and negative directions<br/>QFL_DY : Indicated annual dividend/Latest close price<br/>QFL_NET_MGN : Net profit/Net sales * 100<br/>QFL_OPER_MGN : Operating Income/Net Sales * 100<br/>QFL_ROE : Net income/Total shareholders' equity<br/>QFL_CFROE : Net cash provided by/used in operating activities /Total shareholders' equity<br/>QFL_EPS_GR_5Y : Compounded annual growth rate (CAGR) of EPS over the previous 5 financial years<br/>QFL_OCF_GR_5Y : Compounded annual growth rate (CAGR) of CFO over the previous 5 financial years<br/>QFL_SALES_GR_5Y : Compounded annual growth rate (CAGR) of Revenue over the previous 5 financial years<br/>QFL_DPS_GR_5Y : Compounded annual growth rate (CAGR) of Dividend over the previous 5 financial years<br/>QFL_EPS_GR_1Y : 1Y EPS Growth,Growth rate of EPS over the previous financial years<br/>QFL_OCF_GR_1Y : Growth rate of CFO over the previous financial years<br/>QFL_SALES_GR_1Y : Growth rate of Revenue over the previous financial years<br/>QFL_LT_DEBT_EQUITY : Long-term debt/Shareholders' Equity<br/>QFL_DEBT_ASSETS : Long-term debt/total assets<br/>QFL_EBITDAEV : Represents unreported fiscal year (F1) Enterprise Value to EBITDA<br/>QFL_REVEV : Represents Enterprise Value to Revenue<br/>QFL_ROIC : Net Income/Two fiscal period average of Total Invested Capital * 100<br/>QFL_CFROIC : Net cash provided by/used in operating activities divided by the sum of the company's total shareholders' equity and its long-term liabilities<br/>",
@@ -4628,15 +4363,55 @@
         },
         "type": "object"
       },
+      "BuyContextRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BuyContextRequestBody"
+          }
+        }
+      },
+      "BuyContextRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period",
+          "attribute"
+        ]
+      },
       "BuyTimingHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "3 days",
           "5 days",
           "10 days",
           "20 days",
-          "a month"
+          "40 days"
         ],
         "type": "string"
       },
@@ -4685,6 +4460,76 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/BuyTimingResponseOptions"
+          }
+        },
+        "type": "object"
+      },
+      "BuyTimingRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BuyTimingRequestBody"
+          }
+        }
+      },
+      "BuyTimingRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/BuyTimingHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
+      },
+      "Classifications": {
+        "description": "A map-like structure representing key-value pairs of custom classifications. This differs from the default classifications such as region and sector, for which we have different query parameters. If both are provided, the API will choose which one to use based on your portfolio.",
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "mySector": "tourism",
+          "myRegion": "germany"
+        }
+      },
+      "ClassificationsResponseOptions": {
+        "additionalProperties": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": "object"
+      },
+      "ClassificationsResponseRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClassificationsResponseOptions"
           }
         },
         "type": "object"
@@ -4766,6 +4611,33 @@
           }
         },
         "type": "object"
+      },
+      "ConstructionRequestBodyRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ConstructionRequestBody"
+          }
+        },
+        "type": "object"
+      },
+      "ConstructionRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
       },
       "Currency": {
         "description": "In which currency you want to see the data. By default the API uses USD.",
@@ -4869,6 +4741,44 @@
         },
         "type": "object"
       },
+      "HitRateRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/HitRateRequestBody"
+          }
+        }
+      },
+      "HitRateRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period",
+          "sector",
+          "region"
+        ]
+      },
       "HoldingAnalytics": {
         "properties": {
           "incrementalBenefit": {
@@ -4907,10 +4817,11 @@
       },
       "Period": {
         "description": "For which period you want to retrieve the data.",
+        "example": "2015-2017",
         "type": "string"
       },
       "RampDownHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "a month",
@@ -4968,8 +4879,50 @@
         },
         "type": "object"
       },
+      "RampDownRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RampDownRequestBody"
+          }
+        }
+      },
+      "RampDownRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/RampDownHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
+      },
       "RampUpHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "immediate",
@@ -5028,18 +4981,51 @@
         },
         "type": "object"
       },
+      "RampUpRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RampUpRequestBody"
+          }
+        }
+      },
+      "RampUpRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/RampUpHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
+      },
       "Regions": {
-        "description": "All currently available regions.",
-        "enum": [
-          "africa",
-          "centralAsia",
-          "easternEurope",
-          "middleEast",
-          "northAmerica",
-          "pacificRim",
-          "southAmerica",
-          "westernEurope"
-        ],
+        "description": "Region of domicile represents the region based on the company's primary listing.",
+        "example": "northAmerica",
         "type": "string"
       },
       "ResultsModelAnalytics": {
@@ -5148,39 +5134,43 @@
         },
         "type": "object"
       },
+      "ResultsRequestBodyRoot": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ResultsRequestBody"
+          }
+        },
+        "type": "object"
+      },
+      "ResultsRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
+      },
       "Sectors": {
-        "description": "All currently available sectors.",
-        "enum": [
-          "energy",
-          "materials",
-          "industrials",
-          "consumerDiscretionary",
-          "consumerStaples",
-          "healthCare",
-          "financials",
-          "informationTechnology",
-          "communicationServices",
-          "utilities",
-          "realEstate",
-          "equityDiversified",
-          "equityHealthCare",
-          "equitySelfStorage",
-          "equityIndustrial",
-          "equityOffice",
-          "equityResidential",
-          "equityRetail",
-          "equityLodgingAndResorts",
-          "equitySpecialty",
-          "equityTimberReits",
-          "equityInfrastructureReits",
-          "equityDataCenters",
-          "mortageHomeFinancing",
-          "mortageCommercialFinancing"
-        ],
+        "description": "Represents the sector based on the company's industry breakdown.",
+        "example": "energy",
         "type": "string"
       },
       "SellTimingHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "olderLoser",
@@ -5240,8 +5230,50 @@
         },
         "type": "object"
       },
+      "SellTimingRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SellTimingRequestBody"
+          }
+        }
+      },
+      "SellTimingRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/SellTimingHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
+      },
       "SkillsHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "buySkill",
@@ -5296,8 +5328,50 @@
         },
         "type": "object"
       },
+      "SkillsRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SkillsRequestBody"
+          }
+        }
+      },
+      "SkillsRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/SkillsHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
+      },
       "StopLossHoldings": {
-        "description": "If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).",
+        "description": "Adds holding-level details for all or only the selected analytic (if available for your portfolio).",
         "enum": [
           "all",
           "-20",
@@ -5354,6 +5428,48 @@
           }
         },
         "type": "object"
+      },
+      "StopLossRequestBodyRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/StopLossRequestBody"
+          }
+        }
+      },
+      "StopLossRequestBody": {
+        "type": "object",
+        "properties": {
+          "accountPath": {
+            "$ref": "#/components/schemas/AccountPath"
+          },
+          "benchmarkPath": {
+            "$ref": "#/components/schemas/BenchmarkPath"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "attribute": {
+            "$ref": "#/components/schemas/Attributes"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sectors"
+          },
+          "region": {
+            "$ref": "#/components/schemas/Regions"
+          },
+          "holdings": {
+            "$ref": "#/components/schemas/StopLossHoldings"
+          },
+          "customClassifications": {
+            "$ref": "#/components/schemas/Classifications"
+          }
+        },
+        "required": [
+          "accountPath",
+          "benchmarkPath",
+          "period"
+        ]
       }
     },
     "securitySchemes": {
@@ -5388,6 +5504,10 @@
     {
       "name": "Selling Models",
       "description": "Evaluates the efficiency of selling decisions through Sell Skills, Timing, Stop Loss, and the impact of selling signals."
+    },
+    {
+      "name": "Classifications",
+      "description": "Enables you to derive classifications specific to your portfolio."
     }
   ]
 }

@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/AvailableReportsList.md
 docs/BookInfo.md
 docs/BookProcessingResponseItem.md
 docs/BooksCreationApi.md
@@ -18,12 +19,15 @@ docs/EnableBookDownload.md
 docs/EnableBookInfo.md
 docs/EnableBookInfoFromTemplate.md
 docs/EnableTemplateInfoPost.md
+docs/ErrorItem.md
+docs/InvalidAvailableReportRequest.md
 docs/InvalidCreateBookFromTemplateRequest.md
 docs/InvalidCreateBookRequest.md
 docs/InvalidDownloadBookAwsRequest.md
 docs/InvalidTemplateRequest.md
 docs/InvalidUploadDocumentRequest.md
 docs/PaginationOptions.md
+docs/ReportSection.md
 docs/TemplateContentSection.md
 docs/TemplateInfo.md
 docs/TemplatesCreationApi.md
@@ -39,6 +43,7 @@ src/api/CustomDocumentsUploadApi.js
 src/api/TemplatesCreationApi.js
 src/api/TemplatesFetchApi.js
 src/index.js
+src/model/AvailableReportsList.js
 src/model/BookInfo.js
 src/model/BookProcessingResponseItem.js
 src/model/ContentSection.js
@@ -49,11 +54,14 @@ src/model/EnableBookDownload.js
 src/model/EnableBookInfo.js
 src/model/EnableBookInfoFromTemplate.js
 src/model/EnableTemplateInfoPost.js
+src/model/ErrorItem.js
+src/model/InvalidAvailableReportRequest.js
 src/model/InvalidCreateBookFromTemplateRequest.js
 src/model/InvalidCreateBookRequest.js
 src/model/InvalidDownloadBookAwsRequest.js
 src/model/InvalidTemplateRequest.js
 src/model/InvalidUploadDocumentRequest.js
 src/model/PaginationOptions.js
+src/model/ReportSection.js
 src/model/TemplateContentSection.js
 src/model/TemplateInfo.js

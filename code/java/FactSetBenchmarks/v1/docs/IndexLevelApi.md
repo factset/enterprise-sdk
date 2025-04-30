@@ -276,7 +276,7 @@ public class Example {
         String returnType = "GROSS"; // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
         String hedgeType = "UNHEDGED"; // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
         String currency = "currency_example"; // String | Currency for response.
-        String calendar = "FIVEDAY"; // String | Calendar of data returned. SEVENDAY includes weekends.
+        String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
         String impliedDate = "Y"; // String | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.
         try {
             IndexHistoryResponse result = apiInstance.getIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar, impliedDate);
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS] [enum: GROSS, NET]
  **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED] [enum: UNHEDGED, HEDGED]
  **currency** | **String**| Currency for response. | [optional]
- **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY] [enum: FIVEDAY, SEVENDAY]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
  **impliedDate** | **String**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to N] [enum: Y, N]
 
 ### Return type
@@ -483,7 +483,7 @@ public class Example {
         String date = "date_example"; // String | Date of holding expressed in YYYY-MM-DD format.
         String returnType = "GROSS"; // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
         String currency = "currency_example"; // String | Currency for response.
-        String calendar = "FIVEDAY"; // String | Calendar of data returned. SEVENDAY includes weekends.
+        String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
         try {
             IndexSnapshotResponse result = apiInstance.getIndexSnapshot(ids, date, returnType, currency, calendar);
             System.out.println(result);
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS] [enum: GROSS, NET]
  **currency** | **String**| Currency for response. | [optional]
- **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY] [enum: FIVEDAY, SEVENDAY]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
 
 ### Return type
 

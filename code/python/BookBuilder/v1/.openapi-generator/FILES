@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/AvailableReportsList.md
 docs/BookInfo.md
 docs/BookProcessingResponse.md
 docs/BookProcessingResponseItem.md
@@ -21,12 +22,15 @@ docs/EnableBookInfoFromTemplate.md
 docs/EnableBookListInfo.md
 docs/EnableTemplateInfo.md
 docs/EnableTemplateInfoPost.md
+docs/ErrorItem.md
+docs/InvalidAvailableReportRequest.md
 docs/InvalidCreateBookFromTemplateRequest.md
 docs/InvalidCreateBookRequest.md
 docs/InvalidDownloadBookAwsRequest.md
 docs/InvalidTemplateRequest.md
 docs/InvalidUploadDocumentRequest.md
 docs/PaginationOptions.md
+docs/ReportSection.md
 docs/TemplateContentSection.md
 docs/TemplateInfo.md
 docs/TemplatesCreationApi.md
@@ -47,6 +51,7 @@ fds/sdk/BookBuilder/apis/__init__.py
 fds/sdk/BookBuilder/configuration.py
 fds/sdk/BookBuilder/exceptions.py
 fds/sdk/BookBuilder/model/__init__.py
+fds/sdk/BookBuilder/model/available_reports_list.py
 fds/sdk/BookBuilder/model/book_info.py
 fds/sdk/BookBuilder/model/book_processing_response.py
 fds/sdk/BookBuilder/model/book_processing_response_item.py
@@ -60,12 +65,15 @@ fds/sdk/BookBuilder/model/enable_book_info_from_template.py
 fds/sdk/BookBuilder/model/enable_book_list_info.py
 fds/sdk/BookBuilder/model/enable_template_info.py
 fds/sdk/BookBuilder/model/enable_template_info_post.py
+fds/sdk/BookBuilder/model/error_item.py
+fds/sdk/BookBuilder/model/invalid_available_report_request.py
 fds/sdk/BookBuilder/model/invalid_create_book_from_template_request.py
 fds/sdk/BookBuilder/model/invalid_create_book_request.py
 fds/sdk/BookBuilder/model/invalid_download_book_aws_request.py
 fds/sdk/BookBuilder/model/invalid_template_request.py
 fds/sdk/BookBuilder/model/invalid_upload_document_request.py
 fds/sdk/BookBuilder/model/pagination_options.py
+fds/sdk/BookBuilder/model/report_section.py
 fds/sdk/BookBuilder/model/template_content_section.py
 fds/sdk/BookBuilder/model/template_info.py
 fds/sdk/BookBuilder/model/upload_document_response.py

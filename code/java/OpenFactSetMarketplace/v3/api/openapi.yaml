@@ -1,0 +1,1547 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: This API provides read-only access to marketplace products and partners.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Open:FactSet Marketplace API
+  version: 3.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/openfactset-marketplace-api
+servers:
+- description: Production server
+  url: https://api.factset.com/ofs/v3
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Open:FactSet Marketplace Products
+  name: Products
+- description: Open:FactSet Marketplace Partners
+  name: Partners
+paths:
+  /products:
+    get:
+      description: Get all products published on the Open:FactSet Marketplace Catalog.
+      operationId: getProducts
+      parameters:
+      - description: Limit for number of records returned per page
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 10
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          maximum: 100
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                products:
+                  value:
+                    data:
+                    - id: product-1
+                      productPageUrl: https://www.factset.com/marketplace/catalog/product/product-1
+                      title: Product 1
+                      description: Product 1 description
+                      createDate: 2021-09-01
+                      partner:
+                        id: partner-1
+                        partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+                        name: Partner 1
+                      relatedProducts:
+                      - id: product-2
+                        productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+                        title: Product 2
+                      - id: product-3
+                        productPageUrl: https://www.factset.com/marketplace/catalog/product/product-3
+                        title: Product 3
+                      productStatus: available
+                      type:
+                      - dataFeed
+                    meta:
+                      pagination:
+                        total: 1
+              schema:
+                $ref: '#/components/schemas/ProductsSuccessResponse'
+          description: Successful response to get all products published on the Open:FactSet
+            Marketplace Catalog.
+        "401":
+          content:
+            text/plain:
+              example: Authentication Failed
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+          description: Unauthorized - You are not properly authenticated for use of
+            this API. Please make sure you using a valid API key (managed via this
+            developer portal page) or valid OAuth 2.0 credentials (see OAuth 2.0 documentation
+            on the developer portal) for access. If you believe you are seeing this
+            message in error, please reach out to your FactSet Support Team representative.
+        "403":
+          content:
+            text/plain:
+              example: 'Client does not have the required CACCESS: {CACCESS}'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: You do not have the proper permissions for this request. Please
+            make sure you have the proper CACCESS entitlements enabled for this service
+            and that you are using a resource ID that your account has access to.
+            This may also be due to your IP address being unsupported by the API key
+            you are currently using. Please ensure your IP address is whitelisted
+            for the API key you are using. IP addresses can be managed per API key
+            via this developer portal page.
+        "429":
+          content:
+            text/plain:
+              example: API rate limit exceeded
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          description: Rate limit reached. Retry the requests after waiting the time
+            specified in the Retry-After header.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Limit:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a given time window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Remaining:
+              description: The number of requests remaining in the current rate limit
+                window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Limit-Minute:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Remaining-Minute:
+              description: The number of requests remaining in the current minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has been reached.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      tags:
+      - Products
+      x-accepts: application/json
+  /product/{id}:
+    get:
+      description: Get a single Open:FactSet Marketplace Catalog product by ID.
+      operationId: getProductById
+      parameters:
+      - description: ID of the product or partner
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                product:
+                  value:
+                    data:
+                      id: product-1
+                      productPageUrl: https://www.factset.com/marketplace/catalog/product/product-1
+                      title: Product 1
+                      description: Product 1 description
+                      createDate: 2021-09-01
+                      partner:
+                        id: partner-1
+                        partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+                        name: Partner 1
+                      relatedProducts:
+                      - id: product-2
+                        productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+                        title: Product 2
+                      - id: product-3
+                        productPageUrl: https://www.factset.com/marketplace/catalog/product/product-3
+                        title: Product 3
+                      productStatus: available
+                      type:
+                      - dataFeed
+              schema:
+                $ref: '#/components/schemas/ProductSuccessResponse'
+          description: Get a single Open:FactSet Marketplace Catalog product by ID.
+        "401":
+          content:
+            text/plain:
+              example: Authentication Failed
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+          description: Unauthorized - You are not properly authenticated for use of
+            this API. Please make sure you using a valid API key (managed via this
+            developer portal page) or valid OAuth 2.0 credentials (see OAuth 2.0 documentation
+            on the developer portal) for access. If you believe you are seeing this
+            message in error, please reach out to your FactSet Support Team representative.
+        "403":
+          content:
+            text/plain:
+              example: 'Client does not have the required CACCESS: {CACCESS}'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: You do not have the proper permissions for this request. Please
+            make sure you have the proper CACCESS entitlements enabled for this service
+            and that you are using a resource ID that your account has access to.
+            This may also be due to your IP address being unsupported by the API key
+            you are currently using. Please ensure your IP address is whitelisted
+            for the API key you are using. IP addresses can be managed per API key
+            via this developer portal page.
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: product-not-found
+                  title: Product not found
+                  code: "404"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Product not found
+        "429":
+          content:
+            text/plain:
+              example: API rate limit exceeded
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          description: Rate limit reached. Retry the requests after waiting the time
+            specified in the Retry-After header.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Limit:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a given time window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Remaining:
+              description: The number of requests remaining in the current rate limit
+                window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Limit-Minute:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Remaining-Minute:
+              description: The number of requests remaining in the current minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has been reached.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      tags:
+      - Products
+      x-accepts: application/json
+  /partners:
+    get:
+      description: Get all partners published on FactSet's Partner Catalog.
+      operationId: getPartners
+      parameters:
+      - description: Limit for number of records returned per page
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 10
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          maximum: 100
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                partners:
+                  value:
+                    data:
+                    - id: partner-1
+                      partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+                      name: Partner 1
+                      logo: https://www.example.com/logo.png
+                      shortDescription: Partner 1 short description
+                      fullDescription: <p>Partner 1 full description</p>
+                      workflow:
+                      - Workflow 1
+                      - Workflow 2
+                      type: technicalPartner
+                      videoUrl: https://www.example.com/video.mp4
+                      companyUrl: https://www.example.com
+                      address:
+                        addressLine1: 123 Main St.
+                        addressLine2: Suite 100
+                        city: New York
+                        country: United States
+                        postCode: "10001"
+                        state: NY
+                      socialMedia:
+                        linkedin: https://www.linkedin.com/company/partner-1
+                        x: https://x.com/partner-1
+                        facebook: https://www.facebook.com/partner-1
+                    meta:
+                      pagination:
+                        total: 1
+              schema:
+                $ref: '#/components/schemas/PartnersSuccessResponse'
+          description: Get all partners published on FactSet's Partner Catalog.
+        "401":
+          content:
+            text/plain:
+              example: Authentication Failed
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+          description: Unauthorized - You are not properly authenticated for use of
+            this API. Please make sure you using a valid API key (managed via this
+            developer portal page) or valid OAuth 2.0 credentials (see OAuth 2.0 documentation
+            on the developer portal) for access. If you believe you are seeing this
+            message in error, please reach out to your FactSet Support Team representative.
+        "403":
+          content:
+            text/plain:
+              example: 'Client does not have the required CACCESS: {CACCESS}'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: You do not have the proper permissions for this request. Please
+            make sure you have the proper CACCESS entitlements enabled for this service
+            and that you are using a resource ID that your account has access to.
+            This may also be due to your IP address being unsupported by the API key
+            you are currently using. Please ensure your IP address is whitelisted
+            for the API key you are using. IP addresses can be managed per API key
+            via this developer portal page.
+        "429":
+          content:
+            text/plain:
+              example: API rate limit exceeded
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          description: Rate limit reached. Retry the requests after waiting the time
+            specified in the Retry-After header.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Limit:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a given time window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Remaining:
+              description: The number of requests remaining in the current rate limit
+                window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Limit-Minute:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Remaining-Minute:
+              description: The number of requests remaining in the current minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has been reached.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      tags:
+      - Partners
+      x-accepts: application/json
+  /partner/{id}:
+    get:
+      description: Get a single FactSet Partner by ID.
+      operationId: getPartnerById
+      parameters:
+      - description: ID of the product or partner
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                partner:
+                  value:
+                    data:
+                      id: partner-1
+                      partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+                      name: Partner 1
+                      logo: https://www.example.com/logo.png
+                      shortDescription: Partner 1 short description
+                      fullDescription: <p>Partner 1 full description</p>
+                      workflow:
+                      - Workflow 1
+                      - Workflow 2
+                      type: technicalPartner
+                      videoUrl: https://www.example.com/video.mp4
+                      companyUrl: https://www.example.com
+                      address:
+                        addressLine1: 123 Main St.
+                        addressLine2: Suite 100
+                        city: New York
+                        country: United States
+                        postCode: "10001"
+                        state: NY
+                      socialMedia:
+                        linkedin: https://www.linkedin.com/company/partner-1
+                        x: https://x.com/partner-1
+                        facebook: https://www.facebook.com/partner-1
+              schema:
+                $ref: '#/components/schemas/PartnerSuccessResponse'
+          description: Get a single FactSet Partner by ID.
+        "401":
+          content:
+            text/plain:
+              example: Authentication Failed
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+          description: Unauthorized - You are not properly authenticated for use of
+            this API. Please make sure you using a valid API key (managed via this
+            developer portal page) or valid OAuth 2.0 credentials (see OAuth 2.0 documentation
+            on the developer portal) for access. If you believe you are seeing this
+            message in error, please reach out to your FactSet Support Team representative.
+        "403":
+          content:
+            text/plain:
+              example: 'Client does not have the required CACCESS: {CACCESS}'
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+          description: You do not have the proper permissions for this request. Please
+            make sure you have the proper CACCESS entitlements enabled for this service
+            and that you are using a resource ID that your account has access to.
+            This may also be due to your IP address being unsupported by the API key
+            you are currently using. Please ensure your IP address is whitelisted
+            for the API key you are using. IP addresses can be managed per API key
+            via this developer portal page.
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: partner-not-found
+                  title: Partner not found
+                  code: "404"
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Partner not found
+        "429":
+          content:
+            text/plain:
+              example: API rate limit exceeded
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          description: Rate limit reached. Retry the requests after waiting the time
+            specified in the Retry-After header.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request key header.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Limit:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a given time window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Remaining:
+              description: The number of requests remaining in the current rate limit
+                window.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Limit-Minute:
+              description: The maximum number of requests that the consumer is permitted
+                to make in a minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Remaining-Minute:
+              description: The number of requests remaining in the current minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has been reached.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      tags:
+      - Partners
+      x-accepts: application/json
+components:
+  examples:
+    internalServerError:
+      summary: Internal Server Error
+      value:
+        errors:
+        - id: internal-server-error
+          title: Internal Server Error
+          code: "500"
+  parameters:
+    id:
+      description: ID of the product or partner
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    _paginationLimit:
+      description: Limit for number of records returned per page
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 10
+        maximum: 100
+        minimum: 1
+        type: integer
+      style: form
+    _paginationOffset:
+      description: Specifies the starting point for pagination. This parameter is
+        used to identify the beginning of next set of results.
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        default: 0
+        maximum: 100
+        minimum: 0
+        type: integer
+      style: form
+  responses:
+    "401":
+      content:
+        text/plain:
+          example: Authentication Failed
+          schema:
+            $ref: '#/components/schemas/UnauthorizedError'
+      description: Unauthorized - You are not properly authenticated for use of this
+        API. Please make sure you using a valid API key (managed via this developer
+        portal page) or valid OAuth 2.0 credentials (see OAuth 2.0 documentation on
+        the developer portal) for access. If you believe you are seeing this message
+        in error, please reach out to your FactSet Support Team representative.
+    "403":
+      content:
+        text/plain:
+          example: 'Client does not have the required CACCESS: {CACCESS}'
+          schema:
+            $ref: '#/components/schemas/ForbiddenError'
+      description: You do not have the proper permissions for this request. Please
+        make sure you have the proper CACCESS entitlements enabled for this service
+        and that you are using a resource ID that your account has access to. This
+        may also be due to your IP address being unsupported by the API key you are
+        currently using. Please ensure your IP address is whitelisted for the API
+        key you are using. IP addresses can be managed per API key via this developer
+        portal page.
+    "429":
+      content:
+        text/plain:
+          example: API rate limit exceeded
+          schema:
+            $ref: '#/components/schemas/RateLimitError'
+      description: Rate limit reached. Retry the requests after waiting the time specified
+        in the Retry-After header.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request key header.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Limit:
+          description: The maximum number of requests that the consumer is permitted
+            to make in a given time window.
+          explode: false
+          schema:
+            type: integer
+          style: simple
+        RateLimit-Remaining:
+          description: The number of requests remaining in the current rate limit
+            window.
+          explode: false
+          schema:
+            type: integer
+          style: simple
+        RateLimit-Reset:
+          description: Time remaining (in seconds) until request limit is reset.
+          explode: false
+          schema:
+            type: integer
+          style: simple
+        X-RateLimit-Limit-Minute:
+          description: The maximum number of requests that the consumer is permitted
+            to make in a minute.
+          explode: false
+          schema:
+            type: integer
+          style: simple
+        X-RateLimit-Remaining-Minute:
+          description: The number of requests remaining in the current minute.
+          explode: false
+          schema:
+            type: integer
+          style: simple
+        Retry-After:
+          description: Time to wait in seconds before making a new request as the
+            rate limit has been reached.
+          explode: false
+          schema:
+            type: integer
+          style: simple
+  schemas:
+    ProductsSuccessResponse:
+      description: A success response for getting all products
+      example:
+        data:
+        - attributesGroups:
+          - key: Region
+            value: North America
+            isPreviewTag: false
+          secondaryLink: https://www.example.com
+          documents:
+          - name: FactSet Product Documentation
+            section: Documentation
+            isPublic: true
+            isFile: true
+            url: https://www.example.com/factset-product-documentation.pdf
+            fileName: factset-product-documentation.pdf
+          previewLink: https://www.example.com
+          relatedProducts:
+          - id: product-2
+            productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+            title: Product 2
+          description: Short product description that appears on the product's card
+            within the Open:FactSet Marketplace.
+          productStatus: available
+          title: FactSet Product Title
+          type:
+          - dataFeed
+          coverageTable: <table><tr><th><p><b>Name</b></p></th><th><p><b>Count</b></p></th><th><p><b>Type</b></p></th><th><p><b>Start
+            Date</b></p></th></tr><tr><td><p>Registered Investment Advisors</p></td><td><p>19,000</p></td><td><p>Entities
+            </p></td><td><p>2017</p></td></tr></table>
+          productPageUrl: https://www.factset.com/marketplace/catalog/product/product-title
+          partner:
+            id: partner-1
+            partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+            name: Partner 1
+          videoUrl: https://www.example.com/video.mp4
+          deliveryFrequency: daily
+          navigatorUrl: https://open.factset.com/navigator/1234
+          primaryLink: https://www.example.com
+          id: ahkl7OjFcr5Ud1dUNSFxW
+          updateFrequency: daily
+          thirdPartyUrls:
+          - label: Third Party URL Label
+            link: https://www.example.com
+          createDate: 2021-09-01T00:00:00.000+0000
+        - attributesGroups:
+          - key: Region
+            value: North America
+            isPreviewTag: false
+          secondaryLink: https://www.example.com
+          documents:
+          - name: FactSet Product Documentation
+            section: Documentation
+            isPublic: true
+            isFile: true
+            url: https://www.example.com/factset-product-documentation.pdf
+            fileName: factset-product-documentation.pdf
+          previewLink: https://www.example.com
+          relatedProducts:
+          - id: product-2
+            productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+            title: Product 2
+          description: Short product description that appears on the product's card
+            within the Open:FactSet Marketplace.
+          productStatus: available
+          title: FactSet Product Title
+          type:
+          - dataFeed
+          coverageTable: <table><tr><th><p><b>Name</b></p></th><th><p><b>Count</b></p></th><th><p><b>Type</b></p></th><th><p><b>Start
+            Date</b></p></th></tr><tr><td><p>Registered Investment Advisors</p></td><td><p>19,000</p></td><td><p>Entities
+            </p></td><td><p>2017</p></td></tr></table>
+          productPageUrl: https://www.factset.com/marketplace/catalog/product/product-title
+          partner:
+            id: partner-1
+            partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+            name: Partner 1
+          videoUrl: https://www.example.com/video.mp4
+          deliveryFrequency: daily
+          navigatorUrl: https://open.factset.com/navigator/1234
+          primaryLink: https://www.example.com
+          id: ahkl7OjFcr5Ud1dUNSFxW
+          updateFrequency: daily
+          thirdPartyUrls:
+          - label: Third Party URL Label
+            link: https://www.example.com
+          createDate: 2021-09-01T00:00:00.000+0000
+        meta:
+          pagination:
+            total: 300
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: An array of products
+          items:
+            $ref: '#/components/schemas/Product'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - data
+      - meta
+      type: object
+    ProductSuccessResponse:
+      description: A success response for getting a product
+      example:
+        data:
+          attributesGroups:
+          - key: Region
+            value: North America
+            isPreviewTag: false
+          secondaryLink: https://www.example.com
+          documents:
+          - name: FactSet Product Documentation
+            section: Documentation
+            isPublic: true
+            isFile: true
+            url: https://www.example.com/factset-product-documentation.pdf
+            fileName: factset-product-documentation.pdf
+          previewLink: https://www.example.com
+          relatedProducts:
+          - id: product-2
+            productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+            title: Product 2
+          description: Short product description that appears on the product's card
+            within the Open:FactSet Marketplace.
+          productStatus: available
+          title: FactSet Product Title
+          type:
+          - dataFeed
+          coverageTable: <table><tr><th><p><b>Name</b></p></th><th><p><b>Count</b></p></th><th><p><b>Type</b></p></th><th><p><b>Start
+            Date</b></p></th></tr><tr><td><p>Registered Investment Advisors</p></td><td><p>19,000</p></td><td><p>Entities
+            </p></td><td><p>2017</p></td></tr></table>
+          productPageUrl: https://www.factset.com/marketplace/catalog/product/product-title
+          partner:
+            id: partner-1
+            partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+            name: Partner 1
+          videoUrl: https://www.example.com/video.mp4
+          deliveryFrequency: daily
+          navigatorUrl: https://open.factset.com/navigator/1234
+          primaryLink: https://www.example.com
+          id: ahkl7OjFcr5Ud1dUNSFxW
+          updateFrequency: daily
+          thirdPartyUrls:
+          - label: Third Party URL Label
+            link: https://www.example.com
+          createDate: 2021-09-01T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/Product'
+      required:
+      - data
+      type: object
+    PartnersSuccessResponse:
+      description: A success response for getting all partners
+      example:
+        data:
+        - address:
+            addressLine1: 123 Main St.
+            addressLine2: Suite 100
+            city: New York
+            country: United States
+            postCode: "10001"
+            state: NY
+          workflow:
+          - Workflow 1
+          - Workflow 2
+          videoUrl: https://www.example.com/video.mp4
+          name: Partner 1
+          partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+          logo: https://www.example.com/logo.png
+          id: 7GmIW2xGbdfZowcjuaMCmY
+          shortDescription: Partner 1 short description
+          companyUrl: https://www.example.com
+          fullDescription: <p>Partner 1 full description</p>
+          type: technicalPartner
+          socialMedia:
+            linkedin: https://www.linkedin.com/company/factset
+            twitter: https://x.com/factset
+            facebook: https://www.facebook.com/factset
+        - address:
+            addressLine1: 123 Main St.
+            addressLine2: Suite 100
+            city: New York
+            country: United States
+            postCode: "10001"
+            state: NY
+          workflow:
+          - Workflow 1
+          - Workflow 2
+          videoUrl: https://www.example.com/video.mp4
+          name: Partner 1
+          partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+          logo: https://www.example.com/logo.png
+          id: 7GmIW2xGbdfZowcjuaMCmY
+          shortDescription: Partner 1 short description
+          companyUrl: https://www.example.com
+          fullDescription: <p>Partner 1 full description</p>
+          type: technicalPartner
+          socialMedia:
+            linkedin: https://www.linkedin.com/company/factset
+            twitter: https://x.com/factset
+            facebook: https://www.facebook.com/factset
+        meta:
+          pagination:
+            total: 300
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: An array of partners
+          items:
+            $ref: '#/components/schemas/Partner'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - data
+      type: object
+    PartnerSuccessResponse:
+      description: A success response for getting a partner
+      example:
+        data:
+          address:
+            addressLine1: 123 Main St.
+            addressLine2: Suite 100
+            city: New York
+            country: United States
+            postCode: "10001"
+            state: NY
+          workflow:
+          - Workflow 1
+          - Workflow 2
+          videoUrl: https://www.example.com/video.mp4
+          name: Partner 1
+          partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+          logo: https://www.example.com/logo.png
+          id: 7GmIW2xGbdfZowcjuaMCmY
+          shortDescription: Partner 1 short description
+          companyUrl: https://www.example.com
+          fullDescription: <p>Partner 1 full description</p>
+          type: technicalPartner
+          socialMedia:
+            linkedin: https://www.linkedin.com/company/factset
+            twitter: https://x.com/factset
+            facebook: https://www.facebook.com/factset
+      properties:
+        data:
+          $ref: '#/components/schemas/Partner'
+      required:
+      - data
+      type: object
+    AttributesGroupsItem:
+      description: Attribute group object
+      properties:
+        key:
+          description: Attribute group key, corresponding to a category of attributes.
+            For example, 'Region' or 'History'.
+          example: Region
+          type: string
+        value:
+          description: Attribute group value, corresponding to a specific attribute
+            within the category. For example, 'North America' or '10 + years'.
+          example: North America
+          type: string
+        isPreviewTag:
+          description: Boolean flag indicating whether the attribute's value is displayed
+            on the product's card within the Open:FactSet Marketplace.
+          example: false
+          type: boolean
+      type: object
+    DocumentsItems:
+      description: Product documentation object
+      properties:
+        name:
+          description: Document name
+          example: FactSet Product Documentation
+          type: string
+        section:
+          description: String detailing which section of the product page this document
+            should be displayed in, i.e. 'Documentation' or 'Sample Data'.
+          example: Documentation
+          type: string
+        isPublic:
+          description: Boolean flag indicating whether the document is publicly accessible
+            without authentication.
+          example: true
+          type: boolean
+        isFile:
+          description: Boolean flag indicating whether the document is a file for
+            download or a URL.
+          example: true
+          type: boolean
+        url:
+          description: Document URL
+          example: https://www.example.com/factset-product-documentation.pdf
+          format: url
+          type: string
+        fileName:
+          description: Document file name, for file downloads.
+          example: factset-product-documentation.pdf
+          type: string
+      type: object
+    Partner:
+      description: Partner object
+      example:
+        address:
+          addressLine1: 123 Main St.
+          addressLine2: Suite 100
+          city: New York
+          country: United States
+          postCode: "10001"
+          state: NY
+        workflow:
+        - Workflow 1
+        - Workflow 2
+        videoUrl: https://www.example.com/video.mp4
+        name: Partner 1
+        partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+        logo: https://www.example.com/logo.png
+        id: 7GmIW2xGbdfZowcjuaMCmY
+        shortDescription: Partner 1 short description
+        companyUrl: https://www.example.com
+        fullDescription: <p>Partner 1 full description</p>
+        type: technicalPartner
+        socialMedia:
+          linkedin: https://www.linkedin.com/company/factset
+          twitter: https://x.com/factset
+          facebook: https://www.facebook.com/factset
+      properties:
+        id:
+          description: Partner unique identifier, used in the request URL
+          example: 7GmIW2xGbdfZowcjuaMCmY
+          type: string
+        partnerPageUrl:
+          description: URL of the partner's page on the partner catalog.
+          example: https://www.factset.com/partner/catalog#/partner-details/partner-1
+          format: url
+          type: string
+        name:
+          description: Partner name
+          example: Partner 1
+          type: string
+        logo:
+          description: Partner logo URL
+          example: https://www.example.com/logo.png
+          format: url
+          type: string
+        shortDescription:
+          description: Partner short description (plain text), appearing on the partner's
+            card within the FactSet Partner Catalog.
+          example: Partner 1 short description
+          type: string
+        fullDescription:
+          description: Partner full description (HTML)
+          example: <p>Partner 1 full description</p>
+          type: string
+        workflow:
+          description: An array of strings describing the Partner's workflow(s), used
+            as categories on FactSet's Partner Catalog.
+          example:
+          - Workflow 1
+          - Workflow 2
+          items:
+            type: string
+          type: array
+        type:
+          description: Partner type, describing the Partner's relationship with FactSet
+          enum:
+          - capabilityPartner
+          - consultant
+          - openFactSetPartner
+          - dataPartner
+          - technicalPartner
+          example: technicalPartner
+          type: string
+        videoUrl:
+          description: Partner video URL
+          example: https://www.example.com/video.mp4
+          format: url
+          type: string
+        socialMedia:
+          $ref: '#/components/schemas/Partner_socialMedia'
+        companyUrl:
+          description: Partner company URL
+          example: https://www.example.com
+          format: url
+          type: string
+        address:
+          $ref: '#/components/schemas/Partner_address'
+      required:
+      - fullDescription
+      - id
+      - logo
+      - name
+      - partnerPageUrl
+      - shortDescription
+      - type
+      - workflow
+      type: object
+    Product:
+      description: Product object
+      example:
+        attributesGroups:
+        - key: Region
+          value: North America
+          isPreviewTag: false
+        secondaryLink: https://www.example.com
+        documents:
+        - name: FactSet Product Documentation
+          section: Documentation
+          isPublic: true
+          isFile: true
+          url: https://www.example.com/factset-product-documentation.pdf
+          fileName: factset-product-documentation.pdf
+        previewLink: https://www.example.com
+        relatedProducts:
+        - id: product-2
+          productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+          title: Product 2
+        description: Short product description that appears on the product's card
+          within the Open:FactSet Marketplace.
+        productStatus: available
+        title: FactSet Product Title
+        type:
+        - dataFeed
+        coverageTable: <table><tr><th><p><b>Name</b></p></th><th><p><b>Count</b></p></th><th><p><b>Type</b></p></th><th><p><b>Start
+          Date</b></p></th></tr><tr><td><p>Registered Investment Advisors</p></td><td><p>19,000</p></td><td><p>Entities
+          </p></td><td><p>2017</p></td></tr></table>
+        productPageUrl: https://www.factset.com/marketplace/catalog/product/product-title
+        partner:
+          id: partner-1
+          partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+          name: Partner 1
+        videoUrl: https://www.example.com/video.mp4
+        deliveryFrequency: daily
+        navigatorUrl: https://open.factset.com/navigator/1234
+        primaryLink: https://www.example.com
+        id: ahkl7OjFcr5Ud1dUNSFxW
+        updateFrequency: daily
+        thirdPartyUrls:
+        - label: Third Party URL Label
+          link: https://www.example.com
+        createDate: 2021-09-01T00:00:00.000+0000
+      properties:
+        id:
+          description: Product unique identifier
+          example: ahkl7OjFcr5Ud1dUNSFxW
+          type: string
+        productPageUrl:
+          description: URL of the product's page on the marketplace catalog.
+          example: https://www.factset.com/marketplace/catalog/product/product-title
+          format: url
+          type: string
+        secondaryLink:
+          description: Secondary link with additional information
+          example: https://www.example.com
+          format: url
+          type: string
+        title:
+          description: Product title
+          example: FactSet Product Title
+          type: string
+        description:
+          description: Product description
+          example: Short product description that appears on the product's card within
+            the Open:FactSet Marketplace.
+          type: string
+        createDate:
+          description: Product creation date
+          example: 2021-09-01
+          format: date
+          type: string
+        partner:
+          $ref: '#/components/schemas/Product_partner'
+        productStatus:
+          description: Product status pertaining to its availability on the Open:FactSet
+            Marketplace
+          enum:
+          - available
+          - candidate
+          - comingSoon
+          - developmentQueue
+          - new
+          - updated
+          example: available
+          type: string
+        type:
+          description: Product type
+          example:
+          - dataFeed
+          items:
+            enum:
+            - dataFeed
+            - api
+            - platform
+            type: string
+          type: array
+        documents:
+          description: Product documents
+          example:
+          - name: FactSet Product Documentation
+            section: Documentation
+            isPublic: true
+            isFile: true
+            url: https://www.example.com/factset-product-documentation.pdf
+            fileName: factset-product-documentation.pdf
+          items:
+            $ref: '#/components/schemas/DocumentsItems'
+          type: array
+        thirdPartyUrls:
+          description: Product third party URLs
+          example:
+          - label: Third Party URL Label
+            link: https://www.example.com
+          items:
+            $ref: '#/components/schemas/ThirdPartyUrls'
+          type: array
+        primaryLink:
+          description: Link to primary product information, which is separate from
+            the product's product page URL.
+          example: https://www.example.com
+          format: url
+          type: string
+        previewLink:
+          description: Link to additional information on the product, which is separate
+            from the product's product page URL.
+          example: https://www.example.com
+          format: url
+          type: string
+        relatedProducts:
+          description: Related products
+          example:
+          - id: product-2
+            productPageUrl: https://www.factset.com/marketplace/catalog/product/product-2
+            title: Product 2
+          items:
+            $ref: '#/components/schemas/RelatedProducts'
+          type: array
+        coverageTable:
+          description: Product coverage table (HTML)
+          example: <table><tr><th><p><b>Name</b></p></th><th><p><b>Count</b></p></th><th><p><b>Type</b></p></th><th><p><b>Start
+            Date</b></p></th></tr><tr><td><p>Registered Investment Advisors</p></td><td><p>19,000</p></td><td><p>Entities
+            </p></td><td><p>2017</p></td></tr></table>
+          type: string
+        attributesGroups:
+          description: Key-value pairs of product attributes that describe the product
+            and its usage. These attributes groups are used to filter products on
+            the marketplace catalog.
+          example:
+          - key: Region
+            value: North America
+            isPreviewTag: false
+          items:
+            $ref: '#/components/schemas/AttributesGroupsItem'
+          type: array
+        videoUrl:
+          description: Product video URL
+          example: https://www.example.com/video.mp4
+          format: url
+          type: string
+        navigatorUrl:
+          description: Product Data Navigator URL, on https://open.factset.com/navigator/
+          example: https://open.factset.com/navigator/1234
+          format: url
+          type: string
+        updateFrequency:
+          description: Product update frequency, i.e. 'Daily', 'Weekly', etc.
+          enum:
+          - quarterly
+          - monthly
+          - daily
+          - weekly
+          - annual
+          - event
+          - intraday
+          example: daily
+          type: string
+        deliveryFrequency:
+          description: Product delivery frequency, i.e. 'Daily', 'Weekly', etc.
+          enum:
+          - intradayDaily
+          - quarterly
+          - monthly
+          - intraday
+          - weekly
+          - daily
+          - annual
+          - event
+          example: daily
+          type: string
+      required:
+      - createDate
+      - description
+      - id
+      - partner
+      - productPageUrl
+      - productStatus
+      - title
+      - type
+      type: object
+    RelatedProducts:
+      description: Related products object
+      properties:
+        id:
+          description: Product unique identifier
+          example: ahkl7OjFcr5Ud1dUNSFxW
+          type: string
+        productPageUrl:
+          description: URL of the product's page on the marketplace catalog.
+          example: https://www.factset.com/marketplace/catalog/product/product-title
+          format: url
+          type: string
+        title:
+          description: Product title
+          example: FactSet Product Title
+          type: string
+      required:
+      - id
+      - productPageUrl
+      - title
+      type: object
+    ThirdPartyUrls:
+      description: Third party URLs object
+      properties:
+        label:
+          description: Third party URL label
+          example: Link to additional product information
+          type: string
+        link:
+          description: Third party URL
+          example: https://www.example.com
+          format: url
+          type: string
+      type: object
+    ErrorResponse:
+      description: Error response object
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      required:
+      - errors
+      type: object
+    Error:
+      description: Error object
+      properties:
+        id:
+          description: Error UUID
+          example: 7a496cbb-0c96-48ac-84c1-75b28532bb20
+          type: string
+        title:
+          description: Error message
+          example: Internal Server Error
+          type: string
+        code:
+          description: Error code
+          example: "500"
+          type: string
+        detail:
+          description: Error detail
+          example: An internal server error occurred.
+          type: string
+      required:
+      - code
+      - id
+      - title
+      type: object
+    Meta:
+      description: Metadata object
+      example:
+        pagination:
+          total: 300
+          isEstimatedTotal: false
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Meta_pagination'
+      type: object
+    UnauthorizedError:
+      description: Error response for a user without authentication to use the API.
+      type: string
+    ForbiddenError:
+      description: Error response for a user without entitlements to the API.
+      type: string
+    RateLimitError:
+      description: Rate limit reached. Retry the requests after waiting the time specified
+        in the Retry-After header.
+      type: string
+    Partner_socialMedia:
+      description: Partner social media URLs
+      example:
+        linkedin: https://www.linkedin.com/company/factset
+        twitter: https://x.com/factset
+        facebook: https://www.facebook.com/factset
+      properties:
+        linkedin:
+          description: Partner LinkedIn URL
+          example: https://www.linkedin.com/company/factset
+          format: url
+          type: string
+        x:
+          description: Partner X URL
+          example: https://x.com/factset
+          format: url
+          type: string
+        facebook:
+          description: Partner Facebook URL
+          example: https://www.facebook.com/factset
+          format: url
+          type: string
+      type: object
+    Partner_address:
+      description: Partner address
+      example:
+        addressLine1: 123 Main St.
+        addressLine2: Suite 100
+        city: New York
+        country: United States
+        postCode: "10001"
+        state: NY
+      properties:
+        addressLine1:
+          description: Partner address line 1
+          example: 123 Main St.
+          type: string
+        addressLine2:
+          description: Partner address line 2, if applicable
+          example: Suite 100
+          type: string
+        city:
+          description: Partner city
+          example: New York
+          type: string
+        country:
+          description: Partner country
+          example: United States
+          type: string
+        postCode:
+          description: Partner post code
+          example: "10001"
+          type: string
+        state:
+          description: Partner state, if applicable
+          example: NY
+          type: string
+      type: object
+    Product_partner:
+      description: Product partner object
+      example:
+        id: partner-1
+        partnerPageUrl: https://www.factset.com/partner/catalog#/partner-details/partner-1
+        name: Partner 1
+      properties:
+        id:
+          description: Partner unique identifier, used in the URL
+          type: string
+        partnerPageUrl:
+          description: URL of the partner's page on the partner catalog.
+          format: url
+          type: string
+        name:
+          description: Partner name
+          type: string
+      type: object
+    Meta_pagination:
+      description: Pagination metadata
+      example:
+        total: 300
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: Total number of items returned
+          example: 300
+          type: integer
+        isEstimatedTotal:
+          description: Boolean flag indicating whether the total number of items is
+            an estimate
+          example: false
+          type: boolean
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.9.0
+  version: 1.10.0
   title: FactSet Benchmarks API
   contact:
     name: FactSet Research Systems
@@ -191,7 +191,7 @@ paths:
         - $ref: '#/components/parameters/requestedDate'
         - $ref: '#/components/parameters/returnType'
         - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/calendar'
+        - $ref: '#/components/parameters/regionCalendar'
       responses:
         '200':
           description: >-
@@ -281,7 +281,7 @@ paths:
         - $ref: '#/components/parameters/returnType'
         - $ref: '#/components/parameters/hedgeType'
         - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/calendar'
+        - $ref: '#/components/parameters/regionCalendar'
         - $ref: '#/components/parameters/impliedDate'
       responses:
         '200':
@@ -677,6 +677,7 @@ components:
       in: query
       schema:
         type: string
+        default: FIVEDAY
       description: >-
         Calendar of data returned. The default value is FIVEDAY which displays
         Monday through Friday, regardless of whether there were trading
@@ -1164,7 +1165,7 @@ components:
         currency:
           $ref: '#/components/schemas/currency'
         calendar:
-          $ref: '#/components/schemas/calendar'
+          $ref: '#/components/schemas/regionCalendar'
       required:
         - ids
     indexSnapshotResponse:
@@ -1311,7 +1312,7 @@ components:
         currency:
           $ref: '#/components/schemas/currency'
         calendar:
-          $ref: '#/components/schemas/calendar'
+          $ref: '#/components/schemas/regionCalendar'
         impliedDate:
           $ref: '#/components/schemas/impliedDate'
       required:
@@ -1649,7 +1650,10 @@ components:
       title: Calendar
       type: string
       default: FIVEDAY
-      description: Calendar of data returned.
+      description: >-
+        Calendar of data returned. The default value is FIVEDAY which displays
+        Monday through Friday, regardless of whether there were trading
+        holidays.
       example: FIVEDAY
     currency:
       title: Currency

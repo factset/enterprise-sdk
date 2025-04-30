@@ -4,6 +4,7 @@ FactSet.SDK.BookBuilder.sln
 LICENSE
 README.md
 appveyor.yml
+docs/AvailableReportsList.md
 docs/BookInfo.md
 docs/BookProcessingResponseItem.md
 docs/BooksCreationApi.md
@@ -18,12 +19,15 @@ docs/EnableBookDownload.md
 docs/EnableBookInfo.md
 docs/EnableBookInfoFromTemplate.md
 docs/EnableTemplateInfoPost.md
+docs/ErrorItem.md
+docs/InvalidAvailableReportRequest.md
 docs/InvalidCreateBookFromTemplateRequest.md
 docs/InvalidCreateBookRequest.md
 docs/InvalidDownloadBookAwsRequest.md
 docs/InvalidTemplateRequest.md
 docs/InvalidUploadDocumentRequest.md
 docs/PaginationOptions.md
+docs/ReportSection.md
 docs/TemplateContentSection.md
 docs/TemplateInfo.md
 docs/TemplatesCreationApi.md
@@ -53,6 +57,7 @@ src/FactSet.SDK.BookBuilder/Client/RequestOptions.cs
 src/FactSet.SDK.BookBuilder/Client/RetryConfiguration.cs
 src/FactSet.SDK.BookBuilder/FactSet.SDK.BookBuilder.csproj
 src/FactSet.SDK.BookBuilder/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.BookBuilder/Model/AvailableReportsList.cs
 src/FactSet.SDK.BookBuilder/Model/BookInfo.cs
 src/FactSet.SDK.BookBuilder/Model/BookProcessingResponseItem.cs
 src/FactSet.SDK.BookBuilder/Model/ContentSection.cs
@@ -63,11 +68,14 @@ src/FactSet.SDK.BookBuilder/Model/EnableBookDownload.cs
 src/FactSet.SDK.BookBuilder/Model/EnableBookInfo.cs
 src/FactSet.SDK.BookBuilder/Model/EnableBookInfoFromTemplate.cs
 src/FactSet.SDK.BookBuilder/Model/EnableTemplateInfoPost.cs
+src/FactSet.SDK.BookBuilder/Model/ErrorItem.cs
+src/FactSet.SDK.BookBuilder/Model/InvalidAvailableReportRequest.cs
 src/FactSet.SDK.BookBuilder/Model/InvalidCreateBookFromTemplateRequest.cs
 src/FactSet.SDK.BookBuilder/Model/InvalidCreateBookRequest.cs
 src/FactSet.SDK.BookBuilder/Model/InvalidDownloadBookAwsRequest.cs
 src/FactSet.SDK.BookBuilder/Model/InvalidTemplateRequest.cs
 src/FactSet.SDK.BookBuilder/Model/InvalidUploadDocumentRequest.cs
 src/FactSet.SDK.BookBuilder/Model/PaginationOptions.cs
+src/FactSet.SDK.BookBuilder/Model/ReportSection.cs
 src/FactSet.SDK.BookBuilder/Model/TemplateContentSection.cs
 src/FactSet.SDK.BookBuilder/Model/TemplateInfo.cs

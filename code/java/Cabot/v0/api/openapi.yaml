@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Cabot Models API
-  version: 0.3.0
+  version: 0.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/cabot
@@ -32,11 +32,13 @@ tags:
 - description: Evaluates the efficiency of selling decisions through Sell Skills,
     Timing, Stop Loss, and the impact of selling signals.
   name: Selling Models
+- description: Enables you to derive classifications specific to your portfolio.
+  name: Classifications
 paths:
-  /models/add-trim:
+  /classifications:
     get:
-      description: Cabot main path for Add Trim API
-      operationId: getAddTrimModelAnalytic
+      description: Cabot main path for Classifications API
+      operationId: getPortfolioClassifications
       parameters:
       - description: The account path of the portfolio you want to retrieve the data
           for.<br /><br />
@@ -56,64 +58,172 @@ paths:
         schema:
           $ref: '#/components/schemas/BenchmarkPath'
         style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Default classifications:
+                  value:
+                    data:
+                      regionOfDomicile:
+                      - northAmerica
+                      - westernEurope
+                      - middleEast
+                      - pacificRim
+                      sectorName:
+                      - energy
+                      - materials
+                      - industrials
+                      - healthCare
+                Custom classifications:
+                  value:
+                    data:
+                      myRegion:
+                      - germany
+                      - france
+                      - italy
+                      - spain
+                      - netherlands
+                      - sweden
+                      - norway
+                      - switzerland
+                      mySector:
+                      - automotive
+                      - energy
+                      - financialServices
+                      - technology
+                      - tourism
+                      - transportation
+                      - utilities
+                      - pharmaceuticals
+              schema:
+                $ref: '#/components/schemas/ClassificationsResponseRoot'
+          description: Successful response.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Bad request, invalid query parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "408":
+          description: Request timeout. Retry the request in sometime.
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "500":
+          description: Server error.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Cabot main path for Classifications API
+      tags:
+      - Classifications
+      x-accepts: application/json
+  /models/add-trim:
+    post:
+      description: Cabot main path for Add Trim API
+      operationId: getAddTrimModelAnalytic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddTrimRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: addDown
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/AddTrimHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -335,78 +445,18 @@ paths:
       summary: Cabot main path for Add Trim API
       tags:
       - Sizing Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/buy-context:
-    get:
+    post:
       description: Cabot main path for Buy Context API
       operationId: getBuyContextModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuyContextRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        example: BENCH:SP50
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: true
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
       responses:
         "200":
           content:
@@ -604,91 +654,21 @@ paths:
       summary: Cabot main path for Buy Context API
       tags:
       - Buying Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/buy-timing:
-    get:
+    post:
       description: "Cabot main path for Buy Timing API. \r\n\nBuy timing examines\
         \ the timeliness of entry points and measures how quickly new buys contribute\
         \ to results. This is done by delaying the buys by the specified number of\
         \ days to see if buying into the position early would have benefited the portfolio."
       operationId: getBuyTimingModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuyTimingRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: 3 days
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/BuyTimingHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -982,44 +962,18 @@ paths:
       summary: Cabot main path for Buy Timing API
       tags:
       - Buying Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/construction:
-    get:
+    post:
       description: Cabot main path for Construction API
       operationId: getConstructionModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstructionRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
       responses:
         "200":
           content:
@@ -1156,66 +1110,18 @@ paths:
       summary: Cabot main path for Construction API
       tags:
       - Overview Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/hit-rate:
-    get:
+    post:
       description: Cabot main path for Hit Rate API
       operationId: getHitRateModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HitRateRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: true
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: true
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
       responses:
         "200":
           content:
@@ -1349,88 +1255,18 @@ paths:
       summary: Cabot main path for Hit Rate API
       tags:
       - Overview Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/ramp-down:
-    get:
+    post:
       description: Cabot main path for Ramp Down API
       operationId: getRampDownModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RampDownRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: a month
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/RampDownHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -1676,88 +1512,18 @@ paths:
       summary: Cabot main path for Ramp Down API
       tags:
       - Sizing Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/ramp-up:
-    get:
+    post:
       description: Cabot main path for Ramp Up API
       operationId: getRampUpModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RampUpRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: months
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/RampUpHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -2003,56 +1769,20 @@ paths:
       summary: Cabot main path for Ramp Up API
       tags:
       - Sizing Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/results:
-    get:
+    post:
       description: "Cabot main path for Results API. \r\n\n Describes portfolio returns\
         \ in comparison to its benchmark. A positive value indicates excess returns\
         \ while a negative value indicates underperformance."
       operationId: getResultsModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultsRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: In which currency you want to see the data. By default the API
-          uses USD.<br /><br />
-        example: USD
-        explode: true
-        in: query
-        name: currency
-        required: false
-        schema:
-          $ref: '#/components/schemas/Currency'
-        style: form
       responses:
         "200":
           content:
@@ -2198,88 +1928,18 @@ paths:
       summary: Cabot main path for Results API
       tags:
       - Overview Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/sell-timing:
-    get:
+    post:
       description: Cabot main path for Sell Timing API
       operationId: getSellTimingModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SellTimingRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: olderLoser
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/SellTimingHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -2501,88 +2161,18 @@ paths:
       summary: Cabot main path for Sell Timing API
       tags:
       - Selling Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/skills:
-    get:
+    post:
       description: Cabot main path for Skills API
       operationId: getSkillsModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillsRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        example: BENCH:SP50
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: buySkill
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/SkillsHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -2792,88 +2382,18 @@ paths:
       summary: Cabot main path for Skills API
       tags:
       - Overview Models
+      x-contentType: application/json
       x-accepts: application/json
   /models/stop-loss:
-    get:
+    post:
       description: Cabot main path for Stop Loss API
       operationId: getStopLossModelAnalytic
-      parameters:
-      - description: The account path of the portfolio you want to retrieve the data
-          for.<br /><br />
-        explode: true
-        in: query
-        name: accountPath
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopLossRequestBodyRoot'
         required: true
-        schema:
-          $ref: '#/components/schemas/AccountPath'
-        style: form
-      - description: The path of the benchmark you want to retrieve the data for.<br
-          /><br />
-        explode: true
-        in: query
-        name: benchmarkPath
-        required: true
-        schema:
-          $ref: '#/components/schemas/BenchmarkPath'
-        style: form
-      - description: For which period you want to retrieve the data.<br />There are
-          four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br
-          /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING,
-          3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If
-          available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br
-          />You can only get the data for one period per request.<br /><br />
-        example: 2015-2017
-        explode: true
-        in: query
-        name: period
-        required: true
-        schema:
-          $ref: '#/components/schemas/Period'
-        style: form
-      - description: The attribute represents the different factors.<br />You can
-          choose which of them (if any) you want to see analytics for.<br /><br />If
-          provided, the API response will contain both "LOW" and "HIGH" values for
-          it.<br /><br />
-        example: QFL_EY
-        explode: true
-        in: query
-        name: attribute
-        required: false
-        schema:
-          $ref: '#/components/schemas/Attributes'
-        style: form
-      - description: Sector represents the sector based on the company's industry
-          breakdown.<br />You can choose which of them (if any) you want to see analytics
-          for.<br /><br />
-        example: energy
-        explode: true
-        in: query
-        name: sector
-        required: false
-        schema:
-          $ref: '#/components/schemas/Sectors'
-        style: form
-      - description: Region of domicile represents the region based on the company's
-          primary listing.<br />You can choose which of them (if any) you want to
-          see analytics for.<br /><br />
-        example: northAmerica
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          $ref: '#/components/schemas/Regions'
-        style: form
-      - description: If set, the API will add holding-level details for all or only
-          the selected analytic (if available for your portfolio).<br /><br />
-        example: -20
-        explode: true
-        in: query
-        name: holdings
-        required: false
-        schema:
-          $ref: '#/components/schemas/StopLossHoldings'
-        style: form
       responses:
         "200":
           content:
@@ -3119,6 +2639,7 @@ paths:
       summary: Cabot main path for Stop Loss API
       tags:
       - Selling Models
+      x-contentType: application/json
       x-accepts: application/json
 components:
   headers:
@@ -3162,8 +2683,8 @@ components:
         for.
       type: string
     AddTrimHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - addDown
@@ -3264,6 +2785,72 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/AddTrimResponseOptions'
+      type: object
+    AddTrimRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/AddTrimRequestBody'
+      type: object
+    AddTrimRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/AddTrimHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
       type: object
     Attributes:
       description: 'All currently available attributes.<br/><br/>QFL_EY : EPS for
@@ -3445,16 +3032,81 @@ components:
         data:
           $ref: '#/components/schemas/BuyContextResponseOptions'
       type: object
+    BuyContextRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/BuyContextRequestBody'
+      type: object
+    BuyContextRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - attribute
+      - benchmarkPath
+      - period
+      type: object
     BuyTimingHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - 3 days
       - 5 days
       - 10 days
       - 20 days
-      - a month
+      - 40 days
       type: string
     BuyTimingModelAnalytics:
       example:
@@ -3550,6 +3202,103 @@ components:
         data:
           $ref: '#/components/schemas/BuyTimingResponseOptions'
       type: object
+    BuyTimingRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/BuyTimingRequestBody'
+      type: object
+    BuyTimingRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/BuyTimingHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      type: object
+    Classifications:
+      additionalProperties:
+        type: string
+      description: A map-like structure representing key-value pairs of custom classifications.
+        This differs from the default classifications such as region and sector, for
+        which we have different query parameters. If both are provided, the API will
+        choose which one to use based on your portfolio.
+      example:
+        mySector: tourism
+        myRegion: germany
+      type: object
+    ClassificationsResponseOptions:
+      additionalProperties:
+        items:
+          type: string
+        type: array
+      type: object
+    ClassificationsResponseRoot:
+      example:
+        data:
+          key:
+          - data
+          - data
+      properties:
+        data:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+      type: object
     ClientErrorResponse:
       properties:
         errors:
@@ -3626,6 +3375,38 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/ConstructionResponseOptions'
+      type: object
+    ConstructionRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          accountPath: accountPath
+      properties:
+        data:
+          $ref: '#/components/schemas/ConstructionRequestBody'
+      type: object
+    ConstructionRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        accountPath: accountPath
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
       type: object
     Currency:
       description: In which currency you want to see the data. By default the API
@@ -3722,6 +3503,70 @@ components:
         data:
           $ref: '#/components/schemas/HitRateResponseOptions'
       type: object
+    HitRateRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/HitRateRequestBody'
+      type: object
+    HitRateRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      - region
+      - sector
+      type: object
     HoldingAnalytics:
       example:
         incrementalBenefit: '{}'
@@ -3767,10 +3612,11 @@ components:
       type: object
     Period:
       description: For which period you want to retrieve the data.
+      example: 2015-2017
       type: string
     RampDownHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - a month
@@ -3871,9 +3717,75 @@ components:
         data:
           $ref: '#/components/schemas/RampDownResponseOptions'
       type: object
+    RampDownRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/RampDownRequestBody'
+      type: object
+    RampDownRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/RampDownHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      type: object
     RampUpHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - immediate
@@ -3975,17 +3887,76 @@ components:
         data:
           $ref: '#/components/schemas/RampUpResponseOptions'
       type: object
+    RampUpRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/RampUpRequestBody'
+      type: object
+    RampUpRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/RampUpHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      type: object
     Regions:
-      description: All currently available regions.
-      enum:
-      - africa
-      - centralAsia
-      - easternEurope
-      - middleEast
-      - northAmerica
-      - pacificRim
-      - southAmerica
-      - westernEurope
+      description: Region of domicile represents the region based on the company's
+        primary listing.
+      example: northAmerica
       type: string
     ResultsModelAnalytics:
       example:
@@ -4076,38 +4047,47 @@ components:
         data:
           $ref: '#/components/schemas/ResultsResponseOptions'
       type: object
+    ResultsRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          accountPath: accountPath
+      properties:
+        data:
+          $ref: '#/components/schemas/ResultsRequestBody'
+      type: object
+    ResultsRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        accountPath: accountPath
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        currency:
+          $ref: '#/components/schemas/Currency'
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      type: object
     Sectors:
-      description: All currently available sectors.
-      enum:
-      - energy
-      - materials
-      - industrials
-      - consumerDiscretionary
-      - consumerStaples
-      - healthCare
-      - financials
-      - informationTechnology
-      - communicationServices
-      - utilities
-      - realEstate
-      - equityDiversified
-      - equityHealthCare
-      - equitySelfStorage
-      - equityIndustrial
-      - equityOffice
-      - equityResidential
-      - equityRetail
-      - equityLodgingAndResorts
-      - equitySpecialty
-      - equityTimberReits
-      - equityInfrastructureReits
-      - equityDataCenters
-      - mortageHomeFinancing
-      - mortageCommercialFinancing
+      description: Represents the sector based on the company's industry breakdown.
+      example: energy
       type: string
     SellTimingHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - olderLoser
@@ -4213,9 +4193,75 @@ components:
         data:
           $ref: '#/components/schemas/SellTimingResponseOptions'
       type: object
+    SellTimingRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/SellTimingRequestBody'
+      type: object
+    SellTimingRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/SellTimingHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      type: object
     SkillsHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - buySkill
@@ -4314,9 +4360,75 @@ components:
         data:
           $ref: '#/components/schemas/SkillsResponseOptions'
       type: object
+    SkillsRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/SkillsRequestBody'
+      type: object
+    SkillsRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/SkillsHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
+      type: object
     StopLossHoldings:
-      description: If set, the API will add holding-level details for all or only
-        the selected analytic (if available for your portfolio).
+      description: Adds holding-level details for all or only the selected analytic
+        (if available for your portfolio).
       enum:
       - all
       - -20
@@ -4416,6 +4528,72 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/StopLossResponseOptions'
+      type: object
+    StopLossRequestBodyRoot:
+      example:
+        data:
+          period: 2015-2017
+          benchmarkPath: benchmarkPath
+          customClassifications:
+            mySector: tourism
+            myRegion: germany
+          accountPath: accountPath
+          region: northAmerica
+          sector: energy
+      properties:
+        data:
+          $ref: '#/components/schemas/StopLossRequestBody'
+      type: object
+    StopLossRequestBody:
+      example:
+        period: 2015-2017
+        benchmarkPath: benchmarkPath
+        customClassifications:
+          mySector: tourism
+          myRegion: germany
+        accountPath: accountPath
+        region: northAmerica
+        sector: energy
+      properties:
+        accountPath:
+          description: The account path of the portfolio you want to retrieve the
+            data for.
+          type: string
+        benchmarkPath:
+          description: The path of the benchmark you want to retrieve the data for.
+          type: string
+        period:
+          description: For which period you want to retrieve the data.
+          example: 2015-2017
+          type: string
+        attribute:
+          $ref: '#/components/schemas/Attributes'
+        sector:
+          description: Represents the sector based on the company's industry breakdown.
+          example: energy
+          type: string
+        region:
+          description: Region of domicile represents the region based on the company's
+            primary listing.
+          example: northAmerica
+          type: string
+        holdings:
+          $ref: '#/components/schemas/StopLossHoldings'
+        customClassifications:
+          additionalProperties:
+            type: string
+          description: A map-like structure representing key-value pairs of custom
+            classifications. This differs from the default classifications such as
+            region and sector, for which we have different query parameters. If both
+            are provided, the API will choose which one to use based on your portfolio.
+          example:
+            mySector: tourism
+            myRegion: germany
+          type: object
+      required:
+      - accountPath
+      - benchmarkPath
+      - period
       type: object
     BuyContextModelAnalytics_context_attribute:
       description: Context analysis graphically depicts a manager’s actual decisions

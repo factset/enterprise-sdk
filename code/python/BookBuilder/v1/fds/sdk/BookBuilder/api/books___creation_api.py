@@ -25,10 +25,12 @@ from fds.sdk.BookBuilder.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.BookBuilder.exceptions import ApiException
+from fds.sdk.BookBuilder.model.available_reports_list import AvailableReportsList
 from fds.sdk.BookBuilder.model.create_book_from_template_post_request import CreateBookFromTemplatePostRequest
 from fds.sdk.BookBuilder.model.create_book_post_request import CreateBookPostRequest
 from fds.sdk.BookBuilder.model.enable_book_info import EnableBookInfo
 from fds.sdk.BookBuilder.model.enable_book_info_from_template import EnableBookInfoFromTemplate
+from fds.sdk.BookBuilder.model.invalid_available_report_request import InvalidAvailableReportRequest
 from fds.sdk.BookBuilder.model.invalid_create_book_from_template_request import InvalidCreateBookFromTemplateRequest
 from fds.sdk.BookBuilder.model.invalid_create_book_request import InvalidCreateBookRequest
 
@@ -158,6 +160,62 @@ class BooksCreationApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+
+        self.get_available_reports_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (AvailableReportsList,), 400: (InvalidAvailableReportRequest,), 401: (str,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/available-report/{ticker}',
+                'operation_id': 'get_available_reports',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ticker',
+                ],
+                'required': [
+                    'ticker',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ticker':
+                        (str,),
+                },
+                'attribute_map': {
+                    'ticker': 'ticker',
+                },
+                'location_map': {
+                    'ticker': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -556,5 +614,196 @@ class BooksCreationApi(object):
         kwargs['create_book_from_template_post_request'] = \
             create_book_from_template_post_request
         return self.create_book_from_template_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_available_reports(
+        self,
+        ticker,
+        **kwargs
+    ) -> AvailableReportsList:
+        """This endpoint retrieves all available sections and reports based on a ticker.  # noqa: E501
+
+        This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            ticker (str): A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            AvailableReportsList
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['ticker'] = \
+            ticker
+        return self.get_available_reports_endpoint.call_with_http_info(**kwargs)
+
+    def get_available_reports_with_http_info(
+        self,
+        ticker,
+        **kwargs
+    ) -> typing.Tuple[AvailableReportsList, int, typing.MutableMapping]:
+        """This endpoint retrieves all available sections and reports based on a ticker.  # noqa: E501
+
+        This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            ticker (str): A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            AvailableReportsList
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['ticker'] = \
+            ticker
+        return self.get_available_reports_endpoint.call_with_http_info(**kwargs)
+
+    def get_available_reports_async(
+        self,
+        ticker,
+        **kwargs
+    ) -> "ApplyResult[AvailableReportsList]":
+        """This endpoint retrieves all available sections and reports based on a ticker.  # noqa: E501
+
+        This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            ticker (str): A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[AvailableReportsList]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['ticker'] = \
+            ticker
+        return self.get_available_reports_endpoint.call_with_http_info(**kwargs)
+
+    def get_available_reports_with_http_info_async(
+        self,
+        ticker,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[AvailableReportsList, int, typing.MutableMapping]]":
+        """This endpoint retrieves all available sections and reports based on a ticker.  # noqa: E501
+
+        This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            ticker (str): A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(AvailableReportsList, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['ticker'] = \
+            ticker
+        return self.get_available_reports_endpoint.call_with_http_info(**kwargs)
 
 

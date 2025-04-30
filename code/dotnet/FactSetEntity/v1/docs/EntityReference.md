@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Website** | **string** | Web page address for the entity | [optional] 
 **IncorporationDate** | **DateTime?** | Year the entity was incorporated in YYYY-MM-DD format. | [optional] 
 **CountryOfRisk** | **string** | Entity&#39;s Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following - * Country of Headquarters * Country of Incorporation * Country of Primary Exchange (the country where most liquid equity listings trade)  | [optional] 
+**CountryOfRiskGeoRev** | **string** | Entity&#39;s Country of Risk based on the Top Geograghic Revenue.  | [optional] 
 **IncorporationCountry** | **string** | ISO Country code where the entity is incorporated | [optional] 
 **BusinessDescription** | **string** | Extended business description for the requested entity. | [optional] 
 **Phone** | **string** | The entity&#39;s international phone number. | [optional] 

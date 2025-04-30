@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createBook**](BooksCreationApi.md#createBook) | **POST** /create-book | Kicks off request to create a book with reports of your choice
 [**createBookFromTemplate**](BooksCreationApi.md#createBookFromTemplate) | **POST** /create-book-from-template | Kicks off request to create a book with template
+[**getAvailableReports**](BooksCreationApi.md#getAvailableReports) | **GET** /available-report/{ticker} | This endpoint retrieves all available sections and reports based on a ticker.
 
 
 
@@ -192,5 +193,98 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful response contains request status, book name, and book ID |  -  |
 | **400** | Invalid ticker or Unknown error |  -  |
+| **401** | Missing or invalid authentication |  -  |
+
+
+## getAvailableReports
+
+> AvailableReportsList getAvailableReports(ticker)
+
+This endpoint retrieves all available sections and reports based on a ticker.
+
+This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.BookBuilder.ApiClient;
+import com.factset.sdk.BookBuilder.ApiException;
+import com.factset.sdk.BookBuilder.Configuration;
+import com.factset.sdk.BookBuilder.auth.*;
+import com.factset.sdk.BookBuilder.models.*;
+import com.factset.sdk.BookBuilder.api.BooksCreationApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        BooksCreationApi apiInstance = new BooksCreationApi(defaultClient);
+        String ticker = "APPL-US"; // String | A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+        try {
+            AvailableReportsList result = apiInstance.getAvailableReports(ticker);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling BooksCreationApi#getAvailableReports");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ticker** | **String**| A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path. |
+
+### Return type
+
+[**AvailableReportsList**](AvailableReportsList.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response contains all available sections and reports for the ticker. |  -  |
+| **400** | Invalid Ticker |  -  |
 | **401** | Missing or invalid authentication |  -  |
 

@@ -68,7 +68,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     currency = "currency_example" # str | Currency for response. (optional)
-    calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)
+    calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional) if omitted the server will use the default value of "FIVEDAY"
 
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
  **ids** | **[str]**| Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; |
  **date** | **str**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **currency** | **str**| Currency for response. | [optional]
- **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional]
+ **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] if omitted the server will use the default value of "FIVEDAY"
 
 ### Return type
 

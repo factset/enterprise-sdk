@@ -12,6 +12,7 @@
  */
 
 import ApiClient from './ApiClient';
+import AvailableReportsList from './model/AvailableReportsList';
 import BookInfo from './model/BookInfo';
 import BookProcessingResponseItem from './model/BookProcessingResponseItem';
 import ContentSection from './model/ContentSection';
@@ -22,12 +23,15 @@ import EnableBookDownload from './model/EnableBookDownload';
 import EnableBookInfo from './model/EnableBookInfo';
 import EnableBookInfoFromTemplate from './model/EnableBookInfoFromTemplate';
 import EnableTemplateInfoPost from './model/EnableTemplateInfoPost';
+import ErrorItem from './model/ErrorItem';
+import InvalidAvailableReportRequest from './model/InvalidAvailableReportRequest';
 import InvalidCreateBookFromTemplateRequest from './model/InvalidCreateBookFromTemplateRequest';
 import InvalidCreateBookRequest from './model/InvalidCreateBookRequest';
 import InvalidDownloadBookAwsRequest from './model/InvalidDownloadBookAwsRequest';
 import InvalidTemplateRequest from './model/InvalidTemplateRequest';
 import InvalidUploadDocumentRequest from './model/InvalidUploadDocumentRequest';
 import PaginationOptions from './model/PaginationOptions';
+import ReportSection from './model/ReportSection';
 import TemplateContentSection from './model/TemplateContentSection';
 import TemplateInfo from './model/TemplateInfo';
 
@@ -76,6 +80,12 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The AvailableReportsList model constructor.
+     * @property {module:model/AvailableReportsList}
+     */
+    AvailableReportsList,
 
     /**
      * The BookInfo model constructor.
@@ -138,6 +148,18 @@ export {
     EnableTemplateInfoPost,
 
     /**
+     * The ErrorItem model constructor.
+     * @property {module:model/ErrorItem}
+     */
+    ErrorItem,
+
+    /**
+     * The InvalidAvailableReportRequest model constructor.
+     * @property {module:model/InvalidAvailableReportRequest}
+     */
+    InvalidAvailableReportRequest,
+
+    /**
      * The InvalidCreateBookFromTemplateRequest model constructor.
      * @property {module:model/InvalidCreateBookFromTemplateRequest}
      */
@@ -172,6 +194,12 @@ export {
      * @property {module:model/PaginationOptions}
      */
     PaginationOptions,
+
+    /**
+     * The ReportSection model constructor.
+     * @property {module:model/ReportSection}
+     */
+    ReportSection,
 
     /**
      * The TemplateContentSection model constructor.

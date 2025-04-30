@@ -4,14 +4,14 @@ All URIs are relative to *https://api.factset.com/analytics/cabot/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetBuyContextModelAnalytic**](BuyingModelsApi.md#getbuycontextmodelanalytic) | **GET** /models/buy-context | Cabot main path for Buy Context API
-[**GetBuyTimingModelAnalytic**](BuyingModelsApi.md#getbuytimingmodelanalytic) | **GET** /models/buy-timing | Cabot main path for Buy Timing API
+[**GetBuyContextModelAnalytic**](BuyingModelsApi.md#getbuycontextmodelanalytic) | **POST** /models/buy-context | Cabot main path for Buy Context API
+[**GetBuyTimingModelAnalytic**](BuyingModelsApi.md#getbuytimingmodelanalytic) | **POST** /models/buy-timing | Cabot main path for Buy Timing API
 
 
 
 <a name="getbuycontextmodelanalytic"></a>
 # **GetBuyContextModelAnalytic**
-> BuyContextResponseRoot GetBuyContextModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes attribute, Sectors? sector = null, Regions? region = null)
+> BuyContextResponseRoot GetBuyContextModelAnalytic (BuyContextRequestBodyRoot buyContextRequestBodyRoot)
 
 Cabot main path for Buy Context API
 
@@ -61,17 +61,12 @@ namespace Example
 
             var apiInstance = new BuyingModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.
-            var benchmarkPath = "BENCH:SP50";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "period_example";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var attribute = (Attributes) "QFL_EY";  // Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />
-            var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
+            var buyContextRequestBodyRoot = new BuyContextRequestBodyRoot(); // BuyContextRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Buy Context API
-                BuyContextResponseRoot result = apiInstance.GetBuyContextModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+                BuyContextResponseRoot result = apiInstance.GetBuyContextModelAnalytic(buyContextRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -89,12 +84,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for. | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | 
- **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **buyContextRequestBodyRoot** | [**BuyContextRequestBodyRoot**](BuyContextRequestBodyRoot.md)|  | 
 
 ### Return type
 [**BuyContextResponseRoot**](BuyContextResponseRoot.md)
@@ -105,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -128,7 +118,7 @@ Name | Type | Description  | Notes
 
 <a name="getbuytimingmodelanalytic"></a>
 # **GetBuyTimingModelAnalytic**
-> BuyTimingResponseRoot GetBuyTimingModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, BuyTimingHoldings? holdings = null)
+> BuyTimingResponseRoot GetBuyTimingModelAnalytic (BuyTimingRequestBodyRoot buyTimingRequestBodyRoot)
 
 Cabot main path for Buy Timing API
 
@@ -178,18 +168,12 @@ namespace Example
 
             var apiInstance = new BuyingModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
-            var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var holdings = (BuyTimingHoldings) "all";  // BuyTimingHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
+            var buyTimingRequestBodyRoot = new BuyTimingRequestBodyRoot(); // BuyTimingRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Buy Timing API
-                BuyTimingResponseRoot result = apiInstance.GetBuyTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
+                BuyTimingResponseRoot result = apiInstance.GetBuyTimingModelAnalytic(buyTimingRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -207,13 +191,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **holdings** | **BuyTimingHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **buyTimingRequestBodyRoot** | [**BuyTimingRequestBodyRoot**](BuyTimingRequestBodyRoot.md)|  | 
 
 ### Return type
 [**BuyTimingResponseRoot**](BuyTimingResponseRoot.md)
@@ -224,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

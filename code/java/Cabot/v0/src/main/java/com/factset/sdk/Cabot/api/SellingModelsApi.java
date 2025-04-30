@@ -11,13 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.Cabot.models.Attributes;
 import com.factset.sdk.Cabot.models.ClientErrorResponse;
-import com.factset.sdk.Cabot.models.Regions;
-import com.factset.sdk.Cabot.models.Sectors;
-import com.factset.sdk.Cabot.models.SellTimingHoldings;
+import com.factset.sdk.Cabot.models.SellTimingRequestBodyRoot;
 import com.factset.sdk.Cabot.models.SellTimingResponseRoot;
-import com.factset.sdk.Cabot.models.StopLossHoldings;
+import com.factset.sdk.Cabot.models.StopLossRequestBodyRoot;
 import com.factset.sdk.Cabot.models.StopLossResponseRoot;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -71,13 +68,7 @@ public class SellingModelsApi {
   /**
    * Cabot main path for Sell Timing API
    * Cabot main path for Sell Timing API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param sellTimingRequestBodyRoot  (required)
    * @return SellTimingResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -95,20 +86,14 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public SellTimingResponseRoot getSellTimingModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, SellTimingHoldings holdings) throws ApiException {
-    return getSellTimingModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
+  public SellTimingResponseRoot getSellTimingModelAnalytic(SellTimingRequestBodyRoot sellTimingRequestBodyRoot) throws ApiException {
+    return getSellTimingModelAnalyticWithHttpInfo(sellTimingRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Sell Timing API
    * Cabot main path for Sell Timing API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param sellTimingRequestBodyRoot  (required)
    * @return ApiResponse&lt;SellTimingResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -126,22 +111,12 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SellTimingResponseRoot> getSellTimingModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, SellTimingHoldings holdings) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<SellTimingResponseRoot> getSellTimingModelAnalyticWithHttpInfo(SellTimingRequestBodyRoot sellTimingRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = sellTimingRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getSellTimingModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getSellTimingModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getSellTimingModelAnalytic");
+    // verify the required parameter 'sellTimingRequestBodyRoot' is set
+    if (sellTimingRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'sellTimingRequestBodyRoot' when calling getSellTimingModelAnalytic");
     }
     
     // create path and map variables
@@ -153,13 +128,6 @@ public class SellingModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -170,7 +138,7 @@ public class SellingModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -181,7 +149,7 @@ public class SellingModelsApi {
         
         SellTimingResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("SellingModelsApi.getSellTimingModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("SellingModelsApi.getSellTimingModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getSellTimingModelAnalyticResponseTypeMap, false);
 
@@ -191,13 +159,7 @@ public class SellingModelsApi {
   /**
    * Cabot main path for Stop Loss API
    * Cabot main path for Stop Loss API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param stopLossRequestBodyRoot  (required)
    * @return StopLossResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -215,20 +177,14 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public StopLossResponseRoot getStopLossModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, StopLossHoldings holdings) throws ApiException {
-    return getStopLossModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
+  public StopLossResponseRoot getStopLossModelAnalytic(StopLossRequestBodyRoot stopLossRequestBodyRoot) throws ApiException {
+    return getStopLossModelAnalyticWithHttpInfo(stopLossRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Stop Loss API
    * Cabot main path for Stop Loss API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param stopLossRequestBodyRoot  (required)
    * @return ApiResponse&lt;StopLossResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -246,22 +202,12 @@ public class SellingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<StopLossResponseRoot> getStopLossModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, StopLossHoldings holdings) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<StopLossResponseRoot> getStopLossModelAnalyticWithHttpInfo(StopLossRequestBodyRoot stopLossRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = stopLossRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getStopLossModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getStopLossModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getStopLossModelAnalytic");
+    // verify the required parameter 'stopLossRequestBodyRoot' is set
+    if (stopLossRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'stopLossRequestBodyRoot' when calling getStopLossModelAnalytic");
     }
     
     // create path and map variables
@@ -273,13 +219,6 @@ public class SellingModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -290,7 +229,7 @@ public class SellingModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -301,7 +240,7 @@ public class SellingModelsApi {
         
         StopLossResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("SellingModelsApi.getStopLossModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("SellingModelsApi.getStopLossModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getStopLossModelAnalyticResponseTypeMap, false);
 

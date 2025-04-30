@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateBook**](BooksCreationApi.md#createbook) | **POST** /create-book | Kicks off request to create a book with reports of your choice
 [**CreateBookFromTemplate**](BooksCreationApi.md#createbookfromtemplate) | **POST** /create-book-from-template | Kicks off request to create a book with template
+[**GetAvailableReports**](BooksCreationApi.md#getavailablereports) | **GET** /available-report/{ticker} | This endpoint retrieves all available sections and reports based on a ticker.
 
 
 
@@ -204,6 +205,106 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful response contains request status, book name, and book ID |  -  |
 | **400** | Invalid ticker or Unknown error |  -  |
+| **401** | Missing or invalid authentication |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+<a name="getavailablereports"></a>
+# **GetAvailableReports**
+> AvailableReportsList GetAvailableReports (string ticker)
+
+This endpoint retrieves all available sections and reports based on a ticker.
+
+This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.BookBuilder.Api;
+using FactSet.SDK.BookBuilder.Client;
+using FactSet.SDK.BookBuilder.Model;
+
+namespace Example
+{
+    public class GetAvailableReportsExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.BookBuilder.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            //
+            // The confidential client instance should be reused in production environments.
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new BooksCreationApi(config);
+
+            var ticker = "APPL-US";  // string | A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+
+            try
+            {
+                // This endpoint retrieves all available sections and reports based on a ticker.
+                AvailableReportsList result = apiInstance.GetAvailableReports(ticker);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling BooksCreationApi.GetAvailableReports: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ticker** | **string**| A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path. | 
+
+### Return type
+[**AvailableReportsList**](AvailableReportsList.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response contains all available sections and reports for the ticker. |  -  |
+| **400** | Invalid Ticker |  -  |
 | **401** | Missing or invalid authentication |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

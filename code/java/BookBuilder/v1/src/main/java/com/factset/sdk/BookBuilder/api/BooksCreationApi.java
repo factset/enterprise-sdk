@@ -11,10 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.BookBuilder.models.AvailableReportsList;
 import com.factset.sdk.BookBuilder.models.CreateBookFromTemplatePostRequest;
 import com.factset.sdk.BookBuilder.models.CreateBookPostRequest;
 import com.factset.sdk.BookBuilder.models.EnableBookInfo;
 import com.factset.sdk.BookBuilder.models.EnableBookInfoFromTemplate;
+import com.factset.sdk.BookBuilder.models.InvalidAvailableReportRequest;
 import com.factset.sdk.BookBuilder.models.InvalidCreateBookFromTemplateRequest;
 import com.factset.sdk.BookBuilder.models.InvalidCreateBookRequest;
 
@@ -43,6 +45,13 @@ public class BooksCreationApi {
     createBookFromTemplateResponseTypeMap.put(200, new GenericType<EnableBookInfoFromTemplate>(){});
     createBookFromTemplateResponseTypeMap.put(400, new GenericType<InvalidCreateBookFromTemplateRequest>(){});
     createBookFromTemplateResponseTypeMap.put(401, new GenericType<String>(){});
+  }
+
+  private static final Map<Integer, GenericType> getAvailableReportsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAvailableReportsResponseTypeMap.put(200, new GenericType<AvailableReportsList>(){});
+    getAvailableReportsResponseTypeMap.put(400, new GenericType<InvalidAvailableReportRequest>(){});
+    getAvailableReportsResponseTypeMap.put(401, new GenericType<String>(){});
   }
 
   
@@ -216,6 +225,84 @@ public class BooksCreationApi {
     > apiResponse = apiClient.invokeAPI("BooksCreationApi.createBookFromTemplate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, createBookFromTemplateResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * This endpoint retrieves all available sections and reports based on a ticker.
+   * This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+   * @param ticker A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path. (required)
+   * @return AvailableReportsList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful response contains all available sections and reports for the ticker. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Invalid Ticker </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
+     </table>
+   */
+  public AvailableReportsList getAvailableReports(String ticker) throws ApiException {
+    return getAvailableReportsWithHttpInfo(ticker).getData();
+  }
+
+  /**
+   * This endpoint retrieves all available sections and reports based on a ticker.
+   * This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+   * @param ticker A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path. (required)
+   * @return ApiResponse&lt;AvailableReportsList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful response contains all available sections and reports for the ticker. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Invalid Ticker </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<AvailableReportsList> getAvailableReportsWithHttpInfo(String ticker) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'ticker' is set
+    if (ticker == null) {
+      throw new ApiException(400, "Missing the required parameter 'ticker' when calling getAvailableReports");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/available-report/{ticker}"
+      .replaceAll("\\{" + "ticker" + "\\}", apiClient.escapeString(ticker.toString()));
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        AvailableReportsList
+      
+    > apiResponse = apiClient.invokeAPI("BooksCreationApi.getAvailableReports", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getAvailableReportsResponseTypeMap, false);
 
     return apiResponse;
 

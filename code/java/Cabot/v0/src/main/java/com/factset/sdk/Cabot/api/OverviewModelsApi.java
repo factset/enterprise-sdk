@@ -11,15 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.Cabot.models.Attributes;
 import com.factset.sdk.Cabot.models.ClientErrorResponse;
+import com.factset.sdk.Cabot.models.ConstructionRequestBodyRoot;
 import com.factset.sdk.Cabot.models.ConstructionResponseRoot;
-import com.factset.sdk.Cabot.models.Currency;
+import com.factset.sdk.Cabot.models.HitRateRequestBodyRoot;
 import com.factset.sdk.Cabot.models.HitRateResponseRoot;
-import com.factset.sdk.Cabot.models.Regions;
+import com.factset.sdk.Cabot.models.ResultsRequestBodyRoot;
 import com.factset.sdk.Cabot.models.ResultsResponseRoot;
-import com.factset.sdk.Cabot.models.Sectors;
-import com.factset.sdk.Cabot.models.SkillsHoldings;
+import com.factset.sdk.Cabot.models.SkillsRequestBodyRoot;
 import com.factset.sdk.Cabot.models.SkillsResponseRoot;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -87,9 +86,7 @@ public class OverviewModelsApi {
   /**
    * Cabot main path for Construction API
    * Cabot main path for Construction API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
+   * @param constructionRequestBodyRoot  (required)
    * @return ConstructionResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -107,16 +104,14 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ConstructionResponseRoot getConstructionModelAnalytic(String accountPath, String benchmarkPath, String period) throws ApiException {
-    return getConstructionModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period).getData();
+  public ConstructionResponseRoot getConstructionModelAnalytic(ConstructionRequestBodyRoot constructionRequestBodyRoot) throws ApiException {
+    return getConstructionModelAnalyticWithHttpInfo(constructionRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Construction API
    * Cabot main path for Construction API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
+   * @param constructionRequestBodyRoot  (required)
    * @return ApiResponse&lt;ConstructionResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -134,22 +129,12 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ConstructionResponseRoot> getConstructionModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<ConstructionResponseRoot> getConstructionModelAnalyticWithHttpInfo(ConstructionRequestBodyRoot constructionRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = constructionRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getConstructionModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getConstructionModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getConstructionModelAnalytic");
+    // verify the required parameter 'constructionRequestBodyRoot' is set
+    if (constructionRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'constructionRequestBodyRoot' when calling getConstructionModelAnalytic");
     }
     
     // create path and map variables
@@ -161,9 +146,6 @@ public class OverviewModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
 
     
     
@@ -174,7 +156,7 @@ public class OverviewModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -185,7 +167,7 @@ public class OverviewModelsApi {
         
         ConstructionResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getConstructionModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getConstructionModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getConstructionModelAnalyticResponseTypeMap, false);
 
@@ -195,11 +177,7 @@ public class OverviewModelsApi {
   /**
    * Cabot main path for Hit Rate API
    * Cabot main path for Hit Rate API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (required)
+   * @param hitRateRequestBodyRoot  (required)
    * @return HitRateResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -217,18 +195,14 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public HitRateResponseRoot getHitRateModelAnalytic(String accountPath, String benchmarkPath, String period, Sectors sector, Regions region) throws ApiException {
-    return getHitRateModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, sector, region).getData();
+  public HitRateResponseRoot getHitRateModelAnalytic(HitRateRequestBodyRoot hitRateRequestBodyRoot) throws ApiException {
+    return getHitRateModelAnalyticWithHttpInfo(hitRateRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Hit Rate API
    * Cabot main path for Hit Rate API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (required)
+   * @param hitRateRequestBodyRoot  (required)
    * @return ApiResponse&lt;HitRateResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -246,32 +220,12 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<HitRateResponseRoot> getHitRateModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Sectors sector, Regions region) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<HitRateResponseRoot> getHitRateModelAnalyticWithHttpInfo(HitRateRequestBodyRoot hitRateRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = hitRateRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getHitRateModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getHitRateModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getHitRateModelAnalytic");
-    }
-    
-    // verify the required parameter 'sector' is set
-    if (sector == null) {
-      throw new ApiException(400, "Missing the required parameter 'sector' when calling getHitRateModelAnalytic");
-    }
-    
-    // verify the required parameter 'region' is set
-    if (region == null) {
-      throw new ApiException(400, "Missing the required parameter 'region' when calling getHitRateModelAnalytic");
+    // verify the required parameter 'hitRateRequestBodyRoot' is set
+    if (hitRateRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'hitRateRequestBodyRoot' when calling getHitRateModelAnalytic");
     }
     
     // create path and map variables
@@ -283,11 +237,6 @@ public class OverviewModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
 
     
     
@@ -298,7 +247,7 @@ public class OverviewModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -309,7 +258,7 @@ public class OverviewModelsApi {
         
         HitRateResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getHitRateModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getHitRateModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getHitRateModelAnalyticResponseTypeMap, false);
 
@@ -319,10 +268,7 @@ public class OverviewModelsApi {
   /**
    * Cabot main path for Results API
    * Cabot main path for Results API.     Describes portfolio returns in comparison to its benchmark. A positive value indicates excess returns while a negative value indicates underperformance.
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param currency In which currency you want to see the data. By default the API uses USD.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param resultsRequestBodyRoot  (required)
    * @return ResultsResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -340,17 +286,14 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ResultsResponseRoot getResultsModelAnalytic(String accountPath, String benchmarkPath, String period, Currency currency) throws ApiException {
-    return getResultsModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, currency).getData();
+  public ResultsResponseRoot getResultsModelAnalytic(ResultsRequestBodyRoot resultsRequestBodyRoot) throws ApiException {
+    return getResultsModelAnalyticWithHttpInfo(resultsRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Results API
    * Cabot main path for Results API.     Describes portfolio returns in comparison to its benchmark. A positive value indicates excess returns while a negative value indicates underperformance.
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param currency In which currency you want to see the data. By default the API uses USD.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param resultsRequestBodyRoot  (required)
    * @return ApiResponse&lt;ResultsResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -368,22 +311,12 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ResultsResponseRoot> getResultsModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Currency currency) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<ResultsResponseRoot> getResultsModelAnalyticWithHttpInfo(ResultsRequestBodyRoot resultsRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = resultsRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getResultsModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getResultsModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getResultsModelAnalytic");
+    // verify the required parameter 'resultsRequestBodyRoot' is set
+    if (resultsRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'resultsRequestBodyRoot' when calling getResultsModelAnalytic");
     }
     
     // create path and map variables
@@ -395,10 +328,6 @@ public class OverviewModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
 
     
     
@@ -409,7 +338,7 @@ public class OverviewModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -420,7 +349,7 @@ public class OverviewModelsApi {
         
         ResultsResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getResultsModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getResultsModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getResultsModelAnalyticResponseTypeMap, false);
 
@@ -430,13 +359,7 @@ public class OverviewModelsApi {
   /**
    * Cabot main path for Skills API
    * Cabot main path for Skills API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for. (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param skillsRequestBodyRoot  (required)
    * @return SkillsResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -454,20 +377,14 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public SkillsResponseRoot getSkillsModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, SkillsHoldings holdings) throws ApiException {
-    return getSkillsModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
+  public SkillsResponseRoot getSkillsModelAnalytic(SkillsRequestBodyRoot skillsRequestBodyRoot) throws ApiException {
+    return getSkillsModelAnalyticWithHttpInfo(skillsRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Skills API
    * Cabot main path for Skills API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for. (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param skillsRequestBodyRoot  (required)
    * @return ApiResponse&lt;SkillsResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -485,22 +402,12 @@ public class OverviewModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SkillsResponseRoot> getSkillsModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, SkillsHoldings holdings) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<SkillsResponseRoot> getSkillsModelAnalyticWithHttpInfo(SkillsRequestBodyRoot skillsRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = skillsRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getSkillsModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getSkillsModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getSkillsModelAnalytic");
+    // verify the required parameter 'skillsRequestBodyRoot' is set
+    if (skillsRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'skillsRequestBodyRoot' when calling getSkillsModelAnalytic");
     }
     
     // create path and map variables
@@ -512,13 +419,6 @@ public class OverviewModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -529,7 +429,7 @@ public class OverviewModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -540,7 +440,7 @@ public class OverviewModelsApi {
         
         SkillsResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getSkillsModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("OverviewModelsApi.getSkillsModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getSkillsModelAnalyticResponseTypeMap, false);
 

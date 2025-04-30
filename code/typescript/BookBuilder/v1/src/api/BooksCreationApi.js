@@ -13,10 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
+import AvailableReportsList from '../model/AvailableReportsList';
 import CreateBookFromTemplatePostRequest from '../model/CreateBookFromTemplatePostRequest';
 import CreateBookPostRequest from '../model/CreateBookPostRequest';
 import EnableBookInfo from '../model/EnableBookInfo';
 import EnableBookInfoFromTemplate from '../model/EnableBookInfoFromTemplate';
+import InvalidAvailableReportRequest from '../model/InvalidAvailableReportRequest';
 import InvalidCreateBookFromTemplateRequest from '../model/InvalidCreateBookFromTemplateRequest';
 import InvalidCreateBookRequest from '../model/InvalidCreateBookRequest';
 
@@ -133,6 +135,57 @@ export default class BooksCreationApi {
      */
     createBookFromTemplate(createBookFromTemplatePostRequest) {
       return this.createBookFromTemplateWithHttpInfo(createBookFromTemplatePostRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * This endpoint retrieves all available sections and reports based on a ticker.
+     * This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+     * @param {String} ticker A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AvailableReportsList} and HTTP response
+     */
+    getAvailableReportsWithHttpInfo(ticker) {
+      let postBody = null;
+      // verify the required parameter 'ticker' is set
+      if (ticker === undefined || ticker === null) {
+        throw new Error("Missing the required parameter 'ticker' when calling getAvailableReports");
+      }
+
+      let pathParams = {
+        'ticker': ticker
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = AvailableReportsList;
+
+      return this.apiClient.callApi(
+        '/available-report/{ticker}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * This endpoint retrieves all available sections and reports based on a ticker.
+     * This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+     * @param {String} ticker A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+     * @return { Promise.< module:model/AvailableReportsList > } a Promise, with data of type {@link module:model/AvailableReportsList }
+     */
+    getAvailableReports(ticker) {
+      return this.getAvailableReportsWithHttpInfo(ticker)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

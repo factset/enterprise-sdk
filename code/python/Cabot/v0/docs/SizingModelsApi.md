@@ -4,14 +4,14 @@ All URIs are relative to *https://api.factset.com/analytics/cabot/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_add_trim_model_analytic**](SizingModelsApi.md#get_add_trim_model_analytic) | **GET** /models/add-trim | Cabot main path for Add Trim API
-[**get_ramp_down_model_analytic**](SizingModelsApi.md#get_ramp_down_model_analytic) | **GET** /models/ramp-down | Cabot main path for Ramp Down API
-[**get_ramp_up_model_analytic**](SizingModelsApi.md#get_ramp_up_model_analytic) | **GET** /models/ramp-up | Cabot main path for Ramp Up API
+[**get_add_trim_model_analytic**](SizingModelsApi.md#get_add_trim_model_analytic) | **POST** /models/add-trim | Cabot main path for Add Trim API
+[**get_ramp_down_model_analytic**](SizingModelsApi.md#get_ramp_down_model_analytic) | **POST** /models/ramp-down | Cabot main path for Ramp Down API
+[**get_ramp_up_model_analytic**](SizingModelsApi.md#get_ramp_up_model_analytic) | **POST** /models/ramp-up | Cabot main path for Ramp Up API
 
 
 
 # **get_add_trim_model_analytic**
-> AddTrimResponseRoot get_add_trim_model_analytic(account_path, benchmark_path, period)
+> AddTrimResponseRoot get_add_trim_model_analytic(add_trim_request_body_root)
 
 Cabot main path for Add Trim API
 
@@ -62,19 +62,25 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     api_instance = sizing_models_api.SizingModelsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    account_path = "accountPath_example" # str | The account path of the portfolio you want to retrieve the data for.<br /><br />
-    benchmark_path = "benchmarkPath_example" # str | The path of the benchmark you want to retrieve the data for.<br /><br />
-    period = "2015-2017" # str | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-    attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
-    sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    holdings = AddTrimHoldings("addDown") # AddTrimHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
+    add_trim_request_body_root = AddTrimRequestBodyRoot(
+        data=AddTrimRequestBody(
+            account_path="account_path_example",
+            benchmark_path="benchmark_path_example",
+            period="2015-2017",
+            attribute=Attributes("QFL_EY"),
+            sector="energy",
+            region="northAmerica",
+            holdings=AddTrimHoldings("all"),
+            custom_classifications=Classifications(
+                key="key_example",
+            ),
+        ),
+    ) # AddTrimRequestBodyRoot | 
 
     try:
         # Cabot main path for Add Trim API
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_add_trim_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
+        api_response = api_instance.get_add_trim_model_analytic(add_trim_request_body_root)
 
         pprint(api_response)
 
@@ -87,13 +93,7 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_path** | **str**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **benchmark_path** | **str**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **str**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **holdings** | **AddTrimHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
+ **add_trim_request_body_root** | [**AddTrimRequestBodyRoot**](AddTrimRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ramp_down_model_analytic**
-> RampDownResponseRoot get_ramp_down_model_analytic(account_path, benchmark_path, period)
+> RampDownResponseRoot get_ramp_down_model_analytic(ramp_down_request_body_root)
 
 Cabot main path for Ramp Down API
 
@@ -178,19 +178,25 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     api_instance = sizing_models_api.SizingModelsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    account_path = "accountPath_example" # str | The account path of the portfolio you want to retrieve the data for.<br /><br />
-    benchmark_path = "benchmarkPath_example" # str | The path of the benchmark you want to retrieve the data for.<br /><br />
-    period = "2015-2017" # str | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-    attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
-    sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    holdings = RampDownHoldings("a month") # RampDownHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
+    ramp_down_request_body_root = RampDownRequestBodyRoot(
+        data=RampDownRequestBody(
+            account_path="account_path_example",
+            benchmark_path="benchmark_path_example",
+            period="2015-2017",
+            attribute=Attributes("QFL_EY"),
+            sector="energy",
+            region="northAmerica",
+            holdings=RampDownHoldings("all"),
+            custom_classifications=Classifications(
+                key="key_example",
+            ),
+        ),
+    ) # RampDownRequestBodyRoot | 
 
     try:
         # Cabot main path for Ramp Down API
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_ramp_down_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
+        api_response = api_instance.get_ramp_down_model_analytic(ramp_down_request_body_root)
 
         pprint(api_response)
 
@@ -203,13 +209,7 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_path** | **str**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **benchmark_path** | **str**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **str**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **holdings** | **RampDownHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
+ **ramp_down_request_body_root** | [**RampDownRequestBodyRoot**](RampDownRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ramp_up_model_analytic**
-> RampUpResponseRoot get_ramp_up_model_analytic(account_path, benchmark_path, period)
+> RampUpResponseRoot get_ramp_up_model_analytic(ramp_up_request_body_root)
 
 Cabot main path for Ramp Up API
 
@@ -294,19 +294,25 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     api_instance = sizing_models_api.SizingModelsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    account_path = "accountPath_example" # str | The account path of the portfolio you want to retrieve the data for.<br /><br />
-    benchmark_path = "benchmarkPath_example" # str | The path of the benchmark you want to retrieve the data for.<br /><br />
-    period = "2015-2017" # str | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-    attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
-    sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    holdings = RampUpHoldings("months") # RampUpHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
+    ramp_up_request_body_root = RampUpRequestBodyRoot(
+        data=RampUpRequestBody(
+            account_path="account_path_example",
+            benchmark_path="benchmark_path_example",
+            period="2015-2017",
+            attribute=Attributes("QFL_EY"),
+            sector="energy",
+            region="northAmerica",
+            holdings=RampUpHoldings("all"),
+            custom_classifications=Classifications(
+                key="key_example",
+            ),
+        ),
+    ) # RampUpRequestBodyRoot | 
 
     try:
         # Cabot main path for Ramp Up API
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_ramp_up_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
+        api_response = api_instance.get_ramp_up_model_analytic(ramp_up_request_body_root)
 
         pprint(api_response)
 
@@ -319,13 +325,7 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_path** | **str**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **benchmark_path** | **str**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **str**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **holdings** | **RampUpHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
+ **ramp_up_request_body_root** | [**RampUpRequestBodyRoot**](RampUpRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

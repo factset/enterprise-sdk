@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createBook**](BooksCreationApi.md#createBook) | **POST** /create-book | Kicks off request to create a book with reports of your choice
 [**createBookFromTemplate**](BooksCreationApi.md#createBookFromTemplate) | **POST** /create-book-from-template | Kicks off request to create a book with template
+[**getAvailableReports**](BooksCreationApi.md#getAvailableReports) | **GET** /available-report/{ticker} | This endpoint retrieves all available sections and reports based on a ticker.
 
 
 
@@ -164,5 +165,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getAvailableReports
+
+> AvailableReportsList getAvailableReports(ticker)
+
+This endpoint retrieves all available sections and reports based on a ticker.
+
+This endpoint retrieves all available sections and reports for a specified ticker. The only parameter required is the ticker.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, BooksCreationApi } = require('@factset/sdk-bookbuilder');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new BooksCreationApi();
+const ticker = APPL-US; // String | A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path.
+
+// Call api endpoint
+apiInstance.getAvailableReports(ticker).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ticker** | **String**| A string representing a specific ticker of Public, Private companies and Mutual Funds. This ticker must be provided in the URL path. | 
+
+### Return type
+
+[**AvailableReportsList**](AvailableReportsList.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 

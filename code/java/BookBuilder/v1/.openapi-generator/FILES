@@ -6,6 +6,7 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/AvailableReportsList.md
 docs/BookInfo.md
 docs/BookProcessingResponseItem.md
 docs/BooksCreationApi.md
@@ -20,12 +21,15 @@ docs/EnableBookDownload.md
 docs/EnableBookInfo.md
 docs/EnableBookInfoFromTemplate.md
 docs/EnableTemplateInfoPost.md
+docs/ErrorItem.md
+docs/InvalidAvailableReportRequest.md
 docs/InvalidCreateBookFromTemplateRequest.md
 docs/InvalidCreateBookRequest.md
 docs/InvalidDownloadBookAwsRequest.md
 docs/InvalidTemplateRequest.md
 docs/InvalidUploadDocumentRequest.md
 docs/PaginationOptions.md
+docs/ReportSection.md
 docs/TemplateContentSection.md
 docs/TemplateInfo.md
 docs/TemplatesCreationApi.md
@@ -64,6 +68,7 @@ src/main/java/com/factset/sdk/BookBuilder/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/BookBuilder/auth/OAuth.java
 src/main/java/com/factset/sdk/BookBuilder/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/BookBuilder/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/BookBuilder/models/AvailableReportsList.java
 src/main/java/com/factset/sdk/BookBuilder/models/BookInfo.java
 src/main/java/com/factset/sdk/BookBuilder/models/BookProcessingResponseItem.java
 src/main/java/com/factset/sdk/BookBuilder/models/ContentSection.java
@@ -74,11 +79,14 @@ src/main/java/com/factset/sdk/BookBuilder/models/EnableBookDownload.java
 src/main/java/com/factset/sdk/BookBuilder/models/EnableBookInfo.java
 src/main/java/com/factset/sdk/BookBuilder/models/EnableBookInfoFromTemplate.java
 src/main/java/com/factset/sdk/BookBuilder/models/EnableTemplateInfoPost.java
+src/main/java/com/factset/sdk/BookBuilder/models/ErrorItem.java
+src/main/java/com/factset/sdk/BookBuilder/models/InvalidAvailableReportRequest.java
 src/main/java/com/factset/sdk/BookBuilder/models/InvalidCreateBookFromTemplateRequest.java
 src/main/java/com/factset/sdk/BookBuilder/models/InvalidCreateBookRequest.java
 src/main/java/com/factset/sdk/BookBuilder/models/InvalidDownloadBookAwsRequest.java
 src/main/java/com/factset/sdk/BookBuilder/models/InvalidTemplateRequest.java
 src/main/java/com/factset/sdk/BookBuilder/models/InvalidUploadDocumentRequest.java
 src/main/java/com/factset/sdk/BookBuilder/models/PaginationOptions.java
+src/main/java/com/factset/sdk/BookBuilder/models/ReportSection.java
 src/main/java/com/factset/sdk/BookBuilder/models/TemplateContentSection.java
 src/main/java/com/factset/sdk/BookBuilder/models/TemplateInfo.java

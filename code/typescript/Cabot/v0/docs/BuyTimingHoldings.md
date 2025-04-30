@@ -13,6 +13,6 @@
 
 * `20 days` (value: `"20 days"`)
 
-* `a month` (value: `"a month"`)
+* `40 days` (value: `"40 days"`)
 
 

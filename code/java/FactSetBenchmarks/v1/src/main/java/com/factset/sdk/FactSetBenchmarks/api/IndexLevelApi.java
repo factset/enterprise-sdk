@@ -313,7 +313,7 @@ public class IndexLevelApi {
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
    * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
    * @param currency Currency for response. (optional)
-   * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
    * @return IndexHistoryResponse
    * @throws ApiException if fails to make API call
@@ -342,7 +342,7 @@ public class IndexLevelApi {
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
    * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
    * @param currency Currency for response. (optional)
-   * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
    * @return ApiResponse&lt;IndexHistoryResponse&gt;
    * @throws ApiException if fails to make API call
@@ -501,7 +501,7 @@ public class IndexLevelApi {
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
    * @param currency Currency for response. (optional)
-   * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @return IndexSnapshotResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -526,7 +526,7 @@ public class IndexLevelApi {
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
    * @param currency Currency for response. (optional)
-   * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @return ApiResponse&lt;IndexSnapshotResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

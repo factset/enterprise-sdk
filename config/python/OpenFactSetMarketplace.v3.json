@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.OpenFactSetMarketplace",
+  "projectName": "fds.sdk.OpenFactSetMarketplace",
+  "packageVersion": "3.0.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Open:FactSet Marketplace client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OpenFactSetMarketplace/v3",
+  "httpUserAgent": "fds-sdk/python/OpenFactSetMarketplace/3.0.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

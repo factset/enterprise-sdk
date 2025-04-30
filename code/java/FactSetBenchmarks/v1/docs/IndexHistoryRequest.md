@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **returnType** | **ReturnType** |  |  [optional]
 **hedgeType** | **HedgeType** |  |  [optional]
 **currency** | **String** | Currency for response. |  [optional]
-**calendar** | **Calendar** |  |  [optional]
+**calendar** | **String** | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. |  [optional]
 **impliedDate** | **ImpliedDate** |  |  [optional]
 
 

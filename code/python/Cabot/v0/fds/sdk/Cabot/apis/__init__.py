@@ -15,6 +15,7 @@
 
 # Import APIs into API package:
 from fds.sdk.Cabot.api.buying_models_api import BuyingModelsApi
+from fds.sdk.Cabot.api.classifications_api import ClassificationsApi
 from fds.sdk.Cabot.api.overview_models_api import OverviewModelsApi
 from fds.sdk.Cabot.api.selling_models_api import SellingModelsApi
 from fds.sdk.Cabot.api.sizing_models_api import SizingModelsApi

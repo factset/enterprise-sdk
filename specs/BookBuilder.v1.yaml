@@ -424,6 +424,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/Authentication_Failed_Response'
               example: Authentication Failed
+  /available-report/{ticker}:
+    get:
+      tags:
+        - Books - Creation
+      summary: >-
+        This endpoint retrieves all available sections and reports based on a
+        ticker.
+      description: >-
+        This endpoint retrieves all available sections and reports for a
+        specified ticker. The only parameter required is the ticker.
+      operationId: getAvailableReports
+      parameters:
+        - in: path
+          name: ticker
+          schema:
+            type: string
+          required: true
+          description: >-
+            A string representing a specific ticker of Public, Private companies
+            and Mutual Funds. This ticker must be provided in the URL path.
+          example: APPL-US
+      responses:
+        '200':
+          description: >-
+            Successful response contains all available sections and reports for
+            the ticker.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Available_Reports_List'
+              example:
+                data:
+                  - section_id: PRICES
+                    reports:
+                      - PRICE_SUMMARY
+                      - CORPORATE_ACTIONS
+                      - SEASONALITY_ANALYSIS
+        '400':
+          description: Invalid Ticker
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invalid_Available_Report_Request'
+              example:
+                errors:
+                  - title: Invalid ticker provided.
+                    code: parameterError
+                    id: f9228247-2d75-49fc-9b97-63a53c60d30a
+                status: 400
+        '401':
+          description: Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication_Failed_Response'
+              example: Authentication Failed
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -756,6 +812,46 @@ components:
             type: string
             description: FIle url
             example: b33f6b758f2b12562251e5396e21f68ad46648bf19a8f3a9e55f74
+    Available_Reports_List:
+      title: Available Reports
+      description: Request to Retrieve all sections and reports for a ticker.
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of sections and their associated reports.
+          items:
+            $ref: '#/components/schemas/Report_Section'
+    Report_Section:
+      type: object
+      properties:
+        section_id:
+          type: string
+          enum:
+            - COMPANY_OVERVIEW
+            - COMPANY_GUIDE_OVERVIEW
+            - COMPANY_GUIDE_SALES_EARNINGS
+            - COMPANY_GUIDE_VALUATION
+            - COMPANY_GUIDE_PROFITABILITY
+            - COMPANY_GUIDE_STATEMENT_ANALYSIS
+          example: COMPANY_OVERVIEW
+        reports:
+          type: array
+          items:
+            type: string
+            enum:
+              - COMPANY_SNAPSHOT
+              - COMPANY_SNAPSHOT_IB
+              - COMPANY_SNAPSHOT_IM
+              - ENTITY_STRUCTURE
+              - EVENT_CALENDAR
+              - SUPPLY_CHAIN
+              - CAPITAL_STRUCTURE
+              - GEO_REV
+              - RBICS_REV
+              - ESG
+          example:
+            - COMPANY_SNAPSHOT_IB
     Enable_Book_Download:
       title: Book Download
       description: Request to download book.
@@ -803,6 +899,34 @@ components:
           type: string
           description: Invalid Request Message
           example: Unrecognized BookId.
+    Invalid_Available_Report_Request:
+      title: Invalid Available Report Request
+      description: Unrecognized Ticker.
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error_Item'
+        status:
+          type: integer
+          description: Status code indicating the error.
+          example: 400
+    Error_Item:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Invalid Request Message
+          example: Invalid ticker provided.
+        code:
+          type: string
+          description: Status code indicating the Error.
+          example: parameterError
+        id:
+          type: string
+          description: A UUID for this particular occurrence of the error.
+          example: f9228247-2d75-49fc-9b97-63a53c60d30a
     UploadCustomDocumentRequest:
       type: object
       properties:

@@ -4,13 +4,13 @@ All URIs are relative to *https://api.factset.com/analytics/cabot/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_sell_timing_model_analytic**](SellingModelsApi.md#get_sell_timing_model_analytic) | **GET** /models/sell-timing | Cabot main path for Sell Timing API
-[**get_stop_loss_model_analytic**](SellingModelsApi.md#get_stop_loss_model_analytic) | **GET** /models/stop-loss | Cabot main path for Stop Loss API
+[**get_sell_timing_model_analytic**](SellingModelsApi.md#get_sell_timing_model_analytic) | **POST** /models/sell-timing | Cabot main path for Sell Timing API
+[**get_stop_loss_model_analytic**](SellingModelsApi.md#get_stop_loss_model_analytic) | **POST** /models/stop-loss | Cabot main path for Stop Loss API
 
 
 
 # **get_sell_timing_model_analytic**
-> SellTimingResponseRoot get_sell_timing_model_analytic(account_path, benchmark_path, period)
+> SellTimingResponseRoot get_sell_timing_model_analytic(sell_timing_request_body_root)
 
 Cabot main path for Sell Timing API
 
@@ -61,19 +61,25 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     api_instance = selling_models_api.SellingModelsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    account_path = "accountPath_example" # str | The account path of the portfolio you want to retrieve the data for.<br /><br />
-    benchmark_path = "benchmarkPath_example" # str | The path of the benchmark you want to retrieve the data for.<br /><br />
-    period = "2015-2017" # str | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-    attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
-    sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    holdings = SellTimingHoldings("olderLoser") # SellTimingHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
+    sell_timing_request_body_root = SellTimingRequestBodyRoot(
+        data=SellTimingRequestBody(
+            account_path="account_path_example",
+            benchmark_path="benchmark_path_example",
+            period="2015-2017",
+            attribute=Attributes("QFL_EY"),
+            sector="energy",
+            region="northAmerica",
+            holdings=SellTimingHoldings("all"),
+            custom_classifications=Classifications(
+                key="key_example",
+            ),
+        ),
+    ) # SellTimingRequestBodyRoot | 
 
     try:
         # Cabot main path for Sell Timing API
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_sell_timing_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
+        api_response = api_instance.get_sell_timing_model_analytic(sell_timing_request_body_root)
 
         pprint(api_response)
 
@@ -86,13 +92,7 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_path** | **str**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **benchmark_path** | **str**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **str**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **holdings** | **SellTimingHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
+ **sell_timing_request_body_root** | [**SellTimingRequestBodyRoot**](SellTimingRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stop_loss_model_analytic**
-> StopLossResponseRoot get_stop_loss_model_analytic(account_path, benchmark_path, period)
+> StopLossResponseRoot get_stop_loss_model_analytic(stop_loss_request_body_root)
 
 Cabot main path for Stop Loss API
 
@@ -177,19 +177,25 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
     api_instance = selling_models_api.SellingModelsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    account_path = "accountPath_example" # str | The account path of the portfolio you want to retrieve the data for.<br /><br />
-    benchmark_path = "benchmarkPath_example" # str | The path of the benchmark you want to retrieve the data for.<br /><br />
-    period = "2015-2017" # str | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-    attribute = Attributes("QFL_EY") # Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional)
-    sector = Sectors("energy") # Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    region = Regions("northAmerica") # Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional)
-    holdings = StopLossHoldings("-20") # StopLossHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional)
+    stop_loss_request_body_root = StopLossRequestBodyRoot(
+        data=StopLossRequestBody(
+            account_path="account_path_example",
+            benchmark_path="benchmark_path_example",
+            period="2015-2017",
+            attribute=Attributes("QFL_EY"),
+            sector="energy",
+            region="northAmerica",
+            holdings=StopLossHoldings("all"),
+            custom_classifications=Classifications(
+                key="key_example",
+            ),
+        ),
+    ) # StopLossRequestBodyRoot | 
 
     try:
         # Cabot main path for Stop Loss API
         # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_stop_loss_model_analytic(account_path, benchmark_path, period, attribute=attribute, sector=sector, region=region, holdings=holdings)
+        api_response = api_instance.get_stop_loss_model_analytic(stop_loss_request_body_root)
 
         pprint(api_response)
 
@@ -202,13 +208,7 @@ with fds.sdk.Cabot.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_path** | **str**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **benchmark_path** | **str**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **str**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional]
- **holdings** | **StopLossHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional]
+ **stop_loss_request_body_root** | [**StopLossRequestBodyRoot**](StopLossRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

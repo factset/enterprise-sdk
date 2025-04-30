@@ -4,16 +4,16 @@ All URIs are relative to *https://api.factset.com/analytics/cabot/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetConstructionModelAnalytic**](OverviewModelsApi.md#getconstructionmodelanalytic) | **GET** /models/construction | Cabot main path for Construction API
-[**GetHitRateModelAnalytic**](OverviewModelsApi.md#gethitratemodelanalytic) | **GET** /models/hit-rate | Cabot main path for Hit Rate API
-[**GetResultsModelAnalytic**](OverviewModelsApi.md#getresultsmodelanalytic) | **GET** /models/results | Cabot main path for Results API
-[**GetSkillsModelAnalytic**](OverviewModelsApi.md#getskillsmodelanalytic) | **GET** /models/skills | Cabot main path for Skills API
+[**GetConstructionModelAnalytic**](OverviewModelsApi.md#getconstructionmodelanalytic) | **POST** /models/construction | Cabot main path for Construction API
+[**GetHitRateModelAnalytic**](OverviewModelsApi.md#gethitratemodelanalytic) | **POST** /models/hit-rate | Cabot main path for Hit Rate API
+[**GetResultsModelAnalytic**](OverviewModelsApi.md#getresultsmodelanalytic) | **POST** /models/results | Cabot main path for Results API
+[**GetSkillsModelAnalytic**](OverviewModelsApi.md#getskillsmodelanalytic) | **POST** /models/skills | Cabot main path for Skills API
 
 
 
 <a name="getconstructionmodelanalytic"></a>
 # **GetConstructionModelAnalytic**
-> ConstructionResponseRoot GetConstructionModelAnalytic (string accountPath, string benchmarkPath, string period)
+> ConstructionResponseRoot GetConstructionModelAnalytic (ConstructionRequestBodyRoot constructionRequestBodyRoot)
 
 Cabot main path for Construction API
 
@@ -63,14 +63,12 @@ namespace Example
 
             var apiInstance = new OverviewModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
+            var constructionRequestBodyRoot = new ConstructionRequestBodyRoot(); // ConstructionRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Construction API
-                ConstructionResponseRoot result = apiInstance.GetConstructionModelAnalytic(accountPath, benchmarkPath, period);
+                ConstructionResponseRoot result = apiInstance.GetConstructionModelAnalytic(constructionRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -88,9 +86,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
+ **constructionRequestBodyRoot** | [**ConstructionRequestBodyRoot**](ConstructionRequestBodyRoot.md)|  | 
 
 ### Return type
 [**ConstructionResponseRoot**](ConstructionResponseRoot.md)
@@ -101,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -124,7 +120,7 @@ Name | Type | Description  | Notes
 
 <a name="gethitratemodelanalytic"></a>
 # **GetHitRateModelAnalytic**
-> HitRateResponseRoot GetHitRateModelAnalytic (string accountPath, string benchmarkPath, string period, Sectors sector, Regions region)
+> HitRateResponseRoot GetHitRateModelAnalytic (HitRateRequestBodyRoot hitRateRequestBodyRoot)
 
 Cabot main path for Hit Rate API
 
@@ -174,16 +170,12 @@ namespace Example
 
             var apiInstance = new OverviewModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var sector = (Sectors) "energy";  // Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
-            var region = (Regions) "africa";  // Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
+            var hitRateRequestBodyRoot = new HitRateRequestBodyRoot(); // HitRateRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Hit Rate API
-                HitRateResponseRoot result = apiInstance.GetHitRateModelAnalytic(accountPath, benchmarkPath, period, sector, region);
+                HitRateResponseRoot result = apiInstance.GetHitRateModelAnalytic(hitRateRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -201,11 +193,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | 
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | 
+ **hitRateRequestBodyRoot** | [**HitRateRequestBodyRoot**](HitRateRequestBodyRoot.md)|  | 
 
 ### Return type
 [**HitRateResponseRoot**](HitRateResponseRoot.md)
@@ -216,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -239,7 +227,7 @@ Name | Type | Description  | Notes
 
 <a name="getresultsmodelanalytic"></a>
 # **GetResultsModelAnalytic**
-> ResultsResponseRoot GetResultsModelAnalytic (string accountPath, string benchmarkPath, string period, Currency? currency = null)
+> ResultsResponseRoot GetResultsModelAnalytic (ResultsRequestBodyRoot resultsRequestBodyRoot)
 
 Cabot main path for Results API
 
@@ -289,15 +277,12 @@ namespace Example
 
             var apiInstance = new OverviewModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var currency = (Currency) "USD";  // Currency? | In which currency you want to see the data. By default the API uses USD.<br /><br /> (optional) 
+            var resultsRequestBodyRoot = new ResultsRequestBodyRoot(); // ResultsRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Results API
-                ResultsResponseRoot result = apiInstance.GetResultsModelAnalytic(accountPath, benchmarkPath, period, currency);
+                ResultsResponseRoot result = apiInstance.GetResultsModelAnalytic(resultsRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -315,10 +300,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **currency** | **Currency?**| In which currency you want to see the data. By default the API uses USD.&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **resultsRequestBodyRoot** | [**ResultsRequestBodyRoot**](ResultsRequestBodyRoot.md)|  | 
 
 ### Return type
 [**ResultsResponseRoot**](ResultsResponseRoot.md)
@@ -329,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -352,7 +334,7 @@ Name | Type | Description  | Notes
 
 <a name="getskillsmodelanalytic"></a>
 # **GetSkillsModelAnalytic**
-> SkillsResponseRoot GetSkillsModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, SkillsHoldings? holdings = null)
+> SkillsResponseRoot GetSkillsModelAnalytic (SkillsRequestBodyRoot skillsRequestBodyRoot)
 
 Cabot main path for Skills API
 
@@ -402,18 +384,12 @@ namespace Example
 
             var apiInstance = new OverviewModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.
-            var benchmarkPath = "BENCH:SP50";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "period_example";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
-            var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var holdings = (SkillsHoldings) "all";  // SkillsHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
+            var skillsRequestBodyRoot = new SkillsRequestBodyRoot(); // SkillsRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Skills API
-                SkillsResponseRoot result = apiInstance.GetSkillsModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
+                SkillsResponseRoot result = apiInstance.GetSkillsModelAnalytic(skillsRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -431,13 +407,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for. | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **holdings** | **SkillsHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **skillsRequestBodyRoot** | [**SkillsRequestBodyRoot**](SkillsRequestBodyRoot.md)|  | 
 
 ### Return type
 [**SkillsResponseRoot**](SkillsResponseRoot.md)
@@ -448,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

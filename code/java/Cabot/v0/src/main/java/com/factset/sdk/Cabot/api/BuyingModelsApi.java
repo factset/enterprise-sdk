@@ -11,13 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.Cabot.models.Attributes;
+import com.factset.sdk.Cabot.models.BuyContextRequestBodyRoot;
 import com.factset.sdk.Cabot.models.BuyContextResponseRoot;
-import com.factset.sdk.Cabot.models.BuyTimingHoldings;
+import com.factset.sdk.Cabot.models.BuyTimingRequestBodyRoot;
 import com.factset.sdk.Cabot.models.BuyTimingResponseRoot;
 import com.factset.sdk.Cabot.models.ClientErrorResponse;
-import com.factset.sdk.Cabot.models.Regions;
-import com.factset.sdk.Cabot.models.Sectors;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -70,12 +68,7 @@ public class BuyingModelsApi {
   /**
    * Cabot main path for Buy Context API
    * Cabot main path for Buy Context API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for. (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param buyContextRequestBodyRoot  (required)
    * @return BuyContextResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -93,19 +86,14 @@ public class BuyingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public BuyContextResponseRoot getBuyContextModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    return getBuyContextModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region).getData();
+  public BuyContextResponseRoot getBuyContextModelAnalytic(BuyContextRequestBodyRoot buyContextRequestBodyRoot) throws ApiException {
+    return getBuyContextModelAnalyticWithHttpInfo(buyContextRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Buy Context API
    * Cabot main path for Buy Context API
-   * @param accountPath The account path of the portfolio you want to retrieve the data for. (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param buyContextRequestBodyRoot  (required)
    * @return ApiResponse&lt;BuyContextResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -123,27 +111,12 @@ public class BuyingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<BuyContextResponseRoot> getBuyContextModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<BuyContextResponseRoot> getBuyContextModelAnalyticWithHttpInfo(BuyContextRequestBodyRoot buyContextRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = buyContextRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getBuyContextModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getBuyContextModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getBuyContextModelAnalytic");
-    }
-    
-    // verify the required parameter 'attribute' is set
-    if (attribute == null) {
-      throw new ApiException(400, "Missing the required parameter 'attribute' when calling getBuyContextModelAnalytic");
+    // verify the required parameter 'buyContextRequestBodyRoot' is set
+    if (buyContextRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'buyContextRequestBodyRoot' when calling getBuyContextModelAnalytic");
     }
     
     // create path and map variables
@@ -155,12 +128,6 @@ public class BuyingModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
 
     
     
@@ -171,7 +138,7 @@ public class BuyingModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -182,7 +149,7 @@ public class BuyingModelsApi {
         
         BuyContextResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("BuyingModelsApi.getBuyContextModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("BuyingModelsApi.getBuyContextModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getBuyContextModelAnalyticResponseTypeMap, false);
 
@@ -192,13 +159,7 @@ public class BuyingModelsApi {
   /**
    * Cabot main path for Buy Timing API
    * Cabot main path for Buy Timing API.    Buy timing examines the timeliness of entry points and measures how quickly new buys contribute to results. This is done by delaying the buys by the specified number of days to see if buying into the position early would have benefited the portfolio.
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param buyTimingRequestBodyRoot  (required)
    * @return BuyTimingResponseRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -216,20 +177,14 @@ public class BuyingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public BuyTimingResponseRoot getBuyTimingModelAnalytic(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, BuyTimingHoldings holdings) throws ApiException {
-    return getBuyTimingModelAnalyticWithHttpInfo(accountPath, benchmarkPath, period, attribute, sector, region, holdings).getData();
+  public BuyTimingResponseRoot getBuyTimingModelAnalytic(BuyTimingRequestBodyRoot buyTimingRequestBodyRoot) throws ApiException {
+    return getBuyTimingModelAnalyticWithHttpInfo(buyTimingRequestBodyRoot).getData();
   }
 
   /**
    * Cabot main path for Buy Timing API
    * Cabot main path for Buy Timing API.    Buy timing examines the timeliness of entry points and measures how quickly new buys contribute to results. This is done by delaying the buys by the specified number of days to see if buying into the position early would have benefited the portfolio.
-   * @param accountPath The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param benchmarkPath The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param period For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; (required)
-   * @param attribute The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param sector Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param region Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; (optional)
-   * @param holdings If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; (optional)
+   * @param buyTimingRequestBodyRoot  (required)
    * @return ApiResponse&lt;BuyTimingResponseRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -247,22 +202,12 @@ public class BuyingModelsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<BuyTimingResponseRoot> getBuyTimingModelAnalyticWithHttpInfo(String accountPath, String benchmarkPath, String period, Attributes attribute, Sectors sector, Regions region, BuyTimingHoldings holdings) throws ApiException {
-    Object localVarPostBody = null;
+  public ApiResponse<BuyTimingResponseRoot> getBuyTimingModelAnalyticWithHttpInfo(BuyTimingRequestBodyRoot buyTimingRequestBodyRoot) throws ApiException {
+    Object localVarPostBody = buyTimingRequestBodyRoot;
     
-    // verify the required parameter 'accountPath' is set
-    if (accountPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountPath' when calling getBuyTimingModelAnalytic");
-    }
-    
-    // verify the required parameter 'benchmarkPath' is set
-    if (benchmarkPath == null) {
-      throw new ApiException(400, "Missing the required parameter 'benchmarkPath' when calling getBuyTimingModelAnalytic");
-    }
-    
-    // verify the required parameter 'period' is set
-    if (period == null) {
-      throw new ApiException(400, "Missing the required parameter 'period' when calling getBuyTimingModelAnalytic");
+    // verify the required parameter 'buyTimingRequestBodyRoot' is set
+    if (buyTimingRequestBodyRoot == null) {
+      throw new ApiException(400, "Missing the required parameter 'buyTimingRequestBodyRoot' when calling getBuyTimingModelAnalytic");
     }
     
     // create path and map variables
@@ -274,13 +219,6 @@ public class BuyingModelsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountPath", accountPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "benchmarkPath", benchmarkPath));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "period", period));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attribute", attribute));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sector", sector));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "region", region));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "holdings", holdings));
 
     
     
@@ -291,7 +229,7 @@ public class BuyingModelsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -302,7 +240,7 @@ public class BuyingModelsApi {
         
         BuyTimingResponseRoot
       
-    > apiResponse = apiClient.invokeAPI("BuyingModelsApi.getBuyTimingModelAnalytic", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("BuyingModelsApi.getBuyTimingModelAnalytic", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getBuyTimingModelAnalyticResponseTypeMap, false);
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **date** | **String** | Date of holding expressed in YYYY-MM-DD format. |  [optional]
 **returnType** | **ReturnType** |  |  [optional]
 **currency** | **String** | Currency for response. |  [optional]
-**calendar** | **Calendar** |  |  [optional]
+**calendar** | **String** | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. |  [optional]
 
 
 ## Implemented Interfaces

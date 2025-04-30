@@ -9,7 +9,7 @@ info:
     necessary relationships and connections to create a foundation that tightly correlates disparate sources of
     information to a master entity identifier. Use this API to quickly understand the full entity structure and related securities.<p><b>Rate limit is set to 10 requests per second</b>.</p>
   title: FactSet Entity API
-  version: 1.4.0
+  version: 1.5.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -1433,6 +1433,7 @@ components:
           website: http://www.apple.com
           incorporationDate: 1977-01-03
           countryOfRisk: US
+          countryOfRiskGeoRev: US
           incorporationCountry: US
           businessDescription: 'Apple, Inc. engages in the design, manufacture, and
             sale of smartphones, personal computers, tablets, wearables and accessories,
@@ -1907,7 +1908,6 @@ components:
         data:
         - websiteIR: https://ir.aboutamazon.com/overview/default.aspx
           parentEquityId: MCNYYL-R
-          website: http://www.amazon.com
           publicEntityFlag: 1
           businessDescription: 'Amazon.com, Inc. engages in the provision of Online
             retail shopping services. It operates through the following business segments:
@@ -1920,28 +1920,29 @@ components:
             and AWS service offerings for start-ups, enterprises, government agencies,
             and academic institutions. The company was founded by Jeffrey P. Bezos
             in July 1994 and is headquartered in Seattle, WA.'
-          ultimateParentId: 001MF1-E
+          countryOfRiskGeoRev: US
           fsymId: 001MF1-E
           entityProperName: Amazon.com, Inc.
-          headquartersStreet: 410 Terry Avenue North
           headquartersCountry: US
-          creditParentId: 001MF1-E
           countryOfRisk: US
           headquartersCity: Seattle
+          privateEntityFlag: 0
+          requestId: AMZN-US
+          emailIR: amazon-ir@amazon.com
+          incorporationDate: 1996-05-28T00:00:00.000+0000
+          website: http://www.amazon.com
+          ultimateParentId: 001MF1-E
+          headquartersStreet: 410 Terry Avenue North
+          creditParentId: 001MF1-E
           headquartersState: WA
           ultimateParentName: Amazon.com, Inc.
           fsymEntityId: 001MF1-E
           phone: +1.206.266.1000
-          privateEntityFlag: 0
           securityType: SHARE
-          requestId: AMZN-US
           headquartersZip: 98109-5210
-          emailIR: amazon-ir@amazon.com
-          incorporationDate: 1996-05-28T00:00:00.000+0000
           incorporationCountry: US
         - websiteIR: https://ir.aboutamazon.com/overview/default.aspx
           parentEquityId: MCNYYL-R
-          website: http://www.amazon.com
           publicEntityFlag: 1
           businessDescription: 'Amazon.com, Inc. engages in the provision of Online
             retail shopping services. It operates through the following business segments:
@@ -1954,24 +1955,26 @@ components:
             and AWS service offerings for start-ups, enterprises, government agencies,
             and academic institutions. The company was founded by Jeffrey P. Bezos
             in July 1994 and is headquartered in Seattle, WA.'
-          ultimateParentId: 001MF1-E
+          countryOfRiskGeoRev: US
           fsymId: 001MF1-E
           entityProperName: Amazon.com, Inc.
-          headquartersStreet: 410 Terry Avenue North
           headquartersCountry: US
-          creditParentId: 001MF1-E
           countryOfRisk: US
           headquartersCity: Seattle
+          privateEntityFlag: 0
+          requestId: AMZN-US
+          emailIR: amazon-ir@amazon.com
+          incorporationDate: 1996-05-28T00:00:00.000+0000
+          website: http://www.amazon.com
+          ultimateParentId: 001MF1-E
+          headquartersStreet: 410 Terry Avenue North
+          creditParentId: 001MF1-E
           headquartersState: WA
           ultimateParentName: Amazon.com, Inc.
           fsymEntityId: 001MF1-E
           phone: +1.206.266.1000
-          privateEntityFlag: 0
           securityType: SHARE
-          requestId: AMZN-US
           headquartersZip: 98109-5210
-          emailIR: amazon-ir@amazon.com
-          incorporationDate: 1996-05-28T00:00:00.000+0000
           incorporationCountry: US
       properties:
         data:
@@ -1985,7 +1988,6 @@ components:
       example:
         websiteIR: https://ir.aboutamazon.com/overview/default.aspx
         parentEquityId: MCNYYL-R
-        website: http://www.amazon.com
         publicEntityFlag: 1
         businessDescription: 'Amazon.com, Inc. engages in the provision of Online
           retail shopping services. It operates through the following business segments:
@@ -1998,24 +2000,26 @@ components:
           offerings for start-ups, enterprises, government agencies, and academic
           institutions. The company was founded by Jeffrey P. Bezos in July 1994 and
           is headquartered in Seattle, WA.'
-        ultimateParentId: 001MF1-E
+        countryOfRiskGeoRev: US
         fsymId: 001MF1-E
         entityProperName: Amazon.com, Inc.
-        headquartersStreet: 410 Terry Avenue North
         headquartersCountry: US
-        creditParentId: 001MF1-E
         countryOfRisk: US
         headquartersCity: Seattle
+        privateEntityFlag: 0
+        requestId: AMZN-US
+        emailIR: amazon-ir@amazon.com
+        incorporationDate: 1996-05-28T00:00:00.000+0000
+        website: http://www.amazon.com
+        ultimateParentId: 001MF1-E
+        headquartersStreet: 410 Terry Avenue North
+        creditParentId: 001MF1-E
         headquartersState: WA
         ultimateParentName: Amazon.com, Inc.
         fsymEntityId: 001MF1-E
         phone: +1.206.266.1000
-        privateEntityFlag: 0
         securityType: SHARE
-        requestId: AMZN-US
         headquartersZip: 98109-5210
-        emailIR: amazon-ir@amazon.com
-        incorporationDate: 1996-05-28T00:00:00.000+0000
         incorporationCountry: US
       properties:
         fsymId:
@@ -2094,6 +2098,12 @@ components:
             * Country of Headquarters
             * Country of Incorporation
             * Country of Primary Exchange (the country where most liquid equity listings trade)
+          example: US
+          nullable: true
+          type: string
+        countryOfRiskGeoRev:
+          description: |
+            Entity's Country of Risk based on the Top Geograghic Revenue.
           example: US
           nullable: true
           type: string

@@ -290,7 +290,7 @@ namespace Example
             var returnType = "GROSS";  // string | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional)  (default to GROSS)
             var hedgeType = "UNHEDGED";  // string | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional)  (default to UNHEDGED)
             var currency = "currency_example";  // string | Currency for response. (optional) 
-            var calendar = "FIVEDAY";  // string | Calendar of data returned. SEVENDAY includes weekends. (optional)  (default to FIVEDAY)
+            var calendar = "\"FIVEDAY\"";  // string | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)  (default to "FIVEDAY")
             var impliedDate = "Y";  // string | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional)  (default to N)
 
             try
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
  **returnType** | **string**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS]
  **hedgeType** | **string**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED]
  **currency** | **string**| Currency for response. | [optional] 
- **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY]
+ **calendar** | **string**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to &quot;FIVEDAY&quot;]
  **impliedDate** | **string**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to N]
 
 ### Return type
@@ -509,7 +509,7 @@ namespace Example
             var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
             var returnType = "GROSS";  // string | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional)  (default to GROSS)
             var currency = "currency_example";  // string | Currency for response. (optional) 
-            var calendar = "FIVEDAY";  // string | Calendar of data returned. SEVENDAY includes weekends. (optional)  (default to FIVEDAY)
+            var calendar = "\"FIVEDAY\"";  // string | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)  (default to "FIVEDAY")
 
             try
             {
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
  **date** | **string**| Date of holding expressed in YYYY-MM-DD format. | [optional] 
  **returnType** | **string**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS]
  **currency** | **string**| Currency for response. | [optional] 
- **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY]
+ **calendar** | **string**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to &quot;FIVEDAY&quot;]
 
 ### Return type
 [**IndexSnapshotResponse**](IndexSnapshotResponse.md)

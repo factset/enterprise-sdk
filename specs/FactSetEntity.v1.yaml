@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.4.0
+  version: 1.5.0
   title: FactSet Entity API
   contact:
     name: FactSet Research Systems
@@ -783,6 +783,12 @@ components:
             listings trade)
           example: US
           nullable: true
+        countryOfRiskGeoRev:
+          type: string
+          description: |
+            Entity's Country of Risk based on the Top Geograghic Revenue.
+          example: US
+          nullable: true
         incorporationCountry:
           type: string
           description: ISO Country code where the entity is incorporated
@@ -1544,6 +1550,7 @@ components:
             website: http://www.apple.com
             incorporationDate: '1977-01-03'
             countryOfRisk: US
+            countryOfRiskGeoRev: US
             incorporationCountry: US
             businessDescription: >-
               Apple, Inc. engages in the design, manufacture, and sale of

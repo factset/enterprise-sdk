@@ -4,14 +4,14 @@ All URIs are relative to *https://api.factset.com/analytics/cabot/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getBuyContextModelAnalytic**](BuyingModelsApi.md#getBuyContextModelAnalytic) | **GET** /models/buy-context | Cabot main path for Buy Context API
-[**getBuyTimingModelAnalytic**](BuyingModelsApi.md#getBuyTimingModelAnalytic) | **GET** /models/buy-timing | Cabot main path for Buy Timing API
+[**getBuyContextModelAnalytic**](BuyingModelsApi.md#getBuyContextModelAnalytic) | **POST** /models/buy-context | Cabot main path for Buy Context API
+[**getBuyTimingModelAnalytic**](BuyingModelsApi.md#getBuyTimingModelAnalytic) | **POST** /models/buy-timing | Cabot main path for Buy Timing API
 
 
 
 ## getBuyContextModelAnalytic
 
-> BuyContextResponseRoot getBuyContextModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region)
+> BuyContextResponseRoot getBuyContextModelAnalytic(buyContextRequestBodyRoot)
 
 Cabot main path for Buy Context API
 
@@ -58,14 +58,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BuyingModelsApi apiInstance = new BuyingModelsApi(defaultClient);
-        String accountPath = "accountPath_example"; // String | The account path of the portfolio you want to retrieve the data for.
-        String benchmarkPath = "BENCH:SP50"; // String | The path of the benchmark you want to retrieve the data for.<br /><br />
-        String period = "period_example"; // String | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-        Attributes attribute = Attributes.fromValue("QFL_EY"); // Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />
-        Sectors sector = Sectors.fromValue("energy"); // Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
-        Regions region = Regions.fromValue("africa"); // Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
+        BuyContextRequestBodyRoot buyContextRequestBodyRoot = new BuyContextRequestBodyRoot(); // BuyContextRequestBodyRoot | 
         try {
-            BuyContextResponseRoot result = apiInstance.getBuyContextModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region);
+            BuyContextResponseRoot result = apiInstance.getBuyContextModelAnalytic(buyContextRequestBodyRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -84,12 +79,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **String**| The account path of the portfolio you want to retrieve the data for. |
- **benchmarkPath** | **String**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **String**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [enum: QFL_EY, QFL_PEG, QFL_OCFY, QFL_BP, QFL_SP, QFL_OCF_EARNINGS_VAR, QFL_DY, QFL_NET_MGN, QFL_OPER_MGN, QFL_ROE, QFL_CFROE, QFL_EPS_GR_5Y, QFL_OCF_GR_5Y, QFL_SALES_GR_5Y, QFL_DPS_GR_5Y, QFL_EPS_GR_1Y, QFL_OCF_GR_1Y, QFL_SALES_GR_1Y, QFL_LT_DEBT_EQUITY, QFL_DEBT_ASSETS, QFL_EBITDAEV, QFL_REVEV, QFL_ROIC, QFL_CFROIC]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: energy, materials, industrials, consumerDiscretionary, consumerStaples, healthCare, financials, informationTechnology, communicationServices, utilities, realEstate, equityDiversified, equityHealthCare, equitySelfStorage, equityIndustrial, equityOffice, equityResidential, equityRetail, equityLodgingAndResorts, equitySpecialty, equityTimberReits, equityInfrastructureReits, equityDataCenters, mortageHomeFinancing, mortageCommercialFinancing]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: africa, centralAsia, easternEurope, middleEast, northAmerica, pacificRim, southAmerica, westernEurope]
+ **buyContextRequestBodyRoot** | [**BuyContextRequestBodyRoot**](BuyContextRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -101,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -121,7 +111,7 @@ Name | Type | Description  | Notes
 
 ## getBuyTimingModelAnalytic
 
-> BuyTimingResponseRoot getBuyTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings)
+> BuyTimingResponseRoot getBuyTimingModelAnalytic(buyTimingRequestBodyRoot)
 
 Cabot main path for Buy Timing API
 
@@ -170,15 +160,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         BuyingModelsApi apiInstance = new BuyingModelsApi(defaultClient);
-        String accountPath = "accountPath_example"; // String | The account path of the portfolio you want to retrieve the data for.<br /><br />
-        String benchmarkPath = "benchmarkPath_example"; // String | The path of the benchmark you want to retrieve the data for.<br /><br />
-        String period = "2015-2017"; // String | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-        Attributes attribute = Attributes.fromValue("QFL_EY"); // Attributes | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br />
-        Sectors sector = Sectors.fromValue("energy"); // Sectors | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
-        Regions region = Regions.fromValue("africa"); // Regions | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />
-        BuyTimingHoldings holdings = BuyTimingHoldings.fromValue("all"); // BuyTimingHoldings | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br />
+        BuyTimingRequestBodyRoot buyTimingRequestBodyRoot = new BuyTimingRequestBodyRoot(); // BuyTimingRequestBodyRoot | 
         try {
-            BuyTimingResponseRoot result = apiInstance.getBuyTimingModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
+            BuyTimingResponseRoot result = apiInstance.getBuyTimingModelAnalytic(buyTimingRequestBodyRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -197,13 +181,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **String**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **benchmarkPath** | **String**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; |
- **period** | **String**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; |
- **attribute** | **Attributes**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: QFL_EY, QFL_PEG, QFL_OCFY, QFL_BP, QFL_SP, QFL_OCF_EARNINGS_VAR, QFL_DY, QFL_NET_MGN, QFL_OPER_MGN, QFL_ROE, QFL_CFROE, QFL_EPS_GR_5Y, QFL_OCF_GR_5Y, QFL_SALES_GR_5Y, QFL_DPS_GR_5Y, QFL_EPS_GR_1Y, QFL_OCF_GR_1Y, QFL_SALES_GR_1Y, QFL_LT_DEBT_EQUITY, QFL_DEBT_ASSETS, QFL_EBITDAEV, QFL_REVEV, QFL_ROIC, QFL_CFROIC]
- **sector** | **Sectors**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: energy, materials, industrials, consumerDiscretionary, consumerStaples, healthCare, financials, informationTechnology, communicationServices, utilities, realEstate, equityDiversified, equityHealthCare, equitySelfStorage, equityIndustrial, equityOffice, equityResidential, equityRetail, equityLodgingAndResorts, equitySpecialty, equityTimberReits, equityInfrastructureReits, equityDataCenters, mortageHomeFinancing, mortageCommercialFinancing]
- **region** | **Regions**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] [enum: africa, centralAsia, easternEurope, middleEast, northAmerica, pacificRim, southAmerica, westernEurope]
- **holdings** | **BuyTimingHoldings**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] [enum: all, 3 days, 5 days, 10 days, 20 days, a month]
+ **buyTimingRequestBodyRoot** | [**BuyTimingRequestBodyRoot**](BuyTimingRequestBodyRoot.md)|  |
 
 ### Return type
 
@@ -215,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

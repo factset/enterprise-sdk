@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
  **ids** | **List&lt;String&gt;**| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; |
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **currency** | **String**| Currency for response. | [optional]
- **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
 
 ### Return type
 

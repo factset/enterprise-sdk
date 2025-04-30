@@ -4,15 +4,15 @@ All URIs are relative to *https://api.factset.com/analytics/cabot/v0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAddTrimModelAnalytic**](SizingModelsApi.md#getaddtrimmodelanalytic) | **GET** /models/add-trim | Cabot main path for Add Trim API
-[**GetRampDownModelAnalytic**](SizingModelsApi.md#getrampdownmodelanalytic) | **GET** /models/ramp-down | Cabot main path for Ramp Down API
-[**GetRampUpModelAnalytic**](SizingModelsApi.md#getrampupmodelanalytic) | **GET** /models/ramp-up | Cabot main path for Ramp Up API
+[**GetAddTrimModelAnalytic**](SizingModelsApi.md#getaddtrimmodelanalytic) | **POST** /models/add-trim | Cabot main path for Add Trim API
+[**GetRampDownModelAnalytic**](SizingModelsApi.md#getrampdownmodelanalytic) | **POST** /models/ramp-down | Cabot main path for Ramp Down API
+[**GetRampUpModelAnalytic**](SizingModelsApi.md#getrampupmodelanalytic) | **POST** /models/ramp-up | Cabot main path for Ramp Up API
 
 
 
 <a name="getaddtrimmodelanalytic"></a>
 # **GetAddTrimModelAnalytic**
-> AddTrimResponseRoot GetAddTrimModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, AddTrimHoldings? holdings = null)
+> AddTrimResponseRoot GetAddTrimModelAnalytic (AddTrimRequestBodyRoot addTrimRequestBodyRoot)
 
 Cabot main path for Add Trim API
 
@@ -62,18 +62,12 @@ namespace Example
 
             var apiInstance = new SizingModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
-            var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var holdings = (AddTrimHoldings) "all";  // AddTrimHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
+            var addTrimRequestBodyRoot = new AddTrimRequestBodyRoot(); // AddTrimRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Add Trim API
-                AddTrimResponseRoot result = apiInstance.GetAddTrimModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
+                AddTrimResponseRoot result = apiInstance.GetAddTrimModelAnalytic(addTrimRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -91,13 +85,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **holdings** | **AddTrimHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **addTrimRequestBodyRoot** | [**AddTrimRequestBodyRoot**](AddTrimRequestBodyRoot.md)|  | 
 
 ### Return type
 [**AddTrimResponseRoot**](AddTrimResponseRoot.md)
@@ -108,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -131,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a name="getrampdownmodelanalytic"></a>
 # **GetRampDownModelAnalytic**
-> RampDownResponseRoot GetRampDownModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, RampDownHoldings? holdings = null)
+> RampDownResponseRoot GetRampDownModelAnalytic (RampDownRequestBodyRoot rampDownRequestBodyRoot)
 
 Cabot main path for Ramp Down API
 
@@ -181,18 +169,12 @@ namespace Example
 
             var apiInstance = new SizingModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
-            var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var holdings = (RampDownHoldings) "all";  // RampDownHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
+            var rampDownRequestBodyRoot = new RampDownRequestBodyRoot(); // RampDownRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Ramp Down API
-                RampDownResponseRoot result = apiInstance.GetRampDownModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
+                RampDownResponseRoot result = apiInstance.GetRampDownModelAnalytic(rampDownRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -210,13 +192,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **holdings** | **RampDownHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **rampDownRequestBodyRoot** | [**RampDownRequestBodyRoot**](RampDownRequestBodyRoot.md)|  | 
 
 ### Return type
 [**RampDownResponseRoot**](RampDownResponseRoot.md)
@@ -227,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -250,7 +226,7 @@ Name | Type | Description  | Notes
 
 <a name="getrampupmodelanalytic"></a>
 # **GetRampUpModelAnalytic**
-> RampUpResponseRoot GetRampUpModelAnalytic (string accountPath, string benchmarkPath, string period, Attributes? attribute = null, Sectors? sector = null, Regions? region = null, RampUpHoldings? holdings = null)
+> RampUpResponseRoot GetRampUpModelAnalytic (RampUpRequestBodyRoot rampUpRequestBodyRoot)
 
 Cabot main path for Ramp Up API
 
@@ -300,18 +276,12 @@ namespace Example
 
             var apiInstance = new SizingModelsApi(config);
 
-            var accountPath = "accountPath_example";  // string | The account path of the portfolio you want to retrieve the data for.<br /><br />
-            var benchmarkPath = "benchmarkPath_example";  // string | The path of the benchmark you want to retrieve the data for.<br /><br />
-            var period = "2015-2017";  // string | For which period you want to retrieve the data.<br />There are four options available as follows:<br /><br />1 -> YYYY (Repeating One Year)<br /><br />2 -> YYYY-YYYY (Repeating Three/Five/Ten Year)<br /><br />3 -> 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))<br /><br />4 -> INCEPTION_TO_DATE<br /><br />You can only get the data for one period per request.<br /><br />
-            var attribute = (Attributes) "QFL_EY";  // Attributes? | The attribute represents the different factors.<br />You can choose which of them (if any) you want to see analytics for.<br /><br />If provided, the API response will contain both \"LOW\" and \"HIGH\" values for it.<br /><br /> (optional) 
-            var sector = (Sectors) "energy";  // Sectors? | Sector represents the sector based on the company's industry breakdown.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var region = (Regions) "africa";  // Regions? | Region of domicile represents the region based on the company's primary listing.<br />You can choose which of them (if any) you want to see analytics for.<br /><br /> (optional) 
-            var holdings = (RampUpHoldings) "all";  // RampUpHoldings? | If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).<br /><br /> (optional) 
+            var rampUpRequestBodyRoot = new RampUpRequestBodyRoot(); // RampUpRequestBodyRoot | 
 
             try
             {
                 // Cabot main path for Ramp Up API
-                RampUpResponseRoot result = apiInstance.GetRampUpModelAnalytic(accountPath, benchmarkPath, period, attribute, sector, region, holdings);
+                RampUpResponseRoot result = apiInstance.GetRampUpModelAnalytic(rampUpRequestBodyRoot);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -329,13 +299,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountPath** | **string**| The account path of the portfolio you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **benchmarkPath** | **string**| The path of the benchmark you want to retrieve the data for.&lt;br /&gt;&lt;br /&gt; | 
- **period** | **string**| For which period you want to retrieve the data.&lt;br /&gt;There are four options available as follows:&lt;br /&gt;&lt;br /&gt;1 -&gt; YYYY (Repeating One Year)&lt;br /&gt;&lt;br /&gt;2 -&gt; YYYY-YYYY (Repeating Three/Five/Ten Year)&lt;br /&gt;&lt;br /&gt;3 -&gt; 1M_TRAILING, 3M_TRAILING, 1Y_TRAILING, 3Y_TRAILING, 5Y_TRAILING (Trailing Periods (If available for your portfolio))&lt;br /&gt;&lt;br /&gt;4 -&gt; INCEPTION_TO_DATE&lt;br /&gt;&lt;br /&gt;You can only get the data for one period per request.&lt;br /&gt;&lt;br /&gt; | 
- **attribute** | **Attributes?**| The attribute represents the different factors.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt;If provided, the API response will contain both \&quot;LOW\&quot; and \&quot;HIGH\&quot; values for it.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **sector** | **Sectors?**| Sector represents the sector based on the company&#39;s industry breakdown.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **region** | **Regions?**| Region of domicile represents the region based on the company&#39;s primary listing.&lt;br /&gt;You can choose which of them (if any) you want to see analytics for.&lt;br /&gt;&lt;br /&gt; | [optional] 
- **holdings** | **RampUpHoldings?**| If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).&lt;br /&gt;&lt;br /&gt; | [optional] 
+ **rampUpRequestBodyRoot** | [**RampUpRequestBodyRoot**](RampUpRequestBodyRoot.md)|  | 
 
 ### Return type
 [**RampUpResponseRoot**](RampUpResponseRoot.md)
@@ -346,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

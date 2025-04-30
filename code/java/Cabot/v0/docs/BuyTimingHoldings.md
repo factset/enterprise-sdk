@@ -15,7 +15,7 @@
 
 * `_20_DAYS` (value: `"20 days"`)
 
-* `A_MONTH` (value: `"a month"`)
+* `_40_DAYS` (value: `"40 days"`)
 
 
 

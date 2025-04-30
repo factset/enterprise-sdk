@@ -234,7 +234,7 @@ const opts = {
   'returnType': "'GROSS'", // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
   'hedgeType': "'UNHEDGED'", // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
   'currency': "currency_example", // String | Currency for response.
-  'calendar': FIVEDAY, // String | Calendar of data returned. SEVENDAY includes weekends.
+  'calendar': FIVEDAY, // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
   'impliedDate': "'N'" // String | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.
 };
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to &#39;GROSS&#39;]
  **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to &#39;UNHEDGED&#39;]
  **currency** | **String**| Currency for response. | [optional] 
- **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to &#39;FIVEDAY&#39;]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to &#39;FIVEDAY&#39;]
  **impliedDate** | **String**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to &#39;N&#39;]
 
 ### Return type
@@ -407,7 +407,7 @@ const opts = {
   'date': "date_example", // String | Date of holding expressed in YYYY-MM-DD format.
   'returnType': "'GROSS'", // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
   'currency': "currency_example", // String | Currency for response.
-  'calendar': FIVEDAY // String | Calendar of data returned. SEVENDAY includes weekends.
+  'calendar': FIVEDAY // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
 };
 
 // Call api endpoint
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional] 
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to &#39;GROSS&#39;]
  **currency** | **String**| Currency for response. | [optional] 
- **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to &#39;FIVEDAY&#39;]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to &#39;FIVEDAY&#39;]
 
 ### Return type
 

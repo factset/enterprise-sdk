@@ -1,5 +1,5 @@
 # FactSet.SDK.Cabot.Model.SellTimingHoldings
-If set, the API will add holding-level details for all or only the selected analytic (if available for your portfolio).
+Adds holding-level details for all or only the selected analytic (if available for your portfolio).
 
 ## Properties
 
