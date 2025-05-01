@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: FactSet SCIM API
-  version: 2.3.0
+  version: 2.4.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -484,6 +484,8 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
         '500':
           $ref: '#/components/responses/internalServerError'
+        '501':
+          $ref: '#/components/responses/notImplementedError'
   /FirmDescriptions:
     get:
       tags:

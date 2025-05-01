@@ -21,6 +21,8 @@
 
 * `FINANCIAL_SERVICE_PROVIDER` (value: `"FINANCIAL_SERVICE_PROVIDER"`)
 
+* `FOREX` (value: `"FOREX"`)
+
 * `HOME_BUILDERS` (value: `"HOME_BUILDERS"`)
 
 * `HOSPITALS` (value: `"HOSPITALS"`)
@@ -43,11 +45,15 @@
 
 * `OTHER` (value: `"OTHER"`)
 
+* `POWER_AND_UTILITIES` (value: `"POWER_AND_UTILITIES"`)
+
 * `REITS` (value: `"REITS"`)
 
 * `RESTAURANTS` (value: `"RESTAURANTS"`)
 
 * `RETAILERS` (value: `"RETAILERS"`)
+
+* `SOCIAL_MEDIA_AND_GAMES` (value: `"SOCIAL_MEDIA_AND_GAMES"`)
 
 * `TELECOMMUNICATIONS` (value: `"TELECOMMUNICATIONS"`)
 

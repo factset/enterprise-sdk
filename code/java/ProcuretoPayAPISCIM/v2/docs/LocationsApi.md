@@ -408,6 +408,7 @@ Name | Type | Description  | Notes
 | **403** | User is not authorized to use this API. |  -  |
 | **429** | User is accessing this API too frequently. |  -  |
 | **500** | Internal server error. |  -  |
+| **501** | Operation is not supported. |  -  |
 
 
 ## replaceLocation

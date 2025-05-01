@@ -68,6 +68,7 @@ public class LocationsApi {
     modifyLocationResponseTypeMap.put(403, new GenericType<Error>(){});
     modifyLocationResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
     modifyLocationResponseTypeMap.put(500, new GenericType<Error>(){});
+    modifyLocationResponseTypeMap.put(501, new GenericType<Error>(){});
   }
 
   private static final Map<Integer, GenericType> replaceLocationResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -382,6 +383,7 @@ public class LocationsApi {
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Operation is not supported. </td><td>  -  </td></tr>
      </table>
    */
   public LocationResource modifyLocation(String id, Patch patch) throws ApiException {
@@ -404,6 +406,7 @@ public class LocationsApi {
        <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
        <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Operation is not supported. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<LocationResource> modifyLocationWithHttpInfo(String id, Patch patch) throws ApiException {

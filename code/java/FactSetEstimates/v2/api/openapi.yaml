@@ -34,7 +34,7 @@ info:
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.6.2
+  version: 2.7.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -2680,26 +2680,29 @@ paths:
           \ Market.\n  * **CONSUMER_SERVICES** - Including items such as Gross Merchandise\
           \ Volume\n  * **EDUCATION** - Including Items such as Total Student Enrollment\n\
           \  * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription\
-          \ Value\n  * **HOME_BUILDERS** - Including items such as Home Sales, Land\
-          \ Sales, Cancellation Rates, and more.\n  * **HOSPITALS** - Including items\
-          \ such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.\n\
-          \  * **HOTELS** - Including items such as Average Daily Rate, Occupancy\
-          \ %, RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross\
-          \ Premiums Written, Underwriting Income, and Claims.\n  * **HOSPITALS**\
-          \ - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS\
-          \ Admissions and more.\n  * **HOTELS** - Including items such as Average\
-          \ Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE** - Including\
-          \ items such as Gross Premiums Written, Underwriting Income, and Claims.\n\
-          \  * **MARIJUANA** - Including items such as Cost per Gram and Kg of Cannabis\
-          \ Sold.\n  * **MINING** - Including items such as Realized Price and Total\
-          \ Production\n  * **MULTIFINANCIAL** - Including items such as AUM, Net\
-          \ Flows, and Fee Related Earnings.\n  * **OIL_AND_GAS** - Including items\
-          \ such as Downstream Income, Production per Day, and Exploration Expense.\n\
-          \  * **OTHER** - Target Price\n  * **REITS** - Including items such as Funds\
-          \ from Operations, Implied Cap Rate, and LTV.\n  * **RESTAURANTS** - Including\
-          \ items such as Restaurant Margin.\n  * **RETAILERS** - Including items\
-          \ such as Stores Information, Selling Space and Net sales per square foot.\n\
-          \  * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly\
+          \ Value\n  * **FOREX** - Including items such as USD/JPY\n  * **HOME_BUILDERS**\
+          \ - Including items such as Home Sales, Land Sales, Cancellation Rates,\
+          \ and more.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
+          \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
+          \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  *\
+          \ **INSURANCE** - Including items such as Gross Premiums Written, Underwriting\
+          \ Income, and Claims.\n  * **HOSPITALS** - Including items such as Bad Debt\
+          \ Provisions, Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS**\
+          \ - Including items such as Average Daily Rate, Occupancy %, RevPAR, and\
+          \ more.\n  * **INSURANCE** - Including items such as Gross Premiums Written,\
+          \ Underwriting Income, and Claims.\n  * **MARIJUANA** - Including items\
+          \ such as Cost per Gram and Kg of Cannabis Sold.\n  * **MINING** - Including\
+          \ items such as Realized Price and Total Production\n  * **MULTIFINANCIAL**\
+          \ - Including items such as AUM, Net Flows, and Fee Related Earnings.\n\
+          \  * **OIL_AND_GAS** - Including items such as Downstream Income, Production\
+          \ per Day, and Exploration Expense.\n  * **OTHER** - Target Price\n  * **POWER_AND_UTILITIES**\
+          \ - Including items such as Average Ratebase, Cash Conversion, and more.\n\
+          \  * **REITS** - Including items such as Funds from Operations, Implied\
+          \ Cap Rate, and LTV.\n  * **RESTAURANTS** - Including items such as Restaurant\
+          \ Margin.\n  * **RETAILERS** - Including items such as Stores Information,\
+          \ Selling Space and Net sales per square foot.\n  * **SOCIAL_MEDIA_AND_GAMES**\
+          \ - Including items such as Daily Active Users and Monthly Unique Users.\
+          \ \n  * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly\
           \ Revenue Per User, Churn, and more.\n  * **TRANSPORTATION** - Including\
           \ items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n\
           \  \n"
@@ -2718,6 +2721,7 @@ paths:
           - CONSUMER_SERVICES
           - EDUCATION
           - FINANCIAL_SERVICE_PROVIDER
+          - FOREX
           - HOME_BUILDERS
           - HOSPITALS
           - HOTELS
@@ -2729,9 +2733,11 @@ paths:
           - MULTIFINANCIAL
           - OIL_AND_GAS
           - OTHER
+          - POWER_AND_UTILITIES
           - REITS
           - RESTAURANTS
           - RETAILERS
+          - SOCIAL_MEDIA_AND_GAMES
           - TELECOMMUNICATIONS
           - TRANSPORTATION
           type: string
@@ -5498,28 +5504,31 @@ components:
         \ - Including items such as Total Addressable Market.\n  * **CONSUMER_SERVICES**\
         \ - Including items such as Gross Merchandise Volume\n  * **EDUCATION** -\
         \ Including Items such as Total Student Enrollment\n  * **FINANCIAL_SERVICE_PROVIDER**\
-        \ - Including items such as Annual Subscription Value\n  * **HOME_BUILDERS**\
-        \ - Including items such as Home Sales, Land Sales, Cancellation Rates, and\
-        \ more.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
-        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
-        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
-        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
-        \ Claims.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
-        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
-        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
-        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
-        \ Claims.\n  * **MARIJUANA** - Including items such as Cost per Gram and Kg\
-        \ of Cannabis Sold.\n  * **MINING** - Including items such as Realized Price\
-        \ and Total Production\n  * **MULTIFINANCIAL** - Including items such as AUM,\
-        \ Net Flows, and Fee Related Earnings.\n  * **OIL_AND_GAS** - Including items\
-        \ such as Downstream Income, Production per Day, and Exploration Expense.\n\
-        \  * **OTHER** - Target Price\n  * **REITS** - Including items such as Funds\
-        \ from Operations, Implied Cap Rate, and LTV.\n  * **RESTAURANTS** - Including\
-        \ items such as Restaurant Margin.\n  * **RETAILERS** - Including items such\
-        \ as Stores Information, Selling Space and Net sales per square foot.\n  *\
-        \ **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue\
-        \ Per User, Churn, and more.\n  * **TRANSPORTATION** - Including items such\
-        \ as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n  \n"
+        \ - Including items such as Annual Subscription Value\n  * **FOREX** - Including\
+        \ items such as USD/JPY\n  * **HOME_BUILDERS** - Including items such as Home\
+        \ Sales, Land Sales, Cancellation Rates, and more.\n  * **HOSPITALS** - Including\
+        \ items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and\
+        \ more.\n  * **HOTELS** - Including items such as Average Daily Rate, Occupancy\
+        \ %, RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross\
+        \ Premiums Written, Underwriting Income, and Claims.\n  * **HOSPITALS** -\
+        \ Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions\
+        \ and more.\n  * **HOTELS** - Including items such as Average Daily Rate,\
+        \ Occupancy %, RevPAR, and more.\n  * **INSURANCE** - Including items such\
+        \ as Gross Premiums Written, Underwriting Income, and Claims.\n  * **MARIJUANA**\
+        \ - Including items such as Cost per Gram and Kg of Cannabis Sold.\n  * **MINING**\
+        \ - Including items such as Realized Price and Total Production\n  * **MULTIFINANCIAL**\
+        \ - Including items such as AUM, Net Flows, and Fee Related Earnings.\n  *\
+        \ **OIL_AND_GAS** - Including items such as Downstream Income, Production\
+        \ per Day, and Exploration Expense.\n  * **OTHER** - Target Price\n  * **POWER_AND_UTILITIES**\
+        \ - Including items such as Average Ratebase, Cash Conversion, and more.\n\
+        \  * **REITS** - Including items such as Funds from Operations, Implied Cap\
+        \ Rate, and LTV.\n  * **RESTAURANTS** - Including items such as Restaurant\
+        \ Margin.\n  * **RETAILERS** - Including items such as Stores Information,\
+        \ Selling Space and Net sales per square foot.\n  * **SOCIAL_MEDIA_AND_GAMES**\
+        \ - Including items such as Daily Active Users and Monthly Unique Users. \n\
+        \  * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly\
+        \ Revenue Per User, Churn, and more.\n  * **TRANSPORTATION** - Including items\
+        \ such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n  \n"
       explode: true
       in: query
       name: subcategory
@@ -5535,6 +5544,7 @@ components:
         - CONSUMER_SERVICES
         - EDUCATION
         - FINANCIAL_SERVICE_PROVIDER
+        - FOREX
         - HOME_BUILDERS
         - HOSPITALS
         - HOTELS
@@ -5546,9 +5556,11 @@ components:
         - MULTIFINANCIAL
         - OIL_AND_GAS
         - OTHER
+        - POWER_AND_UTILITIES
         - REITS
         - RESTAURANTS
         - RETAILERS
+        - SOCIAL_MEDIA_AND_GAMES
         - TELECOMMUNICATIONS
         - TRANSPORTATION
         type: string
@@ -8047,28 +8059,31 @@ components:
         \ - Including items such as Total Addressable Market.\n  * **CONSUMER_SERVICES**\
         \ - Including items such as Gross Merchandise Volume\n  * **EDUCATION** -\
         \ Including Items such as Total Student Enrollment\n  * **FINANCIAL_SERVICE_PROVIDER**\
-        \ - Including items such as Annual Subscription Value\n  * **HOME_BUILDERS**\
-        \ - Including items such as Home Sales, Land Sales, Cancellation Rates, and\
-        \ more.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
-        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
-        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
-        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
-        \ Claims.\n  * **HOSPITALS** - Including items such as Bad Debt Provisions,\
-        \ Medical Cost Ratio, SS Admissions and more.\n  * **HOTELS** - Including\
-        \ items such as Average Daily Rate, Occupancy %, RevPAR, and more.\n  * **INSURANCE**\
-        \ - Including items such as Gross Premiums Written, Underwriting Income, and\
-        \ Claims.\n  * **MARIJUANA** - Including items such as Cost per Gram and Kg\
-        \ of Cannabis Sold.\n  * **MINING** - Including items such as Realized Price\
-        \ and Total Production\n  * **MULTIFINANCIAL** - Including items such as AUM,\
-        \ Net Flows, and Fee Related Earnings.\n  * **OIL_AND_GAS** - Including items\
-        \ such as Downstream Income, Production per Day, and Exploration Expense.\n\
-        \  * **OTHER** - Target Price\n  * **REITS** - Including items such as Funds\
-        \ from Operations, Implied Cap Rate, and LTV.\n  * **RESTAURANTS** - Including\
-        \ items such as Restaurant Margin.\n  * **RETAILERS** - Including items such\
-        \ as Stores Information, Selling Space and Net sales per square foot.\n  *\
-        \ **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue\
-        \ Per User, Churn, and more.\n  * **TRANSPORTATION** - Including items such\
-        \ as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n"
+        \ - Including items such as Annual Subscription Value\n  * **FOREX** - Including\
+        \ items such as USD/JPY\n  * **HOME_BUILDERS** - Including items such as Home\
+        \ Sales, Land Sales, Cancellation Rates, and more.\n  * **HOSPITALS** - Including\
+        \ items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and\
+        \ more.\n  * **HOTELS** - Including items such as Average Daily Rate, Occupancy\
+        \ %, RevPAR, and more.\n  * **INSURANCE** - Including items such as Gross\
+        \ Premiums Written, Underwriting Income, and Claims.\n  * **HOSPITALS** -\
+        \ Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions\
+        \ and more.\n  * **HOTELS** - Including items such as Average Daily Rate,\
+        \ Occupancy %, RevPAR, and more.\n  * **INSURANCE** - Including items such\
+        \ as Gross Premiums Written, Underwriting Income, and Claims.\n  * **MARIJUANA**\
+        \ - Including items such as Cost per Gram and Kg of Cannabis Sold.\n  * **MINING**\
+        \ - Including items such as Realized Price and Total Production\n  * **MULTIFINANCIAL**\
+        \ - Including items such as AUM, Net Flows, and Fee Related Earnings.\n  *\
+        \ **OIL_AND_GAS** - Including items such as Downstream Income, Production\
+        \ per Day, and Exploration Expense.\n  * **OTHER** - Target Price\n  * **POWER_AND_UTILITIES**\
+        \ - Including items such as Average Ratebase, Cash Conversion, and more.\n\
+        \  * **REITS** - Including items such as Funds from Operations, Implied Cap\
+        \ Rate, and LTV.\n  * **RESTAURANTS** - Including items such as Restaurant\
+        \ Margin.\n  * **RETAILERS** - Including items such as Stores Information,\
+        \ Selling Space and Net sales per square foot.\n  * **SOCIAL_MEDIA_AND_GAMES**\
+        \ - Including items such as Daily Active Users and Monthly Unique Users. \n\
+        \  * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly\
+        \ Revenue Per User, Churn, and more.\n  * **TRANSPORTATION** - Including items\
+        \ such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>\n"
       enum:
       - AIRLINES
       - BALANCE_SHEET
@@ -8079,6 +8094,7 @@ components:
       - CONSUMER_SERVICES
       - EDUCATION
       - FINANCIAL_SERVICE_PROVIDER
+      - FOREX
       - HOME_BUILDERS
       - HOSPITALS
       - HOTELS
@@ -8090,9 +8106,11 @@ components:
       - MULTIFINANCIAL
       - OIL_AND_GAS
       - OTHER
+      - POWER_AND_UTILITIES
       - REITS
       - RESTAURANTS
       - RETAILERS
+      - SOCIAL_MEDIA_AND_GAMES
       - TELECOMMUNICATIONS
       - TRANSPORTATION
       example: AIRLINES

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.6.2
+  version: 2.7.0
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -1537,6 +1537,7 @@ components:
           - CONSUMER_SERVICES
           - EDUCATION
           - FINANCIAL_SERVICE_PROVIDER
+          - FOREX
           - HOME_BUILDERS
           - HOSPITALS
           - HOTELS
@@ -1548,9 +1549,11 @@ components:
           - MULTIFINANCIAL
           - OIL_AND_GAS
           - OTHER
+          - POWER_AND_UTILITIES
           - REITS
           - RESTAURANTS
           - RETAILERS
+          - SOCIAL_MEDIA_AND_GAMES
           - TELECOMMUNICATIONS
           - TRANSPORTATION
       required: false
@@ -1572,6 +1575,7 @@ components:
           * **CONSUMER_SERVICES** - Including items such as Gross Merchandise Volume
           * **EDUCATION** - Including Items such as Total Student Enrollment
           * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription Value
+          * **FOREX** - Including items such as USD/JPY
           * **HOME_BUILDERS** - Including items such as Home Sales, Land Sales, Cancellation Rates, and more.
           * **HOSPITALS** - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.
           * **HOTELS** - Including items such as Average Daily Rate, Occupancy %, RevPAR, and more.
@@ -1584,9 +1588,11 @@ components:
           * **MULTIFINANCIAL** - Including items such as AUM, Net Flows, and Fee Related Earnings.
           * **OIL_AND_GAS** - Including items such as Downstream Income, Production per Day, and Exploration Expense.
           * **OTHER** - Target Price
+          * **POWER_AND_UTILITIES** - Including items such as Average Ratebase, Cash Conversion, and more.
           * **REITS** - Including items such as Funds from Operations, Implied Cap Rate, and LTV.
           * **RESTAURANTS** - Including items such as Restaurant Margin.
           * **RETAILERS** - Including items such as Stores Information, Selling Space and Net sales per square foot.
+          * **SOCIAL_MEDIA_AND_GAMES** - Including items such as Daily Active Users and Monthly Unique Users. 
           * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue Per User, Churn, and more.
           * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>
           
@@ -3599,6 +3605,7 @@ components:
         - CONSUMER_SERVICES
         - EDUCATION
         - FINANCIAL_SERVICE_PROVIDER
+        - FOREX
         - HOME_BUILDERS
         - HOSPITALS
         - HOTELS
@@ -3610,9 +3617,11 @@ components:
         - MULTIFINANCIAL
         - OIL_AND_GAS
         - OTHER
+        - POWER_AND_UTILITIES
         - REITS
         - RESTAURANTS
         - RETAILERS
+        - SOCIAL_MEDIA_AND_GAMES
         - TELECOMMUNICATIONS
         - TRANSPORTATION
       description: >
@@ -3633,6 +3642,7 @@ components:
           * **CONSUMER_SERVICES** - Including items such as Gross Merchandise Volume
           * **EDUCATION** - Including Items such as Total Student Enrollment
           * **FINANCIAL_SERVICE_PROVIDER** - Including items such as Annual Subscription Value
+          * **FOREX** - Including items such as USD/JPY
           * **HOME_BUILDERS** - Including items such as Home Sales, Land Sales, Cancellation Rates, and more.
           * **HOSPITALS** - Including items such as Bad Debt Provisions, Medical Cost Ratio, SS Admissions and more.
           * **HOTELS** - Including items such as Average Daily Rate, Occupancy %, RevPAR, and more.
@@ -3645,9 +3655,11 @@ components:
           * **MULTIFINANCIAL** - Including items such as AUM, Net Flows, and Fee Related Earnings.
           * **OIL_AND_GAS** - Including items such as Downstream Income, Production per Day, and Exploration Expense.
           * **OTHER** - Target Price
+          * **POWER_AND_UTILITIES** - Including items such as Average Ratebase, Cash Conversion, and more.
           * **REITS** - Including items such as Funds from Operations, Implied Cap Rate, and LTV.
           * **RESTAURANTS** - Including items such as Restaurant Margin.
           * **RETAILERS** - Including items such as Stores Information, Selling Space and Net sales per square foot.
+          * **SOCIAL_MEDIA_AND_GAMES** - Including items such as Daily Active Users and Monthly Unique Users. 
           * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue Per User, Churn, and more.
           * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>
     includeAll:
