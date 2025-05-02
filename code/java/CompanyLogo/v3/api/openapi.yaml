@@ -80,19 +80,6 @@ paths:
           - valor
           - cusip
           type: string
-          x-enum-description:
-          - MDG identifier of an instrument.
-          - MDG identifier of a listing.
-          - FactSet Permanent Identifier on security level.
-          - FactSet Permanent Identifier on listing level.
-          - Regional FactSet Permanent Identifier.
-          - FactSet market symbol of a listing.
-          - Regional FactSet ticker symbol.
-          - SEDOL or IDII of a listing.
-          - ISIN of an instrument.
-          - WKN of an instrument.
-          - Valor number of an instrument.
-          - CUSIP or CINS identifier of an instrument
         style: form
       - explode: true
         in: query
@@ -105,9 +92,6 @@ paths:
           - rectangular
           - square
           type: string
-          x-enum-description:
-          - Logos in rectangular format
-          - Logos in square format
         style: form
       - description: Limit the attributes returned in the response to the specified
           set.
@@ -134,17 +118,6 @@ paths:
       summary: List of URLs of company logos.
       tags:
       - company
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: false
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
 components:
   callbacks: {}
@@ -164,9 +137,6 @@ components:
               errors:
                 $ref: '#/components/schemas/ErrorObject'
             type: object
-            x-property-sort:
-            - meta
-            - errors
       description: Generic error response for all errors (400 ... 599 error codes)
     GetCompanyLogoGet200Response:
       content:
@@ -212,16 +182,8 @@ components:
                   format: int32
                   type: number
               type: object
-              x-property-sort:
-              - name
-              - index
             type: array
         type: object
-        x-property-sort:
-        - details
-        - encryptedDetails
-        - type
-        - attribute
       type: array
     AttributesMember:
       description: Limit the attributes returned in the response to the specified
@@ -279,11 +241,6 @@ components:
       - previous
       - total
       type: object
-      x-property-sort:
-      - total
-      - isEstimatedTotal
-      - next
-      - previous
     CursorBasedPaginationOutputObjectWithoutTotal:
       description: Pagination attributes for the cursor-based pagination strategy;
         a total element count is not supported.
@@ -301,9 +258,6 @@ components:
       - next
       - previous
       type: object
-      x-property-sort:
-      - next
-      - previous
     OffsetBasedPaginationOutputObject:
       description: Pagination attributes for the offset-based pagination strategy.
       properties:
@@ -318,9 +272,6 @@ components:
       - isEstimatedTotal
       - total
       type: object
-      x-property-sort:
-      - total
-      - isEstimatedTotal
     OffsetBasedPaginationOutputObjectWithoutTotal:
       description: Pagination attributes for the offset-based pagination strategy;
         a total element count is not supported.
@@ -333,8 +284,6 @@ components:
       required:
       - hasNext
       type: object
-      x-property-sort:
-      - hasNext
     PartialOutputObject:
       description: Object denoting that the endpoint response is possibly incomplete.
       properties:
@@ -349,8 +298,6 @@ components:
       required:
       - isPartial
       type: object
-      x-property-sort:
-      - isPartial
     inline_response_200_data_small:
       description: Small logo.
       example:
@@ -368,9 +315,6 @@ components:
           nullable: true
           type: string
       type: object
-      x-property-sort:
-      - url
-      - mimeType
     inline_response_200_data_medium:
       description: Medium logo.
       example:
@@ -388,9 +332,6 @@ components:
           nullable: true
           type: string
       type: object
-      x-property-sort:
-      - url
-      - mimeType
     inline_response_200_data_large:
       description: Large logo.
       example:
@@ -408,9 +349,6 @@ components:
           nullable: true
           type: string
       type: object
-      x-property-sort:
-      - url
-      - mimeType
     inline_response_200_data_vector:
       description: Vector logo.
       example:
@@ -428,9 +366,6 @@ components:
           nullable: true
           type: string
       type: object
-      x-property-sort:
-      - url
-      - mimeType
     inline_response_200_data:
       description: URLs of company logos. All URLs are publicly available via HTTPS
         and hosted by FactSet with a top-level domain `mdgms.com`. For possible values
@@ -458,7 +393,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -472,13 +406,6 @@ components:
         vector:
           $ref: '#/components/schemas/inline_response_200_data_vector'
       type: object
-      x-property-sort:
-      - idInstrument
-      - sourceIdentifier
-      - small
-      - medium
-      - large
-      - vector
     inline_response_200_meta:
       description: The meta member contains the meta information of the response.
       example:
@@ -488,8 +415,6 @@ components:
         status:
           $ref: '#/components/schemas/StatusObject'
       type: object
-      x-property-sort:
-      - status
     inline_response_200:
       example:
         data:
@@ -516,9 +441,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
   securitySchemes:
     FactSetOAuth2:
       flows:
@@ -529,7 +451,4 @@ components:
     FactSetApiKey:
       scheme: basic
       type: http
-x-interface-version: 2
-x-documenter-version: 6.4.0
-x-api-version: 7.0.0
 

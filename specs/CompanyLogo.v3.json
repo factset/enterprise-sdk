@@ -26,17 +26,6 @@
           "company"
         ],
         "operationId": "get/company/logo/get",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "List of URLs of company logos.",
         "description": "List of URLs for transparent company logos in different sizes and formats.   The different sizes for the rectangular and square formats are: \n\n **Small**:\n * rectangular:  maximum width of 88 pixels and maximum height of 31 pixels.\n * square:  31 x 31 pixels.\n\n\n **Medium**: small logo scaled up by 200%.\n\n **Large**: small logo scaled up by 300%.\n\n **Vector**: can be rendered at any size.",
         "parameters": [
@@ -60,20 +49,6 @@
             "schema": {
               "type": "string",
               "description": "Type of the identifier.",
-              "x-enum-description": [
-                "MDG identifier of an instrument.",
-                "MDG identifier of a listing.",
-                "FactSet Permanent Identifier on security level.",
-                "FactSet Permanent Identifier on listing level.",
-                "Regional FactSet Permanent Identifier.",
-                "FactSet market symbol of a listing.",
-                "Regional FactSet ticker symbol.",
-                "SEDOL or IDII of a listing.",
-                "ISIN of an instrument.",
-                "WKN of an instrument.",
-                "Valor number of an instrument.",
-                "CUSIP or CINS identifier of an instrument"
-              ],
               "enum": [
                 "idInstrument",
                 "idNotation",
@@ -98,10 +73,6 @@
               "type": "string",
               "description": "Format of the logos.",
               "default": "rectangular",
-              "x-enum-description": [
-                "Logos in rectangular format",
-                "Logos in square format"
-              ],
               "enum": [
                 "rectangular",
                 "square"
@@ -180,20 +151,10 @@
                     "format": "int32",
                     "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
                   }
-                },
-                "x-property-sort": [
-                  "name",
-                  "index"
-                ]
+                }
               }
             }
-          },
-          "x-property-sort": [
-            "details",
-            "encryptedDetails",
-            "type",
-            "attribute"
-          ]
+          }
         }
       },
       "AttributesMember": {
@@ -257,12 +218,6 @@
           "isEstimatedTotal",
           "next",
           "previous"
-        ],
-        "x-property-sort": [
-          "total",
-          "isEstimatedTotal",
-          "next",
-          "previous"
         ]
       },
       "CursorBasedPaginationOutputObjectWithoutTotal": {
@@ -279,10 +234,6 @@
           }
         },
         "required": [
-          "next",
-          "previous"
-        ],
-        "x-property-sort": [
           "next",
           "previous"
         ]
@@ -304,10 +255,6 @@
         "required": [
           "total",
           "isEstimatedTotal"
-        ],
-        "x-property-sort": [
-          "total",
-          "isEstimatedTotal"
         ]
       },
       "OffsetBasedPaginationOutputObjectWithoutTotal": {
@@ -321,9 +268,6 @@
         },
         "required": [
           "hasNext"
-        ],
-        "x-property-sort": [
-          "hasNext"
         ]
       },
       "PartialOutputObject": {
@@ -336,9 +280,6 @@
         },
         "description": "Object denoting that the endpoint response is possibly incomplete.",
         "required": [
-          "isPartial"
-        ],
-        "x-property-sort": [
           "isPartial"
         ]
       }
@@ -358,11 +299,7 @@
                 "errors": {
                   "$ref": "#/components/schemas/ErrorObject"
                 }
-              },
-              "x-property-sort": [
-                "meta",
-                "errors"
-              ]
+              }
             }
           }
         }
@@ -381,7 +318,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the instrument."
                     },
                     "sourceIdentifier": {
@@ -392,10 +328,6 @@
                     "small": {
                       "nullable": false,
                       "type": "object",
-                      "x-property-sort": [
-                        "url",
-                        "mimeType"
-                      ],
                       "description": "Small logo.",
                       "properties": {
                         "url": {
@@ -414,10 +346,6 @@
                     "medium": {
                       "nullable": false,
                       "type": "object",
-                      "x-property-sort": [
-                        "url",
-                        "mimeType"
-                      ],
                       "description": "Medium logo.",
                       "properties": {
                         "url": {
@@ -436,10 +364,6 @@
                     "large": {
                       "nullable": false,
                       "type": "object",
-                      "x-property-sort": [
-                        "url",
-                        "mimeType"
-                      ],
                       "description": "Large logo.",
                       "properties": {
                         "url": {
@@ -458,10 +382,6 @@
                     "vector": {
                       "nullable": false,
                       "type": "object",
-                      "x-property-sort": [
-                        "url",
-                        "mimeType"
-                      ],
                       "description": "Vector logo.",
                       "properties": {
                         "url": {
@@ -479,15 +399,7 @@
                     }
                   },
                   "description": "URLs of company logos. All URLs are publicly available via HTTPS and hosted by FactSet with a top-level domain `mdgms.com`. For possible values of the attribute `mimeType`, see endpoint `/basic/media/type/list` with parameter `filter.ids=1 (image)`.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idInstrument",
-                    "sourceIdentifier",
-                    "small",
-                    "medium",
-                    "large",
-                    "vector"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -496,16 +408,9 @@
                     "status": {
                       "$ref": "#/components/schemas/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -550,8 +455,5 @@
   "externalDocs": {
     "description": "API Documentation",
     "url": "https://developer.factset.com/api-catalog/"
-  },
-  "x-interface-version": 2,
-  "x-documenter-version": "6.4.0",
-  "x-api-version": "7.0.0"
+  }
 }

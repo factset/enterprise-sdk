@@ -62,17 +62,6 @@ paths:
       summary: End-of-day time series data for a notation.
       tags:
       - vendor
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /vendor/chartIQ/timeSeries/eod/subsample/get:
@@ -99,17 +88,6 @@ paths:
       summary: Single subsample end-of-day data for a notation.
       tags:
       - vendor
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: false
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /vendor/chartIQ/timeSeries/eod/subsample/list:
@@ -138,17 +116,6 @@ paths:
       summary: Subsampled end-of-day time series data for a notation.
       tags:
       - vendor
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /vendor/chartIQ/timeSeries/intraday/subsample/get:
@@ -175,17 +142,6 @@ paths:
       summary: Single subsample intraday data for a notation.
       tags:
       - vendor
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: false
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /vendor/chartIQ/timeSeries/intraday/subsample/list:
@@ -213,17 +169,6 @@ paths:
       summary: Subsampled intraday time series data for a notation.
       tags:
       - vendor
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /prices/timeSeries/eod/list:
@@ -250,17 +195,6 @@ paths:
       summary: End-of-day time series data for a notation.
       tags:
       - prices
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /prices/timeSeries/eod/subsample/get:
@@ -287,17 +221,6 @@ paths:
       summary: Single subsample end-of-day data for a notation.
       tags:
       - prices
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: false
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /prices/timeSeries/eod/subsample/list:
@@ -326,17 +249,6 @@ paths:
       summary: Subsampled end-of-day time series data for a notation.
       tags:
       - prices
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /prices/timeSeries/intraday/list:
@@ -362,17 +274,6 @@ paths:
       summary: Intraday time series data for a notation.
       tags:
       - prices
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /prices/timeSeries/intraday/subsample/get:
@@ -399,17 +300,6 @@ paths:
       summary: Single subsample intraday data for a notation.
       tags:
       - prices
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: false
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /prices/timeSeries/intraday/subsample/list:
@@ -437,17 +327,6 @@ paths:
       summary: Subsampled intraday time series data for a notation.
       tags:
       - prices
-      x-supportsOffsetBasedPaging: false
-      x-supportsOffsetBasedPagingWithoutTotal: false
-      x-supportsCursorBasedPaging: false
-      x-supportsCursorBasedPagingWithoutTotal: true
-      x-supportsPush: false
-      x-requiresUser: false
-      x-requiresInternalClient: false
-      x-disallowUser: false
-      x-no-merge: false
-      x-maxSortParameterCount: 10
-      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -468,9 +347,6 @@ components:
               errors:
                 $ref: '#/components/schemas/ErrorObject'
             type: object
-            x-property-sort:
-            - meta
-            - errors
       description: Generic error response for all errors (400 ... 599 error codes)
     PostVendorChartIQTimeSeriesEodList200Response:
       content:
@@ -576,16 +452,8 @@ components:
                   format: int32
                   type: number
               type: object
-              x-property-sort:
-              - name
-              - index
             type: array
         type: object
-        x-property-sort:
-        - details
-        - encryptedDetails
-        - type
-        - attribute
       type: array
     AttributesMember:
       description: Limit the attributes returned in the response to the specified
@@ -643,11 +511,6 @@ components:
       - previous
       - total
       type: object
-      x-property-sort:
-      - total
-      - isEstimatedTotal
-      - next
-      - previous
     CursorBasedPaginationOutputObjectWithoutTotal:
       description: Pagination attributes for the cursor-based pagination strategy;
         a total element count is not supported.
@@ -668,9 +531,6 @@ components:
       - next
       - previous
       type: object
-      x-property-sort:
-      - next
-      - previous
     OffsetBasedPaginationOutputObject:
       description: Pagination attributes for the offset-based pagination strategy.
       properties:
@@ -685,9 +545,6 @@ components:
       - isEstimatedTotal
       - total
       type: object
-      x-property-sort:
-      - total
-      - isEstimatedTotal
     OffsetBasedPaginationOutputObjectWithoutTotal:
       description: Pagination attributes for the offset-based pagination strategy;
         a total element count is not supported.
@@ -700,8 +557,6 @@ components:
       required:
       - hasNext
       type: object
-      x-property-sort:
-      - hasNext
     PartialOutputObject:
       description: Object denoting that the endpoint response is possibly incomplete.
       properties:
@@ -716,8 +571,6 @@ components:
       required:
       - isPartial
       type: object
-      x-property-sort:
-      - isPartial
     PostVendorChartIQTimeSeriesEodListRequest:
       description: Request Body
       example:
@@ -752,9 +605,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostVendorChartIQTimeSeriesEodSubsampleGetRequest:
       description: Request Body
       example:
@@ -785,9 +635,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostVendorChartIQTimeSeriesEodSubsampleListRequest:
       description: Request Body
       example:
@@ -830,9 +677,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostVendorChartIQTimeSeriesIntradaySubsampleGetRequest:
       description: Request Body
       example:
@@ -861,9 +705,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostVendorChartIQTimeSeriesIntradaySubsampleListRequest:
       description: Request Body
       example:
@@ -898,9 +739,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostPricesTimeSeriesEodListRequest:
       description: Request Body
       example:
@@ -935,9 +773,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostPricesTimeSeriesEodSubsampleGetRequest:
       description: Request Body
       example:
@@ -968,9 +803,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostPricesTimeSeriesEodSubsampleListRequest:
       description: Request Body
       example:
@@ -1013,9 +845,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostPricesTimeSeriesIntradayListRequest:
       description: Request Body
       example:
@@ -1051,9 +880,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostPricesTimeSeriesIntradaySubsampleGetRequest:
       description: Request Body
       example:
@@ -1082,9 +908,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostPricesTimeSeriesIntradaySubsampleListRequest:
       description: Request Body
       example:
@@ -1119,9 +942,6 @@ components:
       required:
       - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_data_range:
       description: Date range for the returned time series.
       example:
@@ -1144,9 +964,6 @@ components:
       - end
       - start
       type: object
-      x-property-sort:
-      - start
-      - end
     inline_response_200_data:
       description: Time series data for the notation.
       example:
@@ -1168,7 +985,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1182,11 +998,6 @@ components:
           - EOD
           nullable: true
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
         prices:
           description: 'Time series of prices as an array of arrays. One record is
             represented as an array and consists of a timestamp, four price values,
@@ -1206,12 +1017,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - prices
     inline_response_200_meta:
       description: The meta member contains the meta information of the response.
       example:
@@ -1226,9 +1031,6 @@ components:
         pagination:
           $ref: '#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal'
       type: object
-      x-property-sort:
-      - status
-      - pagination
     inline_response_200:
       example:
         data:
@@ -1255,9 +1057,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_1_data:
       description: Subsample data for the notation.
       example:
@@ -1274,7 +1073,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1286,11 +1084,6 @@ components:
           - EOD
           nullable: true
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
         subsample:
           description: 'Single summary record. The record consists of a timestamp,
             four price values, and the trading volume. For the unit of the price values,
@@ -1308,11 +1101,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - quality
-      - subsample
     inline_response_200_1_meta:
       description: The meta member contains the meta information of the response.
       example:
@@ -1322,8 +1110,6 @@ components:
         status:
           $ref: '#/components/schemas/StatusObject'
       type: object
-      x-property-sort:
-      - status
     inline_response_200_1:
       example:
         data:
@@ -1342,9 +1128,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_1_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_2_data:
       description: Subsampled time series data for the notation.
       example:
@@ -1366,7 +1149,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1380,11 +1162,6 @@ components:
           - EOD
           nullable: true
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
         subsamples:
           description: 'List of summary records as an array of arrays. One record
             is represented as an array and consists of a timestamp, four price values,
@@ -1405,12 +1182,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - subsamples
     inline_response_200_2:
       example:
         data:
@@ -1437,9 +1208,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_3_data:
       description: Subsample data for the notation.
       example:
@@ -1456,7 +1224,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1468,10 +1235,6 @@ components:
           - DLY
           nullable: true
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
         subsample:
           description: 'Single summary record. The record consists of a timestamp,
             four price values, and the trading volume. For the unit of the price values,
@@ -1489,11 +1252,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - quality
-      - subsample
     inline_response_200_3:
       example:
         data:
@@ -1512,9 +1270,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_1_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_4_data_range:
       description: Time range for the returned time series.
       example:
@@ -1537,9 +1292,6 @@ components:
       - end
       - start
       type: object
-      x-property-sort:
-      - start
-      - end
     inline_response_200_4_data:
       description: Subsampled time series data for the notation.
       example:
@@ -1561,7 +1313,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1575,10 +1326,6 @@ components:
           - DLY
           nullable: true
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
         subsamples:
           description: 'List of summary records as an array of arrays. One record
             is represented as an array and consists of a timestamp, four price values,
@@ -1599,12 +1346,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - subsamples
     inline_response_200_4:
       example:
         data:
@@ -1631,9 +1372,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_5_data_prices:
       example:
         date: 2000-01-23
@@ -1685,14 +1423,6 @@ components:
           nullable: true
           type: number
       type: object
-      x-property-sort:
-      - date
-      - first
-      - last
-      - low
-      - high
-      - tradingVolume
-      - tradingValue
     inline_response_200_5_data:
       description: Time series data for the notation.
       example:
@@ -1724,7 +1454,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1738,11 +1467,6 @@ components:
           - EOD
           nullable: true
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
         prices:
           description: Time series of prices. For the attributes first, last, low,
             high, see attribute `valueUnit` in endpoint `/prices/get` for their unit,
@@ -1753,12 +1477,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - prices
     inline_response_200_5:
       example:
         data:
@@ -1795,9 +1513,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_6_data_subsample:
       description: Single summary record. For the attributes first, last, low, high,
         see attribute `valueUnit` in endpoint `/prices/get` for their unit, except
@@ -1852,14 +1567,6 @@ components:
           nullable: true
           type: number
       type: object
-      x-property-sort:
-      - date
-      - first
-      - last
-      - low
-      - high
-      - tradingVolume
-      - tradingValue
     inline_response_200_6_data:
       description: Subsample data for the notation.
       example:
@@ -1881,7 +1588,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -1893,19 +1599,9 @@ components:
           - EOD
           nullable: true
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
         subsample:
           $ref: '#/components/schemas/inline_response_200_6_data_subsample'
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - quality
-      - subsample
     inline_response_200_6:
       example:
         data:
@@ -1929,9 +1625,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_1_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_7_data_subsamples:
       example:
         date: 2000-01-23
@@ -1983,14 +1676,6 @@ components:
           nullable: true
           type: number
       type: object
-      x-property-sort:
-      - date
-      - first
-      - last
-      - low
-      - high
-      - tradingVolume
-      - tradingValue
     inline_response_200_7_data:
       description: Subsampled time series data for the notation.
       example:
@@ -2022,7 +1707,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -2036,11 +1720,6 @@ components:
           - EOD
           nullable: true
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
         subsamples:
           description: List of summary records. For the attributes first, last, low,
             high, see attribute `valueUnit` in endpoint `/prices/get` for their unit,
@@ -2051,12 +1730,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - subsamples
     inline_response_200_7:
       example:
         data:
@@ -2093,9 +1766,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_8_data_prices:
       example:
         price: 0.8008281904610115
@@ -2136,12 +1806,6 @@ components:
           nullable: true
           type: number
       type: object
-      x-property-sort:
-      - time
-      - price
-      - quoteCondition
-      - tradingVolume
-      - tradingValue
     inline_response_200_8_data:
       description: Time series data for the notation.
       example:
@@ -2169,7 +1833,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -2183,10 +1846,6 @@ components:
           - DLY
           nullable: true
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
         prices:
           description: Time series of prices.
           items:
@@ -2194,12 +1853,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - prices
     inline_response_200_8:
       example:
         data:
@@ -2232,9 +1885,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_9_data_subsample:
       description: Single summary record. For the attributes first, last, low, high,
         see attribute `valueUnit` in endpoint `/prices/get` for their unit, except
@@ -2289,14 +1939,6 @@ components:
           nullable: true
           type: number
       type: object
-      x-property-sort:
-      - time
-      - first
-      - last
-      - low
-      - high
-      - tradingVolume
-      - tradingValue
     inline_response_200_9_data:
       description: Subsample data for the notation.
       example:
@@ -2318,7 +1960,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -2330,18 +1971,9 @@ components:
           - DLY
           nullable: true
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
         subsample:
           $ref: '#/components/schemas/inline_response_200_9_data_subsample'
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - quality
-      - subsample
     inline_response_200_9:
       example:
         data:
@@ -2365,9 +1997,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_1_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_10_data_subsamples:
       example:
         high: 5.962133916683182
@@ -2419,14 +2048,6 @@ components:
           nullable: true
           type: number
       type: object
-      x-property-sort:
-      - time
-      - first
-      - last
-      - low
-      - high
-      - tradingVolume
-      - tradingValue
     inline_response_200_10_data:
       description: Subsampled time series data for the notation.
       example:
@@ -2458,7 +2079,6 @@ components:
           format: id64
           nullable: true
           type: string
-          x-positive: true
         sourceIdentifier:
           description: Identifier used in the request.
           nullable: true
@@ -2472,10 +2092,6 @@ components:
           - DLY
           nullable: true
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
         subsamples:
           description: List of summary records. For the attributes first, last, low,
             high, see attribute `valueUnit` in endpoint `/prices/get` for their unit,
@@ -2486,12 +2102,6 @@ components:
           nullable: false
           type: array
       type: object
-      x-property-sort:
-      - idNotation
-      - sourceIdentifier
-      - range
-      - quality
-      - subsamples
     inline_response_200_10:
       example:
         data:
@@ -2528,9 +2138,6 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     PostVendorChartIQTimeSeriesEodListRequest_data_identifier:
       description: Identifier and type.
       example:
@@ -2554,21 +2161,10 @@ components:
           - fdsPermanentIdentifierListing
           - fdsPermanentIdentifierRegional
           type: string
-          x-enum-description:
-          - MDG identifier of a listing.
-          - FactSet market symbol of a listing.
-          - Regional FactSet ticker symbol, identifying the primary listing in the
-            region.
-          - FactSet Permanent Identifier on listing level.
-          - Regional FactSet Permanent Identifier, identifying the primary listing
-            in the region.
       required:
       - type
       - value
       type: object
-      x-property-sort:
-      - value
-      - type
     PostVendorChartIQTimeSeriesEodListRequest_data_range:
       description: Date range for the time series. A valid date range is between 1900-01-01
         and the day after the current day.
@@ -2589,10 +2185,6 @@ components:
       - end
       - start
       type: object
-      x-isClosedInterval: false
-      x-property-sort:
-      - start
-      - end
     PostVendorChartIQTimeSeriesEodListRequest_data_adjustments:
       description: Adjustments values returned.
       example:
@@ -2611,9 +2203,6 @@ components:
             corporate action.
           type: boolean
       type: object
-      x-property-sort:
-      - payout
-      - split
     PostVendorChartIQTimeSeriesEodListRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -2642,12 +2231,6 @@ components:
           - yield
           - estimate
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
-          - Estimated price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -2656,13 +2239,6 @@ components:
           - EOD
           - BST
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         range:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesEodListRequest_data_range'
         newestFirst:
@@ -2675,13 +2251,6 @@ components:
       - identifier
       - range
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - range
-      - newestFirst
-      - adjustments
     PostVendorChartIQTimeSeriesEodListRequest_meta_pagination:
       description: Pagination attributes for the cursor-based pagination strategy.
       example:
@@ -2705,9 +2274,6 @@ components:
           minimum: 0
           type: number
       type: object
-      x-property-sort:
-      - cursor
-      - limit
     PostVendorChartIQTimeSeriesEodListRequest_meta:
       description: The meta member contains the meta information of the request.
       example:
@@ -2734,9 +2300,6 @@ components:
         pagination:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesEodListRequest_meta_pagination'
       type: object
-      x-property-sort:
-      - attributes
-      - pagination
     PostVendorChartIQTimeSeriesEodSubsampleGetRequest_data_interval:
       description: Non-empty interval of days specifying a single subsample period.
         The starting point `start` of the single subsample is usually the attribute
@@ -2761,10 +2324,6 @@ components:
       - end
       - start
       type: object
-      x-isClosedInterval: false
-      x-property-sort:
-      - start
-      - end
     PostVendorChartIQTimeSeriesEodSubsampleGetRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -2792,12 +2351,6 @@ components:
           - yield
           - estimate
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
-          - Estimated price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -2806,13 +2359,6 @@ components:
           - EOD
           - BST
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         interval:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesEodSubsampleGetRequest_data_interval'
         adjustments:
@@ -2821,12 +2367,6 @@ components:
       - identifier
       - interval
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - interval
-      - adjustments
     PostVendorChartIQTimeSeriesEodSubsampleGetRequest_meta:
       description: The meta member contains the meta information of the request.
       example:
@@ -2848,8 +2388,6 @@ components:
           type: array
           uniqueItems: true
       type: object
-      x-property-sort:
-      - attributes
     PostVendorChartIQTimeSeriesEodSubsampleListRequest_data_intervalSelection_samples:
       description: Subsample granularity and number of samples suitable for end-of-day
         data.
@@ -2883,21 +2421,10 @@ components:
           - 6m
           - 1y
           type: string
-          x-enum-description:
-          - Each subsample interval encompasses 1 day.
-          - Each subsample interval encompasses 1 week.
-          - Each subsample interval encompasses 1 month.
-          - Each subsample interval encompasses 3 month.
-          - Each subsample interval encompasses 6 month.
-          - Each subsample interval encompasses 1 year.
       required:
       - end
       - number
       type: object
-      x-property-sort:
-      - end
-      - number
-      - granularity
     PostVendorChartIQTimeSeriesEodSubsampleListRequest_data_intervalSelection:
       description: Select the intervals from which the subsamples are to be created.
       example:
@@ -2929,10 +2456,6 @@ components:
         samples:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesEodSubsampleListRequest_data_intervalSelection_samples'
       type: object
-      x-property-sort:
-      - intervals
-      - samples
-      x-atMostOne: true
     PostVendorChartIQTimeSeriesEodSubsampleListRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -2969,12 +2492,6 @@ components:
           - yield
           - estimate
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
-          - Estimated price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -2983,13 +2500,6 @@ components:
           - EOD
           - BST
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         intervalSelection:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesEodSubsampleListRequest_data_intervalSelection'
         newestFirst:
@@ -3002,13 +2512,6 @@ components:
       - identifier
       - intervalSelection
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - intervalSelection
-      - newestFirst
-      - adjustments
     PostVendorChartIQTimeSeriesIntradaySubsampleGetRequest_data_adjustments:
       description: Adjustments values returned.
       example:
@@ -3021,8 +2524,6 @@ components:
             corporate action.
           type: boolean
       type: object
-      x-property-sort:
-      - split
     PostVendorChartIQTimeSeriesIntradaySubsampleGetRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -3047,11 +2548,6 @@ components:
           - ask
           - yield
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -3060,12 +2556,6 @@ components:
           - DLY
           - BST
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         from:
           description: Date and time of the start point of the subsample (inclusive).
             `from` must be aligned to `granularity`. That is, the numerical value
@@ -3089,30 +2579,12 @@ components:
           - 30m
           - 1h
           type: string
-          x-enum-description:
-          - Each subsample interval encompasses 1 second.
-          - Each subsample interval encompasses 5 seconds.
-          - Each subsample interval encompasses 10 seconds.
-          - Each subsample interval encompasses 30 seconds.
-          - Each subsample interval encompasses 1 minute.
-          - Each subsample interval encompasses 5 minutes.
-          - Each subsample interval encompasses 10 minutes.
-          - Each subsample interval encompasses 15 minutes.
-          - Each subsample interval encompasses 30 minutes.
-          - Each subsample interval encompasses 1 hour.
         adjustments:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesIntradaySubsampleGetRequest_data_adjustments'
       required:
       - from
       - identifier
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - from
-      - granularity
-      - adjustments
     PostVendorChartIQTimeSeriesIntradaySubsampleListRequest_data_range:
       description: Date and time range for the time series. The `start` and `end`
         boundaries must be aligned to `granularity`. That is, the numerical value
@@ -3136,9 +2608,6 @@ components:
       - end
       - start
       type: object
-      x-property-sort:
-      - start
-      - end
     PostVendorChartIQTimeSeriesIntradaySubsampleListRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -3166,11 +2635,6 @@ components:
           - ask
           - yield
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -3179,12 +2643,6 @@ components:
           - DLY
           - BST
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         range:
           $ref: '#/components/schemas/PostVendorChartIQTimeSeriesIntradaySubsampleListRequest_data_range'
         granularity:
@@ -3202,17 +2660,6 @@ components:
           - 30m
           - 1h
           type: string
-          x-enum-description:
-          - Each subsample interval encompasses 1 second.
-          - Each subsample interval encompasses 5 seconds.
-          - Each subsample interval encompasses 10 seconds.
-          - Each subsample interval encompasses 30 seconds.
-          - Each subsample interval encompasses 1 minute.
-          - Each subsample interval encompasses 5 minutes.
-          - Each subsample interval encompasses 10 minutes.
-          - Each subsample interval encompasses 15 minutes.
-          - Each subsample interval encompasses 30 minutes.
-          - Each subsample interval encompasses 1 hour.
         newestFirst:
           default: false
           description: Deliver the chronological last part of the requested data first.
@@ -3223,14 +2670,6 @@ components:
       - identifier
       - range
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - range
-      - granularity
-      - newestFirst
-      - adjustments
     PostPricesTimeSeriesEodSubsampleGetRequest_data_interval:
       description: Non-empty interval of days specifying a single subsample period.
         The starting point `start` of the single subsample is usually the attribute
@@ -3255,10 +2694,6 @@ components:
       - end
       - start
       type: object
-      x-isClosedInterval: false
-      x-property-sort:
-      - start
-      - end
     PostPricesTimeSeriesEodSubsampleGetRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -3286,12 +2721,6 @@ components:
           - yield
           - estimate
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
-          - Estimated price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -3300,13 +2729,6 @@ components:
           - EOD
           - BST
           type: string
-          x-enum-description:
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'End-of-day: prices updated once per day after the close of trading, possibly
-            with an exchange-imposed delay of several hours or days.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         interval:
           $ref: '#/components/schemas/PostPricesTimeSeriesEodSubsampleGetRequest_data_interval'
         adjustments:
@@ -3315,12 +2737,6 @@ components:
       - identifier
       - interval
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - interval
-      - adjustments
     PostPricesTimeSeriesIntradayListRequest_data_range:
       description: Date and time range for the time series.
       example:
@@ -3342,9 +2758,6 @@ components:
       - end
       - start
       type: object
-      x-property-sort:
-      - start
-      - end
     PostPricesTimeSeriesIntradayListRequest_data:
       description: The data member contains the request's primary data.
       example:
@@ -3373,11 +2786,6 @@ components:
           - ask
           - yield
           type: string
-          x-enum-description:
-          - Trade price (ordinary, auction, pre or post-trading).
-          - Bid price.
-          - Ask price.
-          - Yield price.
         quality:
           default: DLY
           description: Quality of the price.
@@ -3386,12 +2794,6 @@ components:
           - DLY
           - BST
           type: string
-          x-enum-description:
-          - 'Real-time: intraday prices with minimal technical processing delays.'
-          - 'Delayed: intraday prices with an exchange-imposed delay of usually 15
-            to 30 minutes.'
-          - 'Best: choose the price quality with the least delay, as entitled for
-            the client.'
         range:
           $ref: '#/components/schemas/PostPricesTimeSeriesIntradayListRequest_data_range'
         newestFirst:
@@ -3408,9 +2810,6 @@ components:
           - none
           - all
           type: string
-          x-enum-description:
-          - Select original tick data without applying any corrections.
-          - Select corrected view.
         includeVolumeOnlyTicks:
           default: false
           description: Include ticks that contain a volume without a price.
@@ -3421,15 +2820,6 @@ components:
       - identifier
       - range
       type: object
-      x-property-sort:
-      - identifier
-      - type
-      - quality
-      - range
-      - newestFirst
-      - applyTickCorrections
-      - includeVolumeOnlyTicks
-      - adjustments
     PostPricesTimeSeriesIntradayListRequest_meta_pagination:
       description: Pagination attributes for the cursor-based pagination strategy.
       example:
@@ -3453,9 +2843,6 @@ components:
           minimum: 0
           type: number
       type: object
-      x-property-sort:
-      - cursor
-      - limit
     PostPricesTimeSeriesIntradayListRequest_meta:
       description: The meta member contains the meta information of the request.
       example:
@@ -3482,9 +2869,6 @@ components:
         pagination:
           $ref: '#/components/schemas/PostPricesTimeSeriesIntradayListRequest_meta_pagination'
       type: object
-      x-property-sort:
-      - attributes
-      - pagination
   securitySchemes:
     FactSetOAuth2:
       flows:
@@ -3495,7 +2879,4 @@ components:
     FactSetApiKey:
       scheme: basic
       type: http
-x-interface-version: 2
-x-documenter-version: 6.3.9
-x-api-version: 4.4.0
 

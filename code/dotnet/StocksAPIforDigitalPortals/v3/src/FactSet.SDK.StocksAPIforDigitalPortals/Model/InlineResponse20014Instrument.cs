@@ -83,7 +83,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <param name="stockType">Type of stock..</param>
         /// <param name="industryClassification">industryClassification.</param>
         /// <param name="company">company.</param>
-        public InlineResponse20014Instrument(string id = default(string), string name = default(string), string shortName = default(string), string isin = default(string), InlineResponse20014InstrumentNsin nsin = default(InlineResponse20014InstrumentNsin), InlineResponse200DataFsym fsym = default(InlineResponse200DataFsym), StockTypeEnum? stockType = default(StockTypeEnum?), InlineResponse20014InstrumentIndustryClassification industryClassification = default(InlineResponse20014InstrumentIndustryClassification), InlineResponse20014InstrumentCompany company = default(InlineResponse20014InstrumentCompany))
+        public InlineResponse20014Instrument(string id = default(string), string name = default(string), string shortName = default(string), string isin = default(string), InlineResponse20014InstrumentNsin nsin = default(InlineResponse20014InstrumentNsin), InlineResponse200DataFsym fsym = default(InlineResponse200DataFsym), StockTypeEnum? stockType = default(StockTypeEnum?), InlineResponse20014InstrumentIndustryClassification industryClassification = default(InlineResponse20014InstrumentIndustryClassification), InlineResponse2001DataCompany company = default(InlineResponse2001DataCompany))
         {
             this.Id = id;
             this.Name = name;
@@ -146,7 +146,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Gets or Sets Company
         /// </summary>
         [DataMember(Name = "company", EmitDefaultValue = false)]
-        public InlineResponse20014InstrumentCompany Company { get; set; }
+        public InlineResponse2001DataCompany Company { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

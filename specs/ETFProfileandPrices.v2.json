@@ -14,17 +14,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.",
         "summary": "Retrieve basic profile information for a specified ETP.",
         "parameters": [
@@ -61,28 +50,6 @@
                 "data": {
                   "description": "Profile.",
                   "type": "object",
-                  "x-property-sort": [
-                    "asOfDate",
-                    "holdingsDate",
-                    "symbol",
-                    "exchange",
-                    "name",
-                    "issuer",
-                    "brand",
-                    "launchDate",
-                    "description",
-                    "website",
-                    "domicile",
-                    "status",
-                    "currency",
-                    "index",
-                    "financialReport",
-                    "createRedeem",
-                    "aum",
-                    "trading",
-                    "documentation",
-                    "insight"
-                  ],
                   "properties": {
                     "asOfDate": {
                       "type": "string",
@@ -100,12 +67,6 @@
                     },
                     "exchange": {
                       "type": "object",
-                      "x-property-sort": [
-                        "code",
-                        "name",
-                        "country",
-                        "region"
-                      ],
                       "description": "Exchange.",
                       "properties": {
                         "code": {
@@ -123,12 +84,6 @@
                         "region": {
                           "type": "string",
                           "description": "Short region code where ETP exchange is located. This data is available for all the regions.",
-                          "x-enum-description": [
-                            "Europe region.",
-                            "North America region.",
-                            "Asia-Pacific region.",
-                            "Middle East & Africa."
-                          ],
                           "enum": [
                             "Europe",
                             "North America",
@@ -144,9 +99,6 @@
                     },
                     "issuer": {
                       "type": "object",
-                      "x-property-sort": [
-                        "name"
-                      ],
                       "description": "Issuer.",
                       "properties": {
                         "name": {
@@ -157,9 +109,6 @@
                     },
                     "brand": {
                       "type": "object",
-                      "x-property-sort": [
-                        "name"
-                      ],
                       "description": "Brand.",
                       "properties": {
                         "name": {
@@ -188,11 +137,6 @@
                     "status": {
                       "type": "string",
                       "description": "Staus of the ETP. This data is available for all the regions.",
-                      "x-enum-description": [
-                        "Active.",
-                        "Delisted.",
-                        "Not trading yet."
-                      ],
                       "enum": [
                         "Active",
                         "Delisted",
@@ -201,10 +145,6 @@
                     },
                     "currency": {
                       "type": "object",
-                      "x-property-sort": [
-                        "listing",
-                        "fund"
-                      ],
                       "description": "Currency.",
                       "properties": {
                         "listing": {
@@ -219,14 +159,6 @@
                     },
                     "index": {
                       "type": "object",
-                      "x-property-sort": [
-                        "name",
-                        "family",
-                        "website",
-                        "distributionTreatment",
-                        "rebalancingFrequency",
-                        "currency"
-                      ],
                       "description": "The index the ETP is replicating, if applicable.",
                       "properties": {
                         "name": {
@@ -248,16 +180,6 @@
                         "rebalancingFrequency": {
                           "type": "string",
                           "description": "Period of time between reweighting underlying index constituents.",
-                          "x-enum-description": [
-                            "Monthly.",
-                            "Annually.",
-                            "Quarterly.",
-                            "Semi-annual.",
-                            "Daily.",
-                            "As Needed.",
-                            "Bi-Monthly.",
-                            "Weekly."
-                          ],
                           "enum": [
                             "Monthly",
                             "Annually",
@@ -277,18 +199,10 @@
                     },
                     "financialReport": {
                       "type": "object",
-                      "x-property-sort": [
-                        "annual",
-                        "semiAnnual"
-                      ],
                       "description": "Financial report.",
                       "properties": {
                         "annual": {
                           "type": "object",
-                          "x-property-sort": [
-                            "isAvailable",
-                            "date"
-                          ],
                           "description": "Annual.",
                           "properties": {
                             "isAvailable": {
@@ -304,10 +218,6 @@
                         },
                         "semiAnnual": {
                           "type": "object",
-                          "x-property-sort": [
-                            "isAvailable",
-                            "date"
-                          ],
                           "description": "Semi annual.",
                           "properties": {
                             "isAvailable": {
@@ -325,10 +235,6 @@
                     },
                     "createRedeem": {
                       "type": "object",
-                      "x-property-sort": [
-                        "unitCost",
-                        "unitSize"
-                      ],
                       "description": "Create or redeem",
                       "properties": {
                         "unitCost": {
@@ -350,18 +256,10 @@
                     },
                     "trading": {
                       "type": "object",
-                      "x-property-sort": [
-                        "average",
-                        "median"
-                      ],
                       "description": "Trading.",
                       "properties": {
                         "average": {
                           "type": "object",
-                          "x-property-sort": [
-                            "volume",
-                            "value"
-                          ],
                           "description": "Average.",
                           "properties": {
                             "volume": {
@@ -378,10 +276,6 @@
                         },
                         "median": {
                           "type": "object",
-                          "x-property-sort": [
-                            "volume",
-                            "value"
-                          ],
                           "description": "Median.",
                           "properties": {
                             "volume": {
@@ -400,10 +294,6 @@
                     },
                     "documentation": {
                       "type": "object",
-                      "x-property-sort": [
-                        "isProspectusPosted",
-                        "isSaiPosted"
-                      ],
                       "description": "Documentation.",
                       "properties": {
                         "isProspectusPosted": {
@@ -418,10 +308,6 @@
                     },
                     "insight": {
                       "type": "object",
-                      "x-property-sort": [
-                        "overview",
-                        "quote"
-                      ],
                       "description": "Insight.",
                       "properties": {
                         "overview": {
@@ -443,10 +329,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -460,17 +343,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/asset/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's asset allocations.",
         "parameters": [
@@ -529,10 +401,6 @@
                 "data": {
                   "description": "ETP asset allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "assets"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -543,10 +411,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "assetClass",
-                          "weight"
-                        ],
                         "properties": {
                           "assetClass": {
                             "type": "string",
@@ -574,11 +438,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -592,17 +452,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/country/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's country allocations.",
         "parameters": [
@@ -661,10 +510,6 @@
                 "data": {
                   "description": "ETP country allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "countries"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -675,10 +520,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "country",
-                          "weight"
-                        ],
                         "properties": {
                           "country": {
                             "type": "string",
@@ -706,11 +547,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -724,17 +561,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/currency/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's currency allocations.",
         "parameters": [
@@ -793,10 +619,6 @@
                 "data": {
                   "description": "ETP currency allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "currencies"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -807,10 +629,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "currency",
-                          "weight"
-                        ],
                         "properties": {
                           "currency": {
                             "type": "string",
@@ -838,11 +656,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -856,17 +670,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/economicDevelopment/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).",
         "summary": "List of allocations classified by a holding's economic development status.",
         "parameters": [
@@ -925,10 +728,6 @@
                 "data": {
                   "description": "List of allocations.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "classifications"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -939,10 +738,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "name",
-                          "weight"
-                        ],
                         "properties": {
                           "name": {
                             "type": "string",
@@ -951,7 +746,6 @@
                           "weight": {
                             "type": "number",
                             "format": "percentage",
-                            "x-convertToRelative": false,
                             "description": "Weight (net) of the classification."
                           }
                         }
@@ -970,11 +764,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -988,17 +778,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/exchange/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's exchange allocations.",
         "parameters": [
@@ -1057,10 +836,6 @@
                 "data": {
                   "description": "ETP exchange allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "exchanges"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -1071,10 +846,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "exchange",
-                          "weight"
-                        ],
                         "properties": {
                           "exchange": {
                             "type": "string",
@@ -1102,11 +873,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -1120,17 +887,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/industry/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's industry allocations.",
         "parameters": [
@@ -1189,10 +945,6 @@
                 "data": {
                   "description": "ETP industry allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "industries"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -1203,10 +955,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "industry",
-                          "weight"
-                        ],
                         "properties": {
                           "industry": {
                             "type": "string",
@@ -1234,11 +982,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -1252,17 +996,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/marketCapitalization/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.",
         "summary": "List of allocations classified by a holding's total market capitalization.",
         "parameters": [
@@ -1321,10 +1054,6 @@
                 "data": {
                   "description": "List of allocations.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "classifications"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -1335,10 +1064,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "classification",
-                          "weight"
-                        ],
                         "properties": {
                           "classification": {
                             "type": "string",
@@ -1366,11 +1091,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -1384,17 +1105,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/region/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's region allocations.",
         "parameters": [
@@ -1453,10 +1163,6 @@
                 "data": {
                   "description": "ETP region allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "regions"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -1467,10 +1173,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "region",
-                          "weight"
-                        ],
                         "properties": {
                           "region": {
                             "type": "string",
@@ -1498,11 +1200,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -1516,17 +1214,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/allocation/sector/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's sector allocations.",
         "parameters": [
@@ -1585,10 +1272,6 @@
                 "data": {
                   "description": "ETP sector allocation data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "reportDate",
-                    "sectors"
-                  ],
                   "properties": {
                     "reportDate": {
                       "type": "string",
@@ -1599,10 +1282,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "sector",
-                          "weight"
-                        ],
                         "properties": {
                           "sector": {
                             "type": "string",
@@ -1630,11 +1309,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -1648,17 +1323,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/analytics/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.",
         "summary": "FactSet proprietary analytics datapoints for ETPs.",
         "parameters": [
@@ -1695,14 +1359,6 @@
                 "data": {
                   "description": "Profile analytics.",
                   "type": "object",
-                  "x-property-sort": [
-                    "asOfDate",
-                    "securityLending",
-                    "risk",
-                    "benchmarkName",
-                    "indexChange",
-                    "medianBidAskSpread"
-                  ],
                   "properties": {
                     "asOfDate": {
                       "type": "string",
@@ -1712,12 +1368,6 @@
                     "securityLending": {
                       "description": "Security lending.",
                       "type": "object",
-                      "x-property-sort": [
-                        "isAllowed",
-                        "isActive",
-                        "revenue",
-                        "revenuePolicy"
-                      ],
                       "properties": {
                         "isAllowed": {
                           "type": "boolean",
@@ -1741,11 +1391,6 @@
                     "risk": {
                       "description": "Risk.",
                       "type": "object",
-                      "x-property-sort": [
-                        "isCorporateActionPending",
-                        "counterParty",
-                        "fundClosure"
-                      ],
                       "properties": {
                         "isCorporateActionPending": {
                           "type": "boolean",
@@ -1767,10 +1412,6 @@
                     },
                     "indexChange": {
                       "type": "object",
-                      "x-property-sort": [
-                        "hasChanged",
-                        "date"
-                      ],
                       "description": "Index change.",
                       "properties": {
                         "hasChanged": {
@@ -1787,7 +1428,6 @@
                     "medianBidAskSpread": {
                       "type": "number",
                       "format": "percentage",
-                      "x-convertToRelative": false,
                       "description": "The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US."
                     }
                   }
@@ -1799,10 +1439,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -1816,17 +1453,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/analytics/holdings/statistics/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.",
         "summary": "FactSet's portfolio statistics for ETPs.",
         "parameters": [
@@ -1863,17 +1489,6 @@
                 "data": {
                   "description": "Portfolio statistics.",
                   "type": "object",
-                  "x-property-sort": [
-                    "asOfDate",
-                    "numberHoldings",
-                    "concentration",
-                    "dividendYield",
-                    "priceEarningsRatio",
-                    "priceBookRatio",
-                    "marketCapitalization",
-                    "timeToMaturity",
-                    "creditRating"
-                  ],
                   "properties": {
                     "asOfDate": {
                       "type": "string",
@@ -1892,7 +1507,6 @@
                     "dividendYield": {
                       "type": "number",
                       "format": "percentage",
-                      "x-convertToRelative": false,
                       "description": "The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US."
                     },
                     "priceEarningsRatio": {
@@ -1928,10 +1542,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -1945,17 +1556,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/analytics/score/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.",
         "summary": "FactSet proprietary ETP rankings.",
         "parameters": [
@@ -1992,24 +1592,9 @@
                 "data": {
                   "description": "Score analytics.",
                   "type": "object",
-                  "x-property-sort": [
-                    "efficiency",
-                    "tradability",
-                    "fit",
-                    "grade",
-                    "analystPick",
-                    "onOpportunitiesList",
-                    "fitRsquared",
-                    "beta",
-                    "standardDeviationDown"
-                  ],
                   "properties": {
                     "efficiency": {
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "average"
-                      ],
                       "description": "Efficiency.",
                       "properties": {
                         "value": {
@@ -2026,10 +1611,6 @@
                     },
                     "tradability": {
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "average"
-                      ],
                       "description": "Tradability.",
                       "properties": {
                         "value": {
@@ -2046,10 +1627,6 @@
                     },
                     "fit": {
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "average"
-                      ],
                       "description": "Fit.",
                       "properties": {
                         "value": {
@@ -2083,11 +1660,6 @@
                     },
                     "beta": {
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "up",
-                        "down"
-                      ],
                       "description": "Beta.",
                       "properties": {
                         "value": {
@@ -2121,10 +1693,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -2138,17 +1707,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/analytics/trade/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.",
         "summary": "Trade statistics for specific ETP.",
         "parameters": [
@@ -2185,20 +1743,9 @@
                 "data": {
                   "description": "Trade analytics.",
                   "type": "object",
-                  "x-property-sort": [
-                    "impedimentsToCreation",
-                    "premiumDiscount",
-                    "blockTrade",
-                    "spread",
-                    "trackingDifference"
-                  ],
                   "properties": {
                     "impedimentsToCreation": {
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "reason"
-                      ],
                       "description": "Impediments to creation.",
                       "properties": {
                         "value": {
@@ -2213,10 +1760,6 @@
                     },
                     "premiumDiscount": {
                       "type": "object",
-                      "x-property-sort": [
-                        "median",
-                        "max"
-                      ],
                       "description": "The difference between the last share price of the ETF and its end-of-day net asset value (NAV). A positive difference is called premium and a negative difference is called discount.",
                       "properties": {
                         "median": {
@@ -2234,12 +1777,6 @@
                     "blockTrade": {
                       "description": "Properties of the ETP with respect to large trades.",
                       "type": "object",
-                      "x-property-sort": [
-                        "overlapHours",
-                        "underlyingVolumePerUnit",
-                        "liquidity",
-                        "creationUnitPerDay"
-                      ],
                       "properties": {
                         "overlapHours": {
                           "type": "number",
@@ -2249,7 +1786,6 @@
                         "underlyingVolumePerUnit": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Weighted average of the ratios of each underlying's number of shares, represented in one creation unit of the ETP, relative to the median daily trading volume of the underlying over 45 trading days, expressed as a percentage. This is a measure of the liquidity available in the underlying portfolio of the ETP, whereby larger numbers indicate greater likelihood of adverse price impact on underlying securities from ETF creations/redemptions. Only applicable for ETF. Available for the regions: US."
                         },
                         "liquidity": {
@@ -2267,10 +1803,6 @@
                     "spread": {
                       "description": "The 45-day median of daily time-weighted dollar or percentage difference between the highest posted price a market participant is willing to pay to buy an ETF and the lowest posted price at which a market participant is willing to sell an ETF.",
                       "type": "object",
-                      "x-property-sort": [
-                        "absolute",
-                        "relative"
-                      ],
                       "properties": {
                         "absolute": {
                           "type": "number",
@@ -2280,36 +1812,27 @@
                         "relative": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Percentage spread difference. Available for the regions: US."
                         }
                       }
                     },
                     "trackingDifference": {
                       "type": "object",
-                      "x-property-sort": [
-                        "median",
-                        "maxUpside",
-                        "maxDownside"
-                      ],
                       "description": "Tracking difference.",
                       "properties": {
                         "median": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "The median difference between NAV and fund index returns over a one-year set of rolling 12 month holding periods. This statistic captures all inputs to tracking difference: expense ratio, optimization, securities lending income, and tax recapture. Available for the regions: US."
                         },
                         "maxUpside": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Greatest, or least negative 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US."
                         },
                         "maxDownside": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Most negative or least positive 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US."
                         }
                       }
@@ -2323,10 +1846,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -2340,17 +1860,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/characteristics/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.",
         "summary": "Retrieve basic characteristic information for a specified ETP.",
         "parameters": [
@@ -2387,21 +1896,10 @@
                 "data": {
                   "description": "Characteristics.",
                   "type": "object",
-                  "x-property-sort": [
-                    "gearing",
-                    "hedge",
-                    "counterParty",
-                    "serviceProvider"
-                  ],
                   "properties": {
                     "gearing": {
                       "description": "Gearing.",
                       "type": "object",
-                      "x-property-sort": [
-                        "isInverseFund",
-                        "leverage",
-                        "exposureResetPeriod"
-                      ],
                       "properties": {
                         "isInverseFund": {
                           "type": "boolean",
@@ -2410,11 +1908,6 @@
                         "leverage": {
                           "description": "Leverage.",
                           "type": "object",
-                          "x-property-sort": [
-                            "isLeverageFund",
-                            "factor",
-                            "type"
-                          ],
                           "properties": {
                             "isLeverageFund": {
                               "type": "boolean",
@@ -2434,13 +1927,6 @@
                         "exposureResetPeriod": {
                           "type": "string",
                           "description": "Exposure reset frequency of leveraged and inverse ETPs, text and standardized value available. This data is available for all the regions.",
-                          "x-enum-description": [
-                            "Daily.",
-                            "Variable.",
-                            "None.",
-                            "Monthly.",
-                            "Quarterly."
-                          ],
                           "enum": [
                             "Daily",
                             "Variable",
@@ -2454,11 +1940,6 @@
                     "hedge": {
                       "description": "Hedge.",
                       "type": "object",
-                      "x-property-sort": [
-                        "isHedged",
-                        "sourceCurrency",
-                        "targetCurrency"
-                      ],
                       "properties": {
                         "isHedged": {
                           "type": "boolean",
@@ -2477,11 +1958,6 @@
                     "counterParty": {
                       "description": "Counter Party.",
                       "type": "object",
-                      "x-property-sort": [
-                        "credit",
-                        "swap",
-                        "holdsDerivatives"
-                      ],
                       "properties": {
                         "credit": {
                           "type": "string",
@@ -2500,12 +1976,6 @@
                     "serviceProvider": {
                       "description": "Service Provider.",
                       "type": "object",
-                      "x-property-sort": [
-                        "primaryAdvisor",
-                        "subAdvisor",
-                        "distributor",
-                        "isIssuerAffiliate"
-                      ],
                       "properties": {
                         "primaryAdvisor": {
                           "type": "string",
@@ -2534,10 +2004,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -2551,17 +2018,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/class/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.",
         "summary": "Retrieve an ETP's classification specific to asset class, geography, or investment strategy.",
         "parameters": [
@@ -2598,24 +2054,10 @@
                 "data": {
                   "description": "Class information of given ETP.",
                   "type": "object",
-                  "x-property-sort": [
-                    "asset",
-                    "economicDevelopment",
-                    "geography",
-                    "category"
-                  ],
                   "properties": {
                     "asset": {
                       "type": "string",
                       "description": "Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.",
-                      "x-enum-description": [
-                        "Equity.",
-                        "Alternatives.",
-                        "Fixed Income.",
-                        "Commodities.",
-                        "Currency.",
-                        "Asset Allocation."
-                      ],
                       "enum": [
                         "Equity",
                         "Alternatives",
@@ -2628,12 +2070,6 @@
                     "economicDevelopment": {
                       "type": "string",
                       "description": "The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.",
-                      "x-enum-description": [
-                        "Developed Markets.",
-                        "Blended Development.",
-                        "Emerging Markets.",
-                        "Frontier Markets."
-                      ],
                       "enum": [
                         "Developed Markets",
                         "Blended Development",
@@ -2644,26 +2080,10 @@
                     "geography": {
                       "description": "geography.",
                       "type": "object",
-                      "x-property-sort": [
-                        "region",
-                        "specific"
-                      ],
                       "properties": {
                         "region": {
                           "type": "string",
                           "description": "The broad regional exposure of the ETP's holdings (e.g., Latin America, Asia-Pacific, Global), text and standardized value available. This data is available for all the regions.",
-                          "x-enum-description": [
-                            "Europe.",
-                            "North America.",
-                            "Global.",
-                            "Developed Markets.",
-                            "Asia-Pacific.",
-                            "Global Ex-U.S.",
-                            "Emerging Markets.",
-                            "Latin America.",
-                            "Middle East & Africa.",
-                            "Frontier Markets."
-                          ],
                           "enum": [
                             "Europe",
                             "North America",
@@ -2686,11 +2106,6 @@
                     "category": {
                       "description": "category.",
                       "type": "object",
-                      "x-property-sort": [
-                        "broad",
-                        "focus",
-                        "niche"
-                      ],
                       "properties": {
                         "broad": {
                           "type": "string",
@@ -2715,10 +2130,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -2732,17 +2144,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/class/category/broad/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class broad categories.",
         "summary": "List of ETP class broad categories.",
         "responses": {
@@ -2755,9 +2156,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "broadCategory"
-                    ],
                     "properties": {
                       "broadCategory": {
                         "type": "string",
@@ -2775,10 +2173,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -2808,17 +2203,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/class/category/focus/list",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class focus categories.",
         "summary": "List of ETP class focus categories.",
         "responses": {
@@ -2831,9 +2215,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "focusCategory"
-                    ],
                     "properties": {
                       "focusCategory": {
                         "type": "string",
@@ -2854,11 +2235,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -2910,17 +2287,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/class/category/niche/list",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class niche categories.",
         "summary": "List of ETP class niche categories.",
         "responses": {
@@ -2933,9 +2299,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "nicheCategory"
-                    ],
                     "properties": {
                       "nicheCategory": {
                         "type": "string",
@@ -2956,11 +2319,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -3012,17 +2371,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/class/geography/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class geographies.",
         "summary": "List of ETP class geographies.",
         "responses": {
@@ -3035,9 +2383,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "name"
-                    ],
                     "properties": {
                       "name": {
                         "type": "string",
@@ -3055,10 +2400,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -3088,17 +2430,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/competitors/listBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.",
         "summary": "FactSet's proprietary list of competing companies.",
         "parameters": [
@@ -3136,10 +2467,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "symbol",
-                      "name"
-                    ],
                     "properties": {
                       "symbol": {
                         "type": "string",
@@ -3161,10 +2488,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -3178,17 +2502,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/distribution/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.",
         "summary": "Retrieve an ETP's current distribution details.",
         "parameters": [
@@ -3225,23 +2538,10 @@
                 "data": {
                   "description": "Distribution.",
                   "type": "object",
-                  "x-property-sort": [
-                    "dividend",
-                    "capitalGains",
-                    "totalDistribution",
-                    "distributionYield"
-                  ],
                   "properties": {
                     "dividend": {
                       "description": "Dividend information for the next dividend.",
                       "type": "object",
-                      "x-property-sort": [
-                        "isReported",
-                        "exDividendDate",
-                        "qualified",
-                        "nonQualified",
-                        "returnOfCapital"
-                      ],
                       "properties": {
                         "isReported": {
                           "type": "boolean",
@@ -3272,10 +2572,6 @@
                     "capitalGains": {
                       "description": "Capital Gains.",
                       "type": "object",
-                      "x-property-sort": [
-                        "shortTerm",
-                        "longTerm"
-                      ],
                       "properties": {
                         "shortTerm": {
                           "type": "number",
@@ -3308,10 +2604,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -3325,17 +2618,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/fundFlows/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.",
         "summary": "Retrieve an ETP's cash inflow/outflows for various time periods.",
         "parameters": [
@@ -3372,13 +2654,6 @@
                 "data": {
                   "description": "Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.",
                   "type": "object",
-                  "x-property-sort": [
-                    "flows1D",
-                    "flows1W",
-                    "flows1M",
-                    "flowsYTD",
-                    "flows1Y"
-                  ],
                   "properties": {
                     "flows1D": {
                       "type": "number",
@@ -3414,10 +2689,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -3431,17 +2703,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/growthOfTenK/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.",
         "summary": "This endpoint returns selected ETP's Growth of 10K calculated values.",
         "parameters": [
@@ -3460,17 +2721,6 @@
             "type": "string",
             "required": false,
             "description": "Historice NAV date value.",
-            "x-enum-description": [
-              "One month.",
-              "Three months.",
-              "Six months.",
-              "Year to date.",
-              "One year.",
-              "Three year.",
-              "Five years.",
-              "Ten years.",
-              "Since Inception."
-            ],
             "enum": [
               "1M",
               "3M",
@@ -3489,10 +2739,6 @@
             "type": "string",
             "required": false,
             "description": "Historice NAV date value.",
-            "x-enum-description": [
-              "Interval - Growth of 10000 calculated based on pre-defined time Period.",
-              "Since Inception - Growth of 10000 calculation starts from the inception."
-            ],
             "enum": [
               "I",
               "SI"
@@ -3504,11 +2750,6 @@
             "type": "string",
             "required": false,
             "description": "Indicates the reference point for growth of 10k data.",
-            "x-enum-description": [
-              "Growth of 10k data is shown relative to the most recent (usually daily) end-of-day 10k value, NAV change percent.",
-              "Growth of 10k data is shown relative to the 10k value, NAV change percent at the most recent end-of-week.",
-              "Growth of 10k data is shown relative to the 10k value, NAV change percent at the most recent end-of-month."
-            ],
             "enum": [
               "day",
               "week-end",
@@ -3562,11 +2803,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "navDate",
-                      "tenkValue",
-                      "tenkPercentChange"
-                    ],
                     "properties": {
                       "navDate": {
                         "type": "string",
@@ -3598,11 +2834,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -3616,17 +2848,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/holdings/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve an ETP's holdings information including security, shares held, and weight.",
         "summary": "Holdings details for an individual ETP.",
         "parameters": [
@@ -3686,17 +2907,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "symbol",
-                      "name",
-                      "securityType",
-                      "exchange",
-                      "reportDate",
-                      "shares",
-                      "marketValue",
-                      "currencyCode",
-                      "weight"
-                    ],
                     "properties": {
                       "symbol": {
                         "type": "string",
@@ -3712,10 +2922,6 @@
                       },
                       "exchange": {
                         "type": "object",
-                        "x-property-sort": [
-                          "code",
-                          "name"
-                        ],
                         "description": "Exchange.",
                         "properties": {
                           "code": {
@@ -3767,11 +2973,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -3785,17 +2987,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/marketAggregates/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.",
         "summary": "Market aggregate data for ETPs.",
         "parameters": [
@@ -3832,11 +3023,6 @@
                 "data": {
                   "description": "Market Aggregates",
                   "type": "object",
-                  "x-property-sort": [
-                    "asOfDate",
-                    "optionAdjustedSpread",
-                    "averageLife"
-                  ],
                   "properties": {
                     "asOfDate": {
                       "type": "string",
@@ -3846,91 +3032,65 @@
                     "optionAdjustedSpread": {
                       "description": "Option-adjusted spread (OAS) value of the ETP; measurement of the yield spread calculated after removing any embedded options providing users with a spread of an option-free bond.",
                       "type": "object",
-                      "x-property-sort": [
-                        "range0",
-                        "range0To100",
-                        "range100To200",
-                        "range200To300",
-                        "range300To400",
-                        "range400To500",
-                        "range500To600",
-                        "range600To700",
-                        "range700To800",
-                        "range800To900",
-                        "range900To1000",
-                        "range1000Plus"
-                      ],
                       "properties": {
                         "range0": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS value of the ETP."
                         },
                         "range0To100": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETP ranges between 0 to 99.9."
                         },
                         "range100To200": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETP ranges between 100 to 199.99."
                         },
                         "range200To300": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETP ranges between 200 to 299.99."
                         },
                         "range300To400": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 300 to 399.99."
                         },
                         "range400To500": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 400 to 499.99."
                         },
                         "range500To600": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 500 to 599.99."
                         },
                         "range600To700": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 600 to 699.99."
                         },
                         "range700To800": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 700 to 799.99."
                         },
                         "range800To900": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 800 to 899.99."
                         },
                         "range900To1000": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges between 900 to 999.99."
                         },
                         "range1000Plus": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "OAS weight of the ETF ranges above 1000."
                         }
                       }
@@ -3938,77 +3098,55 @@
                     "averageLife": {
                       "description": "Average life",
                       "type": "object",
-                      "x-property-sort": [
-                        "span",
-                        "span0To1",
-                        "span1To2",
-                        "span2To3",
-                        "span3To5",
-                        "span5To7",
-                        "span7To10",
-                        "span10To15",
-                        "span15To20",
-                        "span20Plus"
-                      ],
                       "properties": {
                         "span": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP."
                         },
                         "span0To1": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 0 and 1 years."
                         },
                         "span1To2": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 1 and 2 years."
                         },
                         "span2To3": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 2 and 3 years."
                         },
                         "span3To5": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 3 and 5 years."
                         },
                         "span5To7": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 5 and 7 years."
                         },
                         "span7To10": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 7 and 10 years."
                         },
                         "span10To15": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 10 and 15 years."
                         },
                         "span15To20": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges between 15 and 20 years."
                         },
                         "span20Plus": {
                           "type": "number",
                           "format": "percentage",
-                          "x-convertToRelative": false,
                           "description": "Average life value of the ETP ranges above 20 years."
                         }
                       }
@@ -4022,10 +3160,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -4039,17 +3174,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/premiumDiscount/summary/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Summary of ETP premium discount data.",
         "summary": "Summary of ETP premium discount data.",
         "parameters": [
@@ -4069,12 +3193,6 @@
             "required": false,
             "default": "YTD",
             "description": "Time frame of the data.",
-            "x-enum-description": [
-              "Year to date.",
-              "Two year.",
-              "Three year.",
-              "Five years."
-            ],
             "enum": [
               "YTD",
               "2Y",
@@ -4089,11 +3207,6 @@
             "required": false,
             "default": "quarter-end",
             "description": "Indicates the reference point for the historical NAV and price values.",
-            "x-enum-description": [
-              "Premium/discount/neutral data is shown relative to ETP's NAV and price at the most recent end-of-month.",
-              "Premium/discount/neutral data is shown relative to ETP's NAV and price at the most recent end-of-quarter.",
-              "Premium/discount/neutral data is shown relative to ETP's NAV and price at the most recent end-of-year."
-            ],
             "enum": [
               "month-end",
               "quarter-end",
@@ -4146,10 +3259,6 @@
                 "data": {
                   "description": "ETP's premium discount summary data.",
                   "type": "object",
-                  "x-property-sort": [
-                    "asOfDate",
-                    "summary"
-                  ],
                   "properties": {
                     "asOfDate": {
                       "type": "string",
@@ -4160,10 +3269,6 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "x-property-sort": [
-                          "reportDate",
-                          "count"
-                        ],
                         "properties": {
                           "reportDate": {
                             "type": "string",
@@ -4172,11 +3277,6 @@
                           },
                           "count": {
                             "type": "object",
-                            "x-property-sort": [
-                              "premium",
-                              "discount",
-                              "neutral"
-                            ],
                             "description": "Count of premium, disount and neutral.",
                             "properties": {
                               "premium": {
@@ -4213,11 +3313,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -4231,17 +3327,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/price/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve an ETP's historical NAV and shares outstanding for a specified time range.",
         "summary": "Retrieve historical ETP NAV values.",
         "parameters": [
@@ -4278,21 +3363,10 @@
                 "data": {
                   "description": "Price.",
                   "type": "object",
-                  "x-property-sort": [
-                    "nav",
-                    "sharesOutstanding"
-                  ],
                   "properties": {
                     "nav": {
                       "description": "Nav.",
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "currency",
-                        "startDate",
-                        "last",
-                        "totalReturn"
-                      ],
                       "properties": {
                         "value": {
                           "type": "number",
@@ -4302,17 +3376,6 @@
                         "currency": {
                           "type": "string",
                           "description": "Currency of the ETP's NAV in ISO 4217 format. This data is available for all the regions.",
-                          "x-enum-description": [
-                            "Swiss franc.",
-                            "Canadian dollar.",
-                            "United States dollar.",
-                            "Euro.",
-                            "Mexican peso.",
-                            "Pound sterling.",
-                            "Penny sterling.",
-                            "Swedish krona/kronor.",
-                            "Japanese yen."
-                          ],
                           "enum": [
                             "CHF",
                             "CAD",
@@ -4333,10 +3396,6 @@
                         "last": {
                           "description": "Last.",
                           "type": "object",
-                          "x-property-sort": [
-                            "value",
-                            "date"
-                          ],
                           "properties": {
                             "value": {
                               "type": "number",
@@ -4360,11 +3419,6 @@
                     "sharesOutstanding": {
                       "description": "Shares outstanding.",
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "lastValue",
-                        "earliestDate"
-                      ],
                       "properties": {
                         "value": {
                           "type": "number",
@@ -4392,10 +3446,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -4409,17 +3460,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/returns/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.",
         "summary": "Retrieve total return data for a specified ETP.",
         "parameters": [
@@ -4441,10 +3481,6 @@
             "required": false,
             "default": "price",
             "description": "Return type.",
-            "x-enum-description": [
-              "Price Returns.",
-              "NAV Returns."
-            ],
             "enum": [
               "price",
               "nav"
@@ -4474,14 +3510,6 @@
                 "data": {
                   "description": "Returns.",
                   "type": "object",
-                  "x-property-sort": [
-                    "return1M",
-                    "return3M",
-                    "returnYTD",
-                    "return1Y",
-                    "return3Y",
-                    "return5Y"
-                  ],
                   "properties": {
                     "return1M": {
                       "type": "number",
@@ -4522,10 +3550,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -4539,17 +3564,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/strategy/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.",
         "summary": "Retrieve various classification details for a specified ETP.",
         "parameters": [
@@ -4586,16 +3600,6 @@
                 "data": {
                   "description": "Strategy.",
                   "type": "object",
-                  "x-property-sort": [
-                    "description",
-                    "group",
-                    "cluster",
-                    "selectCriteria",
-                    "weighting",
-                    "segment",
-                    "isTransparent",
-                    "fundOfFunds"
-                  ],
                   "properties": {
                     "description": {
                       "type": "string",
@@ -4638,10 +3642,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -4655,17 +3656,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/strategy/segment/list",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.",
         "summary": "Retrieve a list of ETP strategy segments.",
         "responses": {
@@ -4678,9 +3668,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "name"
-                    ],
                     "properties": {
                       "name": {
                         "type": "string",
@@ -4701,11 +3688,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -4757,17 +3740,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/structure/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.",
         "summary": "Retrieve the basic structure information for a specified ETP.",
         "parameters": [
@@ -4804,20 +3776,6 @@
                 "data": {
                   "description": "Structure.",
                   "type": "object",
-                  "x-property-sort": [
-                    "isEtn",
-                    "type",
-                    "isActivelyManaged",
-                    "backing",
-                    "syntheticType",
-                    "legalStructure",
-                    "isUcitsCompliant",
-                    "isHoldingsTransparent",
-                    "portfolioDisclosure",
-                    "cashFlowFrequency",
-                    "isEligibleForRegisteredAccounts",
-                    "isDripEligible"
-                  ],
                   "properties": {
                     "isEtn": {
                       "type": "boolean",
@@ -4876,10 +3834,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -4893,17 +3848,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/taxesAndFees/us/getBySymbol",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.",
         "summary": "Retrieve the tax and fee related information for a specified ETP.",
         "parameters": [
@@ -4940,30 +3884,10 @@
                 "data": {
                   "description": "Taxes and fees.",
                   "type": "object",
-                  "x-property-sort": [
-                    "maxCapitalGainsRate",
-                    "dividendTreatment",
-                    "distributeK1",
-                    "taxType",
-                    "taxOnDistributions",
-                    "expenseRatio",
-                    "potentialCostIncreaseDate",
-                    "contractAdvisoryFee",
-                    "capitalGains",
-                    "capitalGainsDistirbutions3Y",
-                    "managementExpenseRatio",
-                    "managementFee",
-                    "tradingExpenseRatio",
-                    "feeWaiver"
-                  ],
                   "properties": {
                     "maxCapitalGainsRate": {
                       "description": "Max capital gains rate.",
                       "type": "object",
-                      "x-property-sort": [
-                        "longTerm",
-                        "shortTerm"
-                      ],
                       "properties": {
                         "longTerm": {
                           "type": "number",
@@ -4996,10 +3920,6 @@
                     "expenseRatio": {
                       "description": "Expense ratio.",
                       "type": "object",
-                      "x-property-sort": [
-                        "value",
-                        "potential"
-                      ],
                       "properties": {
                         "value": {
                           "type": "number",
@@ -5061,10 +3981,7 @@
                     "status": {
                       "$ref": "#/definitions/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
               }
             }
@@ -5078,17 +3995,6 @@
           "factset"
         ],
         "operationId": "get/factset/etf/timeSeries/listBySymbol",
-        "x-supportsOffsetBasedPaging": true,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.",
         "summary": "Retrieve historical NAV data for a specified ETP.",
         "parameters": [
@@ -5108,18 +4014,6 @@
             "required": false,
             "default": "1Y",
             "description": "Time frame of the data.",
-            "x-enum-description": [
-              "One month.",
-              "Three months.",
-              "Six months.",
-              "Year to date.",
-              "One year.",
-              "Two year.",
-              "Three year.",
-              "Five years.",
-              "Ten years.",
-              "Since Inception."
-            ],
             "enum": [
               "1M",
               "3M",
@@ -5139,11 +4033,6 @@
             "type": "string",
             "required": false,
             "description": "Indicates the reference point for the time series data.",
-            "x-enum-description": [
-              "Time series data is shown relative to the most recent (usually daily) end-of-day NAV.",
-              "Time series data is shown relative to the NAV at the most recent end-of-week.",
-              "Time series data is shown relative to the NAV at the most recent end-of-month."
-            ],
             "enum": [
               "day",
               "week-end",
@@ -5197,16 +4086,6 @@
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "x-property-sort": [
-                      "navDate",
-                      "nav",
-                      "navChange",
-                      "navChangePercent",
-                      "premiumDiscount",
-                      "fundFlows",
-                      "sharesOutstanding",
-                      "aum"
-                    ],
                     "properties": {
                       "navDate": {
                         "type": "string",
@@ -5263,11 +4142,7 @@
                     "pagination": {
                       "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
               }
             }
@@ -5280,9 +4155,6 @@
     "title": "Prime Developer Trial",
     "version": "v1"
   },
-  "x-interface-version": 1,
-  "x-documenter-version": "5.38.1",
-  "x-api-version": "2.9.1",
   "tags": [
     {
       "name": "factset",
@@ -5348,20 +4220,10 @@
                   "format": "int32",
                   "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
                 }
-              },
-              "x-property-sort": [
-                "name",
-                "index"
-              ]
+              }
             }
           }
-        },
-        "x-property-sort": [
-          "detail",
-          "encryptedDetails",
-          "type",
-          "attribute"
-        ]
+        }
       }
     },
     "AttributesMember": {
@@ -5425,12 +4287,6 @@
         "isEstimatedTotal",
         "next",
         "previous"
-      ],
-      "x-property-sort": [
-        "total",
-        "isEstimatedTotal",
-        "next",
-        "previous"
       ]
     },
     "CursorBasedPaginationOutputObjectWithoutTotal": {
@@ -5447,10 +4303,6 @@
         }
       },
       "required": [
-        "next",
-        "previous"
-      ],
-      "x-property-sort": [
         "next",
         "previous"
       ]
@@ -5472,10 +4324,6 @@
       "required": [
         "total",
         "isEstimatedTotal"
-      ],
-      "x-property-sort": [
-        "total",
-        "isEstimatedTotal"
       ]
     },
     "OffsetBasedPaginationOutputObjectWithoutTotal": {
@@ -5489,9 +4337,6 @@
       },
       "required": [
         "hasNext"
-      ],
-      "x-property-sort": [
-        "hasNext"
       ]
     },
     "PartialOutputObject": {
@@ -5504,9 +4349,6 @@
       },
       "description": "Object denoting that the endpoint response is possibly incomplete.",
       "required": [
-        "isPartial"
-      ],
-      "x-property-sort": [
         "isPartial"
       ]
     }

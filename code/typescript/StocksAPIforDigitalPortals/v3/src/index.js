@@ -100,8 +100,6 @@ import InlineResponse20014EstimatesFirstFiscalYearReturnOnEquity from './model/I
 import InlineResponse20014EstimatesSecondFiscalYear from './model/InlineResponse20014EstimatesSecondFiscalYear';
 import InlineResponse20014EstimatesThirdFiscalYear from './model/InlineResponse20014EstimatesThirdFiscalYear';
 import InlineResponse20014Instrument from './model/InlineResponse20014Instrument';
-import InlineResponse20014InstrumentCompany from './model/InlineResponse20014InstrumentCompany';
-import InlineResponse20014InstrumentCompanyCountry from './model/InlineResponse20014InstrumentCompanyCountry';
 import InlineResponse20014InstrumentIndustryClassification from './model/InlineResponse20014InstrumentIndustryClassification';
 import InlineResponse20014InstrumentIndustryClassificationRbics from './model/InlineResponse20014InstrumentIndustryClassificationRbics';
 import InlineResponse20014InstrumentIndustryClassificationRbicsLevel1 from './model/InlineResponse20014InstrumentIndustryClassificationRbicsLevel1';
@@ -1183,18 +1181,6 @@ export {
      * @property {module:model/InlineResponse20014Instrument}
      */
     InlineResponse20014Instrument,
-
-    /**
-     * The InlineResponse20014InstrumentCompany model constructor.
-     * @property {module:model/InlineResponse20014InstrumentCompany}
-     */
-    InlineResponse20014InstrumentCompany,
-
-    /**
-     * The InlineResponse20014InstrumentCompanyCountry model constructor.
-     * @property {module:model/InlineResponse20014InstrumentCompanyCountry}
-     */
-    InlineResponse20014InstrumentCompanyCountry,
 
     /**
      * The InlineResponse20014InstrumentIndustryClassification model constructor.

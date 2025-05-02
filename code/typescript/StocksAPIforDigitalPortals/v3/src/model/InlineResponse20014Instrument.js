@@ -12,9 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20014InstrumentCompany from './InlineResponse20014InstrumentCompany';
 import InlineResponse20014InstrumentIndustryClassification from './InlineResponse20014InstrumentIndustryClassification';
 import InlineResponse20014InstrumentNsin from './InlineResponse20014InstrumentNsin';
+import InlineResponse2001DataCompany from './InlineResponse2001DataCompany';
 import InlineResponse200DataFsym from './InlineResponse200DataFsym';
 
 /**
@@ -76,7 +76,7 @@ class InlineResponse20014Instrument {
                 obj['industryClassification'] = InlineResponse20014InstrumentIndustryClassification.constructFromObject(data['industryClassification']);
             }
             if (data.hasOwnProperty('company')) {
-                obj['company'] = InlineResponse20014InstrumentCompany.constructFromObject(data['company']);
+                obj['company'] = InlineResponse2001DataCompany.constructFromObject(data['company']);
             }
         }
         return obj;
@@ -131,7 +131,7 @@ InlineResponse20014Instrument.prototype['stockType'] = undefined;
 InlineResponse20014Instrument.prototype['industryClassification'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20014InstrumentCompany} company
+ * @member {module:model/InlineResponse2001DataCompany} company
  */
 InlineResponse20014Instrument.prototype['company'] = undefined;
 

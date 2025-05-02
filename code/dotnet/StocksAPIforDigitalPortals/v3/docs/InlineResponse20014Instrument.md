@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Fsym** | [**InlineResponse200DataFsym**](InlineResponse200DataFsym.md) |  | [optional] 
 **StockType** | **string** | Type of stock. | [optional] 
 **IndustryClassification** | [**InlineResponse20014InstrumentIndustryClassification**](InlineResponse20014InstrumentIndustryClassification.md) |  | [optional] 
-**Company** | [**InlineResponse20014InstrumentCompany**](InlineResponse20014InstrumentCompany.md) |  | [optional] 
+**Company** | [**InlineResponse2001DataCompany**](InlineResponse2001DataCompany.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

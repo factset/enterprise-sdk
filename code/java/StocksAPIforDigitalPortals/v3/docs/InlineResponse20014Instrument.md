@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **fsym** | [**InlineResponse200DataFsym**](InlineResponse200DataFsym.md) |  |  [optional]
 **stockType** | [**StockTypeEnum**](#StockTypeEnum) | Type of stock. |  [optional]
 **industryClassification** | [**InlineResponse20014InstrumentIndustryClassification**](InlineResponse20014InstrumentIndustryClassification.md) |  |  [optional]
-**company** | [**InlineResponse20014InstrumentCompany**](InlineResponse20014InstrumentCompany.md) |  |  [optional]
+**company** | [**InlineResponse2001DataCompany**](InlineResponse2001DataCompany.md) |  |  [optional]
 
 
 

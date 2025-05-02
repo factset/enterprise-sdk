@@ -17,9 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse20014InstrumentCompany;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse20014InstrumentIndustryClassification;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse20014InstrumentNsin;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataCompany;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataFsym;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -121,7 +121,7 @@ public class InlineResponse20014Instrument implements Serializable {
   private InlineResponse20014InstrumentIndustryClassification industryClassification;
 
   public static final String JSON_PROPERTY_COMPANY = "company";
-  private InlineResponse20014InstrumentCompany company;
+  private InlineResponse2001DataCompany company;
 
   public InlineResponse20014Instrument() { 
   }
@@ -374,7 +374,7 @@ public class InlineResponse20014Instrument implements Serializable {
   }
 
 
-  public InlineResponse20014Instrument company(InlineResponse20014InstrumentCompany company) {
+  public InlineResponse20014Instrument company(InlineResponse2001DataCompany company) {
     this.company = company;
     return this;
   }
@@ -388,14 +388,14 @@ public class InlineResponse20014Instrument implements Serializable {
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20014InstrumentCompany getCompany() {
+  public InlineResponse2001DataCompany getCompany() {
     return company;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompany(InlineResponse20014InstrumentCompany company) {
+  public void setCompany(InlineResponse2001DataCompany company) {
     this.company = company;
   }
 

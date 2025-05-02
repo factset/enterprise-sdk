@@ -30,13 +30,13 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20014_instrument_company import InlineResponse20014InstrumentCompany
     from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20014_instrument_industry_classification import InlineResponse20014InstrumentIndustryClassification
     from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20014_instrument_nsin import InlineResponse20014InstrumentNsin
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001_data_company import InlineResponse2001DataCompany
     from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_data_fsym import InlineResponse200DataFsym
-    globals()['InlineResponse20014InstrumentCompany'] = InlineResponse20014InstrumentCompany
     globals()['InlineResponse20014InstrumentIndustryClassification'] = InlineResponse20014InstrumentIndustryClassification
     globals()['InlineResponse20014InstrumentNsin'] = InlineResponse20014InstrumentNsin
+    globals()['InlineResponse2001DataCompany'] = InlineResponse2001DataCompany
     globals()['InlineResponse200DataFsym'] = InlineResponse200DataFsym
 
 
@@ -110,7 +110,7 @@ class InlineResponse20014Instrument(ModelNormal):
             'fsym': (InlineResponse200DataFsym,),  # noqa: E501
             'stock_type': (str, none_type,),  # noqa: E501
             'industry_classification': (InlineResponse20014InstrumentIndustryClassification,),  # noqa: E501
-            'company': (InlineResponse20014InstrumentCompany,),  # noqa: E501
+            'company': (InlineResponse2001DataCompany,),  # noqa: E501
         }
 
     @cached_property
@@ -179,7 +179,7 @@ class InlineResponse20014Instrument(ModelNormal):
             fsym (InlineResponse200DataFsym): [optional]  # noqa: E501
             stock_type (str, none_type): Type of stock.. [optional]  # noqa: E501
             industry_classification (InlineResponse20014InstrumentIndustryClassification): [optional]  # noqa: E501
-            company (InlineResponse20014InstrumentCompany): [optional]  # noqa: E501
+            company (InlineResponse2001DataCompany): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -269,7 +269,7 @@ class InlineResponse20014Instrument(ModelNormal):
             fsym (InlineResponse200DataFsym): [optional]  # noqa: E501
             stock_type (str, none_type): Type of stock.. [optional]  # noqa: E501
             industry_classification (InlineResponse20014InstrumentIndustryClassification): [optional]  # noqa: E501
-            company (InlineResponse20014InstrumentCompany): [optional]  # noqa: E501
+            company (InlineResponse2001DataCompany): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

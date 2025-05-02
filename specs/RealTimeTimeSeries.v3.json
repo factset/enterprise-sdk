@@ -26,17 +26,6 @@
           "vendor"
         ],
         "operationId": "post/vendor/chartIQ/timeSeries/eod/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "End-of-day time series data for a notation.",
         "description": "End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -64,17 +53,6 @@
           "vendor"
         ],
         "operationId": "post/vendor/chartIQ/timeSeries/eod/subsample/get",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Single subsample end-of-day data for a notation.",
         "description": "Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.",
         "requestBody": {
@@ -102,17 +80,6 @@
           "vendor"
         ],
         "operationId": "post/vendor/chartIQ/timeSeries/eod/subsample/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Subsampled end-of-day time series data for a notation.",
         "description": "Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample's date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -140,17 +107,6 @@
           "vendor"
         ],
         "operationId": "post/vendor/chartIQ/timeSeries/intraday/subsample/get",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Single subsample intraday data for a notation.",
         "description": "Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.",
         "requestBody": {
@@ -178,17 +134,6 @@
           "vendor"
         ],
         "operationId": "post/vendor/chartIQ/timeSeries/intraday/subsample/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Subsampled intraday time series data for a notation.",
         "description": "Subsampled intraday time series data for a notation. If a subsample's time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -216,17 +161,6 @@
           "prices"
         ],
         "operationId": "post/prices/timeSeries/eod/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "End-of-day time series data for a notation.",
         "description": "End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -254,17 +188,6 @@
           "prices"
         ],
         "operationId": "post/prices/timeSeries/eod/subsample/get",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Single subsample end-of-day data for a notation.",
         "description": "Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.",
         "requestBody": {
@@ -292,17 +215,6 @@
           "prices"
         ],
         "operationId": "post/prices/timeSeries/eod/subsample/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Subsampled end-of-day time series data for a notation.",
         "description": "Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample's date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -330,17 +242,6 @@
           "prices"
         ],
         "operationId": "post/prices/timeSeries/intraday/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Intraday time series data for a notation.",
         "description": "Intraday time series data for a notation.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -368,17 +269,6 @@
           "prices"
         ],
         "operationId": "post/prices/timeSeries/intraday/subsample/get",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": false,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Single subsample intraday data for a notation.",
         "description": "Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.",
         "requestBody": {
@@ -406,17 +296,6 @@
           "prices"
         ],
         "operationId": "post/prices/timeSeries/intraday/subsample/list",
-        "x-supportsOffsetBasedPaging": false,
-        "x-supportsOffsetBasedPagingWithoutTotal": false,
-        "x-supportsCursorBasedPaging": false,
-        "x-supportsCursorBasedPagingWithoutTotal": true,
-        "x-supportsPush": false,
-        "x-requiresUser": false,
-        "x-requiresInternalClient": false,
-        "x-disallowUser": false,
-        "x-no-merge": false,
-        "x-maxSortParameterCount": 10,
-        "x-supportsPermissionDeniedResponse": false,
         "summary": "Subsampled intraday time series data for a notation.",
         "description": "Subsampled intraday time series data for a notation. If a subsample's time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.",
         "requestBody": {
@@ -484,20 +363,10 @@
                     "format": "int32",
                     "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
                   }
-                },
-                "x-property-sort": [
-                  "name",
-                  "index"
-                ]
+                }
               }
             }
-          },
-          "x-property-sort": [
-            "details",
-            "encryptedDetails",
-            "type",
-            "attribute"
-          ]
+          }
         }
       },
       "AttributesMember": {
@@ -561,12 +430,6 @@
           "isEstimatedTotal",
           "next",
           "previous"
-        ],
-        "x-property-sort": [
-          "total",
-          "isEstimatedTotal",
-          "next",
-          "previous"
         ]
       },
       "CursorBasedPaginationOutputObjectWithoutTotal": {
@@ -583,10 +446,6 @@
           }
         },
         "required": [
-          "next",
-          "previous"
-        ],
-        "x-property-sort": [
           "next",
           "previous"
         ]
@@ -608,10 +467,6 @@
         "required": [
           "total",
           "isEstimatedTotal"
-        ],
-        "x-property-sort": [
-          "total",
-          "isEstimatedTotal"
         ]
       },
       "OffsetBasedPaginationOutputObjectWithoutTotal": {
@@ -624,9 +479,6 @@
           }
         },
         "required": [
-          "hasNext"
-        ],
-        "x-property-sort": [
           "hasNext"
         ]
       },
@@ -641,16 +493,9 @@
         "description": "Object denoting that the endpoint response is possibly incomplete.",
         "required": [
           "isPartial"
-        ],
-        "x-property-sort": [
-          "isPartial"
         ]
       },
       "PostVendorChartIQTimeSeriesEodListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -659,22 +504,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "range",
-              "newestFirst",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -689,13 +522,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -714,13 +540,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price.",
-                  "Estimated price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -733,11 +552,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "DLY",
                   "EOD",
@@ -747,7 +561,6 @@
               "range": {
                 "type": "object",
                 "format": "dateRange",
-                "x-isClosedInterval": false,
                 "properties": {
                   "start": {
                     "type": "string",
@@ -760,10 +573,6 @@
                     "description": "The ending point of the date range (exclusive)."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -777,10 +586,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "payout",
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "payout": {
@@ -828,25 +633,13 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       },
       "PostVendorChartIQTimeSeriesEodSubsampleGetRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -855,21 +648,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "interval",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -884,13 +666,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -909,13 +684,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price.",
-                  "Estimated price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -928,11 +696,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "DLY",
                   "EOD",
@@ -942,7 +705,6 @@
               "interval": {
                 "type": "object",
                 "format": "dateRange",
-                "x-isClosedInterval": false,
                 "properties": {
                   "start": {
                     "type": "string",
@@ -955,10 +717,6 @@
                     "description": "The ending point of the interval (exclusive)."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -967,10 +725,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "payout",
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "payout": {
@@ -998,18 +752,11 @@
               "attributes": {
                 "$ref": "#/components/schemas/AttributesMember"
               }
-            },
-            "x-property-sort": [
-              "attributes"
-            ]
+            }
           }
         }
       },
       "PostVendorChartIQTimeSeriesEodSubsampleListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -1018,22 +765,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "intervalSelection",
-              "newestFirst",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -1048,13 +783,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -1073,13 +801,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price.",
-                  "Estimated price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -1092,11 +813,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "DLY",
                   "EOD",
@@ -1105,12 +821,7 @@
               },
               "intervalSelection": {
                 "type": "object",
-                "x-property-sort": [
-                  "intervals",
-                  "samples"
-                ],
                 "description": "Select the intervals from which the subsamples are to be created.",
-                "x-atMostOne": true,
                 "properties": {
                   "intervals": {
                     "type": "array",
@@ -1125,11 +836,6 @@
                   },
                   "samples": {
                     "type": "object",
-                    "x-property-sort": [
-                      "end",
-                      "number",
-                      "granularity"
-                    ],
                     "description": "Subsample granularity and number of samples suitable for end-of-day data.",
                     "properties": {
                       "end": {
@@ -1150,14 +856,6 @@
                         "type": "string",
                         "description": "Subsample granularities suitable for end-of-day data.",
                         "default": "1w",
-                        "x-enum-description": [
-                          "Each subsample interval encompasses 1 day.",
-                          "Each subsample interval encompasses 1 week.",
-                          "Each subsample interval encompasses 1 month.",
-                          "Each subsample interval encompasses 3 month.",
-                          "Each subsample interval encompasses 6 month.",
-                          "Each subsample interval encompasses 1 year."
-                        ],
                         "enum": [
                           "1d",
                           "1w",
@@ -1182,10 +880,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "payout",
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "payout": {
@@ -1233,25 +927,13 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       },
       "PostVendorChartIQTimeSeriesIntradaySubsampleGetRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -1260,22 +942,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "from",
-              "granularity",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -1290,13 +960,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -1315,12 +978,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -1332,11 +989,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Real-time: intraday prices with minimal technical processing delays.",
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "RLT",
                   "DLY",
@@ -1352,18 +1004,6 @@
                 "type": "string",
                 "description": "Subsample granularities suitable for intraday data.",
                 "default": "1h",
-                "x-enum-description": [
-                  "Each subsample interval encompasses 1 second.",
-                  "Each subsample interval encompasses 5 seconds.",
-                  "Each subsample interval encompasses 10 seconds.",
-                  "Each subsample interval encompasses 30 seconds.",
-                  "Each subsample interval encompasses 1 minute.",
-                  "Each subsample interval encompasses 5 minutes.",
-                  "Each subsample interval encompasses 10 minutes.",
-                  "Each subsample interval encompasses 15 minutes.",
-                  "Each subsample interval encompasses 30 minutes.",
-                  "Each subsample interval encompasses 1 hour."
-                ],
                 "enum": [
                   "1s",
                   "5s",
@@ -1379,9 +1019,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "split": {
@@ -1404,18 +1041,11 @@
               "attributes": {
                 "$ref": "#/components/schemas/AttributesMember"
               }
-            },
-            "x-property-sort": [
-              "attributes"
-            ]
+            }
           }
         }
       },
       "PostVendorChartIQTimeSeriesIntradaySubsampleListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -1424,23 +1054,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "range",
-              "granularity",
-              "newestFirst",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -1455,13 +1072,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -1480,12 +1090,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -1497,11 +1101,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Real-time: intraday prices with minimal technical processing delays.",
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "RLT",
                   "DLY",
@@ -1523,10 +1122,6 @@
                     "description": "The ending point of the time range (exclusive). Values in the future are not allowed."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -1537,18 +1132,6 @@
                 "type": "string",
                 "description": "Subsample granularities suitable for intraday data.",
                 "default": "1h",
-                "x-enum-description": [
-                  "Each subsample interval encompasses 1 second.",
-                  "Each subsample interval encompasses 5 seconds.",
-                  "Each subsample interval encompasses 10 seconds.",
-                  "Each subsample interval encompasses 30 seconds.",
-                  "Each subsample interval encompasses 1 minute.",
-                  "Each subsample interval encompasses 5 minutes.",
-                  "Each subsample interval encompasses 10 minutes.",
-                  "Each subsample interval encompasses 15 minutes.",
-                  "Each subsample interval encompasses 30 minutes.",
-                  "Each subsample interval encompasses 1 hour."
-                ],
                 "enum": [
                   "1s",
                   "5s",
@@ -1569,9 +1152,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "split": {
@@ -1614,25 +1194,13 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       },
       "PostPricesTimeSeriesEodListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -1641,22 +1209,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "range",
-              "newestFirst",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -1671,13 +1227,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -1696,13 +1245,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price.",
-                  "Estimated price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -1715,11 +1257,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "DLY",
                   "EOD",
@@ -1729,7 +1266,6 @@
               "range": {
                 "type": "object",
                 "format": "dateRange",
-                "x-isClosedInterval": false,
                 "properties": {
                   "start": {
                     "type": "string",
@@ -1742,10 +1278,6 @@
                     "description": "The ending point of the date range (exclusive)."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -1759,10 +1291,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "payout",
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "payout": {
@@ -1810,25 +1338,13 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       },
       "PostPricesTimeSeriesEodSubsampleGetRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -1837,21 +1353,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "interval",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -1866,13 +1371,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -1891,13 +1389,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price.",
-                  "Estimated price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -1910,11 +1401,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "DLY",
                   "EOD",
@@ -1924,7 +1410,6 @@
               "interval": {
                 "type": "object",
                 "format": "dateRange",
-                "x-isClosedInterval": false,
                 "properties": {
                   "start": {
                     "type": "string",
@@ -1937,10 +1422,6 @@
                     "description": "The ending point of the interval (exclusive)."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -1949,10 +1430,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "payout",
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "payout": {
@@ -1980,18 +1457,11 @@
               "attributes": {
                 "$ref": "#/components/schemas/AttributesMember"
               }
-            },
-            "x-property-sort": [
-              "attributes"
-            ]
+            }
           }
         }
       },
       "PostPricesTimeSeriesEodSubsampleListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -2000,22 +1470,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "intervalSelection",
-              "newestFirst",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -2030,13 +1488,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -2055,13 +1506,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price.",
-                  "Estimated price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -2074,11 +1518,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "DLY",
                   "EOD",
@@ -2087,12 +1526,7 @@
               },
               "intervalSelection": {
                 "type": "object",
-                "x-property-sort": [
-                  "intervals",
-                  "samples"
-                ],
                 "description": "Select the intervals from which the subsamples are to be created.",
-                "x-atMostOne": true,
                 "properties": {
                   "intervals": {
                     "type": "array",
@@ -2107,11 +1541,6 @@
                   },
                   "samples": {
                     "type": "object",
-                    "x-property-sort": [
-                      "end",
-                      "number",
-                      "granularity"
-                    ],
                     "description": "Subsample granularity and number of samples suitable for end-of-day data.",
                     "properties": {
                       "end": {
@@ -2132,14 +1561,6 @@
                         "type": "string",
                         "description": "Subsample granularities suitable for end-of-day data.",
                         "default": "1w",
-                        "x-enum-description": [
-                          "Each subsample interval encompasses 1 day.",
-                          "Each subsample interval encompasses 1 week.",
-                          "Each subsample interval encompasses 1 month.",
-                          "Each subsample interval encompasses 3 month.",
-                          "Each subsample interval encompasses 6 month.",
-                          "Each subsample interval encompasses 1 year."
-                        ],
                         "enum": [
                           "1d",
                           "1w",
@@ -2164,10 +1585,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "payout",
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "payout": {
@@ -2215,25 +1632,13 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       },
       "PostPricesTimeSeriesIntradayListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -2242,24 +1647,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "range",
-              "newestFirst",
-              "applyTickCorrections",
-              "includeVolumeOnlyTicks",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -2274,13 +1665,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -2299,12 +1683,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -2316,11 +1694,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Real-time: intraday prices with minimal technical processing delays.",
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "RLT",
                   "DLY",
@@ -2342,10 +1715,6 @@
                     "description": "The ending point of the time range (exclusive). Values in the future are not allowed."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -2361,10 +1730,6 @@
                 "type": "string",
                 "description": "This attribute represents the choice whether to apply insert, update, and delete corrections for individual ticks sent by the exchange or devised by FactSet Digital Solutions GmbH.\n\n If the exchange or FactSet Digital Solutions GmbH decides to correct data, a correction instruction tick is sent shortly (usually on the same trading day) after dissemination of the corresponding original tick (if any). The correction instruction is then applied, yielding a corrected view. For \"insert\" corrections, there is no original tick, and the corrected view contains the inserted tick. For \"update\" corrections, the corrected view contains the updated original tick. For \"delete\" corrections, the original tick is removed from the corrected view.",
                 "default": "none",
-                "x-enum-description": [
-                  "Select original tick data without applying any corrections.",
-                  "Select corrected view."
-                ],
                 "enum": [
                   "none",
                   "all"
@@ -2377,9 +1742,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "split": {
@@ -2422,25 +1784,13 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       },
       "PostPricesTimeSeriesIntradaySubsampleGetRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -2449,22 +1799,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "from",
-              "granularity",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -2479,13 +1817,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -2504,12 +1835,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -2521,11 +1846,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Real-time: intraday prices with minimal technical processing delays.",
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "RLT",
                   "DLY",
@@ -2541,18 +1861,6 @@
                 "type": "string",
                 "description": "Subsample granularities suitable for intraday data.",
                 "default": "1h",
-                "x-enum-description": [
-                  "Each subsample interval encompasses 1 second.",
-                  "Each subsample interval encompasses 5 seconds.",
-                  "Each subsample interval encompasses 10 seconds.",
-                  "Each subsample interval encompasses 30 seconds.",
-                  "Each subsample interval encompasses 1 minute.",
-                  "Each subsample interval encompasses 5 minutes.",
-                  "Each subsample interval encompasses 10 minutes.",
-                  "Each subsample interval encompasses 15 minutes.",
-                  "Each subsample interval encompasses 30 minutes.",
-                  "Each subsample interval encompasses 1 hour."
-                ],
                 "enum": [
                   "1s",
                   "5s",
@@ -2568,9 +1876,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "split": {
@@ -2593,18 +1898,11 @@
               "attributes": {
                 "$ref": "#/components/schemas/AttributesMember"
               }
-            },
-            "x-property-sort": [
-              "attributes"
-            ]
+            }
           }
         }
       },
       "PostPricesTimeSeriesIntradaySubsampleListRequest": {
-        "x-property-sort": [
-          "data",
-          "meta"
-        ],
         "description": "Request Body",
         "required": [
           "data"
@@ -2613,23 +1911,10 @@
         "properties": {
           "data": {
             "type": "object",
-            "x-property-sort": [
-              "identifier",
-              "type",
-              "quality",
-              "range",
-              "granularity",
-              "newestFirst",
-              "adjustments"
-            ],
             "description": "The data member contains the request's primary data.",
             "properties": {
               "identifier": {
                 "type": "object",
-                "x-property-sort": [
-                  "value",
-                  "type"
-                ],
                 "description": "Identifier and type.",
                 "properties": {
                   "value": {
@@ -2644,13 +1929,6 @@
                   "type": {
                     "type": "string",
                     "description": "Type of the identifier.",
-                    "x-enum-description": [
-                      "MDG identifier of a listing.",
-                      "FactSet market symbol of a listing.",
-                      "Regional FactSet ticker symbol, identifying the primary listing in the region.",
-                      "FactSet Permanent Identifier on listing level.",
-                      "Regional FactSet Permanent Identifier, identifying the primary listing in the region."
-                    ],
                     "enum": [
                       "idNotation",
                       "tickerExchange",
@@ -2669,12 +1947,6 @@
                 "type": "string",
                 "description": "Type of the price as configured for the customer.",
                 "default": "trade",
-                "x-enum-description": [
-                  "Trade price (ordinary, auction, pre or post-trading).",
-                  "Bid price.",
-                  "Ask price.",
-                  "Yield price."
-                ],
                 "enum": [
                   "trade",
                   "bid",
@@ -2686,11 +1958,6 @@
                 "type": "string",
                 "description": "Quality of the price.",
                 "default": "DLY",
-                "x-enum-description": [
-                  "Real-time: intraday prices with minimal technical processing delays.",
-                  "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                  "Best: choose the price quality with the least delay, as entitled for the client."
-                ],
                 "enum": [
                   "RLT",
                   "DLY",
@@ -2712,10 +1979,6 @@
                     "description": "The ending point of the time range (exclusive). Values in the future are not allowed."
                   }
                 },
-                "x-property-sort": [
-                  "start",
-                  "end"
-                ],
                 "required": [
                   "start",
                   "end"
@@ -2726,18 +1989,6 @@
                 "type": "string",
                 "description": "Subsample granularities suitable for intraday data.",
                 "default": "1h",
-                "x-enum-description": [
-                  "Each subsample interval encompasses 1 second.",
-                  "Each subsample interval encompasses 5 seconds.",
-                  "Each subsample interval encompasses 10 seconds.",
-                  "Each subsample interval encompasses 30 seconds.",
-                  "Each subsample interval encompasses 1 minute.",
-                  "Each subsample interval encompasses 5 minutes.",
-                  "Each subsample interval encompasses 10 minutes.",
-                  "Each subsample interval encompasses 15 minutes.",
-                  "Each subsample interval encompasses 30 minutes.",
-                  "Each subsample interval encompasses 1 hour."
-                ],
                 "enum": [
                   "1s",
                   "5s",
@@ -2758,9 +2009,6 @@
               },
               "adjustments": {
                 "type": "object",
-                "x-property-sort": [
-                  "split"
-                ],
                 "description": "Adjustments values returned.",
                 "properties": {
                   "split": {
@@ -2803,17 +2051,9 @@
                     "default": 20,
                     "description": "Non-negative maximum number of entries to return."
                   }
-                },
-                "x-property-sort": [
-                  "cursor",
-                  "limit"
-                ]
+                }
               }
-            },
-            "x-property-sort": [
-              "attributes",
-              "pagination"
-            ]
+            }
           }
         }
       }
@@ -2833,11 +2073,7 @@
                 "errors": {
                   "$ref": "#/components/schemas/ErrorObject"
                 }
-              },
-              "x-property-sort": [
-                "meta",
-                "errors"
-              ]
+              }
             }
           }
         }
@@ -2856,7 +2092,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -2882,10 +2117,6 @@
                           "description": "The ending point of the date range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -2896,10 +2127,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                        "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days."
-                      ],
                       "enum": [
                         "DLY",
                         "EOD"
@@ -2922,14 +2149,7 @@
                     }
                   },
                   "description": "Time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "prices"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -2941,17 +2161,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -2970,7 +2182,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -2982,10 +2193,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                        "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days."
-                      ],
                       "enum": [
                         "DLY",
                         "EOD"
@@ -3003,13 +2210,7 @@
                     }
                   },
                   "description": "Subsample data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "quality",
-                    "subsample"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3018,16 +2219,9 @@
                     "status": {
                       "$ref": "#/components/schemas/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3046,7 +2240,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3072,10 +2265,6 @@
                           "description": "The ending point of the date range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -3086,10 +2275,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                        "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days."
-                      ],
                       "enum": [
                         "DLY",
                         "EOD"
@@ -3112,14 +2297,7 @@
                     }
                   },
                   "description": "Subsampled time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "subsamples"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3131,17 +2309,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3160,7 +2330,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3172,10 +2341,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Real-time: intraday prices with minimal technical processing delays.",
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes."
-                      ],
                       "enum": [
                         "RLT",
                         "DLY"
@@ -3193,13 +2358,7 @@
                     }
                   },
                   "description": "Subsample data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "quality",
-                    "subsample"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3208,16 +2367,9 @@
                     "status": {
                       "$ref": "#/components/schemas/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3236,7 +2388,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3262,10 +2413,6 @@
                           "description": "The ending point of the time range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -3276,10 +2423,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Real-time: intraday prices with minimal technical processing delays.",
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes."
-                      ],
                       "enum": [
                         "RLT",
                         "DLY"
@@ -3302,14 +2445,7 @@
                     }
                   },
                   "description": "Subsampled time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "subsamples"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3321,17 +2457,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3350,7 +2478,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3376,10 +2503,6 @@
                           "description": "The ending point of the date range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -3390,10 +2513,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                        "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days."
-                      ],
                       "enum": [
                         "DLY",
                         "EOD"
@@ -3405,15 +2524,6 @@
                       "items": {
                         "type": "object",
                         "nullable": false,
-                        "x-property-sort": [
-                          "date",
-                          "first",
-                          "last",
-                          "low",
-                          "high",
-                          "tradingVolume",
-                          "tradingValue"
-                        ],
                         "properties": {
                           "date": {
                             "nullable": true,
@@ -3463,14 +2573,7 @@
                     }
                   },
                   "description": "Time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "prices"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3482,17 +2585,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3511,7 +2606,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3523,10 +2617,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                        "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days."
-                      ],
                       "enum": [
                         "DLY",
                         "EOD"
@@ -3535,15 +2625,6 @@
                     "subsample": {
                       "nullable": false,
                       "type": "object",
-                      "x-property-sort": [
-                        "date",
-                        "first",
-                        "last",
-                        "low",
-                        "high",
-                        "tradingVolume",
-                        "tradingValue"
-                      ],
                       "description": "Single summary record. For the attributes first, last, low, high, see attribute `valueUnit` in endpoint `/prices/get` for their unit, except for price type yield, where the `valueUnit` is always `percent` (id=258).",
                       "properties": {
                         "date": {
@@ -3592,13 +2673,7 @@
                     }
                   },
                   "description": "Subsample data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "quality",
-                    "subsample"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3607,16 +2682,9 @@
                     "status": {
                       "$ref": "#/components/schemas/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3635,7 +2703,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3661,10 +2728,6 @@
                           "description": "The ending point of the date range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -3675,10 +2738,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes.",
-                        "End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days."
-                      ],
                       "enum": [
                         "DLY",
                         "EOD"
@@ -3690,15 +2749,6 @@
                       "items": {
                         "type": "object",
                         "nullable": false,
-                        "x-property-sort": [
-                          "date",
-                          "first",
-                          "last",
-                          "low",
-                          "high",
-                          "tradingVolume",
-                          "tradingValue"
-                        ],
                         "properties": {
                           "date": {
                             "nullable": true,
@@ -3748,14 +2798,7 @@
                     }
                   },
                   "description": "Subsampled time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "subsamples"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3767,17 +2810,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3796,7 +2831,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3822,10 +2856,6 @@
                           "description": "The ending point of the time range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -3836,10 +2866,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Real-time: intraday prices with minimal technical processing delays.",
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes."
-                      ],
                       "enum": [
                         "RLT",
                         "DLY"
@@ -3851,13 +2877,6 @@
                       "items": {
                         "type": "object",
                         "nullable": false,
-                        "x-property-sort": [
-                          "time",
-                          "price",
-                          "quoteCondition",
-                          "tradingVolume",
-                          "tradingValue"
-                        ],
                         "properties": {
                           "time": {
                             "nullable": true,
@@ -3894,14 +2913,7 @@
                     }
                   },
                   "description": "Time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "prices"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -3913,17 +2925,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -3942,7 +2946,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -3954,10 +2957,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Real-time: intraday prices with minimal technical processing delays.",
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes."
-                      ],
                       "enum": [
                         "RLT",
                         "DLY"
@@ -3966,15 +2965,6 @@
                     "subsample": {
                       "nullable": false,
                       "type": "object",
-                      "x-property-sort": [
-                        "time",
-                        "first",
-                        "last",
-                        "low",
-                        "high",
-                        "tradingVolume",
-                        "tradingValue"
-                      ],
                       "description": "Single summary record. For the attributes first, last, low, high, see attribute `valueUnit` in endpoint `/prices/get` for their unit, except for price type yield, where the `valueUnit` is always `percent` (id=258).",
                       "properties": {
                         "time": {
@@ -4023,13 +3013,7 @@
                     }
                   },
                   "description": "Subsample data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "quality",
-                    "subsample"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -4038,16 +3022,9 @@
                     "status": {
                       "$ref": "#/components/schemas/StatusObject"
                     }
-                  },
-                  "x-property-sort": [
-                    "status"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -4066,7 +3043,6 @@
                       "nullable": true,
                       "type": "string",
                       "format": "id64",
-                      "x-positive": true,
                       "description": "MDG identifier of the listing."
                     },
                     "sourceIdentifier": {
@@ -4092,10 +3068,6 @@
                           "description": "The ending point of the time range (exclusive)."
                         }
                       },
-                      "x-property-sort": [
-                        "start",
-                        "end"
-                      ],
                       "required": [
                         "start",
                         "end"
@@ -4106,10 +3078,6 @@
                       "nullable": true,
                       "type": "string",
                       "description": "Quality of the price.",
-                      "x-enum-description": [
-                        "Real-time: intraday prices with minimal technical processing delays.",
-                        "Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes."
-                      ],
                       "enum": [
                         "RLT",
                         "DLY"
@@ -4121,15 +3089,6 @@
                       "items": {
                         "type": "object",
                         "nullable": false,
-                        "x-property-sort": [
-                          "time",
-                          "first",
-                          "last",
-                          "low",
-                          "high",
-                          "tradingVolume",
-                          "tradingValue"
-                        ],
                         "properties": {
                           "time": {
                             "nullable": true,
@@ -4179,14 +3138,7 @@
                     }
                   },
                   "description": "Subsampled time series data for the notation.",
-                  "nullable": false,
-                  "x-property-sort": [
-                    "idNotation",
-                    "sourceIdentifier",
-                    "range",
-                    "quality",
-                    "subsamples"
-                  ]
+                  "nullable": false
                 },
                 "meta": {
                   "type": "object",
@@ -4198,17 +3150,9 @@
                     "pagination": {
                       "$ref": "#/components/schemas/CursorBasedPaginationOutputObjectWithoutTotal"
                     }
-                  },
-                  "x-property-sort": [
-                    "status",
-                    "pagination"
-                  ]
+                  }
                 }
-              },
-              "x-property-sort": [
-                "data",
-                "meta"
-              ]
+              }
             }
           }
         }
@@ -4257,8 +3201,5 @@
   "externalDocs": {
     "description": "API Documentation",
     "url": "https://developer.factset.com/api-catalog/"
-  },
-  "x-interface-version": 2,
-  "x-documenter-version": "6.3.9",
-  "x-api-version": "4.4.0"
+  }
 }
