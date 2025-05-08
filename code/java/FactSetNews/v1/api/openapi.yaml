@@ -1,0 +1,5021 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "\nThe FactSet News API provides access to FactSet’s news alongside\
+    \ business logic that allows users to replicate views and functionality consistent\
+    \ with the experience provided by the Workstation.\nThis API provides the ability\
+    \ to create views and pull news headlines based on specific filters. There are\
+    \ the filters available for News:\n\n* Watchlists/Indices/Tickers\n* Sources\n\
+    * Company Filters\n* Market Topics\n* Countries\n* Regions\n\n\n  \n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: News API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-news-api
+servers:
+- url: https://api.factset.com/content/news/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Get flattened or structured filters
+  name: Filters
+- description: Get headlines for a specified view or specified filters
+  name: Headlines
+- description: Create, edit and delete views
+  name: Views
+paths:
+  /views:
+    get:
+      description: This endpoint allows you to pull the full list of app views that
+        have been previously saved.
+      operationId: getFactSetNewsViews
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Views'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieves a list of search views created in News app
+      tags:
+      - Views
+      x-accepts: application/json
+  /views/create:
+    post:
+      description: This endpoint allows you to create a new FactSet News view. Select
+        watchlists/tickers and filters of your choice to create and save a view. Please
+        refer to `/filters` endpoint to obtain the values.
+      operationId: createFactSetNewsView
+      requestBody:
+        $ref: '#/components/requestBodies/createOrEditViewBody'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateViewResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Creates and saves a FactSet News view
+      tags:
+      - Views
+      x-contentType: application/json
+      x-accepts: application/json
+  /views/update:
+    post:
+      description: This endpoint allows you to edit the criteria used for a previously
+        saved FactSet News view.
+      operationId: editFactSetNewsView
+      requestBody:
+        $ref: '#/components/requestBodies/createOrEditViewBody'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Edit an existing FactSet News view with filters specified
+      tags:
+      - Views
+      x-contentType: application/json
+      x-accepts: application/json
+  /views/delete:
+    post:
+      description: This endpoint allows you to delete a previously saved view.
+      operationId: deleteView
+      requestBody:
+        $ref: '#/components/requestBodies/deleteViewBody'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Deletes an existing App view
+      tags:
+      - Views
+      x-contentType: application/json
+      x-accepts: application/json
+  /headlines:
+    post:
+      description: This endpoint will pull all FactSet News headlines. Filters can
+        be specified via the endpoint below. Please refer to `/filters` endpoint to
+        obtain the values.
+      operationId: getFactSetNewsHeadlines
+      requestBody:
+        $ref: '#/components/requestBodies/HeadlinesRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve FactSet News headlines for the given filters
+      tags:
+      - Headlines
+      x-contentType: application/json
+      x-accepts: application/json
+  /headlines/view:
+    post:
+      description: This endpoint allows you to pull all FactSet News Headlines for
+        a saved view. Views can be created via the 'Create Views' endpoint.
+      operationId: getFactSetNewsHeadlinesByView
+      requestBody:
+        $ref: '#/components/requestBodies/HeadlinesRequestByView'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve FactSet News headlines for given view
+      tags:
+      - Headlines
+      x-contentType: application/json
+      x-accepts: application/json
+  /quick-alert/create:
+    post:
+      description: This endpoint takes in a view name and provides realtime email
+        updates on new stories coming in for the view. Only one quick alert can be
+        enabled for a view at a time.
+      operationId: createQuickAlertForView
+      requestBody:
+        $ref: '#/components/requestBodies/QuickAlertsBody'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuickAlertsResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Creates a quick-alert for given saved view
+      tags:
+      - Views
+      x-contentType: application/json
+      x-accepts: application/json
+  /quick-alert/delete:
+    post:
+      description: This endpoint allows you to delete a quick alert from a previously
+        saved view.
+      operationId: deleteQuickalertView
+      requestBody:
+        $ref: '#/components/requestBodies/QuickAlertsBody'
+      responses:
+        "204":
+          description: Quick alert deleted.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Deletes an existing quick alert for a view.
+      tags:
+      - Views
+      x-contentType: application/json
+      x-accepts: application/json
+  /filters:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getFilters
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all FactSet News filters
+      tags:
+      - Filters
+      x-accepts: application/json
+  /filters/sources:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getNewsFiltersSources
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter sources. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterSourcesResponse'
+          description: Returns News Sources.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all News filter sources
+      tags:
+      - Filters
+      x-accepts: application/json
+  /filters/categories:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getNewsFiltersCategories
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter categories. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterCategoriesResponse'
+          description: Returns news categories
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all News filter categories
+      tags:
+      - Filters
+      x-accepts: application/json
+  /filters/topics:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getNewsFiltersTopics
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter topics. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterTopicResponse'
+          description: Returns News topics.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all News filter topics
+      tags:
+      - Filters
+      x-accepts: application/json
+  /filters/regions:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getNewsFiltersRegions
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter regions. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                      structured:
+                        regions:
+                        - name: Africa
+                          topLevel: true
+                          value:
+                          - AF
+                          children:
+                          - name: Algeria
+                            value:
+                            - DZ
+                      flattered:
+                        regions:
+                        - name: Africa
+                          value:
+                          - AF
+              schema:
+                $ref: '#/components/schemas/FilterRegionsResponse'
+          description: Returns News regions.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all News filter regions
+      tags:
+      - Filters
+      x-accepts: application/json
+  /filters/countries:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getNewsFiltersCountries
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter countries. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                      structured:
+                        countries:
+                        - name: Algeria
+                          value:
+                          - DZ
+                      flattered:
+                        countries:
+                        - name: Algeria
+                          value:
+                          - DZ
+              schema:
+                $ref: '#/components/schemas/FilterCountriesResponse'
+          description: Returns News countries.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all News filter countries
+      tags:
+      - Filters
+      x-accepts: application/json
+  /filters/watchlists:
+    get:
+      description: If structured flag is set, parent and child filter information
+        will be returned. If flattened flag is set, flattened filters will be returned
+        which can be used with the `/headlines` and `/views/create` endpoints. Both
+        flags can be set to return both sets of filters.  If no params are provided
+        it will return both.
+      operationId: getNewsFiltersWatchlists
+      parameters:
+      - description: |
+          Pass a list of filters to return the respective type of filter watchlists. Accepted list values are "structured" and/or "flattened". If no _attributes are specified, all filters will be returned in the response (this is the default response).
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            enum:
+            - structured
+            - flattened
+            maxLength: 11
+            type: string
+          maxItems: 2
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                      structured:
+                        watchlists:
+                        - name: S&P 500
+                          type: Index
+                          value: SP50
+                      flattered:
+                        watchlists:
+                        - name: S&P 500
+                          type: Index
+                          value: SP50
+              schema:
+                $ref: '#/components/schemas/FilterWatchlistsResponse'
+          description: Returns News watchlists.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/400Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad Request. This can occur for invalid parameter.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unauthenticated
+        "404":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Not Found
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve all News filter watchlists
+      tags:
+      - Filters
+      x-accepts: application/json
+components:
+  examples:
+    "404Example":
+      summary: Sample error response
+      value:
+        errors:
+        - code: Not Found
+          title: Id not found
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    PredefinedRange:
+      summary: Using predefinedRange
+      value:
+        data:
+          tickers:
+          - value: SP50
+            type: Index
+          isPrimary: true
+          categories:
+          - Earnings
+          topics:
+          - Market Summaries
+          regions:
+          - Americas
+          countries:
+          - India
+          sources:
+          - Business Wire
+          predefinedRange: oneMonth
+        meta:
+          pagination:
+            limit: 50
+            offset: 100
+    SearchTime:
+      summary: Using searchTime
+      value:
+        data:
+          tickers:
+          - value: SP50
+            type: Index
+          isPrimary: true
+          categories:
+          - Earnings
+          topics:
+          - Market Summaries
+          regions:
+          - Americas
+          countries:
+          - India
+          sources:
+          - Business Wire
+          searchTime:
+            start: 2023-12-01T12:35:45Z
+            end: 2042-01-24T08:10:30Z
+        meta:
+          pagination:
+            limit: 50
+            offset: 100
+    "400Example":
+      summary: Sample error Response
+      value:
+        errors:
+        - code: Bad Request
+          title: parameterError:['_id'] is not a valid parameter(s)
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    "401Example":
+      summary: Sample error response
+      value:
+        errors:
+        - code: Not Authenticated
+          title: USERNAME-SERIAL does not have permission
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    "500Example":
+      summary: Sample error response
+      value:
+        errors:
+        - code: Internal Server Error
+          title: An unexpected error happened
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+    PredefinedRangeid:
+      summary: Using predefinedRange with view name
+      value:
+        data:
+          name: FactSet News View
+          predefinedRange: oneMonth
+        meta:
+          pagination:
+            limit: 50
+            offset: 100
+    SearchTimeid:
+      summary: Using searchTime with view name
+      value:
+        data:
+          name: FactSet News View
+          searchTime:
+            start: 2023-12-01T12:35:45Z
+            end: 2024-01-01T08:10:30Z
+        meta:
+          pagination:
+            limit: 50
+            offset: 100
+  requestBodies:
+    QuickAlertsBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/QuickAlertsBody'
+      description: View name to get an alert.
+    HeadlinesRequest:
+      content:
+        application/json:
+          examples:
+            Using predefinedRange:
+              $ref: '#/components/examples/PredefinedRange'
+            Using searchTime:
+              $ref: '#/components/examples/SearchTime'
+          schema:
+            $ref: '#/components/schemas/HeadlinesRequest'
+      description: Filter Body which needs to be sent with request.
+    HeadlinesRequestByView:
+      content:
+        application/json:
+          examples:
+            Using predefinedRange with view name:
+              $ref: '#/components/examples/PredefinedRangeid'
+            Using searchTime with view name:
+              $ref: '#/components/examples/SearchTimeid'
+          schema:
+            $ref: '#/components/schemas/HeadlinesRequestByView'
+      description: View body which needs to be sent with request.
+    createOrEditViewBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateOrEditViewBody'
+      description: Create or Edit View Body which needs to be sent with request.
+    deleteViewBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeleteViewBody'
+      description: Delete View Body which needs to be sent with request.
+  responses:
+    "429":
+      description: Limit Exceeded
+      headers:
+        X-FactSet-Api-RateLimit-Limit:
+          description: Number of allowed requests for the time window.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-RateLimit-Limit-Remaining:
+          description: Number of requests left for the time window.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-RateLimit-Limit-Reset:
+          description: Number of seconds remaining till rate limit resets.
+          explode: false
+          schema:
+            type: string
+          style: simple
+  schemas:
+    FilterSourcesResponse:
+      description: Filters Sources Object
+      example:
+        data:
+          flattened:
+            sources:
+            - sources:
+                name: OMX Regulatory News
+                value:
+                - OMX
+            - sources:
+                name: OMX Regulatory News
+                value:
+                - OMX
+          structured:
+            sources:
+            - children:
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              topLevel: true
+              criteriaLabel: DS_COR
+              name: Business Wire
+              topLevelCriteria: true
+              value:
+              - BW
+              - BW
+            - children:
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              topLevel: true
+              criteriaLabel: DS_COR
+              name: Business Wire
+              topLevelCriteria: true
+              value:
+              - BW
+              - BW
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterSourcesResponse_data'
+      type: object
+    StructuredFiltersSources:
+      description: Structured Filters Sources Object
+      example:
+        sources:
+        - children:
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          topLevel: true
+          criteriaLabel: DS_COR
+          name: Business Wire
+          topLevelCriteria: true
+          value:
+          - BW
+          - BW
+        - children:
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          topLevel: true
+          criteriaLabel: DS_COR
+          name: Business Wire
+          topLevelCriteria: true
+          value:
+          - BW
+          - BW
+      properties:
+        sources:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersSourcesObject'
+          type: array
+      type: object
+    FlattenedFiltersSources:
+      description: Flattened Filters Sources Object
+      example:
+        sources:
+        - sources:
+            name: OMX Regulatory News
+            value:
+            - OMX
+        - sources:
+            name: OMX Regulatory News
+            value:
+            - OMX
+      properties:
+        sources:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersSourcesObject'
+          type: array
+      type: object
+    StructuredFiltersSourcesObject:
+      example:
+        children:
+        - criteriaLabel: PRESS_RELEASE_SUBJECT
+          name: MTN Live Briefs PRO APAC
+          value:
+          - NEWS_MTAPAC
+          - NEWS_MTAPAC
+        - criteriaLabel: PRESS_RELEASE_SUBJECT
+          name: MTN Live Briefs PRO APAC
+          value:
+          - NEWS_MTAPAC
+          - NEWS_MTAPAC
+        topLevel: true
+        criteriaLabel: DS_COR
+        name: Business Wire
+        topLevelCriteria: true
+        value:
+        - BW
+        - BW
+      properties:
+        name:
+          description: The name of the source.
+          example: Business Wire
+          type: string
+        topLevel:
+          description: Indicates if its a toplevel value or not.
+          example: true
+          type: boolean
+        value:
+          description: The value associated with the source.
+          items:
+            example: BW
+            type: string
+          type: array
+        children:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersSourcesChildrenObject'
+          type: array
+        criteriaLabel:
+          description: The criteria label associated with the source.
+          example: DS_COR
+          type: string
+        topLevelCriteria:
+          description: Indicates if its the toplevelCriteria value or not.
+          example: true
+          type: boolean
+      required:
+      - name
+      type: object
+    StructuredFiltersSourcesChildrenObject:
+      example:
+        criteriaLabel: PRESS_RELEASE_SUBJECT
+        name: MTN Live Briefs PRO APAC
+        value:
+        - NEWS_MTAPAC
+        - NEWS_MTAPAC
+      properties:
+        name:
+          description: The name of the source.
+          example: MTN Live Briefs PRO APAC
+          type: string
+        value:
+          description: The value associated with the source.
+          items:
+            example: NEWS_MTAPAC
+            type: string
+          type: array
+        criteriaLabel:
+          description: The criteria label associated with the source.
+          example: PRESS_RELEASE_SUBJECT
+          type: string
+      type: object
+    FlattenedFiltersSourcesObject:
+      example:
+        sources:
+          name: OMX Regulatory News
+          value:
+          - OMX
+      properties:
+        name:
+          description: The name of the source.
+          type: string
+        value:
+          description: The value associated with the source.
+          items:
+            type: string
+          type: array
+      type: object
+    FilterCountriesResponse:
+      description: Filters Countries Object
+      example:
+        data:
+          flattened:
+            countries:
+            - countries:
+                name: Algeria
+                value:
+                - DZ
+            - countries:
+                name: Algeria
+                value:
+                - DZ
+          structured:
+            countries:
+            - name: Algeria
+              value:
+              - DZ
+            - name: Algeria
+              value:
+              - DZ
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterCountriesResponse_data'
+      type: object
+    FlattenedFiltersCountries:
+      description: Flattened Filters Countries Object
+      example:
+        countries:
+        - countries:
+            name: Algeria
+            value:
+            - DZ
+        - countries:
+            name: Algeria
+            value:
+            - DZ
+      properties:
+        countries:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersCountriesObject'
+          type: array
+      type: object
+    StructuredFiltersCountries:
+      description: Structured Filters Countries Object
+      example:
+        countries:
+        - name: Algeria
+          value:
+          - DZ
+        - name: Algeria
+          value:
+          - DZ
+      properties:
+        countries:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersCountriesObject'
+          type: array
+      type: object
+    FilterCategoriesResponse:
+      description: Filters Categories Object
+      example:
+        data:
+          flattened:
+            categories:
+            - categories:
+                name: Initiating Coverage and Other Notable Research
+                value:
+                - AN_INC
+            - categories:
+                name: Initiating Coverage and Other Notable Research
+                value:
+                - AN_INC
+          structured:
+            categories:
+            - sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              toplevel: true
+              field: categories
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: BTU Analytics Filters
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              type: MARKET
+              value:
+              - ANLCH
+              - ANLCH
+              operator: IN
+            - sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              toplevel: true
+              field: categories
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: BTU Analytics Filters
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              type: MARKET
+              value:
+              - ANLCH
+              - ANLCH
+              operator: IN
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterCategoriesResponse_data'
+      type: object
+    FlattenedFiltersCategories:
+      description: Flattened Filters Categories Object
+      example:
+        categories:
+        - categories:
+            name: Initiating Coverage and Other Notable Research
+            value:
+            - AN_INC
+        - categories:
+            name: Initiating Coverage and Other Notable Research
+            value:
+            - AN_INC
+      properties:
+        categories:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersCategoriesObject'
+          type: array
+      type: object
+    StructuredFiltersCategories:
+      description: Structured Filters Categories Object
+      example:
+        categories:
+        - sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          toplevel: true
+          field: categories
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: BTU Analytics Filters
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          type: MARKET
+          value:
+          - ANLCH
+          - ANLCH
+          operator: IN
+        - sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          toplevel: true
+          field: categories
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: BTU Analytics Filters
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          type: MARKET
+          value:
+          - ANLCH
+          - ANLCH
+          operator: IN
+      properties:
+        categories:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersCategoriesObject'
+          type: array
+      type: object
+    FilterTopicResponse:
+      description: Filters Topic Object
+      example:
+        data:
+          flattened:
+            topics:
+            - field: subjects
+              name: Barron's
+              source:
+              - BAR
+              - DJAN
+              value:
+              - N/BRN
+            - field: subjects
+              name: Barron's
+              source:
+              - BAR
+              - DJAN
+              value:
+              - N/BRN
+          structured:
+            topics:
+            - parentConfig: true
+              toplevel: true
+              field: tweet_type
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: Twitter News
+              source:
+              - NEWS_TWTR
+              - NEWS_TWTR
+              type: MARKET_TWEET
+              value:
+              - BDliveSA
+              operator: IN
+            - parentConfig: true
+              toplevel: true
+              field: tweet_type
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: Twitter News
+              source:
+              - NEWS_TWTR
+              - NEWS_TWTR
+              type: MARKET_TWEET
+              value:
+              - BDliveSA
+              operator: IN
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterTopicResponse_data'
+      type: object
+    FlattenedFiltersTopics:
+      description: Flattened Filters Topic Object
+      example:
+        topics:
+        - field: subjects
+          name: Barron's
+          source:
+          - BAR
+          - DJAN
+          value:
+          - N/BRN
+        - field: subjects
+          name: Barron's
+          source:
+          - BAR
+          - DJAN
+          value:
+          - N/BRN
+      properties:
+        topics:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersTopicsObject'
+          type: array
+      type: object
+    StructuredFiltersTopics:
+      description: Structured Filters Topic Object
+      example:
+        topics:
+        - parentConfig: true
+          toplevel: true
+          field: tweet_type
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: Twitter News
+          source:
+          - NEWS_TWTR
+          - NEWS_TWTR
+          type: MARKET_TWEET
+          value:
+          - BDliveSA
+          operator: IN
+        - parentConfig: true
+          toplevel: true
+          field: tweet_type
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: Twitter News
+          source:
+          - NEWS_TWTR
+          - NEWS_TWTR
+          type: MARKET_TWEET
+          value:
+          - BDliveSA
+          operator: IN
+      properties:
+        topics:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersTopicsObject'
+          type: array
+      type: object
+    FilterRegionsResponse:
+      description: Filters Regions Object
+      example:
+        data:
+          flattened:
+            regions:
+            - regions:
+                name: Africa
+                value:
+                - AF
+            - regions:
+                name: Africa
+                value:
+                - AF
+          structured:
+            regions:
+            - children:
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              topLevel: true
+              name: Africa
+              value:
+              - AF
+              - AF
+            - children:
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              topLevel: true
+              name: Africa
+              value:
+              - AF
+              - AF
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterRegionsResponse_data'
+      type: object
+    FlattenedFiltersRegions:
+      description: Flattened Filters Regions Object
+      example:
+        regions:
+        - regions:
+            name: Africa
+            value:
+            - AF
+        - regions:
+            name: Africa
+            value:
+            - AF
+      properties:
+        regions:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersRegionsObject'
+          type: array
+      type: object
+    StructuredFiltersRegions:
+      description: Structured Filters Regions Object
+      example:
+        regions:
+        - children:
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          topLevel: true
+          name: Africa
+          value:
+          - AF
+          - AF
+        - children:
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          topLevel: true
+          name: Africa
+          value:
+          - AF
+          - AF
+      properties:
+        regions:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersRegionsObject'
+          type: array
+      type: object
+    FlattenedFiltersWatchlistsObject:
+      example:
+        name: S&P 500
+        type: Index
+        value: SP50
+      properties:
+        name:
+          description: The name of the watchlist.
+          type: string
+        type:
+          description: The type of watchlist.
+          type: string
+        value:
+          description: The value associated with the watchlist.
+          type: string
+      type: object
+    FilterWatchlistsResponse:
+      description: Filters Watchlists Object
+      example:
+        data:
+          flattened:
+            watchlists:
+            - name: S&P 500
+              type: Index
+              value: SP50
+            - name: S&P 500
+              type: Index
+              value: SP50
+          structured:
+            watchlists:
+            - name: S&P 500
+              type: Index
+              value: SP50
+            - name: S&P 500
+              type: Index
+              value: SP50
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterWatchlistsResponse_data'
+      type: object
+    FlattenedFiltersWatchlists:
+      description: Flattened Filter Watchlists Object
+      example:
+        watchlists:
+        - name: S&P 500
+          type: Index
+          value: SP50
+        - name: S&P 500
+          type: Index
+          value: SP50
+      properties:
+        watchlists:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersWatchlistsObject'
+          type: array
+      type: object
+    StructuredFiltersWatchlists:
+      description: Structured Filters Watchlists Object
+      example:
+        watchlists:
+        - name: S&P 500
+          type: Index
+          value: SP50
+        - name: S&P 500
+          type: Index
+          value: SP50
+      properties:
+        watchlists:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
+          type: array
+      type: object
+    QuickAlertsBody:
+      example:
+        data:
+          name: FactSet News View
+      properties:
+        data:
+          $ref: '#/components/schemas/QuickAlertsBody_data'
+      type: object
+    DeleteViewBody:
+      example:
+        data:
+          name: FactSet News View
+      properties:
+        data:
+          $ref: '#/components/schemas/DeleteViewBody_data'
+      type: object
+    CreateOrEditViewBody:
+      example:
+        data:
+          regions:
+          - Americas
+          - Americas
+          sources:
+          - Business Wire
+          - Business Wire
+          isPrimary: true
+          topics:
+          - Market Summaries
+          - Market Summaries
+          name: FactSet News View
+          categories:
+          - Earnings
+          - Earnings
+          countries:
+          - India
+          - India
+          quickAlert: false
+          tickers:
+          - name: Russell 1000
+            type: Index
+            value: R.1000
+          - name: Russell 1000
+            type: Index
+            value: R.1000
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateOrEditViewBody_data'
+      type: object
+    CreateOrEditViewTickers:
+      example:
+        name: Russell 1000
+        type: Index
+        value: R.1000
+      properties:
+        name:
+          description: Name of the ticker.
+          example: Russell 1000
+          type: string
+        value:
+          description: The ticker symbol.
+          example: R.1000
+          type: string
+        type:
+          description: The type of the asset associated with the ticker.
+          enum:
+          - Index
+          - ETF
+          - Holder
+          - Mutual_Fund
+          - Portfolios
+          example: Index
+          type: string
+      type: object
+    CreateViewResponse:
+      description: Properties in object are results of the create or save operation.
+      example:
+        data:
+          name: FactSet News View
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateViewResponse_data'
+      type: object
+    HeadlinesRequestByView:
+      example:
+        data:
+          searchTime:
+            start: 2022-08-21T12:35:45Z
+            end: 2022-08-29T08:10:30Z
+          predefinedRange: today
+          name: FactSet News View
+        meta:
+          pagination:
+            offset: 100
+            limit: 50
+      properties:
+        data:
+          $ref: '#/components/schemas/HeadlinesRequestByView_data'
+        meta:
+          $ref: '#/components/schemas/HeadlinesRequestByView_meta'
+      type: object
+    HeadlinesRequest:
+      example:
+        data:
+          searchTime:
+            start: 2022-08-21T12:35:45Z
+            end: 2022-08-29T08:10:30Z
+          regions:
+          - North America
+          - North America
+          predefinedRange: today
+          sources:
+          - Business Wire
+          - Business Wire
+          isPrimary: true
+          topics:
+          - Market Summaries
+          - Market Summaries
+          categories:
+          - Earnings
+          - Earnings
+          countries:
+          - India
+          - India
+          tickers:
+          - type: Index
+            value: SP50
+          - type: Index
+            value: SP50
+        meta:
+          pagination:
+            offset: 100
+            limit: 50
+          attributes:
+          - headlines
+      properties:
+        data:
+          $ref: '#/components/schemas/HeadlinesRequest_data'
+        meta:
+          $ref: '#/components/schemas/HeadlinesRequest_meta'
+      type: object
+    HeadlinesRequestTickersObject:
+      example:
+        type: Index
+        value: SP50
+      properties:
+        value:
+          description: The ticker symbol.
+          example: SP50
+          type: string
+        type:
+          description: The type of asset associated with the ticker.
+          enum:
+          - Index
+          - ETF
+          - Mutual_Fund
+          - Portfolios
+          - Equity
+          - privateCompanies
+          - Fixed_Income
+          example: Index
+          type: string
+      type: object
+    SearchResponse:
+      description: Properties in results objects are based on return values.
+      example:
+        data:
+        - product: NEWS_CNINF
+          headlines: 'Transcript Intelligence: Ameren Q2 Earnings'
+          subjects:
+          - Class Action
+          - Class Action
+          id: "1214441110"
+          source: 00000-bid
+          storyDateAndTime: 2022-09-15T06:48:19Z
+          url: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
+          primarySymbols:
+          - AAPL-US
+          - AAPL-US
+          symbols:
+          - AAPL-US
+          - AAPL-US
+          fdsSubject: FILNS, COARLS
+        - product: NEWS_CNINF
+          headlines: 'Transcript Intelligence: Ameren Q2 Earnings'
+          subjects:
+          - Class Action
+          - Class Action
+          id: "1214441110"
+          source: 00000-bid
+          storyDateAndTime: 2022-09-15T06:48:19Z
+          url: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
+          primarySymbols:
+          - AAPL-US
+          - AAPL-US
+          symbols:
+          - AAPL-US
+          - AAPL-US
+          fdsSubject: FILNS, COARLS
+        meta:
+          pagination:
+            total: 100
+            isEstimatedTotal: false
+          requestGuid: 79D8C5700000R
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SearchResponseArrayObject'
+          type: array
+        meta:
+          $ref: '#/components/schemas/SearchResponse_meta'
+      type: object
+    SearchResponseArrayObject:
+      example:
+        product: NEWS_CNINF
+        headlines: 'Transcript Intelligence: Ameren Q2 Earnings'
+        subjects:
+        - Class Action
+        - Class Action
+        id: "1214441110"
+        source: 00000-bid
+        storyDateAndTime: 2022-09-15T06:48:19Z
+        url: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
+        primarySymbols:
+        - AAPL-US
+        - AAPL-US
+        symbols:
+        - AAPL-US
+        - AAPL-US
+        fdsSubject: FILNS, COARLS
+      properties:
+        storyDateAndTime:
+          description: The timestamp when the headline was published.
+          example: 2022-09-15T06:48:19Z
+          format: date-time
+          type: string
+        headlines:
+          description: The Headline.
+          example: 'Transcript Intelligence: Ameren Q2 Earnings'
+          type: string
+        id:
+          description: The ID associated with the headline.
+          example: "1214441110"
+          type: string
+        url:
+          description: The URI associated with the headline.
+          example: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
+          type: string
+        source:
+          description: The source associated with the headline.
+          example: 00000-bid
+          type: string
+        product:
+          description: The source associated with the headline.
+          example: NEWS_CNINF
+          type: string
+        primarySymbols:
+          description: The primary symbols associated with the headline.
+          items:
+            example: AAPL-US
+            type: string
+          type: array
+        symbols:
+          description: All symbols associated with the headline.
+          items:
+            example: AAPL-US
+            type: string
+          type: array
+        subjects:
+          description: All subjects associated with the headline.
+          items:
+            example: Class Action
+            type: string
+          type: array
+        fdsSubject:
+          description: The filters associated with the headline.
+          example: FILNS, COARLS
+          type: string
+      type: object
+    FilterResponse:
+      description: Filters Object
+      example:
+        data:
+          flattened:
+            regions:
+            - regions:
+                name: Africa
+                value:
+                - AF
+            - regions:
+                name: Africa
+                value:
+                - AF
+            sources:
+            - sources:
+                name: OMX Regulatory News
+                value:
+                - OMX
+            - sources:
+                name: OMX Regulatory News
+                value:
+                - OMX
+            topics:
+            - field: subjects
+              name: Barron's
+              source:
+              - BAR
+              - DJAN
+              value:
+              - N/BRN
+            - field: subjects
+              name: Barron's
+              source:
+              - BAR
+              - DJAN
+              value:
+              - N/BRN
+            watchlists:
+            - name: S&P 500
+              type: Index
+              value: SP50
+            - name: S&P 500
+              type: Index
+              value: SP50
+            categories:
+            - categories:
+                name: Initiating Coverage and Other Notable Research
+                value:
+                - AN_INC
+            - categories:
+                name: Initiating Coverage and Other Notable Research
+                value:
+                - AN_INC
+            countries:
+            - countries:
+                name: Algeria
+                value:
+                - DZ
+            - countries:
+                name: Algeria
+                value:
+                - DZ
+          structured:
+            regions:
+            - children:
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              topLevel: true
+              name: Africa
+              value:
+              - AF
+              - AF
+            - children:
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              - name: Algeria
+                value:
+                - DZ
+                - DZ
+              topLevel: true
+              name: Africa
+              value:
+              - AF
+              - AF
+            sources:
+            - children:
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              topLevel: true
+              criteriaLabel: DS_COR
+              name: Business Wire
+              topLevelCriteria: true
+              value:
+              - BW
+              - BW
+            - children:
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              - criteriaLabel: PRESS_RELEASE_SUBJECT
+                name: MTN Live Briefs PRO APAC
+                value:
+                - NEWS_MTAPAC
+                - NEWS_MTAPAC
+              topLevel: true
+              criteriaLabel: DS_COR
+              name: Business Wire
+              topLevelCriteria: true
+              value:
+              - BW
+              - BW
+            topics:
+            - parentConfig: true
+              toplevel: true
+              field: tweet_type
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: Twitter News
+              source:
+              - NEWS_TWTR
+              - NEWS_TWTR
+              type: MARKET_TWEET
+              value:
+              - BDliveSA
+              operator: IN
+            - parentConfig: true
+              toplevel: true
+              field: tweet_type
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: Twitter News
+              source:
+              - NEWS_TWTR
+              - NEWS_TWTR
+              type: MARKET_TWEET
+              value:
+              - BDliveSA
+              operator: IN
+            watchlists:
+            - name: S&P 500
+              type: Index
+              value: SP50
+            - name: S&P 500
+              type: Index
+              value: SP50
+            categories:
+            - sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              toplevel: true
+              field: categories
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: BTU Analytics Filters
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              type: MARKET
+              value:
+              - ANLCH
+              - ANLCH
+              operator: IN
+            - sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              toplevel: true
+              field: categories
+              children:
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              - parentConfig: true
+                sourceDisplayNames:
+                - BTU Analytics - Energy Insights
+                - BTU Analytics - Energy Insights
+                field: categories
+                children:
+                - null
+                - null
+                name: AEM
+                source:
+                - NEWS_BTOUT
+                - NEWS_BTOUT
+                value:
+                - AE Mercas
+                - AE Mercas
+                operator: IN
+              name: BTU Analytics Filters
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              type: MARKET
+              value:
+              - ANLCH
+              - ANLCH
+              operator: IN
+            countries:
+            - name: Algeria
+              value:
+              - DZ
+            - name: Algeria
+              value:
+              - DZ
+      properties:
+        data:
+          $ref: '#/components/schemas/FilterResponse_data'
+      type: object
+    FlattenedFilters:
+      description: Flattened Filters Object
+      example:
+        regions:
+        - regions:
+            name: Africa
+            value:
+            - AF
+        - regions:
+            name: Africa
+            value:
+            - AF
+        sources:
+        - sources:
+            name: OMX Regulatory News
+            value:
+            - OMX
+        - sources:
+            name: OMX Regulatory News
+            value:
+            - OMX
+        topics:
+        - field: subjects
+          name: Barron's
+          source:
+          - BAR
+          - DJAN
+          value:
+          - N/BRN
+        - field: subjects
+          name: Barron's
+          source:
+          - BAR
+          - DJAN
+          value:
+          - N/BRN
+        watchlists:
+        - name: S&P 500
+          type: Index
+          value: SP50
+        - name: S&P 500
+          type: Index
+          value: SP50
+        categories:
+        - categories:
+            name: Initiating Coverage and Other Notable Research
+            value:
+            - AN_INC
+        - categories:
+            name: Initiating Coverage and Other Notable Research
+            value:
+            - AN_INC
+        countries:
+        - countries:
+            name: Algeria
+            value:
+            - DZ
+        - countries:
+            name: Algeria
+            value:
+            - DZ
+      properties:
+        sources:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersSourcesObject'
+          type: array
+        categories:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersCategoriesObject'
+          type: array
+        topics:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersTopicsObject'
+          type: array
+        regions:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersRegionsObject'
+          type: array
+        countries:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersCountriesObject'
+          type: array
+        watchlists:
+          items:
+            $ref: '#/components/schemas/FlattenedFiltersWatchlistsObject'
+          type: array
+      type: object
+    FlattenedFiltersCategoriesObject:
+      description: |2
+
+        '(Note: the value array will always have just one value.)'
+      example:
+        categories:
+          name: Initiating Coverage and Other Notable Research
+          value:
+          - AN_INC
+      properties:
+        name:
+          description: The name of the category.
+          type: string
+        value:
+          description: |
+            An array containing a single value associated with the category.
+          items:
+            type: string
+          type: array
+        sourceDisplayNames:
+          description: |
+            An array containing a source names associated with the category.
+          items:
+            type: string
+          type: array
+        field:
+          description: The field of the category.
+          type: string
+        source:
+          description: The source of the category.
+          items:
+            type: string
+          type: array
+      type: object
+    FlattenedFiltersTopicsObject:
+      description: |2
+
+
+        '(Note: the value array will always have just one value.)'
+      example:
+        field: subjects
+        name: Barron's
+        source:
+        - BAR
+        - DJAN
+        value:
+        - N/BRN
+      properties:
+        name:
+          description: The name of the topic.
+          example: Barron's
+          type: string
+        field:
+          description: The field of the topic.
+          example: subjects
+          type: string
+        source:
+          description: The source of the topic.
+          example:
+          - BAR
+          - DJAN
+          items:
+            type: string
+          type: array
+        value:
+          description: An array containing a single value associated with the topic.
+          example:
+          - N/BRN
+          items:
+            type: string
+          type: array
+      type: object
+    FlattenedFiltersRegionsObject:
+      description: '(Note: the value array will always have just one value.)'
+      example:
+        regions:
+          name: Africa
+          value:
+          - AF
+      properties:
+        name:
+          description: The name of the region.
+          type: string
+        value:
+          description: An array containing a single value associated with the region.
+          items:
+            type: string
+          type: array
+      type: object
+    FlattenedFiltersCountriesObject:
+      description: '(Note: the value array will always have just one value.)'
+      example:
+        countries:
+          name: Algeria
+          value:
+          - DZ
+      properties:
+        name:
+          description: The name of the country.
+          type: string
+        value:
+          description: |
+            An array containing a single  value associated with the country.
+          items:
+            type: string
+          type: array
+      type: object
+    StructuredFilters:
+      description: Structured Filters Object
+      example:
+        regions:
+        - children:
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          topLevel: true
+          name: Africa
+          value:
+          - AF
+          - AF
+        - children:
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          - name: Algeria
+            value:
+            - DZ
+            - DZ
+          topLevel: true
+          name: Africa
+          value:
+          - AF
+          - AF
+        sources:
+        - children:
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          topLevel: true
+          criteriaLabel: DS_COR
+          name: Business Wire
+          topLevelCriteria: true
+          value:
+          - BW
+          - BW
+        - children:
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          - criteriaLabel: PRESS_RELEASE_SUBJECT
+            name: MTN Live Briefs PRO APAC
+            value:
+            - NEWS_MTAPAC
+            - NEWS_MTAPAC
+          topLevel: true
+          criteriaLabel: DS_COR
+          name: Business Wire
+          topLevelCriteria: true
+          value:
+          - BW
+          - BW
+        topics:
+        - parentConfig: true
+          toplevel: true
+          field: tweet_type
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: Twitter News
+          source:
+          - NEWS_TWTR
+          - NEWS_TWTR
+          type: MARKET_TWEET
+          value:
+          - BDliveSA
+          operator: IN
+        - parentConfig: true
+          toplevel: true
+          field: tweet_type
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: Twitter News
+          source:
+          - NEWS_TWTR
+          - NEWS_TWTR
+          type: MARKET_TWEET
+          value:
+          - BDliveSA
+          operator: IN
+        watchlists:
+        - name: S&P 500
+          type: Index
+          value: SP50
+        - name: S&P 500
+          type: Index
+          value: SP50
+        categories:
+        - sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          toplevel: true
+          field: categories
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: BTU Analytics Filters
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          type: MARKET
+          value:
+          - ANLCH
+          - ANLCH
+          operator: IN
+        - sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          toplevel: true
+          field: categories
+          children:
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          - parentConfig: true
+            sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            field: categories
+            children:
+            - null
+            - null
+            name: AEM
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            value:
+            - AE Mercas
+            - AE Mercas
+            operator: IN
+          name: BTU Analytics Filters
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          type: MARKET
+          value:
+          - ANLCH
+          - ANLCH
+          operator: IN
+        countries:
+        - name: Algeria
+          value:
+          - DZ
+        - name: Algeria
+          value:
+          - DZ
+      properties:
+        sources:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersSourcesObject'
+          type: array
+        categories:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersCategoriesObject'
+          type: array
+        topics:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersTopicsObject'
+          type: array
+        regions:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersRegionsObject'
+          type: array
+        countries:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersCountriesObject'
+          type: array
+        watchlists:
+          items:
+            $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
+          type: array
+      type: object
+    StructuredFiltersCategoriesObject:
+      example:
+        sourceDisplayNames:
+        - BTU Analytics - Energy Insights
+        - BTU Analytics - Energy Insights
+        toplevel: true
+        field: categories
+        children:
+        - parentConfig: true
+          sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          field: categories
+          children:
+          - null
+          - null
+          name: AEM
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          value:
+          - AE Mercas
+          - AE Mercas
+          operator: IN
+        - parentConfig: true
+          sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          field: categories
+          children:
+          - null
+          - null
+          name: AEM
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          value:
+          - AE Mercas
+          - AE Mercas
+          operator: IN
+        name: BTU Analytics Filters
+        source:
+        - NEWS_BTOUT
+        - NEWS_BTOUT
+        type: MARKET
+        value:
+        - ANLCH
+        - ANLCH
+        operator: IN
+      properties:
+        name:
+          description: The name of the category.
+          example: BTU Analytics Filters
+          type: string
+        toplevel:
+          description: Indicates if its a toplevel value or not.
+          example: true
+          type: boolean
+        value:
+          items:
+            description: The values associated with the category.
+            example: ANLCH
+            type: string
+          type: array
+        field:
+          description: The field associated with the category.
+          example: categories
+          type: string
+        operator:
+          description: The operator associated with the category.
+          example: IN
+          type: string
+        source:
+          items:
+            description: The source associated with the category.
+            example: NEWS_BTOUT
+            type: string
+          type: array
+        sourceDisplayNames:
+          items:
+            description: The source associated with the category.
+            example: BTU Analytics - Energy Insights
+            type: string
+          type: array
+        type:
+          description: The type associated with the category.
+          example: MARKET
+          type: string
+        children:
+          description: An array of children objects.
+          items:
+            $ref: '#/components/schemas/StructuredFiltersChildrenObject'
+          type: array
+      required:
+      - name
+      type: object
+    StructuredFiltersChildrenObject:
+      example:
+        parentConfig: true
+        sourceDisplayNames:
+        - BTU Analytics - Energy Insights
+        - BTU Analytics - Energy Insights
+        field: categories
+        children:
+        - null
+        - null
+        name: AEM
+        source:
+        - NEWS_BTOUT
+        - NEWS_BTOUT
+        value:
+        - AE Mercas
+        - AE Mercas
+        operator: IN
+      properties:
+        name:
+          description: The name of the child.
+          example: AEM
+          type: string
+        value:
+          items:
+            description: The values associated with the child.
+            example: AE Mercas
+            type: string
+          type: array
+        parentConfig:
+          description: Indicates if there's a parent configuration or not.
+          type: boolean
+        field:
+          description: The field associated with the child.
+          example: categories
+          type: string
+        operator:
+          description: The operator associated with the child.
+          example: IN
+          type: string
+        source:
+          items:
+            description: The source associated with the child.
+            example: NEWS_BTOUT
+            type: string
+          type: array
+        sourceDisplayNames:
+          items:
+            description: The source associated with the child.
+            example: BTU Analytics - Energy Insights
+            type: string
+          type: array
+        children:
+          description: An array of children objects.
+          items:
+            $ref: '#/components/schemas/StructuredFiltersChildrenObject'
+          type: array
+      type: object
+    StructuredFiltersTopicsObject:
+      example:
+        parentConfig: true
+        toplevel: true
+        field: tweet_type
+        children:
+        - parentConfig: true
+          sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          field: categories
+          children:
+          - null
+          - null
+          name: AEM
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          value:
+          - AE Mercas
+          - AE Mercas
+          operator: IN
+        - parentConfig: true
+          sourceDisplayNames:
+          - BTU Analytics - Energy Insights
+          - BTU Analytics - Energy Insights
+          field: categories
+          children:
+          - null
+          - null
+          name: AEM
+          source:
+          - NEWS_BTOUT
+          - NEWS_BTOUT
+          value:
+          - AE Mercas
+          - AE Mercas
+          operator: IN
+        name: Twitter News
+        source:
+        - NEWS_TWTR
+        - NEWS_TWTR
+        type: MARKET_TWEET
+        value:
+        - BDliveSA
+        operator: IN
+      properties:
+        name:
+          description: The name of the topic.
+          example: Twitter News
+          type: string
+        parentConfig:
+          description: Indicates if there's a parent configuration or not.
+          type: boolean
+        field:
+          description: The field associated with the topic.
+          example: tweet_type
+          type: string
+        operator:
+          description: The operator associated with the topic.
+          example: IN
+          type: string
+        source:
+          items:
+            description: The source associated with the topic.
+            example: NEWS_TWTR
+            type: string
+          type: array
+        type:
+          description: The source associated with the topic.
+          example: MARKET_TWEET
+          type: string
+        toplevel:
+          description: Indicates if its the toplevel value or not.
+          example: true
+          type: boolean
+        value:
+          example:
+          - BDliveSA
+          items:
+            description: The values associated with the topic.
+            type: string
+          type: array
+        children:
+          description: An array of child objects.
+          items:
+            $ref: '#/components/schemas/StructuredFiltersChildrenObject'
+          type: array
+      required:
+      - name
+      type: object
+    StructuredFiltersRegionsObject:
+      example:
+        children:
+        - name: Algeria
+          value:
+          - DZ
+          - DZ
+        - name: Algeria
+          value:
+          - DZ
+          - DZ
+        topLevel: true
+        name: Africa
+        value:
+        - AF
+        - AF
+      properties:
+        name:
+          description: The name of the region.
+          example: Africa
+          type: string
+        topLevel:
+          description: Indicates if its a toplevel value or not.
+          type: boolean
+        value:
+          items:
+            description: The values associated with the region.
+            example: AF
+            type: string
+          type: array
+        children:
+          items:
+            $ref: '#/components/schemas/RegionObject'
+          type: array
+      required:
+      - children
+      - name
+      - topLevel
+      - value
+      type: object
+    RegionObject:
+      example:
+        name: Algeria
+        value:
+        - DZ
+        - DZ
+      properties:
+        name:
+          description: The name of the region.
+          example: Algeria
+          type: string
+        value:
+          items:
+            description: The values associated with the region.
+            example: DZ
+            type: string
+          type: array
+      type: object
+    StructuredFiltersCountriesObject:
+      example:
+        name: Algeria
+        value:
+        - DZ
+      properties:
+        name:
+          description: The name of the country.
+          example: Algeria
+          type: string
+        value:
+          description: The values associated with the country.
+          example:
+          - DZ
+          items:
+            type: string
+          type: array
+      required:
+      - name
+      - value
+      type: object
+    StructuredFiltersWatchlistsObject:
+      example:
+        name: S&P 500
+        type: Index
+        value: SP50
+      properties:
+        name:
+          description: The name of the watchlist.
+          example: S&P 500
+          type: string
+        type:
+          description: The type of watchlist.
+          example: Index
+          type: string
+        value:
+          description: The value associated with the watchlist.
+          example: SP50
+          type: string
+      required:
+      - name
+      - type
+      - value
+      type: object
+    QuickAlertsResponse:
+      example:
+        data:
+          name: FactSet News
+      properties:
+        data:
+          $ref: '#/components/schemas/QuickAlertsResponse_data'
+      type: object
+    Criteria:
+      description: Criteria object within a search object.
+      properties:
+        field:
+          type: string
+        detail:
+          $ref: '#/components/schemas/CriteriaDetail'
+        operator:
+          type: string
+        effect:
+          type: string
+        source:
+          items:
+            type: string
+          type: array
+        criteria:
+          $ref: '#/components/schemas/CriteriaOneOf'
+        caseSensitive:
+          type: boolean
+        enableHighlight:
+          type: boolean
+        enableStemming:
+          type: boolean
+        enableThesaurus:
+          type: boolean
+        textSearchSlop:
+          type: number
+      type: object
+    CriteriaDetail:
+      oneOf:
+      - items:
+          type: string
+        type: array
+      - items:
+          type: number
+        type: array
+      - type: string
+    CriteriaOneOf:
+      oneOf:
+      - items:
+          $ref: '#/components/schemas/Criteria'
+        type: array
+      - $ref: '#/components/schemas/Criteria'
+    Views:
+      description: FactSet News views
+      example:
+        data:
+        - regions:
+          - Asia
+          - Asia
+          sources:
+          - Business Wire
+          - Business Wire
+          isPrimary: true
+          topics:
+          - 'Market Summaries '
+          - 'Market Summaries '
+          name: FactSet News View
+          categories:
+          - Earnings
+          - Earnings
+          countries:
+          - China
+          - China
+          quickAlert: false
+          tickers:
+          - name: Russell 1000
+            type: Index
+            value: R.1000
+          - name: Russell 1000
+            type: Index
+            value: R.1000
+        - regions:
+          - Asia
+          - Asia
+          sources:
+          - Business Wire
+          - Business Wire
+          isPrimary: true
+          topics:
+          - 'Market Summaries '
+          - 'Market Summaries '
+          name: FactSet News View
+          categories:
+          - Earnings
+          - Earnings
+          countries:
+          - China
+          - China
+          quickAlert: false
+          tickers:
+          - name: Russell 1000
+            type: Index
+            value: R.1000
+          - name: Russell 1000
+            type: Index
+            value: R.1000
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ViewsObject'
+          type: array
+      type: object
+    ViewsObject:
+      example:
+        regions:
+        - Asia
+        - Asia
+        sources:
+        - Business Wire
+        - Business Wire
+        isPrimary: true
+        topics:
+        - 'Market Summaries '
+        - 'Market Summaries '
+        name: FactSet News View
+        categories:
+        - Earnings
+        - Earnings
+        countries:
+        - China
+        - China
+        quickAlert: false
+        tickers:
+        - name: Russell 1000
+          type: Index
+          value: R.1000
+        - name: Russell 1000
+          type: Index
+          value: R.1000
+      properties:
+        name:
+          description: Name of the view.
+          example: FactSet News View
+          type: string
+        tickers:
+          items:
+            $ref: '#/components/schemas/CreateOrEditViewTickers'
+          type: array
+        isPrimary:
+          description: If true, then only stories with the provided ticker as a primary
+            symbol will be returned. When this parameter is false, the symbol is either
+            primary OR a related symbol will be returned.
+          type: boolean
+        categories:
+          items:
+            description: An array of categories associated with the view.
+            example: Earnings
+            type: string
+          type: array
+        topics:
+          items:
+            description: An array of topics associated with the view.
+            example: 'Market Summaries '
+            type: string
+          type: array
+        sources:
+          items:
+            description: An array of sources associated with the view.
+            example: Business Wire
+            type: string
+          type: array
+        regions:
+          items:
+            description: An array of regions associated with the view.
+            example: Asia
+            type: string
+          type: array
+        countries:
+          items:
+            description: An array of countries associated with the view.
+            example: China
+            type: string
+          type: array
+        quickAlert:
+          description: Indicates whether quick alerts are enabled for the view. A
+            value of 'true' means quick alerts are enabled, while 'false' means they
+            are not.
+          example: false
+          type: boolean
+      type: object
+    Error:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorResponseObject'
+          type: array
+      type: object
+    ErrorResponseObject:
+      nullable: true
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          type: string
+      type: object
+    FilterSourcesResponse_data:
+      example:
+        flattened:
+          sources:
+          - sources:
+              name: OMX Regulatory News
+              value:
+              - OMX
+          - sources:
+              name: OMX Regulatory News
+              value:
+              - OMX
+        structured:
+          sources:
+          - children:
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            topLevel: true
+            criteriaLabel: DS_COR
+            name: Business Wire
+            topLevelCriteria: true
+            value:
+            - BW
+            - BW
+          - children:
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            topLevel: true
+            criteriaLabel: DS_COR
+            name: Business Wire
+            topLevelCriteria: true
+            value:
+            - BW
+            - BW
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFiltersSources'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFiltersSources'
+      type: object
+    FilterCountriesResponse_data:
+      example:
+        flattened:
+          countries:
+          - countries:
+              name: Algeria
+              value:
+              - DZ
+          - countries:
+              name: Algeria
+              value:
+              - DZ
+        structured:
+          countries:
+          - name: Algeria
+            value:
+            - DZ
+          - name: Algeria
+            value:
+            - DZ
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFiltersCountries'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFiltersCountries'
+      type: object
+    FilterCategoriesResponse_data:
+      example:
+        flattened:
+          categories:
+          - categories:
+              name: Initiating Coverage and Other Notable Research
+              value:
+              - AN_INC
+          - categories:
+              name: Initiating Coverage and Other Notable Research
+              value:
+              - AN_INC
+        structured:
+          categories:
+          - sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            toplevel: true
+            field: categories
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: BTU Analytics Filters
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            type: MARKET
+            value:
+            - ANLCH
+            - ANLCH
+            operator: IN
+          - sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            toplevel: true
+            field: categories
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: BTU Analytics Filters
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            type: MARKET
+            value:
+            - ANLCH
+            - ANLCH
+            operator: IN
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFiltersCategories'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFiltersCategories'
+      type: object
+    FilterTopicResponse_data:
+      example:
+        flattened:
+          topics:
+          - field: subjects
+            name: Barron's
+            source:
+            - BAR
+            - DJAN
+            value:
+            - N/BRN
+          - field: subjects
+            name: Barron's
+            source:
+            - BAR
+            - DJAN
+            value:
+            - N/BRN
+        structured:
+          topics:
+          - parentConfig: true
+            toplevel: true
+            field: tweet_type
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: Twitter News
+            source:
+            - NEWS_TWTR
+            - NEWS_TWTR
+            type: MARKET_TWEET
+            value:
+            - BDliveSA
+            operator: IN
+          - parentConfig: true
+            toplevel: true
+            field: tweet_type
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: Twitter News
+            source:
+            - NEWS_TWTR
+            - NEWS_TWTR
+            type: MARKET_TWEET
+            value:
+            - BDliveSA
+            operator: IN
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFiltersTopics'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFiltersTopics'
+      type: object
+    FilterRegionsResponse_data:
+      example:
+        flattened:
+          regions:
+          - regions:
+              name: Africa
+              value:
+              - AF
+          - regions:
+              name: Africa
+              value:
+              - AF
+        structured:
+          regions:
+          - children:
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            topLevel: true
+            name: Africa
+            value:
+            - AF
+            - AF
+          - children:
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            topLevel: true
+            name: Africa
+            value:
+            - AF
+            - AF
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFiltersRegions'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFiltersRegions'
+      type: object
+    FilterWatchlistsResponse_data:
+      example:
+        flattened:
+          watchlists:
+          - name: S&P 500
+            type: Index
+            value: SP50
+          - name: S&P 500
+            type: Index
+            value: SP50
+        structured:
+          watchlists:
+          - name: S&P 500
+            type: Index
+            value: SP50
+          - name: S&P 500
+            type: Index
+            value: SP50
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFiltersWatchlists'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFiltersWatchlists'
+      type: object
+    QuickAlertsBody_data:
+      example:
+        name: FactSet News View
+      properties:
+        name:
+          description: The name of the view associated with quick alerts.
+          example: FactSet News View
+          type: string
+      type: object
+    DeleteViewBody_data:
+      example:
+        name: FactSet News View
+      properties:
+        name:
+          description: The name of the view to be deleted.
+          example: FactSet News View
+          type: string
+      type: object
+    CreateOrEditViewBody_data:
+      example:
+        regions:
+        - Americas
+        - Americas
+        sources:
+        - Business Wire
+        - Business Wire
+        isPrimary: true
+        topics:
+        - Market Summaries
+        - Market Summaries
+        name: FactSet News View
+        categories:
+        - Earnings
+        - Earnings
+        countries:
+        - India
+        - India
+        quickAlert: false
+        tickers:
+        - name: Russell 1000
+          type: Index
+          value: R.1000
+        - name: Russell 1000
+          type: Index
+          value: R.1000
+      properties:
+        name:
+          description: The name of the view.
+          example: FactSet News View
+          type: string
+        tickers:
+          items:
+            $ref: '#/components/schemas/CreateOrEditViewTickers'
+          type: array
+        isPrimary:
+          description: If true, then only stories with the provided ticker as a primary
+            symbol will be returned. When this parameter is false, the symbol is either
+            primary OR a related symbol will be returned.
+          example: true
+          type: boolean
+        categories:
+          items:
+            description: An array of categories associated with the view.
+            example: Earnings
+            type: string
+          type: array
+        countries:
+          items:
+            description: An array of countries associated with the view.
+            example: India
+            type: string
+          type: array
+        regions:
+          items:
+            description: An array of regions associated with the view.
+            example: Americas
+            type: string
+          type: array
+        sources:
+          items:
+            description: An array of sources associated with the view.
+            example: Business Wire
+            type: string
+          type: array
+        topics:
+          description: An array of topics associated with the view.
+          items:
+            example: Market Summaries
+            type: string
+          type: array
+        quickAlert:
+          description: Indicates whether quick alerts are enabled for the view. A
+            value of 'true' means quick alerts are enabled, while 'false' means they
+            are not.
+          example: false
+          type: boolean
+      type: object
+    CreateViewResponse_data:
+      example:
+        name: FactSet News View
+      properties:
+        name:
+          description: The name of the created view.
+          example: FactSet News View
+          type: string
+      type: object
+    HeadlinesRequestByView_data_searchTime:
+      example:
+        start: 2022-08-21T12:35:45Z
+        end: 2022-08-29T08:10:30Z
+      properties:
+        start:
+          description: Start time for custom search. startTime must follow the ISO
+            8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
+            ±[hh]:[mm].
+          example: 2022-08-21T12:35:45Z
+          format: date-time
+          type: string
+        end:
+          description: End time for custom search. If end time is not present end
+            time is automatically set to the time of the search. endTime must follow
+            the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports
+            offsets ±[hh]:[mm].
+          example: 2022-08-29T08:10:30Z
+          format: date-time
+          type: string
+      type: object
+    HeadlinesRequestByView_data:
+      example:
+        searchTime:
+          start: 2022-08-21T12:35:45Z
+          end: 2022-08-29T08:10:30Z
+        predefinedRange: today
+        name: FactSet News View
+      properties:
+        name:
+          description: Name of the view to return headlines for.
+          example: FactSet News View
+          type: string
+        predefinedRange:
+          description: See list of valid date ranges. Date range is mutually exlusive
+            to start/end time.
+          enum:
+          - today
+          - twoDays
+          - oneWeek
+          - oneMonth
+          - threeMonths
+          - sixMonths
+          - oneYear
+          - threeYears
+          - fiveYears
+          - tenYears
+          - allAvailable
+          type: string
+        searchTime:
+          $ref: '#/components/schemas/HeadlinesRequestByView_data_searchTime'
+      type: object
+    HeadlinesRequestByView_meta_pagination:
+      description: Object defining pagination for the results pageable attribute.
+        Offset-based strategy is used for Pagination.
+      example:
+        offset: 100
+        limit: 50
+      properties:
+        limit:
+          default: 500
+          description: Non-negative maximum number of entries to return.
+          example: 50
+          type: integer
+        offset:
+          default: 0
+          description: Non-negative number of entries to skip.
+          example: 100
+          type: integer
+      type: object
+    HeadlinesRequestByView_meta:
+      example:
+        pagination:
+          offset: 100
+          limit: 50
+      properties:
+        pagination:
+          $ref: '#/components/schemas/HeadlinesRequestByView_meta_pagination'
+      type: object
+    HeadlinesRequest_data_searchTime:
+      example:
+        start: 2022-08-21T12:35:45Z
+        end: 2022-08-29T08:10:30Z
+      properties:
+        start:
+          description: Start time for custom search. startTime must follow the ISO
+            8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
+            ±[hh]:[mm].
+          example: 2022-08-21T12:35:45Z
+          format: date-time
+          type: string
+        end:
+          description: End time for custom search. If end time is not present end
+            time is automatically set to the time of the search. endTime must follow
+            the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports
+            offsets ±[hh]:[mm].
+          example: 2022-08-29T08:10:30Z
+          type: string
+      type: object
+    HeadlinesRequest_data:
+      example:
+        searchTime:
+          start: 2022-08-21T12:35:45Z
+          end: 2022-08-29T08:10:30Z
+        regions:
+        - North America
+        - North America
+        predefinedRange: today
+        sources:
+        - Business Wire
+        - Business Wire
+        isPrimary: true
+        topics:
+        - Market Summaries
+        - Market Summaries
+        categories:
+        - Earnings
+        - Earnings
+        countries:
+        - India
+        - India
+        tickers:
+        - type: Index
+          value: SP50
+        - type: Index
+          value: SP50
+      properties:
+        tickers:
+          description: List of tickers to filter the headlines. Each ticker is an
+            object. Please refer to the /filters endpoint to obtain the values accepted
+            by the optional parameters.
+          items:
+            $ref: '#/components/schemas/HeadlinesRequestTickersObject'
+          type: array
+        isPrimary:
+          description: |
+            If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned.
+          example: true
+          type: boolean
+        categories:
+          description: A list of categories used to filter the headlines. Categories
+            are define the nature or topic of the headlines, such as "Earnings".
+          items:
+            example: Earnings
+            type: string
+          type: array
+        countries:
+          description: A list of countries used to filter the headlines.
+          items:
+            example: India
+            type: string
+          type: array
+        regions:
+          description: A list of regions used to filter the headlines. Regions specify
+            the geographical location or market to which the headlines are relevant,
+            for example, "Americas".
+          items:
+            example: North America
+            type: string
+          type: array
+        sources:
+          description: A list of sources used to filter the headlines.
+          items:
+            example: Business Wire
+            type: string
+          type: array
+        topics:
+          description: A list of topics used to filter the headlines. Topics represent
+            specific subjects or themes associated with the headlines, such as "Market
+            Summaries".
+          items:
+            example: Market Summaries
+            type: string
+          type: array
+        predefinedRange:
+          description: See list of valid date ranges. Date range is mutually exclusive
+            to start/end time
+          enum:
+          - today
+          - twoDays
+          - oneWeek
+          - oneMonth
+          - threeMonths
+          - sixMonths
+          - oneYear
+          - threeYears
+          - fiveYears
+          - tenYears
+          - allAvailable
+          type: string
+        searchTime:
+          $ref: '#/components/schemas/HeadlinesRequest_data_searchTime'
+      type: object
+    HeadlinesRequest_meta:
+      example:
+        pagination:
+          offset: 100
+          limit: 50
+        attributes:
+        - headlines
+      properties:
+        pagination:
+          $ref: '#/components/schemas/HeadlinesRequestByView_meta_pagination'
+        attributes:
+          description: A specific set of attributes to return in the response. If
+            empty or not specified, the response does not omit attributes.
+          example:
+          - headlines
+          items:
+            enum:
+            - storyDateAndTime
+            - headlines
+            - id
+            - url
+            - source
+            - product
+            - primarySymbols
+            - symbols
+            - subjects
+            - fdsSubject
+            type: string
+          type: array
+      type: object
+    SearchResponse_meta_pagination:
+      example:
+        total: 100
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: The total number of items available in the search result.
+          example: 100
+          type: integer
+        isEstimatedTotal:
+          description: Indicates whether the total count provided is an estimation.
+          example: false
+          type: boolean
+      type: object
+    SearchResponse_meta:
+      example:
+        pagination:
+          total: 100
+          isEstimatedTotal: false
+        requestGuid: 79D8C5700000R
+      properties:
+        requestGuid:
+          description: Identifier to get general information about the request that
+            produced that search response.
+          example: 79D8C5700000R
+          type: string
+        pagination:
+          $ref: '#/components/schemas/SearchResponse_meta_pagination'
+      type: object
+    FilterResponse_data:
+      example:
+        flattened:
+          regions:
+          - regions:
+              name: Africa
+              value:
+              - AF
+          - regions:
+              name: Africa
+              value:
+              - AF
+          sources:
+          - sources:
+              name: OMX Regulatory News
+              value:
+              - OMX
+          - sources:
+              name: OMX Regulatory News
+              value:
+              - OMX
+          topics:
+          - field: subjects
+            name: Barron's
+            source:
+            - BAR
+            - DJAN
+            value:
+            - N/BRN
+          - field: subjects
+            name: Barron's
+            source:
+            - BAR
+            - DJAN
+            value:
+            - N/BRN
+          watchlists:
+          - name: S&P 500
+            type: Index
+            value: SP50
+          - name: S&P 500
+            type: Index
+            value: SP50
+          categories:
+          - categories:
+              name: Initiating Coverage and Other Notable Research
+              value:
+              - AN_INC
+          - categories:
+              name: Initiating Coverage and Other Notable Research
+              value:
+              - AN_INC
+          countries:
+          - countries:
+              name: Algeria
+              value:
+              - DZ
+          - countries:
+              name: Algeria
+              value:
+              - DZ
+        structured:
+          regions:
+          - children:
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            topLevel: true
+            name: Africa
+            value:
+            - AF
+            - AF
+          - children:
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            - name: Algeria
+              value:
+              - DZ
+              - DZ
+            topLevel: true
+            name: Africa
+            value:
+            - AF
+            - AF
+          sources:
+          - children:
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            topLevel: true
+            criteriaLabel: DS_COR
+            name: Business Wire
+            topLevelCriteria: true
+            value:
+            - BW
+            - BW
+          - children:
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            - criteriaLabel: PRESS_RELEASE_SUBJECT
+              name: MTN Live Briefs PRO APAC
+              value:
+              - NEWS_MTAPAC
+              - NEWS_MTAPAC
+            topLevel: true
+            criteriaLabel: DS_COR
+            name: Business Wire
+            topLevelCriteria: true
+            value:
+            - BW
+            - BW
+          topics:
+          - parentConfig: true
+            toplevel: true
+            field: tweet_type
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: Twitter News
+            source:
+            - NEWS_TWTR
+            - NEWS_TWTR
+            type: MARKET_TWEET
+            value:
+            - BDliveSA
+            operator: IN
+          - parentConfig: true
+            toplevel: true
+            field: tweet_type
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: Twitter News
+            source:
+            - NEWS_TWTR
+            - NEWS_TWTR
+            type: MARKET_TWEET
+            value:
+            - BDliveSA
+            operator: IN
+          watchlists:
+          - name: S&P 500
+            type: Index
+            value: SP50
+          - name: S&P 500
+            type: Index
+            value: SP50
+          categories:
+          - sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            toplevel: true
+            field: categories
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: BTU Analytics Filters
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            type: MARKET
+            value:
+            - ANLCH
+            - ANLCH
+            operator: IN
+          - sourceDisplayNames:
+            - BTU Analytics - Energy Insights
+            - BTU Analytics - Energy Insights
+            toplevel: true
+            field: categories
+            children:
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            - parentConfig: true
+              sourceDisplayNames:
+              - BTU Analytics - Energy Insights
+              - BTU Analytics - Energy Insights
+              field: categories
+              children:
+              - null
+              - null
+              name: AEM
+              source:
+              - NEWS_BTOUT
+              - NEWS_BTOUT
+              value:
+              - AE Mercas
+              - AE Mercas
+              operator: IN
+            name: BTU Analytics Filters
+            source:
+            - NEWS_BTOUT
+            - NEWS_BTOUT
+            type: MARKET
+            value:
+            - ANLCH
+            - ANLCH
+            operator: IN
+          countries:
+          - name: Algeria
+            value:
+            - DZ
+          - name: Algeria
+            value:
+            - DZ
+      properties:
+        structured:
+          $ref: '#/components/schemas/StructuredFilters'
+        flattened:
+          $ref: '#/components/schemas/FlattenedFilters'
+      type: object
+    QuickAlertsResponse_data:
+      example:
+        name: FactSet News
+      properties:
+        name:
+          description: The name of the view associated with quick alerts.
+          example: FactSet News
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+
