@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimPhone
+    /// User&#39;s phone number details.
     /// </summary>
     [DataContract(Name = "ScimPhone")]
     public partial class ScimPhone : IEquatable<ScimPhone>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimPhone" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="type">type.</param>
-        /// <param name="primary">primary.</param>
+        /// <param name="value">The phone number of the user..</param>
+        /// <param name="type">The type of phone number (e.g., home, mobile, work)..</param>
+        /// <param name="primary">Indicates if this is the primary phone number for the user..</param>
         public ScimPhone(string value = default(string), string type = default(string), bool primary = default(bool))
         {
             this.Value = value;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The phone number of the user.
         /// </summary>
+        /// <value>The phone number of the user.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of phone number (e.g., home, mobile, work).
         /// </summary>
+        /// <value>The type of phone number (e.g., home, mobile, work).</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Primary
+        /// Indicates if this is the primary phone number for the user.
         /// </summary>
+        /// <value>Indicates if this is the primary phone number for the user.</value>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 

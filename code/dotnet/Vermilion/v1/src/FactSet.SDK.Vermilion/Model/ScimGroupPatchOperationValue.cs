@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimGroupPatchOperationValue
+    /// The new value for the attribute.
     /// </summary>
     [DataContract(Name = "ScimGroupPatchOperation_value")]
     public partial class ScimGroupPatchOperationValue : IEquatable<ScimGroupPatchOperationValue>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimGroupPatchOperationValue" /> class.
         /// </summary>
-        /// <param name="display">display.</param>
-        /// <param name="_ref">_ref.</param>
-        /// <param name="value">value.</param>
+        /// <param name="display">The value to set for the group&#39;s/role&#39;s attribute..</param>
+        /// <param name="_ref">A reference to another object..</param>
+        /// <param name="value">The actual value for the attribute..</param>
         public ScimGroupPatchOperationValue(string display = default(string), string _ref = default(string), string value = default(string))
         {
             this.Display = display;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Display
+        /// The value to set for the group&#39;s/role&#39;s attribute.
         /// </summary>
+        /// <value>The value to set for the group&#39;s/role&#39;s attribute.</value>
         [DataMember(Name = "display", EmitDefaultValue = false)]
         public string Display { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ref
+        /// A reference to another object.
         /// </summary>
+        /// <value>A reference to another object.</value>
         [DataMember(Name = "$ref", EmitDefaultValue = false)]
         public string Ref { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The actual value for the attribute.
         /// </summary>
+        /// <value>The actual value for the attribute.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

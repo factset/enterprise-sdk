@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// GenerateScheduleResponse
+    /// Response object for schedule generation.
     /// </summary>
     [DataContract(Name = "GenerateScheduleResponse")]
     public partial class GenerateScheduleResponse : IEquatable<GenerateScheduleResponse>, IValidatableObject

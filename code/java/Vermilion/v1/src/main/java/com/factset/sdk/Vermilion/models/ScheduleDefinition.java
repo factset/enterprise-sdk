@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleDefinition
+ * List of Schedule Definition.
  */
+@ApiModel(description = "List of Schedule Definition.")
 @JsonPropertyOrder({
   ScheduleDefinition.JSON_PROPERTY_SCHEDULE_DEFINITION_ID,
   ScheduleDefinition.JSON_PROPERTY_NAME,
@@ -66,16 +67,12 @@ public class ScheduleDefinition implements Serializable {
   private String code;
 
   /**
-   * Gets or Sets scheduleType
+   * Type of Schedule Definition.
    */
   public enum ScheduleTypeEnum {
     MANUAL("MANUAL"),
     
-    REPEATING("REPEATING"),
-    
-    TEMPLATE("TEMPLATE"),
-    
-    ADHOC("ADHOC");
+    REPEATING("REPEATING");
 
     private String value;
 
@@ -111,7 +108,7 @@ public class ScheduleDefinition implements Serializable {
   private String scheduleGroup;
 
   /**
-   * Gets or Sets reportDate
+   * Report Date of the Schedule Definition.
    */
   public enum ReportDateEnum {
     LAST_DAY_OF_PREV_MONTH("LAST_DAY_OF_PREV_MONTH"),
@@ -200,11 +197,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get scheduleDefinitionId
+   * Unique Identifier for the Schedule Definition.
    * @return scheduleDefinitionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier for the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_SCHEDULE_DEFINITION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -226,11 +223,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the Schedule Definition.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -252,11 +249,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get code
+   * Code of the Schedule Definition.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Code of the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -278,11 +275,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get scheduleType
+   * Type of Schedule Definition.
    * @return scheduleType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_SCHEDULE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -304,11 +301,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get scheduleGroup
+   * Group of the Schedule Definition.
    * @return scheduleGroup
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Group of the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_SCHEDULE_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -330,11 +327,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get reportDate
+   * Report Date of the Schedule Definition.
    * @return reportDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Report Date of the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -356,11 +353,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get numberOfObligations
+   * Number of obligations used in the Schedule Definition.
    * @return numberOfObligations
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of obligations used in the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_OBLIGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -382,11 +379,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get businessCalendar
+   * Calender name used in the Schedule Definition.
    * @return businessCalendar
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Calender name used in the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -408,11 +405,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get deleteScheduleAfterDays
+   * Indicates after how many days the Schedule should be deleted.
    * @return deleteScheduleAfterDays
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates after how many days the Schedule should be deleted.")
   @JsonProperty(JSON_PROPERTY_DELETE_SCHEDULE_AFTER_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -434,11 +431,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get numberOfPackages
+   * Indicates number of packages involved in the Schedule Definition.
    * @return numberOfPackages
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates number of packages involved in the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_PACKAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -468,11 +465,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get entities
+   * A set of entities used in Schedule Definition.
    * @return entities
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of entities used in Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -520,11 +517,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get notes
+   * Notes of the Schedule Definition.
    * @return notes
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Notes of the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -546,11 +543,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get lastUpdatedBy
+   * Indicates the username of the person who last updated the Data Source.
    * @return lastUpdatedBy
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates the username of the person who last updated the Data Source.")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -572,11 +569,11 @@ public class ScheduleDefinition implements Serializable {
   }
 
    /**
-   * Get lastUpdated
+   * The timestamp of the most recent update in epoch format for a specific Schedule Definition
    * @return lastUpdated
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the most recent update in epoch format for a specific Schedule Definition")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

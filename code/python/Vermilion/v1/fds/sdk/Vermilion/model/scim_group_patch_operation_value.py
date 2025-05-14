@@ -139,9 +139,9 @@ class ScimGroupPatchOperationValue(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            display (str): [optional]  # noqa: E501
-            ref (str): [optional]  # noqa: E501
-            value (str): [optional]  # noqa: E501
+            display (str): The value to set for the group's/role's attribute.. [optional]  # noqa: E501
+            ref (str): A reference to another object.. [optional]  # noqa: E501
+            value (str): The actual value for the attribute.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScimGroupPatchOperationValue(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            display (str): [optional]  # noqa: E501
-            ref (str): [optional]  # noqa: E501
-            value (str): [optional]  # noqa: E501
+            display (str): The value to set for the group's/role's attribute.. [optional]  # noqa: E501
+            ref (str): A reference to another object.. [optional]  # noqa: E501
+            value (str): The actual value for the attribute.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

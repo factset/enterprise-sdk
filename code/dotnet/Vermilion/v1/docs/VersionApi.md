@@ -99,6 +99,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **401** | Unauthorised |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

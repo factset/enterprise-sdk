@@ -35,6 +35,7 @@ public class ReportApi {
     getAllReportDefinitionsResponseTypeMap.put(401, new GenericType<ErrorList>(){});
     getAllReportDefinitionsResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getAllReportDefinitionsResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getAllReportDefinitionsResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> getReportDefinitionByCodeResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -45,6 +46,7 @@ public class ReportApi {
     getReportDefinitionByCodeResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getReportDefinitionByCodeResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     getReportDefinitionByCodeResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getReportDefinitionByCodeResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   
@@ -85,6 +87,7 @@ public class ReportApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ReportDefinitionList getAllReportDefinitions(String tenant, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -108,6 +111,7 @@ public class ReportApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ReportDefinitionList> getAllReportDefinitionsWithHttpInfo(String tenant, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -175,6 +179,7 @@ public class ReportApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report definition code was was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ReportDefinitionData getReportDefinitionByCode(String tenant, String reportDefinitionCode) throws ApiException {
@@ -197,6 +202,7 @@ public class ReportApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report definition code was was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ReportDefinitionData> getReportDefinitionByCodeWithHttpInfo(String tenant, String reportDefinitionCode) throws ApiException {

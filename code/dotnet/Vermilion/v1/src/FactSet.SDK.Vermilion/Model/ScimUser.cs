@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimUser
+    /// A user object representing identity information, including attributes like username, email, with links for retrieving additional group details.
     /// </summary>
     [DataContract(Name = "ScimUser")]
     public partial class ScimUser : IEquatable<ScimUser>, IValidatableObject
@@ -35,21 +35,21 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimUser" /> class.
         /// </summary>
-        /// <param name="schemas">schemas.</param>
-        /// <param name="id">id.</param>
-        /// <param name="userName">userName.</param>
+        /// <param name="schemas">Array of schema URIs applicable to this resource..</param>
+        /// <param name="id">Unique identifier for the user..</param>
+        /// <param name="userName">Username used for identifying and logging in the user..</param>
         /// <param name="name">name.</param>
-        /// <param name="userType">userType.</param>
-        /// <param name="active">active.</param>
-        /// <param name="authenticatedUserName">authenticatedUserName.</param>
-        /// <param name="tenant">tenant.</param>
-        /// <param name="phoneNumbers">phoneNumbers.</param>
-        /// <param name="emails">emails.</param>
-        /// <param name="photos">photos.</param>
-        /// <param name="tenancies">tenancies.</param>
-        /// <param name="groups">groups.</param>
-        /// <param name="domainCode">domainCode.</param>
-        /// <param name="isAdministrator">isAdministrator.</param>
+        /// <param name="userType">Type of user..</param>
+        /// <param name="active">Indicates whether the user account is active..</param>
+        /// <param name="authenticatedUserName">Authenticated username used for the SSO logins..</param>
+        /// <param name="tenant">Tenancy code in which user was created..</param>
+        /// <param name="phoneNumbers">Array of phone numbers associated with the user..</param>
+        /// <param name="emails">Array of email addresses linked to the user account..</param>
+        /// <param name="photos">Array of URLs to the user&#39;s profile pictures..</param>
+        /// <param name="tenancies">Array of tenancies assigned to the user..</param>
+        /// <param name="groups">Array of groups/roles assigned to the user..</param>
+        /// <param name="domainCode">Domain code representing the user&#39;s domain..</param>
+        /// <param name="isAdministrator">Flag indicating if the user has admin privileges..</param>
         /// <param name="meta">meta.</param>
         public ScimUser(List<string> schemas = default(List<string>), string id = default(string), string userName = default(string), ScimUserName name = default(ScimUserName), string userType = default(string), bool active = default(bool), string authenticatedUserName = default(string), string tenant = default(string), List<ScimPhone> phoneNumbers = default(List<ScimPhone>), List<ScimEmail> emails = default(List<ScimEmail>), List<ScimPhoto> photos = default(List<ScimPhoto>), List<Tenancy> tenancies = default(List<Tenancy>), List<ScimUserGroup> groups = default(List<ScimUserGroup>), string domainCode = default(string), bool isAdministrator = default(bool), ScimMeta meta = default(ScimMeta))
         {
@@ -72,20 +72,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Schemas
+        /// Array of schema URIs applicable to this resource.
         /// </summary>
+        /// <value>Array of schema URIs applicable to this resource.</value>
         [DataMember(Name = "schemas", EmitDefaultValue = false)]
         public List<string> Schemas { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier for the user.
         /// </summary>
+        /// <value>Unique identifier for the user.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserName
+        /// Username used for identifying and logging in the user.
         /// </summary>
+        /// <value>Username used for identifying and logging in the user.</value>
         [DataMember(Name = "userName", EmitDefaultValue = false)]
         public string UserName { get; set; }
 
@@ -96,68 +99,79 @@ namespace FactSet.SDK.Vermilion.Model
         public ScimUserName Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserType
+        /// Type of user.
         /// </summary>
+        /// <value>Type of user.</value>
         [DataMember(Name = "userType", EmitDefaultValue = false)]
         public string UserType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Active
+        /// Indicates whether the user account is active.
         /// </summary>
+        /// <value>Indicates whether the user account is active.</value>
         [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 
         /// <summary>
-        /// Gets or Sets AuthenticatedUserName
+        /// Authenticated username used for the SSO logins.
         /// </summary>
+        /// <value>Authenticated username used for the SSO logins.</value>
         [DataMember(Name = "authenticatedUserName", EmitDefaultValue = false)]
         public string AuthenticatedUserName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenant
+        /// Tenancy code in which user was created.
         /// </summary>
+        /// <value>Tenancy code in which user was created.</value>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public string Tenant { get; set; }
 
         /// <summary>
-        /// Gets or Sets PhoneNumbers
+        /// Array of phone numbers associated with the user.
         /// </summary>
+        /// <value>Array of phone numbers associated with the user.</value>
         [DataMember(Name = "phoneNumbers", EmitDefaultValue = false)]
         public List<ScimPhone> PhoneNumbers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Emails
+        /// Array of email addresses linked to the user account.
         /// </summary>
+        /// <value>Array of email addresses linked to the user account.</value>
         [DataMember(Name = "emails", EmitDefaultValue = false)]
         public List<ScimEmail> Emails { get; set; }
 
         /// <summary>
-        /// Gets or Sets Photos
+        /// Array of URLs to the user&#39;s profile pictures.
         /// </summary>
+        /// <value>Array of URLs to the user&#39;s profile pictures.</value>
         [DataMember(Name = "photos", EmitDefaultValue = false)]
         public List<ScimPhoto> Photos { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenancies
+        /// Array of tenancies assigned to the user.
         /// </summary>
+        /// <value>Array of tenancies assigned to the user.</value>
         [DataMember(Name = "tenancies", EmitDefaultValue = false)]
         public List<Tenancy> Tenancies { get; set; }
 
         /// <summary>
-        /// Gets or Sets Groups
+        /// Array of groups/roles assigned to the user.
         /// </summary>
+        /// <value>Array of groups/roles assigned to the user.</value>
         [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<ScimUserGroup> Groups { get; set; }
 
         /// <summary>
-        /// Gets or Sets DomainCode
+        /// Domain code representing the user&#39;s domain.
         /// </summary>
+        /// <value>Domain code representing the user&#39;s domain.</value>
         [DataMember(Name = "domainCode", EmitDefaultValue = false)]
         public string DomainCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsAdministrator
+        /// Flag indicating if the user has admin privileges.
         /// </summary>
+        /// <value>Flag indicating if the user has admin privileges.</value>
         [DataMember(Name = "isAdministrator", EmitDefaultValue = true)]
         public bool IsAdministrator { get; set; }
 

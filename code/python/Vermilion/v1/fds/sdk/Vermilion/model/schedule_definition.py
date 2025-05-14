@@ -65,8 +65,6 @@ class ScheduleDefinition(ModelNormal):
         ('schedule_type',): {
             'MANUAL': "MANUAL",
             'REPEATING': "REPEATING",
-            'TEMPLATE': "TEMPLATE",
-            'ADHOC': "ADHOC",
 
 
         },
@@ -193,21 +191,21 @@ class ScheduleDefinition(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedule_definition_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
-            schedule_type (str): [optional]  # noqa: E501
-            schedule_group (str): [optional]  # noqa: E501
-            report_date (str): [optional]  # noqa: E501
-            number_of_obligations (int): [optional]  # noqa: E501
-            business_calendar (str): [optional]  # noqa: E501
-            delete_schedule_after_days (int): [optional]  # noqa: E501
-            number_of_packages (int): [optional]  # noqa: E501
-            entities ([EntityDTO]): [optional]  # noqa: E501
+            schedule_definition_id (int): Unique Identifier for the Schedule Definition.. [optional]  # noqa: E501
+            name (str): Name of the Schedule Definition.. [optional]  # noqa: E501
+            code (str): Code of the Schedule Definition.. [optional]  # noqa: E501
+            schedule_type (str): Type of Schedule Definition.. [optional]  # noqa: E501
+            schedule_group (str): Group of the Schedule Definition.. [optional]  # noqa: E501
+            report_date (str): Report Date of the Schedule Definition.. [optional]  # noqa: E501
+            number_of_obligations (int): Number of obligations used in the Schedule Definition.. [optional]  # noqa: E501
+            business_calendar (str): Calender name used in the Schedule Definition.. [optional]  # noqa: E501
+            delete_schedule_after_days (int): Indicates after how many days the Schedule should be deleted.. [optional]  # noqa: E501
+            number_of_packages (int): Indicates number of packages involved in the Schedule Definition.. [optional]  # noqa: E501
+            entities ([EntityDTO]): A set of entities used in Schedule Definition.. [optional]  # noqa: E501
             owner_role (ScheduleDefinitionOwnerRole): [optional]  # noqa: E501
-            notes (str): [optional]  # noqa: E501
-            last_updated_by (str): [optional]  # noqa: E501
-            last_updated (str): [optional]  # noqa: E501
+            notes (str): Notes of the Schedule Definition.. [optional]  # noqa: E501
+            last_updated_by (str): Indicates the username of the person who last updated the Data Source.. [optional]  # noqa: E501
+            last_updated (str): The timestamp of the most recent update in epoch format for a specific Schedule Definition. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -289,21 +287,21 @@ class ScheduleDefinition(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedule_definition_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
-            schedule_type (str): [optional]  # noqa: E501
-            schedule_group (str): [optional]  # noqa: E501
-            report_date (str): [optional]  # noqa: E501
-            number_of_obligations (int): [optional]  # noqa: E501
-            business_calendar (str): [optional]  # noqa: E501
-            delete_schedule_after_days (int): [optional]  # noqa: E501
-            number_of_packages (int): [optional]  # noqa: E501
-            entities ([EntityDTO]): [optional]  # noqa: E501
+            schedule_definition_id (int): Unique Identifier for the Schedule Definition.. [optional]  # noqa: E501
+            name (str): Name of the Schedule Definition.. [optional]  # noqa: E501
+            code (str): Code of the Schedule Definition.. [optional]  # noqa: E501
+            schedule_type (str): Type of Schedule Definition.. [optional]  # noqa: E501
+            schedule_group (str): Group of the Schedule Definition.. [optional]  # noqa: E501
+            report_date (str): Report Date of the Schedule Definition.. [optional]  # noqa: E501
+            number_of_obligations (int): Number of obligations used in the Schedule Definition.. [optional]  # noqa: E501
+            business_calendar (str): Calender name used in the Schedule Definition.. [optional]  # noqa: E501
+            delete_schedule_after_days (int): Indicates after how many days the Schedule should be deleted.. [optional]  # noqa: E501
+            number_of_packages (int): Indicates number of packages involved in the Schedule Definition.. [optional]  # noqa: E501
+            entities ([EntityDTO]): A set of entities used in Schedule Definition.. [optional]  # noqa: E501
             owner_role (ScheduleDefinitionOwnerRole): [optional]  # noqa: E501
-            notes (str): [optional]  # noqa: E501
-            last_updated_by (str): [optional]  # noqa: E501
-            last_updated (str): [optional]  # noqa: E501
+            notes (str): Notes of the Schedule Definition.. [optional]  # noqa: E501
+            last_updated_by (str): Indicates the username of the person who last updated the Data Source.. [optional]  # noqa: E501
+            last_updated (str): The timestamp of the most recent update in epoch format for a specific Schedule Definition. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

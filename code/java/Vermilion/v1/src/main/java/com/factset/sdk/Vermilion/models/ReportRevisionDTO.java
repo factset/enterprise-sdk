@@ -24,14 +24,16 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportRevisionDTO
+ * Contains details about the Report revision.
  */
+@ApiModel(description = "Contains details about the Report revision.")
 @JsonPropertyOrder({
   ReportRevisionDTO.JSON_PROPERTY_REPORT_STATUS,
   ReportRevisionDTO.JSON_PROPERTY_START_DATE,
@@ -50,7 +52,7 @@ public class ReportRevisionDTO implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Gets or Sets reportStatus
+   * The current status of the Report generation process.
    */
   public enum ReportStatusEnum {
     WAITING("WAITING"),
@@ -158,7 +160,7 @@ public class ReportRevisionDTO implements Serializable {
   private String finishDate;
 
   /**
-   * Gets or Sets signOffStatus
+   * Sign-off status of the Report.
    */
   public enum SignOffStatusEnum {
     REJECTED("REJECTED"),
@@ -213,7 +215,7 @@ public class ReportRevisionDTO implements Serializable {
   private String outputFormat;
 
   public static final String JSON_PROPERTY_PERCENTAGE_COMPLETE = "percentageComplete";
-  private Integer percentageComplete;
+  private BigDecimal percentageComplete;
 
   public ReportRevisionDTO() { 
   }
@@ -224,11 +226,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get reportStatus
+   * The current status of the Report generation process.
    * @return reportStatus
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The current status of the Report generation process.")
   @JsonProperty(JSON_PROPERTY_REPORT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -250,11 +252,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get startDate
+   * Start date of the Report generation process.
    * @return startDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Start date of the Report generation process.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -276,11 +278,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get finishDate
+   * Completion date of the Report generation process.
    * @return finishDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Completion date of the Report generation process.")
   @JsonProperty(JSON_PROPERTY_FINISH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -302,11 +304,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get signOffStatus
+   * Sign-off status of the Report.
    * @return signOffStatus
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sign-off status of the Report.")
   @JsonProperty(JSON_PROPERTY_SIGN_OFF_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -328,11 +330,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get signOffNotes
+   * Additional notes related to the sign-off process.
    * @return signOffNotes
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Additional notes related to the sign-off process.")
   @JsonProperty(JSON_PROPERTY_SIGN_OFF_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -354,11 +356,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get reportReasonCd
+   * Reason code for generating the Report.
    * @return reportReasonCd
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Reason code for generating the Report.")
   @JsonProperty(JSON_PROPERTY_REPORT_REASON_CD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -380,11 +382,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get description
+   * Description of the Report revision.
    * @return description
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Description of the Report revision.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -406,11 +408,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get languageCode
+   * Language code of the Report.
    * @return languageCode
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Language code of the Report.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -432,11 +434,11 @@ public class ReportRevisionDTO implements Serializable {
   }
 
    /**
-   * Get outputFormat
+   * Output format of the Report.
    * @return outputFormat
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Output format of the Report.")
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -452,28 +454,28 @@ public class ReportRevisionDTO implements Serializable {
   }
 
 
-  public ReportRevisionDTO percentageComplete(Integer percentageComplete) {
+  public ReportRevisionDTO percentageComplete(BigDecimal percentageComplete) {
     this.percentageComplete = percentageComplete;
     return this;
   }
 
    /**
-   * Get percentageComplete
+   * Percentage of completion for the Report generation.
    * @return percentageComplete
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Percentage of completion for the Report generation.")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_COMPLETE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getPercentageComplete() {
+  public BigDecimal getPercentageComplete() {
     return percentageComplete;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_COMPLETE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPercentageComplete(Integer percentageComplete) {
+  public void setPercentageComplete(BigDecimal percentageComplete) {
     this.percentageComplete = percentageComplete;
   }
 

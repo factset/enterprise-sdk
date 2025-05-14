@@ -1,5 +1,6 @@
 # ReportInstanceData
 
+Single Report instance data response.
 
 ## Properties
 Name | Type | Description | Notes

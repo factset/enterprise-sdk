@@ -144,7 +144,7 @@ class DataSourceListMeta(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pagination (DataSourceListMetaPagination): [optional]  # noqa: E501
-            sort ([str]): [optional]  # noqa: E501
+            sort ([str]): A set of fields used in sorting the Data Source list.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class DataSourceListMeta(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pagination (DataSourceListMetaPagination): [optional]  # noqa: E501
-            sort ([str]): [optional]  # noqa: E501
+            sort ([str]): A set of fields used in sorting the Data Source list.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

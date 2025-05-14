@@ -17,10 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.Vermilion.models.CreateScimUserJSONRequestName;
 import com.factset.sdk.Vermilion.models.ScimEmail;
 import com.factset.sdk.Vermilion.models.ScimPhone;
 import com.factset.sdk.Vermilion.models.ScimPhoto;
-import com.factset.sdk.Vermilion.models.ScimUserName;
 import com.factset.sdk.Vermilion.models.Tenancy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,8 +35,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * CreateScimUserJSONRequest
+ * Payload to create a new user in the system, including attributes like username, password, contact information, and tenant details.
  */
+@ApiModel(description = "Payload to create a new user in the system, including attributes like username, password, contact information, and tenant details.")
 @JsonPropertyOrder({
   CreateScimUserJSONRequest.JSON_PROPERTY_USER_NAME,
   CreateScimUserJSONRequest.JSON_PROPERTY_PASSWORD,
@@ -63,7 +64,7 @@ public class CreateScimUserJSONRequest implements Serializable {
   private String password;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private ScimUserName name;
+  private CreateScimUserJSONRequestName name;
 
   public static final String JSON_PROPERTY_PREFERRED_LANGUAGE = "preferredLanguage";
   private String preferredLanguage;
@@ -101,11 +102,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get userName
+   * Unique identifier for the user within the system, typically their loginID.
    * @return userName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier for the user within the system, typically their loginID.")
   @JsonProperty(JSON_PROPERTY_USER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -127,11 +128,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get password
+   * Password associated with the user&#39;s account for authentication.
    * @return password
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Password associated with the user's account for authentication.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,7 +148,7 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
 
-  public CreateScimUserJSONRequest name(ScimUserName name) {
+  public CreateScimUserJSONRequest name(CreateScimUserJSONRequestName name) {
     this.name = name;
     return this;
   }
@@ -161,14 +162,14 @@ public class CreateScimUserJSONRequest implements Serializable {
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ScimUserName getName() {
+  public CreateScimUserJSONRequestName getName() {
     return name;
   }
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(ScimUserName name) {
+  public void setName(CreateScimUserJSONRequestName name) {
     this.name = name;
   }
 
@@ -179,11 +180,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get preferredLanguage
+   * The preferred language of the user.
    * @return preferredLanguage
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The preferred language of the user.")
   @JsonProperty(JSON_PROPERTY_PREFERRED_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -205,11 +206,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get active
+   * Indicates whether the user account is active.
    * @return active
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the user account is active.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -231,11 +232,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get authenticatedUserName
+   * Authenticated username used by the SSO logins.
    * @return authenticatedUserName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Authenticated username used by the SSO logins.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATED_USER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -257,11 +258,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get tenant
+   * Tenancy code in which user should be created.
    * @return tenant
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Tenancy code in which user should be created.")
   @JsonProperty(JSON_PROPERTY_TENANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -283,11 +284,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get domainCode
+   * Domain associated with the user
    * @return domainCode
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Domain associated with the user")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -317,11 +318,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get phoneNumbers
+   * A list of phone numbers associated with the user.
    * @return phoneNumbers
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of phone numbers associated with the user.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -351,11 +352,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get emails
+   * A list of email addresses associated with the user.
    * @return emails
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of email addresses associated with the user.")
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -385,11 +386,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get photos
+   * A list of profile photos or images associated with the user.
    * @return photos
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of profile photos or images associated with the user.")
   @JsonProperty(JSON_PROPERTY_PHOTOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -419,11 +420,11 @@ public class CreateScimUserJSONRequest implements Serializable {
   }
 
    /**
-   * Get tenancies
+   * A list of tenancies that need to be assigned to the user.
    * @return tenancies
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of tenancies that need to be assigned to the user.")
   @JsonProperty(JSON_PROPERTY_TENANCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

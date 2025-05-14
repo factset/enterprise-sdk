@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class EntityDTO {
     /**
      * Constructs a new <code>EntityDTO</code>.
+     * Entity with its unique identifiers and attributes.
      * @alias module:model/EntityDTO
      */
     constructor() { 
@@ -63,16 +64,19 @@ class EntityDTO {
 }
 
 /**
+ * Unique identifier for the Entity.
  * @member {Number} entityId
  */
 EntityDTO.prototype['entityId'] = undefined;
 
 /**
+ * Name of the Entity.
  * @member {String} name
  */
 EntityDTO.prototype['name'] = undefined;
 
 /**
+ * Code of the Entity.
  * @member {String} code
  */
 EntityDTO.prototype['code'] = undefined;

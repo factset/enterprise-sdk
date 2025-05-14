@@ -139,9 +139,9 @@ class ScimUserPatchOperation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            op (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            value (str): [optional]  # noqa: E501
+            op (str): Action to perform on the attribute.. [optional]  # noqa: E501
+            path (str): The user attribute path to modify.. [optional]  # noqa: E501
+            value (str): The value to set for the attribute.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScimUserPatchOperation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            op (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
-            value (str): [optional]  # noqa: E501
+            op (str): Action to perform on the attribute.. [optional]  # noqa: E501
+            path (str): The user attribute path to modify.. [optional]  # noqa: E501
+            value (str): The value to set for the attribute.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

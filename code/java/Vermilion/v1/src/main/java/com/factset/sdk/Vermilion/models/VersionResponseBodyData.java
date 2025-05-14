@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * VersionResponseBodyData
+ * Version details of VRS and WRS systems.
  */
+@ApiModel(description = "Version details of VRS and WRS systems.")
 @JsonPropertyOrder({
   VersionResponseBodyData.JSON_PROPERTY_VRS_VERSION,
   VersionResponseBodyData.JSON_PROPERTY_WRS_VERSION,

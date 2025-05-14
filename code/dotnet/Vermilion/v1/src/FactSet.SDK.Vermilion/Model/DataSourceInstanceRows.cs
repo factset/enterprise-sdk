@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// DataSourceInstanceRows
+    /// Each data row of the Data source
     /// </summary>
     [DataContract(Name = "DataSourceInstanceRows")]
     public partial class DataSourceInstanceRows : IEquatable<DataSourceInstanceRows>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataSourceInstanceRows" /> class.
         /// </summary>
-        /// <param name="rowId">rowId.</param>
-        /// <param name="order">order.</param>
-        /// <param name="fields">fields.</param>
+        /// <param name="rowId">Unique Identifier of the data row..</param>
+        /// <param name="order">The display or processing order of the data row..</param>
+        /// <param name="fields">An array of values for each input Record Set fields..</param>
         public DataSourceInstanceRows(int rowId = default(int), int order = default(int), List<RecordSetFieldValues> fields = default(List<RecordSetFieldValues>))
         {
             this.RowId = rowId;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets RowId
+        /// Unique Identifier of the data row.
         /// </summary>
+        /// <value>Unique Identifier of the data row.</value>
         [DataMember(Name = "rowId", EmitDefaultValue = false)]
         public int RowId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Order
+        /// The display or processing order of the data row.
         /// </summary>
+        /// <value>The display or processing order of the data row.</value>
         [DataMember(Name = "order", EmitDefaultValue = false)]
         public int Order { get; set; }
 
         /// <summary>
-        /// Gets or Sets Fields
+        /// An array of values for each input Record Set fields.
         /// </summary>
+        /// <value>An array of values for each input Record Set fields.</value>
         [DataMember(Name = "fields", EmitDefaultValue = false)]
         public List<RecordSetFieldValues> Fields { get; set; }
 

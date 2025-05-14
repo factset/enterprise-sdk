@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**ReportInstanceListMeta**](ReportInstanceListMeta.md) |  | [optional] 
-**data** | [**[ReportDefinitionDTO]**](ReportDefinitionDTO.md) |  | [optional] 
+**meta** | [**ReportDefinitionListMeta**](ReportDefinitionListMeta.md) |  | [optional] 
+**data** | [**[ReportDefinitionDTO]**](ReportDefinitionDTO.md) | A list of Report Definitions. | [optional] 
 
 

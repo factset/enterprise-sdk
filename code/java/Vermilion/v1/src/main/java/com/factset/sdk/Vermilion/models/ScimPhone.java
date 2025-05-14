@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimPhone
+ * User&#39;s phone number details.
  */
+@ApiModel(description = "User's phone number details.")
 @JsonPropertyOrder({
   ScimPhone.JSON_PROPERTY_VALUE,
   ScimPhone.JSON_PROPERTY_TYPE,
@@ -60,11 +61,11 @@ public class ScimPhone implements Serializable {
   }
 
    /**
-   * Get value
+   * The phone number of the user.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The phone number of the user.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScimPhone implements Serializable {
   }
 
    /**
-   * Get type
+   * The type of phone number (e.g., home, mobile, work).
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of phone number (e.g., home, mobile, work).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimPhone implements Serializable {
   }
 
    /**
-   * Get primary
+   * Indicates if this is the primary phone number for the user.
    * @return primary
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates if this is the primary phone number for the user.")
   @JsonProperty(JSON_PROPERTY_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

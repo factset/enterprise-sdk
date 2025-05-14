@@ -31,8 +31,8 @@ from fds.sdk.Vermilion.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.Vermilion.model.data_source_list_meta import DataSourceListMeta
-    globals()['DataSourceListMeta'] = DataSourceListMeta
+    from fds.sdk.Vermilion.model.entity_field_value_dto_meta import EntityFieldValueDTOMeta
+    globals()['EntityFieldValueDTOMeta'] = EntityFieldValueDTOMeta
 
 
 class EntityFieldValueDTO(ModelNormal):
@@ -88,7 +88,7 @@ class EntityFieldValueDTO(ModelNormal):
         """
         lazy_import()
         return {
-            'meta': (DataSourceListMeta,),  # noqa: E501
+            'meta': (EntityFieldValueDTOMeta,),  # noqa: E501
             'data': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
         }
 
@@ -143,8 +143,8 @@ class EntityFieldValueDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            meta (EntityFieldValueDTOMeta): [optional]  # noqa: E501
+            data ([bool, date, datetime, dict, float, int, list, str, none_type]): Collection of Entity rows with their associated values and fields.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +226,8 @@ class EntityFieldValueDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            meta (EntityFieldValueDTOMeta): [optional]  # noqa: E501
+            data ([bool, date, datetime, dict, float, int, list, str, none_type]): Collection of Entity rows with their associated values and fields.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

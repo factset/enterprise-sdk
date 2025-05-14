@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class Tenancy {
     /**
      * Constructs a new <code>Tenancy</code>.
+     * Represents tenancy information.
      * @alias module:model/Tenancy
      */
     constructor() { 
@@ -57,6 +58,7 @@ class Tenancy {
 }
 
 /**
+ * Tenancy code.
  * @member {String} value
  */
 Tenancy.prototype['value'] = undefined;

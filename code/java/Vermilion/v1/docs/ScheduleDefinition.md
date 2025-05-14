@@ -2,26 +2,27 @@
 
 # ScheduleDefinition
 
+List of Schedule Definition.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scheduleDefinitionId** | **Integer** |  |  [optional]
-**name** | **String** |  |  [optional]
-**code** | **String** |  |  [optional]
-**scheduleType** | [**ScheduleTypeEnum**](#ScheduleTypeEnum) |  |  [optional]
-**scheduleGroup** | **String** |  |  [optional]
-**reportDate** | [**ReportDateEnum**](#ReportDateEnum) |  |  [optional]
-**numberOfObligations** | **Integer** |  |  [optional]
-**businessCalendar** | **String** |  |  [optional]
-**deleteScheduleAfterDays** | **Integer** |  |  [optional]
-**numberOfPackages** | **Integer** |  |  [optional]
-**entities** | [**java.util.List&lt;EntityDTO&gt;**](EntityDTO.md) |  |  [optional]
+**scheduleDefinitionId** | **Integer** | Unique Identifier for the Schedule Definition. |  [optional]
+**name** | **String** | Name of the Schedule Definition. |  [optional]
+**code** | **String** | Code of the Schedule Definition. |  [optional]
+**scheduleType** | [**ScheduleTypeEnum**](#ScheduleTypeEnum) | Type of Schedule Definition. |  [optional]
+**scheduleGroup** | **String** | Group of the Schedule Definition. |  [optional]
+**reportDate** | [**ReportDateEnum**](#ReportDateEnum) | Report Date of the Schedule Definition. |  [optional]
+**numberOfObligations** | **Integer** | Number of obligations used in the Schedule Definition. |  [optional]
+**businessCalendar** | **String** | Calender name used in the Schedule Definition. |  [optional]
+**deleteScheduleAfterDays** | **Integer** | Indicates after how many days the Schedule should be deleted. |  [optional]
+**numberOfPackages** | **Integer** | Indicates number of packages involved in the Schedule Definition. |  [optional]
+**entities** | [**java.util.List&lt;EntityDTO&gt;**](EntityDTO.md) | A set of entities used in Schedule Definition. |  [optional]
 **ownerRole** | [**ScheduleDefinitionOwnerRole**](ScheduleDefinitionOwnerRole.md) |  |  [optional]
-**notes** | **String** |  |  [optional]
-**lastUpdatedBy** | **String** |  |  [optional]
-**lastUpdated** | **String** |  |  [optional]
+**notes** | **String** | Notes of the Schedule Definition. |  [optional]
+**lastUpdatedBy** | **String** | Indicates the username of the person who last updated the Data Source. |  [optional]
+**lastUpdated** | **String** | The timestamp of the most recent update in epoch format for a specific Schedule Definition |  [optional]
 
 
 
@@ -31,8 +32,6 @@ Name | Value
 ---- | -----
 MANUAL | &quot;MANUAL&quot;
 REPEATING | &quot;REPEATING&quot;
-TEMPLATE | &quot;TEMPLATE&quot;
-ADHOC | &quot;ADHOC&quot;
 
 
 

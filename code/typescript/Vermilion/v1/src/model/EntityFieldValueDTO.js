@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import DataSourceListMeta from './DataSourceListMeta';
+import EntityFieldValueDTOMeta from './EntityFieldValueDTOMeta';
 
 /**
  * The EntityFieldValueDTO model module.
@@ -21,6 +21,7 @@ import DataSourceListMeta from './DataSourceListMeta';
 class EntityFieldValueDTO {
     /**
      * Constructs a new <code>EntityFieldValueDTO</code>.
+     * Entity value with its unique identifiers and attributes.
      * @alias module:model/EntityFieldValueDTO
      */
     constructor() { 
@@ -48,7 +49,7 @@ class EntityFieldValueDTO {
             obj = obj || new EntityFieldValueDTO();
 
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = DataSourceListMeta.constructFromObject(data['meta']);
+                obj['meta'] = EntityFieldValueDTOMeta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Object]);
@@ -61,11 +62,12 @@ class EntityFieldValueDTO {
 }
 
 /**
- * @member {module:model/DataSourceListMeta} meta
+ * @member {module:model/EntityFieldValueDTOMeta} meta
  */
 EntityFieldValueDTO.prototype['meta'] = undefined;
 
 /**
+ * Collection of Entity rows with their associated values and fields.
  * @member {Array.<Object>} data
  */
 EntityFieldValueDTO.prototype['data'] = undefined;

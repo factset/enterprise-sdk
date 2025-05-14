@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportInstanceListMeta
+    /// Meta data of Report instance list.
     /// </summary>
     [DataContract(Name = "ReportInstanceList_meta")]
     public partial class ReportInstanceListMeta : IEquatable<ReportInstanceListMeta>, IValidatableObject
@@ -36,7 +36,7 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="ReportInstanceListMeta" /> class.
         /// </summary>
         /// <param name="pagination">pagination.</param>
-        public ReportInstanceListMeta(DataSourceListMetaPagination pagination = default(DataSourceListMetaPagination))
+        public ReportInstanceListMeta(ReportInstanceListMetaPagination pagination = default(ReportInstanceListMetaPagination))
         {
             this.Pagination = pagination;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.Vermilion.Model
         /// Gets or Sets Pagination
         /// </summary>
         [DataMember(Name = "pagination", EmitDefaultValue = false)]
-        public DataSourceListMetaPagination Pagination { get; set; }
+        public ReportInstanceListMetaPagination Pagination { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

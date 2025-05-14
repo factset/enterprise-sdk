@@ -31,6 +31,7 @@ public class VersionApi {
   static {
     getVersionResponseTypeMap.put(200, new GenericType<VersionResponseBody>(){});
     getVersionResponseTypeMap.put(401, new GenericType<ErrorList>(){});
+    getVersionResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   
@@ -64,6 +65,7 @@ public class VersionApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public VersionResponseBody getVersion() throws ApiException {
@@ -80,6 +82,7 @@ public class VersionApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<VersionResponseBody> getVersionWithHttpInfo() throws ApiException {

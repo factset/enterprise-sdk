@@ -136,7 +136,7 @@ class ReportRevisionDTO(ModelNormal):
             'description': (str,),  # noqa: E501
             'language_code': (str,),  # noqa: E501
             'output_format': (str,),  # noqa: E501
-            'percentage_complete': (int,),  # noqa: E501
+            'percentage_complete': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -198,16 +198,16 @@ class ReportRevisionDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report_status (str): [optional]  # noqa: E501
-            start_date (str): [optional]  # noqa: E501
-            finish_date (str): [optional]  # noqa: E501
-            sign_off_status (str): [optional]  # noqa: E501
-            sign_off_notes (str): [optional]  # noqa: E501
-            report_reason_cd (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            language_code (str): [optional]  # noqa: E501
-            output_format (str): [optional]  # noqa: E501
-            percentage_complete (int): [optional]  # noqa: E501
+            report_status (str): The current status of the Report generation process.. [optional]  # noqa: E501
+            start_date (str): Start date of the Report generation process.. [optional]  # noqa: E501
+            finish_date (str): Completion date of the Report generation process.. [optional]  # noqa: E501
+            sign_off_status (str): Sign-off status of the Report.. [optional]  # noqa: E501
+            sign_off_notes (str): Additional notes related to the sign-off process.. [optional]  # noqa: E501
+            report_reason_cd (str): Reason code for generating the Report.. [optional]  # noqa: E501
+            description (str): Description of the Report revision.. [optional]  # noqa: E501
+            language_code (str): Language code of the Report.. [optional]  # noqa: E501
+            output_format (str): Output format of the Report.. [optional]  # noqa: E501
+            percentage_complete (float): Percentage of completion for the Report generation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -289,16 +289,16 @@ class ReportRevisionDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report_status (str): [optional]  # noqa: E501
-            start_date (str): [optional]  # noqa: E501
-            finish_date (str): [optional]  # noqa: E501
-            sign_off_status (str): [optional]  # noqa: E501
-            sign_off_notes (str): [optional]  # noqa: E501
-            report_reason_cd (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
-            language_code (str): [optional]  # noqa: E501
-            output_format (str): [optional]  # noqa: E501
-            percentage_complete (int): [optional]  # noqa: E501
+            report_status (str): The current status of the Report generation process.. [optional]  # noqa: E501
+            start_date (str): Start date of the Report generation process.. [optional]  # noqa: E501
+            finish_date (str): Completion date of the Report generation process.. [optional]  # noqa: E501
+            sign_off_status (str): Sign-off status of the Report.. [optional]  # noqa: E501
+            sign_off_notes (str): Additional notes related to the sign-off process.. [optional]  # noqa: E501
+            report_reason_cd (str): Reason code for generating the Report.. [optional]  # noqa: E501
+            description (str): Description of the Report revision.. [optional]  # noqa: E501
+            language_code (str): Language code of the Report.. [optional]  # noqa: E501
+            output_format (str): Output format of the Report.. [optional]  # noqa: E501
+            percentage_complete (float): Percentage of completion for the Report generation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

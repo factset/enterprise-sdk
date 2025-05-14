@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimEmail {
     /**
      * Constructs a new <code>ScimEmail</code>.
+     * User&#39;s email address details.
      * @alias module:model/ScimEmail
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScimEmail {
 }
 
 /**
+ * The email address of the user.
  * @member {String} value
  */
 ScimEmail.prototype['value'] = undefined;
 
 /**
+ * The type of email address (e.g., personal, work).
  * @member {String} type
  */
 ScimEmail.prototype['type'] = undefined;
 
 /**
+ * Indicates if this is the primary email address for the user.
  * @member {Boolean} primary
  */
 ScimEmail.prototype['primary'] = undefined;

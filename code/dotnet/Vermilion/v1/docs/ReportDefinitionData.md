@@ -1,4 +1,5 @@
 # FactSet.SDK.Vermilion.Model.ReportDefinitionData
+Contains detailed data for a single Report definition.
 
 ## Properties
 

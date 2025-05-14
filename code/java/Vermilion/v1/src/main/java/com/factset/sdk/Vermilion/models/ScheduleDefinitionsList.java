@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.Vermilion.models.DataSourceListMeta;
 import com.factset.sdk.Vermilion.models.ScheduleDefinition;
+import com.factset.sdk.Vermilion.models.ScheduleDefinitionsListMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleDefinitionsList
+ * A list of Schedule Definition.
  */
+@ApiModel(description = "A list of Schedule Definition.")
 @JsonPropertyOrder({
   ScheduleDefinitionsList.JSON_PROPERTY_META,
   ScheduleDefinitionsList.JSON_PROPERTY_DATA
@@ -44,7 +45,7 @@ public class ScheduleDefinitionsList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private DataSourceListMeta meta;
+  private ScheduleDefinitionsListMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ScheduleDefinition> data = null;
@@ -52,7 +53,7 @@ public class ScheduleDefinitionsList implements Serializable {
   public ScheduleDefinitionsList() { 
   }
 
-  public ScheduleDefinitionsList meta(DataSourceListMeta meta) {
+  public ScheduleDefinitionsList meta(ScheduleDefinitionsListMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -66,14 +67,14 @@ public class ScheduleDefinitionsList implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DataSourceListMeta getMeta() {
+  public ScheduleDefinitionsListMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(DataSourceListMeta meta) {
+  public void setMeta(ScheduleDefinitionsListMeta meta) {
     this.meta = meta;
   }
 
@@ -92,11 +93,11 @@ public class ScheduleDefinitionsList implements Serializable {
   }
 
    /**
-   * Get data
+   * An array of Schedule Definitions.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of Schedule Definitions.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

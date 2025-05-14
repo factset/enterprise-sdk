@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scheduleInstanceId** | **Number** |  | [optional] 
-**status** | **String** |  | [optional] 
+**scheduleInstanceId** | **Number** | Unique identifier of the schedule instance. | [optional] 
+**status** | **String** | Current status of the schedule instance. | [optional] 
 
 
 

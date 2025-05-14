@@ -137,8 +137,8 @@ class DataSourceListMetaPagination(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total (int): [optional]  # noqa: E501
-            is_estimated_total (bool): [optional]  # noqa: E501
+            total (int): The total number of Data Sources available in the response.. [optional]  # noqa: E501
+            is_estimated_total (bool): A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,8 +220,8 @@ class DataSourceListMetaPagination(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total (int): [optional]  # noqa: E501
-            is_estimated_total (bool): [optional]  # noqa: E501
+            total (int): The total number of Data Sources available in the response.. [optional]  # noqa: E501
+            is_estimated_total (bool): A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

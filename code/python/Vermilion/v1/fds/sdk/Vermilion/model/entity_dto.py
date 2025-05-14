@@ -139,9 +139,9 @@ class EntityDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            entity_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
+            entity_id (int): Unique identifier for the Entity.. [optional]  # noqa: E501
+            name (str): Name of the Entity.. [optional]  # noqa: E501
+            code (str): Code of the Entity.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class EntityDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            entity_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
+            entity_id (int): Unique identifier for the Entity.. [optional]  # noqa: E501
+            name (str): Name of the Entity.. [optional]  # noqa: E501
+            code (str): Code of the Entity.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

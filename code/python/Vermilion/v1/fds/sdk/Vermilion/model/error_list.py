@@ -141,7 +141,7 @@ class ErrorList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ([Error]): [optional]  # noqa: E501
+            errors ([Error]): A list of errors encountered.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class ErrorList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ([Error]): [optional]  # noqa: E501
+            errors ([Error]): A list of errors encountered.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

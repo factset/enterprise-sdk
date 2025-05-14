@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// VersionResponseBodyData
+    /// Version details of VRS and WRS systems.
     /// </summary>
     [DataContract(Name = "VersionResponseBody_data")]
     public partial class VersionResponseBodyData : IEquatable<VersionResponseBodyData>, IValidatableObject

@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScheduleGenerationLog {
     /**
      * Constructs a new <code>ScheduleGenerationLog</code>.
+     * Details of an individual task generation log.
      * @alias module:model/ScheduleGenerationLog
      */
     constructor() { 
@@ -69,26 +70,31 @@ class ScheduleGenerationLog {
 }
 
 /**
+ * The sequence number of the log entry.
  * @member {Number} sequenceNumber
  */
 ScheduleGenerationLog.prototype['sequenceNumber'] = undefined;
 
 /**
+ * A detailed message describing the log event or error.
  * @member {String} message
  */
 ScheduleGenerationLog.prototype['message'] = undefined;
 
 /**
+ * Type of log entry.
  * @member {module:model/ScheduleGenerationLog.TypeEnum} type
  */
 ScheduleGenerationLog.prototype['type'] = undefined;
 
 /**
+ * Identifier for the set of logs this entry belongs to.
  * @member {Number} logSet
  */
 ScheduleGenerationLog.prototype['logSet'] = undefined;
 
 /**
+ * The timestamp of the most recent update in epoch format for a specific Task Generation log
  * @member {String} lastUpdated
  */
 ScheduleGenerationLog.prototype['lastUpdated'] = undefined;
@@ -117,12 +123,6 @@ ScheduleGenerationLog['TypeEnum'] = {
     "WARN": "WARN",
 
     /**
-     * value: "SUCCESS"
-     * @const
-     */
-    "SUCCESS": "SUCCESS",
-
-    /**
      * value: "ERROR"
      * @const
      */
@@ -132,13 +132,7 @@ ScheduleGenerationLog['TypeEnum'] = {
      * value: "DEBUG"
      * @const
      */
-    "DEBUG": "DEBUG",
-
-    /**
-     * value: "FINISHED"
-     * @const
-     */
-    "FINISHED": "FINISHED"
+    "DEBUG": "DEBUG"
 };
 
 

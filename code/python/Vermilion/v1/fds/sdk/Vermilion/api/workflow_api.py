@@ -29,8 +29,14 @@ from fds.sdk.Vermilion.model.error_list import ErrorList
 from fds.sdk.Vermilion.model.generate_schedule_response import GenerateScheduleResponse
 from fds.sdk.Vermilion.model.schedule_definitions_list import ScheduleDefinitionsList
 from fds.sdk.Vermilion.model.schedule_generation_log_list import ScheduleGenerationLogList
+from fds.sdk.Vermilion.model.schedule_response_data import ScheduleResponseData
 from fds.sdk.Vermilion.model.schedule_status_update_response import ScheduleStatusUpdateResponse
 from fds.sdk.Vermilion.model.schedules_list import SchedulesList
+from fds.sdk.Vermilion.model.task_details_object import TaskDetailsObject
+from fds.sdk.Vermilion.model.task_history_list import TaskHistoryList
+from fds.sdk.Vermilion.model.task_list import TaskList
+from fds.sdk.Vermilion.model.task_patch_request_body import TaskPatchRequestBody
+from fds.sdk.Vermilion.model.task_patch_response_object import TaskPatchResponseObject
 
 
 
@@ -51,7 +57,7 @@ class WorkflowApi(object):
         self.generate_schedule_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (GenerateScheduleResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 202: (GenerateScheduleResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -115,10 +121,134 @@ class WorkflowApi(object):
             api_client=api_client
         )
 
+        self.generate_schedule_tasks_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 202: (ScheduleStatusUpdateResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/v1/{tenant}/schedules/{scheduleId}/generate-tasks',
+                'operation_id': 'generate_schedule_tasks',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tenant',
+                    'schedule_id',
+                ],
+                'required': [
+                    'tenant',
+                    'schedule_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'tenant':
+                        (str,),
+                    'schedule_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'tenant': 'tenant',
+                    'schedule_id': 'scheduleId',
+                },
+                'location_map': {
+                    'tenant': 'path',
+                    'schedule_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_schedule_by_id_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (ScheduleResponseData,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/v1/{tenant}/schedules/{scheduleId}',
+                'operation_id': 'get_schedule_by_id',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tenant',
+                    'schedule_id',
+                ],
+                'required': [
+                    'tenant',
+                    'schedule_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'tenant':
+                        (str,),
+                    'schedule_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'tenant': 'tenant',
+                    'schedule_id': 'scheduleId',
+                },
+                'location_map': {
+                    'tenant': 'path',
+                    'schedule_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
         self.get_schedule_definitions_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScheduleDefinitionsList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ScheduleDefinitionsList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -166,9 +296,7 @@ class WorkflowApi(object):
                     ('schedule_type',): {
 
                         "MANUAL": "MANUAL",
-                        "REPEATING": "REPEATING",
-                        "TEMPLATE": "TEMPLATE",
-                        "ADHOC": "ADHOC"
+                        "REPEATING": "REPEATING"
                     },
                     ('report_date',): {
 
@@ -242,7 +370,7 @@ class WorkflowApi(object):
         self.get_schedule_generation_logs_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScheduleGenerationLogList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ScheduleGenerationLogList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -292,10 +420,8 @@ class WorkflowApi(object):
 
                         "INFO": "INFO",
                         "WARN": "WARN",
-                        "SUCCESS": "SUCCESS",
                         "ERROR": "ERROR",
-                        "DEBUG": "DEBUG",
-                        "FINISHED": "FINISHED"
+                        "DEBUG": "DEBUG"
                     },
                 },
                 'openapi_types': {
@@ -360,7 +486,7 @@ class WorkflowApi(object):
         self.get_schedules_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (SchedulesList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (SchedulesList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -460,10 +586,327 @@ class WorkflowApi(object):
             api_client=api_client
         )
 
+        self.get_task_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (TaskDetailsObject,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/v1/{tenant}/tasks/{taskId}',
+                'operation_id': 'get_task',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tenant',
+                    'task_id',
+                ],
+                'required': [
+                    'tenant',
+                    'task_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'tenant':
+                        (str,),
+                    'task_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'tenant': 'tenant',
+                    'task_id': 'taskId',
+                },
+                'location_map': {
+                    'tenant': 'path',
+                    'task_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_task_history_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (TaskHistoryList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/v1/{tenant}/tasks/{taskId}/history',
+                'operation_id': 'get_task_history',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tenant',
+                    'task_id',
+                    'action_type',
+                    'reason_code',
+                    'start_date',
+                    'end_date',
+                    'sort',
+                    'pagination_limit',
+                    'pagination_offset',
+                ],
+                'required': [
+                    'tenant',
+                    'task_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'action_type',
+                ],
+                'validation': [
+                    'sort',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('sort',): {
+
+                        'max_items': 1,
+                    },
+                },
+                'allowed_values': {
+                    ('action_type',): {
+
+                        "STATUS_CHANGED": "Status Changed",
+                        "NOTES_CHANGED": "Notes Changed",
+                        "REASON_CODE_CHANGED": "Reason code Changed",
+                        "CURRENT_ROLE_CHANGED": "Current Role Changed",
+                        "CURRENT_USER_CHANGED": "Current User Changed",
+                        "EXPECTED_START_CHANGED": "Expected Start Changed",
+                        "EXPECTED_END_CHANGED": "Expected End Changed",
+                        "ACTUAL_START_CHANGED": "Actual Start Changed",
+                        "TASK_DEPENDENCY_ADDED": "Task Dependency Added",
+                        "TASK_DEPENDENCY_REMOVED": "Task Dependency Removed"
+                    },
+                },
+                'openapi_types': {
+                    'tenant':
+                        (str,),
+                    'task_id':
+                        (str,),
+                    'action_type':
+                        (str,),
+                    'reason_code':
+                        (str,),
+                    'start_date':
+                        (str,),
+                    'end_date':
+                        (str,),
+                    'sort':
+                        ([str],),
+                    'pagination_limit':
+                        (int,),
+                    'pagination_offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'tenant': 'tenant',
+                    'task_id': 'taskId',
+                    'action_type': 'actionType',
+                    'reason_code': 'reasonCode',
+                    'start_date': 'startDate',
+                    'end_date': 'endDate',
+                    'sort': '_sort',
+                    'pagination_limit': '_paginationLimit',
+                    'pagination_offset': '_paginationOffset',
+                },
+                'location_map': {
+                    'tenant': 'path',
+                    'task_id': 'path',
+                    'action_type': 'query',
+                    'reason_code': 'query',
+                    'start_date': 'query',
+                    'end_date': 'query',
+                    'sort': 'query',
+                    'pagination_limit': 'query',
+                    'pagination_offset': 'query',
+                },
+                'collection_format_map': {
+                    'sort': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.get_tasks_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (TaskList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/v1/{tenant}/tasks',
+                'operation_id': 'get_tasks',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tenant',
+                    'task_type',
+                    'status',
+                    'role',
+                    'user',
+                    'immediate_tasks_only',
+                    'schedule_id',
+                    'sort',
+                    'pagination_limit',
+                    'pagination_offset',
+                ],
+                'required': [
+                    'tenant',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'task_type',
+                    'status',
+                ],
+                'validation': [
+                    'sort',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('sort',): {
+
+                        'max_items': 1,
+                    },
+                },
+                'allowed_values': {
+                    ('task_type',): {
+
+                        "WAIT_FOR_DATA": "WAIT_FOR_DATA",
+                        "CUSTOM_DATA": "CUSTOM_DATA",
+                        "CREATE_MANUAL_DATA": "CREATE_MANUAL_DATA",
+                        "CREATE_FILTERED_DATA": "CREATE_FILTERED_DATA",
+                        "GET_DATA": "GET_DATA",
+                        "GENERATE_PREVIEW": "GENERATE_PREVIEW",
+                        "SIGNOFF_DATA": "SIGNOFF_DATA",
+                        "CUSTOM_GENERATE": "CUSTOM_GENERATE",
+                        "GENERATE_REPORT": "GENERATE_REPORT",
+                        "SIGNOFF_REPORT": "SIGNOFF_REPORT",
+                        "CUSTOM_DELIVERY": "CUSTOM_DELIVERY",
+                        "EMAIL_REPORT": "EMAIL_REPORT",
+                        "POST_REPORT": "POST_REPORT",
+                        "FTP_REPORT": "FTP_REPORT",
+                        "CUSTOM_OTHER": "CUSTOM_OTHER",
+                        "COPY_REPORT_FILE": "COPY_REPORT_FILE",
+                        "PACKAGE_REPORTS": "PACKAGE_REPORTS"
+                    },
+                    ('status',): {
+
+                        "COMPLETED": "COMPLETED",
+                        "IN_PROGRESS": "IN_PROGRESS",
+                        "AWAITING_CORRECTION": "AWAITING_CORRECTION",
+                        "PENDING": "PENDING",
+                        "SKIPPED": "SKIPPED",
+                        "FAILED_REJECTED": "FAILED_REJECTED"
+                    },
+                },
+                'openapi_types': {
+                    'tenant':
+                        (str,),
+                    'task_type':
+                        (str,),
+                    'status':
+                        (str,),
+                    'role':
+                        (str,),
+                    'user':
+                        (str,),
+                    'immediate_tasks_only':
+                        (bool,),
+                    'schedule_id':
+                        (int,),
+                    'sort':
+                        ([str],),
+                    'pagination_limit':
+                        (int,),
+                    'pagination_offset':
+                        (int,),
+                },
+                'attribute_map': {
+                    'tenant': 'tenant',
+                    'task_type': 'taskType',
+                    'status': 'status',
+                    'role': 'role',
+                    'user': 'user',
+                    'immediate_tasks_only': 'immediateTasksOnly',
+                    'schedule_id': 'scheduleId',
+                    'sort': '_sort',
+                    'pagination_limit': '_paginationLimit',
+                    'pagination_offset': '_paginationOffset',
+                },
+                'location_map': {
+                    'tenant': 'path',
+                    'task_type': 'query',
+                    'status': 'query',
+                    'role': 'query',
+                    'user': 'query',
+                    'immediate_tasks_only': 'query',
+                    'schedule_id': 'query',
+                    'sort': 'query',
+                    'pagination_limit': 'query',
+                    'pagination_offset': 'query',
+                },
+                'collection_format_map': {
+                    'sort': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
         self.update_schedule_status_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScheduleStatusUpdateResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ScheduleStatusUpdateResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -535,6 +978,75 @@ class WorkflowApi(object):
                     'application/json'
                 ],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+
+        self.update_task_details_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (TaskPatchResponseObject,), 206: (TaskPatchResponseObject,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/v1/{tenant}/tasks/{taskId}',
+                'operation_id': 'update_task_details',
+                'http_method': 'PATCH',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'tenant',
+                    'task_id',
+                    'task_patch_request_body',
+                ],
+                'required': [
+                    'tenant',
+                    'task_id',
+                    'task_patch_request_body',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'tenant':
+                        (str,),
+                    'task_id':
+                        (str,),
+                    'task_patch_request_body':
+                        (TaskPatchRequestBody,),
+                },
+                'attribute_map': {
+                    'tenant': 'tenant',
+                    'task_id': 'taskId',
+                },
+                'location_map': {
+                    'tenant': 'path',
+                    'task_id': 'path',
+                    'task_patch_request_body': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -764,6 +1276,420 @@ class WorkflowApi(object):
         return self.generate_schedule_endpoint.call_with_http_info(**kwargs)
 
 
+    def generate_schedule_tasks(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> ScheduleStatusUpdateResponse:
+        """Generates the tasks for the initialised schedule  # noqa: E501
+
+        Generates the schedule tasks for the specified schedule id  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The schedule id for which to generate the tasks
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ScheduleStatusUpdateResponse
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.generate_schedule_tasks_endpoint.call_with_http_info(**kwargs)
+
+    def generate_schedule_tasks_with_http_info(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> typing.Tuple[ScheduleStatusUpdateResponse, int, typing.MutableMapping]:
+        """Generates the tasks for the initialised schedule  # noqa: E501
+
+        Generates the schedule tasks for the specified schedule id  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The schedule id for which to generate the tasks
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ScheduleStatusUpdateResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.generate_schedule_tasks_endpoint.call_with_http_info(**kwargs)
+
+    def generate_schedule_tasks_async(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> "ApplyResult[ScheduleStatusUpdateResponse]":
+        """Generates the tasks for the initialised schedule  # noqa: E501
+
+        Generates the schedule tasks for the specified schedule id  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The schedule id for which to generate the tasks
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[ScheduleStatusUpdateResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.generate_schedule_tasks_endpoint.call_with_http_info(**kwargs)
+
+    def generate_schedule_tasks_with_http_info_async(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[ScheduleStatusUpdateResponse, int, typing.MutableMapping]]":
+        """Generates the tasks for the initialised schedule  # noqa: E501
+
+        Generates the schedule tasks for the specified schedule id  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The schedule id for which to generate the tasks
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(ScheduleStatusUpdateResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.generate_schedule_tasks_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_schedule_by_id(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> ScheduleResponseData:
+        """Gets a schedule based on the schedule ID  # noqa: E501
+
+        Gets a schedule Object based on the schedule ID passed.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The Id of the schedule
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ScheduleResponseData
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.get_schedule_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_schedule_by_id_with_http_info(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> typing.Tuple[ScheduleResponseData, int, typing.MutableMapping]:
+        """Gets a schedule based on the schedule ID  # noqa: E501
+
+        Gets a schedule Object based on the schedule ID passed.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The Id of the schedule
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ScheduleResponseData
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.get_schedule_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_schedule_by_id_async(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> "ApplyResult[ScheduleResponseData]":
+        """Gets a schedule based on the schedule ID  # noqa: E501
+
+        Gets a schedule Object based on the schedule ID passed.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The Id of the schedule
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[ScheduleResponseData]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.get_schedule_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_schedule_by_id_with_http_info_async(
+        self,
+        tenant,
+        schedule_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[ScheduleResponseData, int, typing.MutableMapping]]":
+        """Gets a schedule based on the schedule ID  # noqa: E501
+
+        Gets a schedule Object based on the schedule ID passed.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            schedule_id (str): The Id of the schedule
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(ScheduleResponseData, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['schedule_id'] = \
+            schedule_id
+        return self.get_schedule_by_id_endpoint.call_with_http_info(**kwargs)
+
+
     def get_schedule_definitions(
         self,
         tenant,
@@ -778,7 +1704,7 @@ class WorkflowApi(object):
             tenant (str): The code of the tenancy
 
         Keyword Args:
-            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE. [optional]
+            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL. [optional]
             report_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE. [optional]
             last_updated_by (str): Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions. [optional]
             start_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
@@ -833,7 +1759,7 @@ class WorkflowApi(object):
             tenant (str): The code of the tenancy
 
         Keyword Args:
-            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE. [optional]
+            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL. [optional]
             report_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE. [optional]
             last_updated_by (str): Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions. [optional]
             start_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
@@ -892,7 +1818,7 @@ class WorkflowApi(object):
             tenant (str): The code of the tenancy
 
         Keyword Args:
-            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE. [optional]
+            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL. [optional]
             report_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE. [optional]
             last_updated_by (str): Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions. [optional]
             start_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
@@ -946,7 +1872,7 @@ class WorkflowApi(object):
             tenant (str): The code of the tenancy
 
         Keyword Args:
-            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE. [optional]
+            schedule_type (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL. [optional]
             report_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE. [optional]
             last_updated_by (str): Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions. [optional]
             start_date (str): Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
@@ -1441,6 +2367,675 @@ class WorkflowApi(object):
         return self.get_schedules_endpoint.call_with_http_info(**kwargs)
 
 
+    def get_task(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> TaskDetailsObject:
+        """Gets a task based on the task ID  # noqa: E501
+
+        Gets a task Object based on the task ID passed.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The Id of the task
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskDetailsObject
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_endpoint.call_with_http_info(**kwargs)
+
+    def get_task_with_http_info(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> typing.Tuple[TaskDetailsObject, int, typing.MutableMapping]:
+        """Gets a task based on the task ID  # noqa: E501
+
+        Gets a task Object based on the task ID passed.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The Id of the task
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskDetailsObject
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_endpoint.call_with_http_info(**kwargs)
+
+    def get_task_async(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> "ApplyResult[TaskDetailsObject]":
+        """Gets a task based on the task ID  # noqa: E501
+
+        Gets a task Object based on the task ID passed.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The Id of the task
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TaskDetailsObject]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_endpoint.call_with_http_info(**kwargs)
+
+    def get_task_with_http_info_async(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TaskDetailsObject, int, typing.MutableMapping]]":
+        """Gets a task based on the task ID  # noqa: E501
+
+        Gets a task Object based on the task ID passed.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The Id of the task
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TaskDetailsObject, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_task_history(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> TaskHistoryList:
+        """Gets the task history for a specific task  # noqa: E501
+
+        Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The taskId for which the history of the specific task is requested
+
+        Keyword Args:
+            action_type (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given action type. [optional]
+            reason_code (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code. [optional]
+            start_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            end_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            sort ([str]): The column to sort on. Can add - to sort for descending order. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskHistoryList
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_history_endpoint.call_with_http_info(**kwargs)
+
+    def get_task_history_with_http_info(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> typing.Tuple[TaskHistoryList, int, typing.MutableMapping]:
+        """Gets the task history for a specific task  # noqa: E501
+
+        Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The taskId for which the history of the specific task is requested
+
+        Keyword Args:
+            action_type (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given action type. [optional]
+            reason_code (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code. [optional]
+            start_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            end_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            sort ([str]): The column to sort on. Can add - to sort for descending order. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskHistoryList
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_history_endpoint.call_with_http_info(**kwargs)
+
+    def get_task_history_async(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> "ApplyResult[TaskHistoryList]":
+        """Gets the task history for a specific task  # noqa: E501
+
+        Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The taskId for which the history of the specific task is requested
+
+        Keyword Args:
+            action_type (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given action type. [optional]
+            reason_code (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code. [optional]
+            start_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            end_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            sort ([str]): The column to sort on. Can add - to sort for descending order. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TaskHistoryList]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_history_endpoint.call_with_http_info(**kwargs)
+
+    def get_task_history_with_http_info_async(
+        self,
+        tenant,
+        task_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TaskHistoryList, int, typing.MutableMapping]]":
+        """Gets the task history for a specific task  # noqa: E501
+
+        Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The taskId for which the history of the specific task is requested
+
+        Keyword Args:
+            action_type (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given action type. [optional]
+            reason_code (str): Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code. [optional]
+            start_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            end_date (str): Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).. [optional]
+            sort ([str]): The column to sort on. Can add - to sort for descending order. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TaskHistoryList, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        return self.get_task_history_endpoint.call_with_http_info(**kwargs)
+
+
+    def get_tasks(
+        self,
+        tenant,
+        **kwargs
+    ) -> TaskList:
+        """Retrieves a list of all tasks  # noqa: E501
+
+        Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            tenant (str): The code of the tenancy
+
+        Keyword Args:
+            task_type (str): Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS. [optional]
+            status (str): Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status=PENDING,AWAITING_CORRECTION. [optional]
+            role (str): Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task. [optional]
+            user (str): Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task. [optional]
+            immediate_tasks_only (bool): Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true. [optional]
+            schedule_id (int): Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value. [optional]
+            sort ([str]): The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskList
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        return self.get_tasks_endpoint.call_with_http_info(**kwargs)
+
+    def get_tasks_with_http_info(
+        self,
+        tenant,
+        **kwargs
+    ) -> typing.Tuple[TaskList, int, typing.MutableMapping]:
+        """Retrieves a list of all tasks  # noqa: E501
+
+        Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            tenant (str): The code of the tenancy
+
+        Keyword Args:
+            task_type (str): Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS. [optional]
+            status (str): Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status=PENDING,AWAITING_CORRECTION. [optional]
+            role (str): Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task. [optional]
+            user (str): Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task. [optional]
+            immediate_tasks_only (bool): Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true. [optional]
+            schedule_id (int): Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value. [optional]
+            sort ([str]): The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskList
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        return self.get_tasks_endpoint.call_with_http_info(**kwargs)
+
+    def get_tasks_async(
+        self,
+        tenant,
+        **kwargs
+    ) -> "ApplyResult[TaskList]":
+        """Retrieves a list of all tasks  # noqa: E501
+
+        Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+
+        Keyword Args:
+            task_type (str): Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS. [optional]
+            status (str): Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status=PENDING,AWAITING_CORRECTION. [optional]
+            role (str): Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task. [optional]
+            user (str): Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task. [optional]
+            immediate_tasks_only (bool): Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true. [optional]
+            schedule_id (int): Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value. [optional]
+            sort ([str]): The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TaskList]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        return self.get_tasks_endpoint.call_with_http_info(**kwargs)
+
+    def get_tasks_with_http_info_async(
+        self,
+        tenant,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TaskList, int, typing.MutableMapping]]":
+        """Retrieves a list of all tasks  # noqa: E501
+
+        Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+
+        Keyword Args:
+            task_type (str): Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS. [optional]
+            status (str): Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status=PENDING,AWAITING_CORRECTION. [optional]
+            role (str): Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task. [optional]
+            user (str): Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task. [optional]
+            immediate_tasks_only (bool): Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true. [optional]
+            schedule_id (int): Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value. [optional]
+            sort ([str]): The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.. [optional]
+            pagination_limit (int): Non-negative maximum number of entries to return. [optional] if omitted the server will use the default value of 25
+            pagination_offset (int): Non-negative number of entries to skip. [optional] if omitted the server will use the default value of 0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TaskList, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        return self.get_tasks_endpoint.call_with_http_info(**kwargs)
+
+
     def update_schedule_status(
         self,
         tenant,
@@ -1662,5 +3257,228 @@ class WorkflowApi(object):
         kwargs['status'] = \
             status
         return self.update_schedule_status_endpoint.call_with_http_info(**kwargs)
+
+
+    def update_task_details(
+        self,
+        tenant,
+        task_id,
+        task_patch_request_body,
+        **kwargs
+    ) -> TaskPatchResponseObject:
+        """Updates the task details for the specified task.  # noqa: E501
+
+        Updates the task details for the specified task.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The unique identifier for task
+            task_patch_request_body (TaskPatchRequestBody):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskPatchResponseObject
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        kwargs['task_patch_request_body'] = \
+            task_patch_request_body
+        return self.update_task_details_endpoint.call_with_http_info(**kwargs)
+
+    def update_task_details_with_http_info(
+        self,
+        tenant,
+        task_id,
+        task_patch_request_body,
+        **kwargs
+    ) -> typing.Tuple[TaskPatchResponseObject, int, typing.MutableMapping]:
+        """Updates the task details for the specified task.  # noqa: E501
+
+        Updates the task details for the specified task.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The unique identifier for task
+            task_patch_request_body (TaskPatchRequestBody):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TaskPatchResponseObject
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        kwargs['task_patch_request_body'] = \
+            task_patch_request_body
+        return self.update_task_details_endpoint.call_with_http_info(**kwargs)
+
+    def update_task_details_async(
+        self,
+        tenant,
+        task_id,
+        task_patch_request_body,
+        **kwargs
+    ) -> "ApplyResult[TaskPatchResponseObject]":
+        """Updates the task details for the specified task.  # noqa: E501
+
+        Updates the task details for the specified task.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The unique identifier for task
+            task_patch_request_body (TaskPatchRequestBody):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TaskPatchResponseObject]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        kwargs['task_patch_request_body'] = \
+            task_patch_request_body
+        return self.update_task_details_endpoint.call_with_http_info(**kwargs)
+
+    def update_task_details_with_http_info_async(
+        self,
+        tenant,
+        task_id,
+        task_patch_request_body,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TaskPatchResponseObject, int, typing.MutableMapping]]":
+        """Updates the task details for the specified task.  # noqa: E501
+
+        Updates the task details for the specified task.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            tenant (str): The code of the tenancy
+            task_id (str): The unique identifier for task
+            task_patch_request_body (TaskPatchRequestBody):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TaskPatchResponseObject, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['tenant'] = \
+            tenant
+        kwargs['task_id'] = \
+            task_id
+        kwargs['task_patch_request_body'] = \
+            task_patch_request_body
+        return self.update_task_details_endpoint.call_with_http_info(**kwargs)
 
 

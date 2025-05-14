@@ -21,6 +21,7 @@ import ReportRevisionDTO from './ReportRevisionDTO';
 class ReportInstanceDTO {
     /**
      * Constructs a new <code>ReportInstanceDTO</code>.
+     * Details of the Report instance.
      * @alias module:model/ReportInstanceDTO
      */
     constructor() { 
@@ -79,31 +80,37 @@ class ReportInstanceDTO {
 }
 
 /**
+ * Unique Identifier of the Report instance.
  * @member {Number} reportInstanceId
  */
 ReportInstanceDTO.prototype['reportInstanceId'] = undefined;
 
 /**
+ * Unique Identifier for the associated Report definition.
  * @member {Number} reportDefinitionId
  */
 ReportInstanceDTO.prototype['reportDefinitionId'] = undefined;
 
 /**
+ * Name of the Report definition.
  * @member {String} reportDefinitionName
  */
 ReportInstanceDTO.prototype['reportDefinitionName'] = undefined;
 
 /**
+ * Name of the generated Report.
  * @member {String} reportName
  */
 ReportInstanceDTO.prototype['reportName'] = undefined;
 
 /**
+ * A user-friendly display name for the generated report file.
  * @member {String} userFriendlyReportName
  */
 ReportInstanceDTO.prototype['userFriendlyReportName'] = undefined;
 
 /**
+ * File extension for the report output.
  * @member {String} extension
  */
 ReportInstanceDTO.prototype['extension'] = undefined;
@@ -114,6 +121,7 @@ ReportInstanceDTO.prototype['extension'] = undefined;
 ReportInstanceDTO.prototype['reportRevision'] = undefined;
 
 /**
+ * Display name for the generated report file.
  * @member {String} name
  */
 ReportInstanceDTO.prototype['name'] = undefined;

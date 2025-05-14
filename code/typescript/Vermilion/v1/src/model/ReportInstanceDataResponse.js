@@ -21,6 +21,7 @@ import ReportInstanceId from './ReportInstanceId';
 class ReportInstanceDataResponse {
     /**
      * Constructs a new <code>ReportInstanceDataResponse</code>.
+     * Response containing details of the Report instance.
      * @alias module:model/ReportInstanceDataResponse
      */
     constructor() { 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimUserGroup
+    /// Group/role the user was assigned with.
     /// </summary>
     [DataContract(Name = "ScimUserGroup")]
     public partial class ScimUserGroup : IEquatable<ScimUserGroup>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimUserGroup" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="_ref">A callback link which can be used to get the information of the user.</param>
-        /// <param name="type">type.</param>
+        /// <param name="value">Unique identifier of the user&#39;s group..</param>
+        /// <param name="_ref">A callback link which can be used to get the information of the group.</param>
+        /// <param name="type">Type of the resource..</param>
         /// <param name="display">Name of the group.</param>
         public ScimUserGroup(string value = default(string), string _ref = default(string), string type = default(string), string display = default(string))
         {
@@ -48,21 +48,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Unique identifier of the user&#39;s group.
         /// </summary>
+        /// <value>Unique identifier of the user&#39;s group.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
         /// <summary>
-        /// A callback link which can be used to get the information of the user
+        /// A callback link which can be used to get the information of the group
         /// </summary>
-        /// <value>A callback link which can be used to get the information of the user</value>
+        /// <value>A callback link which can be used to get the information of the group</value>
         [DataMember(Name = "$ref", EmitDefaultValue = false)]
         public string Ref { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of the resource.
         /// </summary>
+        /// <value>Type of the resource.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

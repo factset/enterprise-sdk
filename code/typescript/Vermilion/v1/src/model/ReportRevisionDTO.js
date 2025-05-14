@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ReportRevisionDTO {
     /**
      * Constructs a new <code>ReportRevisionDTO</code>.
+     * Contains details about the Report revision.
      * @alias module:model/ReportRevisionDTO
      */
     constructor() { 
@@ -84,51 +85,61 @@ class ReportRevisionDTO {
 }
 
 /**
+ * The current status of the Report generation process.
  * @member {module:model/ReportRevisionDTO.ReportStatusEnum} reportStatus
  */
 ReportRevisionDTO.prototype['reportStatus'] = undefined;
 
 /**
+ * Start date of the Report generation process.
  * @member {String} startDate
  */
 ReportRevisionDTO.prototype['startDate'] = undefined;
 
 /**
+ * Completion date of the Report generation process.
  * @member {String} finishDate
  */
 ReportRevisionDTO.prototype['finishDate'] = undefined;
 
 /**
+ * Sign-off status of the Report.
  * @member {module:model/ReportRevisionDTO.SignOffStatusEnum} signOffStatus
  */
 ReportRevisionDTO.prototype['signOffStatus'] = undefined;
 
 /**
+ * Additional notes related to the sign-off process.
  * @member {String} signOffNotes
  */
 ReportRevisionDTO.prototype['signOffNotes'] = undefined;
 
 /**
+ * Reason code for generating the Report.
  * @member {String} reportReasonCd
  */
 ReportRevisionDTO.prototype['reportReasonCd'] = undefined;
 
 /**
+ * Description of the Report revision.
  * @member {String} description
  */
 ReportRevisionDTO.prototype['description'] = undefined;
 
 /**
+ * Language code of the Report.
  * @member {String} languageCode
  */
 ReportRevisionDTO.prototype['languageCode'] = undefined;
 
 /**
+ * Output format of the Report.
  * @member {String} outputFormat
  */
 ReportRevisionDTO.prototype['outputFormat'] = undefined;
 
 /**
+ * Percentage of completion for the Report generation.
  * @member {Number} percentageComplete
  */
 ReportRevisionDTO.prototype['percentageComplete'] = undefined;

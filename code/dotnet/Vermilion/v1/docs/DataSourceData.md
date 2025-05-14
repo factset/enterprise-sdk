@@ -1,4 +1,5 @@
 # FactSet.SDK.Vermilion.Model.DataSourceData
+Data object for the Data Source.
 
 ## Properties
 

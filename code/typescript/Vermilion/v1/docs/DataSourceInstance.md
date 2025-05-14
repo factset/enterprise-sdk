@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dstInstanceId** | **Number** |  | [optional] 
-**dstInstanceType** | **String** |  | [optional] 
-**rows** | [**[DataSourceInstanceRows]**](DataSourceInstanceRows.md) |  | [optional] 
+**dstInstanceId** | **Number** | Unique Identifier of the Data Source Instance. | [optional] 
+**dstInstanceType** | **String** | Type of the Data source | [optional] 
+**rows** | [**[DataSourceInstanceRows]**](DataSourceInstanceRows.md) | An array of data row of the Data source | [optional] 
 
 

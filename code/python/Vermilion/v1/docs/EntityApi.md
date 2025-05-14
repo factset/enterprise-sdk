@@ -115,6 +115,7 @@ Name | Type | Description  | Notes
 **403** | No permissions to view datasources in VRS |  -  |
 **404** | The supplied entity code was not found |  -  |
 **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

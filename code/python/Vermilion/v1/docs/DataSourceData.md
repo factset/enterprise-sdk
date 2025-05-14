@@ -1,5 +1,6 @@
 # DataSourceData
 
+Data object for the Data Source.
 
 ## Properties
 Name | Type | Description | Notes

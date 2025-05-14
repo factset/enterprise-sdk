@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * CreatedScimUserJSONResponseMeta
+ * Metadata about the user resource.
  */
+@ApiModel(description = "Metadata about the user resource.")
 @JsonPropertyOrder({
   CreatedScimUserJSONResponseMeta.JSON_PROPERTY_RESOURCE_TYPE,
   CreatedScimUserJSONResponseMeta.JSON_PROPERTY_CREATED,
@@ -64,11 +65,11 @@ public class CreatedScimUserJSONResponseMeta implements Serializable {
   }
 
    /**
-   * Get resourceType
+   * Type of the resource.
    * @return resourceType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of the resource.")
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -90,11 +91,11 @@ public class CreatedScimUserJSONResponseMeta implements Serializable {
   }
 
    /**
-   * Get created
+   * Timestamp indicating when the user resource was created.
    * @return created
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Timestamp indicating when the user resource was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,11 +117,11 @@ public class CreatedScimUserJSONResponseMeta implements Serializable {
   }
 
    /**
-   * Get lastModified
+   * Timestamp of the last modification to the user resource.
    * @return lastModified
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Timestamp of the last modification to the user resource.")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,11 +143,11 @@ public class CreatedScimUserJSONResponseMeta implements Serializable {
   }
 
    /**
-   * Get location
+   * URL indicating the location of the user resource.
    * @return location
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "URL indicating the location of the user resource.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

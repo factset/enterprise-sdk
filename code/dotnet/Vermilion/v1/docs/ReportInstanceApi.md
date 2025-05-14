@@ -113,6 +113,7 @@ void (empty response body)
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report instance ID could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -219,6 +220,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view the generated file in VRS |  -  |
 | **406** | Unsupported Accept header. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -336,6 +338,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view reports in VRS |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -448,6 +451,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report instance ID could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -553,6 +557,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report instance ID could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -656,6 +661,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The report code could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

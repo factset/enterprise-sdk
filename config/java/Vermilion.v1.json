@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "vermilion",
-  "artifactVersion": "2.2.2",
+  "artifactVersion": "2.3.0",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Vermilion client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/Vermilion/2.2.2",
+  "httpUserAgent": "fds-sdk/java/Vermilion/2.3.0",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

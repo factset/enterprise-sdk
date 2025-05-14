@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportDefinitionDTO
+ * Defines the details of the Report definition.
  */
+@ApiModel(description = "Defines the details of the Report definition.")
 @JsonPropertyOrder({
   ReportDefinitionDTO.JSON_PROPERTY_NAME,
   ReportDefinitionDTO.JSON_PROPERTY_CODE,
@@ -65,11 +66,11 @@ public class ReportDefinitionDTO implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the Report definition.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the Report definition.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -91,11 +92,11 @@ public class ReportDefinitionDTO implements Serializable {
   }
 
    /**
-   * Get code
+   * Code of the Report definition.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Code of the Report definition.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +118,11 @@ public class ReportDefinitionDTO implements Serializable {
   }
 
    /**
-   * Get releaseTag
+   * Release tag associated with the Report definition.
    * @return releaseTag
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Release tag associated with the Report definition.")
   @JsonProperty(JSON_PROPERTY_RELEASE_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,11 +152,11 @@ public class ReportDefinitionDTO implements Serializable {
   }
 
    /**
-   * Get entities
+   * A list of entities associated with the Report definition.
    * @return entities
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of entities associated with the Report definition.")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

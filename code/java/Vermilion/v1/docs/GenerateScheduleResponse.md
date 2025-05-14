@@ -2,6 +2,7 @@
 
 # GenerateScheduleResponse
 
+Response object for schedule generation.
 
 ## Properties
 

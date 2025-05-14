@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class CreatedScimUserJSONResponseMeta {
     /**
      * Constructs a new <code>CreatedScimUserJSONResponseMeta</code>.
+     * Metadata about the user resource.
      * @alias module:model/CreatedScimUserJSONResponseMeta
      */
     constructor() { 
@@ -66,21 +67,25 @@ class CreatedScimUserJSONResponseMeta {
 }
 
 /**
+ * Type of the resource.
  * @member {String} resourceType
  */
 CreatedScimUserJSONResponseMeta.prototype['resourceType'] = undefined;
 
 /**
+ * Timestamp indicating when the user resource was created.
  * @member {String} created
  */
 CreatedScimUserJSONResponseMeta.prototype['created'] = undefined;
 
 /**
+ * Timestamp of the last modification to the user resource.
  * @member {String} lastModified
  */
 CreatedScimUserJSONResponseMeta.prototype['lastModified'] = undefined;
 
 /**
+ * URL indicating the location of the user resource.
  * @member {String} location
  */
 CreatedScimUserJSONResponseMeta.prototype['location'] = undefined;

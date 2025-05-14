@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ErrorList
+ * List of errors.
  */
+@ApiModel(description = "List of errors.")
 @JsonPropertyOrder({
   ErrorList.JSON_PROPERTY_ERRORS
 })
@@ -61,11 +62,11 @@ public class ErrorList implements Serializable {
   }
 
    /**
-   * Get errors
+   * A list of errors encountered.
    * @return errors
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of errors encountered.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

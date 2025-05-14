@@ -337,7 +337,7 @@ null (empty response body)
 
 Retrieves a list of VRS role
 
-Retrieves a VRS roles
+Retrieves VRS roles
 
 ### Example
 
@@ -374,7 +374,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new SCIMApi();
 const opts = {
   'count': 10, // Number | Non-negative maximum number of entries to return
-  'startIndex': 5 // Number | The 1-based index of the first query result
+  'startIndex': 5, // Number | The 1-based index of the first query result
+  'filter': tenant eq "MASTER,DEMO", // String | Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO
+  'sortBy': ["displayName"], // [String] | The column to sort on. If parameter is not given, no sorting will be done
+  'sortOrder': ["ascending"] // [String] | The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order
 };
 
 // Call api endpoint
@@ -399,6 +402,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Number**| Non-negative maximum number of entries to return | [optional] 
  **startIndex** | **Number**| The 1-based index of the first query result | [optional] 
+ **filter** | **String**| Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO | [optional] 
+ **sortBy** | [**[String]**](String.md)| The column to sort on. If parameter is not given, no sorting will be done | [optional] 
+ **sortOrder** | [**[String]**](String.md)| The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order | [optional] 
 
 ### Return type
 

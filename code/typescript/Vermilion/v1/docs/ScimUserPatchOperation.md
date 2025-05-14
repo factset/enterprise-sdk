@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | **String** |  | [optional] 
-**path** | **String** |  | [optional] 
-**value** | **String** |  | [optional] 
+**op** | **String** | Action to perform on the attribute. | [optional] 
+**path** | **String** | The user attribute path to modify. | [optional] 
+**value** | **String** | The value to set for the attribute. | [optional] 
 
 

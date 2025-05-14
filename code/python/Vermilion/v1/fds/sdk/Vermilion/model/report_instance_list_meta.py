@@ -31,8 +31,8 @@ from fds.sdk.Vermilion.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.Vermilion.model.data_source_list_meta_pagination import DataSourceListMetaPagination
-    globals()['DataSourceListMetaPagination'] = DataSourceListMetaPagination
+    from fds.sdk.Vermilion.model.report_instance_list_meta_pagination import ReportInstanceListMetaPagination
+    globals()['ReportInstanceListMetaPagination'] = ReportInstanceListMetaPagination
 
 
 class ReportInstanceListMeta(ModelNormal):
@@ -88,7 +88,7 @@ class ReportInstanceListMeta(ModelNormal):
         """
         lazy_import()
         return {
-            'pagination': (DataSourceListMetaPagination,),  # noqa: E501
+            'pagination': (ReportInstanceListMetaPagination,),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ReportInstanceListMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pagination (DataSourceListMetaPagination): [optional]  # noqa: E501
+            pagination (ReportInstanceListMetaPagination): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class ReportInstanceListMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pagination (DataSourceListMetaPagination): [optional]  # noqa: E501
+            pagination (ReportInstanceListMetaPagination): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

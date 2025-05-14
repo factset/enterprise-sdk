@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class RecordSetFields {
     /**
      * Constructs a new <code>RecordSetFields</code>.
+     * Defines the properties and attributes of a record set field.
      * @alias module:model/RecordSetFields
      */
     constructor() { 
@@ -61,6 +62,9 @@ class RecordSetFields {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('order')) {
+                obj['order'] = ApiClient.convertToType(data['order'], 'Number');
+            }
         }
         return obj;
     }
@@ -69,29 +73,40 @@ class RecordSetFields {
 }
 
 /**
+ * The type of the field indicating the kind of data it holds.
  * @member {module:model/RecordSetFields.FieldTypeEnum} fieldType
  */
 RecordSetFields.prototype['fieldType'] = undefined;
 
 /**
+ * The format applied to the field's value.
  * @member {String} format
  */
 RecordSetFields.prototype['format'] = undefined;
 
 /**
+ * Unique identifier for the field.
  * @member {Number} id
  */
 RecordSetFields.prototype['id'] = undefined;
 
 /**
+ * Indicates whether the field is hidden.
  * @member {String} hide
  */
 RecordSetFields.prototype['hide'] = undefined;
 
 /**
+ * The name of the field.
  * @member {String} name
  */
 RecordSetFields.prototype['name'] = undefined;
+
+/**
+ * The ordering of the record set field.
+ * @member {Number} order
+ */
+RecordSetFields.prototype['order'] = undefined;
 
 
 

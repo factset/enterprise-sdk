@@ -21,6 +21,7 @@ import EntityDTO from './EntityDTO';
 class DataSourceDTO {
     /**
      * Constructs a new <code>DataSourceDTO</code>.
+     * A DataSource object aggregates data from multiple providers, such as APIs, databases, or file systems, to simplify access and processing.
      * @alias module:model/DataSourceDTO
      */
     constructor() { 
@@ -88,56 +89,67 @@ class DataSourceDTO {
 }
 
 /**
+ * Unique Identifier for the Data Source.
  * @member {Number} dataSourceId
  */
 DataSourceDTO.prototype['dataSourceId'] = undefined;
 
 /**
+ * Name of the Data Source.
  * @member {String} name
  */
 DataSourceDTO.prototype['name'] = undefined;
 
 /**
+ * Code of the Data Source.
  * @member {String} code
  */
 DataSourceDTO.prototype['code'] = undefined;
 
 /**
+ * Type of the Data Source.
  * @member {module:model/DataSourceDTO.DsTypeEnum} dsType
  */
 DataSourceDTO.prototype['dsType'] = undefined;
 
 /**
+ * An array of entities that are used in the Data Source.
  * @member {Array.<module:model/EntityDTO>} entities
  */
 DataSourceDTO.prototype['entities'] = undefined;
 
 /**
+ * Recordset name that is used for output in the Data Source.
  * @member {String} outputRecordSet
  */
 DataSourceDTO.prototype['outputRecordSet'] = undefined;
 
 /**
+ * Release tag associated with the Data Source.
  * @member {String} releaseTag
  */
 DataSourceDTO.prototype['releaseTag'] = undefined;
 
 /**
+ * Name of the default Data Source.
  * @member {String} defaultDataSourceName
  */
 DataSourceDTO.prototype['defaultDataSourceName'] = undefined;
 
 /**
+ * Name of the component/report used for Data Source preview.
  * @member {String} dataPreview
  */
 DataSourceDTO.prototype['dataPreview'] = undefined;
 
 /**
+ * Indicates the username of the person who last updated the Data Source.
  * @member {String} lastUpdatedBy
  */
 DataSourceDTO.prototype['lastUpdatedBy'] = undefined;
 
 /**
+ * The timestamp of the most recent update in epoch format of the Data Source
  * @member {Number} lastUpdated
  */
 DataSourceDTO.prototype['lastUpdated'] = undefined;

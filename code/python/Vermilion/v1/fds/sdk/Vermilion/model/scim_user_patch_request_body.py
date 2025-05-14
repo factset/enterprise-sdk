@@ -143,8 +143,8 @@ class ScimUserPatchRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            operations ([ScimUserPatchOperation]): [optional]  # noqa: E501
+            schemas ([str]): A list of URIs that indicate the namespaces of the schema used in this request.. [optional]  # noqa: E501
+            operations ([ScimUserPatchOperation]): A list of operations defining the specific changes to apply to the user's attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +226,8 @@ class ScimUserPatchRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            operations ([ScimUserPatchOperation]): [optional]  # noqa: E501
+            schemas ([str]): A list of URIs that indicate the namespaces of the schema used in this request.. [optional]  # noqa: E501
+            operations ([ScimUserPatchOperation]): A list of operations defining the specific changes to apply to the user's attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

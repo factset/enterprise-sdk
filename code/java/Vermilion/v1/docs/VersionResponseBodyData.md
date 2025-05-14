@@ -2,6 +2,7 @@
 
 # VersionResponseBodyData
 
+Version details of VRS and WRS systems.
 
 ## Properties
 

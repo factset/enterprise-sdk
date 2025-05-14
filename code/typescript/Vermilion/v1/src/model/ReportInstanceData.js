@@ -21,6 +21,7 @@ import ReportInstanceDTO from './ReportInstanceDTO';
 class ReportInstanceData {
     /**
      * Constructs a new <code>ReportInstanceData</code>.
+     * Single Report instance data response.
      * @alias module:model/ReportInstanceData
      */
     constructor() { 

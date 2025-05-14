@@ -21,6 +21,7 @@ import ReportGenerationRequest from './ReportGenerationRequest';
 class ReportGenerationRequestBody {
     /**
      * Constructs a new <code>ReportGenerationRequestBody</code>.
+     * Defines the request body for generating a report, encapsulating various generation parameters.
      * @alias module:model/ReportGenerationRequestBody
      */
     constructor() { 
@@ -58,6 +59,7 @@ class ReportGenerationRequestBody {
 }
 
 /**
+ * Contains report generation requests.
  * @member {Object.<String, module:model/ReportGenerationRequest>} vrs
  */
 ReportGenerationRequestBody.prototype['vrs'] = undefined;

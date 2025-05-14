@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **String** |  | [optional] 
+**key** | **String** | Key value for the selected Entity. | [optional] 
 
 

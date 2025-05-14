@@ -2,6 +2,7 @@
 
 # ScheduleStatusUpdateResponse
 
+Response object for updating the status of a schedule.
 
 ## Properties
 

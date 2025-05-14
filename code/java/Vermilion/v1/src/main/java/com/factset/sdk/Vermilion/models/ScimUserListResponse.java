@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimUserListResponse
+ * List of users with pagination details.
  */
+@ApiModel(description = "List of users with pagination details.")
 @JsonPropertyOrder({
   ScimUserListResponse.JSON_PROPERTY_TOTAL_RESULTS,
   ScimUserListResponse.JSON_PROPERTY_ITEMS_PER_PAGE,
@@ -65,11 +66,11 @@ public class ScimUserListResponse implements Serializable {
   }
 
    /**
-   * Get totalResults
+   * The total number of users available.
    * @return totalResults
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total number of users available.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -91,11 +92,11 @@ public class ScimUserListResponse implements Serializable {
   }
 
    /**
-   * Get itemsPerPage
+   * The number of users per page.
    * @return itemsPerPage
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of users per page.")
   @JsonProperty(JSON_PROPERTY_ITEMS_PER_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +118,11 @@ public class ScimUserListResponse implements Serializable {
   }
 
    /**
-   * Get startIndex
+   * The starting index for the returned users.
    * @return startIndex
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The starting index for the returned users.")
   @JsonProperty(JSON_PROPERTY_START_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,11 +152,11 @@ public class ScimUserListResponse implements Serializable {
   }
 
    /**
-   * Get resources
+   * The list of users returned in the response.
    * @return resources
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The list of users returned in the response.")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

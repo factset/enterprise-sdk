@@ -31,10 +31,10 @@ from fds.sdk.Vermilion.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.Vermilion.model.data_source_list_meta import DataSourceListMeta
     from fds.sdk.Vermilion.model.schedule_data import ScheduleData
-    globals()['DataSourceListMeta'] = DataSourceListMeta
+    from fds.sdk.Vermilion.model.schedules_list_meta import SchedulesListMeta
     globals()['ScheduleData'] = ScheduleData
+    globals()['SchedulesListMeta'] = SchedulesListMeta
 
 
 class SchedulesList(ModelNormal):
@@ -90,7 +90,7 @@ class SchedulesList(ModelNormal):
         """
         lazy_import()
         return {
-            'meta': (DataSourceListMeta,),  # noqa: E501
+            'meta': (SchedulesListMeta,),  # noqa: E501
             'data': ([ScheduleData],),  # noqa: E501
         }
 
@@ -145,8 +145,8 @@ class SchedulesList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([ScheduleData]): [optional]  # noqa: E501
+            meta (SchedulesListMeta): [optional]  # noqa: E501
+            data ([ScheduleData]): An array of schedule objects.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class SchedulesList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([ScheduleData]): [optional]  # noqa: E501
+            meta (SchedulesListMeta): [optional]  # noqa: E501
+            data ([ScheduleData]): An array of schedule objects.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

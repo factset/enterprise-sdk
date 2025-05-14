@@ -146,7 +146,7 @@ class ReportInstanceList(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             meta (ReportInstanceListMeta): [optional]  # noqa: E501
-            data ([ReportInstanceDTO]): [optional]  # noqa: E501
+            data ([ReportInstanceDTO]): A list of Report instances.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +229,7 @@ class ReportInstanceList(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             meta (ReportInstanceListMeta): [optional]  # noqa: E501
-            data ([ReportInstanceDTO]): [optional]  # noqa: E501
+            data ([ReportInstanceDTO]): A list of Report instances.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimGroupListResponse
+ * List of groups/roles.
  */
+@ApiModel(description = "List of groups/roles.")
 @JsonPropertyOrder({
   ScimGroupListResponse.JSON_PROPERTY_TOTAL_RESULTS,
   ScimGroupListResponse.JSON_PROPERTY_ITEMS_PER_PAGE,
@@ -65,11 +66,11 @@ public class ScimGroupListResponse implements Serializable {
   }
 
    /**
-   * Get totalResults
+   * The total number of groups/roles available.
    * @return totalResults
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total number of groups/roles available.")
   @JsonProperty(JSON_PROPERTY_TOTAL_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -91,11 +92,11 @@ public class ScimGroupListResponse implements Serializable {
   }
 
    /**
-   * Get itemsPerPage
+   * The number of groups per page.
    * @return itemsPerPage
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of groups per page.")
   @JsonProperty(JSON_PROPERTY_ITEMS_PER_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,11 +118,11 @@ public class ScimGroupListResponse implements Serializable {
   }
 
    /**
-   * Get startIndex
+   * The starting index for the returned groups.
    * @return startIndex
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The starting index for the returned groups.")
   @JsonProperty(JSON_PROPERTY_START_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,11 +152,11 @@ public class ScimGroupListResponse implements Serializable {
   }
 
    /**
-   * Get resources
+   * List of groups/roles returned in the response.
    * @return resources
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of groups/roles returned in the response.")
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

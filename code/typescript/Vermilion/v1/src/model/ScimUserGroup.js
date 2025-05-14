@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimUserGroup {
     /**
      * Constructs a new <code>ScimUserGroup</code>.
+     * Group/role the user was assigned with.
      * @alias module:model/ScimUserGroup
      */
     constructor() { 
@@ -66,17 +67,19 @@ class ScimUserGroup {
 }
 
 /**
+ * Unique identifier of the user's group.
  * @member {String} value
  */
 ScimUserGroup.prototype['value'] = undefined;
 
 /**
- * A callback link which can be used to get the information of the user
+ * A callback link which can be used to get the information of the group
  * @member {String} $ref
  */
 ScimUserGroup.prototype['$ref'] = undefined;
 
 /**
+ * Type of the resource.
  * @member {String} type
  */
 ScimUserGroup.prototype['type'] = undefined;

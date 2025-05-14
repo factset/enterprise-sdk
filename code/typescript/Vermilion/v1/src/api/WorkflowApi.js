@@ -17,8 +17,14 @@ import ErrorList from '../model/ErrorList';
 import GenerateScheduleResponse from '../model/GenerateScheduleResponse';
 import ScheduleDefinitionsList from '../model/ScheduleDefinitionsList';
 import ScheduleGenerationLogList from '../model/ScheduleGenerationLogList';
+import ScheduleResponseData from '../model/ScheduleResponseData';
 import ScheduleStatusUpdateResponse from '../model/ScheduleStatusUpdateResponse';
 import SchedulesList from '../model/SchedulesList';
+import TaskDetailsObject from '../model/TaskDetailsObject';
+import TaskHistoryList from '../model/TaskHistoryList';
+import TaskList from '../model/TaskList';
+import TaskPatchRequestBody from '../model/TaskPatchRequestBody';
+import TaskPatchResponseObject from '../model/TaskPatchResponseObject';
 
 /**
 * Workflow service.
@@ -104,11 +110,127 @@ export default class WorkflowApi {
 
 
     /**
+     * Generates the tasks for the initialised schedule
+     * Generates the schedule tasks for the specified schedule id
+     * @param {String} tenant The code of the tenancy
+     * @param {String} scheduleId The schedule id for which to generate the tasks
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScheduleStatusUpdateResponse} and HTTP response
+     */
+    generateScheduleTasksWithHttpInfo(tenant, scheduleId) {
+      let postBody = null;
+      // verify the required parameter 'tenant' is set
+      if (tenant === undefined || tenant === null) {
+        throw new Error("Missing the required parameter 'tenant' when calling generateScheduleTasks");
+      }
+      // verify the required parameter 'scheduleId' is set
+      if (scheduleId === undefined || scheduleId === null) {
+        throw new Error("Missing the required parameter 'scheduleId' when calling generateScheduleTasks");
+      }
+
+      let pathParams = {
+        'tenant': tenant,
+        'scheduleId': scheduleId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = ScheduleStatusUpdateResponse;
+
+      return this.apiClient.callApi(
+        '/v1/{tenant}/schedules/{scheduleId}/generate-tasks', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Generates the tasks for the initialised schedule
+     * Generates the schedule tasks for the specified schedule id
+     * @param {String} tenant The code of the tenancy
+     * @param {String} scheduleId The schedule id for which to generate the tasks
+     * @return { Promise.< module:model/ScheduleStatusUpdateResponse > } a Promise, with data of type {@link module:model/ScheduleStatusUpdateResponse }
+     */
+    generateScheduleTasks(tenant, scheduleId) {
+      return this.generateScheduleTasksWithHttpInfo(tenant, scheduleId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Gets a schedule based on the schedule ID
+     * Gets a schedule Object based on the schedule ID passed.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} scheduleId The Id of the schedule
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScheduleResponseData} and HTTP response
+     */
+    getScheduleByIdWithHttpInfo(tenant, scheduleId) {
+      let postBody = null;
+      // verify the required parameter 'tenant' is set
+      if (tenant === undefined || tenant === null) {
+        throw new Error("Missing the required parameter 'tenant' when calling getScheduleById");
+      }
+      // verify the required parameter 'scheduleId' is set
+      if (scheduleId === undefined || scheduleId === null) {
+        throw new Error("Missing the required parameter 'scheduleId' when calling getScheduleById");
+      }
+
+      let pathParams = {
+        'tenant': tenant,
+        'scheduleId': scheduleId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = ScheduleResponseData;
+
+      return this.apiClient.callApi(
+        '/v1/{tenant}/schedules/{scheduleId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Gets a schedule based on the schedule ID
+     * Gets a schedule Object based on the schedule ID passed.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} scheduleId The Id of the schedule
+     * @return { Promise.< module:model/ScheduleResponseData > } a Promise, with data of type {@link module:model/ScheduleResponseData }
+     */
+    getScheduleById(tenant, scheduleId) {
+      return this.getScheduleByIdWithHttpInfo(tenant, scheduleId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Retrieves a list of all schedule definitions
      * Retrieves all schedule definitions the user has permissions for. User has sort and filter parameters available to use.
      * @param {String} tenant The code of the tenancy
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.scheduleType Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE
+     * @param {module:model/String} opts.scheduleType Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL
      * @param {module:model/String} opts.reportDate Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE
      * @param {String} opts.lastUpdatedBy Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions
      * @param {String} opts.startDate Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).
@@ -163,7 +285,7 @@ export default class WorkflowApi {
      * Retrieves all schedule definitions the user has permissions for. User has sort and filter parameters available to use.
      * @param {String} tenant The code of the tenancy
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.scheduleType Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE
+     * @param {module:model/String} opts.scheduleType Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL
      * @param {module:model/String} opts.reportDate Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate=LAST_DAY_OF_PREV_MONTH,CREATION_DATE
      * @param {String} opts.lastUpdatedBy Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions
      * @param {String} opts.startDate Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).
@@ -339,6 +461,227 @@ export default class WorkflowApi {
 
 
     /**
+     * Gets a task based on the task ID
+     * Gets a task Object based on the task ID passed.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} taskId The Id of the task
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskDetailsObject} and HTTP response
+     */
+    getTaskWithHttpInfo(tenant, taskId) {
+      let postBody = null;
+      // verify the required parameter 'tenant' is set
+      if (tenant === undefined || tenant === null) {
+        throw new Error("Missing the required parameter 'tenant' when calling getTask");
+      }
+      // verify the required parameter 'taskId' is set
+      if (taskId === undefined || taskId === null) {
+        throw new Error("Missing the required parameter 'taskId' when calling getTask");
+      }
+
+      let pathParams = {
+        'tenant': tenant,
+        'taskId': taskId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = TaskDetailsObject;
+
+      return this.apiClient.callApi(
+        '/v1/{tenant}/tasks/{taskId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Gets a task based on the task ID
+     * Gets a task Object based on the task ID passed.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} taskId The Id of the task
+     * @return { Promise.< module:model/TaskDetailsObject > } a Promise, with data of type {@link module:model/TaskDetailsObject }
+     */
+    getTask(tenant, taskId) {
+      return this.getTaskWithHttpInfo(tenant, taskId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Gets the task history for a specific task
+     * Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} taskId The taskId for which the history of the specific task is requested
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.actionType Acts as a filter for the retrieval process. Filters the task history entries that match the given action type
+     * @param {String} opts.reasonCode Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code
+     * @param {String} opts.startDate Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).
+     * @param {String} opts.endDate Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).
+     * @param {Array.<String>} opts.sort The column to sort on. Can add - to sort for descending order
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskHistoryList} and HTTP response
+     */
+    getTaskHistoryWithHttpInfo(tenant, taskId, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'tenant' is set
+      if (tenant === undefined || tenant === null) {
+        throw new Error("Missing the required parameter 'tenant' when calling getTaskHistory");
+      }
+      // verify the required parameter 'taskId' is set
+      if (taskId === undefined || taskId === null) {
+        throw new Error("Missing the required parameter 'taskId' when calling getTaskHistory");
+      }
+
+      let pathParams = {
+        'tenant': tenant,
+        'taskId': taskId
+      };
+      let queryParams = {
+        'actionType': opts['actionType'],
+        'reasonCode': opts['reasonCode'],
+        'startDate': opts['startDate'],
+        'endDate': opts['endDate'],
+        '_sort': this.apiClient.buildCollectionParam(opts['sort'], 'csv'),
+        '_paginationLimit': opts['paginationLimit'],
+        '_paginationOffset': opts['paginationOffset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = TaskHistoryList;
+
+      return this.apiClient.callApi(
+        '/v1/{tenant}/tasks/{taskId}/history', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Gets the task history for a specific task
+     * Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} taskId The taskId for which the history of the specific task is requested
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.actionType Acts as a filter for the retrieval process. Filters the task history entries that match the given action type
+     * @param {String} opts.reasonCode Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code
+     * @param {String} opts.startDate Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).
+     * @param {String} opts.endDate Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00).
+     * @param {Array.<String>} opts.sort The column to sort on. Can add - to sort for descending order
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
+     * @return { Promise.< module:model/TaskHistoryList > } a Promise, with data of type {@link module:model/TaskHistoryList }
+     */
+    getTaskHistory(tenant, taskId, opts) {
+      return this.getTaskHistoryWithHttpInfo(tenant, taskId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieves a list of all tasks
+     * Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+     * @param {String} tenant The code of the tenancy
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.taskType Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS
+     * @param {module:model/String} opts.status Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status=PENDING,AWAITING_CORRECTION
+     * @param {String} opts.role Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task
+     * @param {String} opts.user Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task
+     * @param {Boolean} opts.immediateTasksOnly Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true
+     * @param {Number} opts.scheduleId Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value
+     * @param {Array.<String>} opts.sort The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskList} and HTTP response
+     */
+    getTasksWithHttpInfo(tenant, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'tenant' is set
+      if (tenant === undefined || tenant === null) {
+        throw new Error("Missing the required parameter 'tenant' when calling getTasks");
+      }
+
+      let pathParams = {
+        'tenant': tenant
+      };
+      let queryParams = {
+        'taskType': opts['taskType'],
+        'status': opts['status'],
+        'role': opts['role'],
+        'user': opts['user'],
+        'immediateTasksOnly': opts['immediateTasksOnly'],
+        'scheduleId': opts['scheduleId'],
+        '_sort': this.apiClient.buildCollectionParam(opts['sort'], 'csv'),
+        '_paginationLimit': opts['paginationLimit'],
+        '_paginationOffset': opts['paginationOffset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = TaskList;
+
+      return this.apiClient.callApi(
+        '/v1/{tenant}/tasks', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Retrieves a list of all tasks
+     * Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+     * @param {String} tenant The code of the tenancy
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.taskType Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS
+     * @param {module:model/String} opts.status Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status=PENDING,AWAITING_CORRECTION
+     * @param {String} opts.role Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task
+     * @param {String} opts.user Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task
+     * @param {Boolean} opts.immediateTasksOnly Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true
+     * @param {Number} opts.scheduleId Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value
+     * @param {Array.<String>} opts.sort The column to sort on. Can add '-' to the start of the parameter value to sort in descending order.
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return (default to 25)
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip (default to 0)
+     * @return { Promise.< module:model/TaskList > } a Promise, with data of type {@link module:model/TaskList }
+     */
+    getTasks(tenant, opts) {
+      return this.getTasksWithHttpInfo(tenant, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Update schedule status for specified schedule
      * Updated the schedule status for the specified schedule id based on the given status
      * @param {String} tenant The code of the tenancy
@@ -397,6 +740,70 @@ export default class WorkflowApi {
      */
     updateScheduleStatus(tenant, scheduleId, status) {
       return this.updateScheduleStatusWithHttpInfo(tenant, scheduleId, status)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Updates the task details for the specified task.
+     * Updates the task details for the specified task.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} taskId The unique identifier for task
+     * @param {module:model/TaskPatchRequestBody} taskPatchRequestBody 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaskPatchResponseObject} and HTTP response
+     */
+    updateTaskDetailsWithHttpInfo(tenant, taskId, taskPatchRequestBody) {
+      let postBody = taskPatchRequestBody;
+      // verify the required parameter 'tenant' is set
+      if (tenant === undefined || tenant === null) {
+        throw new Error("Missing the required parameter 'tenant' when calling updateTaskDetails");
+      }
+      // verify the required parameter 'taskId' is set
+      if (taskId === undefined || taskId === null) {
+        throw new Error("Missing the required parameter 'taskId' when calling updateTaskDetails");
+      }
+      // verify the required parameter 'taskPatchRequestBody' is set
+      if (taskPatchRequestBody === undefined || taskPatchRequestBody === null) {
+        throw new Error("Missing the required parameter 'taskPatchRequestBody' when calling updateTaskDetails");
+      }
+
+      let pathParams = {
+        'tenant': tenant,
+        'taskId': taskId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = TaskPatchResponseObject;
+
+      return this.apiClient.callApi(
+        '/v1/{tenant}/tasks/{taskId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Updates the task details for the specified task.
+     * Updates the task details for the specified task.
+     * @param {String} tenant The code of the tenancy
+     * @param {String} taskId The unique identifier for task
+     * @param {module:model/TaskPatchRequestBody} taskPatchRequestBody 
+     * @return { Promise.< module:model/TaskPatchResponseObject > } a Promise, with data of type {@link module:model/TaskPatchResponseObject }
+     */
+    updateTaskDetails(tenant, taskId, taskPatchRequestBody) {
+      return this.updateTaskDetailsWithHttpInfo(tenant, taskId, taskPatchRequestBody)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

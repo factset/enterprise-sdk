@@ -147,10 +147,10 @@ class ScimUserListResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total_results (int): [optional]  # noqa: E501
-            items_per_page (int): [optional]  # noqa: E501
-            start_index (int): [optional]  # noqa: E501
-            resources ([ScimUser]): [optional]  # noqa: E501
+            total_results (int): The total number of users available.. [optional]  # noqa: E501
+            items_per_page (int): The number of users per page.. [optional]  # noqa: E501
+            start_index (int): The starting index for the returned users.. [optional]  # noqa: E501
+            resources ([ScimUser]): The list of users returned in the response.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,10 +232,10 @@ class ScimUserListResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total_results (int): [optional]  # noqa: E501
-            items_per_page (int): [optional]  # noqa: E501
-            start_index (int): [optional]  # noqa: E501
-            resources ([ScimUser]): [optional]  # noqa: E501
+            total_results (int): The total number of users available.. [optional]  # noqa: E501
+            items_per_page (int): The number of users per page.. [optional]  # noqa: E501
+            start_index (int): The starting index for the returned users.. [optional]  # noqa: E501
+            resources ([ScimUser]): The list of users returned in the response.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

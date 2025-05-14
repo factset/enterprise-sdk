@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**DataSourceListMeta**](DataSourceListMeta.md) |  | [optional] 
-**data** | [**[ScheduleGenerationLog]**](ScheduleGenerationLog.md) |  | [optional] 
+**meta** | [**ScheduleGenerationLogListMeta**](ScheduleGenerationLogListMeta.md) |  | [optional] 
+**data** | [**[ScheduleGenerationLog]**](ScheduleGenerationLog.md) | A set of fields used in sorting the Task Generation Logs. | [optional] 
 
 

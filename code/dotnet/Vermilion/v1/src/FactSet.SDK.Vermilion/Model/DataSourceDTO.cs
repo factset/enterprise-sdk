@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// DataSourceDTO
+    /// A DataSource object aggregates data from multiple providers, such as APIs, databases, or file systems, to simplify access and processing.
     /// </summary>
     [DataContract(Name = "DataSourceDTO")]
     public partial class DataSourceDTO : IEquatable<DataSourceDTO>, IValidatableObject
     {
         /// <summary>
-        /// Defines DsType
+        /// Type of the Data Source.
         /// </summary>
+        /// <value>Type of the Data Source.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DsTypeEnum
         {
@@ -60,24 +61,25 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets DsType
+        /// Type of the Data Source.
         /// </summary>
+        /// <value>Type of the Data Source.</value>
         [DataMember(Name = "dsType", EmitDefaultValue = false)]
         public DsTypeEnum? DsType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DataSourceDTO" /> class.
         /// </summary>
-        /// <param name="dataSourceId">dataSourceId.</param>
-        /// <param name="name">name.</param>
-        /// <param name="code">code.</param>
-        /// <param name="dsType">dsType.</param>
-        /// <param name="entities">entities.</param>
-        /// <param name="outputRecordSet">outputRecordSet.</param>
-        /// <param name="releaseTag">releaseTag.</param>
-        /// <param name="defaultDataSourceName">defaultDataSourceName.</param>
-        /// <param name="dataPreview">dataPreview.</param>
-        /// <param name="lastUpdatedBy">lastUpdatedBy.</param>
-        /// <param name="lastUpdated">lastUpdated.</param>
+        /// <param name="dataSourceId">Unique Identifier for the Data Source..</param>
+        /// <param name="name">Name of the Data Source..</param>
+        /// <param name="code">Code of the Data Source..</param>
+        /// <param name="dsType">Type of the Data Source..</param>
+        /// <param name="entities">An array of entities that are used in the Data Source..</param>
+        /// <param name="outputRecordSet">Recordset name that is used for output in the Data Source..</param>
+        /// <param name="releaseTag">Release tag associated with the Data Source..</param>
+        /// <param name="defaultDataSourceName">Name of the default Data Source..</param>
+        /// <param name="dataPreview">Name of the component/report used for Data Source preview..</param>
+        /// <param name="lastUpdatedBy">Indicates the username of the person who last updated the Data Source..</param>
+        /// <param name="lastUpdated">The timestamp of the most recent update in epoch format of the Data Source.</param>
         public DataSourceDTO(int dataSourceId = default(int), string name = default(string), string code = default(string), DsTypeEnum? dsType = default(DsTypeEnum?), List<EntityDTO> entities = default(List<EntityDTO>), string outputRecordSet = default(string), string releaseTag = default(string), string defaultDataSourceName = default(string), string dataPreview = default(string), string lastUpdatedBy = default(string), decimal lastUpdated = default(decimal))
         {
             this.DataSourceId = dataSourceId;
@@ -94,62 +96,72 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets DataSourceId
+        /// Unique Identifier for the Data Source.
         /// </summary>
+        /// <value>Unique Identifier for the Data Source.</value>
         [DataMember(Name = "dataSourceId", EmitDefaultValue = false)]
         public int DataSourceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the Data Source.
         /// </summary>
+        /// <value>Name of the Data Source.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Code of the Data Source.
         /// </summary>
+        /// <value>Code of the Data Source.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Entities
+        /// An array of entities that are used in the Data Source.
         /// </summary>
+        /// <value>An array of entities that are used in the Data Source.</value>
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public List<EntityDTO> Entities { get; set; }
 
         /// <summary>
-        /// Gets or Sets OutputRecordSet
+        /// Recordset name that is used for output in the Data Source.
         /// </summary>
+        /// <value>Recordset name that is used for output in the Data Source.</value>
         [DataMember(Name = "outputRecordSet", EmitDefaultValue = false)]
         public string OutputRecordSet { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReleaseTag
+        /// Release tag associated with the Data Source.
         /// </summary>
+        /// <value>Release tag associated with the Data Source.</value>
         [DataMember(Name = "releaseTag", EmitDefaultValue = false)]
         public string ReleaseTag { get; set; }
 
         /// <summary>
-        /// Gets or Sets DefaultDataSourceName
+        /// Name of the default Data Source.
         /// </summary>
+        /// <value>Name of the default Data Source.</value>
         [DataMember(Name = "defaultDataSourceName", EmitDefaultValue = false)]
         public string DefaultDataSourceName { get; set; }
 
         /// <summary>
-        /// Gets or Sets DataPreview
+        /// Name of the component/report used for Data Source preview.
         /// </summary>
+        /// <value>Name of the component/report used for Data Source preview.</value>
         [DataMember(Name = "dataPreview", EmitDefaultValue = false)]
         public string DataPreview { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdatedBy
+        /// Indicates the username of the person who last updated the Data Source.
         /// </summary>
+        /// <value>Indicates the username of the person who last updated the Data Source.</value>
         [DataMember(Name = "lastUpdatedBy", EmitDefaultValue = false)]
         public string LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdated
+        /// The timestamp of the most recent update in epoch format of the Data Source
         /// </summary>
+        /// <value>The timestamp of the most recent update in epoch format of the Data Source</value>
         [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
         public decimal LastUpdated { get; set; }
 

@@ -21,6 +21,7 @@ import ScimGroupPatchOperation from './ScimGroupPatchOperation';
 class ScimGroupPatchRequestBody {
     /**
      * Constructs a new <code>ScimGroupPatchRequestBody</code>.
+     * Defines the request payload for updating a group&#39;s attributes in SCIM. This patch operation allows for specific modifications to a group&#39;s properties.
      * @alias module:model/ScimGroupPatchRequestBody
      */
     constructor() { 
@@ -61,11 +62,13 @@ class ScimGroupPatchRequestBody {
 }
 
 /**
+ * An array of URIs representing the schema namespaces applied to this request.
  * @member {Array.<String>} schemas
  */
 ScimGroupPatchRequestBody.prototype['schemas'] = undefined;
 
 /**
+ * A list of operations specifying the actions to perform on the group's attributes, such as adding, removing, or updating members.
  * @member {Array.<module:model/ScimGroupPatchOperation>} Operations
  */
 ScimGroupPatchRequestBody.prototype['Operations'] = undefined;

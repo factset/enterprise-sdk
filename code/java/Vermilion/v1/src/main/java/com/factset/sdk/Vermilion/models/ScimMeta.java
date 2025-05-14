@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimMeta
+ * Metadata information for the resource.
  */
+@ApiModel(description = "Metadata information for the resource.")
 @JsonPropertyOrder({
   ScimMeta.JSON_PROPERTY_RESOURCE_TYPE,
   ScimMeta.JSON_PROPERTY_CREATED,
@@ -64,11 +65,11 @@ public class ScimMeta implements Serializable {
   }
 
    /**
-   * Get resourceType
+   * The type of resource (e.g., VRSUser, VRSGroup).
    * @return resourceType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of resource (e.g., VRSUser, VRSGroup).")
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -90,11 +91,11 @@ public class ScimMeta implements Serializable {
   }
 
    /**
-   * Get created
+   * The timestamp of when the resource was created.
    * @return created
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of when the resource was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,11 +117,11 @@ public class ScimMeta implements Serializable {
   }
 
    /**
-   * Get lastModified
+   * The timestamp of when the resource was last modified.
    * @return lastModified
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of when the resource was last modified.")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,11 +143,11 @@ public class ScimMeta implements Serializable {
   }
 
    /**
-   * Get location
+   * The URI location of the resource.
    * @return location
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URI location of the resource.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

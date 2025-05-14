@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScheduleDefinitionOwnerRole {
     /**
      * Constructs a new <code>ScheduleDefinitionOwnerRole</code>.
+     * The owner of the Schedule Definition (Role)
      * @alias module:model/ScheduleDefinitionOwnerRole
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScheduleDefinitionOwnerRole {
 }
 
 /**
+ * Unique ID of Owner role for the Schedule Definition.
  * @member {Number} roleId
  */
 ScheduleDefinitionOwnerRole.prototype['roleId'] = undefined;
 
 /**
+ * Name of Owner role for the Schedule Definition.
  * @member {String} name
  */
 ScheduleDefinitionOwnerRole.prototype['name'] = undefined;
 
 /**
+ * Code of Owner role for the Schedule Definition.
  * @member {String} code
  */
 ScheduleDefinitionOwnerRole.prototype['code'] = undefined;

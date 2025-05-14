@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// EntityFieldValueDTO
+    /// Entity value with its unique identifiers and attributes.
     /// </summary>
     [DataContract(Name = "EntityFieldValueDTO")]
     public partial class EntityFieldValueDTO : IEquatable<EntityFieldValueDTO>, IValidatableObject
@@ -36,8 +36,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="EntityFieldValueDTO" /> class.
         /// </summary>
         /// <param name="meta">meta.</param>
-        /// <param name="data">data.</param>
-        public EntityFieldValueDTO(DataSourceListMeta meta = default(DataSourceListMeta), List<Object> data = default(List<Object>))
+        /// <param name="data">Collection of Entity rows with their associated values and fields..</param>
+        public EntityFieldValueDTO(EntityFieldValueDTOMeta meta = default(EntityFieldValueDTOMeta), List<Object> data = default(List<Object>))
         {
             this.Meta = meta;
             this.Data = data;
@@ -47,11 +47,12 @@ namespace FactSet.SDK.Vermilion.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public DataSourceListMeta Meta { get; set; }
+        public EntityFieldValueDTOMeta Meta { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Collection of Entity rows with their associated values and fields.
         /// </summary>
+        /// <value>Collection of Entity rows with their associated values and fields.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<Object> Data { get; set; }
 

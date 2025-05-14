@@ -139,9 +139,9 @@ class ScimGroupMember(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            ref (str): A callback link which can be used to get the information of the group. [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            value (str): Unique identifier of the user.. [optional]  # noqa: E501
+            ref (str): A callback link which can be used to get the information of the user. [optional]  # noqa: E501
+            type (str): Type of the resource.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScimGroupMember(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            ref (str): A callback link which can be used to get the information of the group. [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            value (str): Unique identifier of the user.. [optional]  # noqa: E501
+            ref (str): A callback link which can be used to get the information of the user. [optional]  # noqa: E501
+            type (str): Type of the resource.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

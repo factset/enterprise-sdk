@@ -48,7 +48,7 @@ class ReportApi(object):
         self.get_all_report_definitions_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ReportDefinitionList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ReportDefinitionList,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -125,7 +125,7 @@ class ReportApi(object):
         self.get_report_definition_by_code_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ReportDefinitionData,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ReportDefinitionData,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [

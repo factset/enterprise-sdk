@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimPhoto {
     /**
      * Constructs a new <code>ScimPhoto</code>.
+     * User&#39;s profile photo details.
      * @alias module:model/ScimPhoto
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScimPhoto {
 }
 
 /**
+ * The URL to the user's profile photo.
  * @member {String} value
  */
 ScimPhoto.prototype['value'] = undefined;
 
 /**
+ * The type of photo (e.g., profile picture, avatar).
  * @member {String} type
  */
 ScimPhoto.prototype['type'] = undefined;
 
 /**
+ * Indicates if this is the primary photo for the user.
  * @member {Boolean} primary
  */
 ScimPhoto.prototype['primary'] = undefined;

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportInstanceDTO
+    /// Details of the Report instance.
     /// </summary>
     [DataContract(Name = "ReportInstanceDTO")]
     public partial class ReportInstanceDTO : IEquatable<ReportInstanceDTO>, IValidatableObject
@@ -35,14 +35,14 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportInstanceDTO" /> class.
         /// </summary>
-        /// <param name="reportInstanceId">reportInstanceId.</param>
-        /// <param name="reportDefinitionId">reportDefinitionId.</param>
-        /// <param name="reportDefinitionName">reportDefinitionName.</param>
-        /// <param name="reportName">reportName.</param>
-        /// <param name="userFriendlyReportName">userFriendlyReportName.</param>
-        /// <param name="extension">extension.</param>
+        /// <param name="reportInstanceId">Unique Identifier of the Report instance..</param>
+        /// <param name="reportDefinitionId">Unique Identifier for the associated Report definition..</param>
+        /// <param name="reportDefinitionName">Name of the Report definition..</param>
+        /// <param name="reportName">Name of the generated Report..</param>
+        /// <param name="userFriendlyReportName">A user-friendly display name for the generated report file..</param>
+        /// <param name="extension">File extension for the report output..</param>
         /// <param name="reportRevision">reportRevision.</param>
-        /// <param name="name">name.</param>
+        /// <param name="name">Display name for the generated report file..</param>
         public ReportInstanceDTO(int reportInstanceId = default(int), int reportDefinitionId = default(int), string reportDefinitionName = default(string), string reportName = default(string), string userFriendlyReportName = default(string), string extension = default(string), ReportRevisionDTO reportRevision = default(ReportRevisionDTO), string name = default(string))
         {
             this.ReportInstanceId = reportInstanceId;
@@ -56,38 +56,44 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets ReportInstanceId
+        /// Unique Identifier of the Report instance.
         /// </summary>
+        /// <value>Unique Identifier of the Report instance.</value>
         [DataMember(Name = "reportInstanceId", EmitDefaultValue = false)]
         public int ReportInstanceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportDefinitionId
+        /// Unique Identifier for the associated Report definition.
         /// </summary>
+        /// <value>Unique Identifier for the associated Report definition.</value>
         [DataMember(Name = "reportDefinitionId", EmitDefaultValue = false)]
         public int ReportDefinitionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportDefinitionName
+        /// Name of the Report definition.
         /// </summary>
+        /// <value>Name of the Report definition.</value>
         [DataMember(Name = "reportDefinitionName", EmitDefaultValue = false)]
         public string ReportDefinitionName { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportName
+        /// Name of the generated Report.
         /// </summary>
+        /// <value>Name of the generated Report.</value>
         [DataMember(Name = "reportName", EmitDefaultValue = false)]
         public string ReportName { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserFriendlyReportName
+        /// A user-friendly display name for the generated report file.
         /// </summary>
+        /// <value>A user-friendly display name for the generated report file.</value>
         [DataMember(Name = "userFriendlyReportName", EmitDefaultValue = false)]
         public string UserFriendlyReportName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Extension
+        /// File extension for the report output.
         /// </summary>
+        /// <value>File extension for the report output.</value>
         [DataMember(Name = "extension", EmitDefaultValue = false)]
         public string Extension { get; set; }
 
@@ -98,8 +104,9 @@ namespace FactSet.SDK.Vermilion.Model
         public ReportRevisionDTO ReportRevision { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Display name for the generated report file.
         /// </summary>
+        /// <value>Display name for the generated report file.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 

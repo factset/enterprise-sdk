@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceData
+ * Data object for the Data Source.
  */
+@ApiModel(description = "Data object for the Data Source.")
 @JsonPropertyOrder({
   DataSourceData.JSON_PROPERTY_DATA
 })

@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleGenerationLog
+ * Details of an individual task generation log.
  */
+@ApiModel(description = "Details of an individual task generation log.")
 @JsonPropertyOrder({
   ScheduleGenerationLog.JSON_PROPERTY_SEQUENCE_NUMBER,
   ScheduleGenerationLog.JSON_PROPERTY_MESSAGE,
@@ -51,20 +52,16 @@ public class ScheduleGenerationLog implements Serializable {
   private String message;
 
   /**
-   * Gets or Sets type
+   * Type of log entry.
    */
   public enum TypeEnum {
     INFO("INFO"),
     
     WARN("WARN"),
     
-    SUCCESS("SUCCESS"),
-    
     ERROR("ERROR"),
     
-    DEBUG("DEBUG"),
-    
-    FINISHED("FINISHED");
+    DEBUG("DEBUG");
 
     private String value;
 
@@ -111,11 +108,11 @@ public class ScheduleGenerationLog implements Serializable {
   }
 
    /**
-   * Get sequenceNumber
+   * The sequence number of the log entry.
    * @return sequenceNumber
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The sequence number of the log entry.")
   @JsonProperty(JSON_PROPERTY_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -137,11 +134,11 @@ public class ScheduleGenerationLog implements Serializable {
   }
 
    /**
-   * Get message
+   * A detailed message describing the log event or error.
    * @return message
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A detailed message describing the log event or error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -163,11 +160,11 @@ public class ScheduleGenerationLog implements Serializable {
   }
 
    /**
-   * Get type
+   * Type of log entry.
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of log entry.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,11 +186,11 @@ public class ScheduleGenerationLog implements Serializable {
   }
 
    /**
-   * Get logSet
+   * Identifier for the set of logs this entry belongs to.
    * @return logSet
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Identifier for the set of logs this entry belongs to.")
   @JsonProperty(JSON_PROPERTY_LOG_SET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -215,11 +212,11 @@ public class ScheduleGenerationLog implements Serializable {
   }
 
    /**
-   * Get lastUpdated
+   * The timestamp of the most recent update in epoch format for a specific Task Generation log
    * @return lastUpdated
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the most recent update in epoch format for a specific Task Generation log")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

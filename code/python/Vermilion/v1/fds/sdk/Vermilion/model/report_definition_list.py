@@ -32,9 +32,9 @@ from fds.sdk.Vermilion.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.Vermilion.model.report_definition_dto import ReportDefinitionDTO
-    from fds.sdk.Vermilion.model.report_instance_list_meta import ReportInstanceListMeta
+    from fds.sdk.Vermilion.model.report_definition_list_meta import ReportDefinitionListMeta
     globals()['ReportDefinitionDTO'] = ReportDefinitionDTO
-    globals()['ReportInstanceListMeta'] = ReportInstanceListMeta
+    globals()['ReportDefinitionListMeta'] = ReportDefinitionListMeta
 
 
 class ReportDefinitionList(ModelNormal):
@@ -90,7 +90,7 @@ class ReportDefinitionList(ModelNormal):
         """
         lazy_import()
         return {
-            'meta': (ReportInstanceListMeta,),  # noqa: E501
+            'meta': (ReportDefinitionListMeta,),  # noqa: E501
             'data': ([ReportDefinitionDTO],),  # noqa: E501
         }
 
@@ -145,8 +145,8 @@ class ReportDefinitionList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (ReportInstanceListMeta): [optional]  # noqa: E501
-            data ([ReportDefinitionDTO]): [optional]  # noqa: E501
+            meta (ReportDefinitionListMeta): [optional]  # noqa: E501
+            data ([ReportDefinitionDTO]): A list of Report Definitions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class ReportDefinitionList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (ReportInstanceListMeta): [optional]  # noqa: E501
-            data ([ReportDefinitionDTO]): [optional]  # noqa: E501
+            meta (ReportDefinitionListMeta): [optional]  # noqa: E501
+            data ([ReportDefinitionDTO]): A list of Report Definitions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

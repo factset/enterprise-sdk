@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimGroupListResponse
+    /// List of groups/roles.
     /// </summary>
     [DataContract(Name = "ScimGroupListResponse")]
     public partial class ScimGroupListResponse : IEquatable<ScimGroupListResponse>, IValidatableObject
@@ -35,10 +35,10 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimGroupListResponse" /> class.
         /// </summary>
-        /// <param name="totalResults">totalResults.</param>
-        /// <param name="itemsPerPage">itemsPerPage.</param>
-        /// <param name="startIndex">startIndex.</param>
-        /// <param name="resources">resources.</param>
+        /// <param name="totalResults">The total number of groups/roles available..</param>
+        /// <param name="itemsPerPage">The number of groups per page..</param>
+        /// <param name="startIndex">The starting index for the returned groups..</param>
+        /// <param name="resources">List of groups/roles returned in the response..</param>
         public ScimGroupListResponse(int totalResults = default(int), int itemsPerPage = default(int), int startIndex = default(int), List<ScimGroup> resources = default(List<ScimGroup>))
         {
             this.TotalResults = totalResults;
@@ -48,26 +48,30 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets TotalResults
+        /// The total number of groups/roles available.
         /// </summary>
+        /// <value>The total number of groups/roles available.</value>
         [DataMember(Name = "totalResults", EmitDefaultValue = false)]
         public int TotalResults { get; set; }
 
         /// <summary>
-        /// Gets or Sets ItemsPerPage
+        /// The number of groups per page.
         /// </summary>
+        /// <value>The number of groups per page.</value>
         [DataMember(Name = "itemsPerPage", EmitDefaultValue = false)]
         public int ItemsPerPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartIndex
+        /// The starting index for the returned groups.
         /// </summary>
+        /// <value>The starting index for the returned groups.</value>
         [DataMember(Name = "startIndex", EmitDefaultValue = false)]
         public int StartIndex { get; set; }
 
         /// <summary>
-        /// Gets or Sets Resources
+        /// List of groups/roles returned in the response.
         /// </summary>
+        /// <value>List of groups/roles returned in the response.</value>
         [DataMember(Name = "Resources", EmitDefaultValue = false)]
         public List<ScimGroup> Resources { get; set; }
 

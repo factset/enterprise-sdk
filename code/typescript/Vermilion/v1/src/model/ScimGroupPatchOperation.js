@@ -21,6 +21,7 @@ import ScimGroupPatchOperationValue from './ScimGroupPatchOperationValue';
 class ScimGroupPatchOperation {
     /**
      * Constructs a new <code>ScimGroupPatchOperation</code>.
+     * Patch operation to modify a group&#39;s attributes. It defines the action to take, the attribute to modify, and the new value.
      * @alias module:model/ScimGroupPatchOperation
      */
     constructor() { 
@@ -64,11 +65,13 @@ class ScimGroupPatchOperation {
 }
 
 /**
+ * Action to perform on the group attribute.
  * @member {String} op
  */
 ScimGroupPatchOperation.prototype['op'] = undefined;
 
 /**
+ * The group/role attribute path to modify.
  * @member {String} path
  */
 ScimGroupPatchOperation.prototype['path'] = undefined;

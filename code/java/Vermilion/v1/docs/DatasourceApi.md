@@ -108,6 +108,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view datasources in VRS |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getDataSourceByCode
@@ -205,6 +206,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view datasources in VRS |  -  |
 | **404** | The supplied datasource code was not found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getDataSourceData
@@ -258,8 +260,8 @@ public class Example {
         DatasourceApi apiInstance = new DatasourceApi(defaultClient);
         String tenant = "TENANT"; // String | The code of the tenancy
         String dataSourceCode = "DSCODE"; // String | The code of the datasource
-        String entityCodes = "FUNDS"; // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
-        String entityKeys = "Test2"; // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
+        String entityCodes = "FUNDS"; // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS
+        String entityKeys = "Test2"; // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2
         Integer paginationLimit = 25; // Integer | Non-negative maximum number of entries to return. Default is 25
         Integer paginationOffset = 0; // Integer | Non-negative number of entries to skip. Default is 0
         try {
@@ -284,8 +286,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy |
  **dataSourceCode** | **String**| The code of the datasource |
- **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional]
- **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional]
+ **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT~FUNDS | [optional]
+ **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1~Test2 | [optional]
  **paginationLimit** | **Integer**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
  **paginationOffset** | **Integer**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
@@ -311,4 +313,5 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view datasources in VRS |  -  |
 | **404** | The supplied datasource code was not found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// EntityDTO
+    /// Entity with its unique identifiers and attributes.
     /// </summary>
     [DataContract(Name = "EntityDTO")]
     public partial class EntityDTO : IEquatable<EntityDTO>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityDTO" /> class.
         /// </summary>
-        /// <param name="entityId">entityId.</param>
-        /// <param name="name">name.</param>
-        /// <param name="code">code.</param>
+        /// <param name="entityId">Unique identifier for the Entity..</param>
+        /// <param name="name">Name of the Entity..</param>
+        /// <param name="code">Code of the Entity..</param>
         public EntityDTO(int entityId = default(int), string name = default(string), string code = default(string))
         {
             this.EntityId = entityId;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets EntityId
+        /// Unique identifier for the Entity.
         /// </summary>
+        /// <value>Unique identifier for the Entity.</value>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public int EntityId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the Entity.
         /// </summary>
+        /// <value>Name of the Entity.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Code of the Entity.
         /// </summary>
+        /// <value>Code of the Entity.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 

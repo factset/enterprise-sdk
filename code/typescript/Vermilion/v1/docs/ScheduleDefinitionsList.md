@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**DataSourceListMeta**](DataSourceListMeta.md) |  | [optional] 
-**data** | [**[ScheduleDefinition]**](ScheduleDefinition.md) |  | [optional] 
+**meta** | [**ScheduleDefinitionsListMeta**](ScheduleDefinitionsListMeta.md) |  | [optional] 
+**data** | [**[ScheduleDefinition]**](ScheduleDefinition.md) | An array of Schedule Definitions. | [optional] 
 
 

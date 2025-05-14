@@ -116,25 +116,31 @@ namespace FactSet.SDK.Vermilion.Api
         /// Retrieves a list of VRS role
         /// </summary>
         /// <remarks>
-        /// Retrieves a VRS roles
+        /// Retrieves VRS roles
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <returns>ScimGroupListResponse</returns>
-        ScimGroupListResponse GetAllGroups(int? count = default(int?), int? startIndex = default(int?));
+        ScimGroupListResponse GetAllGroups(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>));
 
         /// <summary>
         /// Retrieves a list of VRS role
         /// </summary>
         /// <remarks>
-        /// Retrieves a VRS roles
+        /// Retrieves VRS roles
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <returns>ApiResponse of ScimGroupListResponse</returns>
-        ApiResponse<ScimGroupListResponse> GetAllGroupsWithHttpInfo(int? count = default(int?), int? startIndex = default(int?));
+        ApiResponse<ScimGroupListResponse> GetAllGroupsWithHttpInfo(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>));
         /// <summary>
         /// Retrieves a list of VRS users
         /// </summary>
@@ -397,27 +403,33 @@ namespace FactSet.SDK.Vermilion.Api
         /// Retrieves a list of VRS role
         /// </summary>
         /// <remarks>
-        /// Retrieves a VRS roles
+        /// Retrieves VRS roles
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ScimGroupListResponse</returns>
-        System.Threading.Tasks.Task<ScimGroupListResponse> GetAllGroupsAsync(int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ScimGroupListResponse> GetAllGroupsAsync(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieves a list of VRS role
         /// </summary>
         /// <remarks>
-        /// Retrieves a VRS roles
+        /// Retrieves VRS roles
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ScimGroupListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ScimGroupListResponse>> GetAllGroupsWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ScimGroupListResponse>> GetAllGroupsWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieves a list of VRS users
         /// </summary>
@@ -614,6 +626,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)201, typeof(ScimGroup) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)409, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateUserResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -622,6 +635,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)400, typeof(ScimError) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)409, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> DeleteGroupByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -636,12 +650,14 @@ namespace FactSet.SDK.Vermilion.Api
         {
             { (HttpStatusCode)200, typeof(ScimGroupListResponse) },
             { (HttpStatusCode)403, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetAllUsersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ScimUserListResponse) },
             { (HttpStatusCode)403, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetGroupByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -649,6 +665,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)200, typeof(ScimGroup) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)404, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetUserByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -656,11 +673,14 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)200, typeof(ScimUser) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)404, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PatchGroupByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ScimGroup) },
+            { (HttpStatusCode)400, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> PatchUserByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -668,6 +688,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)200, typeof(ScimUser) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)404, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateGroupByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -675,6 +696,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)200, typeof(ScimGroup) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)404, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateUserByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -682,6 +704,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)200, typeof(ScimUser) },
             { (HttpStatusCode)403, typeof(ScimError) },
             { (HttpStatusCode)404, typeof(ScimError) },
+            { (HttpStatusCode)500, typeof(ScimError) },
         };
 
         # endregion Response Type Disctionaries
@@ -1502,26 +1525,32 @@ namespace FactSet.SDK.Vermilion.Api
         }
 
         /// <summary>
-        /// Retrieves a list of VRS role Retrieves a VRS roles
+        /// Retrieves a list of VRS role Retrieves VRS roles
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <returns>ScimGroupListResponse</returns>
-        public ScimGroupListResponse GetAllGroups(int? count = default(int?), int? startIndex = default(int?))
+        public ScimGroupListResponse GetAllGroups(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>))
         {
-            var localVarResponse = GetAllGroupsWithHttpInfo(count, startIndex);
+            var localVarResponse = GetAllGroupsWithHttpInfo(count, startIndex, filter, sortBy, sortOrder);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a list of VRS role Retrieves a VRS roles
+        /// Retrieves a list of VRS role Retrieves VRS roles
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <returns>ApiResponse of ScimGroupListResponse</returns>
-        public ApiResponse<ScimGroupListResponse> GetAllGroupsWithHttpInfo(int? count = default(int?), int? startIndex = default(int?))
+        public ApiResponse<ScimGroupListResponse> GetAllGroupsWithHttpInfo(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>))
         {
             FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
 
@@ -1552,6 +1581,18 @@ namespace FactSet.SDK.Vermilion.Api
             if (startIndex != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "sortOrder", sortOrder));
             }
 
             // authentication (FactSetApiKey) required
@@ -1591,29 +1632,35 @@ namespace FactSet.SDK.Vermilion.Api
         }
 
         /// <summary>
-        /// Retrieves a list of VRS role Retrieves a VRS roles
+        /// Retrieves a list of VRS role Retrieves VRS roles
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ScimGroupListResponse</returns>
-        public async System.Threading.Tasks.Task<ScimGroupListResponse>GetAllGroupsAsync(int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScimGroupListResponse>GetAllGroupsAsync(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetAllGroupsWithHttpInfoAsync(count, startIndex, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAllGroupsWithHttpInfoAsync(count, startIndex, filter, sortBy, sortOrder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a list of VRS role Retrieves a VRS roles
+        /// Retrieves a list of VRS role Retrieves VRS roles
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Non-negative maximum number of entries to return (optional)</param>
         /// <param name="startIndex">The 1-based index of the first query result (optional)</param>
+        /// <param name="filter">Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)</param>
+        /// <param name="sortBy">The column to sort on. If parameter is not given, no sorting will be done (optional)</param>
+        /// <param name="sortOrder">The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ScimGroupListResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<ScimGroupListResponse>> GetAllGroupsWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ScimGroupListResponse>> GetAllGroupsWithHttpInfoAsync(int? count = default(int?), int? startIndex = default(int?), string filter = default(string), List<string> sortBy = default(List<string>), List<string> sortOrder = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
@@ -1645,6 +1692,18 @@ namespace FactSet.SDK.Vermilion.Api
             if (startIndex != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "sortOrder", sortOrder));
             }
 
             // authentication (FactSetApiKey) required

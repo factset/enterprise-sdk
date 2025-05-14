@@ -141,7 +141,7 @@ class ReportGenerationRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            vrs ({str: (ReportGenerationRequest,)}): [optional]  # noqa: E501
+            vrs ({str: (ReportGenerationRequest,)}): Contains report generation requests.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class ReportGenerationRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            vrs ({str: (ReportGenerationRequest,)}): [optional]  # noqa: E501
+            vrs ({str: (ReportGenerationRequest,)}): Contains report generation requests.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

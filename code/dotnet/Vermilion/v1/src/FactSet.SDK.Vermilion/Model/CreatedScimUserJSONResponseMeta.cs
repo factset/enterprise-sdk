@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// CreatedScimUserJSONResponseMeta
+    /// Metadata about the user resource.
     /// </summary>
     [DataContract(Name = "CreatedScimUserJSONResponse_meta")]
     public partial class CreatedScimUserJSONResponseMeta : IEquatable<CreatedScimUserJSONResponseMeta>, IValidatableObject
@@ -35,10 +35,10 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatedScimUserJSONResponseMeta" /> class.
         /// </summary>
-        /// <param name="resourceType">resourceType.</param>
-        /// <param name="created">created.</param>
-        /// <param name="lastModified">lastModified.</param>
-        /// <param name="location">location.</param>
+        /// <param name="resourceType">Type of the resource..</param>
+        /// <param name="created">Timestamp indicating when the user resource was created..</param>
+        /// <param name="lastModified">Timestamp of the last modification to the user resource..</param>
+        /// <param name="location">URL indicating the location of the user resource..</param>
         public CreatedScimUserJSONResponseMeta(string resourceType = default(string), string created = default(string), string lastModified = default(string), string location = default(string))
         {
             this.ResourceType = resourceType;
@@ -48,26 +48,30 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets ResourceType
+        /// Type of the resource.
         /// </summary>
+        /// <value>Type of the resource.</value>
         [DataMember(Name = "resourceType", EmitDefaultValue = false)]
         public string ResourceType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// Timestamp indicating when the user resource was created.
         /// </summary>
+        /// <value>Timestamp indicating when the user resource was created.</value>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public string Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// Timestamp of the last modification to the user resource.
         /// </summary>
+        /// <value>Timestamp of the last modification to the user resource.</value>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public string LastModified { get; set; }
 
         /// <summary>
-        /// Gets or Sets Location
+        /// URL indicating the location of the user resource.
         /// </summary>
+        /// <value>URL indicating the location of the user resource.</value>
         [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 

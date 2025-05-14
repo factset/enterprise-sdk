@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimError
+ * Represents an error with detailed information, status, and schema.
  */
+@ApiModel(description = "Represents an error with detailed information, status, and schema.")
 @JsonPropertyOrder({
   ScimError.JSON_PROPERTY_SCHEMAS,
   ScimError.JSON_PROPERTY_DETAIL,
@@ -68,11 +69,11 @@ public class ScimError implements Serializable {
   }
 
    /**
-   * Get schemas
+   * Schemas associated with the error.
    * @return schemas
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Schemas associated with the error.")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -94,11 +95,11 @@ public class ScimError implements Serializable {
   }
 
    /**
-   * Get detail
+   * Detailed description of the error.
    * @return detail
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Detailed description of the error.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -120,11 +121,11 @@ public class ScimError implements Serializable {
   }
 
    /**
-   * Get status
+   * HTTP status code related to the error.
    * @return status
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "HTTP status code related to the error.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

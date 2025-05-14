@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * EntitySelection
+ * Specifies an Entity or a set of entities selected for inclusion in a report.
  */
+@ApiModel(description = "Specifies an Entity or a set of entities selected for inclusion in a report.")
 @JsonPropertyOrder({
   EntitySelection.JSON_PROPERTY_KEY
 })
@@ -52,11 +53,11 @@ public class EntitySelection implements Serializable {
   }
 
    /**
-   * Get key
+   * Key value for the selected Entity.
    * @return key
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Key value for the selected Entity.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

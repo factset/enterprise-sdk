@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimGroupPatchRequestBody
+    /// Defines the request payload for updating a group&#39;s attributes in SCIM. This patch operation allows for specific modifications to a group&#39;s properties.
     /// </summary>
     [DataContract(Name = "ScimGroupPatchRequestBody")]
     public partial class ScimGroupPatchRequestBody : IEquatable<ScimGroupPatchRequestBody>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimGroupPatchRequestBody" /> class.
         /// </summary>
-        /// <param name="schemas">schemas.</param>
-        /// <param name="operations">operations.</param>
+        /// <param name="schemas">An array of URIs representing the schema namespaces applied to this request..</param>
+        /// <param name="operations">A list of operations specifying the actions to perform on the group&#39;s attributes, such as adding, removing, or updating members..</param>
         public ScimGroupPatchRequestBody(List<string> schemas = default(List<string>), List<ScimGroupPatchOperation> operations = default(List<ScimGroupPatchOperation>))
         {
             this.Schemas = schemas;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Schemas
+        /// An array of URIs representing the schema namespaces applied to this request.
         /// </summary>
+        /// <value>An array of URIs representing the schema namespaces applied to this request.</value>
         [DataMember(Name = "schemas", EmitDefaultValue = false)]
         public List<string> Schemas { get; set; }
 
         /// <summary>
-        /// Gets or Sets Operations
+        /// A list of operations specifying the actions to perform on the group&#39;s attributes, such as adding, removing, or updating members.
         /// </summary>
+        /// <value>A list of operations specifying the actions to perform on the group&#39;s attributes, such as adding, removing, or updating members.</value>
         [DataMember(Name = "Operations", EmitDefaultValue = false)]
         public List<ScimGroupPatchOperation> Operations { get; set; }
 

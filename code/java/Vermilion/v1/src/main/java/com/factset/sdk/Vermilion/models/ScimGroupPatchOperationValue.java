@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimGroupPatchOperationValue
+ * The new value for the attribute.
  */
+@ApiModel(description = "The new value for the attribute.")
 @JsonPropertyOrder({
   ScimGroupPatchOperationValue.JSON_PROPERTY_DISPLAY,
   ScimGroupPatchOperationValue.JSON_PROPERTY_$_REF,
@@ -60,11 +61,11 @@ public class ScimGroupPatchOperationValue implements Serializable {
   }
 
    /**
-   * Get display
+   * The value to set for the group&#39;s/role&#39;s attribute.
    * @return display
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value to set for the group's/role's attribute.")
   @JsonProperty(JSON_PROPERTY_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScimGroupPatchOperationValue implements Serializable {
   }
 
    /**
-   * Get $ref
+   * A reference to another object.
    * @return $ref
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A reference to another object.")
   @JsonProperty(JSON_PROPERTY_$_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimGroupPatchOperationValue implements Serializable {
   }
 
    /**
-   * Get value
+   * The actual value for the attribute.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The actual value for the attribute.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

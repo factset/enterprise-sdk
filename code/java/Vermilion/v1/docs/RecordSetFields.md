@@ -2,16 +2,18 @@
 
 # RecordSetFields
 
+Defines the properties and attributes of a record set field.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldType** | [**FieldTypeEnum**](#FieldTypeEnum) |  |  [optional]
-**format** | **String** |  |  [optional]
-**id** | **Integer** |  |  [optional]
-**hide** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
+**fieldType** | [**FieldTypeEnum**](#FieldTypeEnum) | The type of the field indicating the kind of data it holds. |  [optional]
+**format** | **String** | The format applied to the field&#39;s value. |  [optional]
+**id** | **Integer** | Unique identifier for the field. |  [optional]
+**hide** | **String** | Indicates whether the field is hidden. |  [optional]
+**name** | **String** | The name of the field. |  [optional]
+**order** | **Integer** | The ordering of the record set field. |  [optional]
 
 
 

@@ -148,8 +148,8 @@ class ScheduleInstanceData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedule_instance_id (int): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            schedule_instance_id (int): Unique identifier of the schedule instance.. [optional]  # noqa: E501
+            status (str): Current status of the schedule instance.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,8 +231,8 @@ class ScheduleInstanceData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedule_instance_id (int): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            schedule_instance_id (int): Unique identifier of the schedule instance.. [optional]  # noqa: E501
+            status (str): Current status of the schedule instance.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimGroupPatchOperation
+    /// Patch operation to modify a group&#39;s attributes. It defines the action to take, the attribute to modify, and the new value.
     /// </summary>
     [DataContract(Name = "ScimGroupPatchOperation")]
     public partial class ScimGroupPatchOperation : IEquatable<ScimGroupPatchOperation>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimGroupPatchOperation" /> class.
         /// </summary>
-        /// <param name="op">op.</param>
-        /// <param name="path">path.</param>
+        /// <param name="op">Action to perform on the group attribute..</param>
+        /// <param name="path">The group/role attribute path to modify..</param>
         /// <param name="value">value.</param>
         public ScimGroupPatchOperation(string op = default(string), string path = default(string), ScimGroupPatchOperationValue value = default(ScimGroupPatchOperationValue))
         {
@@ -46,14 +46,16 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Op
+        /// Action to perform on the group attribute.
         /// </summary>
+        /// <value>Action to perform on the group attribute.</value>
         [DataMember(Name = "op", EmitDefaultValue = false)]
         public string Op { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// The group/role attribute path to modify.
         /// </summary>
+        /// <value>The group/role attribute path to modify.</value>
         [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path { get; set; }
 

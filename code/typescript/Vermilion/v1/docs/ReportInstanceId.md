@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reportInstanceId** | **Number** |  | [optional] 
+**reportInstanceId** | **Number** | Unique Identifier for the Report instance. | [optional] 
 
 

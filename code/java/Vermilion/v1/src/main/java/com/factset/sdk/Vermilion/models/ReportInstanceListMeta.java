@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.Vermilion.models.DataSourceListMetaPagination;
+import com.factset.sdk.Vermilion.models.ReportInstanceListMetaPagination;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceListMeta
+ * Meta data of Report instance list.
  */
+@ApiModel(description = "Meta data of Report instance list.")
 @JsonPropertyOrder({
   ReportInstanceListMeta.JSON_PROPERTY_PAGINATION
 })
@@ -42,12 +43,12 @@ public class ReportInstanceListMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
-  private DataSourceListMetaPagination pagination;
+  private ReportInstanceListMetaPagination pagination;
 
   public ReportInstanceListMeta() { 
   }
 
-  public ReportInstanceListMeta pagination(DataSourceListMetaPagination pagination) {
+  public ReportInstanceListMeta pagination(ReportInstanceListMetaPagination pagination) {
     this.pagination = pagination;
     return this;
   }
@@ -61,14 +62,14 @@ public class ReportInstanceListMeta implements Serializable {
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DataSourceListMetaPagination getPagination() {
+  public ReportInstanceListMetaPagination getPagination() {
     return pagination;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPagination(DataSourceListMetaPagination pagination) {
+  public void setPagination(ReportInstanceListMetaPagination pagination) {
     this.pagination = pagination;
   }
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**totalResults** | **Number** |  | [optional] 
-**itemsPerPage** | **Number** |  | [optional] 
-**startIndex** | **Number** |  | [optional] 
-**resources** | [**[ScimGroup]**](ScimGroup.md) |  | [optional] 
+**totalResults** | **Number** | The total number of groups/roles available. | [optional] 
+**itemsPerPage** | **Number** | The number of groups per page. | [optional] 
+**startIndex** | **Number** | The starting index for the returned groups. | [optional] 
+**resources** | [**[ScimGroup]**](ScimGroup.md) | List of groups/roles returned in the response. | [optional] 
 
 

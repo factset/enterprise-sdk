@@ -26,6 +26,7 @@ import Tenancy from './Tenancy';
 class CreatedScimUserJSONResponse {
     /**
      * Constructs a new <code>CreatedScimUserJSONResponse</code>.
+     * Response object for creating a new SCIM user, containing core identity details, contact information, and account settings.
      * @alias module:model/CreatedScimUserJSONResponse
      */
     constructor() { 
@@ -108,16 +109,19 @@ class CreatedScimUserJSONResponse {
 }
 
 /**
+ * Array listing the schema URIs associated with the user resource.
  * @member {Array.<String>} schemas
  */
 CreatedScimUserJSONResponse.prototype['schemas'] = undefined;
 
 /**
+ * Unique identifier for the newly created user.
  * @member {String} id
  */
 CreatedScimUserJSONResponse.prototype['id'] = undefined;
 
 /**
+ * Username used for identifying and logging in the user.
  * @member {String} userName
  */
 CreatedScimUserJSONResponse.prototype['userName'] = undefined;
@@ -128,56 +132,67 @@ CreatedScimUserJSONResponse.prototype['userName'] = undefined;
 CreatedScimUserJSONResponse.prototype['name'] = undefined;
 
 /**
+ * Type of user.
  * @member {String} userType
  */
 CreatedScimUserJSONResponse.prototype['userType'] = undefined;
 
 /**
+ * User's preferred language.
  * @member {String} preferredLanguage
  */
 CreatedScimUserJSONResponse.prototype['preferredLanguage'] = undefined;
 
 /**
+ * Indicates if the user's account is currently active.
  * @member {Boolean} active
  */
 CreatedScimUserJSONResponse.prototype['active'] = undefined;
 
 /**
+ * Authenticated username used by SSO login.
  * @member {String} authenticatedUserName
  */
 CreatedScimUserJSONResponse.prototype['authenticatedUserName'] = undefined;
 
 /**
+ * Tenancy code in which the user was created.
  * @member {String} tenant
  */
 CreatedScimUserJSONResponse.prototype['tenant'] = undefined;
 
 /**
+ * Array of phone numbers for the user, each with a type and value.
  * @member {Array.<module:model/ScimPhone>} phoneNumbers
  */
 CreatedScimUserJSONResponse.prototype['phoneNumbers'] = undefined;
 
 /**
+ * Array of email addresses linked to the user account.
  * @member {Array.<module:model/ScimEmail>} emails
  */
 CreatedScimUserJSONResponse.prototype['emails'] = undefined;
 
 /**
+ * List of tenancies the user is associated with.
  * @member {Array.<module:model/Tenancy>} tenancies
  */
 CreatedScimUserJSONResponse.prototype['tenancies'] = undefined;
 
 /**
+ * Array of URLs to the user's profile photos or avatars.
  * @member {Array.<module:model/ScimPhoto>} photos
  */
 CreatedScimUserJSONResponse.prototype['photos'] = undefined;
 
 /**
+ * Domain code representing the user's domain.
  * @member {String} domainCode
  */
 CreatedScimUserJSONResponse.prototype['domainCode'] = undefined;
 
 /**
+ * Flag indicating if the user has admin privileges.
  * @member {Boolean} isAdministrator
  */
 CreatedScimUserJSONResponse.prototype['isAdministrator'] = undefined;

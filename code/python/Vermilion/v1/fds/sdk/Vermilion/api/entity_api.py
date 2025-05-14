@@ -47,7 +47,7 @@ class EntityApi(object):
         self.get_entity_values_by_code_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (EntityFieldValueDTO,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (EntityFieldValueDTO,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [

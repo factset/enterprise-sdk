@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ErrorList
+    /// List of errors.
     /// </summary>
     [DataContract(Name = "ErrorList")]
     public partial class ErrorList : IEquatable<ErrorList>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorList" /> class.
         /// </summary>
-        /// <param name="errors">errors.</param>
+        /// <param name="errors">A list of errors encountered..</param>
         public ErrorList(List<Error> errors = default(List<Error>))
         {
             this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// A list of errors encountered.
         /// </summary>
+        /// <value>A list of errors encountered.</value>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<Error> Errors { get; set; }
 

@@ -139,9 +139,9 @@ class ScimPhone(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            primary (bool): [optional]  # noqa: E501
+            value (str): The phone number of the user.. [optional]  # noqa: E501
+            type (str): The type of phone number (e.g., home, mobile, work).. [optional]  # noqa: E501
+            primary (bool): Indicates if this is the primary phone number for the user.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScimPhone(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            primary (bool): [optional]  # noqa: E501
+            value (str): The phone number of the user.. [optional]  # noqa: E501
+            type (str): The type of phone number (e.g., home, mobile, work).. [optional]  # noqa: E501
+            primary (bool): Indicates if this is the primary phone number for the user.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

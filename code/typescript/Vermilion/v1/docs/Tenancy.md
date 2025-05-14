@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **String** |  | [optional] 
+**value** | **String** | Tenancy code. | [optional] 
 
 

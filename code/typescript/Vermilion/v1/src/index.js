@@ -13,6 +13,7 @@
 
 import ApiClient from './ApiClient';
 import CreateScimUserJSONRequest from './model/CreateScimUserJSONRequest';
+import CreateScimUserJSONRequestName from './model/CreateScimUserJSONRequestName';
 import CreatedScimUserJSONResponse from './model/CreatedScimUserJSONResponse';
 import CreatedScimUserJSONResponseMeta from './model/CreatedScimUserJSONResponseMeta';
 import DataSourceAllData from './model/DataSourceAllData';
@@ -26,6 +27,8 @@ import DataSourceListMeta from './model/DataSourceListMeta';
 import DataSourceListMetaPagination from './model/DataSourceListMetaPagination';
 import EntityDTO from './model/EntityDTO';
 import EntityFieldValueDTO from './model/EntityFieldValueDTO';
+import EntityFieldValueDTOMeta from './model/EntityFieldValueDTOMeta';
+import EntityFieldValueDTOMetaPagination from './model/EntityFieldValueDTOMetaPagination';
 import EntitySelection from './model/EntitySelection';
 import Error from './model/Error';
 import ErrorList from './model/ErrorList';
@@ -35,6 +38,8 @@ import RecordSetFields from './model/RecordSetFields';
 import ReportDefinitionDTO from './model/ReportDefinitionDTO';
 import ReportDefinitionData from './model/ReportDefinitionData';
 import ReportDefinitionList from './model/ReportDefinitionList';
+import ReportDefinitionListMeta from './model/ReportDefinitionListMeta';
+import ReportDefinitionListMetaPagination from './model/ReportDefinitionListMetaPagination';
 import ReportGenerationRequest from './model/ReportGenerationRequest';
 import ReportGenerationRequestBody from './model/ReportGenerationRequestBody';
 import ReportInstanceDTO from './model/ReportInstanceDTO';
@@ -43,18 +48,28 @@ import ReportInstanceDataResponse from './model/ReportInstanceDataResponse';
 import ReportInstanceId from './model/ReportInstanceId';
 import ReportInstanceList from './model/ReportInstanceList';
 import ReportInstanceListMeta from './model/ReportInstanceListMeta';
+import ReportInstanceListMetaPagination from './model/ReportInstanceListMetaPagination';
 import ReportInstanceLogDTO from './model/ReportInstanceLogDTO';
 import ReportInstanceLogList from './model/ReportInstanceLogList';
 import ReportRevisionDTO from './model/ReportRevisionDTO';
+import ScheduleAPIDTO from './model/ScheduleAPIDTO';
+import ScheduleAPIDTOAllOf from './model/ScheduleAPIDTOAllOf';
 import ScheduleData from './model/ScheduleData';
 import ScheduleDefinition from './model/ScheduleDefinition';
 import ScheduleDefinitionOwnerRole from './model/ScheduleDefinitionOwnerRole';
 import ScheduleDefinitionsList from './model/ScheduleDefinitionsList';
+import ScheduleDefinitionsListMeta from './model/ScheduleDefinitionsListMeta';
+import ScheduleDefinitionsListMetaPagination from './model/ScheduleDefinitionsListMetaPagination';
 import ScheduleGenerationLog from './model/ScheduleGenerationLog';
 import ScheduleGenerationLogList from './model/ScheduleGenerationLogList';
+import ScheduleGenerationLogListMeta from './model/ScheduleGenerationLogListMeta';
+import ScheduleGenerationLogListMetaPagination from './model/ScheduleGenerationLogListMetaPagination';
 import ScheduleInstanceData from './model/ScheduleInstanceData';
+import ScheduleResponseData from './model/ScheduleResponseData';
 import ScheduleStatusUpdateResponse from './model/ScheduleStatusUpdateResponse';
 import SchedulesList from './model/SchedulesList';
+import SchedulesListMeta from './model/SchedulesListMeta';
+import SchedulesListMetaPagination from './model/SchedulesListMetaPagination';
 import ScimEmail from './model/ScimEmail';
 import ScimError from './model/ScimError';
 import ScimGroup from './model/ScimGroup';
@@ -72,6 +87,21 @@ import ScimUserListResponse from './model/ScimUserListResponse';
 import ScimUserName from './model/ScimUserName';
 import ScimUserPatchOperation from './model/ScimUserPatchOperation';
 import ScimUserPatchRequestBody from './model/ScimUserPatchRequestBody';
+import TaskDetails from './model/TaskDetails';
+import TaskDetailsObject from './model/TaskDetailsObject';
+import TaskHistoryList from './model/TaskHistoryList';
+import TaskHistoryListMeta from './model/TaskHistoryListMeta';
+import TaskHistoryListMetaPagination from './model/TaskHistoryListMetaPagination';
+import TaskHistoryObject from './model/TaskHistoryObject';
+import TaskList from './model/TaskList';
+import TaskListItemDetails from './model/TaskListItemDetails';
+import TaskListItemDetailsAllOf from './model/TaskListItemDetailsAllOf';
+import TaskListMeta from './model/TaskListMeta';
+import TaskListMetaPagination from './model/TaskListMetaPagination';
+import TaskPatchRequestBody from './model/TaskPatchRequestBody';
+import TaskPatchRequestBodyData from './model/TaskPatchRequestBodyData';
+import TaskPatchResponse from './model/TaskPatchResponse';
+import TaskPatchResponseObject from './model/TaskPatchResponseObject';
 import Tenancy from './model/Tenancy';
 import VersionResponseBody from './model/VersionResponseBody';
 import VersionResponseBodyData from './model/VersionResponseBodyData';
@@ -127,6 +157,12 @@ export {
      * @property {module:model/CreateScimUserJSONRequest}
      */
     CreateScimUserJSONRequest,
+
+    /**
+     * The CreateScimUserJSONRequestName model constructor.
+     * @property {module:model/CreateScimUserJSONRequestName}
+     */
+    CreateScimUserJSONRequestName,
 
     /**
      * The CreatedScimUserJSONResponse model constructor.
@@ -207,6 +243,18 @@ export {
     EntityFieldValueDTO,
 
     /**
+     * The EntityFieldValueDTOMeta model constructor.
+     * @property {module:model/EntityFieldValueDTOMeta}
+     */
+    EntityFieldValueDTOMeta,
+
+    /**
+     * The EntityFieldValueDTOMetaPagination model constructor.
+     * @property {module:model/EntityFieldValueDTOMetaPagination}
+     */
+    EntityFieldValueDTOMetaPagination,
+
+    /**
      * The EntitySelection model constructor.
      * @property {module:model/EntitySelection}
      */
@@ -261,6 +309,18 @@ export {
     ReportDefinitionList,
 
     /**
+     * The ReportDefinitionListMeta model constructor.
+     * @property {module:model/ReportDefinitionListMeta}
+     */
+    ReportDefinitionListMeta,
+
+    /**
+     * The ReportDefinitionListMetaPagination model constructor.
+     * @property {module:model/ReportDefinitionListMetaPagination}
+     */
+    ReportDefinitionListMetaPagination,
+
+    /**
      * The ReportGenerationRequest model constructor.
      * @property {module:model/ReportGenerationRequest}
      */
@@ -309,6 +369,12 @@ export {
     ReportInstanceListMeta,
 
     /**
+     * The ReportInstanceListMetaPagination model constructor.
+     * @property {module:model/ReportInstanceListMetaPagination}
+     */
+    ReportInstanceListMetaPagination,
+
+    /**
      * The ReportInstanceLogDTO model constructor.
      * @property {module:model/ReportInstanceLogDTO}
      */
@@ -325,6 +391,18 @@ export {
      * @property {module:model/ReportRevisionDTO}
      */
     ReportRevisionDTO,
+
+    /**
+     * The ScheduleAPIDTO model constructor.
+     * @property {module:model/ScheduleAPIDTO}
+     */
+    ScheduleAPIDTO,
+
+    /**
+     * The ScheduleAPIDTOAllOf model constructor.
+     * @property {module:model/ScheduleAPIDTOAllOf}
+     */
+    ScheduleAPIDTOAllOf,
 
     /**
      * The ScheduleData model constructor.
@@ -351,6 +429,18 @@ export {
     ScheduleDefinitionsList,
 
     /**
+     * The ScheduleDefinitionsListMeta model constructor.
+     * @property {module:model/ScheduleDefinitionsListMeta}
+     */
+    ScheduleDefinitionsListMeta,
+
+    /**
+     * The ScheduleDefinitionsListMetaPagination model constructor.
+     * @property {module:model/ScheduleDefinitionsListMetaPagination}
+     */
+    ScheduleDefinitionsListMetaPagination,
+
+    /**
      * The ScheduleGenerationLog model constructor.
      * @property {module:model/ScheduleGenerationLog}
      */
@@ -363,10 +453,28 @@ export {
     ScheduleGenerationLogList,
 
     /**
+     * The ScheduleGenerationLogListMeta model constructor.
+     * @property {module:model/ScheduleGenerationLogListMeta}
+     */
+    ScheduleGenerationLogListMeta,
+
+    /**
+     * The ScheduleGenerationLogListMetaPagination model constructor.
+     * @property {module:model/ScheduleGenerationLogListMetaPagination}
+     */
+    ScheduleGenerationLogListMetaPagination,
+
+    /**
      * The ScheduleInstanceData model constructor.
      * @property {module:model/ScheduleInstanceData}
      */
     ScheduleInstanceData,
+
+    /**
+     * The ScheduleResponseData model constructor.
+     * @property {module:model/ScheduleResponseData}
+     */
+    ScheduleResponseData,
 
     /**
      * The ScheduleStatusUpdateResponse model constructor.
@@ -379,6 +487,18 @@ export {
      * @property {module:model/SchedulesList}
      */
     SchedulesList,
+
+    /**
+     * The SchedulesListMeta model constructor.
+     * @property {module:model/SchedulesListMeta}
+     */
+    SchedulesListMeta,
+
+    /**
+     * The SchedulesListMetaPagination model constructor.
+     * @property {module:model/SchedulesListMetaPagination}
+     */
+    SchedulesListMetaPagination,
 
     /**
      * The ScimEmail model constructor.
@@ -481,6 +601,96 @@ export {
      * @property {module:model/ScimUserPatchRequestBody}
      */
     ScimUserPatchRequestBody,
+
+    /**
+     * The TaskDetails model constructor.
+     * @property {module:model/TaskDetails}
+     */
+    TaskDetails,
+
+    /**
+     * The TaskDetailsObject model constructor.
+     * @property {module:model/TaskDetailsObject}
+     */
+    TaskDetailsObject,
+
+    /**
+     * The TaskHistoryList model constructor.
+     * @property {module:model/TaskHistoryList}
+     */
+    TaskHistoryList,
+
+    /**
+     * The TaskHistoryListMeta model constructor.
+     * @property {module:model/TaskHistoryListMeta}
+     */
+    TaskHistoryListMeta,
+
+    /**
+     * The TaskHistoryListMetaPagination model constructor.
+     * @property {module:model/TaskHistoryListMetaPagination}
+     */
+    TaskHistoryListMetaPagination,
+
+    /**
+     * The TaskHistoryObject model constructor.
+     * @property {module:model/TaskHistoryObject}
+     */
+    TaskHistoryObject,
+
+    /**
+     * The TaskList model constructor.
+     * @property {module:model/TaskList}
+     */
+    TaskList,
+
+    /**
+     * The TaskListItemDetails model constructor.
+     * @property {module:model/TaskListItemDetails}
+     */
+    TaskListItemDetails,
+
+    /**
+     * The TaskListItemDetailsAllOf model constructor.
+     * @property {module:model/TaskListItemDetailsAllOf}
+     */
+    TaskListItemDetailsAllOf,
+
+    /**
+     * The TaskListMeta model constructor.
+     * @property {module:model/TaskListMeta}
+     */
+    TaskListMeta,
+
+    /**
+     * The TaskListMetaPagination model constructor.
+     * @property {module:model/TaskListMetaPagination}
+     */
+    TaskListMetaPagination,
+
+    /**
+     * The TaskPatchRequestBody model constructor.
+     * @property {module:model/TaskPatchRequestBody}
+     */
+    TaskPatchRequestBody,
+
+    /**
+     * The TaskPatchRequestBodyData model constructor.
+     * @property {module:model/TaskPatchRequestBodyData}
+     */
+    TaskPatchRequestBodyData,
+
+    /**
+     * The TaskPatchResponse model constructor.
+     * @property {module:model/TaskPatchResponse}
+     */
+    TaskPatchResponse,
+
+    /**
+     * The TaskPatchResponseObject model constructor.
+     * @property {module:model/TaskPatchResponseObject}
+     */
+    TaskPatchResponseObject,
 
     /**
      * The Tenancy model constructor.

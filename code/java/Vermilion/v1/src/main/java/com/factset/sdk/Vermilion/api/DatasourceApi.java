@@ -35,6 +35,7 @@ public class DatasourceApi {
     getAllDataSourcesResponseTypeMap.put(401, new GenericType<ErrorList>(){});
     getAllDataSourcesResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getAllDataSourcesResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getAllDataSourcesResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> getDataSourceByCodeResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -44,6 +45,7 @@ public class DatasourceApi {
     getDataSourceByCodeResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getDataSourceByCodeResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     getDataSourceByCodeResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getDataSourceByCodeResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> getDataSourceDataResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -54,6 +56,7 @@ public class DatasourceApi {
     getDataSourceDataResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getDataSourceDataResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     getDataSourceDataResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getDataSourceDataResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   
@@ -93,6 +96,7 @@ public class DatasourceApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public DataSourceList getAllDataSources(String tenant, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -115,6 +119,7 @@ public class DatasourceApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<DataSourceList> getAllDataSourcesWithHttpInfo(String tenant, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -181,6 +186,7 @@ public class DatasourceApi {
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied datasource code was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public DataSourceData getDataSourceByCode(String tenant, String dataSourceCode) throws ApiException {
@@ -202,6 +208,7 @@ public class DatasourceApi {
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied datasource code was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<DataSourceData> getDataSourceByCodeWithHttpInfo(String tenant, String dataSourceCode) throws ApiException {
@@ -261,8 +268,8 @@ public class DatasourceApi {
    * Gets the data for the datasource. There are optional query parameters to filter the data
    * @param tenant The code of the tenancy (required)
    * @param dataSourceCode The code of the datasource (required)
-   * @param entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)
-   * @param entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)
+   * @param entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT~FUNDS (optional)
+   * @param entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1~Test2 (optional)
    * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)
    * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional, default to 0)
    * @return DataSourceDataInstance
@@ -276,6 +283,7 @@ public class DatasourceApi {
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied datasource code was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public DataSourceDataInstance getDataSourceData(String tenant, String dataSourceCode, String entityCodes, String entityKeys, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -287,8 +295,8 @@ public class DatasourceApi {
    * Gets the data for the datasource. There are optional query parameters to filter the data
    * @param tenant The code of the tenancy (required)
    * @param dataSourceCode The code of the datasource (required)
-   * @param entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS (optional)
-   * @param entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 (optional)
+   * @param entityCodes A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT~FUNDS (optional)
+   * @param entityKeys A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1~Test2 (optional)
    * @param paginationLimit Non-negative maximum number of entries to return. Default is 25 (optional, default to 25)
    * @param paginationOffset Non-negative number of entries to skip. Default is 0 (optional, default to 0)
    * @return ApiResponse&lt;DataSourceDataInstance&gt;
@@ -302,6 +310,7 @@ public class DatasourceApi {
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied datasource code was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<DataSourceDataInstance> getDataSourceDataWithHttpInfo(String tenant, String dataSourceCode, String entityCodes, String entityKeys, Integer paginationLimit, Integer paginationOffset) throws ApiException {

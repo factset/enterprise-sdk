@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportGenerationRequestBody
+    /// Defines the request body for generating a report, encapsulating various generation parameters.
     /// </summary>
     [DataContract(Name = "ReportGenerationRequestBody")]
     public partial class ReportGenerationRequestBody : IEquatable<ReportGenerationRequestBody>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportGenerationRequestBody" /> class.
         /// </summary>
-        /// <param name="vrs">vrs.</param>
+        /// <param name="vrs">Contains report generation requests..</param>
         public ReportGenerationRequestBody(Dictionary<string, ReportGenerationRequest> vrs = default(Dictionary<string, ReportGenerationRequest>))
         {
             this.Vrs = vrs;
         }
 
         /// <summary>
-        /// Gets or Sets Vrs
+        /// Contains report generation requests.
         /// </summary>
+        /// <value>Contains report generation requests.</value>
         [DataMember(Name = "vrs", EmitDefaultValue = false)]
         public Dictionary<string, ReportGenerationRequest> Vrs { get; set; }
 

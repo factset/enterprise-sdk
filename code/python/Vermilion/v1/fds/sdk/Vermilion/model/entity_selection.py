@@ -135,7 +135,7 @@ class EntitySelection(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): [optional]  # noqa: E501
+            key (str): Key value for the selected Entity.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class EntitySelection(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): [optional]  # noqa: E501
+            key (str): Key value for the selected Entity.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

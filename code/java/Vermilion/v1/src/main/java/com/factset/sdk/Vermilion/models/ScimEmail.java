@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimEmail
+ * User&#39;s email address details.
  */
+@ApiModel(description = "User's email address details.")
 @JsonPropertyOrder({
   ScimEmail.JSON_PROPERTY_VALUE,
   ScimEmail.JSON_PROPERTY_TYPE,
@@ -60,11 +61,11 @@ public class ScimEmail implements Serializable {
   }
 
    /**
-   * Get value
+   * The email address of the user.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The email address of the user.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScimEmail implements Serializable {
   }
 
    /**
-   * Get type
+   * The type of email address (e.g., personal, work).
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of email address (e.g., personal, work).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimEmail implements Serializable {
   }
 
    /**
-   * Get primary
+   * Indicates if this is the primary email address for the user.
    * @return primary
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates if this is the primary email address for the user.")
   @JsonProperty(JSON_PROPERTY_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

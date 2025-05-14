@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * Error
+ * Represents an error response with an ID, code, and title.
  */
+@ApiModel(description = "Represents an error response with an ID, code, and title.")
 @JsonPropertyOrder({
   Error.JSON_PROPERTY_ID,
   Error.JSON_PROPERTY_CODE,
@@ -60,11 +61,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get id
+   * Unique identifier for the error.
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier for the error.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get code
+   * The error code.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class Error implements Serializable {
   }
 
    /**
-   * Get title
+   * A short description of the error.
    * @return title
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A short description of the error.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

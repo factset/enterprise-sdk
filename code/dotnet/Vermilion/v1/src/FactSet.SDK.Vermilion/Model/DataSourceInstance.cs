@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// DataSourceInstance
+    /// Data Source instance object.
     /// </summary>
     [DataContract(Name = "DataSourceInstance")]
     public partial class DataSourceInstance : IEquatable<DataSourceInstance>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataSourceInstance" /> class.
         /// </summary>
-        /// <param name="dstInstanceId">dstInstanceId.</param>
-        /// <param name="dstInstanceType">dstInstanceType.</param>
-        /// <param name="rows">rows.</param>
+        /// <param name="dstInstanceId">Unique Identifier of the Data Source Instance..</param>
+        /// <param name="dstInstanceType">Type of the Data source.</param>
+        /// <param name="rows">An array of data row of the Data source.</param>
         public DataSourceInstance(int dstInstanceId = default(int), string dstInstanceType = default(string), List<DataSourceInstanceRows> rows = default(List<DataSourceInstanceRows>))
         {
             this.DstInstanceId = dstInstanceId;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets DstInstanceId
+        /// Unique Identifier of the Data Source Instance.
         /// </summary>
+        /// <value>Unique Identifier of the Data Source Instance.</value>
         [DataMember(Name = "dstInstanceId", EmitDefaultValue = false)]
         public int DstInstanceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets DstInstanceType
+        /// Type of the Data source
         /// </summary>
+        /// <value>Type of the Data source</value>
         [DataMember(Name = "dstInstanceType", EmitDefaultValue = false)]
         public string DstInstanceType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rows
+        /// An array of data row of the Data source
         /// </summary>
+        /// <value>An array of data row of the Data source</value>
         [DataMember(Name = "rows", EmitDefaultValue = false)]
         public List<DataSourceInstanceRows> Rows { get; set; }
 

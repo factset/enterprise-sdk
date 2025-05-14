@@ -115,6 +115,7 @@ Name | Type | Description  | Notes
 | **201** | Created |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to create roles |  -  |
 | **409** | Group already exists |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -216,6 +217,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request, required values not provided in JSON request body (e.g. tenant, name or userName (loginID) |  -  |
 | **403** | Forbidden, user does not have permission to create users or it does not have requested tenancy assigned to it |  -  |
 | **409** | User already exists |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -315,6 +317,7 @@ void (empty response body)
 | **204** | No Content |  -  |
 | **403** | Forbidden, user does not have permission to delete roles |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -414,17 +417,18 @@ void (empty response body)
 | **204** | No Content |  -  |
 | **403** | Forbidden, user does not have permission to delete users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 <a name="getallgroups"></a>
 # **GetAllGroups**
-> ScimGroupListResponse GetAllGroups (int? count = null, int? startIndex = null)
+> ScimGroupListResponse GetAllGroups (int? count = null, int? startIndex = null, string filter = null, List<string> sortBy = null, List<string> sortOrder = null)
 
 Retrieves a list of VRS role
 
-Retrieves a VRS roles
+Retrieves VRS roles
 
 ### Example
 
@@ -472,11 +476,14 @@ namespace Example
 
             var count = 10;  // int? | Non-negative maximum number of entries to return (optional) 
             var startIndex = 5;  // int? | The 1-based index of the first query result (optional) 
+            var filter = "tenant eq \"MASTER,DEMO\"";  // string | Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO (optional) 
+            var sortBy = new List<string>(); // List<string> | The column to sort on. If parameter is not given, no sorting will be done (optional) 
+            var sortOrder = new List<string>(); // List<string> | The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional) 
 
             try
             {
                 // Retrieves a list of VRS role
-                ScimGroupListResponse result = apiInstance.GetAllGroups(count, startIndex);
+                ScimGroupListResponse result = apiInstance.GetAllGroups(count, startIndex, filter, sortBy, sortOrder);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -496,6 +503,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **int?**| Non-negative maximum number of entries to return | [optional] 
  **startIndex** | **int?**| The 1-based index of the first query result | [optional] 
+ **filter** | **string**| Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO | [optional] 
+ **sortBy** | [**List&lt;string&gt;**](string.md)| The column to sort on. If parameter is not given, no sorting will be done | [optional] 
+ **sortOrder** | [**List&lt;string&gt;**](string.md)| The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order | [optional] 
 
 ### Return type
 [**ScimGroupListResponse**](ScimGroupListResponse.md)
@@ -515,6 +525,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **403** | Forbidden, user does not have permission to view roles |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -616,6 +627,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **403** | Forbidden, user does not have permission to view users |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -716,6 +728,7 @@ Name | Type | Description  | Notes
 | **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to view roles |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -816,6 +829,7 @@ Name | Type | Description  | Notes
 | **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to view users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -916,6 +930,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully added user to group |  -  |
+| **400** | Bad Request, invalid values provided in JSON request body. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1018,6 +1034,7 @@ Name | Type | Description  | Notes
 | **200** | Successfully updated user |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to update users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1120,6 +1137,7 @@ Name | Type | Description  | Notes
 | **200** | Successfully updated group |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to update groups |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1222,6 +1240,7 @@ Name | Type | Description  | Notes
 | **200** | Successfully updated user |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to update users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

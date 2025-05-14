@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimPhoto
+ * User&#39;s profile photo details.
  */
+@ApiModel(description = "User's profile photo details.")
 @JsonPropertyOrder({
   ScimPhoto.JSON_PROPERTY_VALUE,
   ScimPhoto.JSON_PROPERTY_TYPE,
@@ -60,11 +61,11 @@ public class ScimPhoto implements Serializable {
   }
 
    /**
-   * Get value
+   * The URL to the user&#39;s profile photo.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URL to the user's profile photo.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScimPhoto implements Serializable {
   }
 
    /**
-   * Get type
+   * The type of photo (e.g., profile picture, avatar).
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of photo (e.g., profile picture, avatar).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimPhoto implements Serializable {
   }
 
    /**
-   * Get primary
+   * Indicates if this is the primary photo for the user.
    * @return primary
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates if this is the primary photo for the user.")
   @JsonProperty(JSON_PROPERTY_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

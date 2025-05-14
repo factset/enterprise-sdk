@@ -31,15 +31,15 @@ from fds.sdk.Vermilion.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.Vermilion.model.create_scim_user_json_request_name import CreateScimUserJSONRequestName
     from fds.sdk.Vermilion.model.scim_email import ScimEmail
     from fds.sdk.Vermilion.model.scim_phone import ScimPhone
     from fds.sdk.Vermilion.model.scim_photo import ScimPhoto
-    from fds.sdk.Vermilion.model.scim_user_name import ScimUserName
     from fds.sdk.Vermilion.model.tenancy import Tenancy
+    globals()['CreateScimUserJSONRequestName'] = CreateScimUserJSONRequestName
     globals()['ScimEmail'] = ScimEmail
     globals()['ScimPhone'] = ScimPhone
     globals()['ScimPhoto'] = ScimPhoto
-    globals()['ScimUserName'] = ScimUserName
     globals()['Tenancy'] = Tenancy
 
 
@@ -98,7 +98,7 @@ class CreateScimUserJSONRequest(ModelNormal):
         return {
             'user_name': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
-            'name': (ScimUserName,),  # noqa: E501
+            'name': (CreateScimUserJSONRequestName,),  # noqa: E501
             'preferred_language': (str,),  # noqa: E501
             'active': (bool,),  # noqa: E501
             'authenticated_user_name': (str,),  # noqa: E501
@@ -171,18 +171,18 @@ class CreateScimUserJSONRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_name (str): [optional]  # noqa: E501
-            password (str): [optional]  # noqa: E501
-            name (ScimUserName): [optional]  # noqa: E501
-            preferred_language (str): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            authenticated_user_name (str): [optional]  # noqa: E501
-            tenant (str): [optional]  # noqa: E501
-            domain_code (str): [optional]  # noqa: E501
-            phone_numbers ([ScimPhone]): [optional]  # noqa: E501
-            emails ([ScimEmail]): [optional]  # noqa: E501
-            photos ([ScimPhoto]): [optional]  # noqa: E501
-            tenancies ([Tenancy]): [optional]  # noqa: E501
+            user_name (str): Unique identifier for the user within the system, typically their loginID.. [optional]  # noqa: E501
+            password (str): Password associated with the user's account for authentication.. [optional]  # noqa: E501
+            name (CreateScimUserJSONRequestName): [optional]  # noqa: E501
+            preferred_language (str): The preferred language of the user.. [optional]  # noqa: E501
+            active (bool): Indicates whether the user account is active.. [optional]  # noqa: E501
+            authenticated_user_name (str): Authenticated username used by the SSO logins.. [optional]  # noqa: E501
+            tenant (str): Tenancy code in which user should be created.. [optional]  # noqa: E501
+            domain_code (str): Domain associated with the user. [optional]  # noqa: E501
+            phone_numbers ([ScimPhone]): A list of phone numbers associated with the user.. [optional]  # noqa: E501
+            emails ([ScimEmail]): A list of email addresses associated with the user.. [optional]  # noqa: E501
+            photos ([ScimPhoto]): A list of profile photos or images associated with the user.. [optional]  # noqa: E501
+            tenancies ([Tenancy]): A list of tenancies that need to be assigned to the user.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,18 +264,18 @@ class CreateScimUserJSONRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_name (str): [optional]  # noqa: E501
-            password (str): [optional]  # noqa: E501
-            name (ScimUserName): [optional]  # noqa: E501
-            preferred_language (str): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            authenticated_user_name (str): [optional]  # noqa: E501
-            tenant (str): [optional]  # noqa: E501
-            domain_code (str): [optional]  # noqa: E501
-            phone_numbers ([ScimPhone]): [optional]  # noqa: E501
-            emails ([ScimEmail]): [optional]  # noqa: E501
-            photos ([ScimPhoto]): [optional]  # noqa: E501
-            tenancies ([Tenancy]): [optional]  # noqa: E501
+            user_name (str): Unique identifier for the user within the system, typically their loginID.. [optional]  # noqa: E501
+            password (str): Password associated with the user's account for authentication.. [optional]  # noqa: E501
+            name (CreateScimUserJSONRequestName): [optional]  # noqa: E501
+            preferred_language (str): The preferred language of the user.. [optional]  # noqa: E501
+            active (bool): Indicates whether the user account is active.. [optional]  # noqa: E501
+            authenticated_user_name (str): Authenticated username used by the SSO logins.. [optional]  # noqa: E501
+            tenant (str): Tenancy code in which user should be created.. [optional]  # noqa: E501
+            domain_code (str): Domain associated with the user. [optional]  # noqa: E501
+            phone_numbers ([ScimPhone]): A list of phone numbers associated with the user.. [optional]  # noqa: E501
+            emails ([ScimEmail]): A list of email addresses associated with the user.. [optional]  # noqa: E501
+            photos ([ScimPhoto]): A list of profile photos or images associated with the user.. [optional]  # noqa: E501
+            tenancies ([Tenancy]): A list of tenancies that need to be assigned to the user.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

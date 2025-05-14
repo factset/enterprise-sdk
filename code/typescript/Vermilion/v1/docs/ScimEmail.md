@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **String** |  | [optional] 
-**type** | **String** |  | [optional] 
-**primary** | **Boolean** |  | [optional] 
+**value** | **String** | The email address of the user. | [optional] 
+**type** | **String** | The type of email address (e.g., personal, work). | [optional] 
+**primary** | **Boolean** | Indicates if this is the primary email address for the user. | [optional] 
 
 

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleGenerationLogList
+    /// List of task generation logs.
     /// </summary>
     [DataContract(Name = "ScheduleGenerationLogList")]
     public partial class ScheduleGenerationLogList : IEquatable<ScheduleGenerationLogList>, IValidatableObject
@@ -36,8 +36,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="ScheduleGenerationLogList" /> class.
         /// </summary>
         /// <param name="meta">meta.</param>
-        /// <param name="data">data.</param>
-        public ScheduleGenerationLogList(DataSourceListMeta meta = default(DataSourceListMeta), List<ScheduleGenerationLog> data = default(List<ScheduleGenerationLog>))
+        /// <param name="data">A set of fields used in sorting the Task Generation Logs..</param>
+        public ScheduleGenerationLogList(ScheduleGenerationLogListMeta meta = default(ScheduleGenerationLogListMeta), List<ScheduleGenerationLog> data = default(List<ScheduleGenerationLog>))
         {
             this.Meta = meta;
             this.Data = data;
@@ -47,11 +47,12 @@ namespace FactSet.SDK.Vermilion.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public DataSourceListMeta Meta { get; set; }
+        public ScheduleGenerationLogListMeta Meta { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// A set of fields used in sorting the Task Generation Logs.
         /// </summary>
+        /// <value>A set of fields used in sorting the Task Generation Logs.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<ScheduleGenerationLog> Data { get; set; }
 

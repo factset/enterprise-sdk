@@ -101,6 +101,7 @@ namespace FactSet.SDK.Vermilion.Api
         {
             { (HttpStatusCode)200, typeof(VersionResponseBody) },
             { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         # endregion Response Type Disctionaries

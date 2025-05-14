@@ -135,7 +135,7 @@ class ReportInstanceId(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report_instance_id (int): [optional]  # noqa: E501
+            report_instance_id (int): Unique Identifier for the Report instance.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class ReportInstanceId(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report_instance_id (int): [optional]  # noqa: E501
+            report_instance_id (int): Unique Identifier for the Report instance.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

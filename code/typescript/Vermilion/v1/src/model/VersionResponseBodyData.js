@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class VersionResponseBodyData {
     /**
      * Constructs a new <code>VersionResponseBodyData</code>.
+     * Version details of VRS and WRS systems.
      * @alias module:model/VersionResponseBodyData
      */
     constructor() { 

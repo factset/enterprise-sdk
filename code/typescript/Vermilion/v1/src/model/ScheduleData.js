@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScheduleData {
     /**
      * Constructs a new <code>ScheduleData</code>.
+     * Details of an individual schedule.
      * @alias module:model/ScheduleData
      */
     constructor() { 
@@ -58,8 +59,8 @@ class ScheduleData {
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('group')) {
-                obj['group'] = ApiClient.convertToType(data['group'], 'String');
+            if (data.hasOwnProperty('scheduleGroup')) {
+                obj['scheduleGroup'] = ApiClient.convertToType(data['scheduleGroup'], 'String');
             }
             if (data.hasOwnProperty('reportDate')) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'String');
@@ -96,71 +97,85 @@ class ScheduleData {
 }
 
 /**
+ * Unique identifier of the Schedule.
  * @member {Number} scheduleId
  */
 ScheduleData.prototype['scheduleId'] = undefined;
 
 /**
+ * Name of the Schedule.
  * @member {String} name
  */
 ScheduleData.prototype['name'] = undefined;
 
 /**
+ * Name of Schedule Definition from which the Schedule has been generated.
  * @member {String} definitionName
  */
 ScheduleData.prototype['definitionName'] = undefined;
 
 /**
+ * Status of the Schedule.
  * @member {module:model/ScheduleData.StatusEnum} status
  */
 ScheduleData.prototype['status'] = undefined;
 
 /**
- * @member {String} group
+ * Group of the Schedule.
+ * @member {String} scheduleGroup
  */
-ScheduleData.prototype['group'] = undefined;
+ScheduleData.prototype['scheduleGroup'] = undefined;
 
 /**
+ * The timestamp of the report date in epoch format for a specific Schedule
  * @member {String} reportDate
  */
 ScheduleData.prototype['reportDate'] = undefined;
 
 /**
+ * No of tasks generated for the Schedule
  * @member {Number} noOfTasks
  */
 ScheduleData.prototype['noOfTasks'] = undefined;
 
 /**
+ * Name of Business Calender used in the Schedule
  * @member {String} businessCalendar
  */
 ScheduleData.prototype['businessCalendar'] = undefined;
 
 /**
+ * Owner role used in the Schedule
  * @member {String} owner
  */
 ScheduleData.prototype['owner'] = undefined;
 
 /**
+ * Notes of the Schedule
  * @member {String} notes
  */
 ScheduleData.prototype['notes'] = undefined;
 
 /**
+ * The timestamp of the Finish Date in epoch format of the Schedule
  * @member {String} finishDate
  */
 ScheduleData.prototype['finishDate'] = undefined;
 
 /**
+ * The timestamp of the Start Date in epoch format of the Schedule
  * @member {String} startDate
  */
 ScheduleData.prototype['startDate'] = undefined;
 
 /**
+ * Indicates the username of the person who last updated Schedule
  * @member {String} lastUpdatedBy
  */
 ScheduleData.prototype['lastUpdatedBy'] = undefined;
 
 /**
+ * The timestamp of the most recent update in epoch format for a specific Schedule
  * @member {String} lastUpdated
  */
 ScheduleData.prototype['lastUpdated'] = undefined;

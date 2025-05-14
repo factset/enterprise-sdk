@@ -155,14 +155,14 @@ class ReportInstanceDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report_instance_id (int): [optional]  # noqa: E501
-            report_definition_id (int): [optional]  # noqa: E501
-            report_definition_name (str): [optional]  # noqa: E501
-            report_name (str): [optional]  # noqa: E501
-            user_friendly_report_name (str): [optional]  # noqa: E501
-            extension (str): [optional]  # noqa: E501
+            report_instance_id (int): Unique Identifier of the Report instance.. [optional]  # noqa: E501
+            report_definition_id (int): Unique Identifier for the associated Report definition.. [optional]  # noqa: E501
+            report_definition_name (str): Name of the Report definition.. [optional]  # noqa: E501
+            report_name (str): Name of the generated Report.. [optional]  # noqa: E501
+            user_friendly_report_name (str): A user-friendly display name for the generated report file.. [optional]  # noqa: E501
+            extension (str): File extension for the report output.. [optional]  # noqa: E501
             report_revision (ReportRevisionDTO): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
+            name (str): Display name for the generated report file.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,14 +244,14 @@ class ReportInstanceDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report_instance_id (int): [optional]  # noqa: E501
-            report_definition_id (int): [optional]  # noqa: E501
-            report_definition_name (str): [optional]  # noqa: E501
-            report_name (str): [optional]  # noqa: E501
-            user_friendly_report_name (str): [optional]  # noqa: E501
-            extension (str): [optional]  # noqa: E501
+            report_instance_id (int): Unique Identifier of the Report instance.. [optional]  # noqa: E501
+            report_definition_id (int): Unique Identifier for the associated Report definition.. [optional]  # noqa: E501
+            report_definition_name (str): Name of the Report definition.. [optional]  # noqa: E501
+            report_name (str): Name of the generated Report.. [optional]  # noqa: E501
+            user_friendly_report_name (str): A user-friendly display name for the generated report file.. [optional]  # noqa: E501
+            extension (str): File extension for the report output.. [optional]  # noqa: E501
             report_revision (ReportRevisionDTO): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
+            name (str): Display name for the generated report file.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

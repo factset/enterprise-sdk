@@ -21,6 +21,7 @@ import RecordSetFieldValues from './RecordSetFieldValues';
 class DataSourceInstanceRows {
     /**
      * Constructs a new <code>DataSourceInstanceRows</code>.
+     * Each data row of the Data source
      * @alias module:model/DataSourceInstanceRows
      */
     constructor() { 
@@ -64,16 +65,19 @@ class DataSourceInstanceRows {
 }
 
 /**
+ * Unique Identifier of the data row.
  * @member {Number} rowId
  */
 DataSourceInstanceRows.prototype['rowId'] = undefined;
 
 /**
+ * The display or processing order of the data row.
  * @member {Number} order
  */
 DataSourceInstanceRows.prototype['order'] = undefined;
 
 /**
+ * An array of values for each input Record Set fields.
  * @member {Array.<module:model/RecordSetFieldValues>} fields
  */
 DataSourceInstanceRows.prototype['fields'] = undefined;

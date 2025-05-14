@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import DataSourceListMetaPagination from './DataSourceListMetaPagination';
+import ReportInstanceListMetaPagination from './ReportInstanceListMetaPagination';
 
 /**
  * The ReportInstanceListMeta model module.
@@ -21,6 +21,7 @@ import DataSourceListMetaPagination from './DataSourceListMetaPagination';
 class ReportInstanceListMeta {
     /**
      * Constructs a new <code>ReportInstanceListMeta</code>.
+     * Meta data of Report instance list.
      * @alias module:model/ReportInstanceListMeta
      */
     constructor() { 
@@ -48,7 +49,7 @@ class ReportInstanceListMeta {
             obj = obj || new ReportInstanceListMeta();
 
             if (data.hasOwnProperty('pagination')) {
-                obj['pagination'] = DataSourceListMetaPagination.constructFromObject(data['pagination']);
+                obj['pagination'] = ReportInstanceListMetaPagination.constructFromObject(data['pagination']);
             }
         }
         return obj;
@@ -58,7 +59,7 @@ class ReportInstanceListMeta {
 }
 
 /**
- * @member {module:model/DataSourceListMetaPagination} pagination
+ * @member {module:model/ReportInstanceListMetaPagination} pagination
  */
 ReportInstanceListMeta.prototype['pagination'] = undefined;
 

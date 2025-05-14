@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// Error
+    /// Represents an error response with an ID, code, and title.
     /// </summary>
     [DataContract(Name = "Error")]
     public partial class Error : IEquatable<Error>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="code">code.</param>
-        /// <param name="title">title.</param>
+        /// <param name="id">Unique identifier for the error..</param>
+        /// <param name="code">The error code..</param>
+        /// <param name="title">A short description of the error..</param>
         public Error(string id = default(string), string code = default(string), string title = default(string))
         {
             this.Id = id;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier for the error.
         /// </summary>
+        /// <value>Unique identifier for the error.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// The error code.
         /// </summary>
+        /// <value>The error code.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// A short description of the error.
         /// </summary>
+        /// <value>A short description of the error.</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 

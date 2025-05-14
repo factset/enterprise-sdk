@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**DataSourceListMeta**](DataSourceListMeta.md) |  | [optional] 
-**data** | [**[ScheduleData]**](ScheduleData.md) |  | [optional] 
+**meta** | [**SchedulesListMeta**](SchedulesListMeta.md) |  | [optional] 
+**data** | [**[ScheduleData]**](ScheduleData.md) | An array of schedule objects. | [optional] 
 
 

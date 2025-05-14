@@ -145,9 +145,9 @@ class DataSourceInstanceRows(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            row_id (int): [optional]  # noqa: E501
-            order (int): [optional]  # noqa: E501
-            fields ([RecordSetFieldValues]): [optional]  # noqa: E501
+            row_id (int): Unique Identifier of the data row.. [optional]  # noqa: E501
+            order (int): The display or processing order of the data row.. [optional]  # noqa: E501
+            fields ([RecordSetFieldValues]): An array of values for each input Record Set fields.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,9 +229,9 @@ class DataSourceInstanceRows(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            row_id (int): [optional]  # noqa: E501
-            order (int): [optional]  # noqa: E501
-            fields ([RecordSetFieldValues]): [optional]  # noqa: E501
+            row_id (int): Unique Identifier of the data row.. [optional]  # noqa: E501
+            order (int): The display or processing order of the data row.. [optional]  # noqa: E501
+            fields ([RecordSetFieldValues]): An array of values for each input Record Set fields.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

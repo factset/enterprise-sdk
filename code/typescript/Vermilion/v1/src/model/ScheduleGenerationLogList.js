@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import DataSourceListMeta from './DataSourceListMeta';
 import ScheduleGenerationLog from './ScheduleGenerationLog';
+import ScheduleGenerationLogListMeta from './ScheduleGenerationLogListMeta';
 
 /**
  * The ScheduleGenerationLogList model module.
@@ -22,6 +22,7 @@ import ScheduleGenerationLog from './ScheduleGenerationLog';
 class ScheduleGenerationLogList {
     /**
      * Constructs a new <code>ScheduleGenerationLogList</code>.
+     * List of task generation logs.
      * @alias module:model/ScheduleGenerationLogList
      */
     constructor() { 
@@ -49,7 +50,7 @@ class ScheduleGenerationLogList {
             obj = obj || new ScheduleGenerationLogList();
 
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = DataSourceListMeta.constructFromObject(data['meta']);
+                obj['meta'] = ScheduleGenerationLogListMeta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ScheduleGenerationLog]);
@@ -62,11 +63,12 @@ class ScheduleGenerationLogList {
 }
 
 /**
- * @member {module:model/DataSourceListMeta} meta
+ * @member {module:model/ScheduleGenerationLogListMeta} meta
  */
 ScheduleGenerationLogList.prototype['meta'] = undefined;
 
 /**
+ * A set of fields used in sorting the Task Generation Logs.
  * @member {Array.<module:model/ScheduleGenerationLog>} data
  */
 ScheduleGenerationLogList.prototype['data'] = undefined;

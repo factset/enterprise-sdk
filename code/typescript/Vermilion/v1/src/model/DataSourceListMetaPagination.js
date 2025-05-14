@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class DataSourceListMetaPagination {
     /**
      * Constructs a new <code>DataSourceListMetaPagination</code>.
+     * Pagination information for the Data Source list response.
      * @alias module:model/DataSourceListMetaPagination
      */
     constructor() { 
@@ -60,11 +61,13 @@ class DataSourceListMetaPagination {
 }
 
 /**
+ * The total number of Data Sources available in the response.
  * @member {Number} total
  */
 DataSourceListMetaPagination.prototype['total'] = undefined;
 
 /**
+ * A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).
  * @member {Boolean} isEstimatedTotal
  */
 DataSourceListMetaPagination.prototype['isEstimatedTotal'] = undefined;

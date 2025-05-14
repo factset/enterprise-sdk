@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceId
+ * Report instance Object.
  */
+@ApiModel(description = "Report instance Object.")
 @JsonPropertyOrder({
   ReportInstanceId.JSON_PROPERTY_REPORT_INSTANCE_ID
 })
@@ -52,11 +53,11 @@ public class ReportInstanceId implements Serializable {
   }
 
    /**
-   * Get reportInstanceId
+   * Unique Identifier for the Report instance.
    * @return reportInstanceId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier for the Report instance.")
   @JsonProperty(JSON_PROPERTY_REPORT_INSTANCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

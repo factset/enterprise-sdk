@@ -110,7 +110,7 @@ class ReportInstanceApi(object):
         self.download_report_file_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (file_type,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (file_type,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -190,7 +190,7 @@ class ReportInstanceApi(object):
         self.get_all_report_instances_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ReportInstanceList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ReportInstanceList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -292,7 +292,7 @@ class ReportInstanceApi(object):
         self.get_report_generation_logs_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ReportInstanceLogList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ReportInstanceLogList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -380,7 +380,7 @@ class ReportInstanceApi(object):
         self.get_report_instance_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ReportInstanceData,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (ReportInstanceData,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -442,7 +442,7 @@ class ReportInstanceApi(object):
         self.start_report_generation_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 202: (ReportInstanceDataResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 202: (ReportInstanceDataResponse,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [

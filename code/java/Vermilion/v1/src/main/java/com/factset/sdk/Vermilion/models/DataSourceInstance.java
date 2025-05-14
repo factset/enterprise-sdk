@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceInstance
+ * Data Source instance object.
  */
+@ApiModel(description = "Data Source instance object.")
 @JsonPropertyOrder({
   DataSourceInstance.JSON_PROPERTY_DST_INSTANCE_ID,
   DataSourceInstance.JSON_PROPERTY_DST_INSTANCE_TYPE,
@@ -61,11 +62,11 @@ public class DataSourceInstance implements Serializable {
   }
 
    /**
-   * Get dstInstanceId
+   * Unique Identifier of the Data Source Instance.
    * @return dstInstanceId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier of the Data Source Instance.")
   @JsonProperty(JSON_PROPERTY_DST_INSTANCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +88,11 @@ public class DataSourceInstance implements Serializable {
   }
 
    /**
-   * Get dstInstanceType
+   * Type of the Data source
    * @return dstInstanceType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of the Data source")
   @JsonProperty(JSON_PROPERTY_DST_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -121,11 +122,11 @@ public class DataSourceInstance implements Serializable {
   }
 
    /**
-   * Get rows
+   * An array of data row of the Data source
    * @return rows
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of data row of the Data source")
   @JsonProperty(JSON_PROPERTY_ROWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

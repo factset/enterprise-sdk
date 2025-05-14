@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class EntitySelection {
     /**
      * Constructs a new <code>EntitySelection</code>.
+     * Specifies an Entity or a set of entities selected for inclusion in a report.
      * @alias module:model/EntitySelection
      */
     constructor() { 
@@ -57,6 +58,7 @@ class EntitySelection {
 }
 
 /**
+ * Key value for the selected Entity.
  * @member {String} key
  */
 EntitySelection.prototype['key'] = undefined;

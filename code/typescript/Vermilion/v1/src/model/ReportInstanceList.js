@@ -22,6 +22,7 @@ import ReportInstanceListMeta from './ReportInstanceListMeta';
 class ReportInstanceList {
     /**
      * Constructs a new <code>ReportInstanceList</code>.
+     * List of Report instances along with metadata.
      * @alias module:model/ReportInstanceList
      */
     constructor() { 
@@ -67,6 +68,7 @@ class ReportInstanceList {
 ReportInstanceList.prototype['meta'] = undefined;
 
 /**
+ * A list of Report instances.
  * @member {Array.<module:model/ReportInstanceDTO>} data
  */
 ReportInstanceList.prototype['data'] = undefined;

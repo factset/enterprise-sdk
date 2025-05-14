@@ -49,7 +49,7 @@ class DatasourceApi(object):
         self.get_all_data_sources_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DataSourceList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (DataSourceList,), 401: (ErrorList,), 403: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -126,7 +126,7 @@ class DatasourceApi(object):
         self.get_data_source_by_code_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DataSourceData,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (DataSourceData,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -188,7 +188,7 @@ class DatasourceApi(object):
         self.get_data_source_data_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DataSourceDataInstance,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,),  },
+                  { 200: (DataSourceDataInstance,), 400: (ErrorList,), 401: (ErrorList,), 403: (ErrorList,), 404: (ErrorList,), 406: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [
@@ -707,8 +707,8 @@ class DatasourceApi(object):
             data_source_code (str): The code of the datasource
 
         Keyword Args:
-            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
-            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
+            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS. [optional]
+            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2. [optional]
             pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -762,8 +762,8 @@ class DatasourceApi(object):
             data_source_code (str): The code of the datasource
 
         Keyword Args:
-            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
-            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
+            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS. [optional]
+            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2. [optional]
             pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -821,8 +821,8 @@ class DatasourceApi(object):
             data_source_code (str): The code of the datasource
 
         Keyword Args:
-            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
-            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
+            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS. [optional]
+            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2. [optional]
             pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -875,8 +875,8 @@ class DatasourceApi(object):
             data_source_code (str): The code of the datasource
 
         Keyword Args:
-            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS. [optional]
-            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2. [optional]
+            entity_codes (str): A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS. [optional]
+            entity_keys (str): A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2. [optional]
             pagination_limit (int): Non-negative maximum number of entries to return. Default is 25. [optional] if omitted the server will use the default value of 25
             pagination_offset (int): Non-negative number of entries to skip. Default is 0. [optional] if omitted the server will use the default value of 0
             _preload_content (bool): if False, the urllib3.HTTPResponse object

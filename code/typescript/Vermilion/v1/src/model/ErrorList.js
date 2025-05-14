@@ -21,6 +21,7 @@ import Error from './Error';
 class ErrorList {
     /**
      * Constructs a new <code>ErrorList</code>.
+     * List of errors.
      * @alias module:model/ErrorList
      */
     constructor() { 
@@ -58,6 +59,7 @@ class ErrorList {
 }
 
 /**
+ * A list of errors encountered.
  * @member {Array.<module:model/Error>} errors
  */
 ErrorList.prototype['errors'] = undefined;

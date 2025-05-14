@@ -21,6 +21,7 @@ import ScheduleData from './ScheduleData';
 class ScheduleStatusUpdateResponse {
     /**
      * Constructs a new <code>ScheduleStatusUpdateResponse</code>.
+     * Response object for updating the status of a schedule.
      * @alias module:model/ScheduleStatusUpdateResponse
      */
     constructor() { 

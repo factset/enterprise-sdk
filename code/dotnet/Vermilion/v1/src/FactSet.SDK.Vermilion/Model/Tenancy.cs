@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// Tenancy
+    /// Represents tenancy information.
     /// </summary>
     [DataContract(Name = "Tenancy")]
     public partial class Tenancy : IEquatable<Tenancy>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tenancy" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
+        /// <param name="value">Tenancy code..</param>
         public Tenancy(string value = default(string))
         {
             this.Value = value;
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Tenancy code.
         /// </summary>
+        /// <value>Tenancy code.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

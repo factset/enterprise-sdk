@@ -113,6 +113,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view datasources in VRS |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -217,6 +218,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view datasources in VRS |  -  |
 | **404** | The supplied datasource code was not found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -275,8 +277,8 @@ namespace Example
 
             var tenant = "TENANT";  // string | The code of the tenancy
             var dataSourceCode = "DSCODE";  // string | The code of the datasource
-            var entityCodes = "FUNDS";  // string | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS (optional) 
-            var entityKeys = "Test2";  // string | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2 (optional) 
+            var entityCodes = "FUNDS";  // string | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS (optional) 
+            var entityKeys = "Test2";  // string | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2 (optional) 
             var paginationLimit = 25;  // int? | Non-negative maximum number of entries to return. Default is 25 (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Non-negative number of entries to skip. Default is 0 (optional)  (default to 0)
 
@@ -303,8 +305,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **string**| The code of the tenancy | 
  **dataSourceCode** | **string**| The code of the datasource | 
- **entityCodes** | **string**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional] 
- **entityKeys** | **string**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional] 
+ **entityCodes** | **string**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT~FUNDS | [optional] 
+ **entityKeys** | **string**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1~Test2 | [optional] 
  **paginationLimit** | **int?**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
  **paginationOffset** | **int?**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 
@@ -330,6 +332,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view datasources in VRS |  -  |
 | **404** | The supplied datasource code was not found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

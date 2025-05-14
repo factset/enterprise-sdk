@@ -30,14 +30,16 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * RecordSetFields
+ * Defines the properties and attributes of a record set field.
  */
+@ApiModel(description = "Defines the properties and attributes of a record set field.")
 @JsonPropertyOrder({
   RecordSetFields.JSON_PROPERTY_FIELD_TYPE,
   RecordSetFields.JSON_PROPERTY_FORMAT,
   RecordSetFields.JSON_PROPERTY_ID,
   RecordSetFields.JSON_PROPERTY_HIDE,
-  RecordSetFields.JSON_PROPERTY_NAME
+  RecordSetFields.JSON_PROPERTY_NAME,
+  RecordSetFields.JSON_PROPERTY_ORDER
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -45,7 +47,7 @@ public class RecordSetFields implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Gets or Sets fieldType
+   * The type of the field indicating the kind of data it holds.
    */
   public enum FieldTypeEnum {
     BOOLEAN("BOOLEAN"),
@@ -108,6 +110,9 @@ public class RecordSetFields implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private Integer order;
+
   public RecordSetFields() { 
   }
 
@@ -117,11 +122,11 @@ public class RecordSetFields implements Serializable {
   }
 
    /**
-   * Get fieldType
+   * The type of the field indicating the kind of data it holds.
    * @return fieldType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the field indicating the kind of data it holds.")
   @JsonProperty(JSON_PROPERTY_FIELD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -143,11 +148,11 @@ public class RecordSetFields implements Serializable {
   }
 
    /**
-   * Get format
+   * The format applied to the field&#39;s value.
    * @return format
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The format applied to the field's value.")
   @JsonProperty(JSON_PROPERTY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -169,11 +174,11 @@ public class RecordSetFields implements Serializable {
   }
 
    /**
-   * Get id
+   * Unique identifier for the field.
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier for the field.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -195,11 +200,11 @@ public class RecordSetFields implements Serializable {
   }
 
    /**
-   * Get hide
+   * Indicates whether the field is hidden.
    * @return hide
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates whether the field is hidden.")
   @JsonProperty(JSON_PROPERTY_HIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -221,11 +226,11 @@ public class RecordSetFields implements Serializable {
   }
 
    /**
-   * Get name
+   * The name of the field.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -238,6 +243,32 @@ public class RecordSetFields implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public RecordSetFields order(Integer order) {
+    this.order = order;
+    return this;
+  }
+
+   /**
+   * The ordering of the record set field.
+   * @return order
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The ordering of the record set field.")
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getOrder() {
+    return order;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOrder(Integer order) {
+    this.order = order;
   }
 
 
@@ -257,12 +288,13 @@ public class RecordSetFields implements Serializable {
         Objects.equals(this.format, recordSetFields.format) &&
         Objects.equals(this.id, recordSetFields.id) &&
         Objects.equals(this.hide, recordSetFields.hide) &&
-        Objects.equals(this.name, recordSetFields.name);
+        Objects.equals(this.name, recordSetFields.name) &&
+        Objects.equals(this.order, recordSetFields.order);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldType, format, id, hide, name);
+    return Objects.hash(fieldType, format, id, hide, name, order);
   }
 
   @Override
@@ -274,6 +306,7 @@ public class RecordSetFields implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    hide: ").append(toIndentedString(hide)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("}");
     return sb.toString();
   }

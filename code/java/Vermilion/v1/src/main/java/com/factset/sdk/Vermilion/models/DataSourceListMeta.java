@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceListMeta
+ * Meta data of Data Source List.
  */
+@ApiModel(description = "Meta data of Data Source List.")
 @JsonPropertyOrder({
   DataSourceListMeta.JSON_PROPERTY_PAGINATION,
   DataSourceListMeta.JSON_PROPERTY_SORT
@@ -91,11 +92,11 @@ public class DataSourceListMeta implements Serializable {
   }
 
    /**
-   * Get sort
+   * A set of fields used in sorting the Data Source list.
    * @return sort
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of fields used in sorting the Data Source list.")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -168,17 +168,17 @@ class DataSourceDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data_source_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
-            ds_type (str): [optional]  # noqa: E501
-            entities ([EntityDTO]): [optional]  # noqa: E501
-            output_record_set (str): [optional]  # noqa: E501
-            release_tag (str): [optional]  # noqa: E501
-            default_data_source_name (str): [optional]  # noqa: E501
-            data_preview (str): [optional]  # noqa: E501
-            last_updated_by (str): [optional]  # noqa: E501
-            last_updated (float): [optional]  # noqa: E501
+            data_source_id (int): Unique Identifier for the Data Source.. [optional]  # noqa: E501
+            name (str): Name of the Data Source.. [optional]  # noqa: E501
+            code (str): Code of the Data Source.. [optional]  # noqa: E501
+            ds_type (str): Type of the Data Source.. [optional]  # noqa: E501
+            entities ([EntityDTO]): An array of entities that are used in the Data Source.. [optional]  # noqa: E501
+            output_record_set (str): Recordset name that is used for output in the Data Source.. [optional]  # noqa: E501
+            release_tag (str): Release tag associated with the Data Source.. [optional]  # noqa: E501
+            default_data_source_name (str): Name of the default Data Source.. [optional]  # noqa: E501
+            data_preview (str): Name of the component/report used for Data Source preview.. [optional]  # noqa: E501
+            last_updated_by (str): Indicates the username of the person who last updated the Data Source.. [optional]  # noqa: E501
+            last_updated (float): The timestamp of the most recent update in epoch format of the Data Source. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,17 +260,17 @@ class DataSourceDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data_source_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
-            ds_type (str): [optional]  # noqa: E501
-            entities ([EntityDTO]): [optional]  # noqa: E501
-            output_record_set (str): [optional]  # noqa: E501
-            release_tag (str): [optional]  # noqa: E501
-            default_data_source_name (str): [optional]  # noqa: E501
-            data_preview (str): [optional]  # noqa: E501
-            last_updated_by (str): [optional]  # noqa: E501
-            last_updated (float): [optional]  # noqa: E501
+            data_source_id (int): Unique Identifier for the Data Source.. [optional]  # noqa: E501
+            name (str): Name of the Data Source.. [optional]  # noqa: E501
+            code (str): Code of the Data Source.. [optional]  # noqa: E501
+            ds_type (str): Type of the Data Source.. [optional]  # noqa: E501
+            entities ([EntityDTO]): An array of entities that are used in the Data Source.. [optional]  # noqa: E501
+            output_record_set (str): Recordset name that is used for output in the Data Source.. [optional]  # noqa: E501
+            release_tag (str): Release tag associated with the Data Source.. [optional]  # noqa: E501
+            default_data_source_name (str): Name of the default Data Source.. [optional]  # noqa: E501
+            data_preview (str): Name of the component/report used for Data Source preview.. [optional]  # noqa: E501
+            last_updated_by (str): Indicates the username of the person who last updated the Data Source.. [optional]  # noqa: E501
+            last_updated (float): The timestamp of the most recent update in epoch format of the Data Source. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

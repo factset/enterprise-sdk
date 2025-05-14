@@ -141,9 +141,9 @@ class ScimUserGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            ref (str): A callback link which can be used to get the information of the user. [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            value (str): Unique identifier of the user's group.. [optional]  # noqa: E501
+            ref (str): A callback link which can be used to get the information of the group. [optional]  # noqa: E501
+            type (str): Type of the resource.. [optional]  # noqa: E501
             display (str): Name of the group. [optional]  # noqa: E501
         """
 
@@ -226,9 +226,9 @@ class ScimUserGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            ref (str): A callback link which can be used to get the information of the user. [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            value (str): Unique identifier of the user's group.. [optional]  # noqa: E501
+            ref (str): A callback link which can be used to get the information of the group. [optional]  # noqa: E501
+            type (str): Type of the resource.. [optional]  # noqa: E501
             display (str): Name of the group. [optional]  # noqa: E501
         """
 

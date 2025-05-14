@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleDefinitionOwnerRole
+    /// The owner of the Schedule Definition (Role)
     /// </summary>
     [DataContract(Name = "ScheduleDefinition_ownerRole")]
     public partial class ScheduleDefinitionOwnerRole : IEquatable<ScheduleDefinitionOwnerRole>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleDefinitionOwnerRole" /> class.
         /// </summary>
-        /// <param name="roleId">roleId.</param>
-        /// <param name="name">name.</param>
-        /// <param name="code">code.</param>
+        /// <param name="roleId">Unique ID of Owner role for the Schedule Definition..</param>
+        /// <param name="name">Name of Owner role for the Schedule Definition..</param>
+        /// <param name="code">Code of Owner role for the Schedule Definition..</param>
         public ScheduleDefinitionOwnerRole(int roleId = default(int), string name = default(string), string code = default(string))
         {
             this.RoleId = roleId;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets RoleId
+        /// Unique ID of Owner role for the Schedule Definition.
         /// </summary>
+        /// <value>Unique ID of Owner role for the Schedule Definition.</value>
         [DataMember(Name = "roleId", EmitDefaultValue = false)]
         public int RoleId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of Owner role for the Schedule Definition.
         /// </summary>
+        /// <value>Name of Owner role for the Schedule Definition.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Code of Owner role for the Schedule Definition.
         /// </summary>
+        /// <value>Code of Owner role for the Schedule Definition.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 

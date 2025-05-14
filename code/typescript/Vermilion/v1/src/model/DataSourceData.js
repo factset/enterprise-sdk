@@ -21,6 +21,7 @@ import DataSourceDTO from './DataSourceDTO';
 class DataSourceData {
     /**
      * Constructs a new <code>DataSourceData</code>.
+     * Data object for the Data Source.
      * @alias module:model/DataSourceData
      */
     constructor() { 

@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimError {
     /**
      * Constructs a new <code>ScimError</code>.
+     * Represents an error with detailed information, status, and schema.
      * @alias module:model/ScimError
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScimError {
 }
 
 /**
+ * Schemas associated with the error.
  * @member {Array.<String>} schemas
  */
 ScimError.prototype['schemas'] = undefined;
 
 /**
+ * Detailed description of the error.
  * @member {String} detail
  */
 ScimError.prototype['detail'] = undefined;
 
 /**
+ * HTTP status code related to the error.
  * @member {String} status
  */
 ScimError.prototype['status'] = undefined;

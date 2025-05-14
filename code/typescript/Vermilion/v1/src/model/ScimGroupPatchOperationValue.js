@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimGroupPatchOperationValue {
     /**
      * Constructs a new <code>ScimGroupPatchOperationValue</code>.
+     * The new value for the attribute.
      * @alias module:model/ScimGroupPatchOperationValue
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScimGroupPatchOperationValue {
 }
 
 /**
+ * The value to set for the group's/role's attribute.
  * @member {String} display
  */
 ScimGroupPatchOperationValue.prototype['display'] = undefined;
 
 /**
+ * A reference to another object.
  * @member {String} $ref
  */
 ScimGroupPatchOperationValue.prototype['$ref'] = undefined;
 
 /**
+ * The actual value for the attribute.
  * @member {String} value
  */
 ScimGroupPatchOperationValue.prototype['value'] = undefined;

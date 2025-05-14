@@ -27,6 +27,7 @@ import Tenancy from './Tenancy';
 class ScimUser {
     /**
      * Constructs a new <code>ScimUser</code>.
+     * A user object representing identity information, including attributes like username, email, with links for retrieving additional group details.
      * @alias module:model/ScimUser
      */
     constructor() { 
@@ -109,16 +110,19 @@ class ScimUser {
 }
 
 /**
+ * Array of schema URIs applicable to this resource.
  * @member {Array.<String>} schemas
  */
 ScimUser.prototype['schemas'] = undefined;
 
 /**
+ * Unique identifier for the user.
  * @member {String} id
  */
 ScimUser.prototype['id'] = undefined;
 
 /**
+ * Username used for identifying and logging in the user.
  * @member {String} userName
  */
 ScimUser.prototype['userName'] = undefined;
@@ -129,56 +133,67 @@ ScimUser.prototype['userName'] = undefined;
 ScimUser.prototype['name'] = undefined;
 
 /**
+ * Type of user.
  * @member {String} userType
  */
 ScimUser.prototype['userType'] = undefined;
 
 /**
+ * Indicates whether the user account is active.
  * @member {Boolean} active
  */
 ScimUser.prototype['active'] = undefined;
 
 /**
+ * Authenticated username used for the SSO logins.
  * @member {String} authenticatedUserName
  */
 ScimUser.prototype['authenticatedUserName'] = undefined;
 
 /**
+ * Tenancy code in which user was created.
  * @member {String} tenant
  */
 ScimUser.prototype['tenant'] = undefined;
 
 /**
+ * Array of phone numbers associated with the user.
  * @member {Array.<module:model/ScimPhone>} phoneNumbers
  */
 ScimUser.prototype['phoneNumbers'] = undefined;
 
 /**
+ * Array of email addresses linked to the user account.
  * @member {Array.<module:model/ScimEmail>} emails
  */
 ScimUser.prototype['emails'] = undefined;
 
 /**
+ * Array of URLs to the user's profile pictures.
  * @member {Array.<module:model/ScimPhoto>} photos
  */
 ScimUser.prototype['photos'] = undefined;
 
 /**
+ * Array of tenancies assigned to the user.
  * @member {Array.<module:model/Tenancy>} tenancies
  */
 ScimUser.prototype['tenancies'] = undefined;
 
 /**
+ * Array of groups/roles assigned to the user.
  * @member {Array.<module:model/ScimUserGroup>} groups
  */
 ScimUser.prototype['groups'] = undefined;
 
 /**
+ * Domain code representing the user's domain.
  * @member {String} domainCode
  */
 ScimUser.prototype['domainCode'] = undefined;
 
 /**
+ * Flag indicating if the user has admin privileges.
  * @member {Boolean} isAdministrator
  */
 ScimUser.prototype['isAdministrator'] = undefined;

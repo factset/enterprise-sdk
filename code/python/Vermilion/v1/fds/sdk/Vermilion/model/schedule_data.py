@@ -97,7 +97,7 @@ class ScheduleData(ModelNormal):
             'name': (str,),  # noqa: E501
             'definition_name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'group': (str,),  # noqa: E501
+            'schedule_group': (str,),  # noqa: E501
             'report_date': (str,),  # noqa: E501
             'no_of_tasks': (int,),  # noqa: E501
             'business_calendar': (str,),  # noqa: E501
@@ -119,7 +119,7 @@ class ScheduleData(ModelNormal):
         'name': 'name',  # noqa: E501
         'definition_name': 'definitionName',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'group': 'group',  # noqa: E501
+        'schedule_group': 'scheduleGroup',  # noqa: E501
         'report_date': 'reportDate',  # noqa: E501
         'no_of_tasks': 'noOfTasks',  # noqa: E501
         'business_calendar': 'businessCalendar',  # noqa: E501
@@ -172,20 +172,20 @@ class ScheduleData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedule_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            definition_name (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
-            group (str): [optional]  # noqa: E501
-            report_date (str): [optional]  # noqa: E501
-            no_of_tasks (int): [optional]  # noqa: E501
-            business_calendar (str): [optional]  # noqa: E501
-            owner (str): [optional]  # noqa: E501
-            notes (str): [optional]  # noqa: E501
-            finish_date (str): [optional]  # noqa: E501
-            start_date (str): [optional]  # noqa: E501
-            last_updated_by (str): [optional]  # noqa: E501
-            last_updated (str): [optional]  # noqa: E501
+            schedule_id (int): Unique identifier of the Schedule.. [optional]  # noqa: E501
+            name (str): Name of the Schedule.. [optional]  # noqa: E501
+            definition_name (str): Name of Schedule Definition from which the Schedule has been generated.. [optional]  # noqa: E501
+            status (str): Status of the Schedule.. [optional]  # noqa: E501
+            schedule_group (str): Group of the Schedule.. [optional]  # noqa: E501
+            report_date (str): The timestamp of the report date in epoch format for a specific Schedule. [optional]  # noqa: E501
+            no_of_tasks (int): No of tasks generated for the Schedule. [optional]  # noqa: E501
+            business_calendar (str): Name of Business Calender used in the Schedule. [optional]  # noqa: E501
+            owner (str): Owner role used in the Schedule. [optional]  # noqa: E501
+            notes (str): Notes of the Schedule. [optional]  # noqa: E501
+            finish_date (str): The timestamp of the Finish Date in epoch format of the Schedule. [optional]  # noqa: E501
+            start_date (str): The timestamp of the Start Date in epoch format of the Schedule. [optional]  # noqa: E501
+            last_updated_by (str): Indicates the username of the person who last updated Schedule. [optional]  # noqa: E501
+            last_updated (str): The timestamp of the most recent update in epoch format for a specific Schedule. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,20 +267,20 @@ class ScheduleData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schedule_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            definition_name (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
-            group (str): [optional]  # noqa: E501
-            report_date (str): [optional]  # noqa: E501
-            no_of_tasks (int): [optional]  # noqa: E501
-            business_calendar (str): [optional]  # noqa: E501
-            owner (str): [optional]  # noqa: E501
-            notes (str): [optional]  # noqa: E501
-            finish_date (str): [optional]  # noqa: E501
-            start_date (str): [optional]  # noqa: E501
-            last_updated_by (str): [optional]  # noqa: E501
-            last_updated (str): [optional]  # noqa: E501
+            schedule_id (int): Unique identifier of the Schedule.. [optional]  # noqa: E501
+            name (str): Name of the Schedule.. [optional]  # noqa: E501
+            definition_name (str): Name of Schedule Definition from which the Schedule has been generated.. [optional]  # noqa: E501
+            status (str): Status of the Schedule.. [optional]  # noqa: E501
+            schedule_group (str): Group of the Schedule.. [optional]  # noqa: E501
+            report_date (str): The timestamp of the report date in epoch format for a specific Schedule. [optional]  # noqa: E501
+            no_of_tasks (int): No of tasks generated for the Schedule. [optional]  # noqa: E501
+            business_calendar (str): Name of Business Calender used in the Schedule. [optional]  # noqa: E501
+            owner (str): Owner role used in the Schedule. [optional]  # noqa: E501
+            notes (str): Notes of the Schedule. [optional]  # noqa: E501
+            finish_date (str): The timestamp of the Finish Date in epoch format of the Schedule. [optional]  # noqa: E501
+            start_date (str): The timestamp of the Start Date in epoch format of the Schedule. [optional]  # noqa: E501
+            last_updated_by (str): Indicates the username of the person who last updated Schedule. [optional]  # noqa: E501
+            last_updated (str): The timestamp of the most recent update in epoch format for a specific Schedule. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

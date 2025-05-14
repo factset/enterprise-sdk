@@ -22,6 +22,7 @@ import ScimMeta from './ScimMeta';
 class ScimGroup {
     /**
      * Constructs a new <code>ScimGroup</code>.
+     * Role details, defining permissions and access.
      * @alias module:model/ScimGroup
      */
     constructor() { 
@@ -77,31 +78,37 @@ class ScimGroup {
 }
 
 /**
+ * List of schema URIs for the group/role.
  * @member {Array.<String>} schemas
  */
 ScimGroup.prototype['schemas'] = undefined;
 
 /**
+ * Unique identifier of the group/role.
  * @member {String} id
  */
 ScimGroup.prototype['id'] = undefined;
 
 /**
+ * The display name of the group/role.
  * @member {String} displayName
  */
 ScimGroup.prototype['displayName'] = undefined;
 
 /**
+ * A list of users assigned to the group/role.
  * @member {Array.<module:model/ScimGroupMember>} members
  */
 ScimGroup.prototype['members'] = undefined;
 
 /**
+ * Tenant associated with the group/role.
  * @member {String} tenant
  */
 ScimGroup.prototype['tenant'] = undefined;
 
 /**
+ * Domain code for the group.
  * @member {String} domainCode
  */
 ScimGroup.prototype['domainCode'] = undefined;

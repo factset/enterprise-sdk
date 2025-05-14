@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimUserName
+ * User&#39;s full name object.
  */
+@ApiModel(description = "User's full name object.")
 @JsonPropertyOrder({
   ScimUserName.JSON_PROPERTY_FORMATTED
 })
@@ -52,11 +53,11 @@ public class ScimUserName implements Serializable {
   }
 
    /**
-   * Get formatted
+   * Full formatted name of the user.
    * @return formatted
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Full formatted name of the user.")
   @JsonProperty(JSON_PROPERTY_FORMATTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

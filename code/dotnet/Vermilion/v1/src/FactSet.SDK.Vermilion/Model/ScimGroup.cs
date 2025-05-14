@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimGroup
+    /// Role details, defining permissions and access.
     /// </summary>
     [DataContract(Name = "ScimGroup")]
     public partial class ScimGroup : IEquatable<ScimGroup>, IValidatableObject
@@ -35,12 +35,12 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimGroup" /> class.
         /// </summary>
-        /// <param name="schemas">schemas.</param>
-        /// <param name="id">id.</param>
-        /// <param name="displayName">displayName.</param>
-        /// <param name="members">members.</param>
-        /// <param name="tenant">tenant.</param>
-        /// <param name="domainCode">domainCode.</param>
+        /// <param name="schemas">List of schema URIs for the group/role..</param>
+        /// <param name="id">Unique identifier of the group/role..</param>
+        /// <param name="displayName">The display name of the group/role..</param>
+        /// <param name="members">A list of users assigned to the group/role..</param>
+        /// <param name="tenant">Tenant associated with the group/role..</param>
+        /// <param name="domainCode">Domain code for the group..</param>
         /// <param name="meta">meta.</param>
         public ScimGroup(List<string> schemas = default(List<string>), string id = default(string), string displayName = default(string), List<ScimGroupMember> members = default(List<ScimGroupMember>), string tenant = default(string), string domainCode = default(string), ScimMeta meta = default(ScimMeta))
         {
@@ -54,38 +54,44 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Schemas
+        /// List of schema URIs for the group/role.
         /// </summary>
+        /// <value>List of schema URIs for the group/role.</value>
         [DataMember(Name = "schemas", EmitDefaultValue = false)]
         public List<string> Schemas { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier of the group/role.
         /// </summary>
+        /// <value>Unique identifier of the group/role.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// The display name of the group/role.
         /// </summary>
+        /// <value>The display name of the group/role.</value>
         [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Members
+        /// A list of users assigned to the group/role.
         /// </summary>
+        /// <value>A list of users assigned to the group/role.</value>
         [DataMember(Name = "members", EmitDefaultValue = false)]
         public List<ScimGroupMember> Members { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenant
+        /// Tenant associated with the group/role.
         /// </summary>
+        /// <value>Tenant associated with the group/role.</value>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public string Tenant { get; set; }
 
         /// <summary>
-        /// Gets or Sets DomainCode
+        /// Domain code for the group.
         /// </summary>
+        /// <value>Domain code for the group.</value>
         [DataMember(Name = "domainCode", EmitDefaultValue = false)]
         public string DomainCode { get; set; }
 

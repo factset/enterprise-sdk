@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScheduleInstanceData {
     /**
      * Constructs a new <code>ScheduleInstanceData</code>.
+     * Details of an individual schedule instance.
      * @alias module:model/ScheduleInstanceData
      */
     constructor() { 
@@ -60,11 +61,13 @@ class ScheduleInstanceData {
 }
 
 /**
+ * Unique identifier of the schedule instance.
  * @member {Number} scheduleInstanceId
  */
 ScheduleInstanceData.prototype['scheduleInstanceId'] = undefined;
 
 /**
+ * Current status of the schedule instance.
  * @member {module:model/ScheduleInstanceData.StatusEnum} status
  */
 ScheduleInstanceData.prototype['status'] = undefined;

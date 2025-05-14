@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimUserName
+    /// User&#39;s full name object.
     /// </summary>
     [DataContract(Name = "ScimUser_name")]
     public partial class ScimUserName : IEquatable<ScimUserName>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimUserName" /> class.
         /// </summary>
-        /// <param name="formatted">formatted.</param>
+        /// <param name="formatted">Full formatted name of the user..</param>
         public ScimUserName(string formatted = default(string))
         {
             this.Formatted = formatted;
         }
 
         /// <summary>
-        /// Gets or Sets Formatted
+        /// Full formatted name of the user.
         /// </summary>
+        /// <value>Full formatted name of the user.</value>
         [DataMember(Name = "formatted", EmitDefaultValue = false)]
         public string Formatted { get; set; }
 

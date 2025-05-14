@@ -2,6 +2,7 @@
 
 # ReportInstanceDataResponse
 
+Response containing details of the Report instance.
 
 ## Properties
 

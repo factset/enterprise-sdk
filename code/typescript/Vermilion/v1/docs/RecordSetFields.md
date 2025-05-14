@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldType** | **String** |  | [optional] 
-**format** | **String** |  | [optional] 
-**id** | **Number** |  | [optional] 
-**hide** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**fieldType** | **String** | The type of the field indicating the kind of data it holds. | [optional] 
+**format** | **String** | The format applied to the field&#39;s value. | [optional] 
+**id** | **Number** | Unique identifier for the field. | [optional] 
+**hide** | **String** | Indicates whether the field is hidden. | [optional] 
+**name** | **String** | The name of the field. | [optional] 
+**order** | **Number** | The ordering of the record set field. | [optional] 
 
 
 

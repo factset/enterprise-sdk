@@ -21,6 +21,7 @@ import ScimUser from './ScimUser';
 class ScimUserListResponse {
     /**
      * Constructs a new <code>ScimUserListResponse</code>.
+     * List of users with pagination details.
      * @alias module:model/ScimUserListResponse
      */
     constructor() { 
@@ -67,21 +68,25 @@ class ScimUserListResponse {
 }
 
 /**
+ * The total number of users available.
  * @member {Number} totalResults
  */
 ScimUserListResponse.prototype['totalResults'] = undefined;
 
 /**
+ * The number of users per page.
  * @member {Number} itemsPerPage
  */
 ScimUserListResponse.prototype['itemsPerPage'] = undefined;
 
 /**
+ * The starting index for the returned users.
  * @member {Number} startIndex
  */
 ScimUserListResponse.prototype['startIndex'] = undefined;
 
 /**
+ * The list of users returned in the response.
  * @member {Array.<module:model/ScimUser>} Resources
  */
 ScimUserListResponse.prototype['Resources'] = undefined;

@@ -108,6 +108,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view reports in VRS |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getReportDefinitionByCode
@@ -206,4 +207,5 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report definition code was was not found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 

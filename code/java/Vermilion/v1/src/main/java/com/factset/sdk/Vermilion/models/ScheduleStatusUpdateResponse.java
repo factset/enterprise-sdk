@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleStatusUpdateResponse
+ * Response object for updating the status of a schedule.
  */
+@ApiModel(description = "Response object for updating the status of a schedule.")
 @JsonPropertyOrder({
   ScheduleStatusUpdateResponse.JSON_PROPERTY_DATA
 })

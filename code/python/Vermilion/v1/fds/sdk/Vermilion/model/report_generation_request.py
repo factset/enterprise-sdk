@@ -169,13 +169,13 @@ class ReportGenerationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report (str): [optional]  # noqa: E501
-            tenancy (str): [optional]  # noqa: E501
-            output_format (str): [optional]  # noqa: E501
-            section_filter (str): [optional]  # noqa: E501
-            priority (str): [optional]  # noqa: E501
-            start_date (str): [optional]  # noqa: E501
-            entity_selection ({str: (EntitySelection,)}): [optional]  # noqa: E501
+            report (str): The Report definition code.. [optional]  # noqa: E501
+            tenancy (str): The tenancy code in which the report generation occurs.. [optional]  # noqa: E501
+            output_format (str): The desired output format for the generated report.. [optional]  # noqa: E501
+            section_filter (str): Section filter that has to be used in the report generation process.. [optional]  # noqa: E501
+            priority (str): The priority level assigned to the report generation request.. [optional]  # noqa: E501
+            start_date (str): The scheduled start date for generating the report.. [optional]  # noqa: E501
+            entity_selection ({str: (EntitySelection,)}): Specifies the Entity selections for the report generation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,13 +257,13 @@ class ReportGenerationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            report (str): [optional]  # noqa: E501
-            tenancy (str): [optional]  # noqa: E501
-            output_format (str): [optional]  # noqa: E501
-            section_filter (str): [optional]  # noqa: E501
-            priority (str): [optional]  # noqa: E501
-            start_date (str): [optional]  # noqa: E501
-            entity_selection ({str: (EntitySelection,)}): [optional]  # noqa: E501
+            report (str): The Report definition code.. [optional]  # noqa: E501
+            tenancy (str): The tenancy code in which the report generation occurs.. [optional]  # noqa: E501
+            output_format (str): The desired output format for the generated report.. [optional]  # noqa: E501
+            section_filter (str): Section filter that has to be used in the report generation process.. [optional]  # noqa: E501
+            priority (str): The priority level assigned to the report generation request.. [optional]  # noqa: E501
+            start_date (str): The scheduled start date for generating the report.. [optional]  # noqa: E501
+            entity_selection ({str: (EntitySelection,)}): Specifies the Entity selections for the report generation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

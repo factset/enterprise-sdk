@@ -152,9 +152,9 @@ class RecordSetFieldValues(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            field_id (int): [optional]  # noqa: E501
-            field_type (str): [optional]  # noqa: E501
-            field_value (str): [optional]  # noqa: E501
+            field_id (int): Unique identifier for the field.. [optional]  # noqa: E501
+            field_type (str): The type of the field indicating the kind of data it holds.. [optional]  # noqa: E501
+            field_value (str): The value assigned to the field.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,9 +236,9 @@ class RecordSetFieldValues(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            field_id (int): [optional]  # noqa: E501
-            field_type (str): [optional]  # noqa: E501
-            field_value (str): [optional]  # noqa: E501
+            field_id (int): Unique identifier for the field.. [optional]  # noqa: E501
+            field_type (str): The type of the field indicating the kind of data it holds.. [optional]  # noqa: E501
+            field_value (str): The value assigned to the field.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

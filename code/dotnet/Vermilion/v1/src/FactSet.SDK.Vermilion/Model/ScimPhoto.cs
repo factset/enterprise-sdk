@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimPhoto
+    /// User&#39;s profile photo details.
     /// </summary>
     [DataContract(Name = "ScimPhoto")]
     public partial class ScimPhoto : IEquatable<ScimPhoto>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimPhoto" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="type">type.</param>
-        /// <param name="primary">primary.</param>
+        /// <param name="value">The URL to the user&#39;s profile photo..</param>
+        /// <param name="type">The type of photo (e.g., profile picture, avatar)..</param>
+        /// <param name="primary">Indicates if this is the primary photo for the user..</param>
         public ScimPhoto(string value = default(string), string type = default(string), bool primary = default(bool))
         {
             this.Value = value;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The URL to the user&#39;s profile photo.
         /// </summary>
+        /// <value>The URL to the user&#39;s profile photo.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of photo (e.g., profile picture, avatar).
         /// </summary>
+        /// <value>The type of photo (e.g., profile picture, avatar).</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Primary
+        /// Indicates if this is the primary photo for the user.
         /// </summary>
+        /// <value>Indicates if this is the primary photo for the user.</value>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 

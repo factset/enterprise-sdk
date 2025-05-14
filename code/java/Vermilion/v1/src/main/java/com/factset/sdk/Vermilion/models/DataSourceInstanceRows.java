@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceInstanceRows
+ * Each data row of the Data source
  */
+@ApiModel(description = "Each data row of the Data source")
 @JsonPropertyOrder({
   DataSourceInstanceRows.JSON_PROPERTY_ROW_ID,
   DataSourceInstanceRows.JSON_PROPERTY_ORDER,
@@ -61,11 +62,11 @@ public class DataSourceInstanceRows implements Serializable {
   }
 
    /**
-   * Get rowId
+   * Unique Identifier of the data row.
    * @return rowId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier of the data row.")
   @JsonProperty(JSON_PROPERTY_ROW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +88,11 @@ public class DataSourceInstanceRows implements Serializable {
   }
 
    /**
-   * Get order
+   * The display or processing order of the data row.
    * @return order
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The display or processing order of the data row.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -121,11 +122,11 @@ public class DataSourceInstanceRows implements Serializable {
   }
 
    /**
-   * Get fields
+   * An array of values for each input Record Set fields.
    * @return fields
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of values for each input Record Set fields.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

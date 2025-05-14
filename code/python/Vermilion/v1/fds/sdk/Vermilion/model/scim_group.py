@@ -155,12 +155,12 @@ class ScimGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            members ([ScimGroupMember]): [optional]  # noqa: E501
-            tenant (str): [optional]  # noqa: E501
-            domain_code (str): [optional]  # noqa: E501
+            schemas ([str]): List of schema URIs for the group/role.. [optional]  # noqa: E501
+            id (str): Unique identifier of the group/role.. [optional]  # noqa: E501
+            display_name (str): The display name of the group/role.. [optional]  # noqa: E501
+            members ([ScimGroupMember]): A list of users assigned to the group/role.. [optional]  # noqa: E501
+            tenant (str): Tenant associated with the group/role.. [optional]  # noqa: E501
+            domain_code (str): Domain code for the group.. [optional]  # noqa: E501
             meta (ScimMeta): [optional]  # noqa: E501
         """
 
@@ -243,12 +243,12 @@ class ScimGroup(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            display_name (str): [optional]  # noqa: E501
-            members ([ScimGroupMember]): [optional]  # noqa: E501
-            tenant (str): [optional]  # noqa: E501
-            domain_code (str): [optional]  # noqa: E501
+            schemas ([str]): List of schema URIs for the group/role.. [optional]  # noqa: E501
+            id (str): Unique identifier of the group/role.. [optional]  # noqa: E501
+            display_name (str): The display name of the group/role.. [optional]  # noqa: E501
+            members ([ScimGroupMember]): A list of users assigned to the group/role.. [optional]  # noqa: E501
+            tenant (str): Tenant associated with the group/role.. [optional]  # noqa: E501
+            domain_code (str): Domain code for the group.. [optional]  # noqa: E501
             meta (ScimMeta): [optional]  # noqa: E501
         """
 

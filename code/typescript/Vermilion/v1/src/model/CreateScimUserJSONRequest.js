@@ -12,10 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
+import CreateScimUserJSONRequestName from './CreateScimUserJSONRequestName';
 import ScimEmail from './ScimEmail';
 import ScimPhone from './ScimPhone';
 import ScimPhoto from './ScimPhoto';
-import ScimUserName from './ScimUserName';
 import Tenancy from './Tenancy';
 
 /**
@@ -25,6 +25,7 @@ import Tenancy from './Tenancy';
 class CreateScimUserJSONRequest {
     /**
      * Constructs a new <code>CreateScimUserJSONRequest</code>.
+     * Payload to create a new user in the system, including attributes like username, password, contact information, and tenant details.
      * @alias module:model/CreateScimUserJSONRequest
      */
     constructor() { 
@@ -58,7 +59,7 @@ class CreateScimUserJSONRequest {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
             if (data.hasOwnProperty('name')) {
-                obj['name'] = ScimUserName.constructFromObject(data['name']);
+                obj['name'] = CreateScimUserJSONRequestName.constructFromObject(data['name']);
             }
             if (data.hasOwnProperty('preferredLanguage')) {
                 obj['preferredLanguage'] = ApiClient.convertToType(data['preferredLanguage'], 'String');
@@ -95,61 +96,72 @@ class CreateScimUserJSONRequest {
 }
 
 /**
+ * Unique identifier for the user within the system, typically their loginID.
  * @member {String} userName
  */
 CreateScimUserJSONRequest.prototype['userName'] = undefined;
 
 /**
+ * Password associated with the user's account for authentication.
  * @member {String} password
  */
 CreateScimUserJSONRequest.prototype['password'] = undefined;
 
 /**
- * @member {module:model/ScimUserName} name
+ * @member {module:model/CreateScimUserJSONRequestName} name
  */
 CreateScimUserJSONRequest.prototype['name'] = undefined;
 
 /**
+ * The preferred language of the user.
  * @member {String} preferredLanguage
  */
 CreateScimUserJSONRequest.prototype['preferredLanguage'] = undefined;
 
 /**
+ * Indicates whether the user account is active.
  * @member {Boolean} active
  */
 CreateScimUserJSONRequest.prototype['active'] = undefined;
 
 /**
+ * Authenticated username used by the SSO logins.
  * @member {String} authenticatedUserName
  */
 CreateScimUserJSONRequest.prototype['authenticatedUserName'] = undefined;
 
 /**
+ * Tenancy code in which user should be created.
  * @member {String} tenant
  */
 CreateScimUserJSONRequest.prototype['tenant'] = undefined;
 
 /**
+ * Domain associated with the user
  * @member {String} domainCode
  */
 CreateScimUserJSONRequest.prototype['domainCode'] = undefined;
 
 /**
+ * A list of phone numbers associated with the user.
  * @member {Array.<module:model/ScimPhone>} phoneNumbers
  */
 CreateScimUserJSONRequest.prototype['phoneNumbers'] = undefined;
 
 /**
+ * A list of email addresses associated with the user.
  * @member {Array.<module:model/ScimEmail>} emails
  */
 CreateScimUserJSONRequest.prototype['emails'] = undefined;
 
 /**
+ * A list of profile photos or images associated with the user.
  * @member {Array.<module:model/ScimPhoto>} photos
  */
 CreateScimUserJSONRequest.prototype['photos'] = undefined;
 
 /**
+ * A list of tenancies that need to be assigned to the user.
  * @member {Array.<module:model/Tenancy>} tenancies
  */
 CreateScimUserJSONRequest.prototype['tenancies'] = undefined;

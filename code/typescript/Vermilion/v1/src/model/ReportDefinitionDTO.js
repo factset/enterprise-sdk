@@ -21,6 +21,7 @@ import EntityDTO from './EntityDTO';
 class ReportDefinitionDTO {
     /**
      * Constructs a new <code>ReportDefinitionDTO</code>.
+     * Defines the details of the Report definition.
      * @alias module:model/ReportDefinitionDTO
      */
     constructor() { 
@@ -67,21 +68,25 @@ class ReportDefinitionDTO {
 }
 
 /**
+ * Name of the Report definition.
  * @member {String} name
  */
 ReportDefinitionDTO.prototype['name'] = undefined;
 
 /**
+ * Code of the Report definition.
  * @member {String} code
  */
 ReportDefinitionDTO.prototype['code'] = undefined;
 
 /**
+ * Release tag associated with the Report definition.
  * @member {String} releaseTag
  */
 ReportDefinitionDTO.prototype['releaseTag'] = undefined;
 
 /**
+ * A list of entities associated with the Report definition.
  * @member {Array.<module:model/EntityDTO>} entities
  */
 ReportDefinitionDTO.prototype['entities'] = undefined;

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**totalResults** | **Number** |  | [optional] 
-**itemsPerPage** | **Number** |  | [optional] 
-**startIndex** | **Number** |  | [optional] 
-**resources** | [**[ScimUser]**](ScimUser.md) |  | [optional] 
+**totalResults** | **Number** | The total number of users available. | [optional] 
+**itemsPerPage** | **Number** | The number of users per page. | [optional] 
+**startIndex** | **Number** | The starting index for the returned users. | [optional] 
+**resources** | [**[ScimUser]**](ScimUser.md) | The list of users returned in the response. | [optional] 
 
 

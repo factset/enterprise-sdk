@@ -21,6 +21,7 @@ import DataSourceListMetaPagination from './DataSourceListMetaPagination';
 class DataSourceListMeta {
     /**
      * Constructs a new <code>DataSourceListMeta</code>.
+     * Meta data of Data Source List.
      * @alias module:model/DataSourceListMeta
      */
     constructor() { 
@@ -66,6 +67,7 @@ class DataSourceListMeta {
 DataSourceListMeta.prototype['pagination'] = undefined;
 
 /**
+ * A set of fields used in sorting the Data Source list.
  * @member {Array.<String>} sort
  */
 DataSourceListMeta.prototype['sort'] = undefined;

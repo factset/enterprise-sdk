@@ -54,7 +54,7 @@ class SCIMApi(object):
         self.create_group_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (ScimGroup,), 403: (ScimError,), 409: (ScimError,),  },
+                  { 201: (ScimGroup,), 403: (ScimError,), 409: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -111,7 +111,7 @@ class SCIMApi(object):
         self.create_user_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (CreatedScimUserJSONResponse,), 400: (ScimError,), 403: (ScimError,), 409: (ScimError,),  },
+                  { 201: (CreatedScimUserJSONResponse,), 400: (ScimError,), 403: (ScimError,), 409: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -274,7 +274,7 @@ class SCIMApi(object):
         self.get_all_groups_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimGroupListResponse,), 403: (ScimError,),  },
+                  { 200: (ScimGroupListResponse,), 403: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -290,6 +290,9 @@ class SCIMApi(object):
                 'all': [
                     'count',
                     'start_index',
+                    'filter',
+                    'sort_by',
+                    'sort_order',
                 ],
                 'required': [],
                 'nullable': [
@@ -297,10 +300,20 @@ class SCIMApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'sort_by',
+                    'sort_order',
                 ]
             },
             root_map={
                 'validations': {
+                    ('sort_by',): {
+
+                        'max_items': 1,
+                    },
+                    ('sort_order',): {
+
+                        'max_items': 1,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -309,16 +322,30 @@ class SCIMApi(object):
                         (int,),
                     'start_index':
                         (int,),
+                    'filter':
+                        (str,),
+                    'sort_by':
+                        ([str],),
+                    'sort_order':
+                        ([str],),
                 },
                 'attribute_map': {
                     'count': 'count',
                     'start_index': 'startIndex',
+                    'filter': 'filter',
+                    'sort_by': 'sortBy',
+                    'sort_order': 'sortOrder',
                 },
                 'location_map': {
                     'count': 'query',
                     'start_index': 'query',
+                    'filter': 'query',
+                    'sort_by': 'query',
+                    'sort_order': 'query',
                 },
                 'collection_format_map': {
+                    'sort_by': 'csv',
+                    'sort_order': 'csv',
                 }
             },
             headers_map={
@@ -333,7 +360,7 @@ class SCIMApi(object):
         self.get_all_users_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimUserListResponse,), 403: (ScimError,),  },
+                  { 200: (ScimUserListResponse,), 403: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -392,7 +419,7 @@ class SCIMApi(object):
         self.get_group_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimGroup,), 403: (ScimError,), 404: (ScimError,),  },
+                  { 200: (ScimGroup,), 403: (ScimError,), 404: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -448,7 +475,7 @@ class SCIMApi(object):
         self.get_user_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimUser,), 403: (ScimError,), 404: (ScimError,),  },
+                  { 200: (ScimUser,), 403: (ScimError,), 404: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -504,7 +531,7 @@ class SCIMApi(object):
         self.patch_group_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimGroup,),  },
+                  { 200: (ScimGroup,), 400: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -567,7 +594,7 @@ class SCIMApi(object):
         self.patch_user_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimUser,), 403: (ScimError,), 404: (ScimError,),  },
+                  { 200: (ScimUser,), 403: (ScimError,), 404: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -630,7 +657,7 @@ class SCIMApi(object):
         self.update_group_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimGroup,), 403: (ScimError,), 404: (ScimError,),  },
+                  { 200: (ScimGroup,), 403: (ScimError,), 404: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -693,7 +720,7 @@ class SCIMApi(object):
         self.update_user_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ScimUser,), 403: (ScimError,), 404: (ScimError,),  },
+                  { 200: (ScimUser,), 403: (ScimError,), 404: (ScimError,), 500: (ScimError,),  },
                   None
                 ),
                 'auth': [
@@ -1537,13 +1564,16 @@ class SCIMApi(object):
     ) -> ScimGroupListResponse:
         """Retrieves a list of VRS role  # noqa: E501
 
-        Retrieves a VRS roles  # noqa: E501
+        Retrieves VRS roles  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             count (int): Non-negative maximum number of entries to return. [optional]
             start_index (int): The 1-based index of the first query result. [optional]
+            filter (str): Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO. [optional]
+            sort_by ([str]): The column to sort on. If parameter is not given, no sorting will be done. [optional]
+            sort_order ([str]): The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1581,13 +1611,16 @@ class SCIMApi(object):
     ) -> typing.Tuple[ScimGroupListResponse, int, typing.MutableMapping]:
         """Retrieves a list of VRS role  # noqa: E501
 
-        Retrieves a VRS roles  # noqa: E501
+        Retrieves VRS roles  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
         Keyword Args:
             count (int): Non-negative maximum number of entries to return. [optional]
             start_index (int): The 1-based index of the first query result. [optional]
+            filter (str): Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO. [optional]
+            sort_by ([str]): The column to sort on. If parameter is not given, no sorting will be done. [optional]
+            sort_order ([str]): The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1629,13 +1662,16 @@ class SCIMApi(object):
     ) -> "ApplyResult[ScimGroupListResponse]":
         """Retrieves a list of VRS role  # noqa: E501
 
-        Retrieves a VRS roles  # noqa: E501
+        Retrieves VRS roles  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
         Keyword Args:
             count (int): Non-negative maximum number of entries to return. [optional]
             start_index (int): The 1-based index of the first query result. [optional]
+            filter (str): Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO. [optional]
+            sort_by ([str]): The column to sort on. If parameter is not given, no sorting will be done. [optional]
+            sort_order ([str]): The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1672,13 +1708,16 @@ class SCIMApi(object):
     ) -> "ApplyResult[typing.Tuple[ScimGroupListResponse, int, typing.MutableMapping]]":
         """Retrieves a list of VRS role  # noqa: E501
 
-        Retrieves a VRS roles  # noqa: E501
+        Retrieves VRS roles  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 
         Keyword Args:
             count (int): Non-negative maximum number of entries to return. [optional]
             start_index (int): The 1-based index of the first query result. [optional]
+            filter (str): Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO. [optional]
+            sort_by ([str]): The column to sort on. If parameter is not given, no sorting will be done. [optional]
+            sort_order ([str]): The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceAllData
+ * Data and Meta data from the Data Source, including any retrieval errors.
  */
+@ApiModel(description = "Data and Meta data from the Data Source, including any retrieval errors.")
 @JsonPropertyOrder({
   DataSourceAllData.JSON_PROPERTY_FIELDS,
   DataSourceAllData.JSON_PROPERTY_DST_INSTANCE
@@ -66,11 +67,11 @@ public class DataSourceAllData implements Serializable {
   }
 
    /**
-   * Get fields
+   * An array of fields from the input Record Set.
    * @return fields
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of fields from the input Record Set.")
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

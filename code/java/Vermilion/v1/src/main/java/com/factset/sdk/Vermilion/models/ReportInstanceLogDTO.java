@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceLogDTO
+ * Report Generation log details.
  */
+@ApiModel(description = "Report Generation log details.")
 @JsonPropertyOrder({
   ReportInstanceLogDTO.JSON_PROPERTY_SEQUENCE_NUMBER,
   ReportInstanceLogDTO.JSON_PROPERTY_MESSAGE,
@@ -50,7 +51,7 @@ public class ReportInstanceLogDTO implements Serializable {
   private String message;
 
   /**
-   * Gets or Sets type
+   * Indicates the type of log entry, either a general log or an error.
    */
   public enum TypeEnum {
     LOG("LOG"),
@@ -99,11 +100,11 @@ public class ReportInstanceLogDTO implements Serializable {
   }
 
    /**
-   * Get sequenceNumber
+   * Sequential number of the log entry.
    * @return sequenceNumber
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Sequential number of the log entry.")
   @JsonProperty(JSON_PROPERTY_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -125,11 +126,11 @@ public class ReportInstanceLogDTO implements Serializable {
   }
 
    /**
-   * Get message
+   * Detailed message describing the log event or error.
    * @return message
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Detailed message describing the log event or error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,11 +152,11 @@ public class ReportInstanceLogDTO implements Serializable {
   }
 
    /**
-   * Get type
+   * Indicates the type of log entry, either a general log or an error.
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates the type of log entry, either a general log or an error.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -177,11 +178,11 @@ public class ReportInstanceLogDTO implements Serializable {
   }
 
    /**
-   * Get updateDate
+   * The date and time of the last update for this log entry.
    * @return updateDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time of the last update for this log entry.")
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

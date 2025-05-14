@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class RecordSetFieldValues {
     /**
      * Constructs a new <code>RecordSetFieldValues</code>.
+     * Field value and associated metadata for the record set field.
      * @alias module:model/RecordSetFieldValues
      */
     constructor() { 
@@ -63,16 +64,19 @@ class RecordSetFieldValues {
 }
 
 /**
+ * Unique identifier for the field.
  * @member {Number} fieldId
  */
 RecordSetFieldValues.prototype['fieldId'] = undefined;
 
 /**
+ * The type of the field indicating the kind of data it holds.
  * @member {module:model/RecordSetFieldValues.FieldTypeEnum} fieldType
  */
 RecordSetFieldValues.prototype['fieldType'] = undefined;
 
 /**
+ * The value assigned to the field.
  * @member {String} fieldValue
  */
 RecordSetFieldValues.prototype['fieldValue'] = undefined;

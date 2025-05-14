@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportRevisionDTO
+    /// Contains details about the Report revision.
     /// </summary>
     [DataContract(Name = "ReportRevisionDTO")]
     public partial class ReportRevisionDTO : IEquatable<ReportRevisionDTO>, IValidatableObject
     {
         /// <summary>
-        /// Defines ReportStatus
+        /// The current status of the Report generation process.
         /// </summary>
+        /// <value>The current status of the Report generation process.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReportStatusEnum
         {
@@ -246,13 +247,15 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets ReportStatus
+        /// The current status of the Report generation process.
         /// </summary>
+        /// <value>The current status of the Report generation process.</value>
         [DataMember(Name = "reportStatus", EmitDefaultValue = false)]
         public ReportStatusEnum? ReportStatus { get; set; }
         /// <summary>
-        /// Defines SignOffStatus
+        /// Sign-off status of the Report.
         /// </summary>
+        /// <value>Sign-off status of the Report.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SignOffStatusEnum
         {
@@ -278,24 +281,25 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets SignOffStatus
+        /// Sign-off status of the Report.
         /// </summary>
+        /// <value>Sign-off status of the Report.</value>
         [DataMember(Name = "signOffStatus", EmitDefaultValue = false)]
         public SignOffStatusEnum? SignOffStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportRevisionDTO" /> class.
         /// </summary>
-        /// <param name="reportStatus">reportStatus.</param>
-        /// <param name="startDate">startDate.</param>
-        /// <param name="finishDate">finishDate.</param>
-        /// <param name="signOffStatus">signOffStatus.</param>
-        /// <param name="signOffNotes">signOffNotes.</param>
-        /// <param name="reportReasonCd">reportReasonCd.</param>
-        /// <param name="description">description.</param>
-        /// <param name="languageCode">languageCode.</param>
-        /// <param name="outputFormat">outputFormat.</param>
-        /// <param name="percentageComplete">percentageComplete.</param>
-        public ReportRevisionDTO(ReportStatusEnum? reportStatus = default(ReportStatusEnum?), string startDate = default(string), string finishDate = default(string), SignOffStatusEnum? signOffStatus = default(SignOffStatusEnum?), string signOffNotes = default(string), string reportReasonCd = default(string), string description = default(string), string languageCode = default(string), string outputFormat = default(string), int percentageComplete = default(int))
+        /// <param name="reportStatus">The current status of the Report generation process..</param>
+        /// <param name="startDate">Start date of the Report generation process..</param>
+        /// <param name="finishDate">Completion date of the Report generation process..</param>
+        /// <param name="signOffStatus">Sign-off status of the Report..</param>
+        /// <param name="signOffNotes">Additional notes related to the sign-off process..</param>
+        /// <param name="reportReasonCd">Reason code for generating the Report..</param>
+        /// <param name="description">Description of the Report revision..</param>
+        /// <param name="languageCode">Language code of the Report..</param>
+        /// <param name="outputFormat">Output format of the Report..</param>
+        /// <param name="percentageComplete">Percentage of completion for the Report generation..</param>
+        public ReportRevisionDTO(ReportStatusEnum? reportStatus = default(ReportStatusEnum?), string startDate = default(string), string finishDate = default(string), SignOffStatusEnum? signOffStatus = default(SignOffStatusEnum?), string signOffNotes = default(string), string reportReasonCd = default(string), string description = default(string), string languageCode = default(string), string outputFormat = default(string), decimal percentageComplete = default(decimal))
         {
             this.ReportStatus = reportStatus;
             this.StartDate = startDate;
@@ -310,52 +314,60 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets StartDate
+        /// Start date of the Report generation process.
         /// </summary>
+        /// <value>Start date of the Report generation process.</value>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets FinishDate
+        /// Completion date of the Report generation process.
         /// </summary>
+        /// <value>Completion date of the Report generation process.</value>
         [DataMember(Name = "finishDate", EmitDefaultValue = false)]
         public string FinishDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets SignOffNotes
+        /// Additional notes related to the sign-off process.
         /// </summary>
+        /// <value>Additional notes related to the sign-off process.</value>
         [DataMember(Name = "signOffNotes", EmitDefaultValue = false)]
         public string SignOffNotes { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportReasonCd
+        /// Reason code for generating the Report.
         /// </summary>
+        /// <value>Reason code for generating the Report.</value>
         [DataMember(Name = "reportReasonCd", EmitDefaultValue = false)]
         public string ReportReasonCd { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Description of the Report revision.
         /// </summary>
+        /// <value>Description of the Report revision.</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets LanguageCode
+        /// Language code of the Report.
         /// </summary>
+        /// <value>Language code of the Report.</value>
         [DataMember(Name = "languageCode", EmitDefaultValue = false)]
         public string LanguageCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets OutputFormat
+        /// Output format of the Report.
         /// </summary>
+        /// <value>Output format of the Report.</value>
         [DataMember(Name = "outputFormat", EmitDefaultValue = false)]
         public string OutputFormat { get; set; }
 
         /// <summary>
-        /// Gets or Sets PercentageComplete
+        /// Percentage of completion for the Report generation.
         /// </summary>
+        /// <value>Percentage of completion for the Report generation.</value>
         [DataMember(Name = "percentageComplete", EmitDefaultValue = false)]
-        public int PercentageComplete { get; set; }
+        public decimal PercentageComplete { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

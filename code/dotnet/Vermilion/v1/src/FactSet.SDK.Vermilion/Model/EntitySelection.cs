@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// EntitySelection
+    /// Specifies an Entity or a set of entities selected for inclusion in a report.
     /// </summary>
     [DataContract(Name = "EntitySelection")]
     public partial class EntitySelection : IEquatable<EntitySelection>, IValidatableObject
@@ -35,15 +35,16 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EntitySelection" /> class.
         /// </summary>
-        /// <param name="key">key.</param>
+        /// <param name="key">Key value for the selected Entity..</param>
         public EntitySelection(string key = default(string))
         {
             this.Key = key;
         }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// Key value for the selected Entity.
         /// </summary>
+        /// <value>Key value for the selected Entity.</value>
         [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 

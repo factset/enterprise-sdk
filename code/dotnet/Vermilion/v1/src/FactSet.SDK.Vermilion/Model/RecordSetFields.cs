@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// RecordSetFields
+    /// Defines the properties and attributes of a record set field.
     /// </summary>
     [DataContract(Name = "RecordSetFields")]
     public partial class RecordSetFields : IEquatable<RecordSetFields>, IValidatableObject
     {
         /// <summary>
-        /// Defines FieldType
+        /// The type of the field indicating the kind of data it holds.
         /// </summary>
+        /// <value>The type of the field indicating the kind of data it holds.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FieldTypeEnum
         {
@@ -96,50 +97,64 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets FieldType
+        /// The type of the field indicating the kind of data it holds.
         /// </summary>
+        /// <value>The type of the field indicating the kind of data it holds.</value>
         [DataMember(Name = "fieldType", EmitDefaultValue = false)]
         public FieldTypeEnum? FieldType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="RecordSetFields" /> class.
         /// </summary>
-        /// <param name="fieldType">fieldType.</param>
-        /// <param name="format">format.</param>
-        /// <param name="id">id.</param>
-        /// <param name="hide">hide.</param>
-        /// <param name="name">name.</param>
-        public RecordSetFields(FieldTypeEnum? fieldType = default(FieldTypeEnum?), string format = default(string), int id = default(int), string hide = default(string), string name = default(string))
+        /// <param name="fieldType">The type of the field indicating the kind of data it holds..</param>
+        /// <param name="format">The format applied to the field&#39;s value..</param>
+        /// <param name="id">Unique identifier for the field..</param>
+        /// <param name="hide">Indicates whether the field is hidden..</param>
+        /// <param name="name">The name of the field..</param>
+        /// <param name="order">The ordering of the record set field..</param>
+        public RecordSetFields(FieldTypeEnum? fieldType = default(FieldTypeEnum?), string format = default(string), int id = default(int), string hide = default(string), string name = default(string), int order = default(int))
         {
             this.FieldType = fieldType;
             this.Format = format;
             this.Id = id;
             this.Hide = hide;
             this.Name = name;
+            this.Order = order;
         }
 
         /// <summary>
-        /// Gets or Sets Format
+        /// The format applied to the field&#39;s value.
         /// </summary>
+        /// <value>The format applied to the field&#39;s value.</value>
         [DataMember(Name = "format", EmitDefaultValue = false)]
         public string Format { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier for the field.
         /// </summary>
+        /// <value>Unique identifier for the field.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Hide
+        /// Indicates whether the field is hidden.
         /// </summary>
+        /// <value>Indicates whether the field is hidden.</value>
         [DataMember(Name = "hide", EmitDefaultValue = false)]
         public string Hide { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The name of the field.
         /// </summary>
+        /// <value>The name of the field.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The ordering of the record set field.
+        /// </summary>
+        /// <value>The ordering of the record set field.</value>
+        [DataMember(Name = "order", EmitDefaultValue = false)]
+        public int Order { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -154,6 +169,7 @@ namespace FactSet.SDK.Vermilion.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Hide: ").Append(Hide).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -211,6 +227,10 @@ namespace FactSet.SDK.Vermilion.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Order == input.Order ||
+                    this.Order.Equals(input.Order)
                 );
         }
 
@@ -237,6 +257,7 @@ namespace FactSet.SDK.Vermilion.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Order.GetHashCode();
                 return hashCode;
             }
         }

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimUserPatchOperation
+    /// Patch operation to modify a user&#39;s attributes. It includes the action to be performed, the attribute to modify, and the new value.
     /// </summary>
     [DataContract(Name = "ScimUserPatchOperation")]
     public partial class ScimUserPatchOperation : IEquatable<ScimUserPatchOperation>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimUserPatchOperation" /> class.
         /// </summary>
-        /// <param name="op">op.</param>
-        /// <param name="path">path.</param>
-        /// <param name="value">value.</param>
+        /// <param name="op">Action to perform on the attribute..</param>
+        /// <param name="path">The user attribute path to modify..</param>
+        /// <param name="value">The value to set for the attribute..</param>
         public ScimUserPatchOperation(string op = default(string), string path = default(string), string value = default(string))
         {
             this.Op = op;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Op
+        /// Action to perform on the attribute.
         /// </summary>
+        /// <value>Action to perform on the attribute.</value>
         [DataMember(Name = "op", EmitDefaultValue = false)]
         public string Op { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// The user attribute path to modify.
         /// </summary>
+        /// <value>The user attribute path to modify.</value>
         [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The value to set for the attribute.
         /// </summary>
+        /// <value>The value to set for the attribute.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

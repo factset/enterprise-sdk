@@ -22,6 +22,7 @@ import RecordSetFields from './RecordSetFields';
 class DataSourceAllData {
     /**
      * Constructs a new <code>DataSourceAllData</code>.
+     * Data and Meta data from the Data Source, including any retrieval errors.
      * @alias module:model/DataSourceAllData
      */
     constructor() { 
@@ -62,6 +63,7 @@ class DataSourceAllData {
 }
 
 /**
+ * An array of fields from the input Record Set.
  * @member {Array.<module:model/RecordSetFields>} fields
  */
 DataSourceAllData.prototype['fields'] = undefined;

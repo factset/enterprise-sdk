@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportDefinitionData
+ * Contains detailed data for a single Report definition.
  */
+@ApiModel(description = "Contains detailed data for a single Report definition.")
 @JsonPropertyOrder({
   ReportDefinitionData.JSON_PROPERTY_DATA
 })

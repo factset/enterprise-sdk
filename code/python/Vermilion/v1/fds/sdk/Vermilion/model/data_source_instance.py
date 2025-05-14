@@ -145,9 +145,9 @@ class DataSourceInstance(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            dst_instance_id (int): [optional]  # noqa: E501
-            dst_instance_type (str): [optional]  # noqa: E501
-            rows ([DataSourceInstanceRows]): [optional]  # noqa: E501
+            dst_instance_id (int): Unique Identifier of the Data Source Instance.. [optional]  # noqa: E501
+            dst_instance_type (str): Type of the Data source. [optional]  # noqa: E501
+            rows ([DataSourceInstanceRows]): An array of data row of the Data source. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,9 +229,9 @@ class DataSourceInstance(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            dst_instance_id (int): [optional]  # noqa: E501
-            dst_instance_type (str): [optional]  # noqa: E501
-            rows ([DataSourceInstanceRows]): [optional]  # noqa: E501
+            dst_instance_id (int): Unique Identifier of the Data Source Instance.. [optional]  # noqa: E501
+            dst_instance_type (str): Type of the Data source. [optional]  # noqa: E501
+            rows ([DataSourceInstanceRows]): An array of data row of the Data source. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

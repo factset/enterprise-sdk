@@ -147,10 +147,10 @@ class ReportInstanceLogDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sequence_number (int): [optional]  # noqa: E501
-            message (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            update_date (str): [optional]  # noqa: E501
+            sequence_number (int): Sequential number of the log entry.. [optional]  # noqa: E501
+            message (str): Detailed message describing the log event or error.. [optional]  # noqa: E501
+            type (str): Indicates the type of log entry, either a general log or an error.. [optional]  # noqa: E501
+            update_date (str): The date and time of the last update for this log entry.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,10 +232,10 @@ class ReportInstanceLogDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sequence_number (int): [optional]  # noqa: E501
-            message (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            update_date (str): [optional]  # noqa: E501
+            sequence_number (int): Sequential number of the log entry.. [optional]  # noqa: E501
+            message (str): Detailed message describing the log event or error.. [optional]  # noqa: E501
+            type (str): Indicates the type of log entry, either a general log or an error.. [optional]  # noqa: E501
+            update_date (str): The date and time of the last update for this log entry.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

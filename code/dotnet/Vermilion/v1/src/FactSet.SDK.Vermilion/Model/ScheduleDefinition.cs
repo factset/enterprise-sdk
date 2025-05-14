@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleDefinition
+    /// List of Schedule Definition.
     /// </summary>
     [DataContract(Name = "ScheduleDefinition")]
     public partial class ScheduleDefinition : IEquatable<ScheduleDefinition>, IValidatableObject
     {
         /// <summary>
-        /// Defines ScheduleType
+        /// Type of Schedule Definition.
         /// </summary>
+        /// <value>Type of Schedule Definition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ScheduleTypeEnum
         {
@@ -48,31 +49,21 @@ namespace FactSet.SDK.Vermilion.Model
             /// Enum REPEATING for value: REPEATING
             /// </summary>
             [EnumMember(Value = "REPEATING")]
-            REPEATING = 2,
-
-            /// <summary>
-            /// Enum TEMPLATE for value: TEMPLATE
-            /// </summary>
-            [EnumMember(Value = "TEMPLATE")]
-            TEMPLATE = 3,
-
-            /// <summary>
-            /// Enum ADHOC for value: ADHOC
-            /// </summary>
-            [EnumMember(Value = "ADHOC")]
-            ADHOC = 4
+            REPEATING = 2
 
         }
 
 
         /// <summary>
-        /// Gets or Sets ScheduleType
+        /// Type of Schedule Definition.
         /// </summary>
+        /// <value>Type of Schedule Definition.</value>
         [DataMember(Name = "scheduleType", EmitDefaultValue = false)]
         public ScheduleTypeEnum? ScheduleType { get; set; }
         /// <summary>
-        /// Defines ReportDate
+        /// Report Date of the Schedule Definition.
         /// </summary>
+        /// <value>Report Date of the Schedule Definition.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReportDateEnum
         {
@@ -140,28 +131,29 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets ReportDate
+        /// Report Date of the Schedule Definition.
         /// </summary>
+        /// <value>Report Date of the Schedule Definition.</value>
         [DataMember(Name = "reportDate", EmitDefaultValue = false)]
         public ReportDateEnum? ReportDate { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleDefinition" /> class.
         /// </summary>
-        /// <param name="scheduleDefinitionId">scheduleDefinitionId.</param>
-        /// <param name="name">name.</param>
-        /// <param name="code">code.</param>
-        /// <param name="scheduleType">scheduleType.</param>
-        /// <param name="scheduleGroup">scheduleGroup.</param>
-        /// <param name="reportDate">reportDate.</param>
-        /// <param name="numberOfObligations">numberOfObligations.</param>
-        /// <param name="businessCalendar">businessCalendar.</param>
-        /// <param name="deleteScheduleAfterDays">deleteScheduleAfterDays.</param>
-        /// <param name="numberOfPackages">numberOfPackages.</param>
-        /// <param name="entities">entities.</param>
+        /// <param name="scheduleDefinitionId">Unique Identifier for the Schedule Definition..</param>
+        /// <param name="name">Name of the Schedule Definition..</param>
+        /// <param name="code">Code of the Schedule Definition..</param>
+        /// <param name="scheduleType">Type of Schedule Definition..</param>
+        /// <param name="scheduleGroup">Group of the Schedule Definition..</param>
+        /// <param name="reportDate">Report Date of the Schedule Definition..</param>
+        /// <param name="numberOfObligations">Number of obligations used in the Schedule Definition..</param>
+        /// <param name="businessCalendar">Calender name used in the Schedule Definition..</param>
+        /// <param name="deleteScheduleAfterDays">Indicates after how many days the Schedule should be deleted..</param>
+        /// <param name="numberOfPackages">Indicates number of packages involved in the Schedule Definition..</param>
+        /// <param name="entities">A set of entities used in Schedule Definition..</param>
         /// <param name="ownerRole">ownerRole.</param>
-        /// <param name="notes">notes.</param>
-        /// <param name="lastUpdatedBy">lastUpdatedBy.</param>
-        /// <param name="lastUpdated">lastUpdated.</param>
+        /// <param name="notes">Notes of the Schedule Definition..</param>
+        /// <param name="lastUpdatedBy">Indicates the username of the person who last updated the Data Source..</param>
+        /// <param name="lastUpdated">The timestamp of the most recent update in epoch format for a specific Schedule Definition.</param>
         public ScheduleDefinition(int scheduleDefinitionId = default(int), string name = default(string), string code = default(string), ScheduleTypeEnum? scheduleType = default(ScheduleTypeEnum?), string scheduleGroup = default(string), ReportDateEnum? reportDate = default(ReportDateEnum?), int numberOfObligations = default(int), string businessCalendar = default(string), int deleteScheduleAfterDays = default(int), int numberOfPackages = default(int), List<EntityDTO> entities = default(List<EntityDTO>), ScheduleDefinitionOwnerRole ownerRole = default(ScheduleDefinitionOwnerRole), string notes = default(string), string lastUpdatedBy = default(string), string lastUpdated = default(string))
         {
             this.ScheduleDefinitionId = scheduleDefinitionId;
@@ -182,56 +174,65 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets ScheduleDefinitionId
+        /// Unique Identifier for the Schedule Definition.
         /// </summary>
+        /// <value>Unique Identifier for the Schedule Definition.</value>
         [DataMember(Name = "scheduleDefinitionId", EmitDefaultValue = false)]
         public int ScheduleDefinitionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the Schedule Definition.
         /// </summary>
+        /// <value>Name of the Schedule Definition.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Code of the Schedule Definition.
         /// </summary>
+        /// <value>Code of the Schedule Definition.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScheduleGroup
+        /// Group of the Schedule Definition.
         /// </summary>
+        /// <value>Group of the Schedule Definition.</value>
         [DataMember(Name = "scheduleGroup", EmitDefaultValue = false)]
         public string ScheduleGroup { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumberOfObligations
+        /// Number of obligations used in the Schedule Definition.
         /// </summary>
+        /// <value>Number of obligations used in the Schedule Definition.</value>
         [DataMember(Name = "numberOfObligations", EmitDefaultValue = false)]
         public int NumberOfObligations { get; set; }
 
         /// <summary>
-        /// Gets or Sets BusinessCalendar
+        /// Calender name used in the Schedule Definition.
         /// </summary>
+        /// <value>Calender name used in the Schedule Definition.</value>
         [DataMember(Name = "businessCalendar", EmitDefaultValue = false)]
         public string BusinessCalendar { get; set; }
 
         /// <summary>
-        /// Gets or Sets DeleteScheduleAfterDays
+        /// Indicates after how many days the Schedule should be deleted.
         /// </summary>
+        /// <value>Indicates after how many days the Schedule should be deleted.</value>
         [DataMember(Name = "deleteScheduleAfterDays", EmitDefaultValue = false)]
         public int DeleteScheduleAfterDays { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumberOfPackages
+        /// Indicates number of packages involved in the Schedule Definition.
         /// </summary>
+        /// <value>Indicates number of packages involved in the Schedule Definition.</value>
         [DataMember(Name = "numberOfPackages", EmitDefaultValue = false)]
         public int NumberOfPackages { get; set; }
 
         /// <summary>
-        /// Gets or Sets Entities
+        /// A set of entities used in Schedule Definition.
         /// </summary>
+        /// <value>A set of entities used in Schedule Definition.</value>
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public List<EntityDTO> Entities { get; set; }
 
@@ -242,20 +243,23 @@ namespace FactSet.SDK.Vermilion.Model
         public ScheduleDefinitionOwnerRole OwnerRole { get; set; }
 
         /// <summary>
-        /// Gets or Sets Notes
+        /// Notes of the Schedule Definition.
         /// </summary>
+        /// <value>Notes of the Schedule Definition.</value>
         [DataMember(Name = "notes", EmitDefaultValue = false)]
         public string Notes { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdatedBy
+        /// Indicates the username of the person who last updated the Data Source.
         /// </summary>
+        /// <value>Indicates the username of the person who last updated the Data Source.</value>
         [DataMember(Name = "lastUpdatedBy", EmitDefaultValue = false)]
         public string LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdated
+        /// The timestamp of the most recent update in epoch format for a specific Schedule Definition
         /// </summary>
+        /// <value>The timestamp of the most recent update in epoch format for a specific Schedule Definition</value>
         [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
         public string LastUpdated { get; set; }
 

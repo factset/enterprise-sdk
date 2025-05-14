@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.Vermilion.models.ReportDefinitionDTO;
-import com.factset.sdk.Vermilion.models.ReportInstanceListMeta;
+import com.factset.sdk.Vermilion.models.ReportDefinitionListMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportDefinitionList
+ * List of Report Definitions.
  */
+@ApiModel(description = "List of Report Definitions.")
 @JsonPropertyOrder({
   ReportDefinitionList.JSON_PROPERTY_META,
   ReportDefinitionList.JSON_PROPERTY_DATA
@@ -44,7 +45,7 @@ public class ReportDefinitionList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private ReportInstanceListMeta meta;
+  private ReportDefinitionListMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ReportDefinitionDTO> data = null;
@@ -52,7 +53,7 @@ public class ReportDefinitionList implements Serializable {
   public ReportDefinitionList() { 
   }
 
-  public ReportDefinitionList meta(ReportInstanceListMeta meta) {
+  public ReportDefinitionList meta(ReportDefinitionListMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -66,14 +67,14 @@ public class ReportDefinitionList implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ReportInstanceListMeta getMeta() {
+  public ReportDefinitionListMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(ReportInstanceListMeta meta) {
+  public void setMeta(ReportDefinitionListMeta meta) {
     this.meta = meta;
   }
 
@@ -92,11 +93,11 @@ public class ReportDefinitionList implements Serializable {
   }
 
    /**
-   * Get data
+   * A list of Report Definitions.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of Report Definitions.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

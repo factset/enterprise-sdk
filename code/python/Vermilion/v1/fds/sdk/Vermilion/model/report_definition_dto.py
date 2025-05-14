@@ -147,10 +147,10 @@ class ReportDefinitionDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
-            release_tag (str): [optional]  # noqa: E501
-            entities ([EntityDTO]): [optional]  # noqa: E501
+            name (str): Name of the Report definition.. [optional]  # noqa: E501
+            code (str): Code of the Report definition.. [optional]  # noqa: E501
+            release_tag (str): Release tag associated with the Report definition.. [optional]  # noqa: E501
+            entities ([EntityDTO]): A list of entities associated with the Report definition.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,10 +232,10 @@ class ReportDefinitionDTO(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
-            release_tag (str): [optional]  # noqa: E501
-            entities ([EntityDTO]): [optional]  # noqa: E501
+            name (str): Name of the Report definition.. [optional]  # noqa: E501
+            code (str): Code of the Report definition.. [optional]  # noqa: E501
+            release_tag (str): Release tag associated with the Report definition.. [optional]  # noqa: E501
+            entities ([EntityDTO]): A list of entities associated with the Report definition.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

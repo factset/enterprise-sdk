@@ -145,8 +145,8 @@ class ScimGroupPatchOperation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            op (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
+            op (str): Action to perform on the group attribute.. [optional]  # noqa: E501
+            path (str): The group/role attribute path to modify.. [optional]  # noqa: E501
             value (ScimGroupPatchOperationValue): [optional]  # noqa: E501
         """
 
@@ -229,8 +229,8 @@ class ScimGroupPatchOperation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            op (str): [optional]  # noqa: E501
-            path (str): [optional]  # noqa: E501
+            op (str): Action to perform on the group attribute.. [optional]  # noqa: E501
+            path (str): The group/role attribute path to modify.. [optional]  # noqa: E501
             value (ScimGroupPatchOperationValue): [optional]  # noqa: E501
         """
 

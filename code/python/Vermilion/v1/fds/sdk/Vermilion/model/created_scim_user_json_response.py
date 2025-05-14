@@ -181,21 +181,21 @@ class CreatedScimUserJSONResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            user_name (str): [optional]  # noqa: E501
+            schemas ([str]): Array listing the schema URIs associated with the user resource.. [optional]  # noqa: E501
+            id (str): Unique identifier for the newly created user.. [optional]  # noqa: E501
+            user_name (str): Username used for identifying and logging in the user.. [optional]  # noqa: E501
             name (ScimUserName): [optional]  # noqa: E501
-            user_type (str): [optional]  # noqa: E501
-            preferred_language (str): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            authenticated_user_name (str): [optional]  # noqa: E501
-            tenant (str): [optional]  # noqa: E501
-            phone_numbers ([ScimPhone]): [optional]  # noqa: E501
-            emails ([ScimEmail]): [optional]  # noqa: E501
-            tenancies ([Tenancy]): [optional]  # noqa: E501
-            photos ([ScimPhoto]): [optional]  # noqa: E501
-            domain_code (str): [optional]  # noqa: E501
-            is_administrator (bool): [optional]  # noqa: E501
+            user_type (str): Type of user.. [optional]  # noqa: E501
+            preferred_language (str): User's preferred language.. [optional]  # noqa: E501
+            active (bool): Indicates if the user's account is currently active.. [optional]  # noqa: E501
+            authenticated_user_name (str): Authenticated username used by SSO login.. [optional]  # noqa: E501
+            tenant (str): Tenancy code in which the user was created.. [optional]  # noqa: E501
+            phone_numbers ([ScimPhone]): Array of phone numbers for the user, each with a type and value.. [optional]  # noqa: E501
+            emails ([ScimEmail]): Array of email addresses linked to the user account.. [optional]  # noqa: E501
+            tenancies ([Tenancy]): List of tenancies the user is associated with.. [optional]  # noqa: E501
+            photos ([ScimPhoto]): Array of URLs to the user's profile photos or avatars.. [optional]  # noqa: E501
+            domain_code (str): Domain code representing the user's domain.. [optional]  # noqa: E501
+            is_administrator (bool): Flag indicating if the user has admin privileges.. [optional]  # noqa: E501
             meta (CreatedScimUserJSONResponseMeta): [optional]  # noqa: E501
         """
 
@@ -278,21 +278,21 @@ class CreatedScimUserJSONResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            user_name (str): [optional]  # noqa: E501
+            schemas ([str]): Array listing the schema URIs associated with the user resource.. [optional]  # noqa: E501
+            id (str): Unique identifier for the newly created user.. [optional]  # noqa: E501
+            user_name (str): Username used for identifying and logging in the user.. [optional]  # noqa: E501
             name (ScimUserName): [optional]  # noqa: E501
-            user_type (str): [optional]  # noqa: E501
-            preferred_language (str): [optional]  # noqa: E501
-            active (bool): [optional]  # noqa: E501
-            authenticated_user_name (str): [optional]  # noqa: E501
-            tenant (str): [optional]  # noqa: E501
-            phone_numbers ([ScimPhone]): [optional]  # noqa: E501
-            emails ([ScimEmail]): [optional]  # noqa: E501
-            tenancies ([Tenancy]): [optional]  # noqa: E501
-            photos ([ScimPhoto]): [optional]  # noqa: E501
-            domain_code (str): [optional]  # noqa: E501
-            is_administrator (bool): [optional]  # noqa: E501
+            user_type (str): Type of user.. [optional]  # noqa: E501
+            preferred_language (str): User's preferred language.. [optional]  # noqa: E501
+            active (bool): Indicates if the user's account is currently active.. [optional]  # noqa: E501
+            authenticated_user_name (str): Authenticated username used by SSO login.. [optional]  # noqa: E501
+            tenant (str): Tenancy code in which the user was created.. [optional]  # noqa: E501
+            phone_numbers ([ScimPhone]): Array of phone numbers for the user, each with a type and value.. [optional]  # noqa: E501
+            emails ([ScimEmail]): Array of email addresses linked to the user account.. [optional]  # noqa: E501
+            tenancies ([Tenancy]): List of tenancies the user is associated with.. [optional]  # noqa: E501
+            photos ([ScimPhoto]): Array of URLs to the user's profile photos or avatars.. [optional]  # noqa: E501
+            domain_code (str): Domain code representing the user's domain.. [optional]  # noqa: E501
+            is_administrator (bool): Flag indicating if the user has admin privileges.. [optional]  # noqa: E501
             meta (CreatedScimUserJSONResponseMeta): [optional]  # noqa: E501
         """
 

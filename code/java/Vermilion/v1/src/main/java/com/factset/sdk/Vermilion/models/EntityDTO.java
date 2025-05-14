@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * EntityDTO
+ * Entity with its unique identifiers and attributes.
  */
+@ApiModel(description = "Entity with its unique identifiers and attributes.")
 @JsonPropertyOrder({
   EntityDTO.JSON_PROPERTY_ENTITY_ID,
   EntityDTO.JSON_PROPERTY_NAME,
@@ -60,11 +61,11 @@ public class EntityDTO implements Serializable {
   }
 
    /**
-   * Get entityId
+   * Unique identifier for the Entity.
    * @return entityId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier for the Entity.")
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class EntityDTO implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the Entity.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the Entity.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class EntityDTO implements Serializable {
   }
 
    /**
-   * Get code
+   * Code of the Entity.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Code of the Entity.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

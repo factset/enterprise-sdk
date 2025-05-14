@@ -246,10 +246,13 @@ export default class SCIMApi {
 
     /**
      * Retrieves a list of VRS role
-     * Retrieves a VRS roles
+     * Retrieves VRS roles
      * @param {Object} opts Optional parameters
      * @param {Number} opts.count Non-negative maximum number of entries to return
      * @param {Number} opts.startIndex The 1-based index of the first query result
+     * @param {String} opts.filter Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO
+     * @param {Array.<String>} opts.sortBy The column to sort on. If parameter is not given, no sorting will be done
+     * @param {Array.<String>} opts.sortOrder The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScimGroupListResponse} and HTTP response
      */
     getAllGroupsWithHttpInfo(opts) {
@@ -260,7 +263,10 @@ export default class SCIMApi {
       };
       let queryParams = {
         'count': opts['count'],
-        'startIndex': opts['startIndex']
+        'startIndex': opts['startIndex'],
+        'filter': opts['filter'],
+        'sortBy': this.apiClient.buildCollectionParam(opts['sortBy'], 'csv'),
+        'sortOrder': this.apiClient.buildCollectionParam(opts['sortOrder'], 'csv')
       };
       let headerParams = {
       };
@@ -283,10 +289,13 @@ export default class SCIMApi {
 
     /**
      * Retrieves a list of VRS role
-     * Retrieves a VRS roles
+     * Retrieves VRS roles
      * @param {Object} opts Optional parameters
      * @param {Number} opts.count Non-negative maximum number of entries to return
      * @param {Number} opts.startIndex The 1-based index of the first query result
+     * @param {String} opts.filter Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO
+     * @param {Array.<String>} opts.sortBy The column to sort on. If parameter is not given, no sorting will be done
+     * @param {Array.<String>} opts.sortOrder The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order
      * @return { Promise.< module:model/ScimGroupListResponse > } a Promise, with data of type {@link module:model/ScimGroupListResponse }
      */
     getAllGroups(opts) {

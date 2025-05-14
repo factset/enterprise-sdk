@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportDefinitionList
+    /// List of Report Definitions.
     /// </summary>
     [DataContract(Name = "ReportDefinitionList")]
     public partial class ReportDefinitionList : IEquatable<ReportDefinitionList>, IValidatableObject
@@ -36,8 +36,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="ReportDefinitionList" /> class.
         /// </summary>
         /// <param name="meta">meta.</param>
-        /// <param name="data">data.</param>
-        public ReportDefinitionList(ReportInstanceListMeta meta = default(ReportInstanceListMeta), List<ReportDefinitionDTO> data = default(List<ReportDefinitionDTO>))
+        /// <param name="data">A list of Report Definitions..</param>
+        public ReportDefinitionList(ReportDefinitionListMeta meta = default(ReportDefinitionListMeta), List<ReportDefinitionDTO> data = default(List<ReportDefinitionDTO>))
         {
             this.Meta = meta;
             this.Data = data;
@@ -47,11 +47,12 @@ namespace FactSet.SDK.Vermilion.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public ReportInstanceListMeta Meta { get; set; }
+        public ReportDefinitionListMeta Meta { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// A list of Report Definitions.
         /// </summary>
+        /// <value>A list of Report Definitions.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<ReportDefinitionDTO> Data { get; set; }
 

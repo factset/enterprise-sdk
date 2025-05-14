@@ -41,6 +41,7 @@ public class ReportInstanceApi {
     downloadReportFileResponseTypeMap.put(401, new GenericType<ErrorList>(){});
     downloadReportFileResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     downloadReportFileResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    downloadReportFileResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> getAllReportInstancesResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -49,6 +50,7 @@ public class ReportInstanceApi {
     getAllReportInstancesResponseTypeMap.put(401, new GenericType<ErrorList>(){});
     getAllReportInstancesResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getAllReportInstancesResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getAllReportInstancesResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> getReportGenerationLogsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -58,6 +60,7 @@ public class ReportInstanceApi {
     getReportGenerationLogsResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getReportGenerationLogsResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     getReportGenerationLogsResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getReportGenerationLogsResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> getReportInstanceByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -68,6 +71,7 @@ public class ReportInstanceApi {
     getReportInstanceByIdResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getReportInstanceByIdResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     getReportInstanceByIdResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getReportInstanceByIdResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   private static final Map<Integer, GenericType> startReportGenerationResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -78,6 +82,7 @@ public class ReportInstanceApi {
     startReportGenerationResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     startReportGenerationResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     startReportGenerationResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    startReportGenerationResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   
@@ -116,6 +121,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report instance ID could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public void cancelReportGeneration(String tenant, String reportInstanceId) throws ApiException {
@@ -138,6 +144,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report instance ID could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> cancelReportGenerationWithHttpInfo(String tenant, String reportInstanceId) throws ApiException {
@@ -206,6 +213,7 @@ public class ReportInstanceApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view the generated file in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public File downloadReportFile(String tenant, String reportInstanceId, String reportFileName) throws ApiException {
@@ -228,6 +236,7 @@ public class ReportInstanceApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view the generated file in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<File> downloadReportFileWithHttpInfo(String tenant, String reportInstanceId, String reportFileName) throws ApiException {
@@ -309,6 +318,7 @@ public class ReportInstanceApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ReportInstanceList getAllReportInstances(String tenant, String reportDefinitionCode, String entityCodes, String entityKeys, String sectionFilter, String outputFormat, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -336,6 +346,7 @@ public class ReportInstanceApi {
        <tr><td> 401 </td><td> Unauthorised </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ReportInstanceList> getAllReportInstancesWithHttpInfo(String tenant, String reportDefinitionCode, String entityCodes, String entityKeys, String sectionFilter, String outputFormat, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -411,6 +422,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report instance ID could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ReportInstanceLogList getReportGenerationLogs(String tenant, String reportInstanceId, String errorsOnly, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -436,6 +448,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report instance ID could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ReportInstanceLogList> getReportGenerationLogsWithHttpInfo(String tenant, String reportInstanceId, String errorsOnly, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
@@ -510,6 +523,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report instance ID could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ReportInstanceData getReportInstanceById(String reportInstanceId, String tenant) throws ApiException {
@@ -532,6 +546,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied report instance ID could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ReportInstanceData> getReportInstanceByIdWithHttpInfo(String reportInstanceId, String tenant) throws ApiException {
@@ -601,6 +616,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The report code could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ReportInstanceDataResponse startReportGeneration(ReportGenerationRequestBody reportGenerationRequestBody) throws ApiException {
@@ -622,6 +638,7 @@ public class ReportInstanceApi {
        <tr><td> 403 </td><td> No permissions to view reports in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The report code could not be found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ReportInstanceDataResponse> startReportGenerationWithHttpInfo(ReportGenerationRequestBody reportGenerationRequestBody) throws ApiException {

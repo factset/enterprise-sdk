@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * GenerateScheduleResponse
+ * Response object for schedule generation.
  */
+@ApiModel(description = "Response object for schedule generation.")
 @JsonPropertyOrder({
   GenerateScheduleResponse.JSON_PROPERTY_DATA
 })

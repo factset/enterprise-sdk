@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimGroup
+ * Role details, defining permissions and access.
  */
+@ApiModel(description = "Role details, defining permissions and access.")
 @JsonPropertyOrder({
   ScimGroup.JSON_PROPERTY_SCHEMAS,
   ScimGroup.JSON_PROPERTY_ID,
@@ -86,11 +87,11 @@ public class ScimGroup implements Serializable {
   }
 
    /**
-   * Get schemas
+   * List of schema URIs for the group/role.
    * @return schemas
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of schema URIs for the group/role.")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimGroup implements Serializable {
   }
 
    /**
-   * Get id
+   * Unique identifier of the group/role.
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier of the group/role.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,11 +139,11 @@ public class ScimGroup implements Serializable {
   }
 
    /**
-   * Get displayName
+   * The display name of the group/role.
    * @return displayName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The display name of the group/role.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -172,11 +173,11 @@ public class ScimGroup implements Serializable {
   }
 
    /**
-   * Get members
+   * A list of users assigned to the group/role.
    * @return members
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of users assigned to the group/role.")
   @JsonProperty(JSON_PROPERTY_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,11 +199,11 @@ public class ScimGroup implements Serializable {
   }
 
    /**
-   * Get tenant
+   * Tenant associated with the group/role.
    * @return tenant
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Tenant associated with the group/role.")
   @JsonProperty(JSON_PROPERTY_TENANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -224,11 +225,11 @@ public class ScimGroup implements Serializable {
   }
 
    /**
-   * Get domainCode
+   * Domain code for the group.
    * @return domainCode
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Domain code for the group.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

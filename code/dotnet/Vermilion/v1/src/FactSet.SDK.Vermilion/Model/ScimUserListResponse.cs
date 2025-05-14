@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimUserListResponse
+    /// List of users with pagination details.
     /// </summary>
     [DataContract(Name = "ScimUserListResponse")]
     public partial class ScimUserListResponse : IEquatable<ScimUserListResponse>, IValidatableObject
@@ -35,10 +35,10 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimUserListResponse" /> class.
         /// </summary>
-        /// <param name="totalResults">totalResults.</param>
-        /// <param name="itemsPerPage">itemsPerPage.</param>
-        /// <param name="startIndex">startIndex.</param>
-        /// <param name="resources">resources.</param>
+        /// <param name="totalResults">The total number of users available..</param>
+        /// <param name="itemsPerPage">The number of users per page..</param>
+        /// <param name="startIndex">The starting index for the returned users..</param>
+        /// <param name="resources">The list of users returned in the response..</param>
         public ScimUserListResponse(int totalResults = default(int), int itemsPerPage = default(int), int startIndex = default(int), List<ScimUser> resources = default(List<ScimUser>))
         {
             this.TotalResults = totalResults;
@@ -48,26 +48,30 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets TotalResults
+        /// The total number of users available.
         /// </summary>
+        /// <value>The total number of users available.</value>
         [DataMember(Name = "totalResults", EmitDefaultValue = false)]
         public int TotalResults { get; set; }
 
         /// <summary>
-        /// Gets or Sets ItemsPerPage
+        /// The number of users per page.
         /// </summary>
+        /// <value>The number of users per page.</value>
         [DataMember(Name = "itemsPerPage", EmitDefaultValue = false)]
         public int ItemsPerPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartIndex
+        /// The starting index for the returned users.
         /// </summary>
+        /// <value>The starting index for the returned users.</value>
         [DataMember(Name = "startIndex", EmitDefaultValue = false)]
         public int StartIndex { get; set; }
 
         /// <summary>
-        /// Gets or Sets Resources
+        /// The list of users returned in the response.
         /// </summary>
+        /// <value>The list of users returned in the response.</value>
         [DataMember(Name = "Resources", EmitDefaultValue = false)]
         public List<ScimUser> Resources { get; set; }
 

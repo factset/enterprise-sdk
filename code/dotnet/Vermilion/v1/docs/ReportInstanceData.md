@@ -1,4 +1,5 @@
 # FactSet.SDK.Vermilion.Model.ReportInstanceData
+Single Report instance data response.
 
 ## Properties
 

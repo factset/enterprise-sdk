@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldId** | **Number** |  | [optional] 
-**fieldType** | **String** |  | [optional] 
-**fieldValue** | **String** |  | [optional] 
+**fieldId** | **Number** | Unique identifier for the field. | [optional] 
+**fieldType** | **String** | The type of the field indicating the kind of data it holds. | [optional] 
+**fieldValue** | **String** | The value assigned to the field. | [optional] 
 
 
 

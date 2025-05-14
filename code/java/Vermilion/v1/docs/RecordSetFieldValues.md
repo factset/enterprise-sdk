@@ -2,14 +2,15 @@
 
 # RecordSetFieldValues
 
+Field value and associated metadata for the record set field.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldId** | **Integer** |  |  [optional]
-**fieldType** | [**FieldTypeEnum**](#FieldTypeEnum) |  |  [optional]
-**fieldValue** | **String** |  |  [optional]
+**fieldId** | **Integer** | Unique identifier for the field. |  [optional]
+**fieldType** | [**FieldTypeEnum**](#FieldTypeEnum) | The type of the field indicating the kind of data it holds. |  [optional]
+**fieldValue** | **String** | The value assigned to the field. |  [optional]
 
 
 

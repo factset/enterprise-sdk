@@ -1,4 +1,5 @@
 # FactSet.SDK.Vermilion.Model.GenerateScheduleResponse
+Response object for schedule generation.
 
 ## Properties
 

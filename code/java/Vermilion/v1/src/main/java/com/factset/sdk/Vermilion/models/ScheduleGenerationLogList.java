@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.Vermilion.models.DataSourceListMeta;
 import com.factset.sdk.Vermilion.models.ScheduleGenerationLog;
+import com.factset.sdk.Vermilion.models.ScheduleGenerationLogListMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleGenerationLogList
+ * List of task generation logs.
  */
+@ApiModel(description = "List of task generation logs.")
 @JsonPropertyOrder({
   ScheduleGenerationLogList.JSON_PROPERTY_META,
   ScheduleGenerationLogList.JSON_PROPERTY_DATA
@@ -44,7 +45,7 @@ public class ScheduleGenerationLogList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private DataSourceListMeta meta;
+  private ScheduleGenerationLogListMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ScheduleGenerationLog> data = null;
@@ -52,7 +53,7 @@ public class ScheduleGenerationLogList implements Serializable {
   public ScheduleGenerationLogList() { 
   }
 
-  public ScheduleGenerationLogList meta(DataSourceListMeta meta) {
+  public ScheduleGenerationLogList meta(ScheduleGenerationLogListMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -66,14 +67,14 @@ public class ScheduleGenerationLogList implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DataSourceListMeta getMeta() {
+  public ScheduleGenerationLogListMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(DataSourceListMeta meta) {
+  public void setMeta(ScheduleGenerationLogListMeta meta) {
     this.meta = meta;
   }
 
@@ -92,11 +93,11 @@ public class ScheduleGenerationLogList implements Serializable {
   }
 
    /**
-   * Get data
+   * A set of fields used in sorting the Task Generation Logs.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of fields used in sorting the Task Generation Logs.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

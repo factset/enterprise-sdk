@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportDefinitionDTO
+    /// Defines the details of the Report definition.
     /// </summary>
     [DataContract(Name = "ReportDefinitionDTO")]
     public partial class ReportDefinitionDTO : IEquatable<ReportDefinitionDTO>, IValidatableObject
@@ -35,10 +35,10 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDefinitionDTO" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
-        /// <param name="code">code.</param>
-        /// <param name="releaseTag">releaseTag.</param>
-        /// <param name="entities">entities.</param>
+        /// <param name="name">Name of the Report definition..</param>
+        /// <param name="code">Code of the Report definition..</param>
+        /// <param name="releaseTag">Release tag associated with the Report definition..</param>
+        /// <param name="entities">A list of entities associated with the Report definition..</param>
         public ReportDefinitionDTO(string name = default(string), string code = default(string), string releaseTag = default(string), List<EntityDTO> entities = default(List<EntityDTO>))
         {
             this.Name = name;
@@ -48,26 +48,30 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the Report definition.
         /// </summary>
+        /// <value>Name of the Report definition.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Code of the Report definition.
         /// </summary>
+        /// <value>Code of the Report definition.</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReleaseTag
+        /// Release tag associated with the Report definition.
         /// </summary>
+        /// <value>Release tag associated with the Report definition.</value>
         [DataMember(Name = "releaseTag", EmitDefaultValue = false)]
         public string ReleaseTag { get; set; }
 
         /// <summary>
-        /// Gets or Sets Entities
+        /// A list of entities associated with the Report definition.
         /// </summary>
+        /// <value>A list of entities associated with the Report definition.</value>
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public List<EntityDTO> Entities { get; set; }
 

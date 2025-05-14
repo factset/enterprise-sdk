@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimEmail
+    /// User&#39;s email address details.
     /// </summary>
     [DataContract(Name = "ScimEmail")]
     public partial class ScimEmail : IEquatable<ScimEmail>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimEmail" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="type">type.</param>
-        /// <param name="primary">primary.</param>
+        /// <param name="value">The email address of the user..</param>
+        /// <param name="type">The type of email address (e.g., personal, work)..</param>
+        /// <param name="primary">Indicates if this is the primary email address for the user..</param>
         public ScimEmail(string value = default(string), string type = default(string), bool primary = default(bool))
         {
             this.Value = value;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The email address of the user.
         /// </summary>
+        /// <value>The email address of the user.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of email address (e.g., personal, work).
         /// </summary>
+        /// <value>The type of email address (e.g., personal, work).</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Primary
+        /// Indicates if this is the primary email address for the user.
         /// </summary>
+        /// <value>Indicates if this is the primary email address for the user.</value>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 

@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportGenerationRequest
+    /// details needed to request the generation of a report.
     /// </summary>
     [DataContract(Name = "ReportGenerationRequest")]
     public partial class ReportGenerationRequest : IEquatable<ReportGenerationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Defines OutputFormat
+        /// The desired output format for the generated report.
         /// </summary>
+        /// <value>The desired output format for the generated report.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OutputFormatEnum
         {
@@ -114,20 +115,21 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets OutputFormat
+        /// The desired output format for the generated report.
         /// </summary>
+        /// <value>The desired output format for the generated report.</value>
         [DataMember(Name = "outputFormat", EmitDefaultValue = false)]
         public OutputFormatEnum? OutputFormat { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportGenerationRequest" /> class.
         /// </summary>
-        /// <param name="report">report.</param>
-        /// <param name="tenancy">tenancy.</param>
-        /// <param name="outputFormat">outputFormat.</param>
-        /// <param name="sectionFilter">sectionFilter.</param>
-        /// <param name="priority">priority.</param>
-        /// <param name="startDate">startDate.</param>
-        /// <param name="entitySelection">entitySelection.</param>
+        /// <param name="report">The Report definition code..</param>
+        /// <param name="tenancy">The tenancy code in which the report generation occurs..</param>
+        /// <param name="outputFormat">The desired output format for the generated report..</param>
+        /// <param name="sectionFilter">Section filter that has to be used in the report generation process..</param>
+        /// <param name="priority">The priority level assigned to the report generation request..</param>
+        /// <param name="startDate">The scheduled start date for generating the report..</param>
+        /// <param name="entitySelection">Specifies the Entity selections for the report generation..</param>
         public ReportGenerationRequest(string report = default(string), string tenancy = default(string), OutputFormatEnum? outputFormat = default(OutputFormatEnum?), string sectionFilter = default(string), string priority = default(string), string startDate = default(string), Dictionary<string, EntitySelection> entitySelection = default(Dictionary<string, EntitySelection>))
         {
             this.Report = report;
@@ -140,38 +142,44 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Report
+        /// The Report definition code.
         /// </summary>
+        /// <value>The Report definition code.</value>
         [DataMember(Name = "report", EmitDefaultValue = false)]
         public string Report { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenancy
+        /// The tenancy code in which the report generation occurs.
         /// </summary>
+        /// <value>The tenancy code in which the report generation occurs.</value>
         [DataMember(Name = "tenancy", EmitDefaultValue = false)]
         public string Tenancy { get; set; }
 
         /// <summary>
-        /// Gets or Sets SectionFilter
+        /// Section filter that has to be used in the report generation process.
         /// </summary>
+        /// <value>Section filter that has to be used in the report generation process.</value>
         [DataMember(Name = "sectionFilter", EmitDefaultValue = false)]
         public string SectionFilter { get; set; }
 
         /// <summary>
-        /// Gets or Sets Priority
+        /// The priority level assigned to the report generation request.
         /// </summary>
+        /// <value>The priority level assigned to the report generation request.</value>
         [DataMember(Name = "priority", EmitDefaultValue = false)]
         public string Priority { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartDate
+        /// The scheduled start date for generating the report.
         /// </summary>
+        /// <value>The scheduled start date for generating the report.</value>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets EntitySelection
+        /// Specifies the Entity selections for the report generation.
         /// </summary>
+        /// <value>Specifies the Entity selections for the report generation.</value>
         [DataMember(Name = "entitySelection", EmitDefaultValue = false)]
         public Dictionary<string, EntitySelection> EntitySelection { get; set; }
 

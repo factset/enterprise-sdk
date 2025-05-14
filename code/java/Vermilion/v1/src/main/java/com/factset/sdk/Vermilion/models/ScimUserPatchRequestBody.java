@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimUserPatchRequestBody
+ * Defines the request payload for updating a user&#39;s attributes. The patch operation modifies specific fields of a user.
  */
+@ApiModel(description = "Defines the request payload for updating a user's attributes. The patch operation modifies specific fields of a user.")
 @JsonPropertyOrder({
   ScimUserPatchRequestBody.JSON_PROPERTY_SCHEMAS,
   ScimUserPatchRequestBody.JSON_PROPERTY_OPERATIONS
@@ -65,11 +66,11 @@ public class ScimUserPatchRequestBody implements Serializable {
   }
 
    /**
-   * Get schemas
+   * A list of URIs that indicate the namespaces of the schema used in this request.
    * @return schemas
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of URIs that indicate the namespaces of the schema used in this request.")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +100,11 @@ public class ScimUserPatchRequestBody implements Serializable {
   }
 
    /**
-   * Get operations
+   * A list of operations defining the specific changes to apply to the user&#39;s attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value
    * @return operations
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of operations defining the specific changes to apply to the user's attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value")
   @JsonProperty(JSON_PROPERTY_OPERATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

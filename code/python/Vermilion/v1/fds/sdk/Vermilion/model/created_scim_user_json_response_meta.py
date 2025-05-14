@@ -141,10 +141,10 @@ class CreatedScimUserJSONResponseMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            resource_type (str): [optional]  # noqa: E501
-            created (str): [optional]  # noqa: E501
-            last_modified (str): [optional]  # noqa: E501
-            location (str): [optional]  # noqa: E501
+            resource_type (str): Type of the resource.. [optional]  # noqa: E501
+            created (str): Timestamp indicating when the user resource was created.. [optional]  # noqa: E501
+            last_modified (str): Timestamp of the last modification to the user resource.. [optional]  # noqa: E501
+            location (str): URL indicating the location of the user resource.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,10 +226,10 @@ class CreatedScimUserJSONResponseMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            resource_type (str): [optional]  # noqa: E501
-            created (str): [optional]  # noqa: E501
-            last_modified (str): [optional]  # noqa: E501
-            location (str): [optional]  # noqa: E501
+            resource_type (str): Type of the resource.. [optional]  # noqa: E501
+            created (str): Timestamp indicating when the user resource was created.. [optional]  # noqa: E501
+            last_modified (str): Timestamp of the last modification to the user resource.. [optional]  # noqa: E501
+            location (str): URL indicating the location of the user resource.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

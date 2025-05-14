@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ReportInstanceLogDTO {
     /**
      * Constructs a new <code>ReportInstanceLogDTO</code>.
+     * Report Generation log details.
      * @alias module:model/ReportInstanceLogDTO
      */
     constructor() { 
@@ -66,21 +67,25 @@ class ReportInstanceLogDTO {
 }
 
 /**
+ * Sequential number of the log entry.
  * @member {Number} sequenceNumber
  */
 ReportInstanceLogDTO.prototype['sequenceNumber'] = undefined;
 
 /**
+ * Detailed message describing the log event or error.
  * @member {String} message
  */
 ReportInstanceLogDTO.prototype['message'] = undefined;
 
 /**
+ * Indicates the type of log entry, either a general log or an error.
  * @member {module:model/ReportInstanceLogDTO.TypeEnum} type
  */
 ReportInstanceLogDTO.prototype['type'] = undefined;
 
 /**
+ * The date and time of the last update for this log entry.
  * @member {String} updateDate
  */
 ReportInstanceLogDTO.prototype['updateDate'] = undefined;

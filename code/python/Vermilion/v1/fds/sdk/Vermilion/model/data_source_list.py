@@ -146,7 +146,7 @@ class DataSourceList(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([DataSourceDTO]): [optional]  # noqa: E501
+            data ([DataSourceDTO]): An array of Data Sources.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +229,7 @@ class DataSourceList(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([DataSourceDTO]): [optional]  # noqa: E501
+            data ([DataSourceDTO]): An array of Data Sources.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

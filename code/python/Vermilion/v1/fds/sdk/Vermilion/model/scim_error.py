@@ -139,9 +139,9 @@ class ScimError(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            detail (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            schemas ([str]): Schemas associated with the error.. [optional]  # noqa: E501
+            detail (str): Detailed description of the error.. [optional]  # noqa: E501
+            status (str): HTTP status code related to the error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScimError(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            detail (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            schemas ([str]): Schemas associated with the error.. [optional]  # noqa: E501
+            detail (str): Detailed description of the error.. [optional]  # noqa: E501
+            status (str): HTTP status code related to the error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

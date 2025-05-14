@@ -168,6 +168,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)401, typeof(ErrorList) },
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetReportDefinitionByCodeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -178,6 +179,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)404, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         # endregion Response Type Disctionaries

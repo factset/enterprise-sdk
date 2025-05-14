@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// RecordSetFieldValues
+    /// Field value and associated metadata for the record set field.
     /// </summary>
     [DataContract(Name = "RecordSetFieldValues")]
     public partial class RecordSetFieldValues : IEquatable<RecordSetFieldValues>, IValidatableObject
     {
         /// <summary>
-        /// Defines FieldType
+        /// The type of the field indicating the kind of data it holds.
         /// </summary>
+        /// <value>The type of the field indicating the kind of data it holds.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FieldTypeEnum
         {
@@ -96,16 +97,17 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets FieldType
+        /// The type of the field indicating the kind of data it holds.
         /// </summary>
+        /// <value>The type of the field indicating the kind of data it holds.</value>
         [DataMember(Name = "fieldType", EmitDefaultValue = false)]
         public FieldTypeEnum? FieldType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="RecordSetFieldValues" /> class.
         /// </summary>
-        /// <param name="fieldId">fieldId.</param>
-        /// <param name="fieldType">fieldType.</param>
-        /// <param name="fieldValue">fieldValue.</param>
+        /// <param name="fieldId">Unique identifier for the field..</param>
+        /// <param name="fieldType">The type of the field indicating the kind of data it holds..</param>
+        /// <param name="fieldValue">The value assigned to the field..</param>
         public RecordSetFieldValues(int fieldId = default(int), FieldTypeEnum? fieldType = default(FieldTypeEnum?), string fieldValue = default(string))
         {
             this.FieldId = fieldId;
@@ -114,14 +116,16 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets FieldId
+        /// Unique identifier for the field.
         /// </summary>
+        /// <value>Unique identifier for the field.</value>
         [DataMember(Name = "fieldId", EmitDefaultValue = false)]
         public int FieldId { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldValue
+        /// The value assigned to the field.
         /// </summary>
+        /// <value>The value assigned to the field.</value>
         [DataMember(Name = "fieldValue", EmitDefaultValue = false)]
         public string FieldValue { get; set; }
 

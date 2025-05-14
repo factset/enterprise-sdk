@@ -139,9 +139,9 @@ class ScimEmail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            primary (bool): [optional]  # noqa: E501
+            value (str): The email address of the user.. [optional]  # noqa: E501
+            type (str): The type of email address (e.g., personal, work).. [optional]  # noqa: E501
+            primary (bool): Indicates if this is the primary email address for the user.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScimEmail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            primary (bool): [optional]  # noqa: E501
+            value (str): The email address of the user.. [optional]  # noqa: E501
+            type (str): The type of email address (e.g., personal, work).. [optional]  # noqa: E501
+            primary (bool): Indicates if this is the primary email address for the user.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

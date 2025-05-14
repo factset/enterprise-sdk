@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceData
+ * Single Report instance data response.
  */
+@ApiModel(description = "Single Report instance data response.")
 @JsonPropertyOrder({
   ReportInstanceData.JSON_PROPERTY_DATA
 })

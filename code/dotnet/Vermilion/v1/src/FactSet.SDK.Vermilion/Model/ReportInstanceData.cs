@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportInstanceData
+    /// Single Report instance data response.
     /// </summary>
     [DataContract(Name = "ReportInstanceData")]
     public partial class ReportInstanceData : IEquatable<ReportInstanceData>, IValidatableObject

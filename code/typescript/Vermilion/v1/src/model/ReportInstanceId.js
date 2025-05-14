@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ReportInstanceId {
     /**
      * Constructs a new <code>ReportInstanceId</code>.
+     * Report instance Object.
      * @alias module:model/ReportInstanceId
      */
     constructor() { 
@@ -57,6 +58,7 @@ class ReportInstanceId {
 }
 
 /**
+ * Unique Identifier for the Report instance.
  * @member {Number} reportInstanceId
  */
 ReportInstanceId.prototype['reportInstanceId'] = undefined;

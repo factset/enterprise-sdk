@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceList
+ * A list of Data Sources.
  */
+@ApiModel(description = "A list of Data Sources.")
 @JsonPropertyOrder({
   DataSourceList.JSON_PROPERTY_META,
   DataSourceList.JSON_PROPERTY_DATA
@@ -92,11 +93,11 @@ public class DataSourceList implements Serializable {
   }
 
    /**
-   * Get data
+   * An array of Data Sources.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of Data Sources.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

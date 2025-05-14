@@ -133,6 +133,7 @@ Name | Type | Description  | Notes
 **201** | Created |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 **403** | Forbidden, user does not have permission to create roles |  -  |
 **409** | Group already exists |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -191,7 +192,7 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     create_scim_user_json_request = CreateScimUserJSONRequest(
         user_name="user_name_example",
         password="password_example",
-        name=ScimUserName(
+        name=CreateScimUserJSONRequestName(
             formatted="formatted_example",
         ),
         preferred_language="preferred_language_example",
@@ -267,6 +268,7 @@ Name | Type | Description  | Notes
 **400** | Bad Request, required values not provided in JSON request body (e.g. tenant, name or userName (loginID) |  -  |
 **403** | Forbidden, user does not have permission to create users or it does not have requested tenancy assigned to it |  -  |
 **409** | User already exists |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -362,6 +364,7 @@ void (empty response body)
 **204** | No Content |  -  |
 **403** | Forbidden, user does not have permission to delete roles |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -457,6 +460,7 @@ void (empty response body)
 **204** | No Content |  -  |
 **403** | Forbidden, user does not have permission to delete users |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -465,7 +469,7 @@ void (empty response body)
 
 Retrieves a list of VRS role
 
-Retrieves a VRS roles
+Retrieves VRS roles
 
 ### Example
 
@@ -514,12 +518,15 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     count = 10 # int | Non-negative maximum number of entries to return (optional)
     start_index = 5 # int | The 1-based index of the first query result (optional)
+    filter = "tenant eq "MASTER,DEMO"" # str | Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO (optional)
+    sort_by = ["displayName"] # [str] | The column to sort on. If parameter is not given, no sorting will be done (optional)
+    sort_order = ["ascending"] # [str] | The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)
 
     try:
         # Retrieves a list of VRS role
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_all_groups(count=count, start_index=start_index)
+        api_response = api_instance.get_all_groups(count=count, start_index=start_index, filter=filter, sort_by=sort_by, sort_order=sort_order)
 
         pprint(api_response)
 
@@ -534,6 +541,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **int**| Non-negative maximum number of entries to return | [optional]
  **start_index** | **int**| The 1-based index of the first query result | [optional]
+ **filter** | **str**| Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO | [optional]
+ **sort_by** | **[str]**| The column to sort on. If parameter is not given, no sorting will be done | [optional]
+ **sort_order** | **[str]**| The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order | [optional]
 
 ### Return type
 
@@ -555,6 +565,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **403** | Forbidden, user does not have permission to view roles |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -653,6 +664,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **403** | Forbidden, user does not have permission to view users |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -749,6 +761,7 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 **403** | Forbidden, user does not have permission to view roles |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -845,6 +858,7 @@ Name | Type | Description  | Notes
 **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 **403** | Forbidden, user does not have permission to view users |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -956,6 +970,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully added user to group |  -  |
+**400** | Bad Request, invalid values provided in JSON request body. |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1065,6 +1081,7 @@ Name | Type | Description  | Notes
 **200** | Successfully updated user |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 **403** | Forbidden, user does not have permission to update users |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1184,6 +1201,7 @@ Name | Type | Description  | Notes
 **200** | Successfully updated group |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 **403** | Forbidden, user does not have permission to update groups |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1337,6 +1355,7 @@ Name | Type | Description  | Notes
 **200** | Successfully updated user |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 **403** | Forbidden, user does not have permission to update users |  -  |
 **404** | Not Found |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

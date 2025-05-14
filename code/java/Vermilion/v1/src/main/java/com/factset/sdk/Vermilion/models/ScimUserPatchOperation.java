@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimUserPatchOperation
+ * Patch operation to modify a user&#39;s attributes. It includes the action to be performed, the attribute to modify, and the new value.
  */
+@ApiModel(description = "Patch operation to modify a user's attributes. It includes the action to be performed, the attribute to modify, and the new value.")
 @JsonPropertyOrder({
   ScimUserPatchOperation.JSON_PROPERTY_OP,
   ScimUserPatchOperation.JSON_PROPERTY_PATH,
@@ -60,11 +61,11 @@ public class ScimUserPatchOperation implements Serializable {
   }
 
    /**
-   * Get op
+   * Action to perform on the attribute.
    * @return op
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Action to perform on the attribute.")
   @JsonProperty(JSON_PROPERTY_OP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScimUserPatchOperation implements Serializable {
   }
 
    /**
-   * Get path
+   * The user attribute path to modify.
    * @return path
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user attribute path to modify.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimUserPatchOperation implements Serializable {
   }
 
    /**
-   * Get value
+   * The value to set for the attribute.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value to set for the attribute.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -21,6 +21,7 @@ import DataSourceAllData from './DataSourceAllData';
 class DataSourceDataInstance {
     /**
      * Constructs a new <code>DataSourceDataInstance</code>.
+     * Response for view data request.
      * @alias module:model/DataSourceDataInstance
      */
     constructor() { 

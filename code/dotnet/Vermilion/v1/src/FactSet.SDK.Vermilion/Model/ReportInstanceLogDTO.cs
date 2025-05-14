@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportInstanceLogDTO
+    /// Report Generation log details.
     /// </summary>
     [DataContract(Name = "ReportInstanceLogDTO")]
     public partial class ReportInstanceLogDTO : IEquatable<ReportInstanceLogDTO>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// Indicates the type of log entry, either a general log or an error.
         /// </summary>
+        /// <value>Indicates the type of log entry, either a general log or an error.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -54,17 +55,18 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Indicates the type of log entry, either a general log or an error.
         /// </summary>
+        /// <value>Indicates the type of log entry, either a general log or an error.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportInstanceLogDTO" /> class.
         /// </summary>
-        /// <param name="sequenceNumber">sequenceNumber.</param>
-        /// <param name="message">message.</param>
-        /// <param name="type">type.</param>
-        /// <param name="updateDate">updateDate.</param>
+        /// <param name="sequenceNumber">Sequential number of the log entry..</param>
+        /// <param name="message">Detailed message describing the log event or error..</param>
+        /// <param name="type">Indicates the type of log entry, either a general log or an error..</param>
+        /// <param name="updateDate">The date and time of the last update for this log entry..</param>
         public ReportInstanceLogDTO(int sequenceNumber = default(int), string message = default(string), TypeEnum? type = default(TypeEnum?), string updateDate = default(string))
         {
             this.SequenceNumber = sequenceNumber;
@@ -74,20 +76,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets SequenceNumber
+        /// Sequential number of the log entry.
         /// </summary>
+        /// <value>Sequential number of the log entry.</value>
         [DataMember(Name = "sequenceNumber", EmitDefaultValue = false)]
         public int SequenceNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Detailed message describing the log event or error.
         /// </summary>
+        /// <value>Detailed message describing the log event or error.</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdateDate
+        /// The date and time of the last update for this log entry.
         /// </summary>
+        /// <value>The date and time of the last update for this log entry.</value>
         [DataMember(Name = "updateDate", EmitDefaultValue = false)]
         public string UpdateDate { get; set; }
 

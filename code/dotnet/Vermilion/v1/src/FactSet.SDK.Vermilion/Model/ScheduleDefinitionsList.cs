@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleDefinitionsList
+    /// A list of Schedule Definition.
     /// </summary>
     [DataContract(Name = "ScheduleDefinitionsList")]
     public partial class ScheduleDefinitionsList : IEquatable<ScheduleDefinitionsList>, IValidatableObject
@@ -36,8 +36,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="ScheduleDefinitionsList" /> class.
         /// </summary>
         /// <param name="meta">meta.</param>
-        /// <param name="data">data.</param>
-        public ScheduleDefinitionsList(DataSourceListMeta meta = default(DataSourceListMeta), List<ScheduleDefinition> data = default(List<ScheduleDefinition>))
+        /// <param name="data">An array of Schedule Definitions..</param>
+        public ScheduleDefinitionsList(ScheduleDefinitionsListMeta meta = default(ScheduleDefinitionsListMeta), List<ScheduleDefinition> data = default(List<ScheduleDefinition>))
         {
             this.Meta = meta;
             this.Data = data;
@@ -47,11 +47,12 @@ namespace FactSet.SDK.Vermilion.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public DataSourceListMeta Meta { get; set; }
+        public ScheduleDefinitionsListMeta Meta { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// An array of Schedule Definitions.
         /// </summary>
+        /// <value>An array of Schedule Definitions.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<ScheduleDefinition> Data { get; set; }
 

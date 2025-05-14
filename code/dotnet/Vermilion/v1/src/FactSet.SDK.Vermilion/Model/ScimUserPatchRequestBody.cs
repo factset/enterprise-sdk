@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimUserPatchRequestBody
+    /// Defines the request payload for updating a user&#39;s attributes. The patch operation modifies specific fields of a user.
     /// </summary>
     [DataContract(Name = "ScimUserPatchRequestBody")]
     public partial class ScimUserPatchRequestBody : IEquatable<ScimUserPatchRequestBody>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimUserPatchRequestBody" /> class.
         /// </summary>
-        /// <param name="schemas">schemas.</param>
-        /// <param name="operations">operations.</param>
+        /// <param name="schemas">A list of URIs that indicate the namespaces of the schema used in this request..</param>
+        /// <param name="operations">A list of operations defining the specific changes to apply to the user&#39;s attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value.</param>
         public ScimUserPatchRequestBody(List<string> schemas = default(List<string>), List<ScimUserPatchOperation> operations = default(List<ScimUserPatchOperation>))
         {
             this.Schemas = schemas;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Schemas
+        /// A list of URIs that indicate the namespaces of the schema used in this request.
         /// </summary>
+        /// <value>A list of URIs that indicate the namespaces of the schema used in this request.</value>
         [DataMember(Name = "schemas", EmitDefaultValue = false)]
         public List<string> Schemas { get; set; }
 
         /// <summary>
-        /// Gets or Sets Operations
+        /// A list of operations defining the specific changes to apply to the user&#39;s attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value
         /// </summary>
+        /// <value>A list of operations defining the specific changes to apply to the user&#39;s attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value</value>
         [DataMember(Name = "Operations", EmitDefaultValue = false)]
         public List<ScimUserPatchOperation> Operations { get; set; }
 

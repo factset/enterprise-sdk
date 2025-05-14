@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.Vermilion.models.DataSourceListMeta;
+import com.factset.sdk.Vermilion.models.EntityFieldValueDTOMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * EntityFieldValueDTO
+ * Entity value with its unique identifiers and attributes.
  */
+@ApiModel(description = "Entity value with its unique identifiers and attributes.")
 @JsonPropertyOrder({
   EntityFieldValueDTO.JSON_PROPERTY_META,
   EntityFieldValueDTO.JSON_PROPERTY_DATA
@@ -43,7 +44,7 @@ public class EntityFieldValueDTO implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private DataSourceListMeta meta;
+  private EntityFieldValueDTOMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Object> data = null;
@@ -51,7 +52,7 @@ public class EntityFieldValueDTO implements Serializable {
   public EntityFieldValueDTO() { 
   }
 
-  public EntityFieldValueDTO meta(DataSourceListMeta meta) {
+  public EntityFieldValueDTO meta(EntityFieldValueDTOMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -65,14 +66,14 @@ public class EntityFieldValueDTO implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DataSourceListMeta getMeta() {
+  public EntityFieldValueDTOMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(DataSourceListMeta meta) {
+  public void setMeta(EntityFieldValueDTOMeta meta) {
     this.meta = meta;
   }
 
@@ -91,11 +92,11 @@ public class EntityFieldValueDTO implements Serializable {
   }
 
    /**
-   * Get data
+   * Collection of Entity rows with their associated values and fields.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of Entity rows with their associated values and fields.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

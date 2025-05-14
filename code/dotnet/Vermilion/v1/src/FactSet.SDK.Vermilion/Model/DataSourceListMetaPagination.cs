@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// DataSourceListMetaPagination
+    /// Pagination information for the Data Source list response.
     /// </summary>
     [DataContract(Name = "DataSourceList_meta_pagination")]
     public partial class DataSourceListMetaPagination : IEquatable<DataSourceListMetaPagination>, IValidatableObject
@@ -35,8 +35,8 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataSourceListMetaPagination" /> class.
         /// </summary>
-        /// <param name="total">total.</param>
-        /// <param name="isEstimatedTotal">isEstimatedTotal.</param>
+        /// <param name="total">The total number of Data Sources available in the response..</param>
+        /// <param name="isEstimatedTotal">A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false)..</param>
         public DataSourceListMetaPagination(int total = default(int), bool isEstimatedTotal = default(bool))
         {
             this.Total = total;
@@ -44,14 +44,16 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Total
+        /// The total number of Data Sources available in the response.
         /// </summary>
+        /// <value>The total number of Data Sources available in the response.</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsEstimatedTotal
+        /// A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).
         /// </summary>
+        /// <value>A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).</value>
         [DataMember(Name = "isEstimatedTotal", EmitDefaultValue = true)]
         public bool IsEstimatedTotal { get; set; }
 

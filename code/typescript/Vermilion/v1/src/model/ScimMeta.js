@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimMeta {
     /**
      * Constructs a new <code>ScimMeta</code>.
+     * Metadata information for the resource.
      * @alias module:model/ScimMeta
      */
     constructor() { 
@@ -66,21 +67,25 @@ class ScimMeta {
 }
 
 /**
+ * The type of resource (e.g., VRSUser, VRSGroup).
  * @member {String} resourceType
  */
 ScimMeta.prototype['resourceType'] = undefined;
 
 /**
+ * The timestamp of when the resource was created.
  * @member {String} created
  */
 ScimMeta.prototype['created'] = undefined;
 
 /**
+ * The timestamp of when the resource was last modified.
  * @member {String} lastModified
  */
 ScimMeta.prototype['lastModified'] = undefined;
 
 /**
+ * The URI location of the resource.
  * @member {String} location
  */
 ScimMeta.prototype['location'] = undefined;

@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceListMetaPagination
+ * Pagination information for the Data Source list response.
  */
+@ApiModel(description = "Pagination information for the Data Source list response.")
 @JsonPropertyOrder({
   DataSourceListMetaPagination.JSON_PROPERTY_TOTAL,
   DataSourceListMetaPagination.JSON_PROPERTY_IS_ESTIMATED_TOTAL
@@ -56,11 +57,11 @@ public class DataSourceListMetaPagination implements Serializable {
   }
 
    /**
-   * Get total
+   * The total number of Data Sources available in the response.
    * @return total
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total number of Data Sources available in the response.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -82,11 +83,11 @@ public class DataSourceListMetaPagination implements Serializable {
   }
 
    /**
-   * Get isEstimatedTotal
+   * A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).
    * @return isEstimatedTotal
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A flag that specifies if the total number of records returned is an estimate (true) or an exact count (false).")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

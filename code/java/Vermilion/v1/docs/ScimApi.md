@@ -110,6 +110,7 @@ Name | Type | Description  | Notes
 | **201** | Created |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to create roles |  -  |
 | **409** | Group already exists |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## createUser
@@ -204,6 +205,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request, required values not provided in JSON request body (e.g. tenant, name or userName (loginID) |  -  |
 | **403** | Forbidden, user does not have permission to create users or it does not have requested tenancy assigned to it |  -  |
 | **409** | User already exists |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## deleteGroupById
@@ -296,6 +298,7 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Forbidden, user does not have permission to delete roles |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## deleteUserById
@@ -388,15 +391,16 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Forbidden, user does not have permission to delete users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getAllGroups
 
-> ScimGroupListResponse getAllGroups(count, startIndex)
+> ScimGroupListResponse getAllGroups(count, startIndex, filter, sortBy, sortOrder)
 
 Retrieves a list of VRS role
 
-Retrieves a VRS roles
+Retrieves VRS roles
 
 ### Example
 
@@ -441,8 +445,11 @@ public class Example {
         ScimApi apiInstance = new ScimApi(defaultClient);
         Integer count = 10; // Integer | Non-negative maximum number of entries to return
         Integer startIndex = 5; // Integer | The 1-based index of the first query result
+        String filter = "tenant eq \"MASTER,DEMO\""; // String | Acts as a filter for the retrieval process. if filter=tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO
+        java.util.List<String> sortBy = Arrays.asList(); // java.util.List<String> | The column to sort on. If parameter is not given, no sorting will be done
+        java.util.List<String> sortOrder = Arrays.asList(); // java.util.List<String> | The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order
         try {
-            ScimGroupListResponse result = apiInstance.getAllGroups(count, startIndex);
+            ScimGroupListResponse result = apiInstance.getAllGroups(count, startIndex, filter, sortBy, sortOrder);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -463,6 +470,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | **Integer**| Non-negative maximum number of entries to return | [optional]
  **startIndex** | **Integer**| The 1-based index of the first query result | [optional]
+ **filter** | **String**| Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO | [optional]
+ **sortBy** | **List&lt;String&gt;**| The column to sort on. If parameter is not given, no sorting will be done | [optional]
+ **sortOrder** | **List&lt;String&gt;**| The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order | [optional]
 
 ### Return type
 
@@ -482,6 +492,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **403** | Forbidden, user does not have permission to view roles |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getAllUsers
@@ -576,6 +587,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
 | **403** | Forbidden, user does not have permission to view users |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getGroupById
@@ -669,6 +681,7 @@ Name | Type | Description  | Notes
 | **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to view roles |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getUserById
@@ -762,6 +775,7 @@ Name | Type | Description  | Notes
 | **200** | Successful operation |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to view users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## patchGroupById
@@ -855,6 +869,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully added user to group |  -  |
+| **400** | Bad Request, invalid values provided in JSON request body. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## patchUserById
@@ -950,6 +966,7 @@ Name | Type | Description  | Notes
 | **200** | Successfully updated user |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to update users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## updateGroupById
@@ -1045,6 +1062,7 @@ Name | Type | Description  | Notes
 | **200** | Successfully updated group |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to update groups |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## updateUserById
@@ -1140,4 +1158,5 @@ Name | Type | Description  | Notes
 | **200** | Successfully updated user |  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  |
 | **403** | Forbidden, user does not have permission to update users |  -  |
 | **404** | Not Found |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 

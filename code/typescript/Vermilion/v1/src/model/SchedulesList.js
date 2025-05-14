@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import DataSourceListMeta from './DataSourceListMeta';
 import ScheduleData from './ScheduleData';
+import SchedulesListMeta from './SchedulesListMeta';
 
 /**
  * The SchedulesList model module.
@@ -22,6 +22,7 @@ import ScheduleData from './ScheduleData';
 class SchedulesList {
     /**
      * Constructs a new <code>SchedulesList</code>.
+     * List of Schedules.
      * @alias module:model/SchedulesList
      */
     constructor() { 
@@ -49,7 +50,7 @@ class SchedulesList {
             obj = obj || new SchedulesList();
 
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = DataSourceListMeta.constructFromObject(data['meta']);
+                obj['meta'] = SchedulesListMeta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ScheduleData]);
@@ -62,11 +63,12 @@ class SchedulesList {
 }
 
 /**
- * @member {module:model/DataSourceListMeta} meta
+ * @member {module:model/SchedulesListMeta} meta
  */
 SchedulesList.prototype['meta'] = undefined;
 
 /**
+ * An array of schedule objects.
  * @member {Array.<module:model/ScheduleData>} data
  */
 SchedulesList.prototype['data'] = undefined;

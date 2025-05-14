@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimGroupMember
+ * User in a group/role.
  */
+@ApiModel(description = "User in a group/role.")
 @JsonPropertyOrder({
   ScimGroupMember.JSON_PROPERTY_VALUE,
   ScimGroupMember.JSON_PROPERTY_$_REF,
@@ -60,11 +61,11 @@ public class ScimGroupMember implements Serializable {
   }
 
    /**
-   * Get value
+   * Unique identifier of the user.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier of the user.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScimGroupMember implements Serializable {
   }
 
    /**
-   * A callback link which can be used to get the information of the group
+   * A callback link which can be used to get the information of the user
    * @return $ref
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A callback link which can be used to get the information of the group")
+  @ApiModelProperty(value = "A callback link which can be used to get the information of the user")
   @JsonProperty(JSON_PROPERTY_$_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScimGroupMember implements Serializable {
   }
 
    /**
-   * Get type
+   * Type of the resource.
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of the resource.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

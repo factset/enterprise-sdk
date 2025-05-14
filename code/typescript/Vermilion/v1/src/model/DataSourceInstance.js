@@ -21,6 +21,7 @@ import DataSourceInstanceRows from './DataSourceInstanceRows';
 class DataSourceInstance {
     /**
      * Constructs a new <code>DataSourceInstance</code>.
+     * Data Source instance object.
      * @alias module:model/DataSourceInstance
      */
     constructor() { 
@@ -64,16 +65,19 @@ class DataSourceInstance {
 }
 
 /**
+ * Unique Identifier of the Data Source Instance.
  * @member {Number} dstInstanceId
  */
 DataSourceInstance.prototype['dstInstanceId'] = undefined;
 
 /**
+ * Type of the Data source
  * @member {String} dstInstanceType
  */
 DataSourceInstance.prototype['dstInstanceType'] = undefined;
 
 /**
+ * An array of data row of the Data source
  * @member {Array.<module:model/DataSourceInstanceRows>} rows
  */
 DataSourceInstance.prototype['rows'] = undefined;

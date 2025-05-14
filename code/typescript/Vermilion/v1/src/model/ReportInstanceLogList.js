@@ -21,6 +21,7 @@ import ReportInstanceLogDTO from './ReportInstanceLogDTO';
 class ReportInstanceLogList {
     /**
      * Constructs a new <code>ReportInstanceLogList</code>.
+     * List of report generation logs associated with Report instances.
      * @alias module:model/ReportInstanceLogList
      */
     constructor() { 
@@ -58,6 +59,7 @@ class ReportInstanceLogList {
 }
 
 /**
+ * An array of Report generation log entries for the Report instance.
  * @member {Array.<module:model/ReportInstanceLogDTO>} data
  */
 ReportInstanceLogList.prototype['data'] = undefined;

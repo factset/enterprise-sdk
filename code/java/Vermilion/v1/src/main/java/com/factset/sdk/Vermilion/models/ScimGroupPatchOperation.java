@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimGroupPatchOperation
+ * Patch operation to modify a group&#39;s attributes. It defines the action to take, the attribute to modify, and the new value.
  */
+@ApiModel(description = "Patch operation to modify a group's attributes. It defines the action to take, the attribute to modify, and the new value.")
 @JsonPropertyOrder({
   ScimGroupPatchOperation.JSON_PROPERTY_OP,
   ScimGroupPatchOperation.JSON_PROPERTY_PATH,
@@ -61,11 +62,11 @@ public class ScimGroupPatchOperation implements Serializable {
   }
 
    /**
-   * Get op
+   * Action to perform on the group attribute.
    * @return op
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Action to perform on the group attribute.")
   @JsonProperty(JSON_PROPERTY_OP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +88,11 @@ public class ScimGroupPatchOperation implements Serializable {
   }
 
    /**
-   * Get path
+   * The group/role attribute path to modify.
    * @return path
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The group/role attribute path to modify.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleDefinitionOwnerRole
+ * The owner of the Schedule Definition (Role)
  */
+@ApiModel(description = "The owner of the Schedule Definition (Role)")
 @JsonPropertyOrder({
   ScheduleDefinitionOwnerRole.JSON_PROPERTY_ROLE_ID,
   ScheduleDefinitionOwnerRole.JSON_PROPERTY_NAME,
@@ -60,11 +61,11 @@ public class ScheduleDefinitionOwnerRole implements Serializable {
   }
 
    /**
-   * Get roleId
+   * Unique ID of Owner role for the Schedule Definition.
    * @return roleId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique ID of Owner role for the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_ROLE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -86,11 +87,11 @@ public class ScheduleDefinitionOwnerRole implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of Owner role for the Schedule Definition.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of Owner role for the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,11 +113,11 @@ public class ScheduleDefinitionOwnerRole implements Serializable {
   }
 
    /**
-   * Get code
+   * Code of Owner role for the Schedule Definition.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Code of Owner role for the Schedule Definition.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

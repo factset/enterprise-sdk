@@ -2,12 +2,13 @@
 
 # ReportInstanceListMeta
 
+Meta data of Report instance list.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pagination** | [**DataSourceListMetaPagination**](DataSourceListMetaPagination.md) |  |  [optional]
+**pagination** | [**ReportInstanceListMetaPagination**](ReportInstanceListMetaPagination.md) |  |  [optional]
 
 
 ## Implemented Interfaces

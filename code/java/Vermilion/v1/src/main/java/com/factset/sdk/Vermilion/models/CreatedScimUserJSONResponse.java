@@ -36,8 +36,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * CreatedScimUserJSONResponse
+ * Response object for creating a new SCIM user, containing core identity details, contact information, and account settings.
  */
+@ApiModel(description = "Response object for creating a new SCIM user, containing core identity details, contact information, and account settings.")
 @JsonPropertyOrder({
   CreatedScimUserJSONResponse.JSON_PROPERTY_SCHEMAS,
   CreatedScimUserJSONResponse.JSON_PROPERTY_ID,
@@ -126,11 +127,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get schemas
+   * Array listing the schema URIs associated with the user resource.
    * @return schemas
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array listing the schema URIs associated with the user resource.")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -152,11 +153,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get id
+   * Unique identifier for the newly created user.
    * @return id
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier for the newly created user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -178,11 +179,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get userName
+   * Username used for identifying and logging in the user.
    * @return userName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Username used for identifying and logging in the user.")
   @JsonProperty(JSON_PROPERTY_USER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -230,11 +231,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get userType
+   * Type of user.
    * @return userType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of user.")
   @JsonProperty(JSON_PROPERTY_USER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -256,11 +257,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get preferredLanguage
+   * User&#39;s preferred language.
    * @return preferredLanguage
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "User's preferred language.")
   @JsonProperty(JSON_PROPERTY_PREFERRED_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -282,11 +283,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get active
+   * Indicates if the user&#39;s account is currently active.
    * @return active
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates if the user's account is currently active.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -308,11 +309,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get authenticatedUserName
+   * Authenticated username used by SSO login.
    * @return authenticatedUserName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Authenticated username used by SSO login.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATED_USER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -334,11 +335,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get tenant
+   * Tenancy code in which the user was created.
    * @return tenant
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Tenancy code in which the user was created.")
   @JsonProperty(JSON_PROPERTY_TENANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -368,11 +369,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get phoneNumbers
+   * Array of phone numbers for the user, each with a type and value.
    * @return phoneNumbers
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of phone numbers for the user, each with a type and value.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -402,11 +403,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get emails
+   * Array of email addresses linked to the user account.
    * @return emails
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of email addresses linked to the user account.")
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -436,11 +437,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get tenancies
+   * List of tenancies the user is associated with.
    * @return tenancies
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of tenancies the user is associated with.")
   @JsonProperty(JSON_PROPERTY_TENANCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -470,11 +471,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get photos
+   * Array of URLs to the user&#39;s profile photos or avatars.
    * @return photos
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of URLs to the user's profile photos or avatars.")
   @JsonProperty(JSON_PROPERTY_PHOTOS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -496,11 +497,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get domainCode
+   * Domain code representing the user&#39;s domain.
    * @return domainCode
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Domain code representing the user's domain.")
   @JsonProperty(JSON_PROPERTY_DOMAIN_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -522,11 +523,11 @@ public class CreatedScimUserJSONResponse implements Serializable {
   }
 
    /**
-   * Get isAdministrator
+   * Flag indicating if the user has admin privileges.
    * @return isAdministrator
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Flag indicating if the user has admin privileges.")
   @JsonProperty(JSON_PROPERTY_IS_ADMINISTRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

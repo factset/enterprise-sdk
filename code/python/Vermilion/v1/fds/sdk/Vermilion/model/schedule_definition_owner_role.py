@@ -139,9 +139,9 @@ class ScheduleDefinitionOwnerRole(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            role_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
+            role_id (int): Unique ID of Owner role for the Schedule Definition.. [optional]  # noqa: E501
+            name (str): Name of Owner role for the Schedule Definition.. [optional]  # noqa: E501
+            code (str): Code of Owner role for the Schedule Definition.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class ScheduleDefinitionOwnerRole(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            role_id (int): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            code (str): [optional]  # noqa: E501
+            role_id (int): Unique ID of Owner role for the Schedule Definition.. [optional]  # noqa: E501
+            name (str): Name of Owner role for the Schedule Definition.. [optional]  # noqa: E501
+            code (str): Code of Owner role for the Schedule Definition.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

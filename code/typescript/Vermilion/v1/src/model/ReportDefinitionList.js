@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import ReportDefinitionDTO from './ReportDefinitionDTO';
-import ReportInstanceListMeta from './ReportInstanceListMeta';
+import ReportDefinitionListMeta from './ReportDefinitionListMeta';
 
 /**
  * The ReportDefinitionList model module.
@@ -22,6 +22,7 @@ import ReportInstanceListMeta from './ReportInstanceListMeta';
 class ReportDefinitionList {
     /**
      * Constructs a new <code>ReportDefinitionList</code>.
+     * List of Report Definitions.
      * @alias module:model/ReportDefinitionList
      */
     constructor() { 
@@ -49,7 +50,7 @@ class ReportDefinitionList {
             obj = obj || new ReportDefinitionList();
 
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = ReportInstanceListMeta.constructFromObject(data['meta']);
+                obj['meta'] = ReportDefinitionListMeta.constructFromObject(data['meta']);
             }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ReportDefinitionDTO]);
@@ -62,11 +63,12 @@ class ReportDefinitionList {
 }
 
 /**
- * @member {module:model/ReportInstanceListMeta} meta
+ * @member {module:model/ReportDefinitionListMeta} meta
  */
 ReportDefinitionList.prototype['meta'] = undefined;
 
 /**
+ * A list of Report Definitions.
  * @member {Array.<module:model/ReportDefinitionDTO>} data
  */
 ReportDefinitionList.prototype['data'] = undefined;

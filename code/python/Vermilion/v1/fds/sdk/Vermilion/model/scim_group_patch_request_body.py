@@ -143,8 +143,8 @@ class ScimGroupPatchRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            operations ([ScimGroupPatchOperation]): [optional]  # noqa: E501
+            schemas ([str]): An array of URIs representing the schema namespaces applied to this request.. [optional]  # noqa: E501
+            operations ([ScimGroupPatchOperation]): A list of operations specifying the actions to perform on the group's attributes, such as adding, removing, or updating members.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +226,8 @@ class ScimGroupPatchRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schemas ([str]): [optional]  # noqa: E501
-            operations ([ScimGroupPatchOperation]): [optional]  # noqa: E501
+            schemas ([str]): An array of URIs representing the schema namespaces applied to this request.. [optional]  # noqa: E501
+            operations ([ScimGroupPatchOperation]): A list of operations specifying the actions to perform on the group's attributes, such as adding, removing, or updating members.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

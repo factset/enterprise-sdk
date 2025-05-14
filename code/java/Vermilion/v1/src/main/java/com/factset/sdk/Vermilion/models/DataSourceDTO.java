@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * DataSourceDTO
+ * A DataSource object aggregates data from multiple providers, such as APIs, databases, or file systems, to simplify access and processing.
  */
+@ApiModel(description = "A DataSource object aggregates data from multiple providers, such as APIs, databases, or file systems, to simplify access and processing.")
 @JsonPropertyOrder({
   DataSourceDTO.JSON_PROPERTY_DATA_SOURCE_ID,
   DataSourceDTO.JSON_PROPERTY_NAME,
@@ -62,7 +63,7 @@ public class DataSourceDTO implements Serializable {
   private String code;
 
   /**
-   * Gets or Sets dsType
+   * Type of the Data Source.
    */
   public enum DsTypeEnum {
     AUTOMATIC("AUTOMATIC"),
@@ -131,11 +132,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get dataSourceId
+   * Unique Identifier for the Data Source.
    * @return dataSourceId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier for the Data Source.")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,11 +158,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the Data Source.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the Data Source.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,11 +184,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get code
+   * Code of the Data Source.
    * @return code
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Code of the Data Source.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -209,11 +210,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get dsType
+   * Type of the Data Source.
    * @return dsType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of the Data Source.")
   @JsonProperty(JSON_PROPERTY_DS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -243,11 +244,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get entities
+   * An array of entities that are used in the Data Source.
    * @return entities
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of entities that are used in the Data Source.")
   @JsonProperty(JSON_PROPERTY_ENTITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -269,11 +270,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get outputRecordSet
+   * Recordset name that is used for output in the Data Source.
    * @return outputRecordSet
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Recordset name that is used for output in the Data Source.")
   @JsonProperty(JSON_PROPERTY_OUTPUT_RECORD_SET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -295,11 +296,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get releaseTag
+   * Release tag associated with the Data Source.
    * @return releaseTag
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Release tag associated with the Data Source.")
   @JsonProperty(JSON_PROPERTY_RELEASE_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -321,11 +322,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get defaultDataSourceName
+   * Name of the default Data Source.
    * @return defaultDataSourceName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the default Data Source.")
   @JsonProperty(JSON_PROPERTY_DEFAULT_DATA_SOURCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -347,11 +348,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get dataPreview
+   * Name of the component/report used for Data Source preview.
    * @return dataPreview
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the component/report used for Data Source preview.")
   @JsonProperty(JSON_PROPERTY_DATA_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -373,11 +374,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get lastUpdatedBy
+   * Indicates the username of the person who last updated the Data Source.
    * @return lastUpdatedBy
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates the username of the person who last updated the Data Source.")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -399,11 +400,11 @@ public class DataSourceDTO implements Serializable {
   }
 
    /**
-   * Get lastUpdated
+   * The timestamp of the most recent update in epoch format of the Data Source
    * @return lastUpdated
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the most recent update in epoch format of the Data Source")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

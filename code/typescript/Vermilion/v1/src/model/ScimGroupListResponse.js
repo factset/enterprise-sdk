@@ -21,6 +21,7 @@ import ScimGroup from './ScimGroup';
 class ScimGroupListResponse {
     /**
      * Constructs a new <code>ScimGroupListResponse</code>.
+     * List of groups/roles.
      * @alias module:model/ScimGroupListResponse
      */
     constructor() { 
@@ -67,21 +68,25 @@ class ScimGroupListResponse {
 }
 
 /**
+ * The total number of groups/roles available.
  * @member {Number} totalResults
  */
 ScimGroupListResponse.prototype['totalResults'] = undefined;
 
 /**
+ * The number of groups per page.
  * @member {Number} itemsPerPage
  */
 ScimGroupListResponse.prototype['itemsPerPage'] = undefined;
 
 /**
+ * The starting index for the returned groups.
  * @member {Number} startIndex
  */
 ScimGroupListResponse.prototype['startIndex'] = undefined;
 
 /**
+ * List of groups/roles returned in the response.
  * @member {Array.<module:model/ScimGroup>} Resources
  */
 ScimGroupListResponse.prototype['Resources'] = undefined;

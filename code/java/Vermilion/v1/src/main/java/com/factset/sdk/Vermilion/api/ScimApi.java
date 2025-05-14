@@ -39,6 +39,7 @@ public class ScimApi {
     createGroupResponseTypeMap.put(201, new GenericType<ScimGroup>(){});
     createGroupResponseTypeMap.put(403, new GenericType<ScimError>(){});
     createGroupResponseTypeMap.put(409, new GenericType<ScimError>(){});
+    createGroupResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> createUserResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -47,6 +48,7 @@ public class ScimApi {
     createUserResponseTypeMap.put(400, new GenericType<ScimError>(){});
     createUserResponseTypeMap.put(403, new GenericType<ScimError>(){});
     createUserResponseTypeMap.put(409, new GenericType<ScimError>(){});
+    createUserResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> deleteGroupByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -57,12 +59,14 @@ public class ScimApi {
   static {
     getAllGroupsResponseTypeMap.put(200, new GenericType<ScimGroupListResponse>(){});
     getAllGroupsResponseTypeMap.put(403, new GenericType<ScimError>(){});
+    getAllGroupsResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> getAllUsersResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getAllUsersResponseTypeMap.put(200, new GenericType<ScimUserListResponse>(){});
     getAllUsersResponseTypeMap.put(403, new GenericType<ScimError>(){});
+    getAllUsersResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> getGroupByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -70,6 +74,7 @@ public class ScimApi {
     getGroupByIdResponseTypeMap.put(200, new GenericType<ScimGroup>(){});
     getGroupByIdResponseTypeMap.put(403, new GenericType<ScimError>(){});
     getGroupByIdResponseTypeMap.put(404, new GenericType<ScimError>(){});
+    getGroupByIdResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> getUserByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -77,11 +82,14 @@ public class ScimApi {
     getUserByIdResponseTypeMap.put(200, new GenericType<ScimUser>(){});
     getUserByIdResponseTypeMap.put(403, new GenericType<ScimError>(){});
     getUserByIdResponseTypeMap.put(404, new GenericType<ScimError>(){});
+    getUserByIdResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> patchGroupByIdResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     patchGroupByIdResponseTypeMap.put(200, new GenericType<ScimGroup>(){});
+    patchGroupByIdResponseTypeMap.put(400, new GenericType<ScimError>(){});
+    patchGroupByIdResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> patchUserByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -89,6 +97,7 @@ public class ScimApi {
     patchUserByIdResponseTypeMap.put(200, new GenericType<ScimUser>(){});
     patchUserByIdResponseTypeMap.put(403, new GenericType<ScimError>(){});
     patchUserByIdResponseTypeMap.put(404, new GenericType<ScimError>(){});
+    patchUserByIdResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> updateGroupByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -96,6 +105,7 @@ public class ScimApi {
     updateGroupByIdResponseTypeMap.put(200, new GenericType<ScimGroup>(){});
     updateGroupByIdResponseTypeMap.put(403, new GenericType<ScimError>(){});
     updateGroupByIdResponseTypeMap.put(404, new GenericType<ScimError>(){});
+    updateGroupByIdResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   private static final Map<Integer, GenericType> updateUserByIdResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -103,6 +113,7 @@ public class ScimApi {
     updateUserByIdResponseTypeMap.put(200, new GenericType<ScimUser>(){});
     updateUserByIdResponseTypeMap.put(403, new GenericType<ScimError>(){});
     updateUserByIdResponseTypeMap.put(404, new GenericType<ScimError>(){});
+    updateUserByIdResponseTypeMap.put(500, new GenericType<ScimError>(){});
   }
 
   
@@ -138,6 +149,7 @@ public class ScimApi {
        <tr><td> 201 </td><td> Created </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to create roles </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Group already exists </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimGroup createGroup(ScimGroup scimGroup) throws ApiException {
@@ -156,6 +168,7 @@ public class ScimApi {
        <tr><td> 201 </td><td> Created </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to create roles </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Group already exists </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimGroup> createGroupWithHttpInfo(ScimGroup scimGroup) throws ApiException {
@@ -216,6 +229,7 @@ public class ScimApi {
        <tr><td> 400 </td><td> Bad Request, required values not provided in JSON request body (e.g. tenant, name or userName (loginID) </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to create users or it does not have requested tenancy assigned to it </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> User already exists </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public CreatedScimUserJSONResponse createUser(CreateScimUserJSONRequest createScimUserJSONRequest) throws ApiException {
@@ -235,6 +249,7 @@ public class ScimApi {
        <tr><td> 400 </td><td> Bad Request, required values not provided in JSON request body (e.g. tenant, name or userName (loginID) </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to create users or it does not have requested tenancy assigned to it </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> User already exists </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<CreatedScimUserJSONResponse> createUserWithHttpInfo(CreateScimUserJSONRequest createScimUserJSONRequest) throws ApiException {
@@ -293,6 +308,7 @@ public class ScimApi {
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to delete roles </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public void deleteGroupById(String groupId) throws ApiException {
@@ -311,6 +327,7 @@ public class ScimApi {
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to delete roles </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteGroupByIdWithHttpInfo(String groupId) throws ApiException {
@@ -368,6 +385,7 @@ public class ScimApi {
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to delete users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public void deleteUserById(String userId) throws ApiException {
@@ -386,6 +404,7 @@ public class ScimApi {
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to delete users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> deleteUserByIdWithHttpInfo(String userId) throws ApiException {
@@ -434,9 +453,12 @@ public class ScimApi {
   }
   /**
    * Retrieves a list of VRS role
-   * Retrieves a VRS roles
+   * Retrieves VRS roles
    * @param count Non-negative maximum number of entries to return (optional)
    * @param startIndex The 1-based index of the first query result (optional)
+   * @param filter Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)
+   * @param sortBy The column to sort on. If parameter is not given, no sorting will be done (optional)
+   * @param sortOrder The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)
    * @return ScimGroupListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -444,17 +466,21 @@ public class ScimApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view roles </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
-  public ScimGroupListResponse getAllGroups(Integer count, Integer startIndex) throws ApiException {
-    return getAllGroupsWithHttpInfo(count, startIndex).getData();
+  public ScimGroupListResponse getAllGroups(Integer count, Integer startIndex, String filter, java.util.List<String> sortBy, java.util.List<String> sortOrder) throws ApiException {
+    return getAllGroupsWithHttpInfo(count, startIndex, filter, sortBy, sortOrder).getData();
   }
 
   /**
    * Retrieves a list of VRS role
-   * Retrieves a VRS roles
+   * Retrieves VRS roles
    * @param count Non-negative maximum number of entries to return (optional)
    * @param startIndex The 1-based index of the first query result (optional)
+   * @param filter Acts as a filter for the retrieval process. if filter&#x3D;tenant, filters the groups that match the given tenant code. Accepts multiple values separated by a comma, e.g. ?filter&#x3D;tenant eq MASTER,DEMO (optional)
+   * @param sortBy The column to sort on. If parameter is not given, no sorting will be done (optional)
+   * @param sortOrder The order in which the sort is applied for the sort by parameter. If parameter is not given along with a sortBy, sorting will be done in ascending order (optional)
    * @return ApiResponse&lt;ScimGroupListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -462,9 +488,10 @@ public class ScimApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view roles </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ScimGroupListResponse> getAllGroupsWithHttpInfo(Integer count, Integer startIndex) throws ApiException {
+  public ApiResponse<ScimGroupListResponse> getAllGroupsWithHttpInfo(Integer count, Integer startIndex, String filter, java.util.List<String> sortBy, java.util.List<String> sortOrder) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -478,6 +505,9 @@ public class ScimApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startIndex", startIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "sortBy", sortBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "sortOrder", sortOrder));
 
     
     
@@ -518,6 +548,7 @@ public class ScimApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view users </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimUserListResponse getAllUsers(Integer count, Integer startIndex) throws ApiException {
@@ -536,6 +567,7 @@ public class ScimApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view users </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimUserListResponse> getAllUsersWithHttpInfo(Integer count, Integer startIndex) throws ApiException {
@@ -592,6 +624,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view roles </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimGroup getGroupById(String groupId) throws ApiException {
@@ -610,6 +643,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view roles </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimGroup> getGroupByIdWithHttpInfo(String groupId) throws ApiException {
@@ -670,6 +704,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimUser getUserById(String userId) throws ApiException {
@@ -688,6 +723,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successful operation </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to view users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimUser> getUserByIdWithHttpInfo(String userId) throws ApiException {
@@ -747,6 +783,8 @@ public class ScimApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successfully added user to group </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request, invalid values provided in JSON request body. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimGroup patchGroupById(String groupId, ScimGroupPatchRequestBody scimGroupPatchRequestBody) throws ApiException {
@@ -764,6 +802,8 @@ public class ScimApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successfully added user to group </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request, invalid values provided in JSON request body. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimGroup> patchGroupByIdWithHttpInfo(String groupId, ScimGroupPatchRequestBody scimGroupPatchRequestBody) throws ApiException {
@@ -830,6 +870,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successfully updated user </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to update users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimUser patchUserById(String userId, ScimUserPatchRequestBody scimUserPatchRequestBody) throws ApiException {
@@ -849,6 +890,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successfully updated user </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to update users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimUser> patchUserByIdWithHttpInfo(String userId, ScimUserPatchRequestBody scimUserPatchRequestBody) throws ApiException {
@@ -915,6 +957,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successfully updated group </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to update groups </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimGroup updateGroupById(String groupId, ScimGroup scimGroup) throws ApiException {
@@ -934,6 +977,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successfully updated group </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to update groups </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimGroup> updateGroupByIdWithHttpInfo(String groupId, ScimGroup scimGroup) throws ApiException {
@@ -1000,6 +1044,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successfully updated user </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to update users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ScimUser updateUserById(String userId, ScimUser scimUser) throws ApiException {
@@ -1019,6 +1064,7 @@ public class ScimApi {
        <tr><td> 200 </td><td> Successfully updated user </td><td>  * Location - A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1 <br>  </td></tr>
        <tr><td> 403 </td><td> Forbidden, user does not have permission to update users </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ScimUser> updateUserByIdWithHttpInfo(String userId, ScimUser scimUser) throws ApiException {

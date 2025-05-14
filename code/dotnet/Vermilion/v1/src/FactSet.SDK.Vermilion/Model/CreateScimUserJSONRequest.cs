@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// CreateScimUserJSONRequest
+    /// Payload to create a new user in the system, including attributes like username, password, contact information, and tenant details.
     /// </summary>
     [DataContract(Name = "CreateScimUserJSONRequest")]
     public partial class CreateScimUserJSONRequest : IEquatable<CreateScimUserJSONRequest>, IValidatableObject
@@ -35,19 +35,19 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateScimUserJSONRequest" /> class.
         /// </summary>
-        /// <param name="userName">userName.</param>
-        /// <param name="password">password.</param>
+        /// <param name="userName">Unique identifier for the user within the system, typically their loginID..</param>
+        /// <param name="password">Password associated with the user&#39;s account for authentication..</param>
         /// <param name="name">name.</param>
-        /// <param name="preferredLanguage">preferredLanguage.</param>
-        /// <param name="active">active.</param>
-        /// <param name="authenticatedUserName">authenticatedUserName.</param>
-        /// <param name="tenant">tenant.</param>
-        /// <param name="domainCode">domainCode.</param>
-        /// <param name="phoneNumbers">phoneNumbers.</param>
-        /// <param name="emails">emails.</param>
-        /// <param name="photos">photos.</param>
-        /// <param name="tenancies">tenancies.</param>
-        public CreateScimUserJSONRequest(string userName = default(string), string password = default(string), ScimUserName name = default(ScimUserName), string preferredLanguage = default(string), bool active = default(bool), string authenticatedUserName = default(string), string tenant = default(string), string domainCode = default(string), List<ScimPhone> phoneNumbers = default(List<ScimPhone>), List<ScimEmail> emails = default(List<ScimEmail>), List<ScimPhoto> photos = default(List<ScimPhoto>), List<Tenancy> tenancies = default(List<Tenancy>))
+        /// <param name="preferredLanguage">The preferred language of the user..</param>
+        /// <param name="active">Indicates whether the user account is active..</param>
+        /// <param name="authenticatedUserName">Authenticated username used by the SSO logins..</param>
+        /// <param name="tenant">Tenancy code in which user should be created..</param>
+        /// <param name="domainCode">Domain associated with the user.</param>
+        /// <param name="phoneNumbers">A list of phone numbers associated with the user..</param>
+        /// <param name="emails">A list of email addresses associated with the user..</param>
+        /// <param name="photos">A list of profile photos or images associated with the user..</param>
+        /// <param name="tenancies">A list of tenancies that need to be assigned to the user..</param>
+        public CreateScimUserJSONRequest(string userName = default(string), string password = default(string), CreateScimUserJSONRequestName name = default(CreateScimUserJSONRequestName), string preferredLanguage = default(string), bool active = default(bool), string authenticatedUserName = default(string), string tenant = default(string), string domainCode = default(string), List<ScimPhone> phoneNumbers = default(List<ScimPhone>), List<ScimEmail> emails = default(List<ScimEmail>), List<ScimPhoto> photos = default(List<ScimPhoto>), List<Tenancy> tenancies = default(List<Tenancy>))
         {
             this.UserName = userName;
             this.Password = password;
@@ -64,14 +64,16 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets UserName
+        /// Unique identifier for the user within the system, typically their loginID.
         /// </summary>
+        /// <value>Unique identifier for the user within the system, typically their loginID.</value>
         [DataMember(Name = "userName", EmitDefaultValue = false)]
         public string UserName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Password
+        /// Password associated with the user&#39;s account for authentication.
         /// </summary>
+        /// <value>Password associated with the user&#39;s account for authentication.</value>
         [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
@@ -79,59 +81,68 @@ namespace FactSet.SDK.Vermilion.Model
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public ScimUserName Name { get; set; }
+        public CreateScimUserJSONRequestName Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets PreferredLanguage
+        /// The preferred language of the user.
         /// </summary>
+        /// <value>The preferred language of the user.</value>
         [DataMember(Name = "preferredLanguage", EmitDefaultValue = false)]
         public string PreferredLanguage { get; set; }
 
         /// <summary>
-        /// Gets or Sets Active
+        /// Indicates whether the user account is active.
         /// </summary>
+        /// <value>Indicates whether the user account is active.</value>
         [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 
         /// <summary>
-        /// Gets or Sets AuthenticatedUserName
+        /// Authenticated username used by the SSO logins.
         /// </summary>
+        /// <value>Authenticated username used by the SSO logins.</value>
         [DataMember(Name = "authenticatedUserName", EmitDefaultValue = false)]
         public string AuthenticatedUserName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenant
+        /// Tenancy code in which user should be created.
         /// </summary>
+        /// <value>Tenancy code in which user should be created.</value>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public string Tenant { get; set; }
 
         /// <summary>
-        /// Gets or Sets DomainCode
+        /// Domain associated with the user
         /// </summary>
+        /// <value>Domain associated with the user</value>
         [DataMember(Name = "domainCode", EmitDefaultValue = false)]
         public string DomainCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets PhoneNumbers
+        /// A list of phone numbers associated with the user.
         /// </summary>
+        /// <value>A list of phone numbers associated with the user.</value>
         [DataMember(Name = "phoneNumbers", EmitDefaultValue = false)]
         public List<ScimPhone> PhoneNumbers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Emails
+        /// A list of email addresses associated with the user.
         /// </summary>
+        /// <value>A list of email addresses associated with the user.</value>
         [DataMember(Name = "emails", EmitDefaultValue = false)]
         public List<ScimEmail> Emails { get; set; }
 
         /// <summary>
-        /// Gets or Sets Photos
+        /// A list of profile photos or images associated with the user.
         /// </summary>
+        /// <value>A list of profile photos or images associated with the user.</value>
         [DataMember(Name = "photos", EmitDefaultValue = false)]
         public List<ScimPhoto> Photos { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenancies
+        /// A list of tenancies that need to be assigned to the user.
         /// </summary>
+        /// <value>A list of tenancies that need to be assigned to the user.</value>
         [DataMember(Name = "tenancies", EmitDefaultValue = false)]
         public List<Tenancy> Tenancies { get; set; }
 

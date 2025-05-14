@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimPhone {
     /**
      * Constructs a new <code>ScimPhone</code>.
+     * User&#39;s phone number details.
      * @alias module:model/ScimPhone
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScimPhone {
 }
 
 /**
+ * The phone number of the user.
  * @member {String} value
  */
 ScimPhone.prototype['value'] = undefined;
 
 /**
+ * The type of phone number (e.g., home, mobile, work).
  * @member {String} type
  */
 ScimPhone.prototype['type'] = undefined;
 
 /**
+ * Indicates if this is the primary phone number for the user.
  * @member {Boolean} primary
  */
 ScimPhone.prototype['primary'] = undefined;

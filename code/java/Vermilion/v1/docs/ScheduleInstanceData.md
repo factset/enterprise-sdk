@@ -2,13 +2,14 @@
 
 # ScheduleInstanceData
 
+Details of an individual schedule instance.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scheduleInstanceId** | **Integer** |  |  [optional]
-**status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
+**scheduleInstanceId** | **Integer** | Unique identifier of the schedule instance. |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Current status of the schedule instance. |  [optional]
 
 
 

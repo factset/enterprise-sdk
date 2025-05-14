@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceList
+ * List of Report instances along with metadata.
  */
+@ApiModel(description = "List of Report instances along with metadata.")
 @JsonPropertyOrder({
   ReportInstanceList.JSON_PROPERTY_META,
   ReportInstanceList.JSON_PROPERTY_DATA
@@ -92,11 +93,11 @@ public class ReportInstanceList implements Serializable {
   }
 
    /**
-   * Get data
+   * A list of Report instances.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of Report instances.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

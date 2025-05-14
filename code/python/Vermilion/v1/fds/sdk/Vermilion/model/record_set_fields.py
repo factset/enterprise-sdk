@@ -100,6 +100,7 @@ class RecordSetFields(ModelNormal):
             'id': (int,),  # noqa: E501
             'hide': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'order': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -113,6 +114,7 @@ class RecordSetFields(ModelNormal):
         'id': 'id',  # noqa: E501
         'hide': 'hide',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'order': 'order',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,11 +158,12 @@ class RecordSetFields(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            field_type (str): [optional]  # noqa: E501
-            format (str): [optional]  # noqa: E501
-            id (int): [optional]  # noqa: E501
-            hide (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
+            field_type (str): The type of the field indicating the kind of data it holds.. [optional]  # noqa: E501
+            format (str): The format applied to the field's value.. [optional]  # noqa: E501
+            id (int): Unique identifier for the field.. [optional]  # noqa: E501
+            hide (str): Indicates whether the field is hidden.. [optional]  # noqa: E501
+            name (str): The name of the field.. [optional]  # noqa: E501
+            order (int): The ordering of the record set field.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,11 +245,12 @@ class RecordSetFields(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            field_type (str): [optional]  # noqa: E501
-            format (str): [optional]  # noqa: E501
-            id (int): [optional]  # noqa: E501
-            hide (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
+            field_type (str): The type of the field indicating the kind of data it holds.. [optional]  # noqa: E501
+            format (str): The format applied to the field's value.. [optional]  # noqa: E501
+            id (int): Unique identifier for the field.. [optional]  # noqa: E501
+            hide (str): Indicates whether the field is hidden.. [optional]  # noqa: E501
+            name (str): The name of the field.. [optional]  # noqa: E501
+            order (int): The ordering of the record set field.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

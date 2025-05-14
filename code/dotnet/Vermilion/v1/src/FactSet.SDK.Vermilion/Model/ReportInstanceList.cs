@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ReportInstanceList
+    /// List of Report instances along with metadata.
     /// </summary>
     [DataContract(Name = "ReportInstanceList")]
     public partial class ReportInstanceList : IEquatable<ReportInstanceList>, IValidatableObject
@@ -36,7 +36,7 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="ReportInstanceList" /> class.
         /// </summary>
         /// <param name="meta">meta.</param>
-        /// <param name="data">data.</param>
+        /// <param name="data">A list of Report instances..</param>
         public ReportInstanceList(ReportInstanceListMeta meta = default(ReportInstanceListMeta), List<ReportInstanceDTO> data = default(List<ReportInstanceDTO>))
         {
             this.Meta = meta;
@@ -50,8 +50,9 @@ namespace FactSet.SDK.Vermilion.Model
         public ReportInstanceListMeta Meta { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// A list of Report instances.
         /// </summary>
+        /// <value>A list of Report instances.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<ReportInstanceDTO> Data { get; set; }
 

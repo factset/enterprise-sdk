@@ -21,6 +21,7 @@ import ScheduleInstanceData from './ScheduleInstanceData';
 class GenerateScheduleResponse {
     /**
      * Constructs a new <code>GenerateScheduleResponse</code>.
+     * Response object for schedule generation.
      * @alias module:model/GenerateScheduleResponse
      */
     constructor() { 

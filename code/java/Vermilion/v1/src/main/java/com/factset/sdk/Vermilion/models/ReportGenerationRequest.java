@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportGenerationRequest
+ * details needed to request the generation of a report.
  */
+@ApiModel(description = "details needed to request the generation of a report.")
 @JsonPropertyOrder({
   ReportGenerationRequest.JSON_PROPERTY_REPORT,
   ReportGenerationRequest.JSON_PROPERTY_TENANCY,
@@ -54,7 +55,7 @@ public class ReportGenerationRequest implements Serializable {
   private String tenancy;
 
   /**
-   * Gets or Sets outputFormat
+   * The desired output format for the generated report.
    */
   public enum OutputFormatEnum {
     WORD("WORD"),
@@ -132,11 +133,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get report
+   * The Report definition code.
    * @return report
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The Report definition code.")
   @JsonProperty(JSON_PROPERTY_REPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,11 +159,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get tenancy
+   * The tenancy code in which the report generation occurs.
    * @return tenancy
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The tenancy code in which the report generation occurs.")
   @JsonProperty(JSON_PROPERTY_TENANCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -184,11 +185,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get outputFormat
+   * The desired output format for the generated report.
    * @return outputFormat
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The desired output format for the generated report.")
   @JsonProperty(JSON_PROPERTY_OUTPUT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,11 +211,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get sectionFilter
+   * Section filter that has to be used in the report generation process.
    * @return sectionFilter
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Section filter that has to be used in the report generation process.")
   @JsonProperty(JSON_PROPERTY_SECTION_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -236,11 +237,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get priority
+   * The priority level assigned to the report generation request.
    * @return priority
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The priority level assigned to the report generation request.")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,11 +263,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get startDate
+   * The scheduled start date for generating the report.
    * @return startDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The scheduled start date for generating the report.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -296,11 +297,11 @@ public class ReportGenerationRequest implements Serializable {
   }
 
    /**
-   * Get entitySelection
+   * Specifies the Entity selections for the report generation.
    * @return entitySelection
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specifies the Entity selections for the report generation.")
   @JsonProperty(JSON_PROPERTY_ENTITY_SELECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

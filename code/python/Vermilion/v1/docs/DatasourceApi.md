@@ -111,6 +111,7 @@ Name | Type | Description  | Notes
 **401** | Unauthorised |  -  |
 **403** | No permissions to view datasources in VRS |  -  |
 **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -211,6 +212,7 @@ Name | Type | Description  | Notes
 **403** | No permissions to view datasources in VRS |  -  |
 **404** | The supplied datasource code was not found |  -  |
 **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -268,8 +270,8 @@ with fds.sdk.Vermilion.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     tenant = "TENANT" # str | The code of the tenancy
     data_source_code = "DSCODE" # str | The code of the datasource
-    entity_codes = "FUNDS" # str | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS (optional)
-    entity_keys = "Test2" # str | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2 (optional)
+    entity_codes = "FUNDS" # str | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS (optional)
+    entity_keys = "Test2" # str | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2 (optional)
     pagination_limit = 10 # int | Non-negative maximum number of entries to return. Default is 25 (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Non-negative number of entries to skip. Default is 0 (optional) if omitted the server will use the default value of 0
 
@@ -292,8 +294,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **str**| The code of the tenancy |
  **data_source_code** | **str**| The code of the datasource |
- **entity_codes** | **str**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional]
- **entity_keys** | **str**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional]
+ **entity_codes** | **str**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT~FUNDS | [optional]
+ **entity_keys** | **str**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1~Test2 | [optional]
  **pagination_limit** | **int**| Non-negative maximum number of entries to return. Default is 25 | [optional] if omitted the server will use the default value of 25
  **pagination_offset** | **int**| Non-negative number of entries to skip. Default is 0 | [optional] if omitted the server will use the default value of 0
 
@@ -321,6 +323,7 @@ Name | Type | Description  | Notes
 **403** | No permissions to view datasources in VRS |  -  |
 **404** | The supplied datasource code was not found |  -  |
 **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+**500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

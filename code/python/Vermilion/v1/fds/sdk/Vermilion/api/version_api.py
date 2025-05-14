@@ -47,7 +47,7 @@ class VersionApi(object):
         self.get_version_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (VersionResponseBody,), 401: (ErrorList,),  },
+                  { 200: (VersionResponseBody,), 401: (ErrorList,), 500: (ErrorList,),  },
                   None
                 ),
                 'auth': [

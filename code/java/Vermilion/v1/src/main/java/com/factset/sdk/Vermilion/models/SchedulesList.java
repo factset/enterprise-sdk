@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.Vermilion.models.DataSourceListMeta;
 import com.factset.sdk.Vermilion.models.ScheduleData;
+import com.factset.sdk.Vermilion.models.SchedulesListMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,8 +32,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * SchedulesList
+ * List of Schedules.
  */
+@ApiModel(description = "List of Schedules.")
 @JsonPropertyOrder({
   SchedulesList.JSON_PROPERTY_META,
   SchedulesList.JSON_PROPERTY_DATA
@@ -44,7 +45,7 @@ public class SchedulesList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private DataSourceListMeta meta;
+  private SchedulesListMeta meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ScheduleData> data = null;
@@ -52,7 +53,7 @@ public class SchedulesList implements Serializable {
   public SchedulesList() { 
   }
 
-  public SchedulesList meta(DataSourceListMeta meta) {
+  public SchedulesList meta(SchedulesListMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -66,14 +67,14 @@ public class SchedulesList implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DataSourceListMeta getMeta() {
+  public SchedulesListMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(DataSourceListMeta meta) {
+  public void setMeta(SchedulesListMeta meta) {
     this.meta = meta;
   }
 
@@ -92,11 +93,11 @@ public class SchedulesList implements Serializable {
   }
 
    /**
-   * Get data
+   * An array of schedule objects.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of schedule objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

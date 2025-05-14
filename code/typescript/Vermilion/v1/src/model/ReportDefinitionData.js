@@ -21,6 +21,7 @@ import ReportDefinitionDTO from './ReportDefinitionDTO';
 class ReportDefinitionData {
     /**
      * Constructs a new <code>ReportDefinitionData</code>.
+     * Contains detailed data for a single Report definition.
      * @alias module:model/ReportDefinitionData
      */
     constructor() { 

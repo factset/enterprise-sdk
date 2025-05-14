@@ -22,6 +22,7 @@ import DataSourceListMeta from './DataSourceListMeta';
 class DataSourceList {
     /**
      * Constructs a new <code>DataSourceList</code>.
+     * A list of Data Sources.
      * @alias module:model/DataSourceList
      */
     constructor() { 
@@ -67,6 +68,7 @@ class DataSourceList {
 DataSourceList.prototype['meta'] = undefined;
 
 /**
+ * An array of Data Sources.
  * @member {Array.<module:model/DataSourceDTO>} data
  */
 DataSourceList.prototype['data'] = undefined;

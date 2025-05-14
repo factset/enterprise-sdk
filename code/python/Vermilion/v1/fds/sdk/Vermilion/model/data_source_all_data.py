@@ -145,7 +145,7 @@ class DataSourceAllData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fields ([RecordSetFields]): [optional]  # noqa: E501
+            fields ([RecordSetFields]): An array of fields from the input Record Set.. [optional]  # noqa: E501
             dst_instance (DataSourceInstance): [optional]  # noqa: E501
         """
 
@@ -228,7 +228,7 @@ class DataSourceAllData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fields ([RecordSetFields]): [optional]  # noqa: E501
+            fields ([RecordSetFields]): An array of fields from the input Record Set.. [optional]  # noqa: E501
             dst_instance (DataSourceInstance): [optional]  # noqa: E501
         """
 

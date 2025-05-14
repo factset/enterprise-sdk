@@ -59,10 +59,8 @@ class ScheduleGenerationLog(ModelNormal):
         ('type',): {
             'INFO': "INFO",
             'WARN': "WARN",
-            'SUCCESS': "SUCCESS",
             'ERROR': "ERROR",
             'DEBUG': "DEBUG",
-            'FINISHED': "FINISHED",
 
 
         },
@@ -153,11 +151,11 @@ class ScheduleGenerationLog(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sequence_number (int): [optional]  # noqa: E501
-            message (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            log_set (int): [optional]  # noqa: E501
-            last_updated (str): [optional]  # noqa: E501
+            sequence_number (int): The sequence number of the log entry.. [optional]  # noqa: E501
+            message (str): A detailed message describing the log event or error.. [optional]  # noqa: E501
+            type (str): Type of log entry.. [optional]  # noqa: E501
+            log_set (int): Identifier for the set of logs this entry belongs to.. [optional]  # noqa: E501
+            last_updated (str): The timestamp of the most recent update in epoch format for a specific Task Generation log. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,11 +237,11 @@ class ScheduleGenerationLog(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            sequence_number (int): [optional]  # noqa: E501
-            message (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            log_set (int): [optional]  # noqa: E501
-            last_updated (str): [optional]  # noqa: E501
+            sequence_number (int): The sequence number of the log entry.. [optional]  # noqa: E501
+            message (str): A detailed message describing the log event or error.. [optional]  # noqa: E501
+            type (str): Type of log entry.. [optional]  # noqa: E501
+            log_set (int): Identifier for the set of logs this entry belongs to.. [optional]  # noqa: E501
+            last_updated (str): The timestamp of the most recent update in epoch format for a specific Task Generation log. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

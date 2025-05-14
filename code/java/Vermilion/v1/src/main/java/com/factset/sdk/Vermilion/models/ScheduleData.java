@@ -30,14 +30,15 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleData
+ * Details of an individual schedule.
  */
+@ApiModel(description = "Details of an individual schedule.")
 @JsonPropertyOrder({
   ScheduleData.JSON_PROPERTY_SCHEDULE_ID,
   ScheduleData.JSON_PROPERTY_NAME,
   ScheduleData.JSON_PROPERTY_DEFINITION_NAME,
   ScheduleData.JSON_PROPERTY_STATUS,
-  ScheduleData.JSON_PROPERTY_GROUP,
+  ScheduleData.JSON_PROPERTY_SCHEDULE_GROUP,
   ScheduleData.JSON_PROPERTY_REPORT_DATE,
   ScheduleData.JSON_PROPERTY_NO_OF_TASKS,
   ScheduleData.JSON_PROPERTY_BUSINESS_CALENDAR,
@@ -63,7 +64,7 @@ public class ScheduleData implements Serializable {
   private String definitionName;
 
   /**
-   * Gets or Sets status
+   * Status of the Schedule.
    */
   public enum StatusEnum {
     INITIALISED("INITIALISED"),
@@ -110,8 +111,8 @@ public class ScheduleData implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String JSON_PROPERTY_GROUP = "group";
-  private String group;
+  public static final String JSON_PROPERTY_SCHEDULE_GROUP = "scheduleGroup";
+  private String scheduleGroup;
 
   public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
   private String reportDate;
@@ -149,11 +150,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get scheduleId
+   * Unique identifier of the Schedule.
    * @return scheduleId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier of the Schedule.")
   @JsonProperty(JSON_PROPERTY_SCHEDULE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -175,11 +176,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get name
+   * Name of the Schedule.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the Schedule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -201,11 +202,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get definitionName
+   * Name of Schedule Definition from which the Schedule has been generated.
    * @return definitionName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of Schedule Definition from which the Schedule has been generated.")
   @JsonProperty(JSON_PROPERTY_DEFINITION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -227,11 +228,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get status
+   * Status of the Schedule.
    * @return status
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Status of the Schedule.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -247,29 +248,29 @@ public class ScheduleData implements Serializable {
   }
 
 
-  public ScheduleData group(String group) {
-    this.group = group;
+  public ScheduleData scheduleGroup(String scheduleGroup) {
+    this.scheduleGroup = scheduleGroup;
     return this;
   }
 
    /**
-   * Get group
-   * @return group
+   * Group of the Schedule.
+   * @return scheduleGroup
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @ApiModelProperty(value = "Group of the Schedule.")
+  @JsonProperty(JSON_PROPERTY_SCHEDULE_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getGroup() {
-    return group;
+  public String getScheduleGroup() {
+    return scheduleGroup;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(JSON_PROPERTY_SCHEDULE_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(String group) {
-    this.group = group;
+  public void setScheduleGroup(String scheduleGroup) {
+    this.scheduleGroup = scheduleGroup;
   }
 
 
@@ -279,11 +280,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get reportDate
+   * The timestamp of the report date in epoch format for a specific Schedule
    * @return reportDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the report date in epoch format for a specific Schedule")
   @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -305,11 +306,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get noOfTasks
+   * No of tasks generated for the Schedule
    * @return noOfTasks
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "No of tasks generated for the Schedule")
   @JsonProperty(JSON_PROPERTY_NO_OF_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -331,11 +332,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get businessCalendar
+   * Name of Business Calender used in the Schedule
    * @return businessCalendar
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of Business Calender used in the Schedule")
   @JsonProperty(JSON_PROPERTY_BUSINESS_CALENDAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -357,11 +358,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get owner
+   * Owner role used in the Schedule
    * @return owner
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Owner role used in the Schedule")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -383,11 +384,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get notes
+   * Notes of the Schedule
    * @return notes
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Notes of the Schedule")
   @JsonProperty(JSON_PROPERTY_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -409,11 +410,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get finishDate
+   * The timestamp of the Finish Date in epoch format of the Schedule
    * @return finishDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the Finish Date in epoch format of the Schedule")
   @JsonProperty(JSON_PROPERTY_FINISH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -435,11 +436,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get startDate
+   * The timestamp of the Start Date in epoch format of the Schedule
    * @return startDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the Start Date in epoch format of the Schedule")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -461,11 +462,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get lastUpdatedBy
+   * Indicates the username of the person who last updated Schedule
    * @return lastUpdatedBy
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates the username of the person who last updated Schedule")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -487,11 +488,11 @@ public class ScheduleData implements Serializable {
   }
 
    /**
-   * Get lastUpdated
+   * The timestamp of the most recent update in epoch format for a specific Schedule
    * @return lastUpdated
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The timestamp of the most recent update in epoch format for a specific Schedule")
   @JsonProperty(JSON_PROPERTY_LAST_UPDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -523,7 +524,7 @@ public class ScheduleData implements Serializable {
         Objects.equals(this.name, scheduleData.name) &&
         Objects.equals(this.definitionName, scheduleData.definitionName) &&
         Objects.equals(this.status, scheduleData.status) &&
-        Objects.equals(this.group, scheduleData.group) &&
+        Objects.equals(this.scheduleGroup, scheduleData.scheduleGroup) &&
         Objects.equals(this.reportDate, scheduleData.reportDate) &&
         Objects.equals(this.noOfTasks, scheduleData.noOfTasks) &&
         Objects.equals(this.businessCalendar, scheduleData.businessCalendar) &&
@@ -537,7 +538,7 @@ public class ScheduleData implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(scheduleId, name, definitionName, status, group, reportDate, noOfTasks, businessCalendar, owner, notes, finishDate, startDate, lastUpdatedBy, lastUpdated);
+    return Objects.hash(scheduleId, name, definitionName, status, scheduleGroup, reportDate, noOfTasks, businessCalendar, owner, notes, finishDate, startDate, lastUpdatedBy, lastUpdated);
   }
 
   @Override
@@ -548,7 +549,7 @@ public class ScheduleData implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    definitionName: ").append(toIndentedString(definitionName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    scheduleGroup: ").append(toIndentedString(scheduleGroup)).append("\n");
     sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
     sb.append("    noOfTasks: ").append(toIndentedString(noOfTasks)).append("\n");
     sb.append("    businessCalendar: ").append(toIndentedString(businessCalendar)).append("\n");

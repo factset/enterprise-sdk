@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportGenerationRequestBody
+ * Defines the request body for generating a report, encapsulating various generation parameters.
  */
+@ApiModel(description = "Defines the request body for generating a report, encapsulating various generation parameters.")
 @JsonPropertyOrder({
   ReportGenerationRequestBody.JSON_PROPERTY_VRS
 })
@@ -61,11 +62,11 @@ public class ReportGenerationRequestBody implements Serializable {
   }
 
    /**
-   * Get vrs
+   * Contains report generation requests.
    * @return vrs
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Contains report generation requests.")
   @JsonProperty(JSON_PROPERTY_VRS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

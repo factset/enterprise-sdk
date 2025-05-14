@@ -129,6 +129,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)404, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         # endregion Response Type Disctionaries

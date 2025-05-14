@@ -21,6 +21,7 @@ import EntitySelection from './EntitySelection';
 class ReportGenerationRequest {
     /**
      * Constructs a new <code>ReportGenerationRequest</code>.
+     * details needed to request the generation of a report.
      * @alias module:model/ReportGenerationRequest
      */
     constructor() { 
@@ -76,36 +77,43 @@ class ReportGenerationRequest {
 }
 
 /**
+ * The Report definition code.
  * @member {String} report
  */
 ReportGenerationRequest.prototype['report'] = undefined;
 
 /**
+ * The tenancy code in which the report generation occurs.
  * @member {String} tenancy
  */
 ReportGenerationRequest.prototype['tenancy'] = undefined;
 
 /**
+ * The desired output format for the generated report.
  * @member {module:model/ReportGenerationRequest.OutputFormatEnum} outputFormat
  */
 ReportGenerationRequest.prototype['outputFormat'] = undefined;
 
 /**
+ * Section filter that has to be used in the report generation process.
  * @member {String} sectionFilter
  */
 ReportGenerationRequest.prototype['sectionFilter'] = undefined;
 
 /**
+ * The priority level assigned to the report generation request.
  * @member {String} priority
  */
 ReportGenerationRequest.prototype['priority'] = undefined;
 
 /**
+ * The scheduled start date for generating the report.
  * @member {String} startDate
  */
 ReportGenerationRequest.prototype['startDate'] = undefined;
 
 /**
+ * Specifies the Entity selections for the report generation.
  * @member {Object.<String, module:model/EntitySelection>} entitySelection
  */
 ReportGenerationRequest.prototype['entitySelection'] = undefined;

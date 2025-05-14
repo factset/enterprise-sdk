@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScimGroupPatchRequestBody
+ * Defines the request payload for updating a group&#39;s attributes in SCIM. This patch operation allows for specific modifications to a group&#39;s properties.
  */
+@ApiModel(description = "Defines the request payload for updating a group's attributes in SCIM. This patch operation allows for specific modifications to a group's properties.")
 @JsonPropertyOrder({
   ScimGroupPatchRequestBody.JSON_PROPERTY_SCHEMAS,
   ScimGroupPatchRequestBody.JSON_PROPERTY_OPERATIONS
@@ -65,11 +66,11 @@ public class ScimGroupPatchRequestBody implements Serializable {
   }
 
    /**
-   * Get schemas
+   * An array of URIs representing the schema namespaces applied to this request.
    * @return schemas
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of URIs representing the schema namespaces applied to this request.")
   @JsonProperty(JSON_PROPERTY_SCHEMAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,11 +100,11 @@ public class ScimGroupPatchRequestBody implements Serializable {
   }
 
    /**
-   * Get operations
+   * A list of operations specifying the actions to perform on the group&#39;s attributes, such as adding, removing, or updating members.
    * @return operations
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of operations specifying the actions to perform on the group's attributes, such as adding, removing, or updating members.")
   @JsonProperty(JSON_PROPERTY_OPERATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleInstanceData
+    /// Details of an individual schedule instance.
     /// </summary>
     [DataContract(Name = "ScheduleInstanceData")]
     public partial class ScheduleInstanceData : IEquatable<ScheduleInstanceData>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// Current status of the schedule instance.
         /// </summary>
+        /// <value>Current status of the schedule instance.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -84,15 +85,16 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Current status of the schedule instance.
         /// </summary>
+        /// <value>Current status of the schedule instance.</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleInstanceData" /> class.
         /// </summary>
-        /// <param name="scheduleInstanceId">scheduleInstanceId.</param>
-        /// <param name="status">status.</param>
+        /// <param name="scheduleInstanceId">Unique identifier of the schedule instance..</param>
+        /// <param name="status">Current status of the schedule instance..</param>
         public ScheduleInstanceData(int scheduleInstanceId = default(int), StatusEnum? status = default(StatusEnum?))
         {
             this.ScheduleInstanceId = scheduleInstanceId;
@@ -100,8 +102,9 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets ScheduleInstanceId
+        /// Unique identifier of the schedule instance.
         /// </summary>
+        /// <value>Unique identifier of the schedule instance.</value>
         [DataMember(Name = "scheduleInstanceId", EmitDefaultValue = false)]
         public int ScheduleInstanceId { get; set; }
 

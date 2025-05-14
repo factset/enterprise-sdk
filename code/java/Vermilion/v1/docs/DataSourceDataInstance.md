@@ -2,6 +2,7 @@
 
 # DataSourceDataInstance
 
+Response for view data request.
 
 ## Properties
 

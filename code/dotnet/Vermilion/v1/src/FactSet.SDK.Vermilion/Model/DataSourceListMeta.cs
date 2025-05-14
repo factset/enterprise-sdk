@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// DataSourceListMeta
+    /// Meta data of Data Source List.
     /// </summary>
     [DataContract(Name = "DataSourceList_meta")]
     public partial class DataSourceListMeta : IEquatable<DataSourceListMeta>, IValidatableObject
@@ -36,7 +36,7 @@ namespace FactSet.SDK.Vermilion.Model
         /// Initializes a new instance of the <see cref="DataSourceListMeta" /> class.
         /// </summary>
         /// <param name="pagination">pagination.</param>
-        /// <param name="sort">sort.</param>
+        /// <param name="sort">A set of fields used in sorting the Data Source list..</param>
         public DataSourceListMeta(DataSourceListMetaPagination pagination = default(DataSourceListMetaPagination), List<string> sort = default(List<string>))
         {
             this.Pagination = pagination;
@@ -50,8 +50,9 @@ namespace FactSet.SDK.Vermilion.Model
         public DataSourceListMetaPagination Pagination { get; set; }
 
         /// <summary>
-        /// Gets or Sets Sort
+        /// A set of fields used in sorting the Data Source list.
         /// </summary>
+        /// <value>A set of fields used in sorting the Data Source list.</value>
         [DataMember(Name = "sort", EmitDefaultValue = false)]
         public List<string> Sort { get; set; }
 

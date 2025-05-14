@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**DataSourceListMeta**](DataSourceListMeta.md) |  | [optional] 
-**data** | **[Object]** |  | [optional] 
+**meta** | [**EntityFieldValueDTOMeta**](EntityFieldValueDTOMeta.md) |  | [optional] 
+**data** | **[Object]** | Collection of Entity rows with their associated values and fields. | [optional] 
 
 

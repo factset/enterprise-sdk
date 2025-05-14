@@ -22,6 +22,7 @@ import ScheduleDefinitionOwnerRole from './ScheduleDefinitionOwnerRole';
 class ScheduleDefinition {
     /**
      * Constructs a new <code>ScheduleDefinition</code>.
+     * List of Schedule Definition.
      * @alias module:model/ScheduleDefinition
      */
     constructor() { 
@@ -101,56 +102,67 @@ class ScheduleDefinition {
 }
 
 /**
+ * Unique Identifier for the Schedule Definition.
  * @member {Number} scheduleDefinitionId
  */
 ScheduleDefinition.prototype['scheduleDefinitionId'] = undefined;
 
 /**
+ * Name of the Schedule Definition.
  * @member {String} name
  */
 ScheduleDefinition.prototype['name'] = undefined;
 
 /**
+ * Code of the Schedule Definition.
  * @member {String} code
  */
 ScheduleDefinition.prototype['code'] = undefined;
 
 /**
+ * Type of Schedule Definition.
  * @member {module:model/ScheduleDefinition.ScheduleTypeEnum} scheduleType
  */
 ScheduleDefinition.prototype['scheduleType'] = undefined;
 
 /**
+ * Group of the Schedule Definition.
  * @member {String} scheduleGroup
  */
 ScheduleDefinition.prototype['scheduleGroup'] = undefined;
 
 /**
+ * Report Date of the Schedule Definition.
  * @member {module:model/ScheduleDefinition.ReportDateEnum} reportDate
  */
 ScheduleDefinition.prototype['reportDate'] = undefined;
 
 /**
+ * Number of obligations used in the Schedule Definition.
  * @member {Number} numberOfObligations
  */
 ScheduleDefinition.prototype['numberOfObligations'] = undefined;
 
 /**
+ * Calender name used in the Schedule Definition.
  * @member {String} businessCalendar
  */
 ScheduleDefinition.prototype['businessCalendar'] = undefined;
 
 /**
+ * Indicates after how many days the Schedule should be deleted.
  * @member {Number} deleteScheduleAfterDays
  */
 ScheduleDefinition.prototype['deleteScheduleAfterDays'] = undefined;
 
 /**
+ * Indicates number of packages involved in the Schedule Definition.
  * @member {Number} numberOfPackages
  */
 ScheduleDefinition.prototype['numberOfPackages'] = undefined;
 
 /**
+ * A set of entities used in Schedule Definition.
  * @member {Array.<module:model/EntityDTO>} entities
  */
 ScheduleDefinition.prototype['entities'] = undefined;
@@ -161,16 +173,19 @@ ScheduleDefinition.prototype['entities'] = undefined;
 ScheduleDefinition.prototype['ownerRole'] = undefined;
 
 /**
+ * Notes of the Schedule Definition.
  * @member {String} notes
  */
 ScheduleDefinition.prototype['notes'] = undefined;
 
 /**
+ * Indicates the username of the person who last updated the Data Source.
  * @member {String} lastUpdatedBy
  */
 ScheduleDefinition.prototype['lastUpdatedBy'] = undefined;
 
 /**
+ * The timestamp of the most recent update in epoch format for a specific Schedule Definition
  * @member {String} lastUpdated
  */
 ScheduleDefinition.prototype['lastUpdated'] = undefined;
@@ -196,19 +211,7 @@ ScheduleDefinition['ScheduleTypeEnum'] = {
      * value: "REPEATING"
      * @const
      */
-    "REPEATING": "REPEATING",
-
-    /**
-     * value: "TEMPLATE"
-     * @const
-     */
-    "TEMPLATE": "TEMPLATE",
-
-    /**
-     * value: "ADHOC"
-     * @const
-     */
-    "ADHOC": "ADHOC"
+    "REPEATING": "REPEATING"
 };
 
 

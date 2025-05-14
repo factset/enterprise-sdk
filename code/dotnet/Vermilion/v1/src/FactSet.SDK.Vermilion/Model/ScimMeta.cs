@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimMeta
+    /// Metadata information for the resource.
     /// </summary>
     [DataContract(Name = "ScimMeta")]
     public partial class ScimMeta : IEquatable<ScimMeta>, IValidatableObject
@@ -35,10 +35,10 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimMeta" /> class.
         /// </summary>
-        /// <param name="resourceType">resourceType.</param>
-        /// <param name="created">created.</param>
-        /// <param name="lastModified">lastModified.</param>
-        /// <param name="location">location.</param>
+        /// <param name="resourceType">The type of resource (e.g., VRSUser, VRSGroup)..</param>
+        /// <param name="created">The timestamp of when the resource was created..</param>
+        /// <param name="lastModified">The timestamp of when the resource was last modified..</param>
+        /// <param name="location">The URI location of the resource..</param>
         public ScimMeta(string resourceType = default(string), string created = default(string), string lastModified = default(string), string location = default(string))
         {
             this.ResourceType = resourceType;
@@ -48,26 +48,30 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets ResourceType
+        /// The type of resource (e.g., VRSUser, VRSGroup).
         /// </summary>
+        /// <value>The type of resource (e.g., VRSUser, VRSGroup).</value>
         [DataMember(Name = "resourceType", EmitDefaultValue = false)]
         public string ResourceType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// The timestamp of when the resource was created.
         /// </summary>
+        /// <value>The timestamp of when the resource was created.</value>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public string Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The timestamp of when the resource was last modified.
         /// </summary>
+        /// <value>The timestamp of when the resource was last modified.</value>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public string LastModified { get; set; }
 
         /// <summary>
-        /// Gets or Sets Location
+        /// The URI location of the resource.
         /// </summary>
+        /// <value>The URI location of the resource.</value>
         [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 

@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleData
+    /// Details of an individual schedule.
     /// </summary>
     [DataContract(Name = "ScheduleData")]
     public partial class ScheduleData : IEquatable<ScheduleData>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// Status of the Schedule.
         /// </summary>
+        /// <value>Status of the Schedule.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -84,34 +85,35 @@ namespace FactSet.SDK.Vermilion.Model
 
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Status of the Schedule.
         /// </summary>
+        /// <value>Status of the Schedule.</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleData" /> class.
         /// </summary>
-        /// <param name="scheduleId">scheduleId.</param>
-        /// <param name="name">name.</param>
-        /// <param name="definitionName">definitionName.</param>
-        /// <param name="status">status.</param>
-        /// <param name="group">group.</param>
-        /// <param name="reportDate">reportDate.</param>
-        /// <param name="noOfTasks">noOfTasks.</param>
-        /// <param name="businessCalendar">businessCalendar.</param>
-        /// <param name="owner">owner.</param>
-        /// <param name="notes">notes.</param>
-        /// <param name="finishDate">finishDate.</param>
-        /// <param name="startDate">startDate.</param>
-        /// <param name="lastUpdatedBy">lastUpdatedBy.</param>
-        /// <param name="lastUpdated">lastUpdated.</param>
-        public ScheduleData(int scheduleId = default(int), string name = default(string), string definitionName = default(string), StatusEnum? status = default(StatusEnum?), string group = default(string), string reportDate = default(string), int noOfTasks = default(int), string businessCalendar = default(string), string owner = default(string), string notes = default(string), string finishDate = default(string), string startDate = default(string), string lastUpdatedBy = default(string), string lastUpdated = default(string))
+        /// <param name="scheduleId">Unique identifier of the Schedule..</param>
+        /// <param name="name">Name of the Schedule..</param>
+        /// <param name="definitionName">Name of Schedule Definition from which the Schedule has been generated..</param>
+        /// <param name="status">Status of the Schedule..</param>
+        /// <param name="scheduleGroup">Group of the Schedule..</param>
+        /// <param name="reportDate">The timestamp of the report date in epoch format for a specific Schedule.</param>
+        /// <param name="noOfTasks">No of tasks generated for the Schedule.</param>
+        /// <param name="businessCalendar">Name of Business Calender used in the Schedule.</param>
+        /// <param name="owner">Owner role used in the Schedule.</param>
+        /// <param name="notes">Notes of the Schedule.</param>
+        /// <param name="finishDate">The timestamp of the Finish Date in epoch format of the Schedule.</param>
+        /// <param name="startDate">The timestamp of the Start Date in epoch format of the Schedule.</param>
+        /// <param name="lastUpdatedBy">Indicates the username of the person who last updated Schedule.</param>
+        /// <param name="lastUpdated">The timestamp of the most recent update in epoch format for a specific Schedule.</param>
+        public ScheduleData(int scheduleId = default(int), string name = default(string), string definitionName = default(string), StatusEnum? status = default(StatusEnum?), string scheduleGroup = default(string), string reportDate = default(string), int noOfTasks = default(int), string businessCalendar = default(string), string owner = default(string), string notes = default(string), string finishDate = default(string), string startDate = default(string), string lastUpdatedBy = default(string), string lastUpdated = default(string))
         {
             this.ScheduleId = scheduleId;
             this.Name = name;
             this.DefinitionName = definitionName;
             this.Status = status;
-            this.Group = group;
+            this.ScheduleGroup = scheduleGroup;
             this.ReportDate = reportDate;
             this.NoOfTasks = noOfTasks;
             this.BusinessCalendar = businessCalendar;
@@ -124,80 +126,93 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets ScheduleId
+        /// Unique identifier of the Schedule.
         /// </summary>
+        /// <value>Unique identifier of the Schedule.</value>
         [DataMember(Name = "scheduleId", EmitDefaultValue = false)]
         public int ScheduleId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the Schedule.
         /// </summary>
+        /// <value>Name of the Schedule.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets DefinitionName
+        /// Name of Schedule Definition from which the Schedule has been generated.
         /// </summary>
+        /// <value>Name of Schedule Definition from which the Schedule has been generated.</value>
         [DataMember(Name = "definitionName", EmitDefaultValue = false)]
         public string DefinitionName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Group
+        /// Group of the Schedule.
         /// </summary>
-        [DataMember(Name = "group", EmitDefaultValue = false)]
-        public string Group { get; set; }
+        /// <value>Group of the Schedule.</value>
+        [DataMember(Name = "scheduleGroup", EmitDefaultValue = false)]
+        public string ScheduleGroup { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReportDate
+        /// The timestamp of the report date in epoch format for a specific Schedule
         /// </summary>
+        /// <value>The timestamp of the report date in epoch format for a specific Schedule</value>
         [DataMember(Name = "reportDate", EmitDefaultValue = false)]
         public string ReportDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets NoOfTasks
+        /// No of tasks generated for the Schedule
         /// </summary>
+        /// <value>No of tasks generated for the Schedule</value>
         [DataMember(Name = "noOfTasks", EmitDefaultValue = false)]
         public int NoOfTasks { get; set; }
 
         /// <summary>
-        /// Gets or Sets BusinessCalendar
+        /// Name of Business Calender used in the Schedule
         /// </summary>
+        /// <value>Name of Business Calender used in the Schedule</value>
         [DataMember(Name = "businessCalendar", EmitDefaultValue = false)]
         public string BusinessCalendar { get; set; }
 
         /// <summary>
-        /// Gets or Sets Owner
+        /// Owner role used in the Schedule
         /// </summary>
+        /// <value>Owner role used in the Schedule</value>
         [DataMember(Name = "owner", EmitDefaultValue = false)]
         public string Owner { get; set; }
 
         /// <summary>
-        /// Gets or Sets Notes
+        /// Notes of the Schedule
         /// </summary>
+        /// <value>Notes of the Schedule</value>
         [DataMember(Name = "notes", EmitDefaultValue = false)]
         public string Notes { get; set; }
 
         /// <summary>
-        /// Gets or Sets FinishDate
+        /// The timestamp of the Finish Date in epoch format of the Schedule
         /// </summary>
+        /// <value>The timestamp of the Finish Date in epoch format of the Schedule</value>
         [DataMember(Name = "finishDate", EmitDefaultValue = false)]
         public string FinishDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartDate
+        /// The timestamp of the Start Date in epoch format of the Schedule
         /// </summary>
+        /// <value>The timestamp of the Start Date in epoch format of the Schedule</value>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdatedBy
+        /// Indicates the username of the person who last updated Schedule
         /// </summary>
+        /// <value>Indicates the username of the person who last updated Schedule</value>
         [DataMember(Name = "lastUpdatedBy", EmitDefaultValue = false)]
         public string LastUpdatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdated
+        /// The timestamp of the most recent update in epoch format for a specific Schedule
         /// </summary>
+        /// <value>The timestamp of the most recent update in epoch format for a specific Schedule</value>
         [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
         public string LastUpdated { get; set; }
 
@@ -213,7 +228,7 @@ namespace FactSet.SDK.Vermilion.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  DefinitionName: ").Append(DefinitionName).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Group: ").Append(Group).Append("\n");
+            sb.Append("  ScheduleGroup: ").Append(ScheduleGroup).Append("\n");
             sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
             sb.Append("  NoOfTasks: ").Append(NoOfTasks).Append("\n");
             sb.Append("  BusinessCalendar: ").Append(BusinessCalendar).Append("\n");
@@ -277,9 +292,9 @@ namespace FactSet.SDK.Vermilion.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
-                    this.Group == input.Group ||
-                    (this.Group != null &&
-                    this.Group.Equals(input.Group))
+                    this.ScheduleGroup == input.ScheduleGroup ||
+                    (this.ScheduleGroup != null &&
+                    this.ScheduleGroup.Equals(input.ScheduleGroup))
                 ) && 
                 (
                     this.ReportDate == input.ReportDate ||
@@ -346,9 +361,9 @@ namespace FactSet.SDK.Vermilion.Model
                     hashCode = (hashCode * 59) + this.DefinitionName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Group != null)
+                if (this.ScheduleGroup != null)
                 {
-                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ScheduleGroup.GetHashCode();
                 }
                 if (this.ReportDate != null)
                 {

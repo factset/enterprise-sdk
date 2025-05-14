@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimUserName {
     /**
      * Constructs a new <code>ScimUserName</code>.
+     * User&#39;s full name object.
      * @alias module:model/ScimUserName
      */
     constructor() { 
@@ -57,6 +58,7 @@ class ScimUserName {
 }
 
 /**
+ * Full formatted name of the user.
  * @member {String} formatted
  */
 ScimUserName.prototype['formatted'] = undefined;

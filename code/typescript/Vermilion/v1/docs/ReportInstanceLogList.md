@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[ReportInstanceLogDTO]**](ReportInstanceLogDTO.md) |  | [optional] 
+**data** | [**[ReportInstanceLogDTO]**](ReportInstanceLogDTO.md) | An array of Report generation log entries for the Report instance. | [optional] 
 
 

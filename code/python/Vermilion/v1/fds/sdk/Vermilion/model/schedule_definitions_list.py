@@ -31,10 +31,10 @@ from fds.sdk.Vermilion.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.Vermilion.model.data_source_list_meta import DataSourceListMeta
     from fds.sdk.Vermilion.model.schedule_definition import ScheduleDefinition
-    globals()['DataSourceListMeta'] = DataSourceListMeta
+    from fds.sdk.Vermilion.model.schedule_definitions_list_meta import ScheduleDefinitionsListMeta
     globals()['ScheduleDefinition'] = ScheduleDefinition
+    globals()['ScheduleDefinitionsListMeta'] = ScheduleDefinitionsListMeta
 
 
 class ScheduleDefinitionsList(ModelNormal):
@@ -90,7 +90,7 @@ class ScheduleDefinitionsList(ModelNormal):
         """
         lazy_import()
         return {
-            'meta': (DataSourceListMeta,),  # noqa: E501
+            'meta': (ScheduleDefinitionsListMeta,),  # noqa: E501
             'data': ([ScheduleDefinition],),  # noqa: E501
         }
 
@@ -145,8 +145,8 @@ class ScheduleDefinitionsList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([ScheduleDefinition]): [optional]  # noqa: E501
+            meta (ScheduleDefinitionsListMeta): [optional]  # noqa: E501
+            data ([ScheduleDefinition]): An array of Schedule Definitions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class ScheduleDefinitionsList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (DataSourceListMeta): [optional]  # noqa: E501
-            data ([ScheduleDefinition]): [optional]  # noqa: E501
+            meta (ScheduleDefinitionsListMeta): [optional]  # noqa: E501
+            data ([ScheduleDefinition]): An array of Schedule Definitions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

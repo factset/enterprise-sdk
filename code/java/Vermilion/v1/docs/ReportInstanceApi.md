@@ -108,6 +108,7 @@ null (empty response body)
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report instance ID could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## downloadReportFile
@@ -221,6 +222,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view the generated file in VRS |  -  |
 | **406** | Unsupported Accept header. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getAllReportInstances
@@ -331,6 +333,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorised |  -  |
 | **403** | No permissions to view reports in VRS |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getReportGenerationLogs
@@ -436,6 +439,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report instance ID could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## getReportInstanceById
@@ -534,6 +538,7 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The supplied report instance ID could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 
 
 ## startReportGeneration
@@ -630,4 +635,5 @@ Name | Type | Description  | Notes
 | **403** | No permissions to view reports in VRS |  -  |
 | **404** | The report code could not be found |  -  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  -  |
+| **500** | The server have encountered an unhandled error due to which request was not fulfilled. |  -  |
 

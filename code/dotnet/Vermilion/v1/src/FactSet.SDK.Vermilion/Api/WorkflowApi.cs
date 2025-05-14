@@ -54,6 +54,52 @@ namespace FactSet.SDK.Vermilion.Api
         /// <returns>ApiResponse of GenerateScheduleResponse</returns>
         ApiResponse<GenerateScheduleResponse> GenerateScheduleWithHttpInfo(string tenant, string scheduleDefinitionCode, bool? setToRunning = default(bool?));
         /// <summary>
+        /// Generates the tasks for the initialised schedule
+        /// </summary>
+        /// <remarks>
+        /// Generates the schedule tasks for the specified schedule id
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <returns>ScheduleStatusUpdateResponse</returns>
+        ScheduleStatusUpdateResponse GenerateScheduleTasks(string tenant, string scheduleId);
+
+        /// <summary>
+        /// Generates the tasks for the initialised schedule
+        /// </summary>
+        /// <remarks>
+        /// Generates the schedule tasks for the specified schedule id
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <returns>ApiResponse of ScheduleStatusUpdateResponse</returns>
+        ApiResponse<ScheduleStatusUpdateResponse> GenerateScheduleTasksWithHttpInfo(string tenant, string scheduleId);
+        /// <summary>
+        /// Gets a schedule based on the schedule ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a schedule Object based on the schedule ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <returns>ScheduleResponseData</returns>
+        ScheduleResponseData GetScheduleById(string tenant, string scheduleId);
+
+        /// <summary>
+        /// Gets a schedule based on the schedule ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a schedule Object based on the schedule ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <returns>ApiResponse of ScheduleResponseData</returns>
+        ApiResponse<ScheduleResponseData> GetScheduleByIdWithHttpInfo(string tenant, string scheduleId);
+        /// <summary>
         /// Retrieves a list of all schedule definitions
         /// </summary>
         /// <remarks>
@@ -61,7 +107,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -80,7 +126,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -163,6 +209,105 @@ namespace FactSet.SDK.Vermilion.Api
         /// <returns>ApiResponse of SchedulesList</returns>
         ApiResponse<SchedulesList> GetSchedulesWithHttpInfo(string tenant, string status = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
+        /// Gets a task based on the task ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a task Object based on the task ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <returns>TaskDetailsObject</returns>
+        TaskDetailsObject GetTask(string tenant, string taskId);
+
+        /// <summary>
+        /// Gets a task based on the task ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a task Object based on the task ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <returns>ApiResponse of TaskDetailsObject</returns>
+        ApiResponse<TaskDetailsObject> GetTaskWithHttpInfo(string tenant, string taskId);
+        /// <summary>
+        /// Gets the task history for a specific task
+        /// </summary>
+        /// <remarks>
+        /// Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>TaskHistoryList</returns>
+        TaskHistoryList GetTaskHistory(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+
+        /// <summary>
+        /// Gets the task history for a specific task
+        /// </summary>
+        /// <remarks>
+        /// Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>ApiResponse of TaskHistoryList</returns>
+        ApiResponse<TaskHistoryList> GetTaskHistoryWithHttpInfo(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+        /// <summary>
+        /// Retrieves a list of all tasks
+        /// </summary>
+        /// <remarks>
+        /// Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>TaskList</returns>
+        TaskList GetTasks(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+
+        /// <summary>
+        /// Retrieves a list of all tasks
+        /// </summary>
+        /// <remarks>
+        /// Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>ApiResponse of TaskList</returns>
+        ApiResponse<TaskList> GetTasksWithHttpInfo(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+        /// <summary>
         /// Update schedule status for specified schedule
         /// </summary>
         /// <remarks>
@@ -187,6 +332,31 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="status">The schedule status that needs to be updated only if the transition is valid</param>
         /// <returns>ApiResponse of ScheduleStatusUpdateResponse</returns>
         ApiResponse<ScheduleStatusUpdateResponse> UpdateScheduleStatusWithHttpInfo(string tenant, string scheduleId, string status);
+        /// <summary>
+        /// Updates the task details for the specified task.
+        /// </summary>
+        /// <remarks>
+        /// Updates the task details for the specified task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <returns>TaskPatchResponseObject</returns>
+        TaskPatchResponseObject UpdateTaskDetails(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody);
+
+        /// <summary>
+        /// Updates the task details for the specified task.
+        /// </summary>
+        /// <remarks>
+        /// Updates the task details for the specified task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <returns>ApiResponse of TaskPatchResponseObject</returns>
+        ApiResponse<TaskPatchResponseObject> UpdateTaskDetailsWithHttpInfo(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody);
         #endregion Synchronous Operations
     }
 
@@ -224,6 +394,56 @@ namespace FactSet.SDK.Vermilion.Api
         /// <returns>Task of ApiResponse (GenerateScheduleResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GenerateScheduleResponse>> GenerateScheduleWithHttpInfoAsync(string tenant, string scheduleDefinitionCode, bool? setToRunning = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Generates the tasks for the initialised schedule
+        /// </summary>
+        /// <remarks>
+        /// Generates the schedule tasks for the specified schedule id
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ScheduleStatusUpdateResponse</returns>
+        System.Threading.Tasks.Task<ScheduleStatusUpdateResponse> GenerateScheduleTasksAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Generates the tasks for the initialised schedule
+        /// </summary>
+        /// <remarks>
+        /// Generates the schedule tasks for the specified schedule id
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ScheduleStatusUpdateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScheduleStatusUpdateResponse>> GenerateScheduleTasksWithHttpInfoAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Gets a schedule based on the schedule ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a schedule Object based on the schedule ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ScheduleResponseData</returns>
+        System.Threading.Tasks.Task<ScheduleResponseData> GetScheduleByIdAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Gets a schedule based on the schedule ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a schedule Object based on the schedule ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ScheduleResponseData)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScheduleResponseData>> GetScheduleByIdWithHttpInfoAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Retrieves a list of all schedule definitions
         /// </summary>
         /// <remarks>
@@ -231,7 +451,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -251,7 +471,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -339,6 +559,111 @@ namespace FactSet.SDK.Vermilion.Api
         /// <returns>Task of ApiResponse (SchedulesList)</returns>
         System.Threading.Tasks.Task<ApiResponse<SchedulesList>> GetSchedulesWithHttpInfoAsync(string tenant, string status = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Gets a task based on the task ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a task Object based on the task ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskDetailsObject</returns>
+        System.Threading.Tasks.Task<TaskDetailsObject> GetTaskAsync(string tenant, string taskId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Gets a task based on the task ID
+        /// </summary>
+        /// <remarks>
+        /// Gets a task Object based on the task ID passed.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskDetailsObject)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskDetailsObject>> GetTaskWithHttpInfoAsync(string tenant, string taskId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Gets the task history for a specific task
+        /// </summary>
+        /// <remarks>
+        /// Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskHistoryList</returns>
+        System.Threading.Tasks.Task<TaskHistoryList> GetTaskHistoryAsync(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Gets the task history for a specific task
+        /// </summary>
+        /// <remarks>
+        /// Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskHistoryList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskHistoryList>> GetTaskHistoryWithHttpInfoAsync(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieves a list of all tasks
+        /// </summary>
+        /// <remarks>
+        /// Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskList</returns>
+        System.Threading.Tasks.Task<TaskList> GetTasksAsync(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieves a list of all tasks
+        /// </summary>
+        /// <remarks>
+        /// Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskList>> GetTasksWithHttpInfoAsync(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Update schedule status for specified schedule
         /// </summary>
         /// <remarks>
@@ -365,6 +690,33 @@ namespace FactSet.SDK.Vermilion.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ScheduleStatusUpdateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ScheduleStatusUpdateResponse>> UpdateScheduleStatusWithHttpInfoAsync(string tenant, string scheduleId, string status, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Updates the task details for the specified task.
+        /// </summary>
+        /// <remarks>
+        /// Updates the task details for the specified task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskPatchResponseObject</returns>
+        System.Threading.Tasks.Task<TaskPatchResponseObject> UpdateTaskDetailsAsync(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Updates the task details for the specified task.
+        /// </summary>
+        /// <remarks>
+        /// Updates the task details for the specified task.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskPatchResponseObject)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TaskPatchResponseObject>> UpdateTaskDetailsWithHttpInfoAsync(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -393,6 +745,29 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)404, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GenerateScheduleTasksResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(ScheduleStatusUpdateResponse) },
+            { (HttpStatusCode)400, typeof(ErrorList) },
+            { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)403, typeof(ErrorList) },
+            { (HttpStatusCode)404, typeof(ErrorList) },
+            { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetScheduleByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ScheduleResponseData) },
+            { (HttpStatusCode)400, typeof(ErrorList) },
+            { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)403, typeof(ErrorList) },
+            { (HttpStatusCode)404, typeof(ErrorList) },
+            { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetScheduleDefinitionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -402,6 +777,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)401, typeof(ErrorList) },
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetScheduleGenerationLogsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -411,6 +787,7 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)401, typeof(ErrorList) },
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSchedulesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -420,6 +797,38 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)401, typeof(ErrorList) },
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetTaskResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(TaskDetailsObject) },
+            { (HttpStatusCode)400, typeof(ErrorList) },
+            { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)403, typeof(ErrorList) },
+            { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetTaskHistoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(TaskHistoryList) },
+            { (HttpStatusCode)400, typeof(ErrorList) },
+            { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)403, typeof(ErrorList) },
+            { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetTasksResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(TaskList) },
+            { (HttpStatusCode)400, typeof(ErrorList) },
+            { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)403, typeof(ErrorList) },
+            { (HttpStatusCode)404, typeof(ErrorList) },
+            { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> UpdateScheduleStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -430,6 +839,18 @@ namespace FactSet.SDK.Vermilion.Api
             { (HttpStatusCode)403, typeof(ErrorList) },
             { (HttpStatusCode)404, typeof(ErrorList) },
             { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> UpdateTaskDetailsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(TaskPatchResponseObject) },
+            { (HttpStatusCode)206, typeof(TaskPatchResponseObject) },
+            { (HttpStatusCode)400, typeof(ErrorList) },
+            { (HttpStatusCode)401, typeof(ErrorList) },
+            { (HttpStatusCode)403, typeof(ErrorList) },
+            { (HttpStatusCode)406, typeof(ErrorList) },
+            { (HttpStatusCode)500, typeof(ErrorList) },
         };
 
         # endregion Response Type Disctionaries
@@ -749,11 +1170,401 @@ namespace FactSet.SDK.Vermilion.Api
         }
 
         /// <summary>
+        /// Generates the tasks for the initialised schedule Generates the schedule tasks for the specified schedule id
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <returns>ScheduleStatusUpdateResponse</returns>
+        public ScheduleStatusUpdateResponse GenerateScheduleTasks(string tenant, string scheduleId)
+        {
+            var localVarResponse = GenerateScheduleTasksWithHttpInfo(tenant, scheduleId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generates the tasks for the initialised schedule Generates the schedule tasks for the specified schedule id
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <returns>ApiResponse of ScheduleStatusUpdateResponse</returns>
+        public ApiResponse<ScheduleStatusUpdateResponse> GenerateScheduleTasksWithHttpInfo(string tenant, string scheduleId)
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GenerateScheduleTasks");
+            }
+
+            // verify the required parameter 'scheduleId' is set
+            if (scheduleId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'scheduleId' when calling WorkflowApi->GenerateScheduleTasks");
+            }
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scheduleId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(scheduleId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GenerateScheduleTasksResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            ScheduleStatusUpdateResponse>("/v1/{tenant}/schedules/{scheduleId}/generate-tasks", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GenerateScheduleTasks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Generates the tasks for the initialised schedule Generates the schedule tasks for the specified schedule id
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ScheduleStatusUpdateResponse</returns>
+        public async System.Threading.Tasks.Task<ScheduleStatusUpdateResponse>GenerateScheduleTasksAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GenerateScheduleTasksWithHttpInfoAsync(tenant, scheduleId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generates the tasks for the initialised schedule Generates the schedule tasks for the specified schedule id
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The schedule id for which to generate the tasks</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ScheduleStatusUpdateResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<ScheduleStatusUpdateResponse>> GenerateScheduleTasksWithHttpInfoAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GenerateScheduleTasks");
+            }
+
+            // verify the required parameter 'scheduleId' is set
+            if (scheduleId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'scheduleId' when calling WorkflowApi->GenerateScheduleTasks");
+            }
+
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scheduleId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(scheduleId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GenerateScheduleTasksResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ScheduleStatusUpdateResponse>("/v1/{tenant}/schedules/{scheduleId}/generate-tasks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GenerateScheduleTasks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets a schedule based on the schedule ID Gets a schedule Object based on the schedule ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <returns>ScheduleResponseData</returns>
+        public ScheduleResponseData GetScheduleById(string tenant, string scheduleId)
+        {
+            var localVarResponse = GetScheduleByIdWithHttpInfo(tenant, scheduleId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets a schedule based on the schedule ID Gets a schedule Object based on the schedule ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <returns>ApiResponse of ScheduleResponseData</returns>
+        public ApiResponse<ScheduleResponseData> GetScheduleByIdWithHttpInfo(string tenant, string scheduleId)
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetScheduleById");
+            }
+
+            // verify the required parameter 'scheduleId' is set
+            if (scheduleId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'scheduleId' when calling WorkflowApi->GetScheduleById");
+            }
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scheduleId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(scheduleId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetScheduleByIdResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ScheduleResponseData>("/v1/{tenant}/schedules/{scheduleId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetScheduleById", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets a schedule based on the schedule ID Gets a schedule Object based on the schedule ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ScheduleResponseData</returns>
+        public async System.Threading.Tasks.Task<ScheduleResponseData>GetScheduleByIdAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetScheduleByIdWithHttpInfoAsync(tenant, scheduleId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets a schedule based on the schedule ID Gets a schedule Object based on the schedule ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="scheduleId">The Id of the schedule</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ScheduleResponseData)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<ScheduleResponseData>> GetScheduleByIdWithHttpInfoAsync(string tenant, string scheduleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetScheduleById");
+            }
+
+            // verify the required parameter 'scheduleId' is set
+            if (scheduleId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'scheduleId' when calling WorkflowApi->GetScheduleById");
+            }
+
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scheduleId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(scheduleId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetScheduleByIdResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ScheduleResponseData>("/v1/{tenant}/schedules/{scheduleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetScheduleById", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieves a list of all schedule definitions Retrieves all schedule definitions the user has permissions for. User has sort and filter parameters available to use.
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -773,7 +1584,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -887,7 +1698,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -908,7 +1719,7 @@ namespace FactSet.SDK.Vermilion.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenant">The code of the tenancy</param>
-        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,TEMPLATE (optional)</param>
+        /// <param name="scheduleType">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule type. Accepts multiple values separated by a comma, e.g. ?scheduleType&#x3D;REPEATING,MANUAL (optional)</param>
         /// <param name="reportDate">Acts as a filter for the retrieval process. Filters the schedule definitions that match the given schedule report date.  Accepts multiple values separated by a comma, e.g. ?reportDate&#x3D;LAST_DAY_OF_PREV_MONTH,CREATION_DATE (optional)</param>
         /// <param name="lastUpdatedBy">Acts as a filter for the retrieval process. Filters the schedule definitions where the provided parameter value matches or is a substring of the last updated by value of the schedule definitions (optional)</param>
         /// <param name="startDate">Acts as a filter for the retrieval process. Filters the schedule definitions based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
@@ -1562,6 +2373,765 @@ namespace FactSet.SDK.Vermilion.Api
         }
 
         /// <summary>
+        /// Gets a task based on the task ID Gets a task Object based on the task ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <returns>TaskDetailsObject</returns>
+        public TaskDetailsObject GetTask(string tenant, string taskId)
+        {
+            var localVarResponse = GetTaskWithHttpInfo(tenant, taskId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets a task based on the task ID Gets a task Object based on the task ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <returns>ApiResponse of TaskDetailsObject</returns>
+        public ApiResponse<TaskDetailsObject> GetTaskWithHttpInfo(string tenant, string taskId)
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetTask");
+            }
+
+            // verify the required parameter 'taskId' is set
+            if (taskId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskId' when calling WorkflowApi->GetTask");
+            }
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("taskId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(taskId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTaskResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            TaskDetailsObject>("/v1/{tenant}/tasks/{taskId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTask", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets a task based on the task ID Gets a task Object based on the task ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskDetailsObject</returns>
+        public async System.Threading.Tasks.Task<TaskDetailsObject>GetTaskAsync(string tenant, string taskId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetTaskWithHttpInfoAsync(tenant, taskId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets a task based on the task ID Gets a task Object based on the task ID passed.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The Id of the task</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskDetailsObject)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<TaskDetailsObject>> GetTaskWithHttpInfoAsync(string tenant, string taskId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetTask");
+            }
+
+            // verify the required parameter 'taskId' is set
+            if (taskId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskId' when calling WorkflowApi->GetTask");
+            }
+
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("taskId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(taskId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTaskResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskDetailsObject>("/v1/{tenant}/tasks/{taskId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTask", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets the task history for a specific task Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>TaskHistoryList</returns>
+        public TaskHistoryList GetTaskHistory(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            var localVarResponse = GetTaskHistoryWithHttpInfo(tenant, taskId, actionType, reasonCode, startDate, endDate, sort, paginationLimit, paginationOffset);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets the task history for a specific task Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>ApiResponse of TaskHistoryList</returns>
+        public ApiResponse<TaskHistoryList> GetTaskHistoryWithHttpInfo(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetTaskHistory");
+            }
+
+            // verify the required parameter 'taskId' is set
+            if (taskId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskId' when calling WorkflowApi->GetTaskHistory");
+            }
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("taskId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(taskId)); // path parameter
+            if (actionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "actionType", actionType));
+            }
+            if (reasonCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "reasonCode", reasonCode));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "_sort", sort));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTaskHistoryResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            TaskHistoryList>("/v1/{tenant}/tasks/{taskId}/history", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTaskHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets the task history for a specific task Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskHistoryList</returns>
+        public async System.Threading.Tasks.Task<TaskHistoryList>GetTaskHistoryAsync(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetTaskHistoryWithHttpInfoAsync(tenant, taskId, actionType, reasonCode, startDate, endDate, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets the task history for a specific task Gets the task history for a specific task based on the Task ID. Allows the user to sort and filter the task history entries.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The taskId for which the history of the specific task is requested</param>
+        /// <param name="actionType">Acts as a filter for the retrieval process. Filters the task history entries that match the given action type (optional)</param>
+        /// <param name="reasonCode">Acts as a filter for the retrieval process. Filters the task history entries that match the given reason code (optional)</param>
+        /// <param name="startDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="endDate">Acts as a filter for the retrieval process. Filters the task history events based on their last updated date, the input date must be of the date format (d MMMMM yyyy 00:00:00). (optional)</param>
+        /// <param name="sort">The column to sort on. Can add - to sort for descending order (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskHistoryList)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<TaskHistoryList>> GetTaskHistoryWithHttpInfoAsync(string tenant, string taskId, string actionType = default(string), string reasonCode = default(string), string startDate = default(string), string endDate = default(string), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetTaskHistory");
+            }
+
+            // verify the required parameter 'taskId' is set
+            if (taskId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskId' when calling WorkflowApi->GetTaskHistory");
+            }
+
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("taskId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(taskId)); // path parameter
+            if (actionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "actionType", actionType));
+            }
+            if (reasonCode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "reasonCode", reasonCode));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "_sort", sort));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTaskHistoryResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskHistoryList>("/v1/{tenant}/tasks/{taskId}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTaskHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieves a list of all tasks Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>TaskList</returns>
+        public TaskList GetTasks(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            var localVarResponse = GetTasksWithHttpInfo(tenant, taskType, status, role, user, immediateTasksOnly, scheduleId, sort, paginationLimit, paginationOffset);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves a list of all tasks Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <returns>ApiResponse of TaskList</returns>
+        public ApiResponse<TaskList> GetTasksWithHttpInfo(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetTasks");
+            }
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            if (taskType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "taskType", taskType));
+            }
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (role != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "role", role));
+            }
+            if (user != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "user", user));
+            }
+            if (immediateTasksOnly != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "immediateTasksOnly", immediateTasksOnly));
+            }
+            if (scheduleId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "scheduleId", scheduleId));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "_sort", sort));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTasksResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            TaskList>("/v1/{tenant}/tasks", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTasks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieves a list of all tasks Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskList</returns>
+        public async System.Threading.Tasks.Task<TaskList>GetTasksAsync(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetTasksWithHttpInfoAsync(tenant, taskType, status, role, user, immediateTasksOnly, scheduleId, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves a list of all tasks Retrieves all tasks the user has permissions for. User has sort and filter parameters available to use.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskType">Acts as a filter for the retrieval process. Filters the tasks that match the given task type. Accepts multiple values separated by a comma, e.g. ?taskType&#x3D;SIGNOFF_DATA,PACKAGE_REPORTS (optional)</param>
+        /// <param name="status">Acts as a filter for the retrieval process. Filters the tasks that match the given status. Accepts multiple values separated by a comma, e.g. ?status&#x3D;PENDING,AWAITING_CORRECTION (optional)</param>
+        /// <param name="role">Acts as a filter for the retrieval process. Filters the tasks that match the input role assigned to the task (optional)</param>
+        /// <param name="user">Acts as a filter for the retrieval process. Filters the tasks that match the input user name assigned to the task (optional)</param>
+        /// <param name="immediateTasksOnly">Acts as a filter for the retrieval process. Filters the immediate tasks if the parameter value is set to true (optional)</param>
+        /// <param name="scheduleId">Acts as a filter for the retrieval process. Filters the schedule tasks for the Schedule Id passed in the parameter value (optional)</param>
+        /// <param name="sort">The column to sort on. Can add &#39;-&#39; to the start of the parameter value to sort in descending order. (optional)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return (optional, default to 25)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip (optional, default to 0)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskList)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<TaskList>> GetTasksWithHttpInfoAsync(string tenant, string taskType = default(string), string status = default(string), string role = default(string), string user = default(string), bool? immediateTasksOnly = default(bool?), int? scheduleId = default(int?), List<string> sort = default(List<string>), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->GetTasks");
+            }
+
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            if (taskType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "taskType", taskType));
+            }
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (role != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "role", role));
+            }
+            if (user != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "user", user));
+            }
+            if (immediateTasksOnly != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "immediateTasksOnly", immediateTasksOnly));
+            }
+            if (scheduleId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "scheduleId", scheduleId));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("csv", "_sort", sort));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetTasksResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TaskList>("/v1/{tenant}/tasks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTasks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Update schedule status for specified schedule Updated the schedule status for the specified schedule id based on the given status
         /// </summary>
         /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1765,6 +3335,221 @@ namespace FactSet.SDK.Vermilion.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateScheduleStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the task details for the specified task. Updates the task details for the specified task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <returns>TaskPatchResponseObject</returns>
+        public TaskPatchResponseObject UpdateTaskDetails(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody)
+        {
+            var localVarResponse = UpdateTaskDetailsWithHttpInfo(tenant, taskId, taskPatchRequestBody);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the task details for the specified task. Updates the task details for the specified task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <returns>ApiResponse of TaskPatchResponseObject</returns>
+        public ApiResponse<TaskPatchResponseObject> UpdateTaskDetailsWithHttpInfo(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody)
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->UpdateTaskDetails");
+            }
+
+            // verify the required parameter 'taskId' is set
+            if (taskId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskId' when calling WorkflowApi->UpdateTaskDetails");
+            }
+
+            // verify the required parameter 'taskPatchRequestBody' is set
+            if (taskPatchRequestBody == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskPatchRequestBody' when calling WorkflowApi->UpdateTaskDetails");
+            }
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("taskId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(taskId)); // path parameter
+            localVarRequestOptions.Data = taskPatchRequestBody;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = UpdateTaskDetailsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<
+            TaskPatchResponseObject>("/v1/{tenant}/tasks/{taskId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateTaskDetails", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Updates the task details for the specified task. Updates the task details for the specified task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TaskPatchResponseObject</returns>
+        public async System.Threading.Tasks.Task<TaskPatchResponseObject>UpdateTaskDetailsAsync(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await UpdateTaskDetailsWithHttpInfoAsync(tenant, taskId, taskPatchRequestBody, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the task details for the specified task. Updates the task details for the specified task.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Vermilion.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenant">The code of the tenancy</param>
+        /// <param name="taskId">The unique identifier for task</param>
+        /// <param name="taskPatchRequestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TaskPatchResponseObject)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<TaskPatchResponseObject>> UpdateTaskDetailsWithHttpInfoAsync(string tenant, string taskId, TaskPatchRequestBody taskPatchRequestBody, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'tenant' is set
+            if (tenant == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'tenant' when calling WorkflowApi->UpdateTaskDetails");
+            }
+
+            // verify the required parameter 'taskId' is set
+            if (taskId == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskId' when calling WorkflowApi->UpdateTaskDetails");
+            }
+
+            // verify the required parameter 'taskPatchRequestBody' is set
+            if (taskPatchRequestBody == null)
+            {
+                throw new FactSet.SDK.Vermilion.Client.ApiException(400, "Missing required parameter 'taskPatchRequestBody' when calling WorkflowApi->UpdateTaskDetails");
+            }
+
+
+            FactSet.SDK.Vermilion.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vermilion.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Vermilion.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("tenant", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(tenant)); // path parameter
+            localVarRequestOptions.PathParameters.Add("taskId", FactSet.SDK.Vermilion.Client.ClientUtils.ParameterToString(taskId)); // path parameter
+            localVarRequestOptions.Data = taskPatchRequestBody;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vermilion.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = UpdateTaskDetailsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<TaskPatchResponseObject>("/v1/{tenant}/tasks/{taskId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateTaskDetails", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -35,6 +35,7 @@ public class EntityApi {
     getEntityValuesByCodeResponseTypeMap.put(403, new GenericType<ErrorList>(){});
     getEntityValuesByCodeResponseTypeMap.put(404, new GenericType<ErrorList>(){});
     getEntityValuesByCodeResponseTypeMap.put(406, new GenericType<ErrorList>(){});
+    getEntityValuesByCodeResponseTypeMap.put(500, new GenericType<ErrorList>(){});
   }
 
   
@@ -78,6 +79,7 @@ public class EntityApi {
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied entity code was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public EntityFieldValueDTO getEntityValuesByCode(String tenant, String entityCode, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset, Integer showAll) throws ApiException {
@@ -104,6 +106,7 @@ public class EntityApi {
        <tr><td> 403 </td><td> No permissions to view datasources in VRS </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The supplied entity code was not found </td><td>  -  </td></tr>
        <tr><td> 406 </td><td> Unsupported Accept header. Header needs to be set to application/json. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> The server have encountered an unhandled error due to which request was not fulfilled. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<EntityFieldValueDTO> getEntityValuesByCodeWithHttpInfo(String tenant, String entityCode, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset, Integer showAll) throws ApiException {

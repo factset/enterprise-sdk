@@ -2,21 +2,22 @@
 
 # ReportRevisionDTO
 
+Contains details about the Report revision.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reportStatus** | [**ReportStatusEnum**](#ReportStatusEnum) |  |  [optional]
-**startDate** | **String** |  |  [optional]
-**finishDate** | **String** |  |  [optional]
-**signOffStatus** | [**SignOffStatusEnum**](#SignOffStatusEnum) |  |  [optional]
-**signOffNotes** | **String** |  |  [optional]
-**reportReasonCd** | **String** |  |  [optional]
-**description** | **String** |  |  [optional]
-**languageCode** | **String** |  |  [optional]
-**outputFormat** | **String** |  |  [optional]
-**percentageComplete** | **Integer** |  |  [optional]
+**reportStatus** | [**ReportStatusEnum**](#ReportStatusEnum) | The current status of the Report generation process. |  [optional]
+**startDate** | **String** | Start date of the Report generation process. |  [optional]
+**finishDate** | **String** | Completion date of the Report generation process. |  [optional]
+**signOffStatus** | [**SignOffStatusEnum**](#SignOffStatusEnum) | Sign-off status of the Report. |  [optional]
+**signOffNotes** | **String** | Additional notes related to the sign-off process. |  [optional]
+**reportReasonCd** | **String** | Reason code for generating the Report. |  [optional]
+**description** | **String** | Description of the Report revision. |  [optional]
+**languageCode** | **String** | Language code of the Report. |  [optional]
+**outputFormat** | **String** | Output format of the Report. |  [optional]
+**percentageComplete** | **BigDecimal** | Percentage of completion for the Report generation. |  [optional]
 
 
 

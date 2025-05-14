@@ -1,5 +1,6 @@
 # GenerateScheduleResponse
 
+Response object for schedule generation.
 
 ## Properties
 Name | Type | Description | Notes

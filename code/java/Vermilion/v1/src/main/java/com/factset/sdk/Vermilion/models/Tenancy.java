@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * Tenancy
+ * Represents tenancy information.
  */
+@ApiModel(description = "Represents tenancy information.")
 @JsonPropertyOrder({
   Tenancy.JSON_PROPERTY_VALUE
 })
@@ -52,11 +53,11 @@ public class Tenancy implements Serializable {
   }
 
    /**
-   * Get value
+   * Tenancy code.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Tenancy code.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

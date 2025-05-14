@@ -19,13 +19,20 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Datasource
-- name: Entity
-- name: Report
-- name: Report instance
-- name: Workflow
-- name: SCIM
-- name: Version
+- description: Endpoints for Data Source.
+  name: Datasource
+- description: Endpoints for Entities.
+  name: Entity
+- description: Endpoints for Reports.
+  name: Report
+- description: Endpoints for Report instances.
+  name: Report instance
+- description: Endpoints for Workflow.
+  name: Workflow
+- description: Endpoints for Users and Groups.
+  name: SCIM
+- description: Endpoints to retrieve the version details.
+  name: Version
 paths:
   /v1/{tenant}/data-sources:
     get:
@@ -165,6 +172,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Lists all datasources
       tags:
       - Datasource
@@ -259,6 +278,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets a datasource
       tags:
       - Datasource
@@ -288,7 +319,7 @@ paths:
           type: string
         style: simple
       - description: 'A series of query parameter used to filter the data for a datasource.
-          This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS'
+          This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS'
         example: FUNDS
         explode: true
         in: query
@@ -298,7 +329,7 @@ paths:
           type: string
         style: form
       - description: 'A series of query parameter used to filter the data for a datasource.
-          This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2'
+          This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2'
         example: Test2
         explode: true
         in: query
@@ -339,6 +370,7 @@ paths:
                     id: 4567
                     hide: "false"
                     name: Pet
+                    order: 10
                   dstInstance:
                     dstInstanceId: 123456
                     dstInstanceType: AUTOMATIC
@@ -408,6 +440,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets the data for the datasource
       tags:
       - Datasource
@@ -574,6 +618,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets the entity values
       tags:
       - Entity
@@ -713,6 +769,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets all report definitions
       tags:
       - Report
@@ -812,6 +880,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets a report definition
       tags:
       - Report
@@ -934,6 +1014,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Generates a report
       tags:
       - Report instance
@@ -1021,6 +1113,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Cancels a report generation
       tags:
       - Report instance
@@ -1137,6 +1241,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets a report instance based on the ID
       tags:
       - Report instance
@@ -1330,6 +1446,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets a list of report instances
       tags:
       - Report instance
@@ -1469,6 +1597,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets the generated file
       tags:
       - Report instance
@@ -1616,6 +1756,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets a list of logs for the report instance generation
       tags:
       - Report instance
@@ -1637,7 +1789,7 @@ paths:
         style: simple
       - description: Acts as a filter for the retrieval process. Filters the schedule
           definitions that match the given schedule type. Accepts multiple values
-          separated by a comma, e.g. ?scheduleType=REPEATING,TEMPLATE
+          separated by a comma, e.g. ?scheduleType=REPEATING,MANUAL
         example: MANUAL
         explode: true
         in: query
@@ -1647,8 +1799,6 @@ paths:
           enum:
           - MANUAL
           - REPEATING
-          - TEMPLATE
-          - ADHOC
           type: string
         style: form
       - description: Acts as a filter for the retrieval process. Filters the schedule
@@ -1855,7 +2005,139 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Retrieves a list of all schedule definitions
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/schedules/{scheduleId}:
+    get:
+      description: Gets a schedule Object based on the schedule ID passed.
+      operationId: getScheduleById
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Id of the schedule
+        example: "16304"
+        explode: false
+        in: path
+        name: scheduleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  scheduleId: 16304
+                  lastUpdatedBy: test_user
+                  notes: Automatically created at 2017-05-31 10:17:05 Europe/London
+                  name: Test schddefn _1234 (2017.05.31 10:17)
+                  definitionName: Test schddefn _1234
+                  startDate: "1586870729577"
+                  finishDate: "1694588295897"
+                  scheduleGroup: test_group
+                  businessCalendar: United Kingdom
+                  reportDate: "1586802600577"
+                  lastUpdated: "1694608095920"
+                  noOfTasks: 12
+                  owner: Admin
+                  status: RUNNING
+                  hasTaskGenIssues: false
+              schema:
+                $ref: '#/components/schemas/ScheduleResponseData'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item. Invalid role permission
+                    for schedule id 34567
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Forbidden. No permissions to view schedule in VRS
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notFound
+                  title: The Schedule id [351865] passed was not found
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The supplied schedule ID was not found
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
+      summary: Gets a schedule based on the schedule ID
       tags:
       - Workflow
       x-accepts: application/json
@@ -1999,7 +2281,7 @@ paths:
                   definitionName: Test schddefn _1234
                   startDate: "1586870729577"
                   finishDate: "1694588295897"
-                  group: test_group
+                  scheduleGroup: test_group
                   businessCalendar: United Kingdom
                   reportDate: "1586802600577"
                   lastUpdated: "1694608095920"
@@ -2056,6 +2338,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Retrieves a list of all schedules
       tags:
       - Workflow
@@ -2162,6 +2456,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Creates schedule for the specified schedule definition
       tags:
       - Workflow
@@ -2221,7 +2527,7 @@ paths:
                   definitionName: Test schddefn _1234
                   startDate: "1586870729577"
                   finishDate: "1694588295897"
-                  group: test_group
+                  scheduleGroup: test_group
                   businessCalendar: United Kingdom
                   reportDate: "1586802600577"
                   lastUpdated: "1694608095920"
@@ -2286,7 +2592,140 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Update schedule status for specified schedule
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/schedules/{scheduleId}/generate-tasks:
+    post:
+      description: Generates the schedule tasks for the specified schedule id
+      operationId: generateScheduleTasks
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The schedule id for which to generate the tasks
+        example: "123456"
+        explode: false
+        in: path
+        name: scheduleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              example:
+                data:
+                  scheduleId: 16304
+                  lastUpdatedBy: test_user
+                  notes: Automatically created at 2017-05-31 10:17:05 Europe/London
+                  name: Test schddefn _1234 (2017.05.31 10:17)
+                  definitionName: Test schddefn _1234
+                  startDate: "1586870729577"
+                  finishDate: "1694588295897"
+                  scheduleGroup: test_group
+                  businessCalendar: United Kingdom
+                  reportDate: "1586802600577"
+                  lastUpdated: "1694608095920"
+                  noOfTasks: 12
+                  owner: Admin
+                  status: Running
+              schema:
+                $ref: '#/components/schemas/ScheduleStatusUpdateResponse'
+          description: Task generation request succeeded and task generation is in
+            progress
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: Could not generate the tasks because the schedule is not
+                    in an initialized state
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Tasks could not be generated because the schedule is not in
+            an initialized state
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item. User has no function permissions
+                    for Workflow Schedules
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: No permissions to generate tasks for the schedule
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notFound
+                  title: The schedule id [3581196] passed was not found
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The schedule id could not be found
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server might have encountered an unhandled error due to
+            which request was not fulfilled.
+      summary: Generates the tasks for the initialised schedule
       tags:
       - Workflow
       x-accepts: application/json
@@ -2325,10 +2764,8 @@ paths:
           enum:
           - INFO
           - WARN
-          - SUCCESS
           - ERROR
           - DEBUG
-          - FINISHED
           type: string
         style: form
       - description: Acts as a filter for the retrieval process. Filters the log instances
@@ -2484,7 +2921,789 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets the generation logs for a specific schedule
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/tasks:
+    get:
+      description: Retrieves all tasks the user has permissions for. User has sort
+        and filter parameters available to use.
+      operationId: getTasks
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Acts as a filter for the retrieval process. Filters the tasks
+          that match the given task type. Accepts multiple values separated by a comma,
+          e.g. ?taskType=SIGNOFF_DATA,PACKAGE_REPORTS
+        example: PACKAGE_REPORTS
+        explode: true
+        in: query
+        name: taskType
+        required: false
+        schema:
+          enum:
+          - WAIT_FOR_DATA
+          - CUSTOM_DATA
+          - CREATE_MANUAL_DATA
+          - CREATE_FILTERED_DATA
+          - GET_DATA
+          - GENERATE_PREVIEW
+          - SIGNOFF_DATA
+          - CUSTOM_GENERATE
+          - GENERATE_REPORT
+          - SIGNOFF_REPORT
+          - CUSTOM_DELIVERY
+          - EMAIL_REPORT
+          - POST_REPORT
+          - FTP_REPORT
+          - CUSTOM_OTHER
+          - COPY_REPORT_FILE
+          - PACKAGE_REPORTS
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the tasks
+          that match the given status. Accepts multiple values separated by a comma,
+          e.g. ?status=PENDING,AWAITING_CORRECTION
+        example: PENDING
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - COMPLETED
+          - IN_PROGRESS
+          - AWAITING_CORRECTION
+          - PENDING
+          - SKIPPED
+          - FAILED_REJECTED
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the tasks
+          that match the input role assigned to the task
+        example: Client Reporting Manager
+        explode: true
+        in: query
+        name: role
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the tasks
+          that match the input user name assigned to the task
+        example: John
+        explode: true
+        in: query
+        name: user
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the immediate
+          tasks if the parameter value is set to true
+        example: true
+        explode: true
+        in: query
+        name: immediateTasksOnly
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the schedule
+          tasks for the Schedule Id passed in the parameter value
+        example: 37325
+        explode: true
+        in: query
+        name: scheduleId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The column to sort on. Can add '-' to the start of the parameter
+          value to sort in descending order.
+        examples:
+          taskId:
+            description: The id of the task
+            value:
+            - taskId
+          scheduleName:
+            description: The name of the schedule for the task
+            value:
+            - scheduleName
+          taskType:
+            description: The type of the task
+            value:
+            - taskType
+          lastUpdatedBy:
+            description: The last updated user of the task
+            value:
+            - lastUpdatedBy
+          escalationLevel:
+            description: The escalation level of the task
+            value:
+            - escalationLevel
+          status:
+            description: The status of the task
+            value:
+            - status
+          description:
+            description: The description of the task
+            value:
+            - description
+          role:
+            description: The role assigned to the task
+            value:
+            - role
+          user:
+            description: The user assigned to the task
+            value:
+            - user
+          expectedStartDate:
+            description: The expected start date date/time of the task
+            value:
+            - expectedStartDate
+          expectedEndDate:
+            description: The expected end date date/time of the task
+            value:
+            - expectedEndDate
+          actualStartDate:
+            description: The actual start date date/time of the task
+            value:
+            - actualStartDate
+          lastUpdated:
+            description: The last updated date/time of the task
+            value:
+            - lastUpdated
+          order:
+            description: The order of the task
+            value:
+            - order
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Non-negative maximum number of entries to return
+        example: 10
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - taskId
+                data:
+                - taskId: 135621
+                  lastUpdatedBy: test user
+                  description: Sign Off 9491 ds(Bat/Germany/U.S. Dollars)
+                  taskType: SIGNOFF_DATA
+                  status: PENDING
+                  expectedStartDate: 1725129000000
+                  expectedEndDate: 1725129000000
+                  actualStartDate: null
+                  notes: ""
+                  escalationLevel: 4
+                  immediate: true
+                  reason: null
+                  outputFormat: null
+                  order: 7
+                  scheduleName: mytaskonly (2024.09.30 15:28)
+                  mandatoryTaskApproveNotes: false
+                  lastUpdated: 1727710396000
+                  role: Admin
+                  action: true
+                  user: test user
+              schema:
+                $ref: '#/components/schemas/TaskList'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant, status)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Forbidden. No permissions to view tasks in VRS
+        "404":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notFound
+                  title: The schedule Id passed was not found
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The supplied schedule Id was not found
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
+      summary: Retrieves a list of all tasks
+      tags:
+      - Workflow
+      x-accepts: application/json
+  /v1/{tenant}/tasks/{taskId}:
+    get:
+      description: Gets a task Object based on the task ID passed.
+      operationId: getTask
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The Id of the task
+        example: "135709"
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  lastUpdatedBy: testUser
+                  description: Package Reports task
+                  taskType: PACKAGE_REPORTS
+                  status: PENDING
+                  expectedStartDate: 1730399400000
+                  expectedEndDate: 1730399400000
+                  actualStartDate: null
+                  notes: sent for review
+                  immediate: false
+                  reason: null
+                  outputFormat: null
+                  scheduleName: Dummy Schedule
+                  mandatoryTaskApproveNotes: false
+                  lastUpdated: 1730399400000
+                  role: Admin
+                  action: false
+                  user: test user
+              schema:
+                $ref: '#/components/schemas/TaskDetailsObject'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Forbidden. No permissions to view tasks in VRS
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
+      summary: Gets a task based on the task ID
+      tags:
+      - Workflow
+      x-accepts: application/json
+    patch:
+      description: Updates the task details for the specified task.
+      operationId: updateTaskDetails
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The unique identifier for task
+        example: "123456"
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              data:
+                status: COMPLETED
+                expectedStartDate: 25 December 2024 00:00:00
+                expectedEndDate: 25 December 2024 01:00:00
+                actualStartDate: 25 December 2024 00:00:00
+                notes: string
+                role: Admin
+                user: user1
+                action: Reject
+                reason: Reason for rejection
+            schema:
+              $ref: '#/components/schemas/TaskPatchRequestBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  task:
+                    lastUpdatedBy: testUser
+                    description: Package Reports task
+                    taskType: PACKAGE_REPORTS
+                    status: PENDING
+                    expectedStartDate: 1730399400000
+                    expectedEndDate: 1730399400000
+                    actualStartDate: null
+                    notes: sent for review
+                    immediate: false
+                    reason: null
+                    outputFormat: null
+                    scheduleName: Dummy Schedule
+                    mandatoryTaskApproveNotes: false
+                    lastUpdated: 1730399400000
+                    role: Admin
+                    action: false
+                    user: test user
+                  messages:
+                  - null
+              schema:
+                $ref: '#/components/schemas/TaskPatchResponseObject'
+          description: Successful operation
+        "206":
+          content:
+            application/json:
+              example:
+                data:
+                  task:
+                    lastUpdatedBy: testUser
+                    description: Package Reports task
+                    taskType: PACKAGE_REPORTS
+                    status: PENDING
+                    expectedStartDate: 1730399400000
+                    expectedEndDate: 1730399400000
+                    actualStartDate: null
+                    notes: sent for review
+                    immediate: false
+                    reason: null
+                    outputFormat: null
+                    scheduleName: Dummy Schedule
+                    mandatoryTaskApproveNotes: false
+                    lastUpdated: 1730399400000
+                    role: Admin
+                    action: false
+                    user: test user
+                  messages:
+                  - Task status cannot be updated as the schedule is Cancelled/Closed/Finished
+              schema:
+                $ref: '#/components/schemas/TaskPatchResponseObject'
+          description: Request was partially successful
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Forbidden. No permissions to view the task.
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
+      summary: Updates the task details for the specified task.
+      tags:
+      - Workflow
+      x-contentType: application/json
+      x-accepts: application/json
+  /v1/{tenant}/tasks/{taskId}/history:
+    get:
+      description: Gets the task history for a specific task based on the Task ID.
+        Allows the user to sort and filter the task history entries.
+      operationId: getTaskHistory
+      parameters:
+      - description: The code of the tenancy
+        example: TENANT
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The taskId for which the history of the specific task is requested
+        example: "123456"
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Acts as a filter for the retrieval process. Filters the task
+          history entries that match the given action type
+        example: Status Changed
+        explode: true
+        in: query
+        name: actionType
+        required: false
+        schema:
+          enum:
+          - Status Changed
+          - Notes Changed
+          - Reason code Changed
+          - Current Role Changed
+          - Current User Changed
+          - Expected Start Changed
+          - Expected End Changed
+          - Actual Start Changed
+          - Task Dependency Added
+          - Task Dependency Removed
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the task
+          history entries that match the given reason code
+        example: Missing Data
+        explode: true
+        in: query
+        name: reasonCode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the task
+          history events based on their last updated date, the input date must be
+          of the date format (d MMMMM yyyy 00:00:00).
+        example: 25 March 2024 00:00:00
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the task
+          history events based on their last updated date, the input date must be
+          of the date format (d MMMMM yyyy 00:00:00).
+        example: 25 March 2024 00:00:00
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The column to sort on. Can add - to sort for descending order
+        examples:
+          dateAndTime:
+            description: The date and time of the task history event
+            value:
+            - dateAndTime
+          actionType:
+            description: The action type of the task history event
+            value:
+            - actionType
+          reasonCode:
+            description: The reason code of the task history event
+            value:
+            - reasonCode
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: Non-negative maximum number of entries to return
+        example: 10
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        example: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                meta:
+                  pagination:
+                    total: 10
+                    isEstimatedTotal: false
+                  sort:
+                  - dateAndTime
+                data:
+                - taskType: GENERATE_REPORT
+                  description: Generate Simple Report
+                  dateAndTime: 1730399400000
+                  actionType: Status Changed
+                  notes: Start generating
+                  reasonCode: Start generating
+                  details: Status is changed to In-progress
+              schema:
+                $ref: '#/components/schemas/TaskHistoryList'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: parameterError
+                  title: The tenancy provided is invalid or not active
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Bad Request. Required values not provided in request parameter
+            or invalid values given (e.g. tenant, taskId)
+        "401":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthenticated
+                  title: User is not authenticated
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAuthorized
+                  title: No permissions to view this item
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: No permissions to view task in VRS
+        "406":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: notAcceptable
+                  title: Unsupported Accept header. Header needs to be set to application/json
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
+      summary: Gets the task history for a specific task
       tags:
       - Workflow
       x-accepts: application/json
@@ -2570,6 +3789,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Forbidden, user does not have permission to view users
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Retrieves a list of VRS users
       tags:
       - SCIM
@@ -2682,6 +3913,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: User already exists
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Creates a user
       tags:
       - SCIM
@@ -2726,6 +3969,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Deletes a VRS user
       tags:
       - SCIM
@@ -2816,6 +4071,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Retrieves a VRS User
       tags:
       - SCIM
@@ -2919,6 +4186,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Add or remove VRS user attributes
       tags:
       - SCIM
@@ -3033,6 +4312,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Updates a VRS user
       tags:
       - SCIM
@@ -3040,7 +4331,7 @@ paths:
       x-accepts: application/scim+json
   /scim/v2/Groups:
     get:
-      description: Retrieves a VRS roles
+      description: Retrieves VRS roles
       operationId: getAllGroups
       parameters:
       - description: Non-negative maximum number of entries to return
@@ -3060,6 +4351,56 @@ paths:
         required: false
         schema:
           type: integer
+        style: form
+      - description: Acts as a filter for the retrieval process. if filter=tenant,
+          filters the groups that match the given tenant code. Accepts multiple values
+          separated by a comma, e.g. ?filter=tenant eq MASTER,DEMO
+        example: tenant eq "MASTER,DEMO"
+        explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The column to sort on. If parameter is not given, no sorting
+          will be done
+        examples:
+          displayName:
+            description: The display name of the group to sort
+            value:
+            - displayName
+        explode: false
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      - description: The order in which the sort is applied for the sort by parameter.
+          If parameter is not given along with a sortBy, sorting will be done in ascending
+          order
+        examples:
+          ascending:
+            description: The sort will be applied in ascending order
+            value:
+            - ascending
+          descending:
+            description: The sort will be applied in descending order
+            value:
+            - descending
+        explode: false
+        in: query
+        name: sortOrder
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 1
+          type: array
         style: form
       responses:
         "200":
@@ -3094,6 +4435,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Forbidden, user does not have permission to view roles
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Retrieves a list of VRS role
       tags:
       - SCIM
@@ -3167,6 +4520,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Group already exists
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Creates a role
       tags:
       - SCIM
@@ -3211,6 +4576,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Deletes a VRS role
       tags:
       - SCIM
@@ -3280,6 +4657,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Retrieves a VRS role
       tags:
       - SCIM
@@ -3336,6 +4725,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimGroup'
           description: Successfully added user to group
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: the attribute with the name 'tenants' is unknown to resource
+                  type 'VRSGroup'
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: Bad Request, invalid values provided in JSON request body.
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Add or remove a user to/from a group
       tags:
       - SCIM
@@ -3420,6 +4833,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScimError'
           description: Not Found
+        "500":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: An internal error has occurred.
+                status: "500"
+              schema:
+                $ref: '#/components/schemas/ScimError'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Updates a VRS Group
       tags:
       - SCIM
@@ -3452,6 +4877,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorList'
           description: Unauthorised
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: ID of the error
+                  code: genericServerError
+                  title: Internal server error
+              schema:
+                $ref: '#/components/schemas/ErrorList'
+          description: The server have encountered an unhandled error due to which
+            request was not fulfilled.
       summary: Gets the version of VRS,WRS and DBServer
       tags:
       - Version
@@ -3459,6 +4896,7 @@ paths:
 components:
   schemas:
     DataSourceList:
+      description: A list of Data Sources.
       example:
         data:
         - releaseTag: releaseTag
@@ -3506,11 +4944,13 @@ components:
         meta:
           $ref: '#/components/schemas/DataSourceList_meta'
         data:
+          description: An array of Data Sources.
           items:
             $ref: '#/components/schemas/DataSourceDTO'
           type: array
       type: object
     DataSourceData:
+      description: Data object for the Data Source.
       example:
         data:
           releaseTag: releaseTag
@@ -3535,6 +4975,8 @@ components:
           $ref: '#/components/schemas/DataSourceDTO'
       type: object
     DataSourceDTO:
+      description: A DataSource object aggregates data from multiple providers, such
+        as APIs, databases, or file systems, to simplify access and processing.
       example:
         releaseTag: releaseTag
         defaultDataSourceName: defaultDataSourceName
@@ -3555,36 +4997,50 @@ components:
         outputRecordSet: outputRecordSet
       properties:
         dataSourceId:
+          description: Unique Identifier for the Data Source.
           format: int32
           type: integer
         name:
+          description: Name of the Data Source.
           type: string
         code:
+          description: Code of the Data Source.
           type: string
         dsType:
+          description: Type of the Data Source.
           enum:
           - AUTOMATIC
           - MANUAL
           - FILTER
           type: string
         entities:
+          description: An array of entities that are used in the Data Source.
           items:
             $ref: '#/components/schemas/EntityDTO'
           type: array
         outputRecordSet:
+          description: Recordset name that is used for output in the Data Source.
           type: string
         releaseTag:
+          description: Release tag associated with the Data Source.
           type: string
         defaultDataSourceName:
+          description: Name of the default Data Source.
           type: string
         dataPreview:
+          description: Name of the component/report used for Data Source preview.
           type: string
         lastUpdatedBy:
+          description: Indicates the username of the person who last updated the Data
+            Source.
           type: string
         lastUpdated:
+          description: The timestamp of the most recent update in epoch format of
+            the Data Source
           type: number
       type: object
     DataSourceDataInstance:
+      description: Response for view data request.
       example:
         data:
           fields:
@@ -3593,31 +5049,33 @@ components:
             name: name
             id: 0
             fieldType: BOOLEAN
+            order: 6
           - hide: hide
             format: format
             name: name
             id: 0
             fieldType: BOOLEAN
+            order: 6
           dstInstance:
-            dstInstanceId: 6
+            dstInstanceId: 1
             rows:
             - fields:
               - fieldType: BOOLEAN
                 fieldValue: fieldValue
-                fieldId: 5
+                fieldId: 2
               - fieldType: BOOLEAN
                 fieldValue: fieldValue
-                fieldId: 5
-              rowId: 1
+                fieldId: 2
+              rowId: 5
               order: 5
             - fields:
               - fieldType: BOOLEAN
                 fieldValue: fieldValue
-                fieldId: 5
+                fieldId: 2
               - fieldType: BOOLEAN
                 fieldValue: fieldValue
-                fieldId: 5
-              rowId: 1
+                fieldId: 2
+              rowId: 5
               order: 5
             dstInstanceType: dstInstanceType
       properties:
@@ -3625,6 +5083,8 @@ components:
           $ref: '#/components/schemas/DataSourceAllData'
       type: object
     DataSourceAllData:
+      description: Data and Meta data from the Data Source, including any retrieval
+        errors.
       example:
         fields:
         - hide: hide
@@ -3632,35 +5092,38 @@ components:
           name: name
           id: 0
           fieldType: BOOLEAN
+          order: 6
         - hide: hide
           format: format
           name: name
           id: 0
           fieldType: BOOLEAN
+          order: 6
         dstInstance:
-          dstInstanceId: 6
+          dstInstanceId: 1
           rows:
           - fields:
             - fieldType: BOOLEAN
               fieldValue: fieldValue
-              fieldId: 5
+              fieldId: 2
             - fieldType: BOOLEAN
               fieldValue: fieldValue
-              fieldId: 5
-            rowId: 1
+              fieldId: 2
+            rowId: 5
             order: 5
           - fields:
             - fieldType: BOOLEAN
               fieldValue: fieldValue
-              fieldId: 5
+              fieldId: 2
             - fieldType: BOOLEAN
               fieldValue: fieldValue
-              fieldId: 5
-            rowId: 1
+              fieldId: 2
+            rowId: 5
             order: 5
           dstInstanceType: dstInstanceType
       properties:
         fields:
+          description: An array of fields from the input Record Set.
           items:
             $ref: '#/components/schemas/RecordSetFields'
           type: array
@@ -3668,68 +5131,79 @@ components:
           $ref: '#/components/schemas/DataSourceInstance'
       type: object
     DataSourceInstance:
+      description: Data Source instance object.
       example:
-        dstInstanceId: 6
+        dstInstanceId: 1
         rows:
         - fields:
           - fieldType: BOOLEAN
             fieldValue: fieldValue
-            fieldId: 5
+            fieldId: 2
           - fieldType: BOOLEAN
             fieldValue: fieldValue
-            fieldId: 5
-          rowId: 1
+            fieldId: 2
+          rowId: 5
           order: 5
         - fields:
           - fieldType: BOOLEAN
             fieldValue: fieldValue
-            fieldId: 5
+            fieldId: 2
           - fieldType: BOOLEAN
             fieldValue: fieldValue
-            fieldId: 5
-          rowId: 1
+            fieldId: 2
+          rowId: 5
           order: 5
         dstInstanceType: dstInstanceType
       properties:
         dstInstanceId:
+          description: Unique Identifier of the Data Source Instance.
           type: integer
         dstInstanceType:
+          description: Type of the Data source
           type: string
         rows:
+          description: An array of data row of the Data source
           items:
             $ref: '#/components/schemas/DataSourceInstanceRows'
           type: array
       type: object
     DataSourceInstanceRows:
+      description: Each data row of the Data source
       example:
         fields:
         - fieldType: BOOLEAN
           fieldValue: fieldValue
-          fieldId: 5
+          fieldId: 2
         - fieldType: BOOLEAN
           fieldValue: fieldValue
-          fieldId: 5
-        rowId: 1
+          fieldId: 2
+        rowId: 5
         order: 5
       properties:
         rowId:
+          description: Unique Identifier of the data row.
           type: integer
         order:
+          description: The display or processing order of the data row.
           type: integer
         fields:
+          description: An array of values for each input Record Set fields.
           items:
             $ref: '#/components/schemas/RecordSetFieldValues'
           type: array
       type: object
     RecordSetFieldValues:
+      description: Field value and associated metadata for the record set field.
       example:
         fieldType: BOOLEAN
         fieldValue: fieldValue
-        fieldId: 5
+        fieldId: 2
       properties:
         fieldId:
+          description: Unique identifier for the field.
           type: integer
         fieldType:
+          description: The type of the field indicating the kind of data it holds.
           enum:
           - BOOLEAN
           - COLOUR
@@ -3742,17 +5216,21 @@ components:
           - TEXT
           type: string
         fieldValue:
+          description: The value assigned to the field.
           type: string
       type: object
     RecordSetFields:
+      description: Defines the properties and attributes of a record set field.
       example:
         hide: hide
         format: format
         name: name
         id: 0
         fieldType: BOOLEAN
+        order: 6
       properties:
         fieldType:
+          description: The type of the field indicating the kind of data it holds.
           enum:
           - BOOLEAN
           - COLOUR
@@ -3765,29 +5243,41 @@ components:
           - TEXT
           type: string
         format:
+          description: The format applied to the field's value.
           type: string
         id:
+          description: Unique identifier for the field.
           type: integer
         hide:
+          description: Indicates whether the field is hidden.
           type: string
         name:
+          description: The name of the field.
           type: string
+        order:
+          description: The ordering of the record set field.
+          type: integer
       type: object
     EntityDTO:
+      description: Entity with its unique identifiers and attributes.
       example:
         code: code
         name: name
         entityId: 1
       properties:
         entityId:
+          description: Unique identifier for the Entity.
           format: int32
           type: integer
         name:
+          description: Name of the Entity.
           type: string
         code:
+          description: Code of the Entity.
           type: string
       type: object
     EntityFieldValueDTO:
+      description: Entity value with its unique identifiers and attributes.
       example:
         data:
         - '{}'
@@ -3801,23 +5291,32 @@ components:
           - sort
       properties:
         meta:
-          $ref: '#/components/schemas/DataSourceList_meta'
+          $ref: '#/components/schemas/EntityFieldValueDTO_meta'
         data:
+          description: Collection of Entity rows with their associated values and
+            fields.
           items:
             properties:
               entityRowId:
+                description: Unique Identifier for the Entity row.
                 type: integer
               keyValue:
+                description: Key value associated with the Entity row.
                 type: string
               descriptionValue:
+                description: Descriptive value for the Entity row.
                 type: string
               fieldsWithValues:
+                description: An array of values associated with specific fields in
+                  the Entity row.
                 items:
+                  description: The value along with field name, Example 'Field:Value'.
                   type: string
                 type: array
           type: array
       type: object
     ReportInstanceDataResponse:
+      description: Response containing details of the Report instance.
       example:
         data:
           reportInstanceId: 0
@@ -3826,18 +5325,21 @@ components:
           $ref: '#/components/schemas/ReportInstanceId'
       type: object
     ReportInstanceId:
+      description: Report instance Object.
       example:
         reportInstanceId: 0
       properties:
         reportInstanceId:
+          description: Unique Identifier for the Report instance.
           type: integer
       type: object
     ReportInstanceList:
+      description: List of Report instances along with metadata.
       example:
         data:
         - extension: extension
           reportRevision:
-            percentageComplete: 1
+            percentageComplete: 1.4658129805029452
             reportStatus: WAITING
             description: description
             finishDate: finishDate
@@ -3855,7 +5357,7 @@ components:
           reportDefinitionId: 6
         - extension: extension
           reportRevision:
-            percentageComplete: 1
+            percentageComplete: 1.4658129805029452
             reportStatus: WAITING
             description: description
             finishDate: finishDate
@@ -3879,11 +5381,13 @@ components:
         meta:
           $ref: '#/components/schemas/ReportInstanceList_meta'
         data:
+          description: A list of Report instances.
           items:
             $ref: '#/components/schemas/ReportInstanceDTO'
           type: array
       type: object
     ReportInstanceLogList:
+      description: List of report generation logs associated with Report instances.
       example:
         data:
         - sequenceNumber: 0
@@ -3896,16 +5400,18 @@ components:
           type: LOG
       properties:
         data:
+          description: An array of Report generation log entries for the Report instance.
           items:
             $ref: '#/components/schemas/ReportInstanceLogDTO'
           type: array
       type: object
     ReportInstanceData:
+      description: Single Report instance data response.
       example:
         data:
           extension: extension
           reportRevision:
-            percentageComplete: 1
+            percentageComplete: 1.4658129805029452
             reportStatus: WAITING
             description: description
             finishDate: finishDate
@@ -3926,10 +5432,11 @@ components:
           $ref: '#/components/schemas/ReportInstanceDTO'
       type: object
     ReportInstanceDTO:
+      description: Details of the Report instance.
       example:
         extension: extension
         reportRevision:
-          percentageComplete: 1
+          percentageComplete: 1.4658129805029452
           reportStatus: WAITING
           description: description
           finishDate: finishDate
@@ -3947,25 +5454,33 @@ components:
         reportDefinitionId: 6
       properties:
         reportInstanceId:
+          description: Unique Identifier of the Report instance.
           format: int32
           type: integer
         reportDefinitionId:
+          description: Unique Identifier for the associated Report definition.
           format: int32
           type: integer
         reportDefinitionName:
+          description: Name of the Report definition.
           type: string
         reportName:
+          description: Name of the generated Report.
           type: string
         userFriendlyReportName:
+          description: A user-friendly display name for the generated report file.
           type: string
         extension:
+          description: File extension for the report output.
           type: string
         reportRevision:
           $ref: '#/components/schemas/ReportRevisionDTO'
         name:
+          description: Display name for the generated report file.
           type: string
       type: object
     ReportInstanceLogDTO:
+      description: Report Generation log details.
       example:
         sequenceNumber: 0
         updateDate: updateDate
@@ -3973,19 +5488,25 @@ components:
         type: LOG
       properties:
         sequenceNumber:
+          description: Sequential number of the log entry.
           format: int32
           type: integer
         message:
+          description: Detailed message describing the log event or error.
           type: string
         type:
+          description: Indicates the type of log entry, either a general log or an
+            error.
           enum:
           - LOG
           - ERROR
           type: string
         updateDate:
+          description: The date and time of the last update for this log entry.
           type: string
       type: object
     ReportDefinitionList:
+      description: List of Report Definitions.
       example:
         data:
         - releaseTag: releaseTag
@@ -4014,13 +5535,15 @@ components:
             isEstimatedTotal: true
       properties:
         meta:
-          $ref: '#/components/schemas/ReportInstanceList_meta'
+          $ref: '#/components/schemas/ReportDefinitionList_meta'
         data:
+          description: A list of Report Definitions.
           items:
             $ref: '#/components/schemas/ReportDefinitionDTO'
           type: array
       type: object
     ReportDefinitionData:
+      description: Contains detailed data for a single Report definition.
       example:
         data:
           releaseTag: releaseTag
@@ -4038,6 +5561,7 @@ components:
           $ref: '#/components/schemas/ReportDefinitionDTO'
       type: object
     ReportDefinitionDTO:
+      description: Defines the details of the Report definition.
       example:
         releaseTag: releaseTag
         code: code
@@ -4051,19 +5575,24 @@ components:
         name: name
       properties:
         name:
+          description: Name of the Report definition.
           type: string
         code:
+          description: Code of the Report definition.
           type: string
         releaseTag:
+          description: Release tag associated with the Report definition.
           type: string
         entities:
+          description: A list of entities associated with the Report definition.
           items:
             $ref: '#/components/schemas/EntityDTO'
           type: array
       type: object
     ReportRevisionDTO:
+      description: Contains details about the Report revision.
       example:
-        percentageComplete: 1
+        percentageComplete: 1.4658129805029452
         reportStatus: WAITING
         description: description
         finishDate: finishDate
@@ -4075,6 +5604,7 @@ components:
         startDate: startDate
       properties:
         reportStatus:
+          description: The current status of the Report generation process.
           enum:
           - WAITING
           - STARTING
@@ -4112,30 +5642,40 @@ components:
           - GENERATING
           type: string
         startDate:
+          description: Start date of the Report generation process.
           type: string
         finishDate:
+          description: Completion date of the Report generation process.
           type: string
         signOffStatus:
+          description: Sign-off status of the Report.
           enum:
           - REJECTED
           - PENDING
           - APPROVED
           type: string
         signOffNotes:
+          description: Additional notes related to the sign-off process.
           type: string
         reportReasonCd:
+          description: Reason code for generating the Report.
           type: string
         description:
+          description: Description of the Report revision.
           type: string
         languageCode:
+          description: Language code of the Report.
           type: string
         outputFormat:
+          description: Output format of the Report.
           type: string
         percentageComplete:
-          format: int32
-          type: integer
+          description: Percentage of completion for the Report generation.
+          type: number
       type: object
     ReportGenerationRequestBody:
+      description: Defines the request body for generating a report, encapsulating
+        various generation parameters.
       example:
         vrs:
           key:
@@ -4152,9 +5692,11 @@ components:
         vrs:
           additionalProperties:
             $ref: '#/components/schemas/ReportGenerationRequest'
+          description: Contains report generation requests.
           type: object
       type: object
     ReportGenerationRequest:
+      description: details needed to request the generation of a report.
       example:
         entitySelection:
           key:
@@ -4167,10 +5709,13 @@ components:
         startDate: startDate
       properties:
         report:
+          description: The Report definition code.
           type: string
         tenancy:
+          description: The tenancy code in which the report generation occurs.
           type: string
         outputFormat:
+          description: The desired output format for the generated report.
           enum:
           - WORD
           - WORD2010
@@ -4186,44 +5731,54 @@ components:
           - PS
           type: string
         sectionFilter:
+          description: Section filter that has to be used in the report generation
+            process.
           type: string
         priority:
+          description: The priority level assigned to the report generation request.
           type: string
         startDate:
+          description: The scheduled start date for generating the report.
           type: string
         entitySelection:
           additionalProperties:
             $ref: '#/components/schemas/EntitySelection'
+          description: Specifies the Entity selections for the report generation.
           type: object
       type: object
     EntitySelection:
+      description: Specifies an Entity or a set of entities selected for inclusion
+        in a report.
       example:
         key: key
       properties:
         key:
+          description: Key value for the selected Entity.
           type: string
       type: object
     ReportDataResponse:
+      description: Binary data of the generated report response.
       format: binary
       type: string
     ScheduleDefinitionsList:
+      description: A list of Schedule Definition.
       example:
         data:
         - lastUpdatedBy: lastUpdatedBy
           code: code
           notes: notes
-          scheduleDefinitionId: 0
+          scheduleDefinitionId: 6
           ownerRole:
             code: code
-            roleId: 5
+            roleId: 2
             name: name
           scheduleGroup: scheduleGroup
-          numberOfObligations: 6
+          numberOfObligations: 1
           numberOfPackages: 5
           lastUpdated: lastUpdated
           scheduleType: MANUAL
           reportDate: LAST_DAY_OF_PREV_MONTH
-          deleteScheduleAfterDays: 1
+          deleteScheduleAfterDays: 5
           entities:
           - code: code
             name: name
@@ -4236,18 +5791,18 @@ components:
         - lastUpdatedBy: lastUpdatedBy
           code: code
           notes: notes
-          scheduleDefinitionId: 0
+          scheduleDefinitionId: 6
           ownerRole:
             code: code
-            roleId: 5
+            roleId: 2
             name: name
           scheduleGroup: scheduleGroup
-          numberOfObligations: 6
+          numberOfObligations: 1
           numberOfPackages: 5
           lastUpdated: lastUpdated
           scheduleType: MANUAL
           reportDate: LAST_DAY_OF_PREV_MONTH
-          deleteScheduleAfterDays: 1
+          deleteScheduleAfterDays: 5
           entities:
           - code: code
             name: name
@@ -4266,29 +5821,31 @@ components:
           - sort
       properties:
         meta:
-          $ref: '#/components/schemas/DataSourceList_meta'
+          $ref: '#/components/schemas/ScheduleDefinitionsList_meta'
         data:
+          description: An array of Schedule Definitions.
           items:
             $ref: '#/components/schemas/ScheduleDefinition'
           type: array
       type: object
     ScheduleDefinition:
+      description: List of Schedule Definition.
       example:
         lastUpdatedBy: lastUpdatedBy
         code: code
         notes: notes
-        scheduleDefinitionId: 0
+        scheduleDefinitionId: 6
         ownerRole:
           code: code
-          roleId: 5
+          roleId: 2
           name: name
         scheduleGroup: scheduleGroup
-        numberOfObligations: 6
+        numberOfObligations: 1
         numberOfPackages: 5
         lastUpdated: lastUpdated
         scheduleType: MANUAL
         reportDate: LAST_DAY_OF_PREV_MONTH
-        deleteScheduleAfterDays: 1
+        deleteScheduleAfterDays: 5
         entities:
         - code: code
           name: name
@@ -4300,22 +5857,26 @@ components:
         businessCalendar: businessCalendar
       properties:
         scheduleDefinitionId:
+          description: Unique Identifier for the Schedule Definition.
           format: int32
           type: integer
         name:
+          description: Name of the Schedule Definition.
           type: string
         code:
+          description: Code of the Schedule Definition.
           type: string
         scheduleType:
+          description: Type of Schedule Definition.
           enum:
           - MANUAL
           - REPEATING
-          - TEMPLATE
-          - ADHOC
           type: string
         scheduleGroup:
+          description: Group of the Schedule Definition.
           type: string
         reportDate:
+          description: Report Date of the Schedule Definition.
           enum:
           - LAST_DAY_OF_PREV_MONTH
           - LAST_BUSINESS_DAY_OF_PREV_MONTH
@@ -4329,60 +5890,71 @@ components:
           - TWO_BUSINESS_DAYS_BEFORE_SCHEDULE_CREATED
           type: string
         numberOfObligations:
+          description: Number of obligations used in the Schedule Definition.
           format: int32
           type: integer
         businessCalendar:
+          description: Calender name used in the Schedule Definition.
           type: string
         deleteScheduleAfterDays:
+          description: Indicates after how many days the Schedule should be deleted.
           format: int32
           type: integer
         numberOfPackages:
+          description: Indicates number of packages involved in the Schedule Definition.
           format: int32
           type: integer
         entities:
+          description: A set of entities used in Schedule Definition.
           items:
             $ref: '#/components/schemas/EntityDTO'
           type: array
         ownerRole:
           $ref: '#/components/schemas/ScheduleDefinition_ownerRole'
         notes:
+          description: Notes of the Schedule Definition.
           type: string
         lastUpdatedBy:
+          description: Indicates the username of the person who last updated the Data
+            Source.
           type: string
         lastUpdated:
+          description: The timestamp of the most recent update in epoch format for
+            a specific Schedule Definition
           type: string
       type: object
     SchedulesList:
+      description: List of Schedules.
       example:
         data:
         - owner: owner
           lastUpdatedBy: lastUpdatedBy
           definitionName: definitionName
           notes: notes
-          noOfTasks: 6
+          noOfTasks: 1
+          scheduleGroup: scheduleGroup
           lastUpdated: lastUpdated
           reportDate: reportDate
           name: name
           finishDate: finishDate
           businessCalendar: businessCalendar
-          scheduleId: 0
+          scheduleId: 6
           startDate: startDate
           status: INITIALISED
-          group: group
         - owner: owner
           lastUpdatedBy: lastUpdatedBy
           definitionName: definitionName
           notes: notes
-          noOfTasks: 6
+          noOfTasks: 1
+          scheduleGroup: scheduleGroup
           lastUpdated: lastUpdated
           reportDate: reportDate
           name: name
           finishDate: finishDate
           businessCalendar: businessCalendar
-          scheduleId: 0
+          scheduleId: 6
           startDate: startDate
           status: INITIALISED
-          group: group
         meta:
           pagination:
             total: 0
@@ -4392,58 +5964,66 @@ components:
           - sort
       properties:
         meta:
-          $ref: '#/components/schemas/DataSourceList_meta'
+          $ref: '#/components/schemas/SchedulesList_meta'
         data:
+          description: An array of schedule objects.
           items:
             $ref: '#/components/schemas/ScheduleData'
           type: array
       type: object
     ScheduleStatusUpdateResponse:
+      description: Response object for updating the status of a schedule.
       example:
         data:
           owner: owner
           lastUpdatedBy: lastUpdatedBy
           definitionName: definitionName
           notes: notes
-          noOfTasks: 6
+          noOfTasks: 1
+          scheduleGroup: scheduleGroup
           lastUpdated: lastUpdated
           reportDate: reportDate
           name: name
           finishDate: finishDate
           businessCalendar: businessCalendar
-          scheduleId: 0
+          scheduleId: 6
           startDate: startDate
           status: INITIALISED
-          group: group
       properties:
         data:
           $ref: '#/components/schemas/ScheduleData'
       type: object
     ScheduleData:
+      description: Details of an individual schedule.
       example:
         owner: owner
         lastUpdatedBy: lastUpdatedBy
         definitionName: definitionName
         notes: notes
-        noOfTasks: 6
+        noOfTasks: 1
+        scheduleGroup: scheduleGroup
         lastUpdated: lastUpdated
         reportDate: reportDate
         name: name
         finishDate: finishDate
         businessCalendar: businessCalendar
-        scheduleId: 0
+        scheduleId: 6
         startDate: startDate
         status: INITIALISED
-        group: group
       properties:
         scheduleId:
+          description: Unique identifier of the Schedule.
           format: int32
           type: integer
         name:
+          description: Name of the Schedule.
           type: string
         definitionName:
+          description: Name of Schedule Definition from which the Schedule has been
+            generated.
           type: string
         status:
+          description: Status of the Schedule.
           enum:
           - INITIALISED
           - RUNNING
@@ -4453,29 +6033,56 @@ components:
           - CLOSED
           - GENERATING_TASKS
           type: string
-        group:
+        scheduleGroup:
+          description: Group of the Schedule.
           type: string
         reportDate:
+          description: The timestamp of the report date in epoch format for a specific
+            Schedule
           type: string
         noOfTasks:
+          description: No of tasks generated for the Schedule
           format: int32
           type: integer
         businessCalendar:
+          description: Name of Business Calender used in the Schedule
           type: string
         owner:
+          description: Owner role used in the Schedule
           type: string
         notes:
+          description: Notes of the Schedule
           type: string
         finishDate:
+          description: The timestamp of the Finish Date in epoch format of the Schedule
           type: string
         startDate:
+          description: The timestamp of the Start Date in epoch format of the Schedule
           type: string
         lastUpdatedBy:
+          description: Indicates the username of the person who last updated Schedule
           type: string
         lastUpdated:
+          description: The timestamp of the most recent update in epoch format for
+            a specific Schedule
           type: string
       type: object
+    ScheduleResponseData:
+      description: Data object for the Schedule response.
+      example: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ScheduleAPIDTO'
+      type: object
+    ScheduleAPIDTO:
+      allOf:
+      - $ref: '#/components/schemas/ScheduleData'
+      - $ref: '#/components/schemas/ScheduleAPIDTO_allOf'
+      description: Schedule along with an extra property to indicate the task generation
+        log warning(s)/error(s)
+      type: object
     GenerateScheduleResponse:
+      description: Response object for schedule generation.
       example:
         data:
           scheduleInstanceId: 0
@@ -4485,14 +6092,17 @@ components:
           $ref: '#/components/schemas/ScheduleInstanceData'
       type: object
     ScheduleInstanceData:
+      description: Details of an individual schedule instance.
       example:
         scheduleInstanceId: 0
         status: INITIALISED
       properties:
         scheduleInstanceId:
+          description: Unique identifier of the schedule instance.
           format: int32
           type: integer
         status:
+          description: Current status of the schedule instance.
           enum:
           - INITIALISED
           - RUNNING
@@ -4504,16 +6114,17 @@ components:
           type: string
       type: object
     ScheduleGenerationLogList:
+      description: List of task generation logs.
       example:
         data:
-        - sequenceNumber: 0
+        - sequenceNumber: 6
           lastUpdated: lastUpdated
-          logSet: 6
+          logSet: 1
           message: message
           type: INFO
-        - sequenceNumber: 0
+        - sequenceNumber: 6
           lastUpdated: lastUpdated
-          logSet: 6
+          logSet: 1
           message: message
           type: INFO
         meta:
@@ -4525,347 +6136,778 @@ components:
           - sort
       properties:
         meta:
-          $ref: '#/components/schemas/DataSourceList_meta'
+          $ref: '#/components/schemas/ScheduleGenerationLogList_meta'
         data:
+          description: A set of fields used in sorting the Task Generation Logs.
           items:
             $ref: '#/components/schemas/ScheduleGenerationLog'
           type: array
       type: object
     ScheduleGenerationLog:
+      description: Details of an individual task generation log.
       example:
-        sequenceNumber: 0
+        sequenceNumber: 6
         lastUpdated: lastUpdated
-        logSet: 6
+        logSet: 1
         message: message
         type: INFO
       properties:
         sequenceNumber:
+          description: The sequence number of the log entry.
           format: int32
           type: integer
         message:
+          description: A detailed message describing the log event or error.
           type: string
         type:
+          description: Type of log entry.
           enum:
           - INFO
           - WARN
-          - SUCCESS
           - ERROR
           - DEBUG
-          - FINISHED
           type: string
         logSet:
+          description: Identifier for the set of logs this entry belongs to.
           format: int32
           type: integer
         lastUpdated:
+          description: The timestamp of the most recent update in epoch format for
+            a specific Task Generation log
+          type: string
+      type: object
+    TaskList:
+      description: List of Tasks.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/TaskList_meta'
+        data:
+          description: An array of task objects.
+          items:
+            $ref: '#/components/schemas/TaskListItemDetails'
+          type: array
+      type: object
+    TaskListItemDetails:
+      allOf:
+      - $ref: '#/components/schemas/TaskDetails'
+      - $ref: '#/components/schemas/TaskListItemDetails_allOf'
+      description: Task Object
+      type: object
+    TaskDetailsObject:
+      description: Contains all details about the task.
+      example:
+        data:
+          scheduleName: scheduleName
+          lastUpdatedBy: lastUpdatedBy
+          expectedStartDate: expectedStartDate
+          reason: reason
+          notes: notes
+          role: role
+          description: description
+          mandatoryTaskApproveNotes: true
+          lastUpdated: lastUpdated
+          taskType: WAIT_FOR_DATA
+          expectedEndDate: expectedEndDate
+          immediate: true
+          actualStartDate: actualStartDate
+          action: true
+          outputFormat: outputFormat
+          user: user
+          status: COMPLETED
+      properties:
+        data:
+          $ref: '#/components/schemas/TaskDetails'
+      type: object
+    TaskDetails:
+      description: Contains all details about the task.
+      example:
+        scheduleName: scheduleName
+        lastUpdatedBy: lastUpdatedBy
+        expectedStartDate: expectedStartDate
+        reason: reason
+        notes: notes
+        role: role
+        description: description
+        mandatoryTaskApproveNotes: true
+        lastUpdated: lastUpdated
+        taskType: WAIT_FOR_DATA
+        expectedEndDate: expectedEndDate
+        immediate: true
+        actualStartDate: actualStartDate
+        action: true
+        outputFormat: outputFormat
+        user: user
+        status: COMPLETED
+      properties:
+        lastUpdatedBy:
+          description: Indicates the username of the person who last updated task
+          type: string
+        description:
+          description: Task description.
+          type: string
+        taskType:
+          description: Type of the task.
+          enum:
+          - WAIT_FOR_DATA
+          - CUSTOM_DATA
+          - CREATE_MANUAL_DATA
+          - CREATE_FILTERED_DATA
+          - GET_DATA
+          - GENERATE_PREVIEW
+          - SIGNOFF_DATA
+          - CUSTOM_GENERATE
+          - GENERATE_REPORT
+          - SIGNOFF_REPORT
+          - CUSTOM_DELIVERY
+          - EMAIL_REPORT
+          - POST_REPORT
+          - FTP_REPORT
+          - CUSTOM_OTHER
+          - COPY_REPORT_FILE
+          - PACKAGE_REPORTS
+          type: string
+        status:
+          description: Status of the task.
+          enum:
+          - COMPLETED
+          - IN_PROGRESS
+          - AWAITING_CORRECTION
+          - PENDING
+          - SKIPPED
+          - FAILED_REJECTED
+          type: string
+        expectedStartDate:
+          description: Expected start date of the task.
+          type: string
+        expectedEndDate:
+          description: Expected end date of the task.
+          type: string
+        actualStartDate:
+          description: Actual start date of the task.
+          type: string
+        notes:
+          description: Notes for the task.
+          type: string
+        immediate:
+          description: Boolean flag to indicate whether the task is an immediate task.
+          type: boolean
+        reason:
+          description: Reason for the task action.
+          type: string
+        outputFormat:
+          description: Output Format for thet task.
+          type: string
+        scheduleName:
+          description: Name of the schedule to which this task belongs to.
+          type: string
+        mandatoryTaskApproveNotes:
+          description: The flag if task approve notes are mandatory for the task
+          type: boolean
+        lastUpdated:
+          description: The timestamp of the most recent update in epoch format for
+            a specific task
+          type: string
+        role:
+          description: Role associated with the task.
+          type: string
+        action:
+          description: Indicates if a task is actionable by the user.
+          type: boolean
+        user:
+          description: User associated with the task.
+          type: string
+      type: object
+    TaskPatchRequestBody:
+      description: Request body for task patch operation, other task properties will
+        be ignored.
+      example:
+        data:
+          expectedStartDate: expectedStartDate
+          reason: reason
+          expectedEndDate: expectedEndDate
+          notes: notes
+          role: role
+          actualStartDate: actualStartDate
+          action: action
+          user: user
+          status: COMPLETED
+      properties:
+        data:
+          $ref: '#/components/schemas/TaskPatchRequestBody_data'
+      type: object
+    TaskPatchResponseObject:
+      description: Response body for task patch operation.
+      example:
+        data:
+          task:
+            scheduleName: scheduleName
+            lastUpdatedBy: lastUpdatedBy
+            expectedStartDate: expectedStartDate
+            reason: reason
+            notes: notes
+            role: role
+            description: description
+            mandatoryTaskApproveNotes: true
+            lastUpdated: lastUpdated
+            taskType: WAIT_FOR_DATA
+            expectedEndDate: expectedEndDate
+            immediate: true
+            actualStartDate: actualStartDate
+            action: true
+            outputFormat: outputFormat
+            user: user
+            status: COMPLETED
+          messages:
+          - messages
+          - messages
+      properties:
+        data:
+          $ref: '#/components/schemas/TaskPatchResponse'
+      type: object
+    TaskPatchResponse:
+      description: Response with task details and error messages if there are any.
+      example:
+        task:
+          scheduleName: scheduleName
+          lastUpdatedBy: lastUpdatedBy
+          expectedStartDate: expectedStartDate
+          reason: reason
+          notes: notes
+          role: role
+          description: description
+          mandatoryTaskApproveNotes: true
+          lastUpdated: lastUpdated
+          taskType: WAIT_FOR_DATA
+          expectedEndDate: expectedEndDate
+          immediate: true
+          actualStartDate: actualStartDate
+          action: true
+          outputFormat: outputFormat
+          user: user
+          status: COMPLETED
+        messages:
+        - messages
+        - messages
+      properties:
+        task:
+          $ref: '#/components/schemas/TaskDetails'
+        messages:
+          description: Array of error messages.
+          items:
+            type: string
+          type: array
+      type: object
+    TaskHistoryList:
+      description: List of task history events.
+      example:
+        data:
+        - actionType: actionType
+          taskType: taskType
+          dateAndTime: dateAndTime
+          notes: notes
+          description: description
+          details: details
+          reasonCode: reasonCode
+        - actionType: actionType
+          taskType: taskType
+          dateAndTime: dateAndTime
+          notes: notes
+          description: description
+          details: details
+          reasonCode: reasonCode
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/TaskHistoryList_meta'
+        data:
+          description: An array of task history objects.
+          items:
+            $ref: '#/components/schemas/TaskHistoryObject'
+          type: array
+      type: object
+    TaskHistoryObject:
+      description: Details of an individual task history event.
+      example:
+        actionType: actionType
+        taskType: taskType
+        dateAndTime: dateAndTime
+        notes: notes
+        description: description
+        details: details
+        reasonCode: reasonCode
+      properties:
+        taskType:
+          description: The task type of the task.
+          type: string
+        description:
+          description: A description of the task.
+          type: string
+        dateAndTime:
+          description: The timestamp of the task history event in epoch format
+          type: string
+        actionType:
+          description: The action type of the task history event.
+          type: string
+        notes:
+          description: The notes associated with the task history event.
+          type: string
+        reasonCode:
+          description: The reason code associated with the task history event.
+          type: string
+        details:
+          description: The details associated with the action of the task history
+            event.
           type: string
       type: object
     ScimUser:
+      description: A user object representing identity information, including attributes
+        like username, email, with links for retrieving additional group details.
       properties:
         schemas:
+          description: Array of schema URIs applicable to this resource.
           items:
             type: string
           type: array
         id:
+          description: Unique identifier for the user.
           type: string
         userName:
+          description: Username used for identifying and logging in the user.
           type: string
         name:
           $ref: '#/components/schemas/ScimUser_name'
         userType:
+          description: Type of user.
           type: string
         active:
+          description: Indicates whether the user account is active.
           type: boolean
         authenticatedUserName:
+          description: Authenticated username used for the SSO logins.
           type: string
         tenant:
+          description: Tenancy code in which user was created.
           type: string
         phoneNumbers:
+          description: Array of phone numbers associated with the user.
           items:
             $ref: '#/components/schemas/ScimPhone'
           type: array
         emails:
+          description: Array of email addresses linked to the user account.
           items:
             $ref: '#/components/schemas/ScimEmail'
           type: array
         photos:
+          description: Array of URLs to the user's profile pictures.
           items:
             $ref: '#/components/schemas/ScimPhoto'
           type: array
         tenancies:
+          description: Array of tenancies assigned to the user.
           items:
             $ref: '#/components/schemas/Tenancy'
           type: array
         groups:
+          description: Array of groups/roles assigned to the user.
           items:
             $ref: '#/components/schemas/ScimUserGroup'
           type: array
         domainCode:
+          description: Domain code representing the user's domain.
           type: string
         isAdministrator:
+          description: Flag indicating if the user has admin privileges.
           type: boolean
         meta:
           $ref: '#/components/schemas/ScimMeta'
       type: object
     CreatedScimUserJSONResponse:
+      description: Response object for creating a new SCIM user, containing core identity
+        details, contact information, and account settings.
       properties:
         schemas:
+          description: Array listing the schema URIs associated with the user resource.
           items:
             type: string
           type: array
         id:
+          description: Unique identifier for the newly created user.
           type: string
         userName:
+          description: Username used for identifying and logging in the user.
           type: string
         name:
           $ref: '#/components/schemas/ScimUser_name'
         userType:
+          description: Type of user.
           type: string
         preferredLanguage:
+          description: User's preferred language.
           type: string
         active:
+          description: Indicates if the user's account is currently active.
           type: boolean
         authenticatedUserName:
+          description: Authenticated username used by SSO login.
           type: string
         tenant:
+          description: Tenancy code in which the user was created.
           type: string
         phoneNumbers:
+          description: Array of phone numbers for the user, each with a type and value.
           items:
             $ref: '#/components/schemas/ScimPhone'
           type: array
         emails:
+          description: Array of email addresses linked to the user account.
           items:
             $ref: '#/components/schemas/ScimEmail'
           type: array
         tenancies:
+          description: List of tenancies the user is associated with.
           items:
             $ref: '#/components/schemas/Tenancy'
           type: array
         photos:
+          description: Array of URLs to the user's profile photos or avatars.
           items:
             $ref: '#/components/schemas/ScimPhoto'
           type: array
         domainCode:
+          description: Domain code representing the user's domain.
           type: string
         isAdministrator:
+          description: Flag indicating if the user has admin privileges.
           type: boolean
         meta:
           $ref: '#/components/schemas/CreatedScimUserJSONResponse_meta'
       type: object
     CreateScimUserJSONRequest:
+      description: Payload to create a new user in the system, including attributes
+        like username, password, contact information, and tenant details.
       properties:
         userName:
+          description: Unique identifier for the user within the system, typically
+            their loginID.
           type: string
         password:
+          description: Password associated with the user's account for authentication.
           type: string
         name:
-          $ref: '#/components/schemas/ScimUser_name'
+          $ref: '#/components/schemas/CreateScimUserJSONRequest_name'
         preferredLanguage:
+          description: The preferred language of the user.
           type: string
         active:
+          description: Indicates whether the user account is active.
           type: boolean
         authenticatedUserName:
+          description: Authenticated username used by the SSO logins.
           type: string
         tenant:
+          description: Tenancy code in which user should be created.
           type: string
         domainCode:
+          description: Domain associated with the user
           type: string
         phoneNumbers:
+          description: A list of phone numbers associated with the user.
           items:
             $ref: '#/components/schemas/ScimPhone'
           type: array
         emails:
+          description: A list of email addresses associated with the user.
           items:
             $ref: '#/components/schemas/ScimEmail'
           type: array
         photos:
+          description: A list of profile photos or images associated with the user.
           items:
             $ref: '#/components/schemas/ScimPhoto'
           type: array
         tenancies:
+          description: A list of tenancies that need to be assigned to the user.
           items:
             $ref: '#/components/schemas/Tenancy'
           type: array
       type: object
     ScimUserPatchRequestBody:
+      description: Defines the request payload for updating a user's attributes. The
+        patch operation modifies specific fields of a user.
       properties:
         schemas:
+          description: A list of URIs that indicate the namespaces of the schema used
+            in this request.
           items:
+            description: A URI string representing the namespace applicable to the
+              patch request.
             type: string
           type: array
         Operations:
+          description: A list of operations defining the specific changes to apply
+            to the user's attributes. Each operation specifies an action (e.g., add,
+            remove, replace) the target attribute and value
           items:
             $ref: '#/components/schemas/ScimUserPatchOperation'
           type: array
       type: object
     ScimGroupPatchRequestBody:
+      description: Defines the request payload for updating a group's attributes in
+        SCIM. This patch operation allows for specific modifications to a group's
+        properties.
       properties:
         schemas:
+          description: An array of URIs representing the schema namespaces applied
+            to this request.
           items:
+            description: A URI string for the schema namespace associated with the
+              patch request.
             type: string
           type: array
         Operations:
+          description: A list of operations specifying the actions to perform on the
+            group's attributes, such as adding, removing, or updating members.
           items:
             $ref: '#/components/schemas/ScimGroupPatchOperation'
           type: array
       type: object
     ScimUserPatchOperation:
+      description: Patch operation to modify a user's attributes. It includes the
+        action to be performed, the attribute to modify, and the new value.
       properties:
         op:
+          description: Action to perform on the attribute.
           type: string
         path:
+          description: The user attribute path to modify.
           type: string
         value:
+          description: The value to set for the attribute.
           type: string
       type: object
     ScimGroupPatchOperation:
+      description: Patch operation to modify a group's attributes. It defines the
+        action to take, the attribute to modify, and the new value.
       properties:
         op:
+          description: Action to perform on the group attribute.
           type: string
         path:
+          description: The group/role attribute path to modify.
           type: string
         value:
           $ref: '#/components/schemas/ScimGroupPatchOperation_value'
       type: object
     ScimPhone:
+      description: User's phone number details.
       properties:
         value:
+          description: The phone number of the user.
           type: string
         type:
+          description: The type of phone number (e.g., home, mobile, work).
           type: string
         primary:
+          description: Indicates if this is the primary phone number for the user.
           type: boolean
       type: object
     ScimEmail:
+      description: User's email address details.
       properties:
         value:
+          description: The email address of the user.
           type: string
         type:
+          description: The type of email address (e.g., personal, work).
           type: string
         primary:
+          description: Indicates if this is the primary email address for the user.
           type: boolean
       type: object
     ScimPhoto:
+      description: User's profile photo details.
       properties:
         value:
+          description: The URL to the user's profile photo.
           type: string
         type:
+          description: The type of photo (e.g., profile picture, avatar).
           type: string
         primary:
+          description: Indicates if this is the primary photo for the user.
           type: boolean
       type: object
     Tenancy:
+      description: Represents tenancy information.
       properties:
         value:
+          description: Tenancy code.
           type: string
       type: object
     ScimGroup:
+      description: Role details, defining permissions and access.
       properties:
         schemas:
+          description: List of schema URIs for the group/role.
           items:
             type: string
           type: array
         id:
+          description: Unique identifier of the group/role.
           type: string
         displayName:
+          description: The display name of the group/role.
           type: string
         members:
+          description: A list of users assigned to the group/role.
           items:
             $ref: '#/components/schemas/ScimGroupMember'
           type: array
         tenant:
+          description: Tenant associated with the group/role.
           type: string
         domainCode:
+          description: Domain code for the group.
           type: string
         meta:
           $ref: '#/components/schemas/ScimMeta'
       type: object
     ScimGroupMember:
+      description: User in a group/role.
       properties:
         value:
-          type: string
-        $ref:
-          description: A callback link which can be used to get the information of
-            the group
-          type: string
-        type:
-          type: string
-      type: object
-    ScimUserGroup:
-      properties:
-        value:
+          description: Unique identifier of the user.
           type: string
         $ref:
           description: A callback link which can be used to get the information of
             the user
           type: string
         type:
+          description: Type of the resource.
+          type: string
+      type: object
+    ScimUserGroup:
+      description: Group/role the user was assigned with.
+      properties:
+        value:
+          description: Unique identifier of the user's group.
+          type: string
+        $ref:
+          description: A callback link which can be used to get the information of
+            the group
+          type: string
+        type:
+          description: Type of the resource.
           type: string
         display:
           description: Name of the group
           type: string
       type: object
     ScimGroupListResponse:
+      description: List of groups/roles.
       properties:
         totalResults:
+          description: The total number of groups/roles available.
           type: integer
         itemsPerPage:
+          description: The number of groups per page.
           type: integer
         startIndex:
+          description: The starting index for the returned groups.
           type: integer
         Resources:
+          description: List of groups/roles returned in the response.
           items:
             $ref: '#/components/schemas/ScimGroup'
           type: array
       type: object
     ScimUserListResponse:
+      description: List of users with pagination details.
       properties:
         totalResults:
+          description: The total number of users available.
           type: integer
         itemsPerPage:
+          description: The number of users per page.
           type: integer
         startIndex:
+          description: The starting index for the returned users.
           type: integer
         Resources:
+          description: The list of users returned in the response.
           items:
             $ref: '#/components/schemas/ScimUser'
           type: array
       type: object
     ScimMeta:
+      description: Metadata information for the resource.
       properties:
         resourceType:
+          description: The type of resource (e.g., VRSUser, VRSGroup).
           type: string
         created:
+          description: The timestamp of when the resource was created.
           type: string
         lastModified:
+          description: The timestamp of when the resource was last modified.
           type: string
         location:
+          description: The URI location of the resource.
           type: string
       type: object
     Error:
+      description: Represents an error response with an ID, code, and title.
       properties:
         id:
+          description: Unique identifier for the error.
           type: string
         code:
+          description: The error code.
           type: string
         title:
+          description: A short description of the error.
           type: string
       type: object
     ErrorList:
+      description: List of errors.
       properties:
         errors:
+          description: A list of errors encountered.
           items:
             $ref: '#/components/schemas/Error'
           type: array
       type: object
     ScimError:
+      description: Represents an error with detailed information, status, and schema.
       properties:
         schemas:
+          description: Schemas associated with the error.
           items:
             type: string
           type: array
         detail:
+          description: Detailed description of the error.
           type: string
         status:
+          description: HTTP status code related to the error.
           type: string
       type: object
     VersionResponseBody:
@@ -4880,16 +6922,21 @@ components:
           $ref: '#/components/schemas/VersionResponseBody_data'
       type: object
     DataSourceList_meta_pagination:
+      description: Pagination information for the Data Source list response.
       example:
         total: 0
         isEstimatedTotal: true
       properties:
         total:
+          description: The total number of Data Sources available in the response.
           type: integer
         isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
           type: boolean
       type: object
     DataSourceList_meta:
+      description: Meta data of Data Source List.
       example:
         pagination:
           total: 0
@@ -4901,59 +6948,390 @@ components:
         pagination:
           $ref: '#/components/schemas/DataSourceList_meta_pagination'
         sort:
+          description: A set of fields used in sorting the Data Source list.
           items:
             type: string
           type: array
       type: object
+    EntityFieldValueDTO_meta_pagination:
+      description: Pagination information for the Entity Values.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Entity Values available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    EntityFieldValueDTO_meta:
+      description: Meta data of Entity Values.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/EntityFieldValueDTO_meta_pagination'
+        sort:
+          description: Set of Entity fields used in sorting the Entity values.
+          items:
+            type: string
+          type: array
+      type: object
+    ReportInstanceList_meta_pagination:
+      description: Pagination information for the List of Report instance.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Report instances available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
     ReportInstanceList_meta:
+      description: Meta data of Report instance list.
       example:
         pagination:
           total: 0
           isEstimatedTotal: true
       properties:
         pagination:
-          $ref: '#/components/schemas/DataSourceList_meta_pagination'
+          $ref: '#/components/schemas/ReportInstanceList_meta_pagination'
+      type: object
+    ReportDefinitionList_meta_pagination:
+      description: Pagination information for the list of Report Definition.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Report Definitions available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    ReportDefinitionList_meta:
+      description: Meta data of Report Definition list.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ReportDefinitionList_meta_pagination'
+      type: object
+    ScheduleDefinitionsList_meta_pagination:
+      description: Pagination information for the list of Schedule Definition.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Schedule Definitions available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    ScheduleDefinitionsList_meta:
+      description: Meta data of list of Schedule Definition.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ScheduleDefinitionsList_meta_pagination'
+        sort:
+          description: A set of fields used in sorting the Schedule Definition list.
+          items:
+            type: string
+          type: array
       type: object
     ScheduleDefinition_ownerRole:
+      description: The owner of the Schedule Definition (Role)
       example:
         code: code
-        roleId: 5
+        roleId: 2
         name: name
       properties:
         roleId:
+          description: Unique ID of Owner role for the Schedule Definition.
           format: int32
           type: integer
         name:
+          description: Name of Owner role for the Schedule Definition.
           type: string
         code:
+          description: Code of Owner role for the Schedule Definition.
           type: string
       type: object
+    SchedulesList_meta_pagination:
+      description: Pagination information for the list of Schedules.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Schedules available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    SchedulesList_meta:
+      description: Meta data of list of Schedules.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/SchedulesList_meta_pagination'
+        sort:
+          description: A set of fields used in sorting the Schedule list.
+          items:
+            type: string
+          type: array
+      type: object
+    ScheduleAPIDTO_allOf:
+      properties:
+        hasTaskGenIssues:
+          description: A flag that specifies if task generation has warning or error
+            logs.
+          type: boolean
+      type: object
+    ScheduleGenerationLogList_meta_pagination:
+      description: Pagination information for the Task Generation Logs.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Task Generation logs available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    ScheduleGenerationLogList_meta:
+      description: Meta data of Task Generation Logs.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ScheduleGenerationLogList_meta_pagination'
+        sort:
+          description: A set of fields used in sorting the Task Generation Logs.
+          items:
+            type: string
+          type: array
+      type: object
+    TaskList_meta_pagination:
+      description: Pagination information for the list of Tasks.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Tasks available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    TaskList_meta:
+      description: Meta data of list of Tasks.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/TaskList_meta_pagination'
+        sort:
+          description: A set of fields used in sorting the Task list.
+          items:
+            type: string
+          type: array
+      type: object
+    TaskListItemDetails_allOf:
+      properties:
+        taskId:
+          description: Unique identifier of the Task.
+          format: int32
+          type: integer
+        escalationLevel:
+          description: The escalation level of the task.
+          format: int32
+          type: integer
+        order:
+          description: The order of the task.
+          format: int32
+          type: integer
+      type: object
+    TaskPatchRequestBody_data:
+      description: Task data object.
+      example:
+        expectedStartDate: expectedStartDate
+        reason: reason
+        expectedEndDate: expectedEndDate
+        notes: notes
+        role: role
+        actualStartDate: actualStartDate
+        action: action
+        user: user
+        status: COMPLETED
+      properties:
+        status:
+          description: Status of the task, status cannot be changed to IN_PROGRESS.
+            It is case-sensitive and should be in upper case.
+          enum:
+          - COMPLETED
+          - IN_PROGRESS
+          - AWAITING_CORRECTION
+          - PENDING
+          - SKIPPED
+          - FAILED_REJECTED
+          type: string
+        expectedStartDate:
+          description: Expected start date of task, date format should be 'd MMMMM
+            yyyy HH:mm:ss' and will be converted to server time zone.
+          type: string
+        expectedEndDate:
+          description: Expected end date of task, date format should be 'd MMMMM yyyy
+            HH:mm:ss' and will be converted to server time zone.
+          type: string
+        actualStartDate:
+          description: Actual start date of task, date format should be 'd MMMMM yyyy
+            HH:mm:ss' and will be converted to server time zone.
+          type: string
+        notes:
+          description: Notes for the task.
+          type: string
+        role:
+          description: Role assigned to the task, It can't be null or empty.
+          type: string
+        user:
+          description: User name assigned to the task.
+          type: string
+        action:
+          description: task action to be performed, Approve and Reject are the possible
+            values.
+          type: string
+        reason:
+          description: Reason code for rejection or approval, It will be validated
+            against values from VRSReasonCodes.properties.
+          type: string
+      type: object
+    TaskHistoryList_meta_pagination:
+      description: Pagination information for the Task History Events.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: The total number of Task History Events available in the response.
+          type: integer
+        isEstimatedTotal:
+          description: A flag that specifies if the total number of records returned
+            is an estimate (true) or an exact count (false).
+          type: boolean
+      type: object
+    TaskHistoryList_meta:
+      description: Meta data of list of Task History Events.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/TaskHistoryList_meta_pagination'
+        sort:
+          description: A set of fields used in sorting the Task History Events.
+          items:
+            type: string
+          type: array
+      type: object
     ScimUser_name:
+      description: User's full name object.
       properties:
         formatted:
+          description: Full formatted name of the user.
           type: string
       type: object
     CreatedScimUserJSONResponse_meta:
+      description: Metadata about the user resource.
       properties:
         resourceType:
+          description: Type of the resource.
           type: string
         created:
+          description: Timestamp indicating when the user resource was created.
           type: string
         lastModified:
+          description: Timestamp of the last modification to the user resource.
           type: string
         location:
+          description: URL indicating the location of the user resource.
+          type: string
+      type: object
+    CreateScimUserJSONRequest_name:
+      description: User's full name object.
+      properties:
+        formatted:
+          description: The full formatted name of the user.
           type: string
       type: object
     ScimGroupPatchOperation_value:
+      description: The new value for the attribute.
       properties:
         display:
+          description: The value to set for the group's/role's attribute.
           type: string
         $ref:
+          description: A reference to another object.
           type: string
         value:
+          description: The actual value for the attribute.
           type: string
       type: object
     VersionResponseBody_data:
+      description: Version details of VRS and WRS systems.
       example:
         wrsVersion: wrsVersion
         vrsVersion: vrsVersion

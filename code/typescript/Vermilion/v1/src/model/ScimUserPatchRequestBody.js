@@ -21,6 +21,7 @@ import ScimUserPatchOperation from './ScimUserPatchOperation';
 class ScimUserPatchRequestBody {
     /**
      * Constructs a new <code>ScimUserPatchRequestBody</code>.
+     * Defines the request payload for updating a user&#39;s attributes. The patch operation modifies specific fields of a user.
      * @alias module:model/ScimUserPatchRequestBody
      */
     constructor() { 
@@ -61,11 +62,13 @@ class ScimUserPatchRequestBody {
 }
 
 /**
+ * A list of URIs that indicate the namespaces of the schema used in this request.
  * @member {Array.<String>} schemas
  */
 ScimUserPatchRequestBody.prototype['schemas'] = undefined;
 
 /**
+ * A list of operations defining the specific changes to apply to the user's attributes. Each operation specifies an action (e.g., add, remove, replace) the target attribute and value
  * @member {Array.<module:model/ScimUserPatchOperation>} Operations
  */
 ScimUserPatchRequestBody.prototype['Operations'] = undefined;

@@ -27,14 +27,15 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScheduleGenerationLog
+    /// Details of an individual task generation log.
     /// </summary>
     [DataContract(Name = "ScheduleGenerationLog")]
     public partial class ScheduleGenerationLog : IEquatable<ScheduleGenerationLog>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// Type of log entry.
         /// </summary>
+        /// <value>Type of log entry.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -51,45 +52,34 @@ namespace FactSet.SDK.Vermilion.Model
             WARN = 2,
 
             /// <summary>
-            /// Enum SUCCESS for value: SUCCESS
-            /// </summary>
-            [EnumMember(Value = "SUCCESS")]
-            SUCCESS = 3,
-
-            /// <summary>
             /// Enum ERROR for value: ERROR
             /// </summary>
             [EnumMember(Value = "ERROR")]
-            ERROR = 4,
+            ERROR = 3,
 
             /// <summary>
             /// Enum DEBUG for value: DEBUG
             /// </summary>
             [EnumMember(Value = "DEBUG")]
-            DEBUG = 5,
-
-            /// <summary>
-            /// Enum FINISHED for value: FINISHED
-            /// </summary>
-            [EnumMember(Value = "FINISHED")]
-            FINISHED = 6
+            DEBUG = 4
 
         }
 
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of log entry.
         /// </summary>
+        /// <value>Type of log entry.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleGenerationLog" /> class.
         /// </summary>
-        /// <param name="sequenceNumber">sequenceNumber.</param>
-        /// <param name="message">message.</param>
-        /// <param name="type">type.</param>
-        /// <param name="logSet">logSet.</param>
-        /// <param name="lastUpdated">lastUpdated.</param>
+        /// <param name="sequenceNumber">The sequence number of the log entry..</param>
+        /// <param name="message">A detailed message describing the log event or error..</param>
+        /// <param name="type">Type of log entry..</param>
+        /// <param name="logSet">Identifier for the set of logs this entry belongs to..</param>
+        /// <param name="lastUpdated">The timestamp of the most recent update in epoch format for a specific Task Generation log.</param>
         public ScheduleGenerationLog(int sequenceNumber = default(int), string message = default(string), TypeEnum? type = default(TypeEnum?), int logSet = default(int), string lastUpdated = default(string))
         {
             this.SequenceNumber = sequenceNumber;
@@ -100,26 +90,30 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets SequenceNumber
+        /// The sequence number of the log entry.
         /// </summary>
+        /// <value>The sequence number of the log entry.</value>
         [DataMember(Name = "sequenceNumber", EmitDefaultValue = false)]
         public int SequenceNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// A detailed message describing the log event or error.
         /// </summary>
+        /// <value>A detailed message describing the log event or error.</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets LogSet
+        /// Identifier for the set of logs this entry belongs to.
         /// </summary>
+        /// <value>Identifier for the set of logs this entry belongs to.</value>
         [DataMember(Name = "logSet", EmitDefaultValue = false)]
         public int LogSet { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUpdated
+        /// The timestamp of the most recent update in epoch format for a specific Task Generation log
         /// </summary>
+        /// <value>The timestamp of the most recent update in epoch format for a specific Task Generation log</value>
         [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
         public string LastUpdated { get; set; }
 

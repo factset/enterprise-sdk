@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.Vermilion.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Vermilion.Model
 {
     /// <summary>
-    /// ScimError
+    /// Represents an error with detailed information, status, and schema.
     /// </summary>
     [DataContract(Name = "ScimError")]
     public partial class ScimError : IEquatable<ScimError>, IValidatableObject
@@ -35,9 +35,9 @@ namespace FactSet.SDK.Vermilion.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimError" /> class.
         /// </summary>
-        /// <param name="schemas">schemas.</param>
-        /// <param name="detail">detail.</param>
-        /// <param name="status">status.</param>
+        /// <param name="schemas">Schemas associated with the error..</param>
+        /// <param name="detail">Detailed description of the error..</param>
+        /// <param name="status">HTTP status code related to the error..</param>
         public ScimError(List<string> schemas = default(List<string>), string detail = default(string), string status = default(string))
         {
             this.Schemas = schemas;
@@ -46,20 +46,23 @@ namespace FactSet.SDK.Vermilion.Model
         }
 
         /// <summary>
-        /// Gets or Sets Schemas
+        /// Schemas associated with the error.
         /// </summary>
+        /// <value>Schemas associated with the error.</value>
         [DataMember(Name = "schemas", EmitDefaultValue = false)]
         public List<string> Schemas { get; set; }
 
         /// <summary>
-        /// Gets or Sets Detail
+        /// Detailed description of the error.
         /// </summary>
+        /// <value>Detailed description of the error.</value>
         [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// HTTP status code related to the error.
         /// </summary>
+        /// <value>HTTP status code related to the error.</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 

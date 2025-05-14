@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * RecordSetFieldValues
+ * Field value and associated metadata for the record set field.
  */
+@ApiModel(description = "Field value and associated metadata for the record set field.")
 @JsonPropertyOrder({
   RecordSetFieldValues.JSON_PROPERTY_FIELD_ID,
   RecordSetFieldValues.JSON_PROPERTY_FIELD_TYPE,
@@ -46,7 +47,7 @@ public class RecordSetFieldValues implements Serializable {
   private Integer fieldId;
 
   /**
-   * Gets or Sets fieldType
+   * The type of the field indicating the kind of data it holds.
    */
   public enum FieldTypeEnum {
     BOOLEAN("BOOLEAN"),
@@ -109,11 +110,11 @@ public class RecordSetFieldValues implements Serializable {
   }
 
    /**
-   * Get fieldId
+   * Unique identifier for the field.
    * @return fieldId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier for the field.")
   @JsonProperty(JSON_PROPERTY_FIELD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,11 +136,11 @@ public class RecordSetFieldValues implements Serializable {
   }
 
    /**
-   * Get fieldType
+   * The type of the field indicating the kind of data it holds.
    * @return fieldType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the field indicating the kind of data it holds.")
   @JsonProperty(JSON_PROPERTY_FIELD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -161,11 +162,11 @@ public class RecordSetFieldValues implements Serializable {
   }
 
    /**
-   * Get fieldValue
+   * The value assigned to the field.
    * @return fieldValue
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value assigned to the field.")
   @JsonProperty(JSON_PROPERTY_FIELD_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

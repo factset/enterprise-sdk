@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceLogList
+ * List of report generation logs associated with Report instances.
  */
+@ApiModel(description = "List of report generation logs associated with Report instances.")
 @JsonPropertyOrder({
   ReportInstanceLogList.JSON_PROPERTY_DATA
 })
@@ -61,11 +62,11 @@ public class ReportInstanceLogList implements Serializable {
   }
 
    /**
-   * Get data
+   * An array of Report generation log entries for the Report instance.
    * @return data
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array of Report generation log entries for the Report instance.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

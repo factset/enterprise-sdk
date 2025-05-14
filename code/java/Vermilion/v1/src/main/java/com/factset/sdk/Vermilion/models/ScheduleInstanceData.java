@@ -30,8 +30,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ScheduleInstanceData
+ * Details of an individual schedule instance.
  */
+@ApiModel(description = "Details of an individual schedule instance.")
 @JsonPropertyOrder({
   ScheduleInstanceData.JSON_PROPERTY_SCHEDULE_INSTANCE_ID,
   ScheduleInstanceData.JSON_PROPERTY_STATUS
@@ -45,7 +46,7 @@ public class ScheduleInstanceData implements Serializable {
   private Integer scheduleInstanceId;
 
   /**
-   * Gets or Sets status
+   * Current status of the schedule instance.
    */
   public enum StatusEnum {
     INITIALISED("INITIALISED"),
@@ -101,11 +102,11 @@ public class ScheduleInstanceData implements Serializable {
   }
 
    /**
-   * Get scheduleInstanceId
+   * Unique identifier of the schedule instance.
    * @return scheduleInstanceId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique identifier of the schedule instance.")
   @JsonProperty(JSON_PROPERTY_SCHEDULE_INSTANCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -127,11 +128,11 @@ public class ScheduleInstanceData implements Serializable {
   }
 
    /**
-   * Get status
+   * Current status of the schedule instance.
    * @return status
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Current status of the schedule instance.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

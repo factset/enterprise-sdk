@@ -2,25 +2,26 @@
 
 # ScheduleData
 
+Details of an individual schedule.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scheduleId** | **Integer** |  |  [optional]
-**name** | **String** |  |  [optional]
-**definitionName** | **String** |  |  [optional]
-**status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
-**group** | **String** |  |  [optional]
-**reportDate** | **String** |  |  [optional]
-**noOfTasks** | **Integer** |  |  [optional]
-**businessCalendar** | **String** |  |  [optional]
-**owner** | **String** |  |  [optional]
-**notes** | **String** |  |  [optional]
-**finishDate** | **String** |  |  [optional]
-**startDate** | **String** |  |  [optional]
-**lastUpdatedBy** | **String** |  |  [optional]
-**lastUpdated** | **String** |  |  [optional]
+**scheduleId** | **Integer** | Unique identifier of the Schedule. |  [optional]
+**name** | **String** | Name of the Schedule. |  [optional]
+**definitionName** | **String** | Name of Schedule Definition from which the Schedule has been generated. |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Status of the Schedule. |  [optional]
+**scheduleGroup** | **String** | Group of the Schedule. |  [optional]
+**reportDate** | **String** | The timestamp of the report date in epoch format for a specific Schedule |  [optional]
+**noOfTasks** | **Integer** | No of tasks generated for the Schedule |  [optional]
+**businessCalendar** | **String** | Name of Business Calender used in the Schedule |  [optional]
+**owner** | **String** | Owner role used in the Schedule |  [optional]
+**notes** | **String** | Notes of the Schedule |  [optional]
+**finishDate** | **String** | The timestamp of the Finish Date in epoch format of the Schedule |  [optional]
+**startDate** | **String** | The timestamp of the Start Date in epoch format of the Schedule |  [optional]
+**lastUpdatedBy** | **String** | Indicates the username of the person who last updated Schedule |  [optional]
+**lastUpdated** | **String** | The timestamp of the most recent update in epoch format for a specific Schedule |  [optional]
 
 
 

@@ -2,6 +2,7 @@
 
 # DataSourceData
 
+Data object for the Data Source.
 
 ## Properties
 

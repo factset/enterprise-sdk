@@ -31,8 +31,9 @@ import com.factset.sdk.Vermilion.JSON;
 
 
 /**
- * ReportInstanceDTO
+ * Details of the Report instance.
  */
+@ApiModel(description = "Details of the Report instance.")
 @JsonPropertyOrder({
   ReportInstanceDTO.JSON_PROPERTY_REPORT_INSTANCE_ID,
   ReportInstanceDTO.JSON_PROPERTY_REPORT_DEFINITION_ID,
@@ -81,11 +82,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get reportInstanceId
+   * Unique Identifier of the Report instance.
    * @return reportInstanceId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier of the Report instance.")
   @JsonProperty(JSON_PROPERTY_REPORT_INSTANCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,11 +108,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get reportDefinitionId
+   * Unique Identifier for the associated Report definition.
    * @return reportDefinitionId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Unique Identifier for the associated Report definition.")
   @JsonProperty(JSON_PROPERTY_REPORT_DEFINITION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,11 +134,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get reportDefinitionName
+   * Name of the Report definition.
    * @return reportDefinitionName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the Report definition.")
   @JsonProperty(JSON_PROPERTY_REPORT_DEFINITION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -159,11 +160,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get reportName
+   * Name of the generated Report.
    * @return reportName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the generated Report.")
   @JsonProperty(JSON_PROPERTY_REPORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,11 +186,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get userFriendlyReportName
+   * A user-friendly display name for the generated report file.
    * @return userFriendlyReportName
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A user-friendly display name for the generated report file.")
   @JsonProperty(JSON_PROPERTY_USER_FRIENDLY_REPORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -211,11 +212,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get extension
+   * File extension for the report output.
    * @return extension
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "File extension for the report output.")
   @JsonProperty(JSON_PROPERTY_EXTENSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -263,11 +264,11 @@ public class ReportInstanceDTO implements Serializable {
   }
 
    /**
-   * Get name
+   * Display name for the generated report file.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Display name for the generated report file.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

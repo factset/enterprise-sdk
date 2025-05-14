@@ -222,8 +222,8 @@ const apiInstance = new DatasourceApi();
 const tenant = TENANT; // String | The code of the tenancy
 const dataSourceCode = DSCODE; // String | The code of the datasource
 const opts = {
-  'entityCodes': FUNDS, // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS
-  'entityKeys': Test2, // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2
+  'entityCodes': FUNDS, // String | A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT~FUNDS
+  'entityKeys': Test2, // String | A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys=1~Test2
   'paginationLimit': 10, // Number | Non-negative maximum number of entries to return. Default is 25
   'paginationOffset': 0 // Number | Non-negative number of entries to skip. Default is 0
 };
@@ -250,8 +250,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant** | **String**| The code of the tenancy | 
  **dataSourceCode** | **String**| The code of the datasource | 
- **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT&amp;entityCodes&#x3D;FUNDS | [optional] 
- **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1&amp;entityKeys&#x3D;Test2 | [optional] 
+ **entityCodes** | **String**| A series of query parameter used to filter the data for a datasource. This represents the entities for the datasource. E.g.: entityCodes&#x3D;ACCOUNT~FUNDS | [optional] 
+ **entityKeys** | **String**| A series of query parameter used to filter the data for a datasource. This is the entity key value for an entity selection. E.g.: entityKeys&#x3D;1~Test2 | [optional] 
  **paginationLimit** | **Number**| Non-negative maximum number of entries to return. Default is 25 | [optional] [default to 25]
  **paginationOffset** | **Number**| Non-negative number of entries to skip. Default is 0 | [optional] [default to 0]
 

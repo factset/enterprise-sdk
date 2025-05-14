@@ -20,6 +20,7 @@ import ApiClient from '../ApiClient';
 class ScimUserPatchOperation {
     /**
      * Constructs a new <code>ScimUserPatchOperation</code>.
+     * Patch operation to modify a user&#39;s attributes. It includes the action to be performed, the attribute to modify, and the new value.
      * @alias module:model/ScimUserPatchOperation
      */
     constructor() { 
@@ -63,16 +64,19 @@ class ScimUserPatchOperation {
 }
 
 /**
+ * Action to perform on the attribute.
  * @member {String} op
  */
 ScimUserPatchOperation.prototype['op'] = undefined;
 
 /**
+ * The user attribute path to modify.
  * @member {String} path
  */
 ScimUserPatchOperation.prototype['path'] = undefined;
 
 /**
+ * The value to set for the attribute.
  * @member {String} value
  */
 ScimUserPatchOperation.prototype['value'] = undefined;
