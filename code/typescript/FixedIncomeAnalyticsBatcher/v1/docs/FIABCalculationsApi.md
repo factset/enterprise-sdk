@@ -1,12 +1,12 @@
 # fixedincomeanalyticsbatcher.FIABCalculationsApi
 
-All URIs are relative to *https://api-sandbox.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fiab/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFIABCalculationById**](FIABCalculationsApi.md#getFIABCalculationById) | **GET** /analytics/engines/fiab/v1/calculations/{id} | Get FIAB calculation by id
-[**getFIABCalculationStatusSummaries**](FIABCalculationsApi.md#getFIABCalculationStatusSummaries) | **GET** /analytics/engines/fiab/v1/calculations | Get all FIAB calculation summaries
-[**runFIABCalculation**](FIABCalculationsApi.md#runFIABCalculation) | **POST** /analytics/engines/fiab/v1/calculations | Run FIAB calculation
+[**getFIABCalculationById**](FIABCalculationsApi.md#getFIABCalculationById) | **GET** /calculations/{id} | Get FIAB calculation by id
+[**getFIABCalculationStatusSummaries**](FIABCalculationsApi.md#getFIABCalculationStatusSummaries) | **GET** /calculations | Get all FIAB calculation summaries
+[**runFIABCalculation**](FIABCalculationsApi.md#runFIABCalculation) | **POST** /calculations | Run FIAB calculation
 
 
 

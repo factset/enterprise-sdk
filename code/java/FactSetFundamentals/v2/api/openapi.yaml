@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Fundamentals API
-  version: 2.3.0
+  version: 2.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-fundamentals-api
@@ -1342,9 +1342,9 @@ paths:
         style: form
       - description: |
           Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
-            * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
+            * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, EXPENSES, OPERATING_COST, NON-RECURRING_ITEMS, REVENUES, OTHER
             * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
-            * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
+            * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL, FINANCING_ACTIVITIES, OPERATING_ACTIVITIES, INVESTING_ACTIVITIES
             * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
             * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL
             * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY
@@ -1368,6 +1368,18 @@ paths:
           INCOME_STATEMENT_NET_INCOME:
             summary: INCOME_STATEMENT - NET_INCOME
             value: NET_INCOME
+          INCOME_STATEMENT_EXPENSES:
+            summary: INCOME_STATEMENT - EXPENSES
+            value: EXPENSES
+          INCOME_STATEMENT_OPERATING_COST:
+            summary: INCOME_STATEMENT - OPERATING_COST
+            value: OPERATING_COST
+          INCOME_STATEMENT_NON-RECURRING_ITEMS:
+            summary: INCOME_STATEMENT - NON-RECURRING_ITEMS
+            value: NON-RECURRING_ITEMS
+          INCOME_STATEMENT_REVENUES:
+            summary: INCOME_STATEMENT - REVENUES
+            value: REVENUES
           INCOME_STATEMENT_OTHER:
             summary: INCOME_STATEMENT - OTHER
             value: OTHER
@@ -1401,12 +1413,21 @@ paths:
           CASH_FLOW_FINANCING:
             summary: CASH_FLOW - FINANCING
             value: FINANCING
+          CASH_FLOW_FINANCING_ACTIVITIES:
+            summary: CASH_FLOW - FINANCING_ACTIVITIES
+            value: FINANCING_ACTIVITIES
           CASH_FLOW_INVESTING:
             summary: CASH_FLOW - INVESTING
             value: INVESTING
+          CASH_FLOW_INVESTING_ACTIVITIES:
+            summary: CASH_FLOW - INVESTING_ACTIVITIES
+            value: INVESTING_ACTIVITIES
           CASH_FLOW_OPERATING:
             summary: CASH_FLOW - OPERATING
             value: OPERATING
+          CASH_FLOW_OPERATING_ACTIVITIES:
+            summary: CASH_FLOW - OPERATING_ACTIVITIES
+            value: OPERATING_ACTIVITIES
           CASH_FLOW_PER_SHARE:
             summary: CASH_FLOW - PER_SHARE
             value: PER_SHARE
@@ -1552,6 +1573,13 @@ paths:
           - TELECOM
           - UTILITY
           - INSURANCE
+          - EXPENSES
+          - OPERATING_COST
+          - OPERATING_ACTIVITIES
+          - NON-RECURRING_ITEMS
+          - FINANCING_ACTIVITIES
+          - INVESTING_ACTIVITIES
+          - REVENUES
           type: string
         style: form
       - description: |
@@ -3135,9 +3163,9 @@ components:
     subcategory:
       description: |
         Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
-          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, EXPENSES, OPERATING_COST, NON-RECURRING_ITEMS, REVENUES, OTHER
           * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
-          * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL, FINANCING_ACTIVITIES, OPERATING_ACTIVITIES, INVESTING_ACTIVITIES
           * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
           * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL
           * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY
@@ -3161,6 +3189,18 @@ components:
         INCOME_STATEMENT_NET_INCOME:
           summary: INCOME_STATEMENT - NET_INCOME
           value: NET_INCOME
+        INCOME_STATEMENT_EXPENSES:
+          summary: INCOME_STATEMENT - EXPENSES
+          value: EXPENSES
+        INCOME_STATEMENT_OPERATING_COST:
+          summary: INCOME_STATEMENT - OPERATING_COST
+          value: OPERATING_COST
+        INCOME_STATEMENT_NON-RECURRING_ITEMS:
+          summary: INCOME_STATEMENT - NON-RECURRING_ITEMS
+          value: NON-RECURRING_ITEMS
+        INCOME_STATEMENT_REVENUES:
+          summary: INCOME_STATEMENT - REVENUES
+          value: REVENUES
         INCOME_STATEMENT_OTHER:
           summary: INCOME_STATEMENT - OTHER
           value: OTHER
@@ -3194,12 +3234,21 @@ components:
         CASH_FLOW_FINANCING:
           summary: CASH_FLOW - FINANCING
           value: FINANCING
+        CASH_FLOW_FINANCING_ACTIVITIES:
+          summary: CASH_FLOW - FINANCING_ACTIVITIES
+          value: FINANCING_ACTIVITIES
         CASH_FLOW_INVESTING:
           summary: CASH_FLOW - INVESTING
           value: INVESTING
+        CASH_FLOW_INVESTING_ACTIVITIES:
+          summary: CASH_FLOW - INVESTING_ACTIVITIES
+          value: INVESTING_ACTIVITIES
         CASH_FLOW_OPERATING:
           summary: CASH_FLOW - OPERATING
           value: OPERATING
+        CASH_FLOW_OPERATING_ACTIVITIES:
+          summary: CASH_FLOW - OPERATING_ACTIVITIES
+          value: OPERATING_ACTIVITIES
         CASH_FLOW_PER_SHARE:
           summary: CASH_FLOW - PER_SHARE
           value: PER_SHARE
@@ -3345,6 +3394,13 @@ components:
         - TELECOM
         - UTILITY
         - INSURANCE
+        - EXPENSES
+        - OPERATING_COST
+        - OPERATING_ACTIVITIES
+        - NON-RECURRING_ITEMS
+        - FINANCING_ACTIVITIES
+        - INVESTING_ACTIVITIES
+        - REVENUES
         type: string
       style: form
     metricDataType:

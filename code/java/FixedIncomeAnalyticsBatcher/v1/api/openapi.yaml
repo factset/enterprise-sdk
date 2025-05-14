@@ -1,22 +1,27 @@
 openapi: 3.0.1
 info:
   contact:
-    email: analytics.api.support@factset.com
-    name: Analytics API Support
+    email: api@factset.com
+    name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: Allow clients to fetch FIAB Analytics through APIs.
   license:
-    name: Apache License 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: FIAB API
-  version: "1"
+  version: 1.3.7
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/fixed-income-analytics-batcher-api
 servers:
-- url: https://api-sandbox.factset.com
+- url: https://api.factset.com/analytics/engines/fiab/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: FIAB Calculations
 paths:
-  /analytics/engines/fiab/v1/calculations:
+  /calculations:
     get:
       description: This endpoints returns all FIAB calculation requests.
       operationId: getFIABCalculationStatusSummaries
@@ -25,9 +30,7 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  $ref: '#/components/schemas/FIABCalculationStatusSummary'
-                type: object
+                $ref: '#/components/schemas/FIABCalculationStatusSummaryRoot'
           description: List of active FIAB calculation requests.
           headers:
             X-DataDirect-Request-Key:
@@ -680,7 +683,7 @@ paths:
       - FIAB Calculations
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/engines/fiab/v1/calculations/{id}:
+  /calculations/{id}:
     get:
       description: This is the endpoint to check on the progress of a previously requested
         calculation.
@@ -1287,6 +1290,10 @@ components:
       required:
       - account
       - dates
+      type: object
+    FIABCalculationStatusSummaryRoot:
+      additionalProperties:
+        $ref: '#/components/schemas/FIABCalculationStatusSummary'
       type: object
     FIABCalculationStatusSummary:
       properties:

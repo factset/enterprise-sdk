@@ -1,12 +1,12 @@
 # fds.sdk.FixedIncomeAnalyticsBatcher.FIABCalculationsApi
 
-All URIs are relative to *https://api-sandbox.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/engines/fiab/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_fiab_calculation_by_id**](FIABCalculationsApi.md#get_fiab_calculation_by_id) | **GET** /analytics/engines/fiab/v1/calculations/{id} | Get FIAB calculation by id
-[**get_fiab_calculation_status_summaries**](FIABCalculationsApi.md#get_fiab_calculation_status_summaries) | **GET** /analytics/engines/fiab/v1/calculations | Get all FIAB calculation summaries
-[**run_fiab_calculation**](FIABCalculationsApi.md#run_fiab_calculation) | **POST** /analytics/engines/fiab/v1/calculations | Run FIAB calculation
+[**get_fiab_calculation_by_id**](FIABCalculationsApi.md#get_fiab_calculation_by_id) | **GET** /calculations/{id} | Get FIAB calculation by id
+[**get_fiab_calculation_status_summaries**](FIABCalculationsApi.md#get_fiab_calculation_status_summaries) | **GET** /calculations | Get all FIAB calculation summaries
+[**run_fiab_calculation**](FIABCalculationsApi.md#run_fiab_calculation) | **POST** /calculations | Run FIAB calculation
 
 
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fiab_calculation_status_summaries**
-> {str: (FIABCalculationStatusSummary,)} get_fiab_calculation_status_summaries()
+> FIABCalculationStatusSummaryRoot get_fiab_calculation_status_summaries()
 
 Get all FIAB calculation summaries
 
@@ -181,7 +181,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**{str: (FIABCalculationStatusSummary,)}**](FIABCalculationStatusSummary.md)
+[**FIABCalculationStatusSummaryRoot**](FIABCalculationStatusSummaryRoot.md)
 
 ### Authorization
 

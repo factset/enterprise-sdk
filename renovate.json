@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>FactSet/renovate-config"],
+  "labels": ["dependencies"],
+  "ignorePaths": ["**/code/**"]
+}

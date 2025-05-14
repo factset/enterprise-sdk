@@ -113,7 +113,7 @@ public class FiabCalculationsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fiab/v1/calculations/{id}"
+    String localVarPath = "/calculations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
@@ -192,7 +192,7 @@ public class FiabCalculationsApi {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fiab/v1/calculations";
+    String localVarPath = "/calculations";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -273,7 +273,7 @@ public class FiabCalculationsApi {
     Object localVarPostBody = fiABCalculationParameters;
     
     // create path and map variables
-    String localVarPath = "/analytics/engines/fiab/v1/calculations";
+    String localVarPath = "/calculations";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

@@ -8,6 +8,7 @@ docs/EventSummary.md
 docs/FIABCalculationParameters.md
 docs/FIABCalculationStatus.md
 docs/FIABCalculationStatusSummary.md
+docs/FIABCalculationStatusSummaryRoot.md
 docs/FIABCalculationsApi.md
 docs/FIABDateParameters.md
 docs/FIABIdentifier.md
@@ -24,6 +25,7 @@ fds/sdk/FixedIncomeAnalyticsBatcher/model/event_summary.py
 fds/sdk/FixedIncomeAnalyticsBatcher/model/fiab_calculation_parameters.py
 fds/sdk/FixedIncomeAnalyticsBatcher/model/fiab_calculation_status.py
 fds/sdk/FixedIncomeAnalyticsBatcher/model/fiab_calculation_status_summary.py
+fds/sdk/FixedIncomeAnalyticsBatcher/model/fiab_calculation_status_summary_root.py
 fds/sdk/FixedIncomeAnalyticsBatcher/model/fiab_date_parameters.py
 fds/sdk/FixedIncomeAnalyticsBatcher/model/fiab_identifier.py
 fds/sdk/FixedIncomeAnalyticsBatcher/model_utils.py

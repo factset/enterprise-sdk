@@ -13,5 +13,6 @@ from fds.sdk.FixedIncomeAnalyticsBatcher.model.event_summary import EventSummary
 from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_parameters import FIABCalculationParameters
 from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_status import FIABCalculationStatus
 from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_status_summary import FIABCalculationStatusSummary
+from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_status_summary_root import FIABCalculationStatusSummaryRoot
 from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_date_parameters import FIABDateParameters
 from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_identifier import FIABIdentifier
