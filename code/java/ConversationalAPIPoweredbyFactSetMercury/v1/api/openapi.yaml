@@ -112,6 +112,15 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining-Hour'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
+          links:
+            longRunningStatus:
+              operationId: getChatStatus
+              parameters:
+                data: ""
+            longRunningResult:
+              operationId: getChatResult
+              parameters:
+                data: ""
         "400":
           content:
             application/json:
@@ -301,6 +310,15 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining-minute'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
+          links:
+            longRunningStatus:
+              operationId: getChatStatus
+              parameters:
+                data: ""
+            longRunningResult:
+              operationId: getChatResult
+              parameters:
+                data: ""
         "400":
           content:
             application/json:
@@ -1656,6 +1674,15 @@ components:
           $ref: '#/components/headers/X-RateLimit-Remaining-Hour'
         X-DataDirect-Request-Key:
           $ref: '#/components/headers/X-DataDirect-Request-Key'
+      links:
+        longRunningStatus:
+          operationId: getChatStatus
+          parameters:
+            data: ""
+        longRunningResult:
+          operationId: getChatResult
+          parameters:
+            data: ""
     StatusPollAcceptedResponse:
       content:
         application/json:
@@ -1687,6 +1714,15 @@ components:
           $ref: '#/components/headers/X-RateLimit-Remaining-minute'
         X-DataDirect-Request-Key:
           $ref: '#/components/headers/X-DataDirect-Request-Key'
+      links:
+        longRunningStatus:
+          operationId: getChatStatus
+          parameters:
+            data: ""
+        longRunningResult:
+          operationId: getChatResult
+          parameters:
+            data: ""
     StatusPollCreatedResponse:
       content:
         application/json:

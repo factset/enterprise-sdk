@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.FactSetFundamentals"
-VERSION = "2.5.0"
+VERSION = "2.5.1"
 # To install the library, run the following
 #
 # python setup.py install

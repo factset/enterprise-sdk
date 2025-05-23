@@ -34,7 +34,6 @@ docs/FieldsCorporateActions.md
 docs/Frequency.md
 docs/GlobalPricesRequest.md
 docs/GlobalPricesResponse.md
-docs/IdsBatchMax10000.md
 docs/IdsBatchMax2000.md
 docs/IdsMax100.md
 docs/IdsMax1000.md
@@ -100,7 +99,6 @@ fds/sdk/FactSetGlobalPrices/model/fields_corporate_actions.py
 fds/sdk/FactSetGlobalPrices/model/frequency.py
 fds/sdk/FactSetGlobalPrices/model/global_prices_request.py
 fds/sdk/FactSetGlobalPrices/model/global_prices_response.py
-fds/sdk/FactSetGlobalPrices/model/ids_batch_max10000.py
 fds/sdk/FactSetGlobalPrices/model/ids_batch_max2000.py
 fds/sdk/FactSetGlobalPrices/model/ids_max100.py
 fds/sdk/FactSetGlobalPrices/model/ids_max1000.py

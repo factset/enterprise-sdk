@@ -26,7 +26,7 @@ class FundamentalRequestBody {
      * Constructs a new <code>FundamentalRequestBody</code>.
      * Fundamentals request body elements
      * @alias module:model/FundamentalRequestBody
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 30000 per batch request</p> 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p> 
      * @param metrics {Array.<String>} Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. 
      */
     constructor(ids, metrics) { 
@@ -84,7 +84,7 @@ class FundamentalRequestBody {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 30000 per batch request</p> 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p> 
  * @member {Array.<String>} ids
  */
 FundamentalRequestBody.prototype['ids'] = undefined;

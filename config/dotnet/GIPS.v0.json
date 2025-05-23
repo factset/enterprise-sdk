@@ -1,0 +1,26 @@
+{
+  "packageName": "FactSet.SDK.GIPS",
+  "packageVersion": "0.0.1",
+  "packageGuid": "{5588863e-1342-54d4-8aaa-df83139f17f0}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/GIPS/v0",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "GIPS client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - GIPS",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/GIPS/0.0.1",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

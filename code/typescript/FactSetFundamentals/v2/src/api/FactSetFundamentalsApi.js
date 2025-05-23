@@ -39,7 +39,7 @@ export default class FactSetFundamentalsApi {
 
     /**
      * Returns Company Fundamental Data.
-     * Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users. 
+     * Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
      * @param {module:model/FundamentalsRequest} fundamentalsRequest Request object for requesting fundamentals data
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FundamentalsResponse} and HTTP response
      */
@@ -74,7 +74,7 @@ export default class FactSetFundamentalsApi {
 
     /**
      * Returns Company Fundamental Data.
-     * Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users. 
+     * Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
      * @param {module:model/FundamentalsRequest} fundamentalsRequest Request object for requesting fundamentals data
      * @return { Promise.< GetFdsFundamentalsForListResponseWrapper > } a Promise, with data of type {@link GetFdsFundamentalsForListResponseWrapper }
      */

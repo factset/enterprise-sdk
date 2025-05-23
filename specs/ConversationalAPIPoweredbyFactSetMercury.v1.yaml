@@ -410,6 +410,17 @@ components:
               chatId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
               jobId: 1b97c74b-d170-4424-b5d9-6a6d67de762e
               status: executing
+      links:
+        longRunningStatus:
+          operationId: getChatStatus
+          parameters:
+            data:
+              jobId: $response.body#/data/jobId
+        longRunningResult:
+          operationId: getChatResult
+          parameters:
+            data:
+              jobId: $response.body#/data/jobId
       headers:
         Location:
           $ref: '#/components/headers/Status-Location'
@@ -441,6 +452,17 @@ components:
             data:
               jobId: 9c1031c2-5463-47ae-81b3-126a68f0c2a6
               status: executing
+      links:
+        longRunningStatus:
+          operationId: getChatStatus
+          parameters:
+            data:
+              jobId: $response.body#/data/jobId
+        longRunningResult:
+          operationId: getChatResult
+          parameters:
+            data:
+              jobId: $response.body#/data/jobId
       headers:
         Location:
           $ref: '#/components/headers/Status-Location'

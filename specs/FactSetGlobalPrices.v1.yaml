@@ -822,9 +822,14 @@ components:
 
         Once a batch request is submitted, use batch status to see if the job
         has been completed. Once completed, retrieve the results of the request
-        via batch-result. When using Batch, ids limit is increased to 10000 ids
-        per request, though limits on query string via GET method still apply.
-        It's advised to submit large lists of ids via POST method.
+        via batch-result. 
+
+        For single-day requests, the ids limit is 500 for non-batch and 2000 for
+        batch. For multi-day requests, the limit is 50 ids for both batch and
+        non-batch. 
+
+        Limits on query string via GET method still apply. It's advised to
+        submit large lists of ids via POST method.
 
         <B>Please note that the number of unique currencies present in the
         requested ids is limited to 50 per request.</B>
@@ -1086,15 +1091,15 @@ components:
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-        limit** =  1000 per non-batch request / 2000 per batch request for a
-        single day and 50 per multi-day request. The number of unique currencies
-        present in the requested ids is limited to 50 per request.*</p> *<p>Make
-        note, GET Method URL request lines are also limited to a total length of
-        8192 bytes (8KB). In cases where the service allows for thousands of
-        ids, which may lead to exceeding this request line limit of 8KB, it's
-        advised for any requests with large request lines to be requested
-        through the respective "POST" method.</p>*
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. **ids
+        limit** = 500 per non-batch request / 2000 per batch request for a
+        single day and 50 per multi-day request for both batch and non-batch.
+        The number of unique currencies present in the requested ids is limited
+        to 50 per request. Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, it's advised for any requests with large
+        request lines to be requested through the respective "POST" method.
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -1723,18 +1728,6 @@ components:
           example: 980.22284
           nullable: true
       additionalProperties: false
-    idsBatchMax10000:
-      type: array
-      items:
-        type: string
-      description: >
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
-
-        <p>ids limit =  1000 per non-batch request / 10000 per batch request for
-        a single day and 50 per multi-day request</p>
-      example:
-        - FDS-US
     idsBatchMax2000:
       type: array
       items:
@@ -1744,21 +1737,32 @@ components:
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
 
         <p>ids limit =  500 per non-batch request / 2000 per batch request for a
-        single day and 50 per multi-day request</p>
+        single day and 50 per multi-day request for both batch and non-batch.
+        </p>
       example:
         - FDS-US
     batch:
       description: >
-        Enables the ability to asynchronously "batch" the request, supporting a
-        long-running request for up to 20 minutes. Upon requesting batch=Y, the
-        service will respond back with an HTTP Status Code of 202. Once a batch
-        request is submitted, use batch status to see if the job has been
-        completed. Once completed, retrieve the results of the request via
-        batch-result. When using Batch, ids limit is increased to 10000 ids per
-        request, though limits on query string via GET method still apply. It's
-        advised to submit large lists of ids via POST method. Please note that
-        the number of unique currencies present in the requested ids is limited
-        to 50 per request.
+        Enables asynchronous "batch" processing for long-running requests,
+        supporting durations up to 20 minutes. When batch=Y is specified, the
+        service responds with HTTP Status Code 202 (Accepted) indicating that
+        the request has been received and is being processed. Use the batch
+        status endpoint to check job progress, and retrieve results using the
+        batch-result endpoint once processing is complete.
+
+        Request Limits:
+          - Non-batch (real-time) requests:
+              * Single day: up to 500 IDs per request
+              * Multi-day: up to 50 IDs per request
+
+          - Batch requests:
+              * Single day: up to 2000 IDs per request
+              * Multi-day: up to 50 IDs per request
+
+        When using batch mode, the number of unique currencies present in the
+        requested IDs is limited to 50 per request. It is recommended to use the
+        POST method for large ID lists, as GET requests are still subject to URL
+        query string length limits.
       type: string
       enum:
         - 'Y'

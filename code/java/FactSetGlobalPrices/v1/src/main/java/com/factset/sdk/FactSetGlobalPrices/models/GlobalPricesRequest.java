@@ -104,11 +104,11 @@ public class GlobalPricesRequest implements Serializable {
   }
 
    /**
-   * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  &lt;p&gt;ids limit &#x3D;  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request&lt;/p&gt; 
+   * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  &lt;p&gt;ids limit &#x3D;  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request for both batch and non-batch. &lt;/p&gt; 
    * @return ids
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "[\"FDS-US\"]", required = true, value = "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request</p> ")
+  @ApiModelProperty(example = "[\"FDS-US\"]", required = true, value = "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  500 per non-batch request / 2000 per batch request for a single day and 50 per multi-day request for both batch and non-batch. </p> ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

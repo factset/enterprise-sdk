@@ -26,7 +26,7 @@ class SegmentRequestBody {
      * Constructs a new <code>SegmentRequestBody</code>.
      * Segments request body elements
      * @alias module:model/SegmentRequestBody
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 30000 per batch request</p> 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p> 
      * @param metrics {String} Metrics are the data items available for business and geographic segments, where   * **SALES**  = Sales/Revenue - Total revenues from the business line/geographic region,   * **OPINC** = Operating Income/Loss - Operating income generated from the business line/geographic region,   * **ASSETS** = Total Assets - Total assets from the business line/geographic region,   * **DEP** = Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,   * **CAPEX** = Capital Expenditures - Capital expenditures resulting from the business line/geographic region 
      */
     constructor(ids, metrics) { 
@@ -81,7 +81,7 @@ class SegmentRequestBody {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  1000 per non-batch request / 30000 per batch request</p> 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p> 
  * @member {Array.<String>} ids
  */
 SegmentRequestBody.prototype['ids'] = undefined;

@@ -177,7 +177,7 @@ class FactSetFundamentalsApi(object):
     ) -> GetFdsFundamentalsForListResponseWrapper:
         """Returns Company Fundamental Data.  # noqa: E501
 
-        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users.   # noqa: E501
+        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -224,7 +224,7 @@ class FactSetFundamentalsApi(object):
     ) -> typing.Tuple[GetFdsFundamentalsForListResponseWrapper, int, typing.MutableMapping]:
         """Returns Company Fundamental Data.  # noqa: E501
 
-        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users.   # noqa: E501
+        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -275,7 +275,7 @@ class FactSetFundamentalsApi(object):
     ) -> "ApplyResult[GetFdsFundamentalsForListResponseWrapper]":
         """Returns Company Fundamental Data.  # noqa: E501
 
-        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users.   # noqa: E501
+        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -321,7 +321,7 @@ class FactSetFundamentalsApi(object):
     ) -> "ApplyResult[typing.Tuple[GetFdsFundamentalsForListResponseWrapper, int, typing.MutableMapping]]":
         """Returns Company Fundamental Data.  # noqa: E501
 
-        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users.   # noqa: E501
+        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

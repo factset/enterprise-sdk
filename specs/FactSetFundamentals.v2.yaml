@@ -53,10 +53,10 @@ paths:
 
 
         The ```/fundamentals``` endpoint currently supports Long Running
-        asynchronous requests up to **20 minutes** via batch parameter. Id
-        limits are increased to 2000 ids per request when using batch
-        capability. This 2000 id limit has been derived based on single metric
-        for one day. This feature is available for all users.
+        asynchronous requests up to **20 minutes** via batch parameter. Id limit
+        is set to 2000 ids per request when using batch capability and 250 ids
+        without batching. (1 metric per ID, for 1 day in both the cases). This
+        feature is available for all users.
       parameters:
         - $ref: '#/components/parameters/idsBatchMax2000'
         - $ref: '#/components/parameters/periodicity'
@@ -118,10 +118,10 @@ paths:
 
 
         The ```/fundamentals``` endpoint currently supports Long Running
-        asynchronous requests up to **20 minutes** via batch parameter. Id
-        limits are increased to 30000 ids per request when using batch
-        capability. This 30000 id limit has been derived based on single metric
-        for one day. This feature is available for all users.
+        asynchronous requests up to **20 minutes** via batch parameter. Id limit
+        is set to 5000 ids per request when using batch capability and 250 ids
+        per request without batching (1 metric per ID, for 1 day in both the
+        cases). This feature is available for all users.
       operationId: getFdsFundamentalsForList
       requestBody:
         required: true
@@ -191,10 +191,10 @@ paths:
 
 
         The ```/segments``` endpoint currently supports Long Running
-        asynchronous requests up to **20 minutes** via batch parameter. Id
-        limits are increased to 2000 ids per request when using batch
-        capability.This 2000 id limit has been derived based on single metric
-        for one day. This feature is available for all users.
+        asynchronous requests up to **20 minutes** via batch parameter. Id limit
+        is set to 2000 ids per request when using batch capability and 250 ids
+        without batching. (1 metric per ID, for 1 day in both the cases). This
+        feature is available for all users.
       parameters:
         - $ref: '#/components/parameters/idsBatchMax2000'
         - $ref: '#/components/parameters/segmentsPeriodicity'
@@ -252,10 +252,10 @@ paths:
 
 
         The ```/segments``` endpoint currently supports Long Running
-        asynchronous requests up to **20 minutes** via batch parameter. Id
-        limits are increased to 30000 ids per request when using batch
-        capability.This 30000 id limit has been derived based on single metric
-        for one day. This feature is available for all users.
+        asynchronous requests up to **20 minutes** via batch parameter. Id limit
+        is set to 5000 ids per request when using batch capability and 250 ids
+        per request without batching (1 metric per ID, for 1 day in both the
+        cases). This feature is available for all users.
       operationId: getFdsSegmentsForList
       requestBody:
         required: true
@@ -590,14 +590,14 @@ components:
       required: true
       explode: false
       description: >-
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-        limit** =  1000 per non-batch request / 2000 per batch request*</p>
-        *<p>Make note, GET Method URL request lines are also limited to a total
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands of ids, which may lead to exceeding this request line limit of
-        8KB, it's advised for any requests with large request lines to be
-        requested through the respective "POST" method.</p>*
+        Returns a list of security identifiers. Accepted ID types include Market
+        Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.<p>ids limit =
+        250 IDs per non-batch request (1 metric per ID, for 1 day) and 2000 IDs
+        per batch request (1 metric per ID, for 1 day)</p> *<p>Make note, GET
+        Method URL request lines are also limited to a total length of 8192
+        bytes (8 KB). In cases where your request—non-batch or batch—approaches
+        this size, it’s advised to use the respective “POST” method to avoid
+        URL-length constraints.</p>*
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -961,9 +961,11 @@ components:
 
         Once a batch request is submitted, use batch status to see if the job
         has been completed. Once completed, retrieve the results of the request
-        via batch-result. When using Batch, ids limit is increased to 30000 ids
-        per request, though limits on query string via GET method still apply.
-        It's advised to submit large lists of ids via POST method.
+        via batch-result. When using Batch, id limit is set to 2000 ids per
+        request (1 metric per ID, for 1 day) and 250 ids per request without
+        batching (1 metric per ID, for 1 day) though limits on query string via
+        GET method still apply. It's advised to submit large lists of ids via
+        POST method.
       schema:
         type: string
         enum:
@@ -2609,7 +2611,8 @@ components:
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
 
-        <p>ids limit =  1000 per non-batch request / 30000 per batch request</p>
+        <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day)
+        and 5000 per batch request (1 metric per ID, for 1 day).</p>
       example:
         - FDS-US
     Periodicity:
@@ -2742,9 +2745,10 @@ components:
         service will respond back with an HTTP Status Code of 202. Once a batch
         request is submitted, use batch status to see if the job has been
         completed. Once completed, retrieve the results of the request via
-        batch-result. When using Batch, ids limit is increased to 30000 ids per
-        request, though limits on query string via GET method still apply. It's
-        advised to submit large lists of ids via POST method.
+        batch-result. When using Batch, id limit is set to 5000 ids per request
+        (1 metric per ID, for 1 day) and 250 ids per request without batching (1
+        metric per ID, for 1 day) though limits on query string via GET method
+        still apply. It's advised to submit large lists of ids via POST method.
       type: string
       enum:
         - 'Y'

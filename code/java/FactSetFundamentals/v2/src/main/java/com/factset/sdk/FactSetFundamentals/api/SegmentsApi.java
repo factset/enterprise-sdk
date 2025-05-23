@@ -145,7 +145,7 @@ public class SegmentsApi {
 
   /**
    * Returns Company Segment Data.
-   * Retrieves Sales Metrics data for specified companies.  The &#x60;&#x60;&#x60;/segments&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability.This 30000 id limit has been derived based on single metric for one day. This feature is available for all users. 
+   * Retrieves Sales Metrics data for specified companies.  The &#x60;&#x60;&#x60;/segments&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
    * @param segmentsRequest Request object for requesting segments data (required)
    * @return GetFdsSegmentsForListResponseWrapper
    * @throws ApiException if fails to make API call
@@ -167,7 +167,7 @@ public class SegmentsApi {
 
   /**
    * Returns Company Segment Data.
-   * Retrieves Sales Metrics data for specified companies.  The &#x60;&#x60;&#x60;/segments&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability.This 30000 id limit has been derived based on single metric for one day. This feature is available for all users. 
+   * Retrieves Sales Metrics data for specified companies.  The &#x60;&#x60;&#x60;/segments&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
    * @param segmentsRequest Request object for requesting segments data (required)
    * @return ApiResponse&lt;GetFdsSegmentsForListResponseWrapper&gt;
    * @throws ApiException if fails to make API call

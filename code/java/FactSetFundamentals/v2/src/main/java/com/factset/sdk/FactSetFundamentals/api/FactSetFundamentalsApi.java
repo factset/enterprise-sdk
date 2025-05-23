@@ -145,7 +145,7 @@ public class FactSetFundamentalsApi {
 
   /**
    * Returns Company Fundamental Data.
-   * Retrieves FactSet Fundamental standardized data for specified securities. Use the &#x60;&#x60;&#x60;/metrics&#x60;&#x60;&#x60; endpoint to retrieve a full list of valid metrics or data items.   The &#x60;&#x60;&#x60;/fundamentals&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users. 
+   * Retrieves FactSet Fundamental standardized data for specified securities. Use the &#x60;&#x60;&#x60;/metrics&#x60;&#x60;&#x60; endpoint to retrieve a full list of valid metrics or data items.   The &#x60;&#x60;&#x60;/fundamentals&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
    * @param fundamentalsRequest Request object for requesting fundamentals data (required)
    * @return GetFdsFundamentalsForListResponseWrapper
    * @throws ApiException if fails to make API call
@@ -167,7 +167,7 @@ public class FactSetFundamentalsApi {
 
   /**
    * Returns Company Fundamental Data.
-   * Retrieves FactSet Fundamental standardized data for specified securities. Use the &#x60;&#x60;&#x60;/metrics&#x60;&#x60;&#x60; endpoint to retrieve a full list of valid metrics or data items.   The &#x60;&#x60;&#x60;/fundamentals&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limits are increased to 30000 ids per request when using batch capability. This 30000 id limit has been derived based on single metric for one day. This feature is available for all users. 
+   * Retrieves FactSet Fundamental standardized data for specified securities. Use the &#x60;&#x60;&#x60;/metrics&#x60;&#x60;&#x60; endpoint to retrieve a full list of valid metrics or data items.   The &#x60;&#x60;&#x60;/fundamentals&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
    * @param fundamentalsRequest Request object for requesting fundamentals data (required)
    * @return ApiResponse&lt;GetFdsFundamentalsForListResponseWrapper&gt;
    * @throws ApiException if fails to make API call
