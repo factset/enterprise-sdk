@@ -2344,9 +2344,12 @@ components:
           enum:
           - Index
           - ETF
-          - Holder
           - Mutual_Fund
           - Portfolios
+          - Equity
+          - privateCompanies
+          - Fixed_Income
+          - Holder
           example: Index
           type: string
       type: object
@@ -2436,6 +2439,7 @@ components:
           - Equity
           - privateCompanies
           - Fixed_Income
+          - Holder
           example: Index
           type: string
       type: object

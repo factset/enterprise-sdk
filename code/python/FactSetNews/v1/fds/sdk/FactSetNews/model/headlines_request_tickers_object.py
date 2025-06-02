@@ -64,6 +64,7 @@ class HeadlinesRequestTickersObject(ModelNormal):
             'EQUITY': "Equity",
             'PRIVATECOMPANIES': "privateCompanies",
             'FIXED_INCOME': "Fixed_Income",
+            'HOLDER': "Holder",
 
 
         },

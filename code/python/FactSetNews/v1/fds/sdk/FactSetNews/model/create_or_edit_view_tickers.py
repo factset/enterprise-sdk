@@ -59,9 +59,12 @@ class CreateOrEditViewTickers(ModelNormal):
         ('type',): {
             'INDEX': "Index",
             'ETF': "ETF",
-            'HOLDER': "Holder",
             'MUTUAL_FUND': "Mutual_Fund",
             'PORTFOLIOS': "Portfolios",
+            'EQUITY': "Equity",
+            'PRIVATECOMPANIES': "privateCompanies",
+            'FIXED_INCOME': "Fixed_Income",
+            'HOLDER': "Holder",
 
 
         },

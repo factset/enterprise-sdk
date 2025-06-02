@@ -23,6 +23,7 @@ PORTFOLIOS | &quot;Portfolios&quot;
 EQUITY | &quot;Equity&quot;
 PRIVATECOMPANIES | &quot;privateCompanies&quot;
 FIXED_INCOME | &quot;Fixed_Income&quot;
+HOLDER | &quot;Holder&quot;
 
 
 ## Implemented Interfaces

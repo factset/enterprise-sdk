@@ -52,22 +52,40 @@ namespace FactSet.SDK.FactSetNews.Model
             ETF = 2,
 
             /// <summary>
-            /// Enum Holder for value: Holder
-            /// </summary>
-            [EnumMember(Value = "Holder")]
-            Holder = 3,
-
-            /// <summary>
             /// Enum MutualFund for value: Mutual_Fund
             /// </summary>
             [EnumMember(Value = "Mutual_Fund")]
-            MutualFund = 4,
+            MutualFund = 3,
 
             /// <summary>
             /// Enum Portfolios for value: Portfolios
             /// </summary>
             [EnumMember(Value = "Portfolios")]
-            Portfolios = 5
+            Portfolios = 4,
+
+            /// <summary>
+            /// Enum Equity for value: Equity
+            /// </summary>
+            [EnumMember(Value = "Equity")]
+            Equity = 5,
+
+            /// <summary>
+            /// Enum PrivateCompanies for value: privateCompanies
+            /// </summary>
+            [EnumMember(Value = "privateCompanies")]
+            PrivateCompanies = 6,
+
+            /// <summary>
+            /// Enum FixedIncome for value: Fixed_Income
+            /// </summary>
+            [EnumMember(Value = "Fixed_Income")]
+            FixedIncome = 7,
+
+            /// <summary>
+            /// Enum Holder for value: Holder
+            /// </summary>
+            [EnumMember(Value = "Holder")]
+            Holder = 8
 
         }
 

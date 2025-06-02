@@ -79,7 +79,13 @@ namespace FactSet.SDK.FactSetNews.Model
             /// Enum FixedIncome for value: Fixed_Income
             /// </summary>
             [EnumMember(Value = "Fixed_Income")]
-            FixedIncome = 7
+            FixedIncome = 7,
+
+            /// <summary>
+            /// Enum Holder for value: Holder
+            /// </summary>
+            [EnumMember(Value = "Holder")]
+            Holder = 8
 
         }
 

@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 
 * `Fixed_Income` (value: `"Fixed_Income"`)
 
+* `Holder` (value: `"Holder"`)
+
 
 
 

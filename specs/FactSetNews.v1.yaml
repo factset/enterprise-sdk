@@ -1300,9 +1300,12 @@ components:
           enum:
             - Index
             - ETF
-            - Holder
             - Mutual_Fund
             - Portfolios
+            - Equity
+            - privateCompanies
+            - Fixed_Income
+            - Holder
           description: The type of the asset associated with the ticker.
     CreateViewResponse:
       type: object
@@ -1537,6 +1540,7 @@ components:
             - Equity
             - privateCompanies
             - Fixed_Income
+            - Holder
     SearchResponse:
       type: object
       description: Properties in results objects are based on return values.

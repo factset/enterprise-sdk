@@ -182,6 +182,8 @@ with fds.sdk.SecurityExplanation.ApiClient(configuration) as api_client:
             enable_links=False,
             explanation_style="short",
             include_performance=False,
+            internal_investment_rationale="none",
+            include_company_description=False,
         ),
     ) # SecurityExplanationParametersRoot |  (optional)
 

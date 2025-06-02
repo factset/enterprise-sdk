@@ -122,7 +122,13 @@ HeadlinesRequestTickersObject['TypeEnum'] = {
      * value: "Fixed_Income"
      * @const
      */
-    "Fixed_Income": "Fixed_Income"
+    "Fixed_Income": "Fixed_Income",
+
+    /**
+     * value: "Holder"
+     * @const
+     */
+    "Holder": "Holder"
 };
 
 

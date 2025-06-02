@@ -60,7 +60,9 @@ public class HeadlinesRequestTickersObject implements Serializable {
     
     PRIVATECOMPANIES("privateCompanies"),
     
-    FIXED_INCOME("Fixed_Income");
+    FIXED_INCOME("Fixed_Income"),
+    
+    HOLDER("Holder");
 
     private String value;
 

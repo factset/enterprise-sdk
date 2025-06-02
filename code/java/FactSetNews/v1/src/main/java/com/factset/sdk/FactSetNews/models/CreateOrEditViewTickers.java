@@ -56,11 +56,17 @@ public class CreateOrEditViewTickers implements Serializable {
     
     ETF("ETF"),
     
-    HOLDER("Holder"),
-    
     MUTUAL_FUND("Mutual_Fund"),
     
-    PORTFOLIOS("Portfolios");
+    PORTFOLIOS("Portfolios"),
+    
+    EQUITY("Equity"),
+    
+    PRIVATECOMPANIES("privateCompanies"),
+    
+    FIXED_INCOME("Fixed_Income"),
+    
+    HOLDER("Holder");
 
     private String value;
 

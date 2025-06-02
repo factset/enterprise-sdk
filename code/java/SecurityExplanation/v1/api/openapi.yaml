@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Security Explanation API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/security-explanation-api
@@ -867,8 +867,10 @@ components:
         includePerformance: false
         explanationStyle: short
         endDate: 2024-01-15T00:00:00.000+0000
+        internalInvestmentRationale: none
         id: FDS-US
         startDate: 2024-01-01T00:00:00.000+0000
+        includeCompanyDescription: false
       properties:
         id:
           description: Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs,
@@ -904,6 +906,24 @@ components:
           description: If true, includes the performance statement in the explanation
           example: false
           type: boolean
+        internalInvestmentRationale:
+          default: none
+          description: Include summarized IRN notes on the company, or just the footnote,
+            or none. Only available for IRN users
+          enum:
+          - none
+          - summary
+          - footnote
+          example: none
+          type: string
+        includeCompanyDescription:
+          default: false
+          description: If true, includes the company description in the explanation.In
+            order to include 'Company Business Description', 'includePerformance'
+            must be set to True. Even if 'includeCompanyDescription' is set to True,
+            if 'includePerformance' is false, it will be omitted
+          example: false
+          type: boolean
       required:
       - endDate
       - id
@@ -917,8 +937,10 @@ components:
           includePerformance: false
           explanationStyle: short
           endDate: 2024-01-15T00:00:00.000+0000
+          internalInvestmentRationale: none
           id: FDS-US
           startDate: 2024-01-01T00:00:00.000+0000
+          includeCompanyDescription: false
       properties:
         data:
           $ref: '#/components/schemas/SecurityExplanationRequestParameters'

@@ -17,11 +17,17 @@ Name | Type | Description | Notes
 
 * `ETF` (value: `"ETF"`)
 
-* `Holder` (value: `"Holder"`)
-
 * `Mutual_Fund` (value: `"Mutual_Fund"`)
 
 * `Portfolios` (value: `"Portfolios"`)
+
+* `Equity` (value: `"Equity"`)
+
+* `privateCompanies` (value: `"privateCompanies"`)
+
+* `Fixed_Income` (value: `"Fixed_Income"`)
+
+* `Holder` (value: `"Holder"`)
 
 
 

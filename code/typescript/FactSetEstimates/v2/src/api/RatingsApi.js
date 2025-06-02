@@ -41,7 +41,7 @@ export default class RatingsApi {
     /**
      * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
      * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
-     * @param {Array.<String>} ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._ 
+     * @param {Array.<String>} ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
      * @param {Object} opts Optional parameters
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
@@ -86,7 +86,7 @@ export default class RatingsApi {
     /**
      * Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
      * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
-     * @param {Array.<String>} ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._ 
+     * @param {Array.<String>} ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
      * @param {Object} opts Optional parameters
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
@@ -154,7 +154,7 @@ export default class RatingsApi {
     /**
      * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
      * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
-     * @param {Array.<String>} ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._ 
+     * @param {Array.<String>} ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
      * @param {Object} opts Optional parameters
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
@@ -199,7 +199,7 @@ export default class RatingsApi {
     /**
      * Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
      * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, overWeight, and underWeight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
-     * @param {Array.<String>} ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> _Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._ 
+     * @param {Array.<String>} ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
      * @param {Object} opts Optional parameters
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.

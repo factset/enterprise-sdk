@@ -17,7 +17,7 @@
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
     "title": "Security Explanation API",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "externalDocs": {
     "description": "API Documentation",
@@ -1112,6 +1112,23 @@
           "includePerformance": {
             "type": "boolean",
             "description": "If true, includes the performance statement in the explanation",
+            "default": false,
+            "example": false
+          },
+          "internalInvestmentRationale": {
+            "type": "string",
+            "enum": [
+              "none",
+              "summary",
+              "footnote"
+            ],
+            "description": "Include summarized IRN notes on the company, or just the footnote, or none. Only available for IRN users",
+            "default": "none",
+            "example": "none"
+          },
+          "includeCompanyDescription": {
+            "type": "boolean",
+            "description": "If true, includes the company description in the explanation.In order to include 'Company Business Description', 'includePerformance' must be set to True. Even if 'includeCompanyDescription' is set to True, if 'includePerformance' is false, it will be omitted",
             "default": false,
             "example": false
           }
