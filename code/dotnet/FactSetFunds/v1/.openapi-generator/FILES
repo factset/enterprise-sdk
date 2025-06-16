@@ -23,6 +23,7 @@ docs/DistCurrentResponse.md
 docs/DistHistorical.md
 docs/DistHistoricalRequest.md
 docs/DistHistoricalResponse.md
+docs/DistributionOrYieldDist.md
 docs/DistributionsApi.md
 docs/DividendAdjust.md
 docs/ErrorResponse.md
@@ -115,6 +116,7 @@ src/FactSet.SDK.FactSetFunds/Model/DistCurrentResponse.cs
 src/FactSet.SDK.FactSetFunds/Model/DistHistorical.cs
 src/FactSet.SDK.FactSetFunds/Model/DistHistoricalRequest.cs
 src/FactSet.SDK.FactSetFunds/Model/DistHistoricalResponse.cs
+src/FactSet.SDK.FactSetFunds/Model/DistributionOrYieldDist.cs
 src/FactSet.SDK.FactSetFunds/Model/DividendAdjust.cs
 src/FactSet.SDK.FactSetFunds/Model/ErrorResponse.cs
 src/FactSet.SDK.FactSetFunds/Model/ErrorResponseSubErrors.cs

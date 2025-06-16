@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **Currency** | **string** | The ISO3 currency control for the requested fund. | [optional] [default to "LOCAL"]
 **SplitAdjust** | **bool** | Controls the split adjustment of the Fund&#39;s NAV.  | [optional] [default to true]
+**DistributionOrYield** | [**DistributionOrYieldDist**](DistributionOrYieldDist.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

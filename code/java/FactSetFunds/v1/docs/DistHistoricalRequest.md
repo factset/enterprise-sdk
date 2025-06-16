@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **frequency** | **Frequency** |  |  [optional]
 **currency** | **String** | The ISO3 currency control for the requested fund. |  [optional]
 **splitAdjust** | **Boolean** | Controls the split adjustment of the Fund&#39;s NAV.  |  [optional]
+**distributionOrYield** | **DistributionOrYieldDist** |  |  [optional]
 
 
 ## Implemented Interfaces

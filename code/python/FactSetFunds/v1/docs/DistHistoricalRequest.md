@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **currency** | **str** | The ISO3 currency control for the requested fund. | [optional]  if omitted the server will use the default value of "LOCAL"
 **split_adjust** | **bool** | Controls the split adjustment of the Fund&#39;s NAV.  | [optional]  if omitted the server will use the default value of True
+**distribution_or_yield** | [**DistributionOrYieldDist**](DistributionOrYieldDist.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -29,6 +29,7 @@ from fds.sdk.FactSetFunds.model.dist_current_response import DistCurrentResponse
 from fds.sdk.FactSetFunds.model.dist_historical import DistHistorical
 from fds.sdk.FactSetFunds.model.dist_historical_request import DistHistoricalRequest
 from fds.sdk.FactSetFunds.model.dist_historical_response import DistHistoricalResponse
+from fds.sdk.FactSetFunds.model.distribution_or_yield_dist import DistributionOrYieldDist
 from fds.sdk.FactSetFunds.model.dividend_adjust import DividendAdjust
 from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
 from fds.sdk.FactSetFunds.model.error_response_sub_errors import ErrorResponseSubErrors

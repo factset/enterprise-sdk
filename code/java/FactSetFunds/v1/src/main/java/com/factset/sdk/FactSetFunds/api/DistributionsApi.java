@@ -270,6 +270,7 @@ public class DistributionsApi {
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     (optional, default to M)
    * @param currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to LOCAL)
    * @param splitAdjust The price adjustment split or unsplit. (optional, default to true)
+   * @param distributionOrYield Controls the inclusion of distribution records, where - * DISTRIBUTION &#x3D; Returns all records where distributions are not null. * YIELD &#x3D; Returns all records where yields are not null. (optional)
    * @return DistHistoricalResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -283,8 +284,8 @@ public class DistributionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DistHistoricalResponse getFundsDistHistorical(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency, Boolean splitAdjust) throws ApiException {
-    return getFundsDistHistoricalWithHttpInfo(ids, startDate, endDate, frequency, currency, splitAdjust).getData();
+  public DistHistoricalResponse getFundsDistHistorical(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency, Boolean splitAdjust, String distributionOrYield) throws ApiException {
+    return getFundsDistHistoricalWithHttpInfo(ids, startDate, endDate, frequency, currency, splitAdjust, distributionOrYield).getData();
   }
 
   /**
@@ -296,6 +297,7 @@ public class DistributionsApi {
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     (optional, default to M)
    * @param currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to LOCAL)
    * @param splitAdjust The price adjustment split or unsplit. (optional, default to true)
+   * @param distributionOrYield Controls the inclusion of distribution records, where - * DISTRIBUTION &#x3D; Returns all records where distributions are not null. * YIELD &#x3D; Returns all records where yields are not null. (optional)
    * @return ApiResponse&lt;DistHistoricalResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -309,7 +311,7 @@ public class DistributionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DistHistoricalResponse> getFundsDistHistoricalWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency, Boolean splitAdjust) throws ApiException {
+  public ApiResponse<DistHistoricalResponse> getFundsDistHistoricalWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency, Boolean splitAdjust, String distributionOrYield) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -332,6 +334,7 @@ public class DistributionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "frequency", frequency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "splitAdjust", splitAdjust));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "distributionOrYield", distributionOrYield));
 
     
     

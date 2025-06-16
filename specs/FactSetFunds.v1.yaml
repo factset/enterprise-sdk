@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.0
+  version: 1.3.0
   title: FactSet Funds API
   contact:
     name: FactSet Research Systems
@@ -1057,6 +1057,7 @@ paths:
         - $ref: '#/components/parameters/frequency'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/splitAdjustDist'
+        - $ref: '#/components/parameters/distributionOrYield'
       responses:
         '200':
           description: The historical distribution response object.
@@ -1824,6 +1825,18 @@ components:
         type: boolean
         default: true
       description: The price adjustment split or unsplit.
+    distributionOrYield:
+      name: distributionOrYield
+      in: query
+      schema:
+        type: string
+        enum:
+          - DISTRIBUTION
+          - YIELD
+      description: >-
+        Controls the inclusion of distribution records, where - * DISTRIBUTION =
+        Returns all records where distributions are not null. * YIELD = Returns
+        all records where yields are not null.
     dividendAdjust:
       name: dividendAdjust
       in: query
@@ -3082,6 +3095,8 @@ components:
           $ref: '#/components/schemas/currency'
         splitAdjust:
           $ref: '#/components/schemas/splitAdjustDist'
+        distributionOrYield:
+          $ref: '#/components/schemas/distributionOrYieldDist'
       required:
         - ids
     distHistoricalResponse:
@@ -3638,6 +3653,16 @@ components:
       description: |
         Controls the split adjustment of the Fund's NAV.
       example: true
+    distributionOrYieldDist:
+      type: string
+      enum:
+        - DISTRIBUTION
+        - YIELD
+      description: |
+        Controls the inclusion of distribution records - 
+          * **DISTRIBUTION** = Returns all records where distributions are not null.
+          * **YIELD** = Returns all records where yields are not null.
+      example: DISTRIBUTION
     dividendAdjust:
       type: string
       enum:

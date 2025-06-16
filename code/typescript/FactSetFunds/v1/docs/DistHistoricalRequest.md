@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **currency** | **String** | The ISO3 currency control for the requested fund. | [optional] [default to &#39;LOCAL&#39;]
 **splitAdjust** | **Boolean** | Controls the split adjustment of the Fund&#39;s NAV.  | [optional] [default to true]
+**distributionOrYield** | [**DistributionOrYieldDist**](DistributionOrYieldDist.md) |  | [optional] 
 
 

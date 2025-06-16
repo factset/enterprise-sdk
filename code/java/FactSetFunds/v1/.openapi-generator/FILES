@@ -25,6 +25,7 @@ docs/DistCurrentResponse.md
 docs/DistHistorical.md
 docs/DistHistoricalRequest.md
 docs/DistHistoricalResponse.md
+docs/DistributionOrYieldDist.md
 docs/DistributionsApi.md
 docs/DividendAdjust.md
 docs/ErrorResponse.md
@@ -126,6 +127,7 @@ src/main/java/com/factset/sdk/FactSetFunds/models/DistCurrentResponse.java
 src/main/java/com/factset/sdk/FactSetFunds/models/DistHistorical.java
 src/main/java/com/factset/sdk/FactSetFunds/models/DistHistoricalRequest.java
 src/main/java/com/factset/sdk/FactSetFunds/models/DistHistoricalResponse.java
+src/main/java/com/factset/sdk/FactSetFunds/models/DistributionOrYieldDist.java
 src/main/java/com/factset/sdk/FactSetFunds/models/DividendAdjust.java
 src/main/java/com/factset/sdk/FactSetFunds/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetFunds/models/ErrorResponseSubErrors.java

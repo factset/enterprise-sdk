@@ -19,7 +19,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Funds API
-  version: 1.2.0
+  version: 1.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-funds-api
@@ -2721,6 +2721,19 @@ paths:
           default: true
           type: boolean
         style: form
+      - description: Controls the inclusion of distribution records, where - * DISTRIBUTION
+          = Returns all records where distributions are not null. * YIELD = Returns
+          all records where yields are not null.
+        explode: true
+        in: query
+        name: distributionOrYield
+        required: false
+        schema:
+          enum:
+          - DISTRIBUTION
+          - YIELD
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -5307,6 +5320,20 @@ components:
         default: true
         type: boolean
       style: form
+    distributionOrYield:
+      description: Controls the inclusion of distribution records, where - * DISTRIBUTION
+        = Returns all records where distributions are not null. * YIELD = Returns
+        all records where yields are not null.
+      explode: true
+      in: query
+      name: distributionOrYield
+      required: false
+      schema:
+        enum:
+        - DISTRIBUTION
+        - YIELD
+        type: string
+      style: form
     dividendAdjust:
       description: "Controls the dividend inclusion for the NAV returns calculations,\
         \ where - \n* DIV = Include Dividends, Total Return\n* NO_DIV = Exclude Dividends,\
@@ -7163,6 +7190,8 @@ components:
             Controls the split adjustment of the Fund's NAV.
           example: true
           type: boolean
+        distributionOrYield:
+          $ref: '#/components/schemas/distributionOrYieldDist'
       required:
       - ids
       title: Returns Historical Distributions Body
@@ -7906,6 +7935,15 @@ components:
         Controls the split adjustment of the Fund's NAV.
       example: true
       type: boolean
+    distributionOrYieldDist:
+      description: "Controls the inclusion of distribution records - \n  * **DISTRIBUTION**\
+        \ = Returns all records where distributions are not null.\n  * **YIELD** =\
+        \ Returns all records where yields are not null.\n"
+      enum:
+      - DISTRIBUTION
+      - YIELD
+      example: DISTRIBUTION
+      type: string
     dividendAdjust:
       default: DIV
       description: |

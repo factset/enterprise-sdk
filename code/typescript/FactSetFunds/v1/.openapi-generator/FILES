@@ -23,6 +23,7 @@ docs/DistCurrentResponse.md
 docs/DistHistorical.md
 docs/DistHistoricalRequest.md
 docs/DistHistoricalResponse.md
+docs/DistributionOrYieldDist.md
 docs/DistributionsApi.md
 docs/DividendAdjust.md
 docs/ErrorResponse.md
@@ -101,6 +102,7 @@ src/model/DistCurrentResponse.js
 src/model/DistHistorical.js
 src/model/DistHistoricalRequest.js
 src/model/DistHistoricalResponse.js
+src/model/DistributionOrYieldDist.js
 src/model/DividendAdjust.js
 src/model/ErrorResponse.js
 src/model/ErrorResponseSubErrors.js

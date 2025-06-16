@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ## getFundsDistHistorical
 
-> DistHistoricalResponse getFundsDistHistorical(ids, startDate, endDate, frequency, currency, splitAdjust)
+> DistHistoricalResponse getFundsDistHistorical(ids, startDate, endDate, frequency, currency, splitAdjust, distributionOrYield)
 
 Get Historical Fund Distributions
 
@@ -263,8 +263,9 @@ public class Example {
         String frequency = "D"; // String | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.    
         String currency = "LOCAL"; // String | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). 
         Boolean splitAdjust = true; // Boolean | The price adjustment split or unsplit.
+        String distributionOrYield = "DISTRIBUTION"; // String | Controls the inclusion of distribution records, where - * DISTRIBUTION = Returns all records where distributions are not null. * YIELD = Returns all records where yields are not null.
         try {
-            DistHistoricalResponse result = apiInstance.getFundsDistHistorical(ids, startDate, endDate, frequency, currency, splitAdjust);
+            DistHistoricalResponse result = apiInstance.getFundsDistHistorical(ids, startDate, endDate, frequency, currency, splitAdjust, distributionOrYield);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **frequency** | **String**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     | [optional] [default to M] [enum: D, W, M, AM, CQ, FQ, AY, CY, FY]
  **currency** | **String**| Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  | [optional] [default to LOCAL]
  **splitAdjust** | **Boolean**| The price adjustment split or unsplit. | [optional] [default to true]
+ **distributionOrYield** | **String**| Controls the inclusion of distribution records, where - * DISTRIBUTION &#x3D; Returns all records where distributions are not null. * YIELD &#x3D; Returns all records where yields are not null. | [optional] [enum: DISTRIBUTION, YIELD]
 
 ### Return type
 

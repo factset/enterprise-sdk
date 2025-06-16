@@ -273,12 +273,13 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.     (optional) if omitted the server will use the default value of "M"
     currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
     split_adjust = True # bool | The price adjustment split or unsplit. (optional) if omitted the server will use the default value of True
+    distribution_or_yield = "DISTRIBUTION" # str | Controls the inclusion of distribution records, where - * DISTRIBUTION = Returns all records where distributions are not null. * YIELD = Returns all records where yields are not null. (optional)
 
     try:
         # Get Historical Fund Distributions
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_funds_dist_historical(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, split_adjust=split_adjust)
+        api_response = api_instance.get_funds_dist_historical(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, split_adjust=split_adjust, distribution_or_yield=distribution_or_yield)
 
         pprint(api_response)
 
@@ -297,6 +298,7 @@ Name | Type | Description  | Notes
  **frequency** | **str**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     | [optional] if omitted the server will use the default value of "M"
  **currency** | **str**| Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  | [optional] if omitted the server will use the default value of "LOCAL"
  **split_adjust** | **bool**| The price adjustment split or unsplit. | [optional] if omitted the server will use the default value of True
+ **distribution_or_yield** | **str**| Controls the inclusion of distribution records, where - * DISTRIBUTION &#x3D; Returns all records where distributions are not null. * YIELD &#x3D; Returns all records where yields are not null. | [optional]
 
 ### Return type
 
@@ -384,6 +386,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         frequency=Frequency("M"),
         currency="USD",
         split_adjust=True,
+        distribution_or_yield=DistributionOrYieldDist("DISTRIBUTION"),
     ) # DistHistoricalRequest | The historical distribution request body, allowing the user to specify a list of ids and date range.
 
     try:

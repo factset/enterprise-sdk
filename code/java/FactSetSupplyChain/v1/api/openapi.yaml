@@ -1,0 +1,963 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    Access the complex networks of key customer, suppliers, competitors and partners so that you can make insightful investment decisions. Relationship information is sourced from trusted primary sources and reverse-linked to non-disclosing parties, creating a comprehensive and consistent relationship graph. <p>This
+    API is rate-limited to 10 requests per second and 10 concurrent requests per
+    user.</p>
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Supply Chain API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-supply-chain-api
+servers:
+- url: https://api.factset.com/content/factset-supply-chain/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Retrieve Supply Chain Relationships.
+  name: Relationships
+paths:
+  /relationships:
+    get:
+      description: |
+        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.
+      operationId: getRelationships
+      parameters:
+      - description: |
+          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500
+        examples:
+          oneId:
+            summary: One Security Identifier
+            value:
+            - AAPL-USA
+          multipleEquityIds:
+            summary: Multiple Security Identifiers
+            value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+        explode: true
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxItems: 500
+            minItems: 1
+            type: string
+          type: array
+        style: form
+      - description: |
+          Specifies the type of relationship to filter the results  -
+            * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.
+            * **COMPETITORS** = Entities disclosed by the source company as competitors.
+            * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.
+            * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship).
+        examples:
+          suppliers:
+            summary: SUPPLIERS
+            value: SUPPLIERS
+          competitors:
+            summary: COMPETITORS
+            value: COMPETITORS
+          customers:
+            summary: CUSTOMERS
+            value: CUSTOMERS
+          partners:
+            summary: PARTNERS
+            value: PARTNERS
+        explode: true
+        in: query
+        name: relationshipType
+        required: true
+        schema:
+          default: SUPPLIERS
+          enum:
+          - COMPETITORS
+          - CUSTOMERS
+          - SUPPLIERS
+          - PARTNERS
+          type: string
+        style: form
+      - description: |
+          Specifies the type of companies to filter by  -
+            * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.
+            * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.
+            * **ALL** = Display public and private company relationships.
+        examples:
+          public:
+            summary: PUBLIC_COMPANIES_ONLY
+            value: PUBLIC_COMPANIES_ONLY
+          private:
+            summary: PRIVATE_COMPANIES_ONLY
+            value: PRIVATE_COMPANIES_ONLY
+          both:
+            summary: ALL
+            value: ALL
+        explode: true
+        in: query
+        name: companyType
+        required: false
+        schema:
+          default: PUBLIC_COMPANIES_ONLY
+          enum:
+          - PUBLIC_COMPANIES_ONLY
+          - PRIVATE_COMPANIES_ONLY
+          - ALL
+          type: string
+        style: form
+      - description: |
+          Filters the list of available relationship directions -
+            * **ALL** = All relationship directions.
+            * **DIRECT** = Direct indicates that the source company named the relationship.
+            * **REVERSE** = Reverse indicates that the target company named the relationship.
+        examples:
+          All:
+            summary: ALL
+            value: ALL
+          Direct:
+            summary: DIRECT
+            value: DIRECT
+          Reverse:
+            summary: REVERSE
+            value: REVERSE
+        explode: true
+        in: query
+        name: relationshipDirection
+        required: false
+        schema:
+          default: ALL
+          enum:
+          - ALL
+          - DIRECT
+          - REVERSE
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Supply Chain Relationships:
+                  $ref: '#/components/examples/supplyChainRelationships'
+              schema:
+                $ref: '#/components/schemas/relationshipsResponse'
+          description: Fetches supply chain relationships data for the requested list
+            of identifiers.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns Supply Chain Relationships Data.
+      tags:
+      - Relationships
+      x-accepts: application/json
+    post:
+      description: |
+        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.
+      operationId: getRelationshipsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              One Security(AAPL-US) Example:
+                $ref: '#/components/examples/postRelationships'
+            schema:
+              $ref: '#/components/schemas/relationshipsRequest'
+        description: Request body to request a list of Supply Chain financials objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relationshipsResponse'
+          description: Supply Chain Relationships data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns Supply Chain Relationships Data.
+      tags:
+      - Relationships
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    supplyChainRelationships:
+      description: Array of Objects describing relationships and product overlaps
+      summary: Company Relationship Overview
+      value:
+        data:
+        - entityId: 000Q07-E
+          companyName: Microsoft Corporation
+          overlappingProductCount: 28 of 138
+          overlapPercentage: 20
+          relationshipDirection: Mutual
+          requestId: AAPL-US
+        - entityId: 0FPWZZ-E
+          companyName: Alphabet Inc. Class A
+          overlappingProductCount: 26 of 97
+          overlapPercentage: 27
+          relationshipDirection: Direct
+          requestId: AAPL-US
+        - entityId: 001CJR-E
+          companyName: Sony Group Corporation
+          overlappingProductCount: 23 of 206
+          overlapPercentage: 11
+          relationshipDirection: Direct
+          requestId: AAPL-US
+        - entityId: 05HWBQ-E
+          companyName: Nintendo Co., Ltd.
+          overlappingProductCount: 3 of 18
+          overlapPercentage: 17
+          relationshipDirection: Direct
+          requestId: AAPL-US
+        - entityId: 000LNN-E
+          companyName: HP Inc.
+          overlappingProductCount: 17 of 86
+          overlapPercentage: 20
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 001QBC-E
+          companyName: Logitech International S.A.
+          overlappingProductCount: 15 of 38
+          overlapPercentage: 39
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 05X2J1-E
+          companyName: Dreamus Company
+          overlappingProductCount: 10 of 28
+          overlapPercentage: 36
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0J5Z7W-E
+          companyName: Shenzhen Aoni Electronic Co. Ltd. Class A
+          overlappingProductCount: 6 of 11
+          overlapPercentage: 55
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0HWCMK-E
+          companyName: Zepp Health Corp. Sponsored ADR Class A
+          overlappingProductCount: 6 of 11
+          overlapPercentage: 55
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0D6K1F-E
+          companyName: Fnac Darty SA
+          overlappingProductCount: 6 of 16
+          overlapPercentage: 38
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 064N0H-E
+          companyName: Roku, Inc. Class A
+          overlappingProductCount: 5 of 11
+          overlapPercentage: 45
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 05JM7V-E
+          companyName: Salora International Limited
+          overlappingProductCount: 5 of 15
+          overlapPercentage: 33
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 006TD7-E
+          companyName: Sonos, Inc.
+          overlappingProductCount: 5 of 16
+          overlapPercentage: 31
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 05K015-E
+          companyName: Archos SA
+          overlappingProductCount: 5 of 24
+          overlapPercentage: 21
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0GS3BP-E
+          companyName: Wearable Devices Ltd.
+          overlappingProductCount: 4 of 5
+          overlapPercentage: 80
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0XBNKT-E
+          companyName: Reeder Teknoloji Sanayi ve Ticaret A.S.
+          overlappingProductCount: 4 of 10
+          overlapPercentage: 40
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 00BJ65-E
+          companyName: Spotify Technology SA
+          overlappingProductCount: 4 of 11
+          overlapPercentage: 36
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0JMZW0-E
+          companyName: Simply Inc
+          overlappingProductCount: 3 of 4
+          overlapPercentage: 75
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0D029B-E
+          companyName: Snap, Inc. Class A
+          overlappingProductCount: 3 of 4
+          overlapPercentage: 75
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0FLP6Y-E
+          companyName: Beamr Imaging Ltd.
+          overlappingProductCount: 3 of 5
+          overlapPercentage: 60
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 0CNWCF-E
+          companyName: Eastech Holding Limited
+          overlappingProductCount: 3 of 7
+          overlapPercentage: 43
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 078N6D-E
+          companyName: Stingray Group, Inc.
+          overlappingProductCount: 3 of 7
+          overlapPercentage: 43
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+        - entityId: 005MWJ-E
+          companyName: Sonim Technologies, Inc.
+          overlappingProductCount: 3 of 9
+          overlapPercentage: 33
+          relationshipDirection: Reverse
+          requestId: AAPL-US
+    postRelationships:
+      description: Relationships request body.
+      summary: Relationships request body.
+      value:
+        data:
+        - id: AAPL-US
+          relationshipType: COMPETITORS
+          companyType: PUBLIC_COMPANIES_ONLY
+          relationshipDirection: ALL
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:52:36.464
+        path: /factset-supply-chain/v1/{endpoint}
+        message: 'The date parameter must be in the following date format: YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-30 13:22:09.053
+        path: /factset-supply-chain/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when user is passing an Invalid Parameter
+      summary: Bad Request - Passing Invalid Parameter
+      value:
+        status: Bad Request
+        timestamp: 2020-07-23 11:03:40.765
+        path: /factset-supply-chain/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameter. Please modify your request
+          to use parameters outlined in the specification for this endpoint.'
+        subErrors: null
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 11:59:09.649
+        path: /factset-supply-chain/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2020-07-02 16:18:38.949
+        path: /factset-supply-chain/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2020-07-02 16:08:07.945
+        path: /factset-supply-chain/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-07-02 17:21:52.197
+        path: /factset-supply-chain/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-supply-chain/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2020-07-02 09:42:27.237
+        path: /factset-supply-chain/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json.
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2020-07-02 09:48:29.18
+        path: /factset-supply-chain/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2020-07-02 10:36:01.944
+        path: /factset-supply-chain/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    relationshipIds:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500
+      examples:
+        oneId:
+          summary: One Security Identifier
+          value:
+          - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Security Identifiers
+          value:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      explode: true
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          maxItems: 500
+          minItems: 1
+          type: string
+        type: array
+      style: form
+    relationshipType:
+      description: |
+        Specifies the type of relationship to filter the results  -
+          * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.
+          * **COMPETITORS** = Entities disclosed by the source company as competitors.
+          * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.
+          * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship).
+      examples:
+        suppliers:
+          summary: SUPPLIERS
+          value: SUPPLIERS
+        competitors:
+          summary: COMPETITORS
+          value: COMPETITORS
+        customers:
+          summary: CUSTOMERS
+          value: CUSTOMERS
+        partners:
+          summary: PARTNERS
+          value: PARTNERS
+      explode: true
+      in: query
+      name: relationshipType
+      required: true
+      schema:
+        default: SUPPLIERS
+        enum:
+        - COMPETITORS
+        - CUSTOMERS
+        - SUPPLIERS
+        - PARTNERS
+        type: string
+      style: form
+    publicPrivate:
+      description: |
+        Specifies the type of companies to filter by  -
+          * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.
+          * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.
+          * **ALL** = Display public and private company relationships.
+      examples:
+        public:
+          summary: PUBLIC_COMPANIES_ONLY
+          value: PUBLIC_COMPANIES_ONLY
+        private:
+          summary: PRIVATE_COMPANIES_ONLY
+          value: PRIVATE_COMPANIES_ONLY
+        both:
+          summary: ALL
+          value: ALL
+      explode: true
+      in: query
+      name: companyType
+      required: false
+      schema:
+        default: PUBLIC_COMPANIES_ONLY
+        enum:
+        - PUBLIC_COMPANIES_ONLY
+        - PRIVATE_COMPANIES_ONLY
+        - ALL
+        type: string
+      style: form
+    relationshipDirection:
+      description: |
+        Filters the list of available relationship directions -
+          * **ALL** = All relationship directions.
+          * **DIRECT** = Direct indicates that the source company named the relationship.
+          * **REVERSE** = Reverse indicates that the target company named the relationship.
+      examples:
+        All:
+          summary: ALL
+          value: ALL
+        Direct:
+          summary: DIRECT
+          value: DIRECT
+        Reverse:
+          summary: REVERSE
+          value: REVERSE
+      explode: true
+      in: query
+      name: relationshipDirection
+      required: false
+      schema:
+        default: ALL
+        enum:
+        - ALL
+        - DIRECT
+        - REVERSE
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    relationshipsResponse:
+      example:
+        data:
+        - relationshipDirection: Mutual
+          requestId: AAPL-US
+          companyName: Microsoft Corporation
+          entityId: 000BGM-E
+          overlappingProductCount: 28 of 138
+          overlapPercentage: 20
+        - relationshipDirection: Mutual
+          requestId: AAPL-US
+          companyName: Microsoft Corporation
+          entityId: 000BGM-E
+          overlappingProductCount: 28 of 138
+          overlapPercentage: 20
+      properties:
+        data:
+          description: Array of Supply Chain Relationships objects.
+          items:
+            $ref: '#/components/schemas/relationships'
+          type: array
+      title: Supply Chain Relationships Response
+      type: object
+    relationships:
+      example:
+        relationshipDirection: Mutual
+        requestId: AAPL-US
+        companyName: Microsoft Corporation
+        entityId: 000BGM-E
+        overlappingProductCount: 28 of 138
+        overlapPercentage: 20
+      properties:
+        entityId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 000BGM-E
+          nullable: true
+          type: string
+        companyName:
+          description: Referring to the official name of a business entity.
+          example: Microsoft Corporation
+          type: string
+        overlappingProductCount:
+          description: Number of Product Overlap is determined by how many sectors
+            matches in named products (determined by Revere Hierarchy) there are in
+            a given relationship between the source and target company.
+          example: 28 of 138
+          type: string
+        overlapPercentage:
+          description: Product Overlap Percentage is the percent value of the preceding
+            overlapping product count data item.
+          example: 20
+          type: integer
+        relationshipDirection:
+          description: Direction of Relationship indicates which company (target or
+            source) determined the relationship.
+          enum:
+          - Mutual
+          - Direct
+          - Reverse
+          example: Mutual
+          type: string
+        requestId:
+          description: Identifier used in `ids`.
+          example: AAPL-US
+          type: string
+      title: Supply Chain Relationships
+      type: object
+    relationshipsRequest:
+      description: Relationships request body elements
+      properties:
+        data:
+          $ref: '#/components/schemas/relationshipsRequestBody'
+      required:
+      - data
+      title: Relationships Request Body
+      type: object
+    relationshipsRequestBody:
+      description: Relationships request body elements
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500
+          example:
+            oneId:
+              summary: One Security Identifier
+              value:
+              - AAPL-USA
+            multipleIds:
+              summary: Multiple Security Identifiers
+              value:
+              - FDS-US
+              - AAPL-US
+              - MSFT-US
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          type: array
+        relationshipType:
+          $ref: '#/components/schemas/relationshipType'
+        companyType:
+          $ref: '#/components/schemas/companyType'
+        relationshipDirection:
+          $ref: '#/components/schemas/relationshipDirection'
+      required:
+      - ids
+      - relationshipType
+      title: Relationships Request Body
+      type: object
+    relationshipIds:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500
+      example:
+        oneId:
+          summary: One Security Identifier
+          value:
+          - AAPL-USA
+        multipleIds:
+          summary: Multiple Security Identifiers
+          value:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      items:
+        type: string
+      maxItems: 500
+      minItems: 1
+      type: array
+    relationshipType:
+      description: |
+        The relationship between requested identifier and partner.
+      enum:
+      - COMPETITORS
+      - CUSTOMERS
+      - SUPPLIERS
+      - PARTNERS
+      example: COMPETITORS
+      title: relationshipType
+      type: string
+    companyType:
+      description: |
+        Display public, private, or both companies.
+      enum:
+      - PUBLIC_COMPANIES_ONLY
+      - PRIVATE_COMPANIES_ONLY
+      - ALL
+      example: PUBLIC_COMPANIES_ONLY
+      title: companyType
+      type: string
+    relationshipDirection:
+      description: |
+        relationshipDirection
+      enum:
+      - ALL
+      - DIRECT
+      - REVERSE
+      example: ALL
+      title: relationshipDirection
+      type: string
+    errorResponse:
+      description: Error Default Response
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/errorObject'
+          type: array
+      title: Error Response
+      type: object
+    errorObject:
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        links:
+          $ref: '#/components/schemas/errorObject_links'
+        title:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+      type: object
+    errorObject_links:
+      description: The Endpoint path {package}/version/{endpoint}
+      properties:
+        about:
+          description: details.
+          example: /factset-supply-chain/v1/{endpoint}
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

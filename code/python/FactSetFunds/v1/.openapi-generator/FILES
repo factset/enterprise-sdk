@@ -24,6 +24,7 @@ docs/DistCurrentResponse.md
 docs/DistHistorical.md
 docs/DistHistoricalRequest.md
 docs/DistHistoricalResponse.md
+docs/DistributionOrYieldDist.md
 docs/DistributionsApi.md
 docs/DividendAdjust.md
 docs/ErrorResponse.md
@@ -107,6 +108,7 @@ fds/sdk/FactSetFunds/model/dist_current_response.py
 fds/sdk/FactSetFunds/model/dist_historical.py
 fds/sdk/FactSetFunds/model/dist_historical_request.py
 fds/sdk/FactSetFunds/model/dist_historical_response.py
+fds/sdk/FactSetFunds/model/distribution_or_yield_dist.py
 fds/sdk/FactSetFunds/model/dividend_adjust.py
 fds/sdk/FactSetFunds/model/error_response.py
 fds/sdk/FactSetFunds/model/error_response_sub_errors.py
