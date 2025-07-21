@@ -48,6 +48,7 @@ docs/GroupHoldingsRequest.md
 docs/GroupHoldingsResponse.md
 docs/HelperApi.md
 docs/Ids.md
+docs/Lang.md
 docs/Managers.md
 docs/ManagersRequest.md
 docs/ManagersResponse.md
@@ -128,6 +129,7 @@ fds/sdk/FactSetFunds/model/group_holding.py
 fds/sdk/FactSetFunds/model/group_holdings_request.py
 fds/sdk/FactSetFunds/model/group_holdings_response.py
 fds/sdk/FactSetFunds/model/ids.py
+fds/sdk/FactSetFunds/model/lang.py
 fds/sdk/FactSetFunds/model/managers.py
 fds/sdk/FactSetFunds/model/managers_request.py
 fds/sdk/FactSetFunds/model/managers_response.py

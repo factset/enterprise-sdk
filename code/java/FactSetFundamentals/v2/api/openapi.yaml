@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Fundamentals API
-  version: 2.4.0
+  version: 2.4.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-fundamentals-api
@@ -2280,18 +2280,8 @@ components:
             zip: 95014-2083
             phoneNumber: 1.408.996.1010
             website: http://www.apple.com
-          economyId: "55"
-          economy: Technology
-          sectorId: "5515"
           sector: Hardware
-          subSectorId: "551515"
-          subSector: Communications Equipment
-          industryGroupId: "55151545"
-          industryGroup: Wireless Mobile Equipment
-          industryId: "5515154530"
           industry: Smart Phone Manufacturing
-          subIndustryId: "551515453010"
-          subIndustry: Smart Phone Manufacturing
           numberOfEmployees: 161000
           ceo: Mr. Timothy Donald Cook
           businessSummary: Apple, Inc. engages in the design, manufacture, and sale
@@ -2323,18 +2313,8 @@ components:
             zip: 95014-2083
             phoneNumber: 1.408.996.1010
             website: http://www.apple.com
-          economyId: "55"
-          economy: Technology
-          sectorId: "5515"
           sector: Hardware
-          subSectorId: "551515"
-          subSector: Communications Equipment
-          industryGroupId: "55151545"
-          industryGroup: Wireless Mobile Equipment
-          industryId: "5515154530"
           industry: Smart Phone Manufacturing
-          subIndustryId: "551515453010"
-          subIndustry: Smart Phone Manufacturing
           numberOfEmployees: 161000
           ceo: Mr. Timothy Donald Cook
           businessSummary: Apple, Inc. engages in the design, manufacture, and sale
@@ -2361,18 +2341,8 @@ components:
             zip: 98052-6399
             phoneNumber: 1.425.882.8080
             website: http://www.microsoft.com
-          economyId: "55"
-          economy: Technology
-          sectorId: "5520"
           sector: Software and Consulting
-          subSectorId: "552015"
-          subSector: Software
-          industryGroupId: "55201540"
-          industryGroup: General and Mixed-Type Software
-          industryId: "5520154010"
           industry: General and Mixed-Type Software
-          subIndustryId: "552015401010"
-          subIndustry: General and Mixed-Type Software
           numberOfEmployees: 221000
           ceo: Mr. Satya Nadella
           businessSummary: Microsoft Corp. engages in the development and support
@@ -4066,25 +4036,6 @@ components:
       example:
         data:
         - totalMarketCapitalization: 2615545855361
-          fsymId: SJY281-R
-          tickerRegion: AAPL-US
-          industry: Smart Phone Manufacturing
-          error:
-            code: Bad Request
-            detail: The parameter 'ids' should be valid and may not be empty.
-            title: Invalid Parameter
-          ceo: Mr. Timothy Donald Cook
-          subIndustryId: "551515453010"
-          subIndustry: Smart Phone Manufacturing
-          industryId: "5515154530"
-          peRatio: 26.8057
-          economyId: "55"
-          requestId: AAPL-USA
-          subSectorId: "551515"
-          sharesOutstanding: 15441900000
-          sector: Hardware
-          industryGroup: Wireless Mobile Equipment
-          sectorId: "5515"
           address:
             streetLine2: Suite 100
             zip: 95014-2083
@@ -4096,8 +4047,14 @@ components:
             stateName: California
             state: CA
           marketCapitalization: 26155490220
-          economy: Technology
-          subSector: Communications Equipment
+          fsymId: SJY281-R
+          tickerRegion: AAPL-US
+          industry: Smart Phone Manufacturing
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          ceo: Mr. Timothy Donald Cook
           yearFounded: 1976
           numberOfEmployees: 161000
           businessSummary: 'Apple, Inc. engages in the design, manufacture, and sale
@@ -4113,31 +4070,15 @@ components:
             content stores, streaming, and licensing services. The company was founded
             by Steven Paul Jobs, Ronald Gerald Wayne, and Stephen G. Wozniak in April
             1976 and is headquartered in Cupertino, CA.'
-          industryGroupId: "55151545"
+          peRatio: 26.8057
+          requestId: AAPL-USA
           name: Apple Inc.
           exchange:
             exchangeId: NAS
             fullName: NASDAQ
+          sharesOutstanding: 15441900000
+          sector: Hardware
         - totalMarketCapitalization: 2615545855361
-          fsymId: SJY281-R
-          tickerRegion: AAPL-US
-          industry: Smart Phone Manufacturing
-          error:
-            code: Bad Request
-            detail: The parameter 'ids' should be valid and may not be empty.
-            title: Invalid Parameter
-          ceo: Mr. Timothy Donald Cook
-          subIndustryId: "551515453010"
-          subIndustry: Smart Phone Manufacturing
-          industryId: "5515154530"
-          peRatio: 26.8057
-          economyId: "55"
-          requestId: AAPL-USA
-          subSectorId: "551515"
-          sharesOutstanding: 15441900000
-          sector: Hardware
-          industryGroup: Wireless Mobile Equipment
-          sectorId: "5515"
           address:
             streetLine2: Suite 100
             zip: 95014-2083
@@ -4149,8 +4090,14 @@ components:
             stateName: California
             state: CA
           marketCapitalization: 26155490220
-          economy: Technology
-          subSector: Communications Equipment
+          fsymId: SJY281-R
+          tickerRegion: AAPL-US
+          industry: Smart Phone Manufacturing
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          ceo: Mr. Timothy Donald Cook
           yearFounded: 1976
           numberOfEmployees: 161000
           businessSummary: 'Apple, Inc. engages in the design, manufacture, and sale
@@ -4166,11 +4113,14 @@ components:
             content stores, streaming, and licensing services. The company was founded
             by Steven Paul Jobs, Ronald Gerald Wayne, and Stephen G. Wozniak in April
             1976 and is headquartered in Cupertino, CA.'
-          industryGroupId: "55151545"
+          peRatio: 26.8057
+          requestId: AAPL-USA
           name: Apple Inc.
           exchange:
             exchangeId: NAS
             fullName: NASDAQ
+          sharesOutstanding: 15441900000
+          sector: Hardware
       properties:
         data:
           description: Array of profile objects
@@ -4182,25 +4132,6 @@ components:
     Profile:
       example:
         totalMarketCapitalization: 2615545855361
-        fsymId: SJY281-R
-        tickerRegion: AAPL-US
-        industry: Smart Phone Manufacturing
-        error:
-          code: Bad Request
-          detail: The parameter 'ids' should be valid and may not be empty.
-          title: Invalid Parameter
-        ceo: Mr. Timothy Donald Cook
-        subIndustryId: "551515453010"
-        subIndustry: Smart Phone Manufacturing
-        industryId: "5515154530"
-        peRatio: 26.8057
-        economyId: "55"
-        requestId: AAPL-USA
-        subSectorId: "551515"
-        sharesOutstanding: 15441900000
-        sector: Hardware
-        industryGroup: Wireless Mobile Equipment
-        sectorId: "5515"
         address:
           streetLine2: Suite 100
           zip: 95014-2083
@@ -4212,8 +4143,14 @@ components:
           stateName: California
           state: CA
         marketCapitalization: 26155490220
-        economy: Technology
-        subSector: Communications Equipment
+        fsymId: SJY281-R
+        tickerRegion: AAPL-US
+        industry: Smart Phone Manufacturing
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        ceo: Mr. Timothy Donald Cook
         yearFounded: 1976
         numberOfEmployees: 161000
         businessSummary: 'Apple, Inc. engages in the design, manufacture, and sale
@@ -4229,11 +4166,14 @@ components:
           stores, streaming, and licensing services. The company was founded by Steven
           Paul Jobs, Ronald Gerald Wayne, and Stephen G. Wozniak in April 1976 and
           is headquartered in Cupertino, CA.'
-        industryGroupId: "55151545"
+        peRatio: 26.8057
+        requestId: AAPL-USA
         name: Apple Inc.
         exchange:
           exchangeId: NAS
           fullName: NASDAQ
+        sharesOutstanding: 15441900000
+        sector: Hardware
       properties:
         requestId:
           description: Identifier that was used for the request.
@@ -4266,81 +4206,11 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/Address'
-        economyId:
-          description: 'The economy classification Id for this security. The industry
-            level 1 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: "55"
-          nullable: true
-          type: string
-        economy:
-          description: 'The economy classification for this security. The industry
-            level 1 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: Technology
-          nullable: true
-          type: string
-        subSectorId:
-          description: 'The subSector classification Id for this security. The industry
-            level 3 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: "551515"
-          nullable: true
-          type: string
-        subSector:
-          description: 'The subSector classification for this security. The industry
-            level 3 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: Communications Equipment
-          nullable: true
-          type: string
-        industryGroupId:
-          description: 'The industryGroup classification Id for this security. The
-            industry level 4 RBIC (Revere Business Industry Classification) system
-            is used in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: "55151545"
-          nullable: true
-          type: string
-        industryGroup:
-          description: 'The industryGroup classification for this security. The industry
-            level 4 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: Wireless Mobile Equipment
-          nullable: true
-          type: string
-        industryId:
-          description: 'The industry classification Id for this security. The industry
-            level 5 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: "5515154530"
-          nullable: true
-          type: string
         industry:
           description: 'The industry classification for this security. The industry
             level 5 RBIC (Revere Business Industry Classification) system is used
             in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
           example: Smart Phone Manufacturing
-          nullable: true
-          type: string
-        subIndustryId:
-          description: 'The subIndustry classification Id for this security. The industry
-            level 6 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: "551515453010"
-          nullable: true
-          type: string
-        subIndustry:
-          description: 'The subIndustry classification for this security. The industry
-            level 6 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: Smart Phone Manufacturing
-          nullable: true
-          type: string
-        sectorId:
-          description: 'The sector classification Id for this security. The sector
-            level 2 RBIC (Revere Business Industry Classification) system is used
-            in classification. For more info, visit: [OA page](https://my.apps.factset.com/oa/pages/17498)'
-          example: "5515"
           nullable: true
           type: string
         sector:

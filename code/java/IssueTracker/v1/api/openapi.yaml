@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Issue Tracker API
-  version: 1.3.0
+  version: 1.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/issue-tracker-api
@@ -56,7 +56,7 @@ paths:
                     - id: 139759294
                       name: Book1.xlsx
             schema:
-              $ref: '#/components/schemas/issueRequest'
+              $ref: '#/components/schemas/IssueRequest'
       responses:
         "201":
           content:
@@ -67,7 +67,7 @@ paths:
                     data:
                       id: 28d38193-3454-4e45-9825-71br87e69fe3
               schema:
-                $ref: '#/components/schemas/idResponse'
+                $ref: '#/components/schemas/IdResponse'
           description: Created
         "400":
           content:
@@ -80,7 +80,7 @@ paths:
                       title: Bad Request
                       code: Bad Request
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         "401":
           content:
@@ -102,7 +102,7 @@ paths:
                       title: Forbidden
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         "500":
           content:
@@ -115,7 +115,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: Creates a Issue Tracker issue
       tags:
@@ -150,6 +150,7 @@ paths:
                       subject: This is sample subject of issue tracker issue
                       severity: Medium
                       internalId: 81195668
+                      status: Closed
                       comments:
                       - id: 39d38193-2829-4e45-9825-61br87e59fe1
                         content: Here we can provide a complete description of why
@@ -209,7 +210,7 @@ paths:
                         author: Sreenu Narra
                       internalId: 111586147
               schema:
-                $ref: '#/components/schemas/issue'
+                $ref: '#/components/schemas/Issue'
           description: OK
         "401":
           content:
@@ -231,7 +232,7 @@ paths:
                       title: Forbidden
                       code: Forbidden
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         "404":
           content:
@@ -244,7 +245,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Not Found
         "500":
           content:
@@ -257,7 +258,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: Get the matched issue details
       tags:
@@ -304,7 +305,7 @@ paths:
                   data:
                     productId: "41681"
             schema:
-              $ref: '#/components/schemas/updateIssueRequest'
+              $ref: '#/components/schemas/UpdateIssueRequest'
       responses:
         "200":
           content:
@@ -315,7 +316,7 @@ paths:
                     data:
                       id: 28d38693-3454-4e45-9825-71br87e69fe3
               schema:
-                $ref: '#/components/schemas/idResponse'
+                $ref: '#/components/schemas/IdResponse'
           description: OK
         "400":
           content:
@@ -328,7 +329,7 @@ paths:
                       title: Bad Request
                       code: Bad Request
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         "401":
           content:
@@ -350,7 +351,7 @@ paths:
                       title: Forbidden
                       code: Forbidden
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         "500":
           content:
@@ -363,7 +364,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: Update severity and subject of issue or productId and categoryId of
         issue
@@ -411,7 +412,7 @@ paths:
                     - id: 139759294
                       name: Book1.xlsx
             schema:
-              $ref: '#/components/schemas/commentRequest'
+              $ref: '#/components/schemas/CommentRequest'
       responses:
         "201":
           content:
@@ -422,7 +423,7 @@ paths:
                     data:
                       id: 28d38693-3454-4e45-9825-71br87e69fe3
               schema:
-                $ref: '#/components/schemas/idResponse'
+                $ref: '#/components/schemas/IdResponse'
           description: Created
         "400":
           content:
@@ -435,7 +436,7 @@ paths:
                       title: Bad Request
                       code: Bad Request
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         "401":
           content:
@@ -457,7 +458,7 @@ paths:
                       title: Forbidden
                       code: Forbidden
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         "500":
           content:
@@ -470,7 +471,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: post comment to Issue Tracker issue
       tags:
@@ -508,7 +509,7 @@ paths:
                 value:
                   file: Bulk_Data.xlsx
             schema:
-              $ref: '#/components/schemas/inputAttachment'
+              $ref: '#/components/schemas/InputAttachment'
       responses:
         "201":
           content:
@@ -520,7 +521,7 @@ paths:
                       id: 135997642
                       name: Bulk_Data.xlsx
               schema:
-                $ref: '#/components/schemas/attachmentResponse'
+                $ref: '#/components/schemas/AttachmentResponse'
           description: Created
         "400":
           content:
@@ -541,7 +542,7 @@ paths:
                       title: '{ Message: File extension ''.msg'' is not allowed to
                         be uploaded. }'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         "401":
           content:
@@ -563,7 +564,7 @@ paths:
                       title: Forbidden
                       code: Forbidden
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         "500":
           content:
@@ -576,7 +577,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: Post file attachment to Issue Tracker Issue or comment
       tags:
@@ -737,7 +738,7 @@ paths:
                       code: BadRequest
                       title: '{Message:File does not linked to any Issue or Comment}'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
         "401":
           content:
@@ -759,7 +760,7 @@ paths:
                       title: Forbidden
                       code: Forbidden
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Forbidden
         "404":
           content:
@@ -772,7 +773,7 @@ paths:
                       title: Not Found
                       code: Not Found
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Not Found
         "500":
           content:
@@ -785,7 +786,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: get the matched file attachment
       tags:
@@ -807,7 +808,7 @@ paths:
                     - png
                     - jpg
               schema:
-                $ref: '#/components/schemas/fileExtension'
+                $ref: '#/components/schemas/FileExtension'
           description: OK
         "404":
           content:
@@ -820,7 +821,7 @@ paths:
                       title: Method Not Found
                       code: Method Not Found
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Not Found
         "500":
           content:
@@ -833,7 +834,7 @@ paths:
                       title: Internal Ierver Error
                       code: Internal Ierver Error
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
       summary: Allowed file types GET endpoint
       tags:
@@ -843,13 +844,21 @@ components:
   parameters: {}
   requestBodies: {}
   schemas:
-    commentRequest:
+    CommentRequest:
       description: input comment request details
+      example:
+        data:
+          attachments:
+          - name: name
+            id: 0
+          - name: name
+            id: 0
+          content: content
       properties:
         data:
-          $ref: '#/components/schemas/commentRequest_data'
+          $ref: '#/components/schemas/CommentRequest_data'
       type: object
-    issue:
+    Issue:
       description: issue response
       example:
         data:
@@ -864,14 +873,26 @@ components:
             author: James
       properties:
         data:
-          $ref: '#/components/schemas/issue_data'
+          $ref: '#/components/schemas/Issue_data'
       type: object
-    issueRequest:
+    IssueRequest:
+      example:
+        data:
+          severity: severity
+          attachments:
+          - name: name
+            id: 0
+          - name: name
+            id: 0
+          productId: productId
+          subject: subject
+          description: description
+          categoryId: categoryId
       properties:
         data:
-          $ref: '#/components/schemas/issueRequest_data'
+          $ref: '#/components/schemas/IssueRequest_data'
       type: object
-    comment:
+    Comment:
       description: comment details
       example:
         id: 39d38193-2829-4e45-9825-61br87e59fe1
@@ -894,24 +915,24 @@ components:
           description: author of the comment.
           type: string
       type: object
-    idResponse:
+    IdResponse:
       description: generated response of issue creation or comment addition.
       example:
         data:
           id: 28d38693-3454-4e45-9825-71br87e69fe3
       properties:
         data:
-          $ref: '#/components/schemas/idResponse_data'
+          $ref: '#/components/schemas/IdResponse_data'
       type: object
-    errorResponse:
+    ErrorResponse:
       description: error response when api call failed
       properties:
         errors:
           items:
-            $ref: '#/components/schemas/error'
+            $ref: '#/components/schemas/Error'
           type: array
       type: object
-    error:
+    Error:
       description: information for api call exception
       example:
         id: "500"
@@ -928,7 +949,7 @@ components:
           description: complete description of errror
           type: string
       type: object
-    updateIssueRequest:
+    UpdateIssueRequest:
       description: Request object for update severity or subject of Issue
       example:
         data:
@@ -936,9 +957,9 @@ components:
           severity: Medium
       properties:
         data:
-          $ref: '#/components/schemas/updateIssueRequest_data'
+          $ref: '#/components/schemas/UpdateIssueRequest_data'
       type: object
-    attachment:
+    Attachment:
       description: Attachment details like generated file id and name of the file
         with extension
       example:
@@ -952,7 +973,7 @@ components:
           description: name of the file
           type: string
       type: object
-    inputAttachment:
+    InputAttachment:
       description: input attachment file path
       properties:
         file:
@@ -962,7 +983,7 @@ components:
       required:
       - file
       type: object
-    fileExtension:
+    FileExtension:
       description: list of file extensions allowed for upload
       example:
         data:
@@ -975,30 +996,37 @@ components:
             type: string
           type: array
       type: object
-    attachmentResponse:
+    AttachmentResponse:
       example:
         data:
           name: name
           id: 0
       properties:
         data:
-          $ref: '#/components/schemas/attachment'
+          $ref: '#/components/schemas/Attachment'
       title: attachmentResponse
       type: object
-    commentRequest_data:
+    CommentRequest_data:
       description: input comment data
+      example:
+        attachments:
+        - name: name
+          id: 0
+        - name: name
+          id: 0
+        content: content
       properties:
         content:
           description: description for comment
           type: string
         attachments:
           items:
-            $ref: '#/components/schemas/attachment'
+            $ref: '#/components/schemas/Attachment'
           type: array
       required:
       - content
       type: object
-    issue_data:
+    Issue_data:
       description: issue response
       properties:
         id:
@@ -1010,16 +1038,33 @@ components:
         comments:
           description: array of comments added to issue
           items:
-            $ref: '#/components/schemas/comment'
+            $ref: '#/components/schemas/Comment'
           type: array
         severity:
           description: severity of issue tracker ticket
           type: string
         internalId:
           type: integer
+        status:
+          enum:
+          - Closed
+          - Received
+          - In Progress
+          type: string
       type: object
-    issueRequest_data:
+    IssueRequest_data:
       description: create issue request
+      example:
+        severity: severity
+        attachments:
+        - name: name
+          id: 0
+        - name: name
+          id: 0
+        productId: productId
+        subject: subject
+        description: description
+        categoryId: categoryId
       properties:
         subject:
           description: subject for new Issue Tracker issue
@@ -1040,14 +1085,14 @@ components:
           type: string
         attachments:
           items:
-            $ref: '#/components/schemas/attachment'
+            $ref: '#/components/schemas/Attachment'
           type: array
       required:
       - description
       - productId
       - subject
       type: object
-    idResponse_data:
+    IdResponse_data:
       description: generated guid of issue or comment
       properties:
         id:
@@ -1056,7 +1101,7 @@ components:
             'issueid,' and for the comments endpoint, it will return 'commentid.'
           type: string
       type: object
-    updateIssueRequest_data:
+    UpdateIssueRequest_data:
       description: update request infomration for issue
       properties:
         subject:

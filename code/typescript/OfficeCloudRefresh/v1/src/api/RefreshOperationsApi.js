@@ -151,6 +151,7 @@ export default class RefreshOperationsApi {
      * @param {Boolean} opts.nowHandlingEnabled Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
      * @param {Boolean} opts.refreshAutoFilters Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
      * @param {Boolean} opts.resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+     * @param {Boolean} opts.waiveXlsmSignature Option to waive signature checking for macro-enabled (.xlsm) file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/JobStatus} and HTTP response
      */
     postWorkbookWithHttpInfo(body, opts) {
@@ -166,7 +167,8 @@ export default class RefreshOperationsApi {
       let queryParams = {
         'nowHandlingEnabled': opts['nowHandlingEnabled'],
         'refreshAutoFilters': opts['refreshAutoFilters'],
-        'resizeArrays': opts['resizeArrays']
+        'resizeArrays': opts['resizeArrays'],
+        'waiveXlsmSignature': opts['waiveXlsmSignature']
       };
       let headerParams = {
       };
@@ -195,6 +197,7 @@ export default class RefreshOperationsApi {
      * @param {Boolean} opts.nowHandlingEnabled Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
      * @param {Boolean} opts.refreshAutoFilters Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
      * @param {Boolean} opts.resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+     * @param {Boolean} opts.waiveXlsmSignature Option to waive signature checking for macro-enabled (.xlsm) file
      * @return { Promise.< module:model/JobStatus > } a Promise, with data of type {@link module:model/JobStatus }
      */
     postWorkbook(body, opts) {

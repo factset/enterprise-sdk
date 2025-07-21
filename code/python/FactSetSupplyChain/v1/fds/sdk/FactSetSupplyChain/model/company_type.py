@@ -109,10 +109,10 @@ class CompanyType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Display public, private, or both companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
+            args[0] (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Display public, private, or both companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
+            value (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -199,10 +199,10 @@ class CompanyType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Display public, private, or both companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
+            args[0] (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Display public, private, or both companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
+            value (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. ., must be one of ["PUBLIC_COMPANIES_ONLY", "PRIVATE_COMPANIES_ONLY", "ALL", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

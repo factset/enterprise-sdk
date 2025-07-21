@@ -99,7 +99,7 @@ public class EventsAudioApi {
 
   /**
    * Retrieve historical audio recordings and related metadata within FactSet coverage.
-   *  This endpoint retrieves an object containing a pre-signed URL from which an archive of all audio data for a specified year can be downloaded.  * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music &amp; non-speaking portions, and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 to Dec 31, 2022. 
+   *  This endpoint retrieves an object containing a pre-signed URL from which an archive of all audio data for a specified year can be downloaded.  * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music &amp; non-speaking portions, and related metadata dating back from May 10, 2011 to Sep 30, 2024.  * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 to Dec 31, 2024. 
    * @param year Specifies the year for which the historical audio recordings and related metadata are to be retrieved.  (required)
    * @param trimmed Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional, default to false)
    * @return EventsAudioHistory
@@ -120,7 +120,7 @@ public class EventsAudioApi {
 
   /**
    * Retrieve historical audio recordings and related metadata within FactSet coverage.
-   *  This endpoint retrieves an object containing a pre-signed URL from which an archive of all audio data for a specified year can be downloaded.  * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music &amp; non-speaking portions, and related metadata dating back from May 10, 2011 to Sep 30, 2022.  * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 to Dec 31, 2022. 
+   *  This endpoint retrieves an object containing a pre-signed URL from which an archive of all audio data for a specified year can be downloaded.  * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music &amp; non-speaking portions, and related metadata dating back from May 10, 2011 to Sep 30, 2024.  * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 to Dec 31, 2024. 
    * @param year Specifies the year for which the historical audio recordings and related metadata are to be retrieved.  (required)
    * @param trimmed Specifies if trimmed/untrimmed historical audio recordings should be returned. (optional, default to false)
    * @return ApiResponse&lt;EventsAudioHistory&gt;

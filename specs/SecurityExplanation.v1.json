@@ -17,7 +17,7 @@
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
     "title": "Security Explanation API",
-    "version": "1.1.0"
+    "version": "1.3.0"
   },
   "externalDocs": {
     "description": "API Documentation",
@@ -1131,6 +1131,24 @@
             "description": "If true, includes the company description in the explanation.In order to include 'Company Business Description', 'includePerformance' must be set to True. Even if 'includeCompanyDescription' is set to True, if 'includePerformance' is false, it will be omitted",
             "default": false,
             "example": false
+          },
+          "includeMarketSummary": {
+            "type": "boolean",
+            "description": "If true, Includes another paragraph detailing macro news influencing the target company.",
+            "default": true,
+            "example": true
+          },
+          "includeInternalInvestmentRationaleRecommendation": {
+            "type": "boolean",
+            "description": "If true, Includes recommendation from IRN. If you don't have a recommendation, it will be omitted. If 'internalInvestmentRationale' is set to 'none', this will be ignored.",
+            "default": true,
+            "example": true
+          },
+          "includeInternalInvestmentRationalePriceTarget": {
+            "type": "boolean",
+            "description": "If true, Includes price target from IRN. If you don't have a price target, it will be omitted. If 'internalInvestmentRationale' is set to 'none', this will be ignored.",
+            "default": true,
+            "example": true
           }
         }
       },

@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **currency** | **str** | The iso currency code of cash valued fields, Net Amount and Gross Amount | 
 **order_id** | **str, none_type** | Id of the order as assigned by the OMS. If not specified then transactionId is used. | [optional] 
 **order_type** | **str** | Order type indicating the price type of the Order | [optional] 
-**limit_price** | **float** | Price related to limit and stopLimit order types | [optional] 
-**stop_price** | **float** | Price related to stop and stopLimit order types | [optional] 
+**limit_price** | **float, none_type** | Price related to limit and stopLimit order types | [optional] 
+**stop_price** | **float, none_type** | Price related to stop and stopLimit order types | [optional] 
 **tif** | **str** | Time In Force of the Order | [optional] 
 **tif_date** | **str, none_type** | Time In Force date for goodTilDate orders in YYYY-MM-DD format | [optional] 
 **settlement_type** | **str** | Indicates order settlement period | [optional] 

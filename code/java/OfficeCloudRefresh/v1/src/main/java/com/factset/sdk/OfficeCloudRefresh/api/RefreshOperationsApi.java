@@ -347,6 +347,7 @@ public class RefreshOperationsApi {
    * @param nowHandlingEnabled Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
    * @param refreshAutoFilters Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
    * @param resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
+   * @param waiveXlsmSignature Option to waive signature checking for macro-enabled (.xlsm) file (optional)
    * @return JobStatus
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -361,8 +362,8 @@ public class RefreshOperationsApi {
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public JobStatus postWorkbook(File body, Boolean nowHandlingEnabled, Boolean refreshAutoFilters, Boolean resizeArrays) throws ApiException {
-    return postWorkbookWithHttpInfo(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays).getData();
+  public JobStatus postWorkbook(File body, Boolean nowHandlingEnabled, Boolean refreshAutoFilters, Boolean resizeArrays, Boolean waiveXlsmSignature) throws ApiException {
+    return postWorkbookWithHttpInfo(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, waiveXlsmSignature).getData();
   }
 
   /**
@@ -372,6 +373,7 @@ public class RefreshOperationsApi {
    * @param nowHandlingEnabled Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
    * @param refreshAutoFilters Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
    * @param resizeArrays Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
+   * @param waiveXlsmSignature Option to waive signature checking for macro-enabled (.xlsm) file (optional)
    * @return ApiResponse&lt;JobStatus&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -386,7 +388,7 @@ public class RefreshOperationsApi {
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<JobStatus> postWorkbookWithHttpInfo(File body, Boolean nowHandlingEnabled, Boolean refreshAutoFilters, Boolean resizeArrays) throws ApiException {
+  public ApiResponse<JobStatus> postWorkbookWithHttpInfo(File body, Boolean nowHandlingEnabled, Boolean refreshAutoFilters, Boolean resizeArrays, Boolean waiveXlsmSignature) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
@@ -406,6 +408,7 @@ public class RefreshOperationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "nowHandlingEnabled", nowHandlingEnabled));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "refreshAutoFilters", refreshAutoFilters));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "resizeArrays", resizeArrays));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "waiveXlsmSignature", waiveXlsmSignature));
 
     
     

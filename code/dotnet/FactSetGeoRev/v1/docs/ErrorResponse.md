@@ -1,4 +1,5 @@
 # FactSet.SDK.FactSetGeoRev.Model.ErrorResponse
+Error response object
 
 ## Properties
 

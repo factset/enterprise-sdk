@@ -1,0 +1,16 @@
+# NrtCallsRequestData
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ticker** | **str** | Ticker-region identifier for the company hosting the event. | [optional] 
+**entity_id** | **str** | FactSet entity level identifier for the company hosting the event. | [optional] 
+**call_status** | **str** | Status of the call i.e. Ended, InProgress, EndedWithoutNotification, or IssueAtSource.  * InProgress - the call is in progress. * Ended - the call has ended. * EndedWithoutNotification - the call has technically ended and can be considered as ended but is missing a notification from the upstream systems. * IssueAtSource - the call has ended with no snippet data due to a possible issue at the source. | [optional] 
+**audio_source_id** | **int** | Unique ID for the specific internal recording. | [optional] 
+**report_id** | **int** | Unique identifier for the event. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

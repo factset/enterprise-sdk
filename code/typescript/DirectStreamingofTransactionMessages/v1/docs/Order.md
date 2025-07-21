@@ -86,6 +86,16 @@ Name | Type | Description | Notes
 
 * `week` (value: `"week"`)
 
+* `atMarketOpen` (value: `"atMarketOpen"`)
+
+* `atMarketClose` (value: `"atMarketClose"`)
+
+* `immediateOrCancel` (value: `"immediateOrCancel"`)
+
+* `fillOrKill` (value: `"fillOrKill"`)
+
+* `goodTilCrossing` (value: `"goodTilCrossing"`)
+
 
 
 
@@ -151,6 +161,8 @@ Name | Type | Description | Notes
 * `pass` (value: `"pass"`)
 
 * `fail` (value: `"fail"`)
+
+* `warn` (value: `"warn"`)
 
 
 

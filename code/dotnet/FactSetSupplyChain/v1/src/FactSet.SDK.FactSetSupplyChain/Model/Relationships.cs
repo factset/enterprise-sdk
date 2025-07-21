@@ -75,7 +75,7 @@ namespace FactSet.SDK.FactSetSupplyChain.Model
         /// <param name="overlapPercentage">Product Overlap Percentage is the percent value of the preceding overlapping product count data item..</param>
         /// <param name="relationshipDirection">Direction of Relationship indicates which company (target or source) determined the relationship..</param>
         /// <param name="requestId">Identifier used in &#x60;ids&#x60;..</param>
-        public Relationships(string entityId = default(string), string companyName = default(string), string overlappingProductCount = default(string), int overlapPercentage = default(int), RelationshipDirectionEnum? relationshipDirection = default(RelationshipDirectionEnum?), string requestId = default(string))
+        public Relationships(string entityId = default(string), string companyName = default(string), string overlappingProductCount = default(string), int? overlapPercentage = default(int?), RelationshipDirectionEnum? relationshipDirection = default(RelationshipDirectionEnum?), string requestId = default(string))
         {
             this.EntityId = entityId;
             this.CompanyName = companyName;
@@ -103,15 +103,15 @@ namespace FactSet.SDK.FactSetSupplyChain.Model
         /// Number of Product Overlap is determined by how many sectors matches in named products (determined by Revere Hierarchy) there are in a given relationship between the source and target company.
         /// </summary>
         /// <value>Number of Product Overlap is determined by how many sectors matches in named products (determined by Revere Hierarchy) there are in a given relationship between the source and target company.</value>
-        [DataMember(Name = "overlappingProductCount", EmitDefaultValue = false)]
+        [DataMember(Name = "overlappingProductCount", EmitDefaultValue = true)]
         public string OverlappingProductCount { get; set; }
 
         /// <summary>
         /// Product Overlap Percentage is the percent value of the preceding overlapping product count data item.
         /// </summary>
         /// <value>Product Overlap Percentage is the percent value of the preceding overlapping product count data item.</value>
-        [DataMember(Name = "overlapPercentage", EmitDefaultValue = false)]
-        public int OverlapPercentage { get; set; }
+        [DataMember(Name = "overlapPercentage", EmitDefaultValue = true)]
+        public int? OverlapPercentage { get; set; }
 
         /// <summary>
         /// Identifier used in &#x60;ids&#x60;.
@@ -186,7 +186,8 @@ namespace FactSet.SDK.FactSetSupplyChain.Model
                 ) && 
                 (
                     this.OverlapPercentage == input.OverlapPercentage ||
-                    this.OverlapPercentage.Equals(input.OverlapPercentage)
+                    (this.OverlapPercentage != null &&
+                    this.OverlapPercentage.Equals(input.OverlapPercentage))
                 ) && 
                 (
                     this.RelationshipDirection == input.RelationshipDirection ||
@@ -220,7 +221,10 @@ namespace FactSet.SDK.FactSetSupplyChain.Model
                 {
                     hashCode = (hashCode * 59) + this.OverlappingProductCount.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OverlapPercentage.GetHashCode();
+                if (this.OverlapPercentage != null)
+                {
+                    hashCode = (hashCode * 59) + this.OverlapPercentage.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RelationshipDirection.GetHashCode();
                 if (this.RequestId != null)
                 {

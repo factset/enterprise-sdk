@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **TotalDistributions** | **double?** | Total Distributions. | [optional] 
 **ReturnOfCapital** | **double?** | Return on Capital. | [optional] 
 **QualifiedDividends** | **double?** | Qualified Dividends. | [optional] 
-**NonQalifiedDividends** | **double?** | Non-Qualified Dividends. | [optional] 
+**NonQualifiedDividends** | **double?** | Non-Qualified Dividends. | [optional] 
 **DailyAccruedDividends** | **double?** | Daily Accrued Dividends. | [optional] 
 **StCapitalGains** | **double?** | Short-Term Capital Gains. | [optional] 
 **LtCapitalGains** | **double?** | Long-Term Capital Gains. | [optional] 

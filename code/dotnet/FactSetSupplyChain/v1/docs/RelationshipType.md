@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetSupplyChain.Model.RelationshipType
-The relationship between requested identifier and partner. 
+The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. 
 
 ## Properties
 

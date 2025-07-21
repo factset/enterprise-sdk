@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "1.6.0"
+    "version": "1.9.0"
   },
   "servers": [
     {
@@ -84,6 +84,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "668BDDBB7D633388",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Path not found"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -306,12 +320,14 @@
             "type": "number",
             "description": "Price related to limit and stopLimit order types",
             "format": "double",
+            "nullable": true,
             "example": 420.25
           },
           "stopPrice": {
             "type": "number",
             "description": "Price related to stop and stopLimit order types",
             "format": "double",
+            "nullable": true,
             "example": 421.25
           },
           "tif": {
@@ -319,7 +335,12 @@
               "goodTilCancel",
               "goodTilDate",
               "day",
-              "week"
+              "week",
+              "atMarketOpen",
+              "atMarketClose",
+              "immediateOrCancel",
+              "fillOrKill",
+              "goodTilCrossing"
             ],
             "type": "string",
             "description": "Time In Force of the Order",
@@ -391,7 +412,7 @@
             "example": "FDS-USA"
           },
           "instrumentName": {
-            "maxLength": 32,
+            "maxLength": 252,
             "minLength": 0,
             "type": "string",
             "description": "Name or description of the traded instrument",
@@ -454,7 +475,8 @@
             "enum": [
               "unchecked",
               "pass",
-              "fail"
+              "fail",
+              "warn"
             ],
             "type": "string",
             "description": "Compliance check status",
@@ -555,12 +577,14 @@
             "type": "number",
             "description": "Price related to limit and stopLimit order types",
             "format": "double",
+            "nullable": true,
             "example": 420.25
           },
           "stopPrice": {
             "type": "number",
             "description": "Price related to stop and stopLimit order types",
             "format": "double",
+            "nullable": true,
             "example": 421.25
           },
           "tif": {
@@ -568,7 +592,12 @@
               "goodTilCancel",
               "goodTilDate",
               "day",
-              "week"
+              "week",
+              "atMarketOpen",
+              "atMarketClose",
+              "immediateOrCancel",
+              "fillOrKill",
+              "goodTilCrossing"
             ],
             "type": "string",
             "description": "Time In Force of the Placement",
@@ -616,7 +645,7 @@
             "example": "FDS-USA"
           },
           "instrumentName": {
-            "maxLength": 32,
+            "maxLength": 252,
             "minLength": 0,
             "type": "string",
             "description": "Name or description of the traded instrument",
@@ -679,7 +708,8 @@
             "enum": [
               "unchecked",
               "pass",
-              "fail"
+              "fail",
+              "warn"
             ],
             "type": "string",
             "description": "Compliance check status",
@@ -882,7 +912,7 @@
             "example": "FDS-USA"
           },
           "instrumentName": {
-            "maxLength": 32,
+            "maxLength": 252,
             "minLength": 0,
             "type": "string",
             "description": "Name or description of the traded instrument",
@@ -945,7 +975,8 @@
             "enum": [
               "unchecked",
               "pass",
-              "fail"
+              "fail",
+              "warn"
             ],
             "type": "string",
             "description": "Compliance check status",

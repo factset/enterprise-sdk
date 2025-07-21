@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Returns Supply Chain Relationships Data.
 
-Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage. 
+Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap. 
 
 ### Example
 
@@ -62,8 +62,8 @@ with fds.sdk.FactSetSupplyChain.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-    company_type = "PUBLIC_COMPANIES_ONLY" # str | Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships.  (optional) if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
-    relationship_direction = "ALL" # str | Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship.  (optional) if omitted the server will use the default value of "ALL"
+    company_type = "PUBLIC_COMPANIES_ONLY" # str | Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies.  (optional) if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
+    relationship_direction = "ALL" # str | Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.  (optional) if omitted the server will use the default value of "ALL"
 
     try:
         # Returns Supply Chain Relationships Data.
@@ -83,9 +83,9 @@ with fds.sdk.FactSetSupplyChain.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500  |
- **relationship_type** | **str**| Specifies the type of relationship to filter the results  -   * **SUPPLIERS** &#x3D; Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** &#x3D; Entities disclosed by the source company as competitors.   * **CUSTOMERS** &#x3D; Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** &#x3D; Entities in which the source company owns an equity stake (“opposite” of an Investor relationship).  | defaults to "SUPPLIERS"
- **company_type** | **str**| Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** &#x3D; Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** &#x3D; Display private company relationships only.   * **ALL** &#x3D; Display public and private company relationships.  | [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
- **relationship_direction** | **str**| Filters the list of available relationship directions -   * **ALL** &#x3D; All relationship directions.   * **DIRECT** &#x3D; Direct indicates that the source company named the relationship.   * **REVERSE** &#x3D; Reverse indicates that the target company named the relationship.  | [optional] if omitted the server will use the default value of "ALL"
+ **relationship_type** | **str**|  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** &#x3D; An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \&quot;Customer\&quot; relationships.)   * **COMPETITORS** &#x3D; An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** &#x3D; An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \&quot;Supplier\&quot; relationships.)   * **PARTNERS** &#x3D; An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company.  | defaults to "SUPPLIERS"
+ **company_type** | **str**| Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies.  | [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
+ **relationship_direction** | **str**| Filters the list of available relationship directions -   * **ALL** &#x3D; Include both direct and reverse relationships.   * **DIRECT** &#x3D; Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** &#x3D; Include only relationships where the target company identified and named the connection to the source company.  | [optional] if omitted the server will use the default value of "ALL"
 
 ### Return type
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 Returns Supply Chain Relationships Data.
 
-Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage. 
+Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap. 
 
 ### Example
 

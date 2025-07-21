@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.3.0
+  version: 1.4.0
   title: FactSet Funds API
   contact:
     name: FactSet Research Systems
@@ -66,6 +66,7 @@ paths:
         countryDomicile, shrClass, shrClassInceptDate, etc. 
       parameters:
         - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/lang'
       responses:
         '200':
           description: The Fund Summaries response object.
@@ -1597,6 +1598,23 @@ components:
           value:
             - MABAX-US
             - FCNTX-US
+    lang:
+      name: lang
+      in: query
+      required: false
+      schema:
+        type: string
+        default: ENGLISH
+        enum:
+          - ENGLISH
+          - FRENCH
+      description: >
+        Language to be returned for Description, Insight (Overview), and
+        Objective attributes, where available.
+
+        Currently French will be returned for U.S. funds when "FRENCH" is
+        passed.
+      example: ENGLISH
     costsFeesIds:
       name: ids
       in: query
@@ -1861,6 +1879,8 @@ components:
       properties:
         ids:
           $ref: '#/components/schemas/ids'
+        lang:
+          $ref: '#/components/schemas/lang'
       required:
         - ids
     summariesResponse:
@@ -1939,6 +1959,13 @@ components:
           description: >-
             Returns the fund's country of domicile in ISO2 format. Only
             available for Mutual Funds.
+          type: string
+          example: US
+          nullable: true
+        countryOfRegistration:
+          description: >-
+            Countries where the mutual fund is registered and is available for
+            sale, represented as ISO 3166 2-letter country codes.
           type: string
           example: US
           nullable: true
@@ -3003,7 +3030,7 @@ components:
           format: double
           example: 3.16187341965815
           nullable: true
-        nonQalifiedDividends:
+        nonQualifiedDividends:
           description: Non-Qualified Dividends.
           type: number
           format: double
@@ -3149,7 +3176,7 @@ components:
           format: double
           example: 3.16187341965815
           nullable: true
-        nonQalifiedDividends:
+        nonQualifiedDividends:
           description: Qualified Dividends.
           type: number
           format: double
@@ -3535,6 +3562,20 @@ components:
       example:
         - MABAX
         - FCNTX
+    lang:
+      title: lang
+      type: string
+      enum:
+        - ENGLISH
+        - FRENCH
+      default: ENGLISH
+      description: >
+        Language to be returned for Description, Insight (Overview), and
+        Objective attributes, where available.
+
+        Currently French will be returned for U.S. funds when "FRENCH" is
+        passed.
+      example: ENGLISH
     costsFeesIds:
       type: array
       items:
@@ -3837,6 +3878,7 @@ components:
         ids:
           - MABAX
           - FCNTX
+        lang: ENGLISH
     postClassifications:
       summary: Fund Classifications for MABAX and FCNTX
       value:
@@ -3946,6 +3988,7 @@ components:
             activelyManagedFlag: 1
             brand: BlackRock
             countryDomicile: US
+            countryOfRegistration: US
             currency: USD
             descInfo: >-
               The fund seeks capital appreciation and income from an actively
@@ -4532,7 +4575,7 @@ components:
             totalDistributions: 3.16187341965815
             returnOfCapital: 3.16187341965815
             qualifiedDividends: 3.16187341965815
-            nonQalifiedDividends: 3.16187341965815
+            nonQualifiedDividends: 3.16187341965815
             dailyAccruedDividends: 3.16187341965815
             stCapitalGains: 3.16187341965815
             ltCapitalGains: 3.16187341965815
@@ -4556,7 +4599,7 @@ components:
             totalDistributions: 3.16187341965815
             returnOfCapital: 3.16187341965815
             qualifiedDividends: 3.16187341965815
-            nonQalifiedDividends: 3.16187341965815
+            nonQualifiedDividends: 3.16187341965815
             dailyAccruedDividends: 3.16187341965815
             stCapitalGains: 3.16187341965815
             ltCapitalGains: 3.16187341965815

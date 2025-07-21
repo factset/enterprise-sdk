@@ -52,6 +52,11 @@ paths:
           in: query
           schema:
             type: boolean
+        - name: waiveXlsmSignature
+          description: Option to waive signature checking for macro-enabled (.xlsm) file
+          in: query
+          schema:
+            type: boolean
       requestBody:
         content:
           application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:

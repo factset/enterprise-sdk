@@ -2,6 +2,7 @@
 
 # RegionResponse
 
+Region response for AAPL-USA
 
 ## Properties
 

@@ -879,11 +879,13 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
+    lang = "ENGLISH" # str | Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \"FRENCH\" is passed.  (optional) if omitted the server will use the default value of "ENGLISH"
 
     try:
         # Get basic reference summary data for a Fund.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_funds_summary(ids)
+        # and optional values
+        api_response = api_instance.get_funds_summary(ids, lang=lang)
 
         pprint(api_response)
 
@@ -897,6 +899,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
+ **lang** | **str**| Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \&quot;FRENCH\&quot; is passed.  | [optional] if omitted the server will use the default value of "ENGLISH"
 
 ### Return type
 
@@ -979,6 +982,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     summaries_request = SummariesRequest(
         ids=Ids(["MABAX","FCNTX"]),
+        lang=Lang("ENGLISH"),
     ) # SummariesRequest | The Funds Summary request body, allowing the user to specify a list of ids.
 
     try:

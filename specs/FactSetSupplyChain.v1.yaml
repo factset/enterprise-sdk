@@ -35,9 +35,9 @@ paths:
     get:
       summary: Returns Supply Chain Relationships Data.
       description: >
-        Returns Supply Chain Relationships Data. This data is sorted primarily
-        by the number of overlapping products, followed by the overlap
-        percentage.
+        Retrieves Supply Chain Relationship data (current only). Results are
+        first sorted by the number of overlapping products between companies,
+        then by the percentage of overlap.
       tags:
         - Relationships
       operationId: getRelationships
@@ -71,9 +71,9 @@ paths:
     post:
       summary: Returns Supply Chain Relationships Data.
       description: >
-        Returns Supply Chain Relationships Data. This data is sorted primarily
-        by the number of overlapping products, followed by the overlap
-        percentage.
+        Retrieves Supply Chain Relationship data (current only). Results are
+        first sorted by the number of overlapping products between companies,
+        then by the percentage of overlap.
       tags:
         - Relationships
       operationId: getRelationshipsForList
@@ -153,12 +153,15 @@ components:
           - PARTNERS
         default: SUPPLIERS
       required: true
-      description: |
-        Specifies the type of relationship to filter the results  -
-          * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.
-          * **COMPETITORS** = Entities disclosed by the source company as competitors.
-          * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.
-          * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship).
+      description: >
+
+        The category describing how the source company is connected to another
+        organization. Use this parameter to filter results based on the business
+        relationship type. Defined as: 
+          * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of "Customer" relationships.)
+          * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.
+          * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of "Supplier" relationships.)
+          * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company.
       examples:
         suppliers:
           summary: SUPPLIERS
@@ -184,10 +187,10 @@ components:
         default: PUBLIC_COMPANIES_ONLY
       required: false
       description: |
-        Specifies the type of companies to filter by  -
-          * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.
-          * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.
-          * **ALL** = Display public and private company relationships.
+        Specifies the category of companies to include when filtering results:
+          * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.         
+          * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).         
+          * **ALL**: Include relationships involving both public and private companies.
       examples:
         public:
           summary: PUBLIC_COMPANIES_ONLY
@@ -211,9 +214,9 @@ components:
       required: false
       description: |
         Filters the list of available relationship directions -
-          * **ALL** = All relationship directions.
-          * **DIRECT** = Direct indicates that the source company named the relationship.
-          * **REVERSE** = Reverse indicates that the target company named the relationship.
+          * **ALL** = Include both direct and reverse relationships.
+          * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.
+          * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.
       examples:
         All:
           summary: ALL
@@ -256,12 +259,14 @@ components:
             in named products (determined by Revere Hierarchy) there are in a
             given relationship between the source and target company.
           example: 28 of 138
+          nullable: true
         overlapPercentage:
           type: integer
           description: >-
             Product Overlap Percentage is the percent value of the preceding
             overlapping product count data item.
           example: 20
+          nullable: true
         relationshipDirection:
           type: string
           description: >-
@@ -324,8 +329,14 @@ components:
             - MSFT-US
     relationshipType:
       title: relationshipType
-      description: |
-        The relationship between requested identifier and partner.
+      description: >
+        The category describing how the source company is connected to another
+        organization. Use this parameter to filter results based on the business
+        relationship type. Defined as: 
+          * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of "Customer" relationships.)
+          * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.
+          * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of "Supplier" relationships.)
+          * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company.
       type: string
       enum:
         - COMPETITORS
@@ -336,7 +347,10 @@ components:
     companyType:
       title: companyType
       description: |
-        Display public, private, or both companies.
+        Specifies the category of companies to include when filtering results:
+          * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.         
+          * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).         
+          * **ALL**: Include relationships involving both public and private companies.
       type: string
       enum:
         - PUBLIC_COMPANIES_ONLY
@@ -346,7 +360,10 @@ components:
     relationshipDirection:
       title: relationshipDirection
       description: |
-        relationshipDirection
+        Filters the list of available relationship directions -
+          * **ALL** = Include both direct and reverse relationships.
+          * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.
+          * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.
       type: string
       enum:
         - ALL
@@ -464,12 +481,6 @@ components:
       description: Array of Objects describing relationships and product overlaps
       value:
         data:
-          - entityId: 000Q07-E
-            companyName: Microsoft Corporation
-            overlappingProductCount: 28 of 138
-            overlapPercentage: 20
-            relationshipDirection: Mutual
-            requestId: AAPL-US
           - entityId: 0FPWZZ-E
             companyName: Alphabet Inc. Class A
             overlappingProductCount: 26 of 97
@@ -607,7 +618,7 @@ components:
       description: Relationships request body.
       value:
         data:
-          - id: AAPL-US
+          - ids: AAPL-US
             relationshipType: COMPETITORS
             companyType: PUBLIC_COMPANIES_ONLY
             relationshipDirection: ALL

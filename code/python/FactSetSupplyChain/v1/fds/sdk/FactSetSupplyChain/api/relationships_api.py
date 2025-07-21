@@ -219,16 +219,16 @@ class RelationshipsApi(object):
     ) -> RelationshipsResponse:
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-            relationship_type (str): Specifies the type of relationship to filter the results  -   * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** = Entities disclosed by the source company as competitors.   * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship). . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
+            relationship_type (str):  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
 
         Keyword Args:
-            company_type (str): Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
-            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship. . [optional] if omitted the server will use the default value of "ALL"
+            company_type (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
+            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. . [optional] if omitted the server will use the default value of "ALL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -272,16 +272,16 @@ class RelationshipsApi(object):
     ) -> typing.Tuple[RelationshipsResponse, int, typing.MutableMapping]:
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-            relationship_type (str): Specifies the type of relationship to filter the results  -   * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** = Entities disclosed by the source company as competitors.   * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship). . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
+            relationship_type (str):  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
 
         Keyword Args:
-            company_type (str): Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
-            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship. . [optional] if omitted the server will use the default value of "ALL"
+            company_type (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
+            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. . [optional] if omitted the server will use the default value of "ALL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -329,16 +329,16 @@ class RelationshipsApi(object):
     ) -> "ApplyResult[RelationshipsResponse]":
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-            relationship_type (str): Specifies the type of relationship to filter the results  -   * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** = Entities disclosed by the source company as competitors.   * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship). . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
+            relationship_type (str):  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
 
         Keyword Args:
-            company_type (str): Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
-            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship. . [optional] if omitted the server will use the default value of "ALL"
+            company_type (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
+            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. . [optional] if omitted the server will use the default value of "ALL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -381,16 +381,16 @@ class RelationshipsApi(object):
     ) -> "ApplyResult[typing.Tuple[RelationshipsResponse, int, typing.MutableMapping]]":
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
             ids ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-            relationship_type (str): Specifies the type of relationship to filter the results  -   * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** = Entities disclosed by the source company as competitors.   * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship). . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
+            relationship_type (str):  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. . defaults to "SUPPLIERS", must be one of ["SUPPLIERS"]
 
         Keyword Args:
-            company_type (str): Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
-            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship. . [optional] if omitted the server will use the default value of "ALL"
+            company_type (str): Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. . [optional] if omitted the server will use the default value of "PUBLIC_COMPANIES_ONLY"
+            relationship_direction (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. . [optional] if omitted the server will use the default value of "ALL"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -433,7 +433,7 @@ class RelationshipsApi(object):
     ) -> RelationshipsResponse:
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -480,7 +480,7 @@ class RelationshipsApi(object):
     ) -> typing.Tuple[RelationshipsResponse, int, typing.MutableMapping]:
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -531,7 +531,7 @@ class RelationshipsApi(object):
     ) -> "ApplyResult[RelationshipsResponse]":
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -577,7 +577,7 @@ class RelationshipsApi(object):
     ) -> "ApplyResult[typing.Tuple[RelationshipsResponse, int, typing.MutableMapping]]":
         """Returns Supply Chain Relationships Data.  # noqa: E501
 
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.   # noqa: E501
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

@@ -1,166 +1,136 @@
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'com.diffplug.spotless'
+import java.time.LocalDate
+
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'eclipse'
+    id 'com.diffplug.spotless' version '5.17.0'
+    id 'maven-publish'
+    id 'signing'
+    id 'org.jreleaser' version '1.17.0'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.factset.sdk'
 version = '3.2.0'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.+'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath 'com.diffplug.spotless:spotless-plugin-gradle:5.17.1'
-    }
-}
 
 repositories {
     mavenCentral()
 }
 
-if(hasProperty('target') && target == 'android') {
+task execute(type:JavaExec) {
+    main = System.getProperty('mainClass')
+    classpath = sourceSets.main.runtimeClasspath
+}
 
-    apply plugin: 'com.android.library'
-    apply plugin: 'com.github.dcendents.android-maven'
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
 
-    android {
-        compileSdkVersion 25
-        buildToolsVersion '25.0.2'
-        defaultConfig {
-            minSdkVersion 14
-            targetSdkVersion 25
-        }
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
+task javadocJar(type: Jar) {
+    archiveClassifier = 'javadoc'
+    from javadoc.destinationDir
+}
 
-        // Rename the aar correctly
-        libraryVariants.all { variant ->
-            variant.outputs.each { output ->
-                def outputFile = output.outputFile
-                if (outputFile != null && outputFile.name.endsWith('.aar')) {
-                    def fileName = "${project.name}-${variant.baseName}-${version}.aar"
-                    output.outputFile = new File(outputFile.parent, fileName)
-                }
-            }
-        }
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
 
-        dependencies {
-            provided "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
-        }
-    }
+def artifactStagingDirectory = layout.buildDirectory.dir("staging-deploy")
 
-    afterEvaluate {
-        android.libraryVariants.all { variant ->
-            def task = project.tasks.create "jar${variant.name.capitalize()}", Jar
-            task.description = "Create jar artifact for ${variant.name}"
-            task.dependsOn variant.javaCompile
-            task.from variant.javaCompile.destinationDir
-            task.destinationDir = project.file("${project.buildDir}/outputs/jar")
-            task.archiveName = "${project.name}-${variant.baseName}-${version}.jar"
-            artifacts.add('archives', task);
-        }
-    }
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'paengine'
 
-    task sourcesJar(type: Jar) {
-        from android.sourceSets.main.java.srcDirs
-        classifier = 'sources'
-    }
+            from components.java
 
-    artifacts {
-        archives sourcesJar
-    }
+            artifact sourcesJar
+            artifact javadocJar
 
-} else {
-
-    apply plugin: 'java-library'
-    apply plugin: 'maven-publish'
-    apply plugin: 'signing'
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-    task execute(type:JavaExec) {
-       main = System.getProperty('mainClass')
-       classpath = sourceSets.main.runtimeClasspath
-    }
-
-    task sourcesJar(type: Jar) {
-        archiveClassifier = 'sources'
-        from sourceSets.main.allSource
-    }
-
-    task javadocJar(type: Jar) {
-        archiveClassifier = 'javadoc'
-        from javadoc.destinationDir
-    }
-
-    artifacts {
-        archives jar
-        archives javadocJar
-        archives sourcesJar
-    }
-
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                artifactId = 'paengine'
-
-                from components.java
-
-                artifact sourcesJar
-                artifact javadocJar
-
-                pom {
-                    name = 'FactSet SDK for Java - paengine'
-                    description = 'FactSet SDK for Java - paengine'
-                    url = 'https://github.com/factset/enterprise-sdk'
-                    licenses {
-                        license {
-                            name = 'The Apache License, Version 2.0'
-                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = 'enterprisesdk'
-                            organization = 'FactSet'
-                            organizationUrl = 'https://developer.factset.com'
-                        }
-                    }
-                    scm {
-                        connection = 'scm:git:git://github.com/factset/enterprise-sdk.git'
-                        developerConnection = 'scm:git:ssh://factset/enterprise-sdk.git'
-                        url = 'https://github.com/factset/enterprise-sdk/'
+            pom {
+                name = 'FactSet SDK for Java - paengine'
+                description = 'FactSet SDK for Java - paengine'
+                url = 'https://github.com/factset/enterprise-sdk'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
-            }
-        }
-
-        repositories {
-            maven {
-                url = version.endsWith('SNAPSHOT') ? System.getenv('MAVEN_SNAPSHOTS_URL') : System.getenv('MAVEN_RELEASES_URL')
-
-                credentials {
-                    username = System.getenv('MAVEN_USERNAME')
-                    password = System.getenv('MAVEN_PASSWORD')
+                developers {
+                    developer {
+                        id = 'enterprisesdk'
+                        organization = 'FactSet'
+                        organizationUrl = 'https://developer.factset.com'
+                    }
                 }
-
-                authentication {
-                    digest(BasicAuthentication)
+                scm {
+                    connection = 'scm:git:git://github.com/factset/enterprise-sdk.git'
+                    developerConnection = 'scm:git:ssh://factset/enterprise-sdk.git'
+                    url = 'https://github.com/factset/enterprise-sdk/'
                 }
             }
         }
     }
 
-
-
-    signing {
-        sign publishing.publications.mavenJava
+    repositories {
+        maven {
+            url = uri(artifactStagingDirectory)
+        }
     }
 }
+
+jreleaser {
+    gitRootSearch = true
+
+    project {
+        description = 'FactSet SDK for Java - paengine'
+        authors = ['FactSet']
+        license = "APACHE-2.0"
+        inceptionYear = "2021"
+        vendor = "FactSet"
+        copyright = "Copyright (c) ${LocalDate.now().year} FactSet"
+        return // for the type checker
+    }
+
+    signing {
+        active = 'ALWAYS'
+        armored = true
+        return
+    }
+
+    release {
+        github {
+            skipTag = true
+            skipRelease = true
+            return
+        }
+    }
+
+    deploy {
+        maven {
+            mavenCentral {
+                'release-deploy' {
+                    url = "https://central.sonatype.com/api/v1/publisher"
+                    stagingRepository("build/staging-deploy")
+                }
+                return
+            }
+            artifactory {
+                sdk {
+                    stagingRepository("build/staging-deploy")
+                }
+            }
+        }
+    }
+}
+
 
 ext {
     swagger_annotations_version = "1.6.3"

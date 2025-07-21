@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ActivelyManagedFlag** | **int?** | Binary indicator of whether the fund is actively managed, where 1 is active and 0 is inactive. | [optional] 
 **Brand** | **string** | The Funds Brand Name in proper format. | [optional] 
 **CountryDomicile** | **string** | Returns the fund&#39;s country of domicile in ISO2 format. Only available for Mutual Funds. | [optional] 
+**CountryOfRegistration** | **string** | Countries where the mutual fund is registered and is available for sale, represented as ISO 3166 2-letter country codes. | [optional] 
 **Currency** | **string** | The fund&#39;s currency. | [optional] 
 **DescInfo** | **string** | The Fund&#39;s Investment Strategy short description. | [optional] 
 **FundOfFundsId** | **string** | The fund of fund&#39;s id if applicable. Will provide plain Fund of Funds text. | [optional] 

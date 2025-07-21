@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **OrderId** | **string** | orderId of the order related to this placement | [optional] 
 **TransactionStatus** | **string** | Status of the Placement | 
 **OrderType** | **string** | Order type indicating the price type of the Placement | [optional] 
-**LimitPrice** | **double** | Price related to limit and stopLimit order types | [optional] 
-**StopPrice** | **double** | Price related to stop and stopLimit order types | [optional] 
+**LimitPrice** | **double?** | Price related to limit and stopLimit order types | [optional] 
+**StopPrice** | **double?** | Price related to stop and stopLimit order types | [optional] 
 **Tif** | **string** | Time In Force of the Placement | [optional] 
 **TifDate** | **string** | Time In Force date for goodTilDate placements in YYYY-MM-DD format | [optional] 
 **SettlementType** | **string** | Indicates placement settlement period | [optional] 

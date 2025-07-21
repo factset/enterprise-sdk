@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/OfficeCloudRefresh/0.1.2 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/OfficeCloudRefresh/0.2.0 (${process.platform}; node ${process.version})`
         };
 
         /**

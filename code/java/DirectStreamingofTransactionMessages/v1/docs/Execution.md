@@ -82,6 +82,7 @@ Name | Value
 UNCHECKED | &quot;unchecked&quot;
 PASS | &quot;pass&quot;
 FAIL | &quot;fail&quot;
+WARN | &quot;warn&quot;
 
 
 ## Implemented Interfaces

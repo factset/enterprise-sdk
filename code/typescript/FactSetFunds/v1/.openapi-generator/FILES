@@ -46,6 +46,7 @@ docs/GroupHoldingsApi.md
 docs/GroupHoldingsRequest.md
 docs/GroupHoldingsResponse.md
 docs/HelperApi.md
+docs/Lang.md
 docs/Managers.md
 docs/ManagersRequest.md
 docs/ManagersResponse.md
@@ -121,6 +122,7 @@ src/model/Group.js
 src/model/GroupHolding.js
 src/model/GroupHoldingsRequest.js
 src/model/GroupHoldingsResponse.js
+src/model/Lang.js
 src/model/Managers.js
 src/model/ManagersRequest.js
 src/model/ManagersResponse.js

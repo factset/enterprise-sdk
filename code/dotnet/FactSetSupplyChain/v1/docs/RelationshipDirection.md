@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetSupplyChain.Model.RelationshipDirection
-relationshipDirection 
+Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. 
 
 ## Properties
 

@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ## getFundsSummary
 
-> SummariesResponse getFundsSummary(ids)
+> SummariesResponse getFundsSummary(ids, opts)
 
 Get basic reference summary data for a Fund.
 
@@ -699,9 +699,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ReferenceApi();
 const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
+const opts = {
+  'lang': ENGLISH // String | Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \"FRENCH\" is passed. 
+};
 
 // Call api endpoint
-apiInstance.getFundsSummary(ids).then(
+apiInstance.getFundsSummary(ids, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -721,6 +724,7 @@ apiInstance.getFundsSummary(ids).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**[String]**](String.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
+ **lang** | **String**| Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \&quot;FRENCH\&quot; is passed.  | [optional] [default to &#39;ENGLISH&#39;]
 
 ### Return type
 

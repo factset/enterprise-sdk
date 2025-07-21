@@ -13,6 +13,17 @@ Name | Type | Description | Notes
 **comments** | [**java.util.List&lt;Comment&gt;**](Comment.md) | array of comments added to issue |  [optional]
 **severity** | **String** | severity of issue tracker ticket |  [optional]
 **internalId** | **Integer** |  |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
+
+
+
+## Enum: StatusEnum
+
+Name | Value
+---- | -----
+CLOSED | &quot;Closed&quot;
+RECEIVED | &quot;Received&quot;
+IN_PROGRESS | &quot;In Progress&quot;
 
 
 ## Implemented Interfaces

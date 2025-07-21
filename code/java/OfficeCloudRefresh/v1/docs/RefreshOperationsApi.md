@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## postWorkbook
 
-> JobStatus postWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays)
+> JobStatus postWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, waiveXlsmSignature)
 
 Refresh a spreadsheet file
 
@@ -267,8 +267,9 @@ public class Example {
         Boolean nowHandlingEnabled = true; // Boolean | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.
         Boolean refreshAutoFilters = true; // Boolean | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
         Boolean resizeArrays = true; // Boolean | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds
+        Boolean waiveXlsmSignature = true; // Boolean | Option to waive signature checking for macro-enabled (.xlsm) file
         try {
-            JobStatus result = apiInstance.postWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays);
+            JobStatus result = apiInstance.postWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, waiveXlsmSignature);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -291,6 +292,7 @@ Name | Type | Description  | Notes
  **nowHandlingEnabled** | **Boolean**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional]
  **refreshAutoFilters** | **Boolean**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
  **resizeArrays** | **Boolean**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
+ **waiveXlsmSignature** | **Boolean**| Option to waive signature checking for macro-enabled (.xlsm) file | [optional]
 
 ### Return type
 

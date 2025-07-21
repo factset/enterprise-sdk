@@ -857,6 +857,7 @@ public class ReferenceApi {
    * Get basic reference summary data for a Fund.
    * Fetch basic reference data for the requested fund(s), including countryDomicile, shrClass, shrClassInceptDate, etc.  
    * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
+   * @param lang Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \&quot;FRENCH\&quot; is passed.  (optional, default to ENGLISH)
    * @return SummariesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -870,14 +871,15 @@ public class ReferenceApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public SummariesResponse getFundsSummary(java.util.List<String> ids) throws ApiException {
-    return getFundsSummaryWithHttpInfo(ids).getData();
+  public SummariesResponse getFundsSummary(java.util.List<String> ids, String lang) throws ApiException {
+    return getFundsSummaryWithHttpInfo(ids, lang).getData();
   }
 
   /**
    * Get basic reference summary data for a Fund.
    * Fetch basic reference data for the requested fund(s), including countryDomicile, shrClass, shrClassInceptDate, etc.  
    * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
+   * @param lang Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \&quot;FRENCH\&quot; is passed.  (optional, default to ENGLISH)
    * @return ApiResponse&lt;SummariesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -891,7 +893,7 @@ public class ReferenceApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SummariesResponse> getFundsSummaryWithHttpInfo(java.util.List<String> ids) throws ApiException {
+  public ApiResponse<SummariesResponse> getFundsSummaryWithHttpInfo(java.util.List<String> ids, String lang) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -909,6 +911,7 @@ public class ReferenceApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "lang", lang));
 
     
     

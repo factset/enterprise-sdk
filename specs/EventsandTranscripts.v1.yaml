@@ -203,12 +203,12 @@ paths:
 
         * Returns **untrimmed** historical audio recordings, which include
         complete audio files such as intro music & non-speaking portions, and
-        related metadata dating back from May 10, 2011 to Sep 30, 2022.
+        related metadata dating back from May 10, 2011 to Sep 30, 2024.
 
 
         * Returns **trimmed** historical audio recordings, which are audio files
         with the non-speaking portions removed, and related metadata dating back
-        from May 10, 2011 to Dec 31, 2022.
+        from May 10, 2011 to Dec 31, 2024.
       parameters:
         - $ref: '#/components/parameters/year'
         - $ref: '#/components/parameters/trimmed'
@@ -2835,7 +2835,22 @@ components:
       properties:
         subject:
           type: string
-          description: subject code
+          description: >
+            The code which specifies various categories of information:
+
+            - SB: Specifies the subject information/code - Ex: IPO, Management
+            Changes, Dividends, etc.
+
+            - IN: Specifies the industry information/code - Ex: Banking, Oil,
+            Semiconductors, etc.
+
+            - LN: Specifies the language details.
+
+            - CN: Specifies the country details.
+
+            - RN: Specifies the region details.
+
+            - DT: Specifies the filings document type details. 
           example: SB
         category:
           type: string

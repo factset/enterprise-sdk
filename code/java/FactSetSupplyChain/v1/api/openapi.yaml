@@ -28,7 +28,7 @@ paths:
   /relationships:
     get:
       description: |
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.
       operationId: getRelationships
       parameters:
       - description: |
@@ -55,12 +55,20 @@ paths:
             type: string
           type: array
         style: form
-      - description: |
-          Specifies the type of relationship to filter the results  -
-            * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.
-            * **COMPETITORS** = Entities disclosed by the source company as competitors.
-            * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.
-            * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship).
+      - description: "\nThe category describing how the source company is connected\
+          \ to another organization. Use this parameter to filter results based on\
+          \ the business relationship type. Defined as: \n  * **SUPPLIERS** = An organization\
+          \ that provides goods or services to the source company. The source company\
+          \ acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)\n\
+          \  * **COMPETITORS** = An organization explicitly identified by the source\
+          \ company as a rival, usually operating in the same market or industry sector.\n\
+          \  * **CUSTOMERS** = An organization that receives goods or services from\
+          \ the source company. The source company acts as the seller in this relationship.\
+          \ (Reverse of \"Supplier\" relationships.)\n  * **PARTNERS** = An organization\
+          \ in which the source company holds an ownership interest (i.e., the source\
+          \ company owns shares or equity in the partner). This is the counterpart\
+          \ to an investor relationship, where the external party has an ownership\
+          \ interest in the source company.\n"
         examples:
           suppliers:
             summary: SUPPLIERS
@@ -87,11 +95,12 @@ paths:
           - PARTNERS
           type: string
         style: form
-      - description: |
-          Specifies the type of companies to filter by  -
-            * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.
-            * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.
-            * **ALL** = Display public and private company relationships.
+      - description: "Specifies the category of companies to include when filtering\
+          \ results:\n  * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving\
+          \ companies that are publicly traded.         \n  * **PRIVATE_COMPANIES_ONLY**:\
+          \ Include only relationships involving companies that are privately held\
+          \ (not publicly traded).         \n  * **ALL**: Include relationships involving\
+          \ both public and private companies.\n"
         examples:
           public:
             summary: PUBLIC_COMPANIES_ONLY
@@ -116,9 +125,9 @@ paths:
         style: form
       - description: |
           Filters the list of available relationship directions -
-            * **ALL** = All relationship directions.
-            * **DIRECT** = Direct indicates that the source company named the relationship.
-            * **REVERSE** = Reverse indicates that the target company named the relationship.
+            * **ALL** = Include both direct and reverse relationships.
+            * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.
+            * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.
         examples:
           All:
             summary: ALL
@@ -224,7 +233,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage.
+        Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap.
       operationId: getRelationshipsForList
       requestBody:
         content:
@@ -321,12 +330,6 @@ components:
       summary: Company Relationship Overview
       value:
         data:
-        - entityId: 000Q07-E
-          companyName: Microsoft Corporation
-          overlappingProductCount: 28 of 138
-          overlapPercentage: 20
-          relationshipDirection: Mutual
-          requestId: AAPL-US
         - entityId: 0FPWZZ-E
           companyName: Alphabet Inc. Class A
           overlappingProductCount: 26 of 97
@@ -464,7 +467,7 @@ components:
       summary: Relationships request body.
       value:
         data:
-        - id: AAPL-US
+        - ids: AAPL-US
           relationshipType: COMPETITORS
           companyType: PUBLIC_COMPANIES_ONLY
           relationshipDirection: ALL
@@ -600,12 +603,20 @@ components:
         type: array
       style: form
     relationshipType:
-      description: |
-        Specifies the type of relationship to filter the results  -
-          * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.
-          * **COMPETITORS** = Entities disclosed by the source company as competitors.
-          * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.
-          * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship).
+      description: "\nThe category describing how the source company is connected\
+        \ to another organization. Use this parameter to filter results based on the\
+        \ business relationship type. Defined as: \n  * **SUPPLIERS** = An organization\
+        \ that provides goods or services to the source company. The source company\
+        \ acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)\n\
+        \  * **COMPETITORS** = An organization explicitly identified by the source\
+        \ company as a rival, usually operating in the same market or industry sector.\n\
+        \  * **CUSTOMERS** = An organization that receives goods or services from\
+        \ the source company. The source company acts as the seller in this relationship.\
+        \ (Reverse of \"Supplier\" relationships.)\n  * **PARTNERS** = An organization\
+        \ in which the source company holds an ownership interest (i.e., the source\
+        \ company owns shares or equity in the partner). This is the counterpart to\
+        \ an investor relationship, where the external party has an ownership interest\
+        \ in the source company.\n"
       examples:
         suppliers:
           summary: SUPPLIERS
@@ -633,11 +644,12 @@ components:
         type: string
       style: form
     publicPrivate:
-      description: |
-        Specifies the type of companies to filter by  -
-          * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.
-          * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.
-          * **ALL** = Display public and private company relationships.
+      description: "Specifies the category of companies to include when filtering\
+        \ results:\n  * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving\
+        \ companies that are publicly traded.         \n  * **PRIVATE_COMPANIES_ONLY**:\
+        \ Include only relationships involving companies that are privately held (not\
+        \ publicly traded).         \n  * **ALL**: Include relationships involving\
+        \ both public and private companies.\n"
       examples:
         public:
           summary: PUBLIC_COMPANIES_ONLY
@@ -663,9 +675,9 @@ components:
     relationshipDirection:
       description: |
         Filters the list of available relationship directions -
-          * **ALL** = All relationship directions.
-          * **DIRECT** = Direct indicates that the source company named the relationship.
-          * **REVERSE** = Reverse indicates that the target company named the relationship.
+          * **ALL** = Include both direct and reverse relationships.
+          * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.
+          * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.
       examples:
         All:
           summary: ALL
@@ -801,11 +813,13 @@ components:
             matches in named products (determined by Revere Hierarchy) there are in
             a given relationship between the source and target company.
           example: 28 of 138
+          nullable: true
           type: string
         overlapPercentage:
           description: Product Overlap Percentage is the percent value of the preceding
             overlapping product count data item.
           example: 20
+          nullable: true
           type: integer
         relationshipDirection:
           description: Direction of Relationship indicates which company (target or
@@ -884,8 +898,20 @@ components:
       minItems: 1
       type: array
     relationshipType:
-      description: |
-        The relationship between requested identifier and partner.
+      description: "The category describing how the source company is connected to\
+        \ another organization. Use this parameter to filter results based on the\
+        \ business relationship type. Defined as: \n  * **SUPPLIERS** = An organization\
+        \ that provides goods or services to the source company. The source company\
+        \ acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)\n\
+        \  * **COMPETITORS** = An organization explicitly identified by the source\
+        \ company as a rival, usually operating in the same market or industry sector.\n\
+        \  * **CUSTOMERS** = An organization that receives goods or services from\
+        \ the source company. The source company acts as the seller in this relationship.\
+        \ (Reverse of \"Supplier\" relationships.)\n  * **PARTNERS** = An organization\
+        \ in which the source company holds an ownership interest (i.e., the source\
+        \ company owns shares or equity in the partner). This is the counterpart to\
+        \ an investor relationship, where the external party has an ownership interest\
+        \ in the source company.\n"
       enum:
       - COMPETITORS
       - CUSTOMERS
@@ -895,8 +921,12 @@ components:
       title: relationshipType
       type: string
     companyType:
-      description: |
-        Display public, private, or both companies.
+      description: "Specifies the category of companies to include when filtering\
+        \ results:\n  * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving\
+        \ companies that are publicly traded.         \n  * **PRIVATE_COMPANIES_ONLY**:\
+        \ Include only relationships involving companies that are privately held (not\
+        \ publicly traded).         \n  * **ALL**: Include relationships involving\
+        \ both public and private companies.\n"
       enum:
       - PUBLIC_COMPANIES_ONLY
       - PRIVATE_COMPANIES_ONLY
@@ -906,7 +936,10 @@ components:
       type: string
     relationshipDirection:
       description: |
-        relationshipDirection
+        Filters the list of available relationship directions -
+          * **ALL** = Include both direct and reverse relationships.
+          * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.
+          * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.
       enum:
       - ALL
       - DIRECT

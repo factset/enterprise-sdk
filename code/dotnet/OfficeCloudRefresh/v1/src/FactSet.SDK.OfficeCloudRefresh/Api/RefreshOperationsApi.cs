@@ -83,8 +83,9 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <returns>JobStatus</returns>
-        JobStatus PostWorkbook(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?));
+        JobStatus PostWorkbook(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?));
 
         /// <summary>
         /// Refresh a spreadsheet file
@@ -97,8 +98,9 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <returns>ApiResponse of JobStatus</returns>
-        ApiResponse<JobStatus> PostWorkbookWithHttpInfo(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?));
+        ApiResponse<JobStatus> PostWorkbookWithHttpInfo(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?));
         #endregion Synchronous Operations
     }
 
@@ -167,9 +169,10 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JobStatus</returns>
-        System.Threading.Tasks.Task<JobStatus> PostWorkbookAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<JobStatus> PostWorkbookAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Refresh a spreadsheet file
@@ -182,9 +185,10 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JobStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<JobStatus>> PostWorkbookWithHttpInfoAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<JobStatus>> PostWorkbookWithHttpInfoAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -790,10 +794,11 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <returns>JobStatus</returns>
-        public JobStatus PostWorkbook(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?))
+        public JobStatus PostWorkbook(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?))
         {
-            var localVarResponse = PostWorkbookWithHttpInfo(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays);
+            var localVarResponse = PostWorkbookWithHttpInfo(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, waiveXlsmSignature);
             return localVarResponse.Data;
         }
 
@@ -805,8 +810,9 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <returns>ApiResponse of JobStatus</returns>
-        public ApiResponse<JobStatus> PostWorkbookWithHttpInfo(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?))
+        public ApiResponse<JobStatus> PostWorkbookWithHttpInfo(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -850,6 +856,10 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
             if (resizeArrays != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OfficeCloudRefresh.Client.ClientUtils.ParameterToMultiMap("", "resizeArrays", resizeArrays));
+            }
+            if (waiveXlsmSignature != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OfficeCloudRefresh.Client.ClientUtils.ParameterToMultiMap("", "waiveXlsmSignature", waiveXlsmSignature));
             }
             localVarRequestOptions.Data = body;
 
@@ -897,11 +907,12 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of JobStatus</returns>
-        public async System.Threading.Tasks.Task<JobStatus>PostWorkbookAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<JobStatus>PostWorkbookAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostWorkbookWithHttpInfoAsync(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostWorkbookWithHttpInfoAsync(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, waiveXlsmSignature, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -913,10 +924,11 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
         /// <param name="nowHandlingEnabled">Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)</param>
         /// <param name="refreshAutoFilters">Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
         /// <param name="resizeArrays">Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)</param>
+        /// <param name="waiveXlsmSignature">Option to waive signature checking for macro-enabled (.xlsm) file (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (JobStatus)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<JobStatus>> PostWorkbookWithHttpInfoAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<JobStatus>> PostWorkbookWithHttpInfoAsync(System.IO.Stream body, bool? nowHandlingEnabled = default(bool?), bool? refreshAutoFilters = default(bool?), bool? resizeArrays = default(bool?), bool? waiveXlsmSignature = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -961,6 +973,10 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
             if (resizeArrays != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OfficeCloudRefresh.Client.ClientUtils.ParameterToMultiMap("", "resizeArrays", resizeArrays));
+            }
+            if (waiveXlsmSignature != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OfficeCloudRefresh.Client.ClientUtils.ParameterToMultiMap("", "waiveXlsmSignature", waiveXlsmSignature));
             }
             localVarRequestOptions.Data = body;
 

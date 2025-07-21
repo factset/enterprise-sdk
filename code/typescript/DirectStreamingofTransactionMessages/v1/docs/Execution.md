@@ -89,6 +89,8 @@ Name | Type | Description | Notes
 
 * `fail` (value: `"fail"`)
 
+* `warn` (value: `"warn"`)
+
 
 
 

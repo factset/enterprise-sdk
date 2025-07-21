@@ -1,0 +1,84 @@
+# flake8: noqa
+
+# import all models into this package
+# if you have many models here with many references from one model to another this may
+# raise a RecursionError
+# to avoid this, import only the models that you directly need like:
+# from from fds.sdk.EventsandTranscripts.model.pet import Pet
+# or import this package, but before doing it, use:
+# import sys
+# sys.setrecursionlimit(n)
+
+from fds.sdk.EventsandTranscripts.model.audio_by_date_request import AudioByDateRequest
+from fds.sdk.EventsandTranscripts.model.audio_by_file_name_request import AudioByFileNameRequest
+from fds.sdk.EventsandTranscripts.model.audio_by_ids_request import AudioByIdsRequest
+from fds.sdk.EventsandTranscripts.model.audio_by_upload_time_request import AudioByUploadTimeRequest
+from fds.sdk.EventsandTranscripts.model.audio_request import AudioRequest
+from fds.sdk.EventsandTranscripts.model.audio_request_data import AudioRequestData
+from fds.sdk.EventsandTranscripts.model.audio_request_meta import AudioRequestMeta
+from fds.sdk.EventsandTranscripts.model.audio_request_meta_pagination import AudioRequestMetaPagination
+from fds.sdk.EventsandTranscripts.model.audio_response import AudioResponse
+from fds.sdk.EventsandTranscripts.model.body import Body
+from fds.sdk.EventsandTranscripts.model.body_nrt import BodyNrt
+from fds.sdk.EventsandTranscripts.model.categories_response import CategoriesResponse
+from fds.sdk.EventsandTranscripts.model.categories_response_data import CategoriesResponseData
+from fds.sdk.EventsandTranscripts.model.company_event_request import CompanyEventRequest
+from fds.sdk.EventsandTranscripts.model.company_event_request_data import CompanyEventRequestData
+from fds.sdk.EventsandTranscripts.model.company_event_request_data_date_time import CompanyEventRequestDataDateTime
+from fds.sdk.EventsandTranscripts.model.company_event_request_data_universe import CompanyEventRequestDataUniverse
+from fds.sdk.EventsandTranscripts.model.company_event_response import CompanyEventResponse
+from fds.sdk.EventsandTranscripts.model.company_event_response_data import CompanyEventResponseData
+from fds.sdk.EventsandTranscripts.model.document import Document
+from fds.sdk.EventsandTranscripts.model.document_one import DocumentOne
+from fds.sdk.EventsandTranscripts.model.document_result import DocumentResult
+from fds.sdk.EventsandTranscripts.model.error import Error
+from fds.sdk.EventsandTranscripts.model.error_object import ErrorObject
+from fds.sdk.EventsandTranscripts.model.events_audio_daily_response_data import EventsAudioDailyResponseData
+from fds.sdk.EventsandTranscripts.model.events_audio_history_response import EventsAudioHistoryResponse
+from fds.sdk.EventsandTranscripts.model.events_audio_history_response_data import EventsAudioHistoryResponseData
+from fds.sdk.EventsandTranscripts.model.indexed_nrt_response import IndexedNrtResponse
+from fds.sdk.EventsandTranscripts.model.indexed_nrt_response_data import IndexedNrtResponseData
+from fds.sdk.EventsandTranscripts.model.invalid_id_error_data import InvalidIdErrorData
+from fds.sdk.EventsandTranscripts.model.investor_slides_response import InvestorSlidesResponse
+from fds.sdk.EventsandTranscripts.model.investor_slides_response_data import InvestorSlidesResponseData
+from fds.sdk.EventsandTranscripts.model.meta import Meta
+from fds.sdk.EventsandTranscripts.model.meta_data import MetaData
+from fds.sdk.EventsandTranscripts.model.meta_data_pagination import MetaDataPagination
+from fds.sdk.EventsandTranscripts.model.meta_nrt import MetaNrt
+from fds.sdk.EventsandTranscripts.model.nrt import NRT
+from fds.sdk.EventsandTranscripts.model.nrt_calls_request import NrtCallsRequest
+from fds.sdk.EventsandTranscripts.model.nrt_calls_request_by_ids import NrtCallsRequestByIds
+from fds.sdk.EventsandTranscripts.model.nrt_calls_request_by_ticker import NrtCallsRequestByTicker
+from fds.sdk.EventsandTranscripts.model.nrt_calls_request_data import NrtCallsRequestData
+from fds.sdk.EventsandTranscripts.model.nrt_calls_request_meta import NrtCallsRequestMeta
+from fds.sdk.EventsandTranscripts.model.nrt_calls_response import NrtCallsResponse
+from fds.sdk.EventsandTranscripts.model.nrt_calls_response_data import NrtCallsResponseData
+from fds.sdk.EventsandTranscripts.model.nrt_speaker_ids_response import NrtSpeakerIdsResponse
+from fds.sdk.EventsandTranscripts.model.nrt_speaker_ids_response_data import NrtSpeakerIdsResponseData
+from fds.sdk.EventsandTranscripts.model.participant import Participant
+from fds.sdk.EventsandTranscripts.model.participant_nrt import ParticipantNrt
+from fds.sdk.EventsandTranscripts.model.plist import Plist
+from fds.sdk.EventsandTranscripts.model.raw_or_corrected import RawOrCorrected
+from fds.sdk.EventsandTranscripts.model.response_type import ResponseType
+from fds.sdk.EventsandTranscripts.model.response_type_data import ResponseTypeData
+from fds.sdk.EventsandTranscripts.model.section import Section
+from fds.sdk.EventsandTranscripts.model.section_nrt import SectionNrt
+from fds.sdk.EventsandTranscripts.model.speaker import Speaker
+from fds.sdk.EventsandTranscripts.model.speaker_nrt import SpeakerNrt
+from fds.sdk.EventsandTranscripts.model.time_zones_response import TimeZonesResponse
+from fds.sdk.EventsandTranscripts.model.time_zones_response_data import TimeZonesResponseData
+from fds.sdk.EventsandTranscripts.model.transcripts_by_date_request import TranscriptsByDateRequest
+from fds.sdk.EventsandTranscripts.model.transcripts_by_events_request import TranscriptsByEventsRequest
+from fds.sdk.EventsandTranscripts.model.transcripts_by_ids_request import TranscriptsByIdsRequest
+from fds.sdk.EventsandTranscripts.model.transcripts_by_ids_response import TranscriptsByIdsResponse
+from fds.sdk.EventsandTranscripts.model.transcripts_by_search_request import TranscriptsBySearchRequest
+from fds.sdk.EventsandTranscripts.model.transcripts_by_times_request import TranscriptsByTimesRequest
+from fds.sdk.EventsandTranscripts.model.transcripts_collection import TranscriptsCollection
+from fds.sdk.EventsandTranscripts.model.transcripts_intelligence_response import TranscriptsIntelligenceResponse
+from fds.sdk.EventsandTranscripts.model.transcripts_intelligence_response_data import TranscriptsIntelligenceResponseData
+from fds.sdk.EventsandTranscripts.model.transcripts_request import TranscriptsRequest
+from fds.sdk.EventsandTranscripts.model.transcripts_request_data import TranscriptsRequestData
+from fds.sdk.EventsandTranscripts.model.transcripts_request_meta import TranscriptsRequestMeta
+from fds.sdk.EventsandTranscripts.model.transcripts_request_meta_pagination import TranscriptsRequestMetaPagination
+from fds.sdk.EventsandTranscripts.model.transcripts_response import TranscriptsResponse
+from fds.sdk.EventsandTranscripts.model.transcripts_response_data import TranscriptsResponseData

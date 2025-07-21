@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Security Explanation API
-  version: 1.1.0
+  version: 1.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/security-explanation-api
@@ -865,12 +865,15 @@ components:
       example:
         enableLinks: false
         includePerformance: false
+        includeInternalInvestmentRationaleRecommendation: true
         explanationStyle: short
         endDate: 2024-01-15T00:00:00.000+0000
         internalInvestmentRationale: none
+        includeMarketSummary: true
         id: FDS-US
         startDate: 2024-01-01T00:00:00.000+0000
         includeCompanyDescription: false
+        includeInternalInvestmentRationalePriceTarget: true
       properties:
         id:
           description: Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs,
@@ -924,6 +927,26 @@ components:
             if 'includePerformance' is false, it will be omitted
           example: false
           type: boolean
+        includeMarketSummary:
+          default: true
+          description: If true, Includes another paragraph detailing macro news influencing
+            the target company.
+          example: true
+          type: boolean
+        includeInternalInvestmentRationaleRecommendation:
+          default: true
+          description: If true, Includes recommendation from IRN. If you don't have
+            a recommendation, it will be omitted. If 'internalInvestmentRationale'
+            is set to 'none', this will be ignored.
+          example: true
+          type: boolean
+        includeInternalInvestmentRationalePriceTarget:
+          default: true
+          description: If true, Includes price target from IRN. If you don't have
+            a price target, it will be omitted. If 'internalInvestmentRationale' is
+            set to 'none', this will be ignored.
+          example: true
+          type: boolean
       required:
       - endDate
       - id
@@ -935,12 +958,15 @@ components:
         data:
           enableLinks: false
           includePerformance: false
+          includeInternalInvestmentRationaleRecommendation: true
           explanationStyle: short
           endDate: 2024-01-15T00:00:00.000+0000
           internalInvestmentRationale: none
+          includeMarketSummary: true
           id: FDS-US
           startDate: 2024-01-01T00:00:00.000+0000
           includeCompanyDescription: false
+          includeInternalInvestmentRationalePriceTarget: true
       properties:
         data:
           $ref: '#/components/schemas/SecurityExplanationRequestParameters'

@@ -1,4 +1,5 @@
 # FactSet.SDK.FactSetGeoRev.Model.Region
+Region response object for AAPL-USA
 
 ## Properties
 

@@ -49,6 +49,7 @@ from fds.sdk.FactSetFunds.model.group_holding import GroupHolding
 from fds.sdk.FactSetFunds.model.group_holdings_request import GroupHoldingsRequest
 from fds.sdk.FactSetFunds.model.group_holdings_response import GroupHoldingsResponse
 from fds.sdk.FactSetFunds.model.ids import Ids
+from fds.sdk.FactSetFunds.model.lang import Lang
 from fds.sdk.FactSetFunds.model.managers import Managers
 from fds.sdk.FactSetFunds.model.managers_request import ManagersRequest
 from fds.sdk.FactSetFunds.model.managers_response import ManagersResponse

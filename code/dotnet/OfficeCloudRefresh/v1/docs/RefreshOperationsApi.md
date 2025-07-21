@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 <a name="postworkbook"></a>
 # **PostWorkbook**
-> JobStatus PostWorkbook (System.IO.Stream body, bool? nowHandlingEnabled = null, bool? refreshAutoFilters = null, bool? resizeArrays = null)
+> JobStatus PostWorkbook (System.IO.Stream body, bool? nowHandlingEnabled = null, bool? refreshAutoFilters = null, bool? resizeArrays = null, bool? waiveXlsmSignature = null)
 
 Refresh a spreadsheet file
 
@@ -287,11 +287,12 @@ namespace Example
             var nowHandlingEnabled = true;  // bool? | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional) 
             var refreshAutoFilters = true;  // bool? | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional) 
             var resizeArrays = true;  // bool? | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional) 
+            var waiveXlsmSignature = true;  // bool? | Option to waive signature checking for macro-enabled (.xlsm) file (optional) 
 
             try
             {
                 // Refresh a spreadsheet file
-                JobStatus result = apiInstance.PostWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays);
+                JobStatus result = apiInstance.PostWorkbook(body, nowHandlingEnabled, refreshAutoFilters, resizeArrays, waiveXlsmSignature);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -313,6 +314,7 @@ Name | Type | Description  | Notes
  **nowHandlingEnabled** | **bool?**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional] 
  **refreshAutoFilters** | **bool?**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
  **resizeArrays** | **bool?**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional] 
+ **waiveXlsmSignature** | **bool?**| Option to waive signature checking for macro-enabled (.xlsm) file | [optional] 
 
 ### Return type
 [**JobStatus**](JobStatus.md)

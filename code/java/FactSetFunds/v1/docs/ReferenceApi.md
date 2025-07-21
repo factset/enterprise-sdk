@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 
 ## getFundsSummary
 
-> SummariesResponse getFundsSummary(ids)
+> SummariesResponse getFundsSummary(ids, lang)
 
 Get basic reference summary data for a Fund.
 
@@ -870,8 +870,9 @@ public class Example {
 
         ReferenceApi apiInstance = new ReferenceApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
+        String lang = "ENGLISH"; // String | Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \"FRENCH\" is passed. 
         try {
-            SummariesResponse result = apiInstance.getFundsSummary(ids);
+            SummariesResponse result = apiInstance.getFundsSummary(ids, lang);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -891,6 +892,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
+ **lang** | **String**| Language to be returned for Description, Insight (Overview), and Objective attributes, where available. Currently French will be returned for U.S. funds when \&quot;FRENCH\&quot; is passed.  | [optional] [default to ENGLISH] [enum: ENGLISH, FRENCH]
 
 ### Return type
 

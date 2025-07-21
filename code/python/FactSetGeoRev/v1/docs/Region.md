@@ -1,5 +1,6 @@
 # Region
 
+Region response object for AAPL-USA
 
 ## Properties
 Name | Type | Description | Notes

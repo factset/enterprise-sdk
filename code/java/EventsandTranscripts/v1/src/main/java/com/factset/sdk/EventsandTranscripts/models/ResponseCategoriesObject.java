@@ -60,11 +60,11 @@ public class ResponseCategoriesObject implements Serializable {
   }
 
    /**
-   * subject code
+   * The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details.  
    * @return subject
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "SB", value = "subject code")
+  @ApiModelProperty(example = "SB", value = "The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details.  ")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

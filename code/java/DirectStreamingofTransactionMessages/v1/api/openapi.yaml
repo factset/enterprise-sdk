@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: dsotm API
-  version: 1.6.0
+  version: 1.9.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/direct-streaming-transaction-messages-api
@@ -58,6 +58,14 @@ paths:
         "400":
           content:
             application/json:
+              examples:
+                "404 - Path Not Found":
+                  value:
+                    errors:
+                    - id: 668BDDBB7D633388
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid POST body.
@@ -313,11 +321,13 @@ components:
           description: Price related to limit and stopLimit order types
           example: 420.25
           format: double
+          nullable: true
           type: number
         stopPrice:
           description: Price related to stop and stopLimit order types
           example: 421.25
           format: double
+          nullable: true
           type: number
         tif:
           description: Time In Force of the Order
@@ -326,6 +336,11 @@ components:
           - goodTilDate
           - day
           - week
+          - atMarketOpen
+          - atMarketClose
+          - immediateOrCancel
+          - fillOrKill
+          - goodTilCrossing
           example: goodTilCancel
           type: string
         tifDate:
@@ -387,7 +402,7 @@ components:
         instrumentName:
           description: Name or description of the traded instrument
           example: FactSet Research Systems
-          maxLength: 32
+          maxLength: 252
           minLength: 0
           type: string
         side:
@@ -442,6 +457,7 @@ components:
           - unchecked
           - pass
           - fail
+          - warn
           example: unchecked
           type: string
         addedDateTime:
@@ -560,11 +576,13 @@ components:
           description: Price related to limit and stopLimit order types
           example: 420.25
           format: double
+          nullable: true
           type: number
         stopPrice:
           description: Price related to stop and stopLimit order types
           example: 421.25
           format: double
+          nullable: true
           type: number
         tif:
           description: Time In Force of the Placement
@@ -573,6 +591,11 @@ components:
           - goodTilDate
           - day
           - week
+          - atMarketOpen
+          - atMarketClose
+          - immediateOrCancel
+          - fillOrKill
+          - goodTilCrossing
           example: goodTilCancel
           type: string
         tifDate:
@@ -614,7 +637,7 @@ components:
         instrumentName:
           description: Name or description of the traded instrument
           example: FactSet Research Systems
-          maxLength: 32
+          maxLength: 252
           minLength: 0
           type: string
         side:
@@ -669,6 +692,7 @@ components:
           - unchecked
           - pass
           - fail
+          - warn
           example: unchecked
           type: string
         addedDateTime:
@@ -880,7 +904,7 @@ components:
         instrumentName:
           description: Name or description of the traded instrument
           example: FactSet Research Systems
-          maxLength: 32
+          maxLength: 252
           minLength: 0
           type: string
         side:
@@ -935,6 +959,7 @@ components:
           - unchecked
           - pass
           - fail
+          - warn
           example: unchecked
           type: string
         addedDateTime:

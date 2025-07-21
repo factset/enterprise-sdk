@@ -277,12 +277,13 @@ with fds.sdk.OfficeCloudRefresh.ApiClient(configuration) as api_client:
     now_handling_enabled = True # bool | Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. (optional)
     refresh_auto_filters = True # bool | Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
     resize_arrays = True # bool | Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds (optional)
+    waive_xlsm_signature = True # bool | Option to waive signature checking for macro-enabled (.xlsm) file (optional)
 
     try:
         # Refresh a spreadsheet file
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_workbook(body, now_handling_enabled=now_handling_enabled, refresh_auto_filters=refresh_auto_filters, resize_arrays=resize_arrays)
+        api_response = api_instance.post_workbook(body, now_handling_enabled=now_handling_enabled, refresh_auto_filters=refresh_auto_filters, resize_arrays=resize_arrays, waive_xlsm_signature=waive_xlsm_signature)
 
         pprint(api_response)
 
@@ -299,6 +300,7 @@ Name | Type | Description  | Notes
  **now_handling_enabled** | **bool**| Return \\#VALUE for &#x3D;FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118. | [optional]
  **refresh_auto_filters** | **bool**| Option to refresh &#x3D;FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
  **resize_arrays** | **bool**| Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds | [optional]
+ **waive_xlsm_signature** | **bool**| Option to waive signature checking for macro-enabled (.xlsm) file | [optional]
 
 ### Return type
 

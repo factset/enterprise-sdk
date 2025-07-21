@@ -56,10 +56,10 @@ public class Relationships implements Serializable {
   private String companyName;
 
   public static final String JSON_PROPERTY_OVERLAPPING_PRODUCT_COUNT = "overlappingProductCount";
-  private String overlappingProductCount;
+  private JsonNullable<String> overlappingProductCount = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OVERLAP_PERCENTAGE = "overlapPercentage";
-  private Integer overlapPercentage;
+  private JsonNullable<Integer> overlapPercentage = JsonNullable.<Integer>undefined();
 
   /**
    * Direction of Relationship indicates which company (target or source) determined the relationship.
@@ -168,7 +168,7 @@ public class Relationships implements Serializable {
 
 
   public Relationships overlappingProductCount(String overlappingProductCount) {
-    this.overlappingProductCount = overlappingProductCount;
+    this.overlappingProductCount = JsonNullable.<String>of(overlappingProductCount);
     return this;
   }
 
@@ -178,23 +178,31 @@ public class Relationships implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "28 of 138", value = "Number of Product Overlap is determined by how many sectors matches in named products (determined by Revere Hierarchy) there are in a given relationship between the source and target company.")
-  @JsonProperty(JSON_PROPERTY_OVERLAPPING_PRODUCT_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getOverlappingProductCount() {
-    return overlappingProductCount;
+        return overlappingProductCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OVERLAPPING_PRODUCT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOverlappingProductCount(String overlappingProductCount) {
+
+  public JsonNullable<String> getOverlappingProductCount_JsonNullable() {
+    return overlappingProductCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OVERLAPPING_PRODUCT_COUNT)
+  public void setOverlappingProductCount_JsonNullable(JsonNullable<String> overlappingProductCount) {
     this.overlappingProductCount = overlappingProductCount;
+  }
+
+  public void setOverlappingProductCount(String overlappingProductCount) {
+    this.overlappingProductCount = JsonNullable.<String>of(overlappingProductCount);
   }
 
 
   public Relationships overlapPercentage(Integer overlapPercentage) {
-    this.overlapPercentage = overlapPercentage;
+    this.overlapPercentage = JsonNullable.<Integer>of(overlapPercentage);
     return this;
   }
 
@@ -204,18 +212,26 @@ public class Relationships implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "20", value = "Product Overlap Percentage is the percent value of the preceding overlapping product count data item.")
-  @JsonProperty(JSON_PROPERTY_OVERLAP_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getOverlapPercentage() {
-    return overlapPercentage;
+        return overlapPercentage.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OVERLAP_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOverlapPercentage(Integer overlapPercentage) {
+
+  public JsonNullable<Integer> getOverlapPercentage_JsonNullable() {
+    return overlapPercentage;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OVERLAP_PERCENTAGE)
+  public void setOverlapPercentage_JsonNullable(JsonNullable<Integer> overlapPercentage) {
     this.overlapPercentage = overlapPercentage;
+  }
+
+  public void setOverlapPercentage(Integer overlapPercentage) {
+    this.overlapPercentage = JsonNullable.<Integer>of(overlapPercentage);
   }
 
 
@@ -285,8 +301,8 @@ public class Relationships implements Serializable {
     Relationships relationships = (Relationships) o;
     return equalsNullable(this.entityId, relationships.entityId) &&
         Objects.equals(this.companyName, relationships.companyName) &&
-        Objects.equals(this.overlappingProductCount, relationships.overlappingProductCount) &&
-        Objects.equals(this.overlapPercentage, relationships.overlapPercentage) &&
+        equalsNullable(this.overlappingProductCount, relationships.overlappingProductCount) &&
+        equalsNullable(this.overlapPercentage, relationships.overlapPercentage) &&
         Objects.equals(this.relationshipDirection, relationships.relationshipDirection) &&
         Objects.equals(this.requestId, relationships.requestId);
   }
@@ -297,7 +313,7 @@ public class Relationships implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(entityId), companyName, overlappingProductCount, overlapPercentage, relationshipDirection, requestId);
+    return Objects.hash(hashCodeNullable(entityId), companyName, hashCodeNullable(overlappingProductCount), hashCodeNullable(overlapPercentage), relationshipDirection, requestId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

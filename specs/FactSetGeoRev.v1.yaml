@@ -1,10 +1,14 @@
 openapi: 3.0.0
 info:
-  version: 1.0.1
+  version: 1.0.2
   title: FactSet GeoRev API
   contact:
     name: FactSet Research Systems
     email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   description: >
     FactSet Revere Geographic Revenue ("GeoRev") Exposure data provides a highly
     structured and normalized display of companies' revenues by geography. Using
@@ -33,6 +37,9 @@ info:
     Non-US data from 2007. For more details, visit [OA
     17555](https://my.apps.factset.com/oa/pages/17555)</p><p><b>Rate limit is
     set to 10 requests per second</b>.</p>
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-georev-api
 servers:
   - url: https://api.factset.com/content
     description: Production
@@ -74,7 +81,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/regionResponse'
+                $ref: '#/components/schemas/RegionResponse'
               examples:
                 Regions response for 'AAPL-USA':
                   $ref: '#/components/examples/RegionsResponse'
@@ -109,7 +116,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/regionRequest'
+              $ref: '#/components/schemas/RegionRequest'
             examples:
               Regions request:
                 $ref: '#/components/examples/postRegions'
@@ -121,7 +128,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/regionResponse'
+                $ref: '#/components/schemas/RegionResponse'
               examples:
                 Regions response for 'AAPL-USA':
                   $ref: '#/components/examples/RegionsResponse'
@@ -164,7 +171,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/countryResponse'
+                $ref: '#/components/schemas/CountryResponse'
               examples:
                 Country response for 'AAPL-USA':
                   $ref: '#/components/examples/CountriesResponse'
@@ -202,7 +209,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/countryRequest'
+              $ref: '#/components/schemas/CountryRequest'
             examples:
               Countries request:
                 $ref: '#/components/examples/postCountries'
@@ -214,7 +221,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/countryResponse'
+                $ref: '#/components/schemas/CountryResponse'
               examples:
                 Country response for 'AAPL-USA':
                   $ref: '#/components/examples/CountriesResponse'
@@ -252,13 +259,13 @@ components:
       required: true
       explode: false
       description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
-        SEDOL are accepted input. <p>***ids limit** =  300 per request*</p>
-        *<p>Make note, GET Method URL request lines are also limited to a total
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands of ids, which may lead to exceeding this request line limit of
-        8KB, its advised for any requests with large request lines to be
-        requested through the respective "POST" method.</p>*
+        Accepts various security or entity identifiers, including FactSet IDs,
+        tickers, CUSIP, SEDOL, and Fund IDs. <p>***ids limit** =  300 per
+        request*</p> *<p>Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, its advised for any requests with large
+        request lines to be requested through the respective "POST" method.</p>*
       examples:
         oneId:
           summary: One Market Identifier
@@ -461,37 +468,39 @@ components:
           * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
           
   schemas:
-    regionRequest:
+    RegionRequest:
       title: Region Request Body
       description: Region Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/ids'
+          $ref: '#/components/schemas/Ids'
         regionIds:
-          $ref: '#/components/schemas/regionIds'
+          $ref: '#/components/schemas/RegionIds'
         startDate:
-          $ref: '#/components/schemas/startDate'
+          $ref: '#/components/schemas/StartDate'
         endDate:
-          $ref: '#/components/schemas/endDate'
+          $ref: '#/components/schemas/EndDate'
         frequency:
-          $ref: '#/components/schemas/frequency'
+          $ref: '#/components/schemas/Frequency'
         currency:
-          $ref: '#/components/schemas/currency'
+          $ref: '#/components/schemas/Currency'
       required:
         - ids
-    regionResponse:
+    RegionResponse:
       type: object
       title: Region Response
+      description: Region response for AAPL-USA
       properties:
         data:
           description: Array of Region Objects
           type: array
           items:
-            $ref: '#/components/schemas/region'
-    region:
+            $ref: '#/components/schemas/Region'
+    Region:
       title: Region Object
       type: object
+      description: Region response object for AAPL-USA
       properties:
         date:
           description: Ending date for the period requested expressed in YYYY-MM-DD format.
@@ -637,37 +646,39 @@ components:
           format: date
           example: '2019-09-28'
           nullable: true
-    countryRequest:
+    CountryRequest:
       title: Country Request Body
       description: Country Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/ids'
+          $ref: '#/components/schemas/Ids'
         countryIds:
-          $ref: '#/components/schemas/countryIds'
+          $ref: '#/components/schemas/CountryIds'
         startDate:
-          $ref: '#/components/schemas/startDate'
+          $ref: '#/components/schemas/StartDate'
         endDate:
-          $ref: '#/components/schemas/endDate'
+          $ref: '#/components/schemas/EndDate'
         frequency:
-          $ref: '#/components/schemas/frequency'
+          $ref: '#/components/schemas/Frequency'
         currency:
-          $ref: '#/components/schemas/currency'
+          $ref: '#/components/schemas/Currency'
       required:
         - ids
-    countryResponse:
+    CountryResponse:
       type: object
       title: Country Response
+      description: Country response for AAPL-USA
       properties:
         data:
           description: Array of Country Objects
           type: array
           items:
-            $ref: '#/components/schemas/country'
-    country:
+            $ref: '#/components/schemas/Country'
+    Country:
       title: Country Object
       type: object
+      description: Country response object for AAPL-USA
       properties:
         date:
           description: Ending date for the period requested expressed in YYYY-MM-DD format.
@@ -748,7 +759,7 @@ components:
             value. **Please see OA page 17555 for more details **.
           type: number
           format: double
-          example: 1
+          example: 1.01
           nullable: true
         countryName:
           description: The Country Name in proper format, describing the ISO2 Country Code.
@@ -812,23 +823,23 @@ components:
           format: date
           example: '2019-09-28'
           nullable: true
-    ids:
+    Ids:
       type: array
       items:
         type: string
       minItems: 1
       maxItems: 300
       description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
-        SEDOL are accepted input. <p>***ids limit** =  300 per request*</p>
-        *<p>Make note, GET Method URL request lines are also limited to a total
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands of ids, which may lead to exceeding this request line limit of
-        8KB, its advised for any requests with large request lines to be
-        requested through the respective "POST" method.</p>*
+        Accepts various security or entity identifiers, including FactSet IDs,
+        tickers, CUSIP, SEDOL, and Fund IDs. <p>***ids limit** =  300 per
+        request*</p> *<p>Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, its advised for any requests with large
+        request lines to be requested through the respective "POST" method.</p>*
       example:
         - AAPL-USA
-    startDate:
+    StartDate:
       type: string
       description: >
         The start date requested for a given date range in **YYYY-MM-DD**
@@ -836,7 +847,7 @@ components:
         Daily. If left blank, the API will default to previous close. Future
         dates (T+1) are not accepted in this endpoint.
       example: '2019-01-01'
-    endDate:
+    EndDate:
       type: string
       description: >
         The end date requested for a given date range in **YYYY-MM-DD** format.
@@ -844,14 +855,14 @@ components:
         left blank, the API will default to previous close. Future dates (T+1)
         are not accepted in this endpoint.
       example: '2019-12-31'
-    currency:
+    Currency:
       type: string
       description: >-
         Currency code for adjusting the revenue data. For a list of currency ISO
         codes, visit [Online Assistant Page
         #1470](https://oa.apps.factset.com/pages/1470).
       example: USD
-    regionIds:
+    RegionIds:
       type: array
       default:
         - SUPER_REGIONS
@@ -949,7 +960,7 @@ components:
         - R101
         - R101
         - R167
-    countryIds:
+    CountryIds:
       type: array
       default:
         - ALL
@@ -967,7 +978,7 @@ components:
       example:
         - US
         - CN
-    frequency:
+    Frequency:
       type: string
       enum:
         - D
@@ -992,9 +1003,10 @@ components:
           * **AY** = Actual Annual, based on the start date.
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
           * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
-    errorResponse:
+    ErrorResponse:
       type: object
       title: Error Response
+      description: Error response object
       properties:
         status:
           description: status
@@ -1003,7 +1015,7 @@ components:
         timestamp:
           description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
           type: string
-          example: '2019-11-01 11:09:41.918'
+          example: '2019-11-01T11:09:41.918Z'
           format: date-time
         path:
           description: The Endpoint path {package}/version/{endpoint}
@@ -1016,6 +1028,7 @@ components:
         subErrors:
           description: subErrors related to the error message. Null if not applicable.
           type: object
+          nullable: true
           properties:
             object:
               description: the operation ID
@@ -1039,7 +1052,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/badRequestDateFormat'
@@ -1063,7 +1076,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
@@ -1076,7 +1089,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/forbidden'
@@ -1089,7 +1102,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/unsupportedMediaType'
@@ -1098,7 +1111,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Internal Server Error - Not Writable:
               $ref: '#/components/examples/notWritable'
@@ -1112,7 +1125,7 @@ components:
         date parameters. To resolve, convert your date to YYYY-MM-DD.
       value:
         status: Bad Request
-        timestamp: '2019-10-31 16:08:07.945'
+        timestamp: '2019-10-31T16:08:07.945Z'
         path: /factset-georev/v1/{endpoint}
         message: >-
           The date parameter 'startDate' must be in the following date format:
@@ -1126,7 +1139,7 @@ components:
         symbol in the specification file.
       value:
         status: Bad Request
-        timestamp: '2020-06-12 15:48:42.016'
+        timestamp: '2020-06-12T15:48:42.016Z'
         path: /factset-georev/v1/{endpoint}
         message: The parameter 'ids' is required and may not be empty.
         subErrors: null
@@ -1138,7 +1151,7 @@ components:
         dates as of today's current date or any prior historical date.
       value:
         status: Bad Request
-        timestamp: '2020-06-12 15:52:48.091'
+        timestamp: '2020-06-12T15:52:48.091Z'
         path: /factset-georev/v1/{endpoint}
         message: >-
           The use of future dates is not applicable in this endpoint. Please
@@ -1153,7 +1166,7 @@ components:
         spelling mistakes and use of improper casing.
       value:
         status: Bad Request
-        timestamp: '2020-06-12 15:58:54.068'
+        timestamp: '2020-06-12T15:58:54.068Z'
         path: /factset-georev/v1/{endpoint}
         message: >-
           Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
@@ -1167,7 +1180,7 @@ components:
         but is not in proper JSON format.
       value:
         status: Bad Request
-        timestamp: '2019-11-05 09:48:29.18'
+        timestamp: '2019-11-05T09:48:29.18Z'
         path: /factset-georev/v1/{endpoint}
         message: Malformed JSON Request
         subErrors: null
@@ -1178,7 +1191,7 @@ components:
         from the data fetch service.
       value:
         status: Bad Request
-        timestamp: '2019-11-04 16:18:38.949'
+        timestamp: '2019-11-04T16:18:38.949Z'
         path: /factset-georev/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
@@ -1260,7 +1273,7 @@ components:
             requestId: AAPL-USA
             countryCertaintyClass: A
             countryCertaintyRank: 80
-            countryConfidence: 1
+            countryConfidence: 1.01
             countryName: United States
             countryPercent: 39.306771
             countryRevenue: 102185.02643328
@@ -1289,7 +1302,7 @@ components:
         Report Issue under 401 error for help with troubleshooting.
       value:
         status: User Authentication Failed
-        timestamp: '2019-10-31 16:08:07.945'
+        timestamp: '2019-10-31T16:08:07.945Z'
         path: /factset-georev/v1/{endpoint}
         message: User Authentication Failed.
         subErrors: null
@@ -1302,7 +1315,7 @@ components:
         authorization.
       value:
         status: Forbidden
-        timestamp: '2020-06-12 16:08:51.731'
+        timestamp: '2020-06-12T16:08:51.731Z'
         path: /factset-georev/v1/{endpoint}
         message: >-
           USERNAME-SERIAL does not have permission to use /factset-georev
@@ -1315,7 +1328,7 @@ components:
         supported. Currently the APIs only support 'application/json'.
       value:
         status: Unsupported Media Type
-        timestamp: '2019-11-05 09:42:27.237'
+        timestamp: '2019-11-05T09:42:27.237Z'
         path: /factset-georev/v1/{endpoint}
         message: >-
           text/html media type is not supported. Supported media types are
@@ -1328,7 +1341,7 @@ components:
         the JSON response.
       value:
         status: Internal Server Error
-        timestamp: '2019-11-05 09:48:29.18'
+        timestamp: '2019-11-05T09:48:29.18Z'
         path: /factset-georev/v1/{endpoint}
         message: Error writing JSON output
         subErrors: null
@@ -1339,7 +1352,7 @@ components:
         Please `Report Issue` to FactSet.
       value:
         status: Internal Server Error
-        timestamp: '2019-11-01 10:36:01.944'
+        timestamp: '2019-11-01T10:36:01.944Z'
         path: /factset-georev/v1/{endpoint}
         message: Unexpected error
         subErrors: null

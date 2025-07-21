@@ -19,7 +19,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Funds API
-  version: 1.3.0
+  version: 1.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-funds-api
@@ -74,6 +74,21 @@ paths:
           maxItems: 1000
           minItems: 1
           type: array
+        style: form
+      - description: |
+          Language to be returned for Description, Insight (Overview), and Objective attributes, where available.
+          Currently French will be returned for U.S. funds when "FRENCH" is passed.
+        example: ENGLISH
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: ENGLISH
+          enum:
+          - ENGLISH
+          - FRENCH
+          type: string
         style: form
       responses:
         "200":
@@ -4227,6 +4242,7 @@ components:
         ids:
         - MABAX
         - FCNTX
+        lang: ENGLISH
     postClassifications:
       summary: Fund Classifications for MABAX and FCNTX
       value:
@@ -4336,6 +4352,7 @@ components:
           activelyManagedFlag: 1
           brand: BlackRock
           countryDomicile: US
+          countryOfRegistration: US
           currency: USD
           descInfo: The fund seeks capital appreciation and income from an actively
             managed portfolio of US large-cap value stocks.
@@ -4912,7 +4929,7 @@ components:
           totalDistributions: 3.16187341965815
           returnOfCapital: 3.16187341965815
           qualifiedDividends: 3.16187341965815
-          nonQalifiedDividends: 3.16187341965815
+          nonQualifiedDividends: 3.16187341965815
           dailyAccruedDividends: 3.16187341965815
           stCapitalGains: 3.16187341965815
           ltCapitalGains: 3.16187341965815
@@ -4936,7 +4953,7 @@ components:
           totalDistributions: 3.16187341965815
           returnOfCapital: 3.16187341965815
           qualifiedDividends: 3.16187341965815
-          nonQalifiedDividends: 3.16187341965815
+          nonQualifiedDividends: 3.16187341965815
           dailyAccruedDividends: 3.16187341965815
           stCapitalGains: 3.16187341965815
           ltCapitalGains: 3.16187341965815
@@ -5091,6 +5108,22 @@ components:
         maxItems: 1000
         minItems: 1
         type: array
+      style: form
+    lang:
+      description: |
+        Language to be returned for Description, Insight (Overview), and Objective attributes, where available.
+        Currently French will be returned for U.S. funds when "FRENCH" is passed.
+      example: ENGLISH
+      explode: true
+      in: query
+      name: lang
+      required: false
+      schema:
+        default: ENGLISH
+        enum:
+        - ENGLISH
+        - FRENCH
+        type: string
       style: form
     costsFeesIds:
       description: |
@@ -5431,6 +5464,8 @@ components:
           maxItems: 1000
           minItems: 1
           type: array
+        lang:
+          $ref: '#/components/schemas/lang'
       required:
       - ids
       title: Summaries Request Body
@@ -5471,6 +5506,7 @@ components:
           leverageInverse: Neither
           brand: BlackRock
           shrClsActivelyManagedFlag: 1
+          countryOfRegistration: US
           navCurrency: USD
           fsymRegionalId: SJY03Z-R
           activeFlag: 1
@@ -5520,6 +5556,7 @@ components:
           leverageInverse: Neither
           brand: BlackRock
           shrClsActivelyManagedFlag: 1
+          countryOfRegistration: US
           navCurrency: USD
           fsymRegionalId: SJY03Z-R
           activeFlag: 1
@@ -5578,6 +5615,7 @@ components:
         leverageInverse: Neither
         brand: BlackRock
         shrClsActivelyManagedFlag: 1
+        countryOfRegistration: US
         navCurrency: USD
         fsymRegionalId: SJY03Z-R
         activeFlag: 1
@@ -5651,6 +5689,12 @@ components:
         countryDomicile:
           description: Returns the fund's country of domicile in ISO2 format. Only
             available for Mutual Funds.
+          example: US
+          nullable: true
+          type: string
+        countryOfRegistration:
+          description: Countries where the mutual fund is registered and is available
+            for sale, represented as ISO 3166 2-letter country codes.
           example: US
           nullable: true
           type: string
@@ -6973,7 +7017,7 @@ components:
       example:
         data:
         - date: 2021-02-26T00:00:00.000+0000
-          nonQalifiedDividends: 3.16187341965815
+          nonQualifiedDividends: 3.16187341965815
           sevenDayGrossSecYield: 3.16187341965815
           distFrequency: Annual
           firstDistDate: 2021-02-26T00:00:00.000+0000
@@ -6992,7 +7036,7 @@ components:
           thirtyDayNetSecYield: 3.16187341965815
           qualifiedDividends: 3.16187341965815
         - date: 2021-02-26T00:00:00.000+0000
-          nonQalifiedDividends: 3.16187341965815
+          nonQualifiedDividends: 3.16187341965815
           sevenDayGrossSecYield: 3.16187341965815
           distFrequency: Annual
           firstDistDate: 2021-02-26T00:00:00.000+0000
@@ -7021,7 +7065,7 @@ components:
     distCurrent:
       example:
         date: 2021-02-26T00:00:00.000+0000
-        nonQalifiedDividends: 3.16187341965815
+        nonQualifiedDividends: 3.16187341965815
         sevenDayGrossSecYield: 3.16187341965815
         distFrequency: Annual
         firstDistDate: 2021-02-26T00:00:00.000+0000
@@ -7076,7 +7120,7 @@ components:
           format: double
           nullable: true
           type: number
-        nonQalifiedDividends:
+        nonQualifiedDividends:
           description: Non-Qualified Dividends.
           example: 3.16187341965815
           format: double
@@ -7200,7 +7244,7 @@ components:
       example:
         data:
         - date: 2021-02-26T00:00:00.000+0000
-          nonQalifiedDividends: 3.16187341965815
+          nonQualifiedDividends: 3.16187341965815
           sevenDayGrossSecYield: 3.16187341965815
           totalDistributions: 3.16187341965815
           returnOfCapital: 3.16187341965815
@@ -7215,7 +7259,7 @@ components:
           thirtyDayNetSecYield: 3.16187341965815
           qualifiedDividends: 3.16187341965815
         - date: 2021-02-26T00:00:00.000+0000
-          nonQalifiedDividends: 3.16187341965815
+          nonQualifiedDividends: 3.16187341965815
           sevenDayGrossSecYield: 3.16187341965815
           totalDistributions: 3.16187341965815
           returnOfCapital: 3.16187341965815
@@ -7240,7 +7284,7 @@ components:
     distHistorical:
       example:
         date: 2021-02-26T00:00:00.000+0000
-        nonQalifiedDividends: 3.16187341965815
+        nonQualifiedDividends: 3.16187341965815
         sevenDayGrossSecYield: 3.16187341965815
         totalDistributions: 3.16187341965815
         returnOfCapital: 3.16187341965815
@@ -7291,7 +7335,7 @@ components:
           format: double
           nullable: true
           type: number
-        nonQalifiedDividends:
+        nonQualifiedDividends:
           description: Qualified Dividends.
           example: 3.16187341965815
           format: double
@@ -7837,6 +7881,17 @@ components:
       maxItems: 1000
       minItems: 1
       type: array
+    lang:
+      default: ENGLISH
+      description: |
+        Language to be returned for Description, Insight (Overview), and Objective attributes, where available.
+        Currently French will be returned for U.S. funds when "FRENCH" is passed.
+      enum:
+      - ENGLISH
+      - FRENCH
+      example: ENGLISH
+      title: lang
+      type: string
     costsFeesIds:
       description: |
         The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*

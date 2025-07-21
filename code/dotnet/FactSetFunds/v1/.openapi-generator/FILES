@@ -46,6 +46,7 @@ docs/GroupHoldingsApi.md
 docs/GroupHoldingsRequest.md
 docs/GroupHoldingsResponse.md
 docs/HelperApi.md
+docs/Lang.md
 docs/Managers.md
 docs/ManagersRequest.md
 docs/ManagersResponse.md
@@ -135,6 +136,7 @@ src/FactSet.SDK.FactSetFunds/Model/Group.cs
 src/FactSet.SDK.FactSetFunds/Model/GroupHolding.cs
 src/FactSet.SDK.FactSetFunds/Model/GroupHoldingsRequest.cs
 src/FactSet.SDK.FactSetFunds/Model/GroupHoldingsResponse.cs
+src/FactSet.SDK.FactSetFunds/Model/Lang.cs
 src/FactSet.SDK.FactSetFunds/Model/Managers.cs
 src/FactSet.SDK.FactSetFunds/Model/ManagersRequest.cs
 src/FactSet.SDK.FactSetFunds/Model/ManagersResponse.cs

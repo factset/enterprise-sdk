@@ -109,10 +109,10 @@ class RelationshipDirection(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): relationshipDirection ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
+            args[0] (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
 
         Keyword Args:
-            value (str): relationshipDirection ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
+            value (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -199,10 +199,10 @@ class RelationshipDirection(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): relationshipDirection ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
+            args[0] (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
 
         Keyword Args:
-            value (str): relationshipDirection ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
+            value (str): Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company. ., must be one of ["ALL", "DIRECT", "REVERSE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

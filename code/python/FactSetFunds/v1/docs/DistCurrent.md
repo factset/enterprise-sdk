@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **total_distributions** | **float, none_type** | Total Distributions. | [optional] 
 **return_of_capital** | **float, none_type** | Return on Capital. | [optional] 
 **qualified_dividends** | **float, none_type** | Qualified Dividends. | [optional] 
-**non_qalified_dividends** | **float, none_type** | Non-Qualified Dividends. | [optional] 
+**non_qualified_dividends** | **float, none_type** | Non-Qualified Dividends. | [optional] 
 **daily_accrued_dividends** | **float, none_type** | Daily Accrued Dividends. | [optional] 
 **st_capital_gains** | **float, none_type** | Short-Term Capital Gains. | [optional] 
 **lt_capital_gains** | **float, none_type** | Long-Term Capital Gains. | [optional] 

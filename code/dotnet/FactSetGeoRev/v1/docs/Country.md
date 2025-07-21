@@ -1,4 +1,5 @@
 # FactSet.SDK.FactSetGeoRev.Model.Country
+Country response object for AAPL-USA
 
 ## Properties
 

@@ -237,6 +237,7 @@ class RefreshOperationsApi(object):
                     'now_handling_enabled',
                     'refresh_auto_filters',
                     'resize_arrays',
+                    'waive_xlsm_signature',
                 ],
                 'required': [
                     'body',
@@ -262,17 +263,21 @@ class RefreshOperationsApi(object):
                         (bool,),
                     'resize_arrays':
                         (bool,),
+                    'waive_xlsm_signature':
+                        (bool,),
                 },
                 'attribute_map': {
                     'now_handling_enabled': 'nowHandlingEnabled',
                     'refresh_auto_filters': 'refreshAutoFilters',
                     'resize_arrays': 'resizeArrays',
+                    'waive_xlsm_signature': 'waiveXlsmSignature',
                 },
                 'location_map': {
                     'body': 'body',
                     'now_handling_enabled': 'query',
                     'refresh_auto_filters': 'query',
                     'resize_arrays': 'query',
+                    'waive_xlsm_signature': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -707,6 +712,7 @@ class RefreshOperationsApi(object):
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
             refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            waive_xlsm_signature (bool): Option to waive signature checking for macro-enabled (.xlsm) file. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -757,6 +763,7 @@ class RefreshOperationsApi(object):
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
             refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            waive_xlsm_signature (bool): Option to waive signature checking for macro-enabled (.xlsm) file. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -811,6 +818,7 @@ class RefreshOperationsApi(object):
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
             refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            waive_xlsm_signature (bool): Option to waive signature checking for macro-enabled (.xlsm) file. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -860,6 +868,7 @@ class RefreshOperationsApi(object):
             now_handling_enabled (bool): Return \\#VALUE for =FDS codes dependent on NOW(). Default is true. For more information on volatile code handling, see Online Assistant https://my.apps.factset.com/oa/pages/16118.. [optional]
             refresh_auto_filters (bool): Option to refresh =FDS codes within autofilters.  Codes that are filtered out will not be refreshed, unless this option is set to true.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
             resize_arrays (bool): Option to allow automatic array-resizing, which allows you to return a time series of data without manually setting an array.  Default is true.  For more information, see Online Assistant https://my.apps.factset.com/oa/pages/21084#fds. [optional]
+            waive_xlsm_signature (bool): Option to waive signature checking for macro-enabled (.xlsm) file. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

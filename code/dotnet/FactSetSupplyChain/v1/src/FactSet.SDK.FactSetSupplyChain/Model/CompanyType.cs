@@ -27,9 +27,9 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetSupplyChain.Client.OpenAPIDateCo
 namespace FactSet.SDK.FactSetSupplyChain.Model
 {
     /// <summary>
-    /// Display public, private, or both companies. 
+    /// Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. 
     /// </summary>
-    /// <value>Display public, private, or both companies. </value>
+    /// <value>Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies. </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CompanyType
     {

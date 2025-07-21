@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.1.2"
+__version__ = "0.2.0"
 
 # import ApiClient
 from fds.sdk.OfficeCloudRefresh.api_client import ApiClient

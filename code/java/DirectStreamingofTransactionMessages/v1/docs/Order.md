@@ -74,6 +74,11 @@ GOODTILCANCEL | &quot;goodTilCancel&quot;
 GOODTILDATE | &quot;goodTilDate&quot;
 DAY | &quot;day&quot;
 WEEK | &quot;week&quot;
+ATMARKETOPEN | &quot;atMarketOpen&quot;
+ATMARKETCLOSE | &quot;atMarketClose&quot;
+IMMEDIATEORCANCEL | &quot;immediateOrCancel&quot;
+FILLORKILL | &quot;fillOrKill&quot;
+GOODTILCROSSING | &quot;goodTilCrossing&quot;
 
 
 
@@ -121,6 +126,7 @@ Name | Value
 UNCHECKED | &quot;unchecked&quot;
 PASS | &quot;pass&quot;
 FAIL | &quot;fail&quot;
+WARN | &quot;warn&quot;
 
 
 ## Implemented Interfaces

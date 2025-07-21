@@ -38,12 +38,12 @@ export default class RelationshipsApi {
 
     /**
      * Returns Supply Chain Relationships Data.
-     * Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage. 
+     * Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap. 
      * @param {Array.<String>} ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-     * @param {module:model/String} relationshipType Specifies the type of relationship to filter the results  -   * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** = Entities disclosed by the source company as competitors.   * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship). 
+     * @param {module:model/String} relationshipType  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. 
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.companyType Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships.  (default to 'PUBLIC_COMPANIES_ONLY')
-     * @param {module:model/String} opts.relationshipDirection Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship.  (default to 'ALL')
+     * @param {module:model/String} opts.companyType Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies.  (default to 'PUBLIC_COMPANIES_ONLY')
+     * @param {module:model/String} opts.relationshipDirection Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.  (default to 'ALL')
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RelationshipsResponse} and HTTP response
      */
     getRelationshipsWithHttpInfo(ids, relationshipType, opts) {
@@ -87,12 +87,12 @@ export default class RelationshipsApi {
 
     /**
      * Returns Supply Chain Relationships Data.
-     * Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage. 
+     * Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap. 
      * @param {Array.<String>} ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 500 
-     * @param {module:model/String} relationshipType Specifies the type of relationship to filter the results  -   * **SUPPLIERS** = Entities from which the source company purchases goods or services; the opposite of “Customer” relationship.   * **COMPETITORS** = Entities disclosed by the source company as competitors.   * **CUSTOMERS** = Entities to which the source company sells products/services; the “opposite” of Supplier relationship.   * **PARTNERS** = Entities in which the source company owns an equity stake (“opposite” of an Investor relationship). 
+     * @param {module:model/String} relationshipType  The category describing how the source company is connected to another organization. Use this parameter to filter results based on the business relationship type. Defined as:    * **SUPPLIERS** = An organization that provides goods or services to the source company. The source company acts as the buyer in this relationship. (inverse of \"Customer\" relationships.)   * **COMPETITORS** = An organization explicitly identified by the source company as a rival, usually operating in the same market or industry sector.   * **CUSTOMERS** = An organization that receives goods or services from the source company. The source company acts as the seller in this relationship. (Reverse of \"Supplier\" relationships.)   * **PARTNERS** = An organization in which the source company holds an ownership interest (i.e., the source company owns shares or equity in the partner). This is the counterpart to an investor relationship, where the external party has an ownership interest in the source company. 
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.companyType Specifies the type of companies to filter by  -   * **PUBLIC_COMPANIES_ONLY** = Display public company relationships only.   * **PRIVATE_COMPANIES_ONLY** = Display private company relationships only.   * **ALL** = Display public and private company relationships.  (default to 'PUBLIC_COMPANIES_ONLY')
-     * @param {module:model/String} opts.relationshipDirection Filters the list of available relationship directions -   * **ALL** = All relationship directions.   * **DIRECT** = Direct indicates that the source company named the relationship.   * **REVERSE** = Reverse indicates that the target company named the relationship.  (default to 'ALL')
+     * @param {module:model/String} opts.companyType Specifies the category of companies to include when filtering results:   * **PUBLIC_COMPANIES_ONLY**: Include only relationships involving companies that are publicly traded.            * **PRIVATE_COMPANIES_ONLY**: Include only relationships involving companies that are privately held (not publicly traded).            * **ALL**: Include relationships involving both public and private companies.  (default to 'PUBLIC_COMPANIES_ONLY')
+     * @param {module:model/String} opts.relationshipDirection Filters the list of available relationship directions -   * **ALL** = Include both direct and reverse relationships.   * **DIRECT** = Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** = Include only relationships where the target company identified and named the connection to the source company.  (default to 'ALL')
      * @return { Promise.< module:model/RelationshipsResponse > } a Promise, with data of type {@link module:model/RelationshipsResponse }
      */
     getRelationships(ids, relationshipType, opts) {
@@ -105,7 +105,7 @@ export default class RelationshipsApi {
 
     /**
      * Returns Supply Chain Relationships Data.
-     * Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage. 
+     * Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap. 
      * @param {module:model/RelationshipsRequest} relationshipsRequest Request body to request a list of Supply Chain financials objects.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RelationshipsResponse} and HTTP response
      */
@@ -141,7 +141,7 @@ export default class RelationshipsApi {
 
     /**
      * Returns Supply Chain Relationships Data.
-     * Returns Supply Chain Relationships Data. This data is sorted primarily by the number of overlapping products, followed by the overlap percentage. 
+     * Retrieves Supply Chain Relationship data (current only). Results are first sorted by the number of overlapping products between companies, then by the percentage of overlap. 
      * @param {module:model/RelationshipsRequest} relationshipsRequest Request body to request a list of Supply Chain financials objects.
      * @return { Promise.< module:model/RelationshipsResponse > } a Promise, with data of type {@link module:model/RelationshipsResponse }
      */

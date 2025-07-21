@@ -48,6 +48,7 @@ docs/GroupHoldingsApi.md
 docs/GroupHoldingsRequest.md
 docs/GroupHoldingsResponse.md
 docs/HelperApi.md
+docs/Lang.md
 docs/Managers.md
 docs/ManagersRequest.md
 docs/ManagersResponse.md
@@ -146,6 +147,7 @@ src/main/java/com/factset/sdk/FactSetFunds/models/Group.java
 src/main/java/com/factset/sdk/FactSetFunds/models/GroupHolding.java
 src/main/java/com/factset/sdk/FactSetFunds/models/GroupHoldingsRequest.java
 src/main/java/com/factset/sdk/FactSetFunds/models/GroupHoldingsResponse.java
+src/main/java/com/factset/sdk/FactSetFunds/models/Lang.java
 src/main/java/com/factset/sdk/FactSetFunds/models/Managers.java
 src/main/java/com/factset/sdk/FactSetFunds/models/ManagersRequest.java
 src/main/java/com/factset/sdk/FactSetFunds/models/ManagersResponse.java

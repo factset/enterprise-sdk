@@ -2,6 +2,7 @@
 
 # Country
 
+Country response object for AAPL-USA
 
 ## Properties
 

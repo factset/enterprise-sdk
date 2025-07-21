@@ -139,7 +139,7 @@ class ResponseCategoriesObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subject (str): subject code. [optional]  # noqa: E501
+            subject (str): The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details.  . [optional]  # noqa: E501
             category (str): category. [optional]  # noqa: E501
             description (str): description. [optional]  # noqa: E501
         """
@@ -223,7 +223,7 @@ class ResponseCategoriesObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subject (str): subject code. [optional]  # noqa: E501
+            subject (str): The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details.  . [optional]  # noqa: E501
             category (str): category. [optional]  # noqa: E501
             description (str): description. [optional]  # noqa: E501
         """

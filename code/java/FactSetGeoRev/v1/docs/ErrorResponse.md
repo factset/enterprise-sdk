@@ -2,6 +2,7 @@
 
 # ErrorResponse
 
+Error response object
 
 ## Properties
 

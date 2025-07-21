@@ -27,9 +27,9 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetSupplyChain.Client.OpenAPIDateCo
 namespace FactSet.SDK.FactSetSupplyChain.Model
 {
     /// <summary>
-    /// relationshipDirection 
+    /// Filters the list of available relationship directions -   * **ALL** &#x3D; Include both direct and reverse relationships.   * **DIRECT** &#x3D; Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** &#x3D; Include only relationships where the target company identified and named the connection to the source company. 
     /// </summary>
-    /// <value>relationshipDirection </value>
+    /// <value>Filters the list of available relationship directions -   * **ALL** &#x3D; Include both direct and reverse relationships.   * **DIRECT** &#x3D; Include only relationships where the source company identified and named the connection to the target company.   * **REVERSE** &#x3D; Include only relationships where the target company identified and named the connection to the source company. </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum RelationshipDirection
     {

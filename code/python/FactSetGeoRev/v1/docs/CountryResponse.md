@@ -1,5 +1,6 @@
 # CountryResponse
 
+Country response for AAPL-USA
 
 ## Properties
 Name | Type | Description | Notes

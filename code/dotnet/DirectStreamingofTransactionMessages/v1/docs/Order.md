@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **OrderId** | **string** | Id of the order as assigned by the OMS. If not specified then transactionId is used. | [optional] 
 **TransactionStatus** | **string** | Status of the Order | 
 **OrderType** | **string** | Order type indicating the price type of the Order | [optional] 
-**LimitPrice** | **double** | Price related to limit and stopLimit order types | [optional] 
-**StopPrice** | **double** | Price related to stop and stopLimit order types | [optional] 
+**LimitPrice** | **double?** | Price related to limit and stopLimit order types | [optional] 
+**StopPrice** | **double?** | Price related to stop and stopLimit order types | [optional] 
 **Tif** | **string** | Time In Force of the Order | [optional] 
 **TifDate** | **string** | Time In Force date for goodTilDate orders in YYYY-MM-DD format | [optional] 
 **SettlementType** | **string** | Indicates order settlement period | [optional] 

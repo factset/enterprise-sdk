@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-factsetprivatecompany",
+  "projectVersion": "1.0.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "FactSet Private Company client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetprivatecompany",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetPrivateCompany/1.0.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

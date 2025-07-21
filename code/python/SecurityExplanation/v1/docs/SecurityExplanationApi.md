@@ -184,6 +184,9 @@ with fds.sdk.SecurityExplanation.ApiClient(configuration) as api_client:
             include_performance=False,
             internal_investment_rationale="none",
             include_company_description=False,
+            include_market_summary=True,
+            include_internal_investment_rationale_recommendation=True,
+            include_internal_investment_rationale_price_target=True,
         ),
     ) # SecurityExplanationParametersRoot |  (optional)
 

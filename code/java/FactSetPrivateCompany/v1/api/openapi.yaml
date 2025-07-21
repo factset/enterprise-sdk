@@ -1,0 +1,2920 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    FactSet Private Company API encompasses Private Company Financials and includes some Private Company non-periodic data. Additional Private Company firmographics can be found in the FactSet Entity API. <p><b>Rate limit is set to 10 requests per second and 10 concurrent requests per user</b>.</p>
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Private Company API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-private-company-api
+servers:
+- description: Production
+  url: https://api.factset.com/content/private-company/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: Universe
+- name: Financials
+- name: Non-Periodic
+- name: Metrics
+- name: Company Reports
+paths:
+  /universe:
+    get:
+      description: |
+        Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. <p>**Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names.</p><p>
+      operationId: getUniverse
+      parameters:
+      - description: |
+          Name of Entity to match.<br/>  <p>***max length** =  200 per request*</p>
+        example: Alto Pharmacy
+        explode: true
+        in: query
+        name: name
+        required: true
+        schema:
+          maxLength: 200
+          minLength: 1
+          type: string
+        style: form
+      - description: ISO2 country code corresponding to the entity name is used when
+          evaluating candidates for a match. For a list of ISO2 Country codes, visit
+          [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+        example: US
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          maxLength: 2
+          minLength: 2
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Entity Matches:
+                  $ref: '#/components/examples/resultOfEntityMatches'
+              schema:
+                $ref: '#/components/schemas/EntityMatchesResponse'
+          description: Response containing Entity Match results.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Entity Candidates and Matches for a single name and attributes.
+      tags:
+      - Universe
+      x-accepts: application/json
+    post:
+      description: |
+        Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. <p>**Max of 25 Names inputted.**</p><p>
+      operationId: getUniverseForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Entity Matches:
+                $ref: '#/components/examples/postEntityMatches'
+            schema:
+              $ref: '#/components/schemas/EntityMatchRequest'
+        description: A request to match an Entity.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Entity Matches:
+                  $ref: '#/components/examples/resultOfEntityMatches'
+              schema:
+                $ref: '#/components/schemas/EntityMatchesResponse'
+          description: Response containing Entity Match results.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Entity Candidates and Matches for a requested list of up to
+        25 names and attributes.
+      tags:
+      - Universe
+      x-contentType: application/json
+      x-accepts: application/json
+  /financials:
+    get:
+      description: "Retrieves Financial Data for specified Private Companies. Use\
+        \ the ```/universe``` endpoint to retrieve valid Private Company  identifiers.\
+        \ Use the ```/metrics``` endpoint to retrieve a full list of valid metrics\
+        \ or data items. \n"
+      operationId: getFinancials
+      parameters:
+      - description: |
+          The requested FactSet Private Company Entity Identifier in XXXXXX-E format.<br/><br/>
+          *Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the  service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB,  it's advised for any requests with large request lines to be requested through the respective \"POST\" method.*
+        examples:
+          oneId:
+            summary: One private company identifier
+            value:
+            - 0H3R4Y-E
+          multipleIds:
+            summary: Multiple private company identifiers
+            value:
+            - 0H3R4Y-E
+            - 0G3F5Z-E
+            - 00DK61-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: 0H3R4Y-E
+            type: string
+          maxItems: 3000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Requested list of Private Company Financial items
+        examples:
+          oneItem:
+            summary: One financial data item
+            value:
+            - FPC_EBIT
+          multipleItems:
+            summary: Multiple financial items
+            value:
+            - FPC_EBIT
+            - FPC_NET_INC
+        explode: false
+        in: query
+        name: metrics
+        required: true
+        schema:
+          items:
+            example: assets
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in YYYY-MM-DD format. <br/>
+          Future dates (T+1) are not accepted in this endpoint.
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          example: 2024-01-01
+          format: date
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close. <br/>
+          Future dates (T+1) are not accepted in this endpoint.
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          example: 2024-12-31
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of single company with single financial data item details:
+                  $ref: '#/components/examples/resultOfSingleIdwithSingleFinancialDataItem'
+                Result of multiple companies with single financial data item details:
+                  $ref: '#/components/examples/resultOfMultipleIdswithSingleFinancialDataItem'
+                Result of single company with multiple financial data items details:
+                  $ref: '#/components/examples/resultOfSingleIdwithMultipleFinancialDataItems'
+              schema:
+                $ref: '#/components/schemas/FinancialsResponse'
+          description: Fetches Private Company Financials for a list of ids.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Private Company Financial Data.
+      tags:
+      - Financials
+      x-accepts: application/json
+    post:
+      description: "Retrieves Financial Data for specified Private Companies. Use\
+        \ the ```/universe``` endpoint to retrieve valid Private Company  identifiers.\
+        \ Use the ```/metrics``` endpoint to retrieve a full list of valid metrics\
+        \ or data items. \n"
+      operationId: getFinancialsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Multiple companies with multiple financial data item details:
+                $ref: '#/components/examples/postPrivateCompanyFinancials'
+            schema:
+              $ref: '#/components/schemas/FinancialsRequest'
+        description: Request Body to request a list of Private Company financials
+          objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of single company with single financial data item details:
+                  $ref: '#/components/examples/resultOfSingleIdwithSingleFinancialDataItem'
+                Result of multiple companies with single financial data item details:
+                  $ref: '#/components/examples/resultOfMultipleIdswithSingleFinancialDataItem'
+                Result of single company with multiple financial data items details:
+                  $ref: '#/components/examples/resultOfSingleIdwithMultipleFinancialDataItems'
+              schema:
+                $ref: '#/components/schemas/FinancialsResponse'
+          description: Private Company financials data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Private Company Financial Data.
+      tags:
+      - Financials
+      x-contentType: application/json
+      x-accepts: application/json
+  /non-periodic:
+    get:
+      description: "Retrieves non-periodic reference information for specified Private\
+        \ Companies. Use the ```/universe``` endpoint to  retrieve valid Private Company\
+        \ identifiers. Use the ```/metrics``` endpoint to retrieve a  full list of\
+        \ valid metrics or data items. \n"
+      operationId: getNonPeriodic
+      parameters:
+      - description: |
+          The requested FactSet Private Company Entity Identifier in XXXXXX-E format.<br/><br/>
+          *Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the  service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB,  it's advised for any requests with large request lines to be requested through the respective \"POST\" method.*
+        examples:
+          oneId:
+            summary: One private company identifier
+            value:
+            - 0H3R4Y-E
+          multipleIds:
+            summary: Multiple private company identifiers
+            value:
+            - 0H3R4Y-E
+            - 0G3F5Z-E
+            - 00DK61-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: 0H3R4Y-E
+            type: string
+          maxItems: 3000
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Requested list of Private Company Non-Periodic Metrics.
+        examples:
+          oneItem:
+            summary: One non-periodic item
+            value:
+            - FPE_AMT_RAISED_USD
+          multipleItems:
+            summary: Multiple non-periodic items
+            value:
+            - FPE_AMT_RAISED_USD
+            - FPE_INVESTORS_ACTIVE
+            - FPE_INVESTMT_LAST_DATE
+        explode: false
+        in: query
+        name: metrics
+        required: true
+        schema:
+          items:
+            example: FPE_AMT_RAISED_USD
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of multiple companies with single non-periodic item:
+                  $ref: '#/components/examples/resultOfMultipleIdswithSingleNonPeriodicItem'
+                Result of single company with multiple non-periodic items:
+                  $ref: '#/components/examples/resultOfSingleIdwithMultipleNonPeriodicItems'
+              schema:
+                $ref: '#/components/schemas/NonPeriodicResponse'
+          description: Fetches Private Company reference data for a list of ids.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Private Company Reference Data.
+      tags:
+      - Non-Periodic
+      x-accepts: application/json
+    post:
+      description: "Retrieves non-periodic reference information for specified Private\
+        \ Companies. Use the ```/universe``` endpoint to retrieve valid Private Company\
+        \ identifiers. Use the ```/metrics``` endpoint to retrieve a full list of\
+        \ valid metrics or data items. \n"
+      operationId: getNonPeriodicForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Private Company Non-Periodic Array:
+                $ref: '#/components/examples/postPrivateCompanyNonPeriodic'
+            schema:
+              $ref: '#/components/schemas/NonPeriodicRequest'
+        description: Request Body to request a list of Private Company non-periodic
+          objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of multiple companies with single non-periodic (fpe_amt_raised_usd) item:
+                  $ref: '#/components/examples/resultOfMultipleIdswithSingleNonPeriodicItem'
+                Result of single company with multiple non-periodic items:
+                  $ref: '#/components/examples/resultOfSingleIdwithMultipleNonPeriodicItems'
+              schema:
+                $ref: '#/components/schemas/NonPeriodicResponse'
+          description: Private Company Reference data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Private Company Reference Data.
+      tags:
+      - Non-Periodic
+      x-contentType: application/json
+      x-accepts: application/json
+  /metrics:
+    get:
+      description: |
+        Returns list of available Private Company metrics, and ratios that can be used in the `metrics` parameter of related endpoints. These are related to FactSet Private Company standardized data.
+      operationId: getMetrics
+      parameters:
+      - description: |
+          Filters the list of available metrics per endpoint  - </br>
+            * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA. </br>
+            * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.
+        examples:
+          FINANCIALS:
+            summary: FINANCIALS
+            value: FINANCIALS
+          NON_PERIODIC:
+            summary: NON_PERIODIC
+            value: NON_PERIODIC
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          enum:
+          - FINANCIALS
+          - NON_PERIODIC
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Private Company Non Periodic:
+                  $ref: '#/components/examples/privateCompanyMetrics'
+              schema:
+                $ref: '#/components/schemas/MetricsResponse'
+          description: Private Company data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns available private company metrics, and ratios.
+      tags:
+      - Metrics
+      x-accepts: application/json
+  /company-reports/financial-statement:
+    get:
+      description: |
+        Returns financial data for specified private companies and statement type (income,  balance sheet, cash flow, and ratios) over an annual reporting period. <br/> Use the ```/universe``` endpoint to retrieve valid Private Company identifiers.<br/><br/>
+        **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for  a currency other than local, when compared to workstation.
+      operationId: getFinancialsReport
+      parameters:
+      - description: |
+          The requested list of Factset Private Company identifiers in XXXXXX-E format <p>***ids limit** =  50 per request*</p>
+        examples:
+          oneId:
+            summary: One private company identifier
+            value:
+            - 0H3R4Y-E
+          multipleIds:
+            summary: Multiple private company identifiers
+            value:
+            - 0H3R4Y-E
+            - 0G3F5Z-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: The type of financial statement being requested
+        examples:
+          BS:
+            summary: BALANCE SHEET
+            value: BS
+          CF:
+            summary: CASH FLOW
+            value: CF
+          IS:
+            summary: INCOME STATEMENT
+            value: IS
+          R:
+            summary: RATIOS
+            value: R
+        explode: true
+        in: query
+        name: statementType
+        required: true
+        schema:
+          enum:
+          - BS
+          - CF
+          - IS
+          - R
+          type: string
+        style: form
+      - description: |
+          Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+
+          Giving input as "DOC" would give the values in reporting currency for the requested ids.
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          example: USD
+          type: string
+        style: form
+      - description: "The number of annual periods for the returned data which will\
+          \ be displayed in descending order from most recent annual period for the\
+          \ number of annual periods specified. </br>Within range of 1 to 100. If\
+          \ not specified default will be 4. \n    "
+        explode: true
+        in: query
+        name: numberAnnualPeriods
+        required: false
+        schema:
+          default: 4
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Company financial details for the given time period:
+                  $ref: '#/components/examples/resultOfFinancialStatementDetails'
+              schema:
+                $ref: '#/components/schemas/FinancialStatementsResponse'
+          description: Financial data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Private Company Financial Data
+      tags:
+      - Company Reports
+      x-accepts: application/json
+  /company-reports/profile:
+    get:
+      description: |
+        Retrieves a comprehensive overview of key non-periodic details and information for a  specified list of identifiers. All values provided in the response are absolute. <br/> Use the ```/universe``` endpoint to retrieve valid Private Company identifiers.<br/>
+      operationId: getProfileReport
+      parameters:
+      - description: |
+          The requested list of Factset Private Company identifiers in XXXXXX-E format <p>***ids limit** =  50 per request*</p>
+        examples:
+          oneId:
+            summary: One private company identifier
+            value:
+            - 0H3R4Y-E
+          multipleIds:
+            summary: Multiple private company identifiers
+            value:
+            - 0H3R4Y-E
+            - 0G3F5Z-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Company details:
+                  $ref: '#/components/examples/resultOfProfileDetails'
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+          description: Non-periodic data items
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Private Company Non-Periodic Data
+      tags:
+      - Company Reports
+      x-accepts: application/json
+components:
+  examples:
+    postPrivateCompanyFinancials:
+      description: "Post body request example to fetch financials details for a list\
+        \ of private companies over a given period. \n"
+      summary: Multiple companies with multiple financial data item details
+      value:
+        data:
+          ids:
+          - 0H3R4Y-E
+          - 0G3F5Z-E
+          - 00DK61-E
+          metrics:
+          - FPC_EBIT
+          - FPC_NET_INC
+          startDate: 2023-01-01
+          endDate: 2024-12-31
+    postPrivateCompanyNonPeriodic:
+      description: "Post body request example to fetch non-periodic reference details\
+        \ for a list of private companies.       \n"
+      summary: Multiple companies with non-periodic data item details
+      value:
+        data:
+          ids:
+          - 0H3R4Y-E
+          - 0G3F5Z-E
+          - 00DK61-E
+          metrics:
+          - FPE_AMT_RAISED_USD
+    postEntityMatches:
+      description: Post body request Request example to fetch entity matches for a
+        list of names and attributes.
+      value:
+        data:
+        - name: Alto Pharmacy
+          country: US
+    resultOfSingleIdwithSingleFinancialDataItem:
+      description: "EBIT (earnings before interests and taxes) data for a single requested\
+        \ private company.   \n"
+      summary: Result of single company with single financial data item details.
+      value:
+        data:
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPC_EBIT
+          fiscalYear: 2023
+          fiscalEndDate: 2023-12-31
+          currency: USD
+          value: 229.286869
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPC_EBIT
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          currency: USD
+          value: 550.657511
+    resultOfSingleIdwithMultipleFinancialDataItems:
+      description: "EBIT (earnings before interest and taxes) and net income data\
+        \ for a single requested private company.   \n"
+      summary: Result of single company with multiple financial data item details.
+      value:
+        data:
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPC_EBIT
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          value: 550.657511
+          currency: USD
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPC_NET_INC
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          value: -493.794729
+          currency: USD
+    resultOfMultipleIdswithSingleFinancialDataItem:
+      description: "EBIT (earnings before income and taxes) data for multiple requested\
+        \ private companies.  \n"
+      summary: Result of multiple companies with single financial data item details.
+      value:
+        data:
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPC_EBIT
+          fiscalYear: 2023
+          fiscalEndDate: 2023-12-31
+          value: 229.286869
+          currency: USD
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPC_EBIT
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          value: 550.657511
+          currency: USD
+        - requestId: 0G3F5Z-E
+          fsymId: 0G3F5Z-E
+          metric: FPC_EBIT
+          fiscalYear: 2023
+          fiscalEndDate: 2023-12-31
+          value: 13.89472
+          currency: USD
+        - requestId: 0G3F5Z-E
+          fsymId: 0G3F5Z-E
+          metric: FPC_EBIT
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          value: -6.188563
+          currency: USD
+        - requestId: 00DK61-E
+          fsymId: 00DK61-E
+          metric: FPC_EBIT
+          fiscalYear: 2023
+          fiscalEndDate: 2023-12-31
+          value: 159.670993
+          currency: USD
+        - requestId: 00DK61-E
+          fsymId: 00DK61-E
+          metric: FPC_EBIT
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          value: 383.467979
+          currency: USD
+    resultOfMultipleIdswithSingleNonPeriodicItem:
+      description: "Current estimated total venture capital raised in USD for multiple\
+        \ requested private company.   \n"
+      summary: Result of multiple companies with single non-periodic data item details.
+      value:
+        data:
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPE_AMT_RAISED_USD
+          value:
+            stringValue: null
+            numberValue: 678.683
+            valueType: number
+        - requestId: 0G3F5Z-E
+          fsymId: 0G3F5Z-E
+          metric: FPE_AMT_RAISED_USD
+          value:
+            stringValue: null
+            numberValue: 132.512
+            valueType: number
+        - requestId: 00DK61-E
+          fsymId: 00DK61-E
+          metric: FPE_AMT_RAISED_USD
+          value:
+            stringValue: null
+            numberValue: 257.093
+            valueType: number
+    resultOfSingleIdwithMultipleNonPeriodicItems:
+      description: "Current estimated total venture capital raised in USD, count of\
+        \ active investors, and latest investment date for a single  requested private\
+        \ company. \n"
+      summary: Result of single company with multiple non-periodic data item details.
+      value:
+        data:
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPE_AMT_RAISED_USD
+          value:
+            stringValue: null
+            numberValue: 678.683
+            valueType: number
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPE_INVESTORS_ACTIVE
+          value:
+            stringValue: null
+            numberValue: 45
+            valueType: number
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          metric: FPE_INVESTMT_LAST_DATE
+          value:
+            stringValue: 2023-09-26
+            numberValue: null
+            valueType: string
+    resultOfEntityMatches:
+      description: Entity Matches
+      value:
+        data:
+        - entityId: 0H3R4Y-E
+          entityName: Alto Pharmacy LLC
+          countryCode: US
+          entityTypeCode: PVT
+    privateCompanyMetrics:
+      description: Array of Private Company Metrics objects for a list of Companies
+      summary: Private Company Metrics
+      value:
+        data:
+        - metric: FACTSET_ENTITY_ID
+          description: Unique FactSet-generated identifier representing an entity
+          category: NON_PERIODIC
+          factor: null
+          sdfName: FACTSET_ENTITY_ID
+    resultOfFinancialStatementDetails:
+      description: Array of Private Company financial statements for a list of companies
+      summary: Private Company Financial Statement Report Details
+      value:
+        data:
+        - requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          reportDate:
+          - 2024-12-31
+          - 2023-12-31
+          - 2022-12-31
+          - 2021-12-31
+          fiscalYear:
+          - "2024"
+          - "2023"
+          - "2022"
+          - "2021"
+          items:
+          - name: Sales/Revenue
+            metricName: fpc_revenue
+            displayLevel: L0
+            displayOrder: 1
+            value:
+            - 548.809138
+            - 675.061288
+            - 686.203441
+            - 704.502701
+          - name: Cost of Goods Sold (COGS)
+            metricName: fpc_cogs
+            displayLevel: L0
+            displayOrder: 2
+            value:
+            - 416.844695
+            - 514.267701
+            - 519.518128
+            - 530.554045
+          - name: Depreciation & Amortization
+            metricName: fpc_dep_amort_exp
+            displayLevel: L1
+            displayOrder: 3
+            value:
+            - null
+            - null
+            - null
+            - null
+          - name: Depreciation
+            metricName: fpc_dep_exp
+            displayLevel: L2
+            displayOrder: 4
+            value:
+            - null
+            - null
+            - null
+            - null
+          - name: Amortization of Intangibles
+            metricName: fpc_amort_intang
+            displayLevel: L2
+            displayOrder: 5
+            value:
+            - 71.425634
+            - 71.502795
+            - 74.975711
+            - 80.98291
+          - name: Gross Income
+            metricName: fpc_gross_inc
+            displayLevel: L0
+            displayOrder: 6
+            value:
+            - 57.667156
+            - 70.265208
+            - 72.839832
+            - 173.948656
+    resultOfProfileDetails:
+      description: Private company data
+      summary: Private Company Non-Periodic Report Details
+      value:
+        data:
+        - requestId: 00DK61-E
+          currency: USD
+          ceo: Maxim Boris Lobovsky
+          founders:
+          - Natan Linder
+          chair: Natan Linder
+          peBackingCurrent: false
+          peBackingEver: false
+          vcBackingCurrent: true
+          vcBackingEver: true
+          totalInvestors: 28
+          activeInvestors: 27
+          activeInvestorsList:
+          - Autodesk, Inc.
+          - Pitango Venture Capital
+          - NEA Management Co. LLC
+          - Shenzhen Capital Group Co., Ltd.
+          - Joi Ito, PhD
+          - DFJ Growth Management LLC
+          - Vintage Ventures Management Ltd.
+          - CMOC Group Ltd.
+          - Foundry Group LLC
+          - SOSV Ltd.
+          - Charlie Maximillian Songhurst
+          - Founder Collective Management Co. LLC
+          - Habib Haddad
+          - Kima Ventures SASU
+          - Kapor Capital Management Co LLC
+          - Eyal Gura, MBA
+          - Innovation Endeavors LLC
+          - Elad Gil, PhD
+          - Adrian Aoun
+          - Christopher Scott Hameetman
+          - Acequia Capital Management LLC
+          - Tyche Partners Management LLC
+          - E14 Fund Management, Inc.
+          - C4 Ventures
+          - Scale-Up GP Inc
+          - SB Investment Advisers (UK) Ltd.
+          - Maryam Eskandari
+          exitedInvestorsList:
+          - LaunchCapital LLC
+          amountRaisedUSD: 257.093
+          amountRaisedLocalCurrency: 257.093
+          vcpeAmountRaisedUSD: 257.093
+          vcpeAmountRaisedLocalCurrency: 257.093
+          investmentStats: 36000000
+          lastInvestmentDate: 2024-07-23
+          firstInvesmentDate: 2011-11-23
+          businessTags:
+          - 3D Printing
+          - 3D Technology
+          - Consumer Electronics
+          - Hardware,Manufacturing
+          - Design And Engineering
+          - Digital Fabrication
+          - Manufacturing Solutions
+          - Quality Parts
+          - Rapid Manufacturing
+          - Rapid Prototyping
+          - Selective Laser Sintering
+          latestPostMoneyValuation: 2000
+    badRequestDateFormat:
+      description: This bad request occurs when a request doesn't use the YYYY-MM-DD
+        in the date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: Bad Request - Date Format
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Bad Request
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: 'The date parameter must be in the following date format: YYYY-MM-DD'
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Bad Request
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: The parameter 'ids' is required and may not be empty.
+    badRequestInvalidParameters:
+      description: This error message occurs when user is passing an Invalid Parameter
+      summary: Bad Request - Passing Invalid Parameter
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Bad Request
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: 'Invalid Parameter (s): fakeParameter. Please modify your request to
+          use parameters outlined in the specification for this endpoint.'
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON, but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Bad Request
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: Malformed JSON Request
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Bad Request
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: The request took too long. Try again with a smaller request.
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: User Authentication Failed
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: User Authentication Failed.
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Forbidden
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: USERNAME-SERIAL does not have permission to use /factset-private-company/v1/{endpoint}
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Unsupported Media Type
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: text/html media type is not supported. Supported media types are application/json.
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Internal Server Error
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: Error writing JSON output
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Internal Server Error
+        links:
+          about: /factset-private-company/v1/{endpoint}
+        title: Unexpected error
+  parameters:
+    privateMarketIds:
+      description: |
+        The requested FactSet Private Company Entity Identifier in XXXXXX-E format.<br/><br/>
+        *Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the  service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB,  it's advised for any requests with large request lines to be requested through the respective \"POST\" method.*
+      examples:
+        oneId:
+          summary: One private company identifier
+          value:
+          - 0H3R4Y-E
+        multipleIds:
+          summary: Multiple private company identifiers
+          value:
+          - 0H3R4Y-E
+          - 0G3F5Z-E
+          - 00DK61-E
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          example: 0H3R4Y-E
+          type: string
+        maxItems: 3000
+        minItems: 1
+        type: array
+      style: form
+    financialsMetrics:
+      description: |
+        Requested list of Private Company Financial items
+      examples:
+        oneItem:
+          summary: One financial data item
+          value:
+          - FPC_EBIT
+        multipleItems:
+          summary: Multiple financial items
+          value:
+          - FPC_EBIT
+          - FPC_NET_INC
+      explode: false
+      in: query
+      name: metrics
+      required: true
+      schema:
+        items:
+          example: assets
+          type: string
+        maxItems: 100
+        minItems: 1
+        type: array
+      style: form
+    nonPeriodicMetrics:
+      description: |
+        Requested list of Private Company Non-Periodic Metrics.
+      examples:
+        oneItem:
+          summary: One non-periodic item
+          value:
+          - FPE_AMT_RAISED_USD
+        multipleItems:
+          summary: Multiple non-periodic items
+          value:
+          - FPE_AMT_RAISED_USD
+          - FPE_INVESTORS_ACTIVE
+          - FPE_INVESTMT_LAST_DATE
+      explode: false
+      in: query
+      name: metrics
+      required: true
+      schema:
+        items:
+          example: FPE_AMT_RAISED_USD
+          type: string
+        maxItems: 100
+        minItems: 1
+        type: array
+      style: form
+    startDate:
+      description: |
+        The start date requested for a given date range in YYYY-MM-DD format. <br/>
+        Future dates (T+1) are not accepted in this endpoint.
+      explode: true
+      in: query
+      name: startDate
+      required: true
+      schema:
+        example: 2024-01-01
+        format: date
+        type: string
+      style: form
+    endDate:
+      description: |
+        The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close. <br/>
+        Future dates (T+1) are not accepted in this endpoint.
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        example: 2024-12-31
+        format: date
+        type: string
+      style: form
+    category:
+      description: |
+        Filters the list of available metrics per endpoint  - </br>
+          * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA. </br>
+          * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.
+      examples:
+        FINANCIALS:
+          summary: FINANCIALS
+          value: FINANCIALS
+        NON_PERIODIC:
+          summary: NON_PERIODIC
+          value: NON_PERIODIC
+      explode: true
+      in: query
+      name: category
+      required: false
+      schema:
+        enum:
+        - FINANCIALS
+        - NON_PERIODIC
+        type: string
+      style: form
+    name:
+      description: |
+        Name of Entity to match.<br/>  <p>***max length** =  200 per request*</p>
+      example: Alto Pharmacy
+      explode: true
+      in: query
+      name: name
+      required: true
+      schema:
+        maxLength: 200
+        minLength: 1
+        type: string
+      style: form
+    country:
+      description: ISO2 country code corresponding to the entity name is used when
+        evaluating candidates for a match. For a list of ISO2 Country codes, visit
+        [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+      example: US
+      explode: true
+      in: query
+      name: country
+      required: false
+      schema:
+        maxLength: 2
+        minLength: 2
+        type: string
+      style: form
+    statementType:
+      description: The type of financial statement being requested
+      examples:
+        BS:
+          summary: BALANCE SHEET
+          value: BS
+        CF:
+          summary: CASH FLOW
+          value: CF
+        IS:
+          summary: INCOME STATEMENT
+          value: IS
+        R:
+          summary: RATIOS
+          value: R
+      explode: true
+      in: query
+      name: statementType
+      required: true
+      schema:
+        enum:
+        - BS
+        - CF
+        - IS
+        - R
+        type: string
+      style: form
+    reportsIds:
+      description: |
+        The requested list of Factset Private Company identifiers in XXXXXX-E format <p>***ids limit** =  50 per request*</p>
+      examples:
+        oneId:
+          summary: One private company identifier
+          value:
+          - 0H3R4Y-E
+        multipleIds:
+          summary: Multiple private company identifiers
+          value:
+          - 0H3R4Y-E
+          - 0G3F5Z-E
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 50
+        minItems: 1
+        type: array
+      style: form
+    currency:
+      description: |
+        Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+
+        Giving input as "DOC" would give the values in reporting currency for the requested ids.
+      explode: true
+      in: query
+      name: currency
+      required: false
+      schema:
+        default: LOCAL
+        example: USD
+        type: string
+      style: form
+    numberAnnualPeriods:
+      description: "The number of annual periods for the returned data which will\
+        \ be displayed in descending order from most recent annual period for the\
+        \ number of annual periods specified. </br>Within range of 1 to 100. If not\
+        \ specified default will be 4. \n    "
+      explode: true
+      in: query
+      name: numberAnnualPeriods
+      required: false
+      schema:
+        default: 4
+        type: integer
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
+  schemas:
+    FinancialsResponse:
+      description: Private Company Financials Response
+      example:
+        data:
+        - metric: FPC_EBIT
+          requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          currency: USD
+          fiscalYear: 2024
+          fiscalEndDate: 2023-12-31T00:00:00.000+0000
+          value: -111.110244
+        - metric: FPC_EBIT
+          requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          currency: USD
+          fiscalYear: 2024
+          fiscalEndDate: 2023-12-31T00:00:00.000+0000
+          value: -111.110244
+      properties:
+        data:
+          description: Array of Private Company Financials objects.
+          items:
+            $ref: '#/components/schemas/Financials'
+          type: array
+      type: object
+    Financials:
+      description: Private Company Financials
+      example:
+        metric: FPC_EBIT
+        requestId: 0H3R4Y-E
+        fsymId: 0H3R4Y-E
+        currency: USD
+        fiscalYear: 2024
+        fiscalEndDate: 2023-12-31T00:00:00.000+0000
+        value: -111.110244
+      properties:
+        requestId:
+          description: Identifier used in `ids`.
+          example: 0H3R4Y-E
+          type: string
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 0H3R4Y-E
+          nullable: true
+          type: string
+        metric:
+          description: The requested `metric` input representing the Private Company
+            Financial Data Item.
+          example: FPC_EBIT
+          nullable: true
+          type: string
+        fiscalYear:
+          description: Fiscal year of the reported period in YYYY format.
+          example: 2024
+          nullable: true
+          type: integer
+        fiscalEndDate:
+          description: The normalized data the fiscal period ended.
+          example: 2023-12-31
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: |
+            ISO Code representing the local currency. For more details,  visit Online Assistant page [OA1470](https://my.apps.factset.com/oa/pages/1470)
+          example: USD
+          nullable: true
+          type: string
+        value:
+          description: Value of the data item requested.
+          example: -111.110244
+          format: double
+          nullable: true
+          type: number
+      type: object
+    NonPeriodicResponse:
+      description: Private Company Non-Periodic Response
+      example:
+        data:
+        - metric: FPE_AMT_RAISED_USD
+          requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          value:
+            stringValue: stringValue
+            valueType: Number
+            numberValue: 678.683
+        - metric: FPE_AMT_RAISED_USD
+          requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          value:
+            stringValue: stringValue
+            valueType: Number
+            numberValue: 678.683
+      properties:
+        data:
+          description: Array of Private Company Non-Periodic objects.
+          items:
+            $ref: '#/components/schemas/NonPeriodic'
+          type: array
+      type: object
+    NonPeriodic:
+      description: Private Company Non-Periodic
+      example:
+        metric: FPE_AMT_RAISED_USD
+        requestId: 0H3R4Y-E
+        fsymId: 0H3R4Y-E
+        value:
+          stringValue: stringValue
+          valueType: Number
+          numberValue: 678.683
+      properties:
+        requestId:
+          description: Identifier used in `ids`.
+          example: 0H3R4Y-E
+          type: string
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 0H3R4Y-E
+          nullable: true
+          type: string
+        metric:
+          description: The requested `metric` input representing the Private Company
+            Financial Data Item.
+          example: FPE_AMT_RAISED_USD
+          nullable: true
+          type: string
+        value:
+          $ref: '#/components/schemas/NonPeriodicValue'
+      type: object
+    NonPeriodicValue:
+      description: 'Value of the data item requested. Note that the type of value
+        is ''object'', and depending on the item requested, the value could be an
+        object representation of a string or double. '
+      example:
+        stringValue: stringValue
+        valueType: Number
+        numberValue: 678.683
+      properties:
+        stringValue:
+          description: Value of the requested metric
+          nullable: true
+          type: string
+        numberValue:
+          description: Value of the requested metric
+          example: 678.683
+          format: double
+          nullable: true
+          type: number
+        valueType:
+          description: Indicated whether the value of the requested metric is a string
+            or a number
+          example: Number
+          nullable: true
+          type: string
+      type: object
+    MetricsResponse:
+      description: Metrics Response
+      example:
+        data:
+        - sdfName: FPC_ASSETS
+          metric: FPC_ASSETS
+          description: '"Represents the sum of total current assets, long-term receivables,  investment
+            in unconsolidated subsidiaries, other investments, net property plant  and
+            equipment and other assets."'
+          category: FINANCIALS
+          factor: 1000000
+        - sdfName: FPC_ASSETS
+          metric: FPC_ASSETS
+          description: '"Represents the sum of total current assets, long-term receivables,  investment
+            in unconsolidated subsidiaries, other investments, net property plant  and
+            equipment and other assets."'
+          category: FINANCIALS
+          factor: 1000000
+      properties:
+        data:
+          description: |
+            Array of metric objects representing the data items that can be requested from the Private Company API.
+          items:
+            $ref: '#/components/schemas/Metric'
+          type: array
+      type: object
+    Metric:
+      description: Metric Object
+      example:
+        sdfName: FPC_ASSETS
+        metric: FPC_ASSETS
+        description: '"Represents the sum of total current assets, long-term receivables,  investment
+          in unconsolidated subsidiaries, other investments, net property plant  and
+          equipment and other assets."'
+        category: FINANCIALS
+        factor: 1000000
+      properties:
+        metric:
+          description: Data item to be used as `metrics` input in `/factset-private-company/v#/`
+            endpoint.
+          example: FPC_ASSETS
+          nullable: true
+          type: string
+        description:
+          description: Description of the metric.
+          example: '"Represents the sum of total current assets, long-term receivables,  investment
+            in unconsolidated subsidiaries, other investments, net property plant  and
+            equipment and other assets."'
+          nullable: true
+          type: string
+        category:
+          description: Corresponding endpoint to input metric item. For example, metrics
+            returning the category 'FINANCIALS' should be used in the `/financials`
+            endpoint. The same follows data items falling in the category for NON_PERIODIC,
+            which would be used in the `/non-periodic` endpoint.
+          example: FINANCIALS
+          nullable: true
+          type: string
+        factor:
+          description: The factor for the metric (e.g. 1000 = thousands).
+          example: 1000000
+          nullable: true
+          type: integer
+        sdfName:
+          description: The name of the data item as it appears in the Standard Data
+            Feed (SDF). A null value represents items available only in API.
+          example: FPC_ASSETS
+          nullable: true
+          type: string
+      type: object
+    EntityMatchesResponse:
+      description: Response object for Entity Matches.
+      example:
+        data:
+        - entityName: Alto Pharmacy LLC
+          countryCode: US
+          entityTypeCode: PVT
+          entityId: 0H3R4Y-E
+        - entityName: Alto Pharmacy LLC
+          countryCode: US
+          entityTypeCode: PVT
+          entityId: 0H3R4Y-E
+      properties:
+        data:
+          description: Candidate list of `Entity Match` objects.
+          items:
+            $ref: '#/components/schemas/EntityMatch'
+          type: array
+      title: Entity Matches Response
+      type: object
+    EntityMatch:
+      description: |
+        Entity Match object showing the decision reached for each Entity.
+      example:
+        entityName: Alto Pharmacy LLC
+        countryCode: US
+        entityTypeCode: PVT
+        entityId: 0H3R4Y-E
+      properties:
+        entityId:
+          description: |
+            FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          example: 0H3R4Y-E
+          nullable: true
+          type: string
+        entityName:
+          description: Full name corresponding to the matched entity.
+          example: Alto Pharmacy LLC
+          nullable: true
+          type: string
+        countryCode:
+          description: ISO2 country code corresponding to the location of the matched
+            entity.
+          example: US
+          nullable: true
+          type: string
+        entityTypeCode:
+          description: Code representing the entity type of the matched entity. For
+            more details, view Online Assistant page [OA16823](https://my.apps.factset.com/oa/pages/16823)
+          example: PVT
+          nullable: true
+          type: string
+      title: Entity Match
+      type: object
+    FinancialStatementsResponse:
+      description: Array of financial objects
+      example:
+        data:
+        - reportDate:
+          - 2023-12-31T00:00:00.000+0000
+          - 2023-12-31T00:00:00.000+0000
+          requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          fiscalYear:
+          - "2023"
+          - "2023"
+          items:
+          - metricName: FPC_REVENUE
+            displayLevel: L0
+            name: Sales
+            displayOrder: 1
+            value:
+            - 219.173128
+            - 219.173128
+          - metricName: FPC_REVENUE
+            displayLevel: L0
+            name: Sales
+            displayOrder: 1
+            value:
+            - 219.173128
+            - 219.173128
+        - reportDate:
+          - 2023-12-31T00:00:00.000+0000
+          - 2023-12-31T00:00:00.000+0000
+          requestId: 0H3R4Y-E
+          fsymId: 0H3R4Y-E
+          fiscalYear:
+          - "2023"
+          - "2023"
+          items:
+          - metricName: FPC_REVENUE
+            displayLevel: L0
+            name: Sales
+            displayOrder: 1
+            value:
+            - 219.173128
+            - 219.173128
+          - metricName: FPC_REVENUE
+            displayLevel: L0
+            name: Sales
+            displayOrder: 1
+            value:
+            - 219.173128
+            - 219.173128
+      properties:
+        data:
+          description: Array of financial objects
+          items:
+            $ref: '#/components/schemas/FinancialStatements'
+          type: array
+      title: Financial Statement Response
+      type: object
+    FinancialStatements:
+      description: Financial statement object
+      example:
+        reportDate:
+        - 2023-12-31T00:00:00.000+0000
+        - 2023-12-31T00:00:00.000+0000
+        requestId: 0H3R4Y-E
+        fsymId: 0H3R4Y-E
+        fiscalYear:
+        - "2023"
+        - "2023"
+        items:
+        - metricName: FPC_REVENUE
+          displayLevel: L0
+          name: Sales
+          displayOrder: 1
+          value:
+          - 219.173128
+          - 219.173128
+        - metricName: FPC_REVENUE
+          displayLevel: L0
+          name: Sales
+          displayOrder: 1
+          value:
+          - 219.173128
+          - 219.173128
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          example: 0H3R4Y-E
+          type: string
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 0H3R4Y-E
+          nullable: true
+          type: string
+        reportDate:
+          description: The date the reported fiscal period ended
+          items:
+            $ref: '#/components/schemas/reportDate'
+          type: array
+        fiscalYear:
+          description: Fiscal year of the reported period in YYYY format
+          items:
+            $ref: '#/components/schemas/fiscalYear'
+          type: array
+        items:
+          description: Array of financial statement items
+          items:
+            $ref: '#/components/schemas/StatementItem'
+          type: array
+      type: object
+    StatementItem:
+      description: Financial Statement objects
+      example:
+        metricName: FPC_REVENUE
+        displayLevel: L0
+        name: Sales
+        displayOrder: 1
+        value:
+        - 219.173128
+        - 219.173128
+      properties:
+        name:
+          description: Name of the metric
+          example: Sales
+          type: string
+        metricName:
+          description: FactSet Private Company metric representing the corresponding
+            financial metric
+          example: FPC_REVENUE
+          type: string
+        displayLevel:
+          description: Describes the level of displaying the item
+          example: L0
+          type: string
+        displayOrder:
+          description: Describes the order of displaying the item
+          example: 1
+          type: integer
+        value:
+          description: Array of values for the data metrics requested. Values correspond
+            to the reportDate and fiscalYear based on their index (array position).
+          items:
+            description: Value of the data metric requested. Corresponds to reportDate
+              and fiscalYear based on index (array position).
+            example: 219.173128
+            format: double
+            nullable: true
+            type: number
+          type: array
+      type: object
+    ProfileResponse:
+      description: Array of non-periodic company information
+      example:
+        data:
+        - activeInvestors: 27
+          latestPostMoneyValuation: 2000
+          chair: Natan Linder
+          lastInvestmentDate: 2024-07-23T00:00:00.000+0000
+          investmentStats: 36000000
+          activeInvestorsList:
+          - Pitango Venture Capital
+          - Pitango Venture Capital
+          vcBackingEver: true
+          founders:
+          - Natan Linder
+          - Natan Linder
+          ceo: Maxim Boris Lobovsky
+          totalInvestors: 28
+          peBackingCurrent: false
+          amountRaisedLocalCurrency: 257.093
+          peBackingEver: false
+          amountRaisedUSD: 257.093
+          requestId: 00DK61-E
+          firstInvestmentDate: 2011-11-23T00:00:00.000+0000
+          currency: USD
+          vcpeAmountRaisedLocalCurrency: 257.093
+          vcBackingCurrent: true
+          vcpeAmountRaisedUSD: 257.093
+          exitedInvestorsList:
+          - LaunchCapital LLC
+          - LaunchCapital LLC
+          businessTags:
+          - 3D Printing
+          - 3D Printing
+        - activeInvestors: 27
+          latestPostMoneyValuation: 2000
+          chair: Natan Linder
+          lastInvestmentDate: 2024-07-23T00:00:00.000+0000
+          investmentStats: 36000000
+          activeInvestorsList:
+          - Pitango Venture Capital
+          - Pitango Venture Capital
+          vcBackingEver: true
+          founders:
+          - Natan Linder
+          - Natan Linder
+          ceo: Maxim Boris Lobovsky
+          totalInvestors: 28
+          peBackingCurrent: false
+          amountRaisedLocalCurrency: 257.093
+          peBackingEver: false
+          amountRaisedUSD: 257.093
+          requestId: 00DK61-E
+          firstInvestmentDate: 2011-11-23T00:00:00.000+0000
+          currency: USD
+          vcpeAmountRaisedLocalCurrency: 257.093
+          vcBackingCurrent: true
+          vcpeAmountRaisedUSD: 257.093
+          exitedInvestorsList:
+          - LaunchCapital LLC
+          - LaunchCapital LLC
+          businessTags:
+          - 3D Printing
+          - 3D Printing
+      properties:
+        data:
+          description: Array of profile objects
+          items:
+            $ref: '#/components/schemas/Profile'
+          type: array
+      title: Profiles Response
+      type: object
+    Profile:
+      description: Profile object
+      example:
+        activeInvestors: 27
+        latestPostMoneyValuation: 2000
+        chair: Natan Linder
+        lastInvestmentDate: 2024-07-23T00:00:00.000+0000
+        investmentStats: 36000000
+        activeInvestorsList:
+        - Pitango Venture Capital
+        - Pitango Venture Capital
+        vcBackingEver: true
+        founders:
+        - Natan Linder
+        - Natan Linder
+        ceo: Maxim Boris Lobovsky
+        totalInvestors: 28
+        peBackingCurrent: false
+        amountRaisedLocalCurrency: 257.093
+        peBackingEver: false
+        amountRaisedUSD: 257.093
+        requestId: 00DK61-E
+        firstInvestmentDate: 2011-11-23T00:00:00.000+0000
+        currency: USD
+        vcpeAmountRaisedLocalCurrency: 257.093
+        vcBackingCurrent: true
+        vcpeAmountRaisedUSD: 257.093
+        exitedInvestorsList:
+        - LaunchCapital LLC
+        - LaunchCapital LLC
+        businessTags:
+        - 3D Printing
+        - 3D Printing
+      properties:
+        requestId:
+          description: Identifier that was used for the request
+          example: 00DK61-E
+          type: string
+        currency:
+          description: Code representing the currency
+          example: USD
+          nullable: true
+          type: string
+        ceo:
+          description: Currently listed company CEO
+          example: Maxim Boris Lobovsky
+          nullable: true
+          type: string
+        founders:
+          description: Currently listed company founders
+          items:
+            description: Company founder
+            example: Natan Linder
+            nullable: true
+            type: string
+          type: array
+        chair:
+          description: Current chairperson
+          example: Natan Linder
+          nullable: true
+          type: string
+        peBackingCurrent:
+          description: Flag for whether the specified company currently has PE backing
+          example: false
+          nullable: true
+          type: boolean
+        peBackingEver:
+          description: Flag for whether the specified company has ever had PE backing
+          example: false
+          nullable: true
+          type: boolean
+        vcBackingCurrent:
+          description: Flag for whether the specified company currently has VC backing
+          example: true
+          nullable: true
+          type: boolean
+        vcBackingEver:
+          description: Flag for whether the specified company has ever had VC backing
+          example: true
+          nullable: true
+          type: boolean
+        totalInvestors:
+          description: Total number of investment rounds for the portfolio company
+          example: 28
+          nullable: true
+          type: integer
+        activeInvestors:
+          description: Number of active portfolio companies for the specified private
+            equity firm
+          example: 27
+          nullable: true
+          type: integer
+        activeInvestorsList:
+          description: List of investors that are active investors in the given portfolio
+            company itemized by security
+          items:
+            description: Active investor
+            example: Pitango Venture Capital
+            nullable: true
+            type: string
+          type: array
+        exitedInvestorsList:
+          description: List of investors that had previously invested in the given
+            portfolio company itemized by security
+          items:
+            description: Exited investor
+            example: LaunchCapital LLC
+            nullable: true
+            type: string
+          type: array
+        amountRaisedUSD:
+          description: "Current estimated total of venture capital raised in USD.\
+            \  Each investment amount is currency converted on the day of the investment.\
+            \ Then all values are summed. \n"
+          example: 257.093
+          format: double
+          nullable: true
+          type: number
+        amountRaisedLocalCurrency:
+          description: Current estimated total of venture capital raised in local
+            currency.
+          example: 257.093
+          format: double
+          nullable: true
+          type: number
+        vcpeAmountRaisedUSD:
+          description: |
+            Current estimated total of venture capital and private equity raised in USD.  Each investment amount is currency converted on the day of the investment. Then all values are summed.
+          example: 257.093
+          format: double
+          nullable: true
+          type: number
+        vcpeAmountRaisedLocalCurrency:
+          description: "Current estimated total of venture capital raised in all rounds\
+            \ of the portfolio company. This item applies to venture capital raised\
+            \ rounds only.  \n"
+          example: 257.093
+          format: double
+          nullable: true
+          type: number
+        investmentStats:
+          description: "Investment stats summary for the specified portfolio company.\
+            \ Always represented in USD. \n"
+          example: 36000000
+          format: double
+          nullable: true
+          type: number
+        lastInvestmentDate:
+          description: The date that is associated with the most recent amount of
+            money that was invested into the portfolio company
+          example: 2024-07-23
+          format: date
+          nullable: true
+          type: string
+        firstInvestmentDate:
+          description: The date that is associated with the amount of money that was
+            first invested into the portfolio company.
+          example: 2011-11-23
+          format: date
+          nullable: true
+          type: string
+        businessTags:
+          description: |
+            Tag(s) that describe what the company does based on the most common language (text snippets)  found on their website and/or social media sites.
+          items:
+            description: Business Tag
+            example: 3D Printing
+            nullable: true
+            type: string
+          type: array
+        latestPostMoneyValuation:
+          description: |
+            The value of a company, post capital injection. This is the latest value and may not include  the most recent rounds of funding. Always represented in USD
+          example: 2000
+          nullable: true
+          type: number
+      title: Profile Object
+      type: object
+    FinancialsRequest:
+      description: Entity Reference Request
+      example:
+        data:
+          endDate: 2019-12-31T00:00:00.000+0000
+          ids:
+            oneId:
+              summary: One security or entity identifier
+              value:
+              - 0H3R4Y-E
+            multipleIds:
+              summary: Multiple security or entity identifiers
+              value:
+              - 0H3R4Y-E
+              - 0G3F5Z-E
+              - 00DK61-E
+          metrics:
+            oneFinancialMetric:
+              summary: One financials metric
+              value:
+              - FPC_ASSETS
+            multipleFinancialMetrics:
+              summary: Multiple financial metrics
+              value:
+              - FPC_ASSETS
+              - FPC_EBIT
+          startDate: 2019-01-01T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/FinancialsRequestBody'
+      required:
+      - data
+      title: Entity Reference Request
+      type: object
+    FinancialsRequestBody:
+      description: Financials request body elements
+      example:
+        endDate: 2019-12-31T00:00:00.000+0000
+        ids:
+          oneId:
+            summary: One security or entity identifier
+            value:
+            - 0H3R4Y-E
+          multipleIds:
+            summary: Multiple security or entity identifiers
+            value:
+            - 0H3R4Y-E
+            - 0G3F5Z-E
+            - 00DK61-E
+        metrics:
+          oneFinancialMetric:
+            summary: One financials metric
+            value:
+            - FPC_ASSETS
+          multipleFinancialMetrics:
+            summary: Multiple financial metrics
+            value:
+            - FPC_ASSETS
+            - FPC_EBIT
+        startDate: 2019-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers.
+          example:
+            oneId:
+              summary: One security or entity identifier
+              value:
+              - 0H3R4Y-E
+            multipleIds:
+              summary: Multiple security or entity identifiers
+              value:
+              - 0H3R4Y-E
+              - 0G3F5Z-E
+              - 00DK61-E
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: ids
+          type: array
+        metrics:
+          description: |
+            Private Company Financials Metrics.
+          example:
+            oneFinancialMetric:
+              summary: One financials metric
+              value:
+              - FPC_ASSETS
+            multipleFinancialMetrics:
+              summary: Multiple financial metrics
+              value:
+              - FPC_ASSETS
+              - FPC_EBIT
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: metrics
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2019-01-01
+          format: date
+          title: Start Date
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
+          example: 2019-12-31
+          format: date
+          title: End Date
+          type: string
+      required:
+      - ids
+      - metrics
+      - startDate
+      title: Financials Request Body
+      type: object
+    NonPeriodicRequest:
+      description: Entity Reference Request Body
+      example:
+        data:
+          ids:
+            oneId:
+              summary: One security or entity identifier
+              value:
+              - 0H3R4Y-E
+            multipleIds:
+              summary: Multiple security or entity identifiers
+              value:
+              - 0H3R4Y-E
+              - 0G3F5Z-E
+              - 00DK61-E
+          metrics:
+            oneNonPeriodicMetric:
+              summary: One non-periodic metric
+              value:
+              - FPE_AMT_RAISED
+            multipleNonPeriodicMetrics:
+              summary: Multiple non-periodic metrics
+              value:
+              - FPE_AMT_RAISED
+              - FPD_CEO_CURR
+      properties:
+        data:
+          $ref: '#/components/schemas/NonPeriodicRequestBody'
+      required:
+      - data
+      title: Entity Reference Request
+      type: object
+    NonPeriodicRequestBody:
+      description: Non periodic request body elements
+      example:
+        ids:
+          oneId:
+            summary: One security or entity identifier
+            value:
+            - 0H3R4Y-E
+          multipleIds:
+            summary: Multiple security or entity identifiers
+            value:
+            - 0H3R4Y-E
+            - 0G3F5Z-E
+            - 00DK61-E
+        metrics:
+          oneNonPeriodicMetric:
+            summary: One non-periodic metric
+            value:
+            - FPE_AMT_RAISED
+          multipleNonPeriodicMetrics:
+            summary: Multiple non-periodic metrics
+            value:
+            - FPE_AMT_RAISED
+            - FPD_CEO_CURR
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers.
+          example:
+            oneId:
+              summary: One security or entity identifier
+              value:
+              - 0H3R4Y-E
+            multipleIds:
+              summary: Multiple security or entity identifiers
+              value:
+              - 0H3R4Y-E
+              - 0G3F5Z-E
+              - 00DK61-E
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: ids
+          type: array
+        metrics:
+          description: |
+            Private Company Non-Periodic Metrics.
+          example:
+            oneNonPeriodicMetric:
+              summary: One non-periodic metric
+              value:
+              - FPE_AMT_RAISED
+            multipleNonPeriodicMetrics:
+              summary: Multiple non-periodic metrics
+              value:
+              - FPE_AMT_RAISED
+              - FPD_CEO_CURR
+          items:
+            type: string
+          maxItems: 3000
+          minItems: 1
+          title: metrics
+          type: array
+      required:
+      - ids
+      - metrics
+      title: Non Periodic Request Body
+      type: object
+    EntityMatchRequest:
+      description: Request object for a requesting multiple Entity Matches.
+      example:
+        data:
+        - country: US
+          name: Alto Pharmacy
+        - country: US
+          name: Alto Pharmacy
+        - country: US
+          name: Alto Pharmacy
+        - country: US
+          name: Alto Pharmacy
+        - country: US
+          name: Alto Pharmacy
+      properties:
+        data:
+          description: List of entities to match
+          items:
+            $ref: '#/components/schemas/EntityMatchRequestBody'
+          maxItems: 25
+          minItems: 1
+          type: array
+      required:
+      - data
+      title: Entity Match Request
+      type: object
+    EntityMatchRequestBody:
+      description: Entity match request body elements
+      example:
+        country: US
+        name: Alto Pharmacy
+      properties:
+        name:
+          description: The Name of the entity to match.
+          example: Alto Pharmacy
+          maxLength: 200
+          minLength: 1
+          type: string
+        country:
+          description: |
+            ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
+          example: US
+          maxLength: 2
+          minLength: 2
+          type: string
+      required:
+      - name
+      title: Entity Match Request Body
+      type: object
+    privateMarketIds:
+      description: |
+        Security or Entity identifiers.
+      example:
+        oneId:
+          summary: One security or entity identifier
+          value:
+          - 0H3R4Y-E
+        multipleIds:
+          summary: Multiple security or entity identifiers
+          value:
+          - 0H3R4Y-E
+          - 0G3F5Z-E
+          - 00DK61-E
+      items:
+        type: string
+      maxItems: 3000
+      minItems: 1
+      title: ids
+      type: array
+    financialsMetrics:
+      description: |
+        Private Company Financials Metrics.
+      example:
+        oneFinancialMetric:
+          summary: One financials metric
+          value:
+          - FPC_ASSETS
+        multipleFinancialMetrics:
+          summary: Multiple financial metrics
+          value:
+          - FPC_ASSETS
+          - FPC_EBIT
+      items:
+        type: string
+      maxItems: 3000
+      minItems: 1
+      title: metrics
+      type: array
+    nonPeriodicMetrics:
+      description: |
+        Private Company Non-Periodic Metrics.
+      example:
+        oneNonPeriodicMetric:
+          summary: One non-periodic metric
+          value:
+          - FPE_AMT_RAISED
+        multipleNonPeriodicMetrics:
+          summary: Multiple non-periodic metrics
+          value:
+          - FPE_AMT_RAISED
+          - FPD_CEO_CURR
+      items:
+        type: string
+      maxItems: 3000
+      minItems: 1
+      title: metrics
+      type: array
+    startDate:
+      description: |
+        The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2019-01-01
+      format: date
+      title: Start Date
+      type: string
+    endDate:
+      description: |
+        The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.
+      example: 2019-12-31
+      format: date
+      title: End Date
+      type: string
+    reportDate:
+      description: The date the reported fiscal period ended.
+      example: 2023-12-31
+      format: date
+      nullable: true
+      type: string
+    fiscalYear:
+      description: Fiscal year of the reported period in YYYY format.
+      example: "2023"
+      nullable: true
+      type: string
+    ErrorResponse:
+      description: Default Error Response
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      title: Error Response
+      type: object
+    ErrorObject:
+      description: Error Object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        title:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+      type: object
+    ErrorObject_links:
+      description: The Endpoint path {package}/version/{endpoint}
+      example: /factset-fundamentals/v2/{endpoint}
+      properties:
+        about:
+          description: details.
+          example: /factset-fundamentals/v2/{endpoint}
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

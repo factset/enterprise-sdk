@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.4.0
+  version: 2.4.1
   title: FactSet Fundamentals API
   contact:
     name: FactSet Research Systems
@@ -1750,69 +1750,6 @@ components:
           nullable: true
         address:
           $ref: '#/components/schemas/Address'
-        economyId:
-          description: >-
-            The economy classification Id for this security. The industry level
-            1 RBIC (Revere Business Industry Classification) system is used in
-            classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: '55'
-          nullable: true
-        economy:
-          description: >-
-            The economy classification for this security. The industry level 1
-            RBIC (Revere Business Industry Classification) system is used in
-            classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: Technology
-          nullable: true
-        subSectorId:
-          description: >-
-            The subSector classification Id for this security. The industry
-            level 3 RBIC (Revere Business Industry Classification) system is
-            used in classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: '551515'
-          nullable: true
-        subSector:
-          description: >-
-            The subSector classification for this security. The industry level 3
-            RBIC (Revere Business Industry Classification) system is used in
-            classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: Communications Equipment
-          nullable: true
-        industryGroupId:
-          description: >-
-            The industryGroup classification Id for this security. The industry
-            level 4 RBIC (Revere Business Industry Classification) system is
-            used in classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: '55151545'
-          nullable: true
-        industryGroup:
-          description: >-
-            The industryGroup classification for this security. The industry
-            level 4 RBIC (Revere Business Industry Classification) system is
-            used in classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: Wireless Mobile Equipment
-          nullable: true
-        industryId:
-          description: >-
-            The industry classification Id for this security. The industry level
-            5 RBIC (Revere Business Industry Classification) system is used in
-            classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: '5515154530'
-          nullable: true
         industry:
           description: >-
             The industry classification for this security. The industry level 5
@@ -1821,33 +1758,6 @@ components:
             page](https://my.apps.factset.com/oa/pages/17498)
           type: string
           example: Smart Phone Manufacturing
-          nullable: true
-        subIndustryId:
-          description: >-
-            The subIndustry classification Id for this security. The industry
-            level 6 RBIC (Revere Business Industry Classification) system is
-            used in classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: '551515453010'
-          nullable: true
-        subIndustry:
-          description: >-
-            The subIndustry classification for this security. The industry level
-            6 RBIC (Revere Business Industry Classification) system is used in
-            classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: Smart Phone Manufacturing
-          nullable: true
-        sectorId:
-          description: >-
-            The sector classification Id for this security. The sector level 2
-            RBIC (Revere Business Industry Classification) system is used in
-            classification. For more info, visit: [OA
-            page](https://my.apps.factset.com/oa/pages/17498)
-          type: string
-          example: '5515'
           nullable: true
         sector:
           description: >-
@@ -3478,18 +3388,8 @@ components:
               zip: 95014-2083
               phoneNumber: 1.408.996.1010
               website: http://www.apple.com
-            economyId: '55'
-            economy: Technology
-            sectorId: '5515'
             sector: Hardware
-            subSectorId: '551515'
-            subSector: Communications Equipment
-            industryGroupId: '55151545'
-            industryGroup: Wireless Mobile Equipment
-            industryId: '5515154530'
             industry: Smart Phone Manufacturing
-            subIndustryId: '551515453010'
-            subIndustry: Smart Phone Manufacturing
             numberOfEmployees: 161000
             ceo: Mr. Timothy Donald Cook
             businessSummary: >-
@@ -3522,18 +3422,8 @@ components:
               zip: 95014-2083
               phoneNumber: 1.408.996.1010
               website: http://www.apple.com
-            economyId: '55'
-            economy: Technology
-            sectorId: '5515'
             sector: Hardware
-            subSectorId: '551515'
-            subSector: Communications Equipment
-            industryGroupId: '55151545'
-            industryGroup: Wireless Mobile Equipment
-            industryId: '5515154530'
             industry: Smart Phone Manufacturing
-            subIndustryId: '551515453010'
-            subIndustry: Smart Phone Manufacturing
             numberOfEmployees: 161000
             ceo: Mr. Timothy Donald Cook
             businessSummary: >-
@@ -3561,18 +3451,8 @@ components:
               zip: 98052-6399
               phoneNumber: 1.425.882.8080
               website: http://www.microsoft.com
-            economyId: '55'
-            economy: Technology
-            sectorId: '5520'
             sector: Software and Consulting
-            subSectorId: '552015'
-            subSector: Software
-            industryGroupId: '55201540'
-            industryGroup: General and Mixed-Type Software
-            industryId: '5520154010'
             industry: General and Mixed-Type Software
-            subIndustryId: '552015401010'
-            subIndustry: General and Mixed-Type Software
             numberOfEmployees: 221000
             ceo: Mr. Satya Nadella
             businessSummary: >-
