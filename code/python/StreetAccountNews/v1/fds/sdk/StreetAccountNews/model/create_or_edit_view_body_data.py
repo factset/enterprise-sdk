@@ -157,7 +157,7 @@ class CreateOrEditViewBodyData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the view.. [optional]  # noqa: E501
             tickers ([CreateOrEditViewTickers]): An array of ticker objects associated with the view.. [optional]  # noqa: E501
-            is_primary (bool): If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. . [optional]  # noqa: E501
+            is_primary (bool): If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  . [optional]  # noqa: E501
             categories ([str]): [optional]  # noqa: E501
             topics ([str]): [optional]  # noqa: E501
             regions ([str]): [optional]  # noqa: E501
@@ -246,7 +246,7 @@ class CreateOrEditViewBodyData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the view.. [optional]  # noqa: E501
             tickers ([CreateOrEditViewTickers]): An array of ticker objects associated with the view.. [optional]  # noqa: E501
-            is_primary (bool): If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. . [optional]  # noqa: E501
+            is_primary (bool): If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  . [optional]  # noqa: E501
             categories ([str]): [optional]  # noqa: E501
             topics ([str]): [optional]  # noqa: E501
             regions ([str]): [optional]  # noqa: E501

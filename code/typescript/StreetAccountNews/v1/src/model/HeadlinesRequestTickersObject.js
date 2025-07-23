@@ -61,7 +61,7 @@ class HeadlinesRequestTickersObject {
 }
 
 /**
- * The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US)
+ * Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
  * @member {String} value
  */
 HeadlinesRequestTickersObject.prototype['value'] = undefined;
@@ -123,7 +123,13 @@ HeadlinesRequestTickersObject['TypeEnum'] = {
      * value: "Fixed_Income"
      * @const
      */
-    "Fixed_Income": "Fixed_Income"
+    "Fixed_Income": "Fixed_Income",
+
+    /**
+     * value: "Holder"
+     * @const
+     */
+    "Holder": "Holder"
 };
 
 

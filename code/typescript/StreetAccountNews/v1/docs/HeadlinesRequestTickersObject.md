@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **String** | The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US) | [optional] 
+**value** | **String** | Supports Ticker-Exchange, ISIN, CUSIP and SEDOL. | [optional] 
 **type** | **String** | The type of asset associated with the ticker.  | [optional] 
 
 
@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 * `privateCompanies` (value: `"privateCompanies"`)
 
 * `Fixed_Income` (value: `"Fixed_Income"`)
+
+* `Holder` (value: `"Holder"`)
 
 
 

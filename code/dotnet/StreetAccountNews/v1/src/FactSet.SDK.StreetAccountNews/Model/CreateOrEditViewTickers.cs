@@ -52,22 +52,40 @@ namespace FactSet.SDK.StreetAccountNews.Model
             ETF = 2,
 
             /// <summary>
-            /// Enum Holder for value: Holder
-            /// </summary>
-            [EnumMember(Value = "Holder")]
-            Holder = 3,
-
-            /// <summary>
             /// Enum MutualFund for value: Mutual_Fund
             /// </summary>
             [EnumMember(Value = "Mutual_Fund")]
-            MutualFund = 4,
+            MutualFund = 3,
 
             /// <summary>
             /// Enum Portfolios for value: Portfolios
             /// </summary>
             [EnumMember(Value = "Portfolios")]
-            Portfolios = 5
+            Portfolios = 4,
+
+            /// <summary>
+            /// Enum Equity for value: Equity
+            /// </summary>
+            [EnumMember(Value = "Equity")]
+            Equity = 5,
+
+            /// <summary>
+            /// Enum PrivateCompanies for value: privateCompanies
+            /// </summary>
+            [EnumMember(Value = "privateCompanies")]
+            PrivateCompanies = 6,
+
+            /// <summary>
+            /// Enum FixedIncome for value: Fixed_Income
+            /// </summary>
+            [EnumMember(Value = "Fixed_Income")]
+            FixedIncome = 7,
+
+            /// <summary>
+            /// Enum Holder for value: Holder
+            /// </summary>
+            [EnumMember(Value = "Holder")]
+            Holder = 8
 
         }
 
@@ -82,7 +100,7 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// Initializes a new instance of the <see cref="CreateOrEditViewTickers" /> class.
         /// </summary>
         /// <param name="name">name of the ticker.</param>
-        /// <param name="value">The ticker symbol.</param>
+        /// <param name="value">Supports Ticker-Exchange, ISIN, CUSIP and SEDOL..</param>
         /// <param name="type">The type of the asset associated with the ticker..</param>
         public CreateOrEditViewTickers(string name = default(string), string value = default(string), TypeEnum? type = default(TypeEnum?))
         {
@@ -99,9 +117,9 @@ namespace FactSet.SDK.StreetAccountNews.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The ticker symbol
+        /// Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
         /// </summary>
-        /// <value>The ticker symbol</value>
+        /// <value>Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

@@ -79,7 +79,13 @@ namespace FactSet.SDK.StreetAccountNews.Model
             /// Enum FixedIncome for value: Fixed_Income
             /// </summary>
             [EnumMember(Value = "Fixed_Income")]
-            FixedIncome = 7
+            FixedIncome = 7,
+
+            /// <summary>
+            /// Enum Holder for value: Holder
+            /// </summary>
+            [EnumMember(Value = "Holder")]
+            Holder = 8
 
         }
 
@@ -93,7 +99,7 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeadlinesRequestTickersObject" /> class.
         /// </summary>
-        /// <param name="value">The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US).</param>
+        /// <param name="value">Supports Ticker-Exchange, ISIN, CUSIP and SEDOL..</param>
         /// <param name="type">The type of asset associated with the ticker. .</param>
         public HeadlinesRequestTickersObject(string value = default(string), TypeEnum? type = default(TypeEnum?))
         {
@@ -102,9 +108,9 @@ namespace FactSet.SDK.StreetAccountNews.Model
         }
 
         /// <summary>
-        /// The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US)
+        /// Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
         /// </summary>
-        /// <value>The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US)</value>
+        /// <value>Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

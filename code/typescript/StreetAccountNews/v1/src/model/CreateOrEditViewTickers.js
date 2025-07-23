@@ -70,7 +70,7 @@ class CreateOrEditViewTickers {
 CreateOrEditViewTickers.prototype['name'] = undefined;
 
 /**
- * The ticker symbol
+ * Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
  * @member {String} value
  */
 CreateOrEditViewTickers.prototype['value'] = undefined;
@@ -105,12 +105,6 @@ CreateOrEditViewTickers['TypeEnum'] = {
     "ETF": "ETF",
 
     /**
-     * value: "Holder"
-     * @const
-     */
-    "Holder": "Holder",
-
-    /**
      * value: "Mutual_Fund"
      * @const
      */
@@ -120,7 +114,31 @@ CreateOrEditViewTickers['TypeEnum'] = {
      * value: "Portfolios"
      * @const
      */
-    "Portfolios": "Portfolios"
+    "Portfolios": "Portfolios",
+
+    /**
+     * value: "Equity"
+     * @const
+     */
+    "Equity": "Equity",
+
+    /**
+     * value: "privateCompanies"
+     * @const
+     */
+    "privateCompanies": "privateCompanies",
+
+    /**
+     * value: "Fixed_Income"
+     * @const
+     */
+    "Fixed_Income": "Fixed_Income",
+
+    /**
+     * value: "Holder"
+     * @const
+     */
+    "Holder": "Holder"
 };
 
 

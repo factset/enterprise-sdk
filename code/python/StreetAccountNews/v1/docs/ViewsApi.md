@@ -173,8 +173,8 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
             name="SA News View",
             tickers=[
                 CreateOrEditViewTickers(
-                    name="Russell 1000",
-                    value="R.1000",
+                    name="name_example",
+                    value="value_example",
                     type="Index",
                 ),
             ],
@@ -501,8 +501,8 @@ with fds.sdk.StreetAccountNews.ApiClient(configuration) as api_client:
             name="SA News View",
             tickers=[
                 CreateOrEditViewTickers(
-                    name="Russell 1000",
-                    value="R.1000",
+                    name="name_example",
+                    value="value_example",
                     type="Index",
                 ),
             ],

@@ -5,7 +5,7 @@ Elements of headlines request tickers.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** | The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US) | [optional] 
+**Value** | **string** | Supports Ticker-Exchange, ISIN, CUSIP and SEDOL. | [optional] 
 **Type** | **string** | The type of asset associated with the ticker.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -8,7 +8,7 @@ Elements of headlines request tickers.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **String** | The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US) |  [optional]
+**value** | **String** | Supports Ticker-Exchange, ISIN, CUSIP and SEDOL. |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | The type of asset associated with the ticker.  |  [optional]
 
 
@@ -24,6 +24,7 @@ PORTFOLIOS | &quot;Portfolios&quot;
 EQUITY | &quot;Equity&quot;
 PRIVATECOMPANIES | &quot;privateCompanies&quot;
 FIXED_INCOME | &quot;Fixed_Income&quot;
+HOLDER | &quot;Holder&quot;
 
 
 ## Implemented Interfaces

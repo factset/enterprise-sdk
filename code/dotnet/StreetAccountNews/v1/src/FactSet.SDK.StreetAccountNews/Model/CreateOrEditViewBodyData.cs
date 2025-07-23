@@ -37,7 +37,7 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// </summary>
         /// <param name="name">The name of the view..</param>
         /// <param name="tickers">An array of ticker objects associated with the view..</param>
-        /// <param name="isPrimary">If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. .</param>
+        /// <param name="isPrimary">If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  .</param>
         /// <param name="categories">categories.</param>
         /// <param name="topics">topics.</param>
         /// <param name="regions">regions.</param>
@@ -70,9 +70,9 @@ namespace FactSet.SDK.StreetAccountNews.Model
         public List<CreateOrEditViewTickers> Tickers { get; set; }
 
         /// <summary>
-        /// If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. 
+        /// If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  
         /// </summary>
-        /// <value>If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. </value>
+        /// <value>If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  </value>
         [DataMember(Name = "isPrimary", EmitDefaultValue = true)]
         public bool IsPrimary { get; set; }
 

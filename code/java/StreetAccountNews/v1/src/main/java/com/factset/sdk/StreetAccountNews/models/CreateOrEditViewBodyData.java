@@ -119,7 +119,7 @@ public class CreateOrEditViewBodyData implements Serializable {
    * @return tickers
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of ticker objects associated with the view.")
+  @ApiModelProperty(example = "[{\"name\":\"Marriott International, Inc. Class A.\",\"value\":\"MAR-US\",\"type\":\"Equity\"},{\"name\":\"Audioboom Group plc.\",\"value\":\"JE00BJYJFG60\",\"type\":\"Equity\"},{\"name\":\"Innergex Renewable Energy Inc.\",\"value\":\"45790B104\",\"type\":\"Equity\"},{\"name\":\"Fidelity National Information Services, Inc.\",\"value\":\"2769796\",\"type\":\"Equity\"}]", value = "An array of ticker objects associated with the view.")
   @JsonProperty(JSON_PROPERTY_TICKERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -141,11 +141,11 @@ public class CreateOrEditViewBodyData implements Serializable {
   }
 
    /**
-   * If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. 
+   * If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  
    * @return isPrimary
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned. ")
+  @ApiModelProperty(example = "true", value = "If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  ")
   @JsonProperty(JSON_PROPERTY_IS_PRIMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

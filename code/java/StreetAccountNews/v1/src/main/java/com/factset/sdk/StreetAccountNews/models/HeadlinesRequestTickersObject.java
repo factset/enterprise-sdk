@@ -61,7 +61,9 @@ public class HeadlinesRequestTickersObject implements Serializable {
     
     PRIVATECOMPANIES("privateCompanies"),
     
-    FIXED_INCOME("Fixed_Income");
+    FIXED_INCOME("Fixed_Income"),
+    
+    HOLDER("Holder");
 
     private String value;
 
@@ -102,11 +104,11 @@ public class HeadlinesRequestTickersObject implements Serializable {
   }
 
    /**
-   * The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US)
+   * Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "SP50", value = "The ticker symbol. It also supports an listing and regional suffix (ex:AAPL-US)")
+  @ApiModelProperty(example = "SP50", value = "Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

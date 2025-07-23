@@ -54,9 +54,9 @@ paths:
                       headlines: Sample Headline
                       id: sa_story_3393235
                       primarySymbols:
-                      - AAPL-US
+                      - MAR-US
                       symbols:
-                      - AAPL-US
+                      - MAR-US
                       subjects:
                       - SA_EARNINGS
                       storyBody: Sample Body
@@ -231,9 +231,18 @@ paths:
                     data:
                     - name: Sample View
                       tickers:
-                      - name: Russell 1000
-                        value: R.1000
-                        type: Index
+                      - name: Marriott International, Inc. Class A.
+                        value: MAR-US
+                        type: Equity
+                      - name: Audioboom Group plc.
+                        value: JE00BJYJFG60
+                        type: Equity
+                      - name: Innergex Renewable Energy Inc.
+                        value: 45790B104
+                        type: Equity
+                      - name: Fidelity National Information Services, Inc.
+                        value: "2769796"
+                        type: Equity
                       isPrimary: true
                       categories:
                       - News Media
@@ -1306,8 +1315,14 @@ components:
       value:
         data:
           tickers:
-          - value: SP50
-            type: Index
+          - value: MAR-US
+            type: Equity
+          - value: JE00BJYJFG60
+            type: Equity
+          - value: 45790B104
+            type: Equity
+          - value: "2769796"
+            type: Equity
           isPrimary: true
           categories:
           - Earnings
@@ -1321,14 +1336,20 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     searchTime:
       summary: Using searchTime
       value:
         data:
           tickers:
-          - value: SP50
-            type: Index
+          - value: MAR-US
+            type: Equity
+          - value: JE00BJYJFG60
+            type: Equity
+          - value: 45790B104
+            type: Equity
+          - value: "2769796"
+            type: Equity
           isPrimary: true
           categories:
           - Earnings
@@ -1344,7 +1365,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     predefinedRangeid:
       summary: Using predefinedRange with view name
       value:
@@ -1354,7 +1375,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     searchTimeid:
       summary: Using searchTime with view name
       value:
@@ -1366,7 +1387,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     BadRequest:
       summary: Sample Error Response
       value:
@@ -1537,7 +1558,7 @@ components:
             value: SP50
         meta:
           pagination:
-            offset: 100
+            offset: 0
             limit: 50
           attributes:
           - headlines
@@ -1554,8 +1575,7 @@ components:
         value: SP50
       properties:
         value:
-          description: The ticker symbol. It also supports an listing and regional
-            suffix (ex:AAPL-US)
+          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
           example: SP50
           type: string
         type:
@@ -1569,6 +1589,7 @@ components:
           - Equity
           - privateCompanies
           - Fixed_Income
+          - Holder
           example: Index
           type: string
       type: object
@@ -1583,7 +1604,7 @@ components:
           name: SA News View
         meta:
           pagination:
-            offset: 100
+            offset: 0
             limit: 50
       properties:
         data:
@@ -1739,12 +1760,18 @@ components:
           - Earnings
           quickAlert: false
           tickers:
-          - name: Russell 1000
-            type: Index
-            value: R.1000
-          - name: Russell 1000
-            type: Index
-            value: R.1000
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
       properties:
         data:
           $ref: '#/components/schemas/CreateOrEditViewBody_data'
@@ -1761,27 +1788,27 @@ components:
     CreateOrEditViewTickers:
       description: Elements of create or edit view tickers object.
       example:
-        name: Russell 1000
+        name: name
         type: Index
-        value: R.1000
+        value: value
       properties:
         name:
           description: name of the ticker
-          example: Russell 1000
           type: string
         value:
-          description: The ticker symbol
-          example: R.1000
+          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
           type: string
         type:
           description: The type of the asset associated with the ticker.
           enum:
           - Index
           - ETF
-          - Holder
           - Mutual_Fund
           - Portfolios
-          example: Index
+          - Equity
+          - privateCompanies
+          - Fixed_Income
+          - Holder
           type: string
       type: object
     CreateViewResponse:
@@ -1812,12 +1839,12 @@ components:
           - News Media
           - News Media
           tickers:
-          - name: Russell 1000
+          - name: name
             type: Index
-            value: R.1000
-          - name: Russell 1000
+            value: value
+          - name: name
             type: Index
-            value: R.1000
+            value: value
         - sectors:
           - Chemicals - Plastics & Rubber
           - Chemicals - Plastics & Rubber
@@ -1833,12 +1860,12 @@ components:
           - News Media
           - News Media
           tickers:
-          - name: Russell 1000
+          - name: name
             type: Index
-            value: R.1000
-          - name: Russell 1000
+            value: value
+          - name: name
             type: Index
-            value: R.1000
+            value: value
       properties:
         data:
           items:
@@ -1863,12 +1890,12 @@ components:
         - News Media
         - News Media
         tickers:
-        - name: Russell 1000
+        - name: name
           type: Index
-          value: R.1000
-        - name: Russell 1000
+          value: value
+        - name: name
           type: Index
-          value: R.1000
+          value: value
       properties:
         name:
           description: The name of the view.
@@ -1880,9 +1907,10 @@ components:
             $ref: '#/components/schemas/CreateOrEditViewTickers'
           type: array
         isPrimary:
-          description: "If true, then only stories with the provided ticker as a primary\
-            \ symbol will be returned. Otherwise, all stories with the ticker as a\
-            \ primary symbol or related symbol will be returned.\n          \n"
+          description: "If true, stories that match the provided ticker on which the\
+            \ ticker is a primary symbol will be returned. Additionally, stories that\
+            \ match the other filters specified such as topics or regions will also\
+            \ be returned. \n          \n"
           type: boolean
         categories:
           items:
@@ -3511,8 +3539,10 @@ components:
             $ref: '#/components/schemas/HeadlinesRequestTickersObject'
           type: array
         isPrimary:
-          description: |
-            If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned
+          description: "If true, stories that match the provided ticker on which the\
+            \ ticker is a primary symbol will be returned. Additionally, stories that\
+            \ match the other filters specified such as topics or regions will also\
+            \ be returned. \n"
           example: true
           type: boolean
         categories:
@@ -3573,7 +3603,7 @@ components:
       description: Object defining pagination for the results pageable attribute.
         Offset-based strategy is used for Pagination.
       example:
-        offset: 100
+        offset: 0
         limit: 50
       properties:
         limit:
@@ -3584,14 +3614,14 @@ components:
         offset:
           default: 0
           description: Non-negative number of entries to skip.
-          example: 100
+          example: 0
           type: integer
       type: object
     HeadlinesRequest_meta:
       description: Elements of meta object.
       example:
         pagination:
-          offset: 100
+          offset: 0
           limit: 50
         attributes:
         - headlines
@@ -3674,7 +3704,7 @@ components:
       description: Elements of meta object.
       example:
         pagination:
-          offset: 100
+          offset: 0
           limit: 50
       properties:
         pagination:
@@ -3740,12 +3770,18 @@ components:
         - Earnings
         quickAlert: false
         tickers:
-        - name: Russell 1000
-          type: Index
-          value: R.1000
-        - name: Russell 1000
-          type: Index
-          value: R.1000
+        - name: Marriott International, Inc. Class A.
+          value: MAR-US
+          type: Equity
+        - name: Audioboom Group plc.
+          value: JE00BJYJFG60
+          type: Equity
+        - name: Innergex Renewable Energy Inc.
+          value: 45790B104
+          type: Equity
+        - name: Fidelity National Information Services, Inc.
+          value: "2769796"
+          type: Equity
       properties:
         name:
           description: The name of the view.
@@ -3753,12 +3789,27 @@ components:
           type: string
         tickers:
           description: An array of ticker objects associated with the view.
+          example:
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
           items:
             $ref: '#/components/schemas/CreateOrEditViewTickers'
           type: array
         isPrimary:
-          description: |
-            If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned.
+          description: "If true, stories that match the provided ticker on which the\
+            \ ticker is a primary symbol will be returned. Additionally, stories that\
+            \ match the other filters specified such as topics or regions will also\
+            \ be returned. \n"
           example: true
           type: boolean
         categories:

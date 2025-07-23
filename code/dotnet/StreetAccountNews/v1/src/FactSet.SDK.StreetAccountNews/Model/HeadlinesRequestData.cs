@@ -118,7 +118,7 @@ namespace FactSet.SDK.StreetAccountNews.Model
         /// Initializes a new instance of the <see cref="HeadlinesRequestData" /> class.
         /// </summary>
         /// <param name="tickers">List of tickers to filter the headlines. Each ticker is an object..</param>
-        /// <param name="isPrimary">If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned .</param>
+        /// <param name="isPrimary">If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  .</param>
         /// <param name="categories">A list of categories used to filter the headlines. Categories are define the nature or topic of the headlines, such as \&quot;Earnings\&quot;. Use the &#x60;/filters/categories&#x60; endpoint to get the list of available categories..</param>
         /// <param name="topics">A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as \&quot;Market Summaries\&quot;. Use the &#x60;/filters/topics&#x60; endpoint to get the list of available topics..</param>
         /// <param name="regions">A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \&quot;North America\&quot;. Use the &#x60;/filters/regions&#x60; endpoint to get the list of available regions.  **Note:** Filtering is possible only for top-level regions, not individual countries..</param>
@@ -145,9 +145,9 @@ namespace FactSet.SDK.StreetAccountNews.Model
         public List<HeadlinesRequestTickersObject> Tickers { get; set; }
 
         /// <summary>
-        /// If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned 
+        /// If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  
         /// </summary>
-        /// <value>If true, then only stories with the provided ticker as a primary symbol will be returned. Otherwise, all stories with the ticker as a primary symbol or related symbol will be returned </value>
+        /// <value>If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  </value>
         [DataMember(Name = "isPrimary", EmitDefaultValue = true)]
         public bool IsPrimary { get; set; }
 

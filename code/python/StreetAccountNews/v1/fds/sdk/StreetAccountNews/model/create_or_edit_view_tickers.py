@@ -59,9 +59,12 @@ class CreateOrEditViewTickers(ModelNormal):
         ('type',): {
             'INDEX': "Index",
             'ETF': "ETF",
-            'HOLDER': "Holder",
             'MUTUAL_FUND': "Mutual_Fund",
             'PORTFOLIOS': "Portfolios",
+            'EQUITY': "Equity",
+            'PRIVATECOMPANIES': "privateCompanies",
+            'FIXED_INCOME': "Fixed_Income",
+            'HOLDER': "Holder",
 
 
         },
@@ -149,7 +152,7 @@ class CreateOrEditViewTickers(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name of the ticker. [optional]  # noqa: E501
-            value (str): The ticker symbol. [optional]  # noqa: E501
+            value (str): Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.. [optional]  # noqa: E501
             type (str): The type of the asset associated with the ticker.. [optional]  # noqa: E501
         """
 
@@ -233,7 +236,7 @@ class CreateOrEditViewTickers(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name of the ticker. [optional]  # noqa: E501
-            value (str): The ticker symbol. [optional]  # noqa: E501
+            value (str): Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.. [optional]  # noqa: E501
             type (str): The type of the asset associated with the ticker.. [optional]  # noqa: E501
         """
 

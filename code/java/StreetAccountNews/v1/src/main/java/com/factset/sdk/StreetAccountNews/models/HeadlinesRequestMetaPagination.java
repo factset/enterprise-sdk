@@ -87,7 +87,7 @@ public class HeadlinesRequestMetaPagination implements Serializable {
    * @return offset
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "100", value = "Non-negative number of entries to skip.")
+  @ApiModelProperty(example = "0", value = "Non-negative number of entries to skip.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

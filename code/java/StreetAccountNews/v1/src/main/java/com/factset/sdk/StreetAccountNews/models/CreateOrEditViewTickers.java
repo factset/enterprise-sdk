@@ -57,11 +57,17 @@ public class CreateOrEditViewTickers implements Serializable {
     
     ETF("ETF"),
     
-    HOLDER("Holder"),
-    
     MUTUAL_FUND("Mutual_Fund"),
     
-    PORTFOLIOS("Portfolios");
+    PORTFOLIOS("Portfolios"),
+    
+    EQUITY("Equity"),
+    
+    PRIVATECOMPANIES("privateCompanies"),
+    
+    FIXED_INCOME("Fixed_Income"),
+    
+    HOLDER("Holder");
 
     private String value;
 
@@ -106,7 +112,7 @@ public class CreateOrEditViewTickers implements Serializable {
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Russell 1000", value = "name of the ticker")
+  @ApiModelProperty(value = "name of the ticker")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -128,11 +134,11 @@ public class CreateOrEditViewTickers implements Serializable {
   }
 
    /**
-   * The ticker symbol
+   * Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "R.1000", value = "The ticker symbol")
+  @ApiModelProperty(value = "Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -158,7 +164,7 @@ public class CreateOrEditViewTickers implements Serializable {
    * @return type
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Index", value = "The type of the asset associated with the ticker.")
+  @ApiModelProperty(value = "The type of the asset associated with the ticker.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
