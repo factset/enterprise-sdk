@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-bookbuilder",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "BookBuilder client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
