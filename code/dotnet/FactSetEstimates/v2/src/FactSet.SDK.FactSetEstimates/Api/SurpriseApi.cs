@@ -1,9 +1,9 @@
 /*
  * FactSet Estimates
  *
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
- * The version of the OpenAPI document: 2.7.0
+ * The version of the OpenAPI document: 2.8.0
  * Contact: api@factset.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -36,7 +36,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="statistic">Statistic for consensus calculation. (optional, default to MEAN)</param>
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>SurpriseResponse</returns>
-        SurpriseResponse GetSurprise(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string));
+        SurpriseResponse GetSurprise(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string));
 
         /// <summary>
         /// Surprise estimates for rolling fiscal periods
@@ -54,7 +54,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -62,7 +62,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="statistic">Statistic for consensus calculation. (optional, default to MEAN)</param>
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of SurpriseResponse</returns>
-        ApiResponse<SurpriseResponse> GetSurpriseWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string));
+        ApiResponse<SurpriseResponse> GetSurpriseWithHttpInfo(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string));
         /// <summary>
         /// Surprise estimates for rolling fiscal periods
         /// </summary>
@@ -101,7 +101,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -110,7 +110,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SurpriseResponse</returns>
-        System.Threading.Tasks.Task<SurpriseResponse> GetSurpriseAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SurpriseResponse> GetSurpriseAsync(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Surprise estimates for rolling fiscal periods
@@ -120,7 +120,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -129,7 +129,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SurpriseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SurpriseResponse>> GetSurpriseWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SurpriseResponse>> GetSurpriseWithHttpInfoAsync(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Surprise estimates for rolling fiscal periods
         /// </summary>
@@ -307,7 +307,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -315,7 +315,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="statistic">Statistic for consensus calculation. (optional, default to MEAN)</param>
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>SurpriseResponse</returns>
-        public SurpriseResponse GetSurprise(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
+        public SurpriseResponse GetSurprise(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
         {
             var localVarResponse = GetSurpriseWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency);
             return localVarResponse.Data;
@@ -326,7 +326,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -334,7 +334,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="statistic">Statistic for consensus calculation. (optional, default to MEAN)</param>
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of SurpriseResponse</returns>
-        public ApiResponse<SurpriseResponse> GetSurpriseWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
+        public ApiResponse<SurpriseResponse> GetSurpriseWithHttpInfo(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -374,11 +374,11 @@ namespace FactSet.SDK.FactSetEstimates.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (frequency != null)
             {
@@ -438,7 +438,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -447,7 +447,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="currency">Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SurpriseResponse</returns>
-        public async System.Threading.Tasks.Task<SurpriseResponse>GetSurpriseAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SurpriseResponse>GetSurpriseAsync(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetSurpriseWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -458,7 +458,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
-        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
+        /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). </param>
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
@@ -468,7 +468,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SurpriseResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<SurpriseResponse>> GetSurpriseWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SurpriseResponse>> GetSurpriseWithHttpInfoAsync(List<string> ids, List<string> metrics, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -509,11 +509,11 @@ namespace FactSet.SDK.FactSetEstimates.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (frequency != null)
             {

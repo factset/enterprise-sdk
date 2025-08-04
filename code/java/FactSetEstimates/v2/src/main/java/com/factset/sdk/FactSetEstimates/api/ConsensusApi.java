@@ -14,6 +14,7 @@ import java.util.Objects;
 import com.factset.sdk.FactSetEstimates.models.ConsensusResponse;
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
 import com.factset.sdk.FactSetEstimates.models.FixedConsensusRequest;
+import java.time.LocalDate;
 import com.factset.sdk.FactSetEstimates.models.RollingConsensusRequest;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -94,7 +95,7 @@ public class ConsensusApi {
    * Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
    * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
@@ -115,7 +116,7 @@ public class ConsensusApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ConsensusResponse getFixedConsensus(java.util.List<String> ids, java.util.List<String> metrics, String startDate, String endDate, String frequency, String fiscalPeriodStart, String fiscalPeriodEnd, String periodicity, String currency) throws ApiException {
+  public ConsensusResponse getFixedConsensus(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String fiscalPeriodStart, String fiscalPeriodEnd, String periodicity, String currency) throws ApiException {
     return getFixedConsensusWithHttpInfo(ids, metrics, startDate, endDate, frequency, fiscalPeriodStart, fiscalPeriodEnd, periodicity, currency).getData();
   }
 
@@ -123,7 +124,7 @@ public class ConsensusApi {
    * Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
    * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
@@ -144,7 +145,7 @@ public class ConsensusApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ConsensusResponse> getFixedConsensusWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, String startDate, String endDate, String frequency, String fiscalPeriodStart, String fiscalPeriodEnd, String periodicity, String currency) throws ApiException {
+  public ApiResponse<ConsensusResponse> getFixedConsensusWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String fiscalPeriodStart, String fiscalPeriodEnd, String periodicity, String currency) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -290,7 +291,7 @@ public class ConsensusApi {
    * Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
    * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
@@ -311,7 +312,7 @@ public class ConsensusApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ConsensusResponse getRollingConsensus(java.util.List<String> ids, java.util.List<String> metrics, String startDate, String endDate, String frequency, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String currency) throws ApiException {
+  public ConsensusResponse getRollingConsensus(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String currency) throws ApiException {
     return getRollingConsensusWithHttpInfo(ids, metrics, startDate, endDate, frequency, relativeFiscalStart, relativeFiscalEnd, periodicity, currency).getData();
   }
 
@@ -319,7 +320,7 @@ public class ConsensusApi {
    * Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
    * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
@@ -340,7 +341,7 @@ public class ConsensusApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ConsensusResponse> getRollingConsensusWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, String startDate, String endDate, String frequency, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String currency) throws ApiException {
+  public ApiResponse<ConsensusResponse> getRollingConsensusWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String currency) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getfixedconsensus"></a>
 # **GetFixedConsensus**
-> ConsensusResponse GetFixedConsensus (List<string> ids, List<string> metrics, string startDate = null, string endDate = null, string frequency = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string periodicity = null, string currency = null)
+> ConsensusResponse GetFixedConsensus (List<string> ids, List<string> metrics, DateTime? startDate = null, DateTime? endDate = null, string frequency = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string periodicity = null, string currency = null)
 
 Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
 
@@ -64,9 +64,9 @@ namespace Example
             var apiInstance = new ConsensusApi(config);
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
-            var metrics = new List<string>(); // List<string> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-            var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = "2019-08-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var metrics = new List<string>(); // List<string> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
+            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var frequency = "D";  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to AM)
             var fiscalPeriodStart = "2019";  // string | Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional) 
             var fiscalPeriodEnd = "2020";  // string | Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional) 
@@ -95,9 +95,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
- **metrics** | [**List&lt;string&gt;**](string.md)| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  | 
- **startDate** | **string**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **string**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **metrics** | [**List&lt;string&gt;**](string.md)| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  | 
+ **startDate** | **DateTime?**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **endDate** | **DateTime?**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **frequency** | **string**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to AM]
  **fiscalPeriodStart** | **string**| Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  | [optional] 
  **fiscalPeriodEnd** | **string**| Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  | [optional] 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 <a name="getrollingconsensus"></a>
 # **GetRollingConsensus**
-> ConsensusResponse GetRollingConsensus (List<string> ids, List<string> metrics, string startDate = null, string endDate = null, string frequency = null, int? relativeFiscalStart = null, int? relativeFiscalEnd = null, string periodicity = null, string currency = null)
+> ConsensusResponse GetRollingConsensus (List<string> ids, List<string> metrics, DateTime? startDate = null, DateTime? endDate = null, string frequency = null, int? relativeFiscalStart = null, int? relativeFiscalEnd = null, string periodicity = null, string currency = null)
 
 Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
 
@@ -286,9 +286,9 @@ namespace Example
             var apiInstance = new ConsensusApi(config);
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
-            var metrics = new List<string>(); // List<string> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-            var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = "2019-08-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var metrics = new List<string>(); // List<string> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
+            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var frequency = "D";  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to AM)
             var relativeFiscalStart = 1;  // int? | Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional) 
             var relativeFiscalEnd = 2;  // int? | Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional) 
@@ -317,9 +317,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
- **metrics** | [**List&lt;string&gt;**](string.md)| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  | 
- **startDate** | **string**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **string**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **metrics** | [**List&lt;string&gt;**](string.md)| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  | 
+ **startDate** | **DateTime?**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **endDate** | **DateTime?**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **frequency** | **string**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to AM]
  **relativeFiscalStart** | **int?**| Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). | [optional] 
  **relativeFiscalEnd** | **int?**| Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). | [optional] 

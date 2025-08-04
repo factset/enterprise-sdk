@@ -1,6 +1,10 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
-  description: FactSet’s Exchange DataFeed products provide access to consolidated
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: FactSet’s Real-time market data products provide access to consolidated
     real-time and delayed global exchange data. Proprietary technology normalizes
     over 250 global venues, 18+ million instruments, and 150+ data fields. Asset types
     integrated include equities, futures, options, warrants, fixed income, mutual
@@ -8,39 +12,60 @@ info:
     reliability and provides scalability that allows clients to make requests based
     on a symbol list or an exchange. Reduce development time by powering proprietary
     and third-party applications with exchange data from a unified data model. <p>The
-    Exchange DataFeed Data Model API provides mappings for enumerations used in our
-    Real-Time DataFeed products and should be used in conjunction with the DataFeed
-    Data Model documentation available for each product. <p>The initial beta version
-    of this API is limited to include mapping tables for the product codes only.
-  title: Exchange DataFeed Data Model API
-  version: 1.0.0
+    Real-time Data Model API provides mappings for enumerations used in our Real-Time
+    DataFeed products and should be used in conjunction with the DataFeed Data Model
+    documentation available for each product. <p>The initial version of this API is
+    limited to include mapping tables for the product codes and exchanges only.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Real-Time Data Model API
+  version: 1.1.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/exchange-datafeed-data-model-api
 servers:
-- url: https://api.factset.com/RTDataModel
+- url: https://api.factset.com/rtdatamodel/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: Endpoints related to FactSet real-time market data venue product codes
+  name: Product Codes
+- description: Endpoints containing metadata for the venues covered by FactSet
+  name: Exchange Information
 paths:
   /products:
     get:
-      description: "\nData can be returned in CSV, JSON or XML format, use the `format`\
-        \ parameter to chnage from the default JSON format.\n \n\n'*You must be logged\
-        \ into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)**\
-        \ for ''Try it Out'' to receive a successful server response. Select **Authorize**\
-        \ button or visit **[Authentication Support](https://developer.factset.com/authentication)**\
-        \ for more details.*'\n"
-      operationId: get_products
+      description: |
+        Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.
+         Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.*
+      operationId: getProducts
       parameters:
-      - description: The format of the output file.<p>**Try it Out** - All formats
-          available</p>
+      - description: Allows filtering of specific product codes in the response.
+        example:
+        - 9001
+        - 10001
+        - 10010
+        explode: false
+        in: query
+        name: product_code
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: The format of the output file.
+        example: json
         explode: true
         in: query
         name: format
         required: false
         schema:
-          default: json
           enum:
-          - xml
           - json
+          - xml
           - csv
           type: string
         style: form
@@ -48,150 +73,566 @@ paths:
         "200":
           content:
             application/json:
-              example:
-              - product_code: 9001
-                description: New York Stock Exchange Level 1
-              - product_code: 9002
-                description: Nasdaq Stock Market Level 1
-              - product_code: 9003
-                description: Nasdaq Stock Market Level 2
-              - product_code: 9004
-                description: NYSE American Level 1
-              - product_code: 9005
-                description: US Options Composite Pricing Level 1
+              examples:
+                Sample Response:
+                  $ref: '#/components/examples/ProductsSampleResponse'
               schema:
-                $ref: '#/components/schemas/RTDataModel_Products'
+                $ref: '#/components/schemas/ProductsResponse'
             application/xml:
-              example: <products type="array"> <product> <product-code>9001</product-code>
-                <description>New York Stock Exchange Level 1</description> </product>
-                <product> <product-code>9002</product-code> <description>Nasdaq Stock
-                Market Level 1</description> </product> <product> <product-code>9003</product-code>
-                <description>Nasdaq Stock Market Level 2</description> </product>
-                <product> <product-code>9004</product-code> <description>NYSE American
-                Level 1</description> </product> <product> <product-code>9005</product-code>
-                <description>US Options Composite Pricing Level 1</description> </product>
-                </products>
+              examples:
+                Sample Response:
+                  $ref: '#/components/examples/ProductsSampleResponse'
               schema:
-                $ref: '#/components/schemas/RTDataModel_Products'
+                $ref: '#/components/schemas/ProductsResponse'
           description: Successful response for the FactSet product codes table
         "401":
           content:
             application/json:
               example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
                 status: 401
                 error: Unauthorized
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: AUTH_ERR
+                  title: Authentication Failed.
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
-            from.
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
         "402":
           content:
             application/json:
               example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
                 status: 402
-                error: Invalid method
+                error: Method Not Allowed
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: Method Not Allowed
+                  title: Method Not Allowed
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: Invalid method.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request length (currently set at 5000 bytes). The description
+            field will indicate the exact reason.
         "404":
           content:
             application/json:
               example:
-                status: 404
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                status: 402
                 error: Not Found
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: Not Found
+                  title: Not Found
               schema:
-                $ref: '#/components/schemas/errorResponse'
-          description: The provided report name is not valid.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The provided endpoint is not valid.
+        "500":
+          content:
+            application/json:
+              example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                status: 402
+                error: Not Found
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: Internal Server Error
+                  title: Internal Server Error
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error. The server encountered an unexpected
+            condition that prevented it from fulfilling the request.
       summary: Request the enumeration table for FactSet product codes.
       tags:
-      - FactSet Product codes
+      - Product Codes
+      x-accepts: application/json
+  /exchanges:
+    get:
+      description: Returns a list of exchanges with details like exchange code, name,
+        market open and close times, etc.
+      operationId: getExchanges
+      parameters:
+      - description: Allows filtering of specific product codes in the response.
+        example:
+        - 9001
+        - 10001
+        - 10010
+        explode: false
+        in: query
+        name: product_code
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: Allows filtering of specific exchange codes in the response.
+        example:
+        - 14034
+        - 36
+        - 25
+        explode: false
+        in: query
+        name: exchange_code
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: Allows filtering on specific ISO code in the response.
+        example:
+        - USA
+        - LON
+        - PAR
+        explode: false
+        in: query
+        name: iso_code
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: The format of the output file.
+        example: json
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - json
+          - xml
+          - csv
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  $ref: '#/components/examples/ExchangesSampleResponse'
+              schema:
+                $ref: '#/components/schemas/ExchangesResponse'
+            application/xml:
+              examples:
+                Sample Response:
+                  $ref: '#/components/examples/ExchangesSampleResponse'
+              schema:
+                $ref: '#/components/schemas/ExchangesResponse'
+          description: Successful response with a list of exchanges
+        "401":
+          content:
+            application/json:
+              example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                status: 401
+                error: Unauthorized
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: AUTH_ERR
+                  title: Authentication Failed.
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "402":
+          content:
+            application/json:
+              example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                status: 402
+                error: Method Not Allowed
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: Method Not Allowed
+                  title: Method Not Allowed
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request length (currently set at 5000 bytes). The description
+            field will indicate the exact reason.
+        "404":
+          content:
+            application/json:
+              example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                status: 402
+                error: Not Found
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: Not Found
+                  title: Not Found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The provided endpoint is not valid.
+        "500":
+          content:
+            application/json:
+              example:
+                id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                status: 402
+                error: Not Found
+                errors:
+                - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+                  code: Internal Server Error
+                  title: Internal Server Error
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error. The server encountered an unexpected
+            condition that prevented it from fulfilling the request.
+      summary: Request metadata for covered Real-Time market data venues at FactSet.
+      tags:
+      - Exchange Information
       x-accepts: application/json
 components:
+  examples:
+    ProductsSampleResponse:
+      value:
+        data:
+          products:
+          - product_code: 9001
+            description: New York Stock Exchange Level 1
+          - product_code: 10001
+            description: London Stock Exchange UK Domestic Level 1
+          - product_code: 10010
+            description: Euronext Paris Level 1 (Continental Equities)
+    ExchangesSampleResponse:
+      value:
+        data:
+          exchanges:
+          - exchange_code: 14034
+            exchange_name: NYSE - FINRA ADF
+            market_open: 930
+            market_close: 1600
+            iso_code: ADF
+            delay_time: 15
+            product_code: 9001
+            description: New York Stock Exchange Level 1 (incl US Regional Exchanges
+              trading New York Stock Exchange-listed issues)
+          - exchange_code: 25
+            exchange_name: Euronext Paris
+            market_open: 900
+            market_close: 1830
+            iso_code: PAR
+            delay_time: 15
+            product_code: 10010
+            description: Euronext Paris Level 1 (Continental Equities)
+          - exchange_code: 36
+            exchange_name: London Stock Exchange UK Domestic
+            market_open: 800
+            market_close: 1630
+            iso_code: LON
+            delay_time: 15
+            product_code: 10001
+            description: London Stock Exchange UK Domestic Level 1
   parameters:
     format:
-      description: The format of the output file.<p>**Try it Out** - All formats available</p>
+      description: The format of the output file.
+      example: json
       explode: true
       in: query
       name: format
       required: false
       schema:
-        default: json
         enum:
-        - xml
         - json
+        - xml
         - csv
         type: string
+      style: form
+    product_code:
+      description: Allows filtering of specific product codes in the response.
+      example:
+      - 9001
+      - 10001
+      - 10010
+      explode: false
+      in: query
+      name: product_code
+      required: false
+      schema:
+        items:
+          type: integer
+        type: array
+      style: form
+    exchange_code:
+      description: Allows filtering of specific exchange codes in the response.
+      example:
+      - 14034
+      - 36
+      - 25
+      explode: false
+      in: query
+      name: exchange_code
+      required: false
+      schema:
+        items:
+          type: integer
+        type: array
+      style: form
+    iso_code:
+      description: Allows filtering on specific ISO code in the response.
+      example:
+      - USA
+      - LON
+      - PAR
+      explode: false
+      in: query
+      name: iso_code
+      required: false
+      schema:
+        items:
+          type: string
+        type: array
       style: form
   responses:
     "401":
       content:
         application/json:
+          example:
+            id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            status: 401
+            error: Unauthorized
+            errors:
+            - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+              code: AUTH_ERR
+              title: Authentication Failed.
           schema:
-            $ref: '#/components/schemas/errorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/errorResponse'
-        text/csv:
-          example: Unauthorized
-          schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
         successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the Report Issue in the top right corner of this Developer
+        Portal specification card and choose Connectivity 401 or 403 Responses.
     "402":
       content:
         application/json:
+          example:
+            id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            status: 402
+            error: Method Not Allowed
+            errors:
+            - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+              code: Method Not Allowed
+              title: Method Not Allowed
           schema:
-            $ref: '#/components/schemas/errorResponse'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/errorResponse'
-        text/csv:
-          schema:
-            $ref: '#/components/schemas/errorResponse'
-      description: Invalid HTTP method. Either the method is not POST or GET or exceeds
-        the maximum request length (currently set at 5000 bytes). The description
-        field will indicate the exact reason.
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Invalid HTTP method. Either the method is not GET or exceeds the
+        maximum request length (currently set at 5000 bytes). The description field
+        will indicate the exact reason.
     "404":
       content:
         application/json:
+          example:
+            id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            status: 402
+            error: Not Found
+            errors:
+            - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+              code: Not Found
+              title: Not Found
           schema:
-            $ref: '#/components/schemas/errorResponse'
-        application/xml:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The provided endpoint is not valid.
+    "500":
+      content:
+        application/json:
+          example:
+            id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            status: 402
+            error: Not Found
+            errors:
+            - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+              code: Internal Server Error
+              title: Internal Server Error
           schema:
-            $ref: '#/components/schemas/errorResponse'
-        text/csv:
-          schema:
-            $ref: '#/components/schemas/errorResponse'
-      description: The provided report name is not valid.
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error. The server encountered an unexpected condition
+        that prevented it from fulfilling the request.
   schemas:
-    RTDataModel_Products:
-      description: sample response
+    ProductsResponse:
+      description: Response object containing data about FactSet Products
       example:
-        description: New York Stock Exchange Level 1
-        product_code: 9001
+        data:
+          products:
+          - productCode: 9880
+            description: description
+          - productCode: 9880
+            description: description
       properties:
-        product_code:
-          description: FactSet product code
-          example: 9001
+        data:
+          $ref: '#/components/schemas/ProductsResponse_data'
+      required:
+      - data
+      type: object
+    ProductItem:
+      description: Object representing a single FactSet product.
+      example:
+        productCode: 9880
+        description: description
+      properties:
+        productCode:
+          description: FactSet product code, a unique identifier for a product.
+          format: int32
+          maximum: 20000
+          minimum: 9000
           type: integer
         description:
-          description: Product description
-          example: New York Stock Exchange Level 1
+          description: A descriptive name of the product.
           type: string
-      title: Product codes
       type: object
-    errorResponse:
+    ExchangesResponse:
+      example:
+        data:
+          exchanges:
+          - exchange_name: exchange_name
+            market_close: 1
+            description: description
+            exchange_code: 0
+            market_open: 6
+            iso_code: iso_code
+            product_code: 5
+            delay_time: 5
+          - exchange_name: exchange_name
+            market_close: 1
+            description: description
+            exchange_code: 0
+            market_open: 6
+            iso_code: iso_code
+            product_code: 5
+            delay_time: 5
       properties:
+        data:
+          $ref: '#/components/schemas/ExchangesResponse_data'
+      required:
+      - data
+      type: object
+    ExchangeItem:
+      example:
+        exchange_name: exchange_name
+        market_close: 1
+        description: description
+        exchange_code: 0
+        market_open: 6
+        iso_code: iso_code
+        product_code: 5
+        delay_time: 5
+      properties:
+        exchange_code:
+          description: Unique code for the exchange.
+          type: integer
+        exchange_name:
+          description: Name of the exchange.
+          type: string
+        market_open:
+          description: Market open time in hours and minutes (HHMM).
+          nullable: true
+          type: integer
+        market_close:
+          description: Market close time in hours and minutes (HHMM).
+          nullable: true
+          type: integer
+        iso_code:
+          description: ISO code for the exchange.
+          type: string
+        delay_time:
+          description: Delay time in minutes.
+          type: integer
+        product_code:
+          description: Product code associated with the exchange.
+          type: integer
+        description:
+          description: Description of the exchange.
+          type: string
+      type: object
+    ErrorResponse:
+      description: Standard error response object.
+      properties:
+        id:
+          description: Unique identifier for the error
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          type: string
         status:
-          description: status
+          description: HTTP status code representing the outcome of the HTTP request.
           example: 401
+          format: int32
+          maximum: 599
+          minimum: 100
           type: integer
         error:
           description: The plain text error message
           example: Unauthorized
           type: string
-      title: Error Response
+        errors:
+          description: List of detailed error messages
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type: array
+      type: object
+    ErrorDetail:
+      description: Detailed information about a specific error occurrence.
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+        code:
+          description: Specific error code
+          type: string
+        title:
+          description: Validation Error
+          type: string
+      type: object
+    ProductsResponse_data:
+      description: Wrapper object containing products data.
+      example:
+        products:
+        - productCode: 9880
+          description: description
+        - productCode: 9880
+          description: description
+      properties:
+        products:
+          description: Array of product items, each representing a FactSet product.
+          items:
+            $ref: '#/components/schemas/ProductItem'
+          type: array
+      type: object
+    ExchangesResponse_data:
+      example:
+        exchanges:
+        - exchange_name: exchange_name
+          market_close: 1
+          description: description
+          exchange_code: 0
+          market_open: 6
+          iso_code: iso_code
+          product_code: 5
+          delay_time: 5
+        - exchange_name: exchange_name
+          market_close: 1
+          description: description
+          exchange_code: 0
+          market_open: 6
+          iso_code: iso_code
+          product_code: 5
+          delay_time: 5
+      properties:
+        exchanges:
+          description: List of exchange objects
+          items:
+            $ref: '#/components/schemas/ExchangeItem'
+          type: array
       type: object
   securitySchemes:
     FactSetOAuth2:

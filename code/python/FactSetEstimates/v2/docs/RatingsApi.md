@@ -64,8 +64,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
-    start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    end_date = "2019-08-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    start_date = dateutil_parser('2019-07-30').date() # date | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    end_date = dateutil_parser('2019-08-30').date() # date | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "AM"
 
     try:
@@ -86,8 +86,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  |
- **start_date** | **str**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
- **end_date** | **str**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **start_date** | **date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **end_date** | **date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
  **frequency** | **str**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] if omitted the server will use the default value of "AM"
 
 ### Return type
@@ -171,8 +171,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     consensus_ratings_request = ConsensusRatingsRequest(
         ids=Ids(["FDS-US"]),
-        start_date="2019-01-01",
-        end_date="2019-12-31",
+        start_date=dateutil_parser('Tue Jan 01 00:00:00 UTC 2019').date(),
+        end_date=dateutil_parser('Tue Dec 31 00:00:00 UTC 2019').date(),
         frequency=Frequency("AM"),
     ) # ConsensusRatingsRequest | Request object for Estimate Data Items.
 
@@ -274,8 +274,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
-    start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    end_date = "2019-08-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    start_date = dateutil_parser('2019-07-30').date() # date | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    end_date = dateutil_parser('2019-08-30').date() # date | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     include_all = False # bool | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (optional) if omitted the server will use the default value of False
 
     try:
@@ -296,8 +296,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  |
- **start_date** | **str**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
- **end_date** | **str**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **start_date** | **date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **end_date** | **date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
  **include_all** | **bool**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     | [optional] if omitted the server will use the default value of False
 
 ### Return type
@@ -381,8 +381,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     detail_ratings_request = DetailRatingsRequest(
         ids=Ids(["FDS-US"]),
-        start_date="2019-01-01",
-        end_date="2019-12-31",
+        start_date=dateutil_parser('Tue Jan 01 00:00:00 UTC 2019').date(),
+        end_date=dateutil_parser('Tue Dec 31 00:00:00 UTC 2019').date(),
         include_all=False,
     ) # DetailRatingsRequest | Request object for Detail Reatings Data Items.
 

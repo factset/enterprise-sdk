@@ -39,6 +39,11 @@ docs/EstimatesAndRatingsReportsApi.md
 docs/FixedConsensusRequest.md
 docs/FixedDetailRequest.md
 docs/Frequency.md
+docs/Guidance.md
+docs/GuidanceApi.md
+docs/GuidanceRequest.md
+docs/GuidanceRequestBody.md
+docs/GuidanceResponse.md
 docs/Meta.md
 docs/Metric.md
 docs/MetricsRequest.md
@@ -95,6 +100,7 @@ src/main/java/com/factset/sdk/FactSetEstimates/api/BrokerDetailApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/ConsensusApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/DataItemsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/EstimatesAndRatingsReportsApi.java
+src/main/java/com/factset/sdk/FactSetEstimates/api/GuidanceApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/RatingsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/SegmentActualsApi.java
 src/main/java/com/factset/sdk/FactSetEstimates/api/SegmentsApi.java
@@ -135,6 +141,10 @@ src/main/java/com/factset/sdk/FactSetEstimates/models/EstimateTypesResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/FixedConsensusRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/FixedDetailRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Frequency.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/Guidance.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/GuidanceRequest.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/GuidanceRequestBody.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/GuidanceResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Meta.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Metric.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/MetricsRequest.java

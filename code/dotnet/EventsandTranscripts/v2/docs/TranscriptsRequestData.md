@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **EndDateRelative** | **int** | End date relative to today (0&#x3D;today, -1&#x3D;yesterday). *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used.*  | [optional] 
 **TimeZone** | **string** | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. | [optional] [default to "America/New_York"]
 **SearchText** | **string** | Text to search for within the transcript document stories. | [optional] 
-**PrimaryId** | **bool** | If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention. | [optional] [default to false]
+**PrimaryId** | **bool** | If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request.  | [optional] [default to false]
 **Ids** | **List&lt;string&gt;** | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
 **ReportIds** | **List&lt;string&gt;** | List of report IDs (max 1000). | [optional] 
 **Categories** | **List&lt;string&gt;** | List of category codes (country, industry, subject). Use &#x60;/meta/categories&#x60; endpoint. Default is all. | [optional] 

@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Issue Tracker API
-  version: 1.4.0
+  version: 1.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/issue-tracker-api
@@ -26,7 +26,11 @@ tags:
 paths:
   /issues:
     post:
-      description: Creates a new issue in Issue Tracker
+      description: "Creates a new issue in Issue Tracker \r\n\r\n**Note:** connectorId,\
+        \ connectorDisplayId can be sent when integrations are configured on product,\
+        \ to sync back the updates from FactSet side. connectorDisplayId can't be\
+        \ set without connectorDisplayId. Reachout to factset team to check if the\
+        \ integrations re enabled on the product."
       operationId: postIssue
       requestBody:
         content:
@@ -41,6 +45,8 @@ paths:
                     productId: "13273"
                     categoryId: "20589"
                     severity: Medium
+                    connectorId: ae50cf22-f618-4941-af39-818e674ffe94
+                    connectorDisplayId: "53"
               'Example: issue creation with attachments':
                 value:
                   data:
@@ -265,9 +271,15 @@ paths:
       - Issue
       x-accepts: application/json
     patch:
-      description: "User can update either `severity` with `subject` or `productId`\
-        \ with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `severity`\
-        \ with `productId` or `subject` with `productId`"
+      description: " Update Issue Properties Following Mentioned Constraints \n\n\
+        \  Combo Updates (Must be sent together):\n\n1. Title + Severity\n2. ProductId\
+        \ + CategoryId\n\nSingle Field Updates:\n1. Title, Severity, ProductId can\
+        \ be updated alone\n2. Status (alone)\n\t2.1 If setting status to \"Closed\"\
+        , closeContent is mandatory\n3. ReadOnly (alone)\n\t3.1 Only allowed if issue\
+        \ is already \"Closed\"\n\nInvalid Combinations (Will be rejected):\n\n1.\
+        \ Mixing Title with Status\n2. Updating Status + ReadOnly together\n3. Severity\
+        \ + ProductId\n4. Status = \"Closed\" without closeContent\n5. Setting ReadOnly\
+        \ when RPD is not closed."
       operationId: patchIssue
       parameters:
       - description: ID of Issue Tracker issue
@@ -304,6 +316,20 @@ paths:
                 value:
                   data:
                     productId: "41681"
+              Sample request to replace Status alone:
+                value:
+                  data:
+                    status: In Progress
+              Sample request to replace readOnly alone:
+                value:
+                  data:
+                    readOnly: true
+              Sample request to replace Status Closed with closeContent:
+                value:
+                  data:
+                    status: Closed
+                    closeContent: All Set .Thanks For the support .No longer support
+                      need about the issue
             schema:
               $ref: '#/components/schemas/UpdateIssueRequest'
       responses:
@@ -322,12 +348,35 @@ paths:
           content:
             application/json:
               examples:
-                Example 1:
+                RequireProductId:
+                  summary: Missing required fields
                   value:
                     errors:
                     - id: "400"
-                      title: Bad Request
-                      code: Bad Request
+                      code: BadRequest
+                      title: Bad Request - ProductId is required to update CategoryId.
+                InvalidCombination:
+                  summary: Invalid field combination
+                  value:
+                    errors:
+                    - id: "400"
+                      code: BadRequest
+                      title: Bad Request - Cannot update fields from multiple group
+                        StatusUpdate, ReadOnlyUpdate
+                StatusUpdateRejected:
+                  summary: closeContent is Required for closing the issue.
+                  value:
+                    errors:
+                    - id: "400"
+                      code: BadRequest
+                      title: Bad Request - closeContent is required for closing issue
+                ReadOnlyUpdateRejected:
+                  summary: ReadOnly update not allowed
+                  value:
+                    errors:
+                    - id: "400"
+                      code: BadRequest
+                      title: Only Closed issues can be marked Read-Only
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
@@ -366,15 +415,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error
-      summary: Update severity and subject of issue or productId and categoryId of
-        issue
+      summary: Update issue details
       tags:
       - Issue
       x-contentType: application/json
       x-accepts: application/json
   /issues/{id}/comments:
     post:
-      description: 'Reply to the existing matched issue '
+      description: Reply to the existing matched issue
       operationId: postReply
       parameters:
       - description: ID of Issue Tracker issue
@@ -884,8 +932,10 @@ components:
             id: 0
           - name: name
             id: 0
+          connectorDisplayId: connectorDisplayId
           productId: productId
           subject: subject
+          connectorId: connectorId
           description: description
           categoryId: categoryId
       properties:
@@ -1061,8 +1111,10 @@ components:
           id: 0
         - name: name
           id: 0
+        connectorDisplayId: connectorDisplayId
         productId: productId
         subject: subject
+        connectorId: connectorId
         description: description
         categoryId: categoryId
       properties:
@@ -1087,6 +1139,14 @@ components:
           items:
             $ref: '#/components/schemas/Attachment'
           type: array
+        connectorId:
+          description: Id / GUID of the external system where Factset needs to sync
+            back the data. Product should have the settings configured- Please reach
+            out to factset product support team.
+          type: string
+        connectorDisplayId:
+          description: User friendly Display ID of the external System
+          type: string
       required:
       - description
       - productId
@@ -1116,6 +1176,20 @@ components:
         categoryId:
           description: Category that needs to be replaced
           type: string
+        status:
+          description: Status that need to be updated
+          enum:
+          - In Progress
+          - Closed
+          - Received
+          type: string
+        closeContent:
+          description: Comment for resolving the issue
+          type: string
+        readOnly:
+          description: Mark the issue read-only to stop further modifications.can
+            be set only on closed cards and it value should be only true
+          type: boolean
       type: object
   securitySchemes:
     FactSetOAuth2:

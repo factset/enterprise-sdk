@@ -1,9 +1,9 @@
 /*
  * FactSet Estimates
  *
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
- * The version of the OpenAPI document: 2.7.0
+ * The version of the OpenAPI document: 2.8.0
  * Contact: api@factset.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -50,7 +50,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="periodicity">periodicity.</param>
         /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). (required).</param>
         /// <param name="currency">Currency code for adjusting the data. Use input as &#39;ESTIMATE&#39; for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public RollingDetailRequest(List<string> ids, List<string> metrics,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string))
+        public RollingDetailRequest(List<string> ids, List<string> metrics,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -84,14 +84,16 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// </summary>
         /// <value>The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint. </value>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
-        public string StartDate { get; set; }
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         /// The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
         /// </summary>
         /// <value>The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. </value>
         [DataMember(Name = "endDate", EmitDefaultValue = false)]
-        public string EndDate { get; set; }
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime EndDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Frequency
@@ -295,6 +297,30 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // RelativeFiscalStart (int) maximum
+            if (this.RelativeFiscalStart > (int)20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RelativeFiscalStart, must be a value less than or equal to 20.", new [] { "RelativeFiscalStart" });
+            }
+
+            // RelativeFiscalStart (int) minimum
+            if (this.RelativeFiscalStart < (int)-20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RelativeFiscalStart, must be a value greater than or equal to -20.", new [] { "RelativeFiscalStart" });
+            }
+
+            // RelativeFiscalEnd (int) maximum
+            if (this.RelativeFiscalEnd > (int)20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RelativeFiscalEnd, must be a value less than or equal to 20.", new [] { "RelativeFiscalEnd" });
+            }
+
+            // RelativeFiscalEnd (int) minimum
+            if (this.RelativeFiscalEnd < (int)-20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RelativeFiscalEnd, must be a value greater than or equal to -20.", new [] { "RelativeFiscalEnd" });
+            }
+
             yield break;
         }
     }

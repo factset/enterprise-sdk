@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **category** | **String** | Primary Category of metric item, such as, FINANCIAL_STATEMENT or INDUSTRY_METRIC | [optional] 
 **subcategory** | **String** | Sub-category of metric items, such as the INCOME_STATEMENT or AIRLINES. | [optional] 
 **oAurl** | **String** | The Online Assistant Page URL, used to lookup the definition and methodology of the requested item. | [optional] 
+**factor** | **Number** | The factor for the metric (e.g. 1000 &#x3D; thousands). | [optional] 
 
 

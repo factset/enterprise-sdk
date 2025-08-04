@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIssue**](IssueApi.md#getIssue) | **GET** /issues/{id} | Get the matched issue details
-[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of issue or productId and categoryId of issue
+[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update issue details
 [**postIssue**](IssueApi.md#postIssue) | **POST** /issues | Creates a Issue Tracker issue
 [**postReply**](IssueApi.md#postReply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -110,11 +110,29 @@ Name | Type | Description  | Notes
 
 > IdResponse patchIssue(id, updateIssueRequest)
 
-Update severity and subject of issue or productId and categoryId of issue
+Update issue details
 
-User can update either `severity` with `subject` or `productId` with `categoryId`.
+ Update Issue Properties Following Mentioned Constraints 
 
-**Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`
+  Combo Updates (Must be sent together):
+
+1. Title + Severity
+2. ProductId + CategoryId
+
+Single Field Updates:
+1. Title, Severity, ProductId can be updated alone
+2. Status (alone)
+	2.1 If setting status to "Closed", closeContent is mandatory
+3. ReadOnly (alone)
+	3.1 Only allowed if issue is already "Closed"
+
+Invalid Combinations (Will be rejected):
+
+1. Mixing Title with Status
+2. Updating Status + ReadOnly together
+3. Severity + ProductId
+4. Status = "Closed" without closeContent
+5. Setting ReadOnly when RPD is not closed.
 
 ### Example
 
@@ -211,7 +229,9 @@ Name | Type | Description  | Notes
 
 Creates a Issue Tracker issue
 
-Creates a new issue in Issue Tracker
+Creates a new issue in Issue Tracker 
+
+**Note:** connectorId, connectorDisplayId can be sent when integrations are configured on product, to sync back the updates from FactSet side. connectorDisplayId can't be set without connectorDisplayId. Reachout to factset team to check if the integrations re enabled on the product.
 
 ### Example
 
@@ -306,7 +326,7 @@ Name | Type | Description  | Notes
 
 post comment to Issue Tracker issue
 
-Reply to the existing matched issue 
+Reply to the existing matched issue
 
 ### Example
 

@@ -156,7 +156,7 @@ class TranscriptsByIdsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request. . [optional] if omitted the server will use the default value of False  # noqa: E501
             report_ids ([str]): List of report IDs (max 1000).. [optional]  # noqa: E501
             categories ([str]): List of category codes (country, industry, subject). Use `/meta/categories` endpoint. Default is all.. [optional]  # noqa: E501
             start_date (date): Start Date (YYYY-MM-DD). . [optional]  # noqa: E501
@@ -247,7 +247,7 @@ class TranscriptsByIdsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request. . [optional] if omitted the server will use the default value of False  # noqa: E501
             report_ids ([str]): List of report IDs (max 1000).. [optional]  # noqa: E501
             categories ([str]): List of category codes (country, industry, subject). Use `/meta/categories` endpoint. Default is all.. [optional]  # noqa: E501
             start_date (date): Start Date (YYYY-MM-DD). . [optional]  # noqa: E501

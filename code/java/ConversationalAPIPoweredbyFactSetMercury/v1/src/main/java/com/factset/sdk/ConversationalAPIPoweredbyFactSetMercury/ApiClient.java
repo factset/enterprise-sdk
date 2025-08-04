@@ -80,7 +80,12 @@ public class ApiClient extends JavaTimeFormatter {
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
       "https://api.factset.com/conversational/v1",
-      "No description provided",
+      "Production",
+      new HashMap<String, ServerVariable>()
+    ),
+    new ServerConfiguration(
+      "https://api.uat.factset.com/conversational/v1",
+      "UAT",
       new HashMap<String, ServerVariable>()
     )
   ));
@@ -123,7 +128,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/ConversationalAPIPoweredbyFactSetMercury/1.2.0 (" + System.getProperty("os.name") + "; Java " + System.getProperty("java.version") + ")");
+    setUserAgent("fds-sdk/java/ConversationalAPIPoweredbyFactSetMercury/1.2.1 (" + System.getProperty("os.name") + "; Java " + System.getProperty("java.version") + ")");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

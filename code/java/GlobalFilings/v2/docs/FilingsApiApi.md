@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getCount
 
-> CountResponse getCount(ids, sources, startDate, endDate)
+> CountResponse getCount(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes)
 
 Returns the count of filings for specified source.
 
@@ -58,12 +58,17 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FilingsApiApi apiInstance = new FilingsApiApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
         java.util.List<String> sources = Arrays.asList(); // java.util.List<String> | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
         String startDate = "20240601"; // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
         String endDate = "20241101"; // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+        String timeZone = "America/New_York"; // String | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry.
+        java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories.
+        Boolean primaryId = true; // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
+        String searchText = "Officer"; // String | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well.
+        java.util.List<String> formTypes = Arrays.asList(); // java.util.List<String> | The search to include any form types of given sources
         try {
-            CountResponse result = apiInstance.getCount(ids, sources, startDate, endDate);
+            CountResponse result = apiInstance.getCount(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -82,10 +87,15 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. |
+ **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
  **sources** | **List&lt;String&gt;**| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   |
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional]
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional]
+ **timeZone** | **String**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] [default to America/New_York]
+ **categories** | **List&lt;String&gt;**| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
+ **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false] [enum: true, false]
+ **searchText** | **String**| Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. | [optional]
+ **formTypes** | **List&lt;String&gt;**| The search to include any form types of given sources | [optional]
 
 ### Return type
 
@@ -159,7 +169,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FilingsApiApi apiInstance = new FilingsApiApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
         java.util.List<String> sources = Arrays.asList(); // java.util.List<String> | 
         String startDate = "20240601"; // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
         String endDate = "20241101"; // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
@@ -169,7 +179,7 @@ public class Example {
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending  order based on filingsDateTime.   * `filingsDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.   *  `-filingsDateTime` - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn't used in the query.
         java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories.
         Boolean primaryId = true; // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
-        String searchText = "Officer"; // String | Restricts the search to include only document stories which include the text searched.
+        String searchText = "Officer"; // String | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well.
         java.util.List<String> formTypes = Arrays.asList(); // java.util.List<String> | The search to include any form types of given sources
         String edgarAccession = "edgarAccession_example"; // String | A unique identifier given to each EDGAR filings document. e.g. accession=0001013237-21-000069&sources=EDG.   > **Note:**  > When used in conjunction with the 'sources' parameter set to 'EDGAR, the API considers this accession for data retrieval.  > For non-EDGAR sources, this parameter is ignored.
         try {
@@ -192,7 +202,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. |
+ **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
  **sources** | **List&lt;String&gt;**|  |
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional]
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional]
@@ -202,7 +212,7 @@ Name | Type | Description  | Notes
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending  order based on filingsDateTime.   * &#x60;filingsDateTime&#x60; - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.   *  &#x60;-filingsDateTime&#x60; - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn&#39;t used in the query. | [optional] [enum: filingsDateTime, -filingsDateTime]
  **categories** | **List&lt;String&gt;**| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false] [enum: true, false]
- **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional]
+ **searchText** | **String**| Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. | [optional]
  **formTypes** | **List&lt;String&gt;**| The search to include any form types of given sources | [optional]
  **edgarAccession** | **String**| A unique identifier given to each EDGAR filings document. e.g. accession&#x3D;0001013237-21-000069&amp;sources&#x3D;EDG.   &gt; **Note:**  &gt; When used in conjunction with the &#39;sources&#39; parameter set to &#39;EDGAR, the API considers this accession for data retrieval.  &gt; For non-EDGAR sources, this parameter is ignored. | [optional]
 

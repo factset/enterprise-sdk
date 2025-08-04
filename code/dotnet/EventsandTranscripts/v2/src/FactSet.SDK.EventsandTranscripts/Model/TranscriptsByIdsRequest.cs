@@ -40,7 +40,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TranscriptsByIdsRequest" /> class.
         /// </summary>
-        /// <param name="primaryId">If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention. (default to false).</param>
+        /// <param name="primaryId">If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request.  (default to false).</param>
         /// <param name="ids">Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required).</param>
         /// <param name="reportIds">List of report IDs (max 1000)..</param>
         /// <param name="categories">List of category codes (country, industry, subject). Use &#x60;/meta/categories&#x60; endpoint. Default is all..</param>
@@ -63,9 +63,9 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         }
 
         /// <summary>
-        /// If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.
+        /// If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request. 
         /// </summary>
-        /// <value>If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.</value>
+        /// <value>If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request. </value>
         [DataMember(Name = "primaryId", EmitDefaultValue = true)]
         public bool PrimaryId { get; set; }
 

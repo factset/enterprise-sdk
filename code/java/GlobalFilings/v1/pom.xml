@@ -5,7 +5,7 @@
     <artifactId>globalfilings</artifactId>
     <packaging>jar</packaging>
     <name>globalfilings</name>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Global Filings client library for Java</description>
     <scm>

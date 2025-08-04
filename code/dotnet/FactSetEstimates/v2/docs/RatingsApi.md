@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getconsensusratings"></a>
 # **GetConsensusRatings**
-> ConsensusRatingsResponse GetConsensusRatings (List<string> ids, string startDate = null, string endDate = null, string frequency = null)
+> ConsensusRatingsResponse GetConsensusRatings (List<string> ids, DateTime? startDate = null, DateTime? endDate = null, string frequency = null)
 
 Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
@@ -64,8 +64,8 @@ namespace Example
             var apiInstance = new RatingsApi(config);
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
-            var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = "2019-08-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var frequency = "D";  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to AM)
 
             try
@@ -90,8 +90,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
- **startDate** | **string**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **string**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **startDate** | **DateTime?**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **endDate** | **DateTime?**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **frequency** | **string**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to AM]
 
 ### Return type
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 <a name="getdetailratings"></a>
 # **GetDetailRatings**
-> DetailRatingsResponse GetDetailRatings (List<string> ids, string startDate = null, string endDate = null, bool? includeAll = null)
+> DetailRatingsResponse GetDetailRatings (List<string> ids, DateTime? startDate = null, DateTime? endDate = null, bool? includeAll = null)
 
 Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
 
@@ -276,8 +276,8 @@ namespace Example
             var apiInstance = new RatingsApi(config);
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
-            var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = "2019-08-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var includeAll = false;  // bool? | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (optional)  (default to false)
 
             try
@@ -302,8 +302,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
- **startDate** | **string**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **string**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **startDate** | **DateTime?**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **endDate** | **DateTime?**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **includeAll** | **bool?**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     | [optional] [default to false]
 
 ### Return type

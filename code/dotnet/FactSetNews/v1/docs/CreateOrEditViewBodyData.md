@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the view. | [optional] 
 **Tickers** | [**List&lt;CreateOrEditViewTickers&gt;**](CreateOrEditViewTickers.md) |  | [optional] 
-**IsPrimary** | **bool** | If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned. | [optional] 
+**IsPrimary** | **bool** | If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.   | [optional] 
 **Categories** | **List&lt;string&gt;** |  | [optional] 
 **Countries** | **List&lt;string&gt;** |  | [optional] 
 **Regions** | **List&lt;string&gt;** |  | [optional] 

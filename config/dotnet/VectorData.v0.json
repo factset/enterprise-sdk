@@ -1,0 +1,26 @@
+{
+  "packageName": "FactSet.SDK.VectorData",
+  "packageVersion": "0.20.0",
+  "packageGuid": "{61fd2c2b-9578-575a-87eb-4c84428ca396}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/VectorData/v0",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Vector Data client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Vector Data",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/VectorData/0.20.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

@@ -1210,8 +1210,14 @@ components:
       value:
         data:
           tickers:
-          - value: SP50
-            type: Index
+          - value: MAR-US
+            type: Equity
+          - value: JE00BJYJFG60
+            type: Equity
+          - value: 45790B104
+            type: Equity
+          - value: "2769796"
+            type: Equity
           isPrimary: true
           categories:
           - Earnings
@@ -1227,14 +1233,20 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     SearchTime:
       summary: Using searchTime
       value:
         data:
           tickers:
-          - value: SP50
-            type: Index
+          - value: MAR-US
+            type: Equity
+          - value: JE00BJYJFG60
+            type: Equity
+          - value: 45790B104
+            type: Equity
+          - value: "2769796"
+            type: Equity
           isPrimary: true
           categories:
           - Earnings
@@ -1252,7 +1264,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     "400Example":
       summary: Sample error Response
       value:
@@ -1283,7 +1295,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     SearchTimeid:
       summary: Using searchTime with view name
       value:
@@ -1295,7 +1307,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
   requestBodies:
     QuickAlertsBody:
       content:
@@ -2315,29 +2327,29 @@ components:
           - India
           quickAlert: false
           tickers:
-          - name: Russell 1000
-            type: Index
-            value: R.1000
-          - name: Russell 1000
-            type: Index
-            value: R.1000
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
       properties:
         data:
           $ref: '#/components/schemas/CreateOrEditViewBody_data'
       type: object
     CreateOrEditViewTickers:
-      example:
-        name: Russell 1000
-        type: Index
-        value: R.1000
       properties:
         name:
           description: Name of the ticker.
-          example: Russell 1000
           type: string
         value:
-          description: The ticker symbol.
-          example: R.1000
+          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
           type: string
         type:
           description: The type of the asset associated with the ticker.
@@ -2350,7 +2362,6 @@ components:
           - privateCompanies
           - Fixed_Income
           - Holder
-          example: Index
           type: string
       type: object
     CreateViewResponse:
@@ -2372,7 +2383,7 @@ components:
           name: FactSet News View
         meta:
           pagination:
-            offset: 100
+            offset: 0
             limit: 50
       properties:
         data:
@@ -2410,7 +2421,7 @@ components:
             value: SP50
         meta:
           pagination:
-            offset: 100
+            offset: 0
             limit: 50
           attributes:
           - headlines
@@ -2426,7 +2437,7 @@ components:
         value: SP50
       properties:
         value:
-          description: The ticker symbol.
+          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
           example: SP50
           type: string
         type:
@@ -2457,11 +2468,11 @@ components:
           storyDateAndTime: 2022-09-15T06:48:19Z
           url: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
           primarySymbols:
-          - AAPL-US
-          - AAPL-US
+          - MAR-US
+          - MAR-US
           symbols:
-          - AAPL-US
-          - AAPL-US
+          - MAR-US
+          - MAR-US
           fdsSubject: FILNS, COARLS
         - product: NEWS_CNINF
           headlines: 'Transcript Intelligence: Ameren Q2 Earnings'
@@ -2473,11 +2484,11 @@ components:
           storyDateAndTime: 2022-09-15T06:48:19Z
           url: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
           primarySymbols:
-          - AAPL-US
-          - AAPL-US
+          - MAR-US
+          - MAR-US
           symbols:
-          - AAPL-US
-          - AAPL-US
+          - MAR-US
+          - MAR-US
           fdsSubject: FILNS, COARLS
         meta:
           pagination:
@@ -2504,11 +2515,11 @@ components:
         storyDateAndTime: 2022-09-15T06:48:19Z
         url: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
         primarySymbols:
-        - AAPL-US
-        - AAPL-US
+        - MAR-US
+        - MAR-US
         symbols:
-        - AAPL-US
-        - AAPL-US
+        - MAR-US
+        - MAR-US
         fdsSubject: FILNS, COARLS
       properties:
         storyDateAndTime:
@@ -2539,13 +2550,13 @@ components:
         primarySymbols:
           description: The primary symbols associated with the headline.
           items:
-            example: AAPL-US
+            example: MAR-US
             type: string
           type: array
         symbols:
           description: All symbols associated with the headline.
           items:
-            example: AAPL-US
+            example: MAR-US
             type: string
           type: array
         subjects:
@@ -3799,12 +3810,18 @@ components:
           - China
           quickAlert: false
           tickers:
-          - name: Russell 1000
-            type: Index
-            value: R.1000
-          - name: Russell 1000
-            type: Index
-            value: R.1000
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
         - regions:
           - Asia
           - Asia
@@ -3824,12 +3841,18 @@ components:
           - China
           quickAlert: false
           tickers:
-          - name: Russell 1000
-            type: Index
-            value: R.1000
-          - name: Russell 1000
-            type: Index
-            value: R.1000
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
       properties:
         data:
           items:
@@ -3857,25 +3880,45 @@ components:
         - China
         quickAlert: false
         tickers:
-        - name: Russell 1000
-          type: Index
-          value: R.1000
-        - name: Russell 1000
-          type: Index
-          value: R.1000
+        - name: Marriott International, Inc. Class A.
+          value: MAR-US
+          type: Equity
+        - name: Audioboom Group plc.
+          value: JE00BJYJFG60
+          type: Equity
+        - name: Innergex Renewable Energy Inc.
+          value: 45790B104
+          type: Equity
+        - name: Fidelity National Information Services, Inc.
+          value: "2769796"
+          type: Equity
       properties:
         name:
           description: Name of the view.
           example: FactSet News View
           type: string
         tickers:
+          example:
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
           items:
             $ref: '#/components/schemas/CreateOrEditViewTickers'
           type: array
         isPrimary:
-          description: If true, then only stories with the provided ticker as a primary
-            symbol will be returned. When this parameter is false, the symbol is either
-            primary OR a related symbol will be returned.
+          description: "If true, stories that match the provided ticker on which the\
+            \ ticker is a primary symbol will be returned. Additionally, stories that\
+            \ match the other filters specified such as topics or regions will also\
+            \ be returned.  \n"
           type: boolean
         categories:
           items:
@@ -4352,25 +4395,45 @@ components:
         - India
         quickAlert: false
         tickers:
-        - name: Russell 1000
-          type: Index
-          value: R.1000
-        - name: Russell 1000
-          type: Index
-          value: R.1000
+        - name: Marriott International, Inc. Class A.
+          value: MAR-US
+          type: Equity
+        - name: Audioboom Group plc.
+          value: JE00BJYJFG60
+          type: Equity
+        - name: Innergex Renewable Energy Inc.
+          value: 45790B104
+          type: Equity
+        - name: Fidelity National Information Services, Inc.
+          value: "2769796"
+          type: Equity
       properties:
         name:
           description: The name of the view.
           example: FactSet News View
           type: string
         tickers:
+          example:
+          - name: Marriott International, Inc. Class A.
+            value: MAR-US
+            type: Equity
+          - name: Audioboom Group plc.
+            value: JE00BJYJFG60
+            type: Equity
+          - name: Innergex Renewable Energy Inc.
+            value: 45790B104
+            type: Equity
+          - name: Fidelity National Information Services, Inc.
+            value: "2769796"
+            type: Equity
           items:
             $ref: '#/components/schemas/CreateOrEditViewTickers'
           type: array
         isPrimary:
-          description: If true, then only stories with the provided ticker as a primary
-            symbol will be returned. When this parameter is false, the symbol is either
-            primary OR a related symbol will be returned.
+          description: "If true, stories that match the provided ticker on which the\
+            \ ticker is a primary symbol will be returned. Additionally, stories that\
+            \ match the other filters specified such as topics or regions will also\
+            \ be returned. \n"
           example: true
           type: boolean
         categories:
@@ -4475,7 +4538,7 @@ components:
       description: Object defining pagination for the results pageable attribute.
         Offset-based strategy is used for Pagination.
       example:
-        offset: 100
+        offset: 0
         limit: 50
       properties:
         limit:
@@ -4486,13 +4549,13 @@ components:
         offset:
           default: 0
           description: Non-negative number of entries to skip.
-          example: 100
+          example: 0
           type: integer
       type: object
     HeadlinesRequestByView_meta:
       example:
         pagination:
-          offset: 100
+          offset: 0
           limit: 50
       properties:
         pagination:
@@ -4554,8 +4617,10 @@ components:
             $ref: '#/components/schemas/HeadlinesRequestTickersObject'
           type: array
         isPrimary:
-          description: |
-            If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned.
+          description: "If true, stories that match the provided ticker on which the\
+            \ ticker is a primary symbol will be returned. Additionally, stories that\
+            \ match the other filters specified such as topics or regions will also\
+            \ be returned. \n"
           example: true
           type: boolean
         categories:
@@ -4615,7 +4680,7 @@ components:
     HeadlinesRequest_meta:
       example:
         pagination:
-          offset: 100
+          offset: 0
           limit: 50
         attributes:
         - headlines

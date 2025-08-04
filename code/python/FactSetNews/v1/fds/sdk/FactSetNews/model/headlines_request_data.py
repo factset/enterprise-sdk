@@ -175,7 +175,7 @@ class HeadlinesRequestData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tickers ([HeadlinesRequestTickersObject]): List of tickers to filter the headlines. Each ticker is an object. Please refer to the /filters endpoint to obtain the values accepted by the optional parameters.. [optional]  # noqa: E501
-            is_primary (bool): If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned. . [optional]  # noqa: E501
+            is_primary (bool): If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  . [optional]  # noqa: E501
             categories ([str]): A list of categories used to filter the headlines. Categories are define the nature or topic of the headlines, such as \"Earnings\".. [optional]  # noqa: E501
             countries ([str]): A list of countries used to filter the headlines.. [optional]  # noqa: E501
             regions ([str]): A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"Americas\".. [optional]  # noqa: E501
@@ -265,7 +265,7 @@ class HeadlinesRequestData(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             tickers ([HeadlinesRequestTickersObject]): List of tickers to filter the headlines. Each ticker is an object. Please refer to the /filters endpoint to obtain the values accepted by the optional parameters.. [optional]  # noqa: E501
-            is_primary (bool): If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned. . [optional]  # noqa: E501
+            is_primary (bool): If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  . [optional]  # noqa: E501
             categories ([str]): A list of categories used to filter the headlines. Categories are define the nature or topic of the headlines, such as \"Earnings\".. [optional]  # noqa: E501
             countries ([str]): A list of countries used to filter the headlines.. [optional]  # noqa: E501
             regions ([str]): A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"Americas\".. [optional]  # noqa: E501

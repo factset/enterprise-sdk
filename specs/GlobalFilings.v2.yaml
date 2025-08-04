@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Global Filings API
-  version: 2.0.0
+  version: 2.1.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -189,6 +189,11 @@ paths:
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/countIds'
         - $ref: '#/components/parameters/sources'
+        - $ref: '#/components/parameters/timezone'
+        - $ref: '#/components/parameters/categories'
+        - $ref: '#/components/parameters/primaryId'
+        - $ref: '#/components/parameters/searchText'
+        - $ref: '#/components/parameters/formTypes'
       responses:
         '200':
           description: Success
@@ -287,6 +292,14 @@ paths:
                         description: ASX Company Announcements Delayed
                       - source: OMX
                         description: GlobeNewswire Europe
+                      - source: BursaMalaysia
+                        description: Bursa Malaysia Company Announcements
+                      - source: CNINFO
+                        description: CNINFO Company Announcements
+                      - source: NSE
+                        description: NSE India Company Announcements
+                      - source: BSE
+                        description: BSE India Company Announcements
         '400':
           description: Bad request.
           content:
@@ -767,7 +780,22 @@ components:
       properties:
         subject:
           type: string
-          description: subject code
+          description: >
+            The code which specifies various categories of information:
+
+            - SB: Specifies the subject information/code - Ex: IPO, Management
+            Changes, Dividends, etc.
+
+            - IN: Specifies the industry information/code - Ex: Banking, Oil,
+            Semiconductors, etc.
+
+            - LN: Specifies the language details.
+
+            - CN: Specifies the country details.
+
+            - RN: Specifies the region details.
+
+            - DT: Specifies the filings document type details.
           example: SB
         category:
           type: string
@@ -881,6 +909,41 @@ components:
         type: array
         items:
           type: string
+        minItems: 1
+        maxItems: 1000
+      in: query
+      name: ids
+      required: true
+      examples:
+        oneId:
+          summary: One identifier
+          value:
+            - MODN-US
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+            - MODN-US
+            - OSIS-US
+            - EME-US
+            - VIRT-US
+            - LZ-US
+            - BIYA-US
+            - VSAT-US
+            - DEA-US
+            - KBH-US
+            - SYRE-US
+      description: >-
+        Requested symbols or securities.  This is a comma-separated list with a
+        maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+        CUSIP, SEDOL, ISIN, or Entity ID
+      explode: false
+    countIds:
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
       in: query
       name: ids
       required: true
@@ -897,30 +960,7 @@ components:
       description: >-
         Requested symbols or securities.  This is a comma-separated list with a
         maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, or SEDOL.
-      explode: false
-    countIds:
-      schema:
-        type: array
-        items:
-          type: string
-      in: query
-      name: ids
-      required: true
-      examples:
-        oneId:
-          summary: One identifier
-          value:
-            - MODN-US
-        multipleIds:
-          summary: Multiple Identifiers
-          value:
-            - MODN-US
-            - OSIS-US
-      description: >-
-        Requested symbols or securities.  This is a comma-separated list with a
-        maximum limit of 10.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, or SEDOL.
+        CUSIP, SEDOL, ISIN, or Entity ID
       explode: false
     startDate:
       schema:
@@ -1054,6 +1094,7 @@ components:
           value:
             - EDG
             - FFR
+      explode: false
     sourcesOptional:
       schema:
         type: array
@@ -1093,14 +1134,73 @@ components:
         Default = All categories.
       explode: false
     searchText:
+      name: searchText
+      in: query
+      required: false
       schema:
         type: string
-      in: query
-      name: searchText
-      example: Officer
+      examples:
+        simpleSearchText:
+          summary: Simple search
+          description: Selects documents that contain specified search term
+          value: Officer
+        andExample:
+          summary: Search using AND operator
+          description: Selects documents that contain all specified search terms.
+          value: price <AND> history
+        orExample:
+          summary: Search using OR operator
+          description: Selects documents that contain at least one of the terms.
+          value: foreign <OR> exchange
+        wordExample:
+          summary: Search using WORD operator
+          description: Used for exact search terms, including symbols or phrases.
+          value: Data <WORD> File
+        wordNoStemmingExample:
+          summary: Search using WORD to prevent stemming
+          description: Prevents stemming to match only the exact word form.
+          value: <WORD> File
+        nearExample:
+          summary: Search using NEAR operator
+          description: >-
+            Selects documents containing the search terms in close proximity,
+            ranked higher when terms are nearer.
+          value: history <NEAR> earnings
+        nearWithDistanceExample:
+          summary: Search using NEAR with distance
+          description: Matches terms within a specific number of words.
+          value: history <NEAR/3> earnings
+        notExample:
+          summary: Search using NOT Modifier
+          description: Excludes documents containing a specific term.
+          value: template <NOT> Excel
+        paragraphExample:
+          summary: Search using PARAGRAPH Modifier
+          description: Matches terms appearing in the same paragraph.
+          value: template <PARAGRAPH> Excel
+        sentenceExample:
+          summary: Search using SENTENCE Modifier
+          description: Matches terms appearing in the same sentence.
+          value: template <SENTENCE> Excel
+        phraseExample:
+          summary: Search using PHRASE operator
+          description: Selects documents containing a phrase in exact order.
+          value: national <PHRASE> park
+        wildcardExample:
+          summary: Search using Wildcard (*) operator
+          description: Matches words with the specified prefix.
+          value: tech*
+        wildcardSetExample:
+          summary: Search using WILDCARD set
+          description: Matches custom character patterns using [ ].
+          value: <WILDCARD>'o[fg]e'
+        groupedExample:
+          summary: Grouped Search Expression
+          description: Combined logic using parentheses for complex queries.
+          value: online <AND> (auction <OR> connection)
       description: >-
-        Restricts the search to include only document stories which include the
-        text searched.
+        Restricts the search to include only document stories that include the
+        searched text. This parameter supports boolean operators as well.
     formTypes:
       schema:
         type: array

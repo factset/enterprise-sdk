@@ -37,6 +37,11 @@ docs/EstimatesAndRatingsReportsApi.md
 docs/FixedConsensusRequest.md
 docs/FixedDetailRequest.md
 docs/Frequency.md
+docs/Guidance.md
+docs/GuidanceApi.md
+docs/GuidanceRequest.md
+docs/GuidanceRequestBody.md
+docs/GuidanceResponse.md
 docs/Meta.md
 docs/Metric.md
 docs/MetricsRequest.md
@@ -77,6 +82,7 @@ src/api/BrokerDetailApi.js
 src/api/ConsensusApi.js
 src/api/DataItemsApi.js
 src/api/EstimatesAndRatingsReportsApi.js
+src/api/GuidanceApi.js
 src/api/RatingsApi.js
 src/api/SegmentActualsApi.js
 src/api/SegmentsApi.js
@@ -110,6 +116,10 @@ src/model/EstimateTypesResponse.js
 src/model/FixedConsensusRequest.js
 src/model/FixedDetailRequest.js
 src/model/Frequency.js
+src/model/Guidance.js
+src/model/GuidanceRequest.js
+src/model/GuidanceRequestBody.js
+src/model/GuidanceResponse.js
 src/model/Meta.js
 src/model/Metric.js
 src/model/MetricsRequest.js

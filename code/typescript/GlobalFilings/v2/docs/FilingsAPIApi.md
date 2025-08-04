@@ -50,11 +50,16 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FilingsAPIApi();
-const ids = ["MODN-US"]; // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+const ids = ["MODN-US"]; // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
 const sources = ["EDG"]; // [String] | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
 const opts = {
   'startDate': 20240601, // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
-  'endDate': 20241101 // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+  'endDate': 20241101, // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+  'timeZone': "'America/New_York'", // String | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry.
+  'categories': ["CN:US"], // [String] | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories.
+  'primaryId': false, // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
+  'searchText': Officer, // String | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well.
+  'formTypes': ["15-12G"] // [String] | The search to include any form types of given sources
 };
 
 // Call api endpoint
@@ -77,10 +82,15 @@ apiInstance.getCount(ids, sources, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | 
+ **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**[String]**](String.md)| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   | 
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
+ **timeZone** | **String**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] [default to &#39;America/New_York&#39;]
+ **categories** | [**[String]**](String.md)| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
+ **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
+ **searchText** | **String**| Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. | [optional] 
+ **formTypes** | [**[String]**](String.md)| The search to include any form types of given sources | [optional] 
 
 ### Return type
 
@@ -137,7 +147,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FilingsAPIApi();
-const ids = ["MODN-US"]; // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+const ids = ["MODN-US"]; // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
 const sources = ["EDG"]; // [String] | 
 const opts = {
   'startDate': 20240601, // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
@@ -148,7 +158,7 @@ const opts = {
   'sort': ["filingsDateTime"], // [String] | Enables sorting data in ascending or descending  order based on filingsDateTime.   * `filingsDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.   *  `-filingsDateTime` - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn't used in the query.
   'categories': ["CN:US"], // [String] | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories.
   'primaryId': false, // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
-  'searchText': Officer, // String | Restricts the search to include only document stories which include the text searched.
+  'searchText': Officer, // String | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well.
   'formTypes': ["15-12G"], // [String] | The search to include any form types of given sources
   'edgarAccession': "edgarAccession_example" // String | A unique identifier given to each EDGAR filings document. e.g. accession=0001013237-21-000069&sources=EDG.   > **Note:**  > When used in conjunction with the 'sources' parameter set to 'EDGAR, the API considers this accession for data retrieval.  > For non-EDGAR sources, this parameter is ignored.
 };
@@ -173,7 +183,7 @@ apiInstance.getFilings(ids, sources, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | 
+ **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**[String]**](String.md)|  | 
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
@@ -183,7 +193,7 @@ Name | Type | Description  | Notes
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending  order based on filingsDateTime.   * &#x60;filingsDateTime&#x60; - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.   *  &#x60;-filingsDateTime&#x60; - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn&#39;t used in the query. | [optional] 
  **categories** | [**[String]**](String.md)| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
- **searchText** | **String**| Restricts the search to include only document stories which include the text searched. | [optional] 
+ **searchText** | **String**| Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. | [optional] 
  **formTypes** | [**[String]**](String.md)| The search to include any form types of given sources | [optional] 
  **edgarAccession** | **String**| A unique identifier given to each EDGAR filings document. e.g. accession&#x3D;0001013237-21-000069&amp;sources&#x3D;EDG.   &gt; **Note:**  &gt; When used in conjunction with the &#39;sources&#39; parameter set to &#39;EDGAR, the API considers this accession for data retrieval.  &gt; For non-EDGAR sources, this parameter is ignored. | [optional] 
 

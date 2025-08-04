@@ -2009,17 +2009,17 @@ components:
         data:
           primaryId: false
           ids:
-          - RTO-GB
-          - ROAD-US
+          - WDFC-US
+          - ATZ-CA
           reportIds:
-          - "3022837"
-          - "102035"
+          - "3264770"
+          - "3269961"
           categories:
-          - CN:AU
           - CN:US
-          startDate: 2020-10-01
-          endDate: 2020-12-26
-          searchText: Updates
+          - CN:CA
+          startDate: 2025-07-01
+          endDate: 2025-07-10
+          searchText: Welcome
         meta:
           pagination:
             limit: 20
@@ -3491,8 +3491,9 @@ components:
       properties:
         primaryId:
           default: false
-          description: If true, search only for documents where the provided `ids`
-            are the primary identifiers. If false, search for any mention.
+          description: |
+            If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.
+             **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request.
           type: boolean
         ids:
           description: Requested symbols or securities. This is a list with a maximum

@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIssue**](IssueApi.md#getIssue) | **GET** /issues/{id} | Get the matched issue details
-[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update severity and subject of issue or productId and categoryId of issue
+[**patchIssue**](IssueApi.md#patchIssue) | **PATCH** /issues/{id} | Update issue details
 [**postIssue**](IssueApi.md#postIssue) | **POST** /issues | Creates a Issue Tracker issue
 [**postReply**](IssueApi.md#postReply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 
 > IdResponse patchIssue(id, opts)
 
-Update severity and subject of issue or productId and categoryId of issue
+Update issue details
 
-User can update either &#x60;severity&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;severity&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
+ Update Issue Properties Following Mentioned Constraints     Combo Updates (Must be sent together):  1. Title + Severity 2. ProductId + CategoryId  Single Field Updates: 1. Title, Severity, ProductId can be updated alone 2. Status (alone)  2.1 If setting status to \&quot;Closed\&quot;, closeContent is mandatory 3. ReadOnly (alone)  3.1 Only allowed if issue is already \&quot;Closed\&quot;  Invalid Combinations (Will be rejected):  1. Mixing Title with Status 2. Updating Status + ReadOnly together 3. Severity + ProductId 4. Status &#x3D; \&quot;Closed\&quot; without closeContent 5. Setting ReadOnly when RPD is not closed.
 
 ### Example
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 Creates a Issue Tracker issue
 
-Creates a new issue in Issue Tracker
+Creates a new issue in Issue Tracker     **Note:** connectorId, connectorDisplayId can be sent when integrations are configured on product, to sync back the updates from FactSet side. connectorDisplayId can&#39;t be set without connectorDisplayId. Reachout to factset team to check if the integrations re enabled on the product.
 
 ### Example
 
@@ -215,7 +215,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new IssueApi();
 const opts = {
-  'issueRequest': {"data":{"subject":"This is sample subject of issue tracker issue","description":"<p>Here we can provide a complete description of why we are creating issue.</p>","productId":"13273","categoryId":"20589","severity":"Medium"}} // IssueRequest | 
+  'issueRequest': {"data":{"subject":"This is sample subject of issue tracker issue","description":"<p>Here we can provide a complete description of why we are creating issue.</p>","productId":"13273","categoryId":"20589","severity":"Medium","connectorId":"ae50cf22-f618-4941-af39-818e674ffe94","connectorDisplayId":"53"}} // IssueRequest | 
 };
 
 // Call api endpoint
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 post comment to Issue Tracker issue
 
-Reply to the existing matched issue 
+Reply to the existing matched issue
 
 ### Example
 

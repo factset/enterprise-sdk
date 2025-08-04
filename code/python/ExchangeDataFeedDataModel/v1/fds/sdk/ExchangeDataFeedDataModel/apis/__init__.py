@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.fact_set_product_codes_api import FactSetProductCodesApi
+#   from .api.exchange_information_api import ExchangeInformationApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.ExchangeDataFeedDataModel.api.fact_set_product_codes_api import FactSetProductCodesApi
+from fds.sdk.ExchangeDataFeedDataModel.api.exchange_information_api import ExchangeInformationApi
+from fds.sdk.ExchangeDataFeedDataModel.api.product_codes_api import ProductCodesApi

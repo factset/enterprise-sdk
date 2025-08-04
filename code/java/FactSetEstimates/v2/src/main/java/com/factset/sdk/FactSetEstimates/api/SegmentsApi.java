@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
+import java.time.LocalDate;
 import com.factset.sdk.FactSetEstimates.models.SegmentsRequest;
 import com.factset.sdk.FactSetEstimates.models.SegmentsResponse;
 
@@ -74,7 +75,7 @@ public class SegmentsApi {
    * Returns FactSet Estimates Consensus Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.  
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; _Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._  (required)
    * @param segmentType Controls the type of segment selected.   * **BUS** &#x3D; Business / Product Segment   * **GEO** &#x3D; Geographic Segment  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
@@ -95,7 +96,7 @@ public class SegmentsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public SegmentsResponse getSegments(java.util.List<String> ids, String segmentType, java.util.List<String> metrics, String startDate, String endDate, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String frequency, String currency) throws ApiException {
+  public SegmentsResponse getSegments(java.util.List<String> ids, String segmentType, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String frequency, String currency) throws ApiException {
     return getSegmentsWithHttpInfo(ids, segmentType, metrics, startDate, endDate, relativeFiscalStart, relativeFiscalEnd, periodicity, frequency, currency).getData();
   }
 
@@ -104,7 +105,7 @@ public class SegmentsApi {
    * Returns FactSet Estimates Consensus Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.  
    * @param ids Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  50 per request*&lt;/p&gt; _Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._  (required)
    * @param segmentType Controls the type of segment selected.   * **BUS** &#x3D; Business / Product Segment   * **GEO** &#x3D; Geographic Segment  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
@@ -125,7 +126,7 @@ public class SegmentsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SegmentsResponse> getSegmentsWithHttpInfo(java.util.List<String> ids, String segmentType, java.util.List<String> metrics, String startDate, String endDate, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String frequency, String currency) throws ApiException {
+  public ApiResponse<SegmentsResponse> getSegmentsWithHttpInfo(java.util.List<String> ids, String segmentType, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, Integer relativeFiscalStart, Integer relativeFiscalEnd, String periodicity, String frequency, String currency) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set

@@ -30,8 +30,10 @@ info:
     \ contains a file ID, such as for an Excel chart or a [FactSet ActiveGraph](https://my.apps.factset.com/oa/pages/20355),\
     \ retrieve it using the file ID at the `/download/file` endpoint.\n- To provide\
     \ feedback on your response and help the Conversational API better serve you content,\
-    \ we encourage you to use the `/feedback` endpoint. \n\n#### Receive updates on\
-    \ changes to the Conversational API\nSubscribe to our FactSet Notify by clicking\
+    \ we encourage you to use the `/feedback` endpoint. \n\n#### Conversational API\
+    \ Postman Collection\nYou can use our [Postman collection for OpenAPI](https://factset-research-systems-inc-178.postman.co/workspace/Content-APIs~585717fd-3314-43da-93aa-acc1ee4c7214/collection/45777888-9f343f7b-9455-4142-a2f4-40a9e915ea8a?action=share&creator=45777888)\
+    \ to help you get started with the Conversational API.\n\n#### Receive updates\
+    \ on changes to the Conversational API\nSubscribe to our FactSet Notify by clicking\
     \ \"Subscribe to notifications\" in the upper right above the API overview. You\
     \ will receive email updates when any updates occur to the API\n\n#### FAQ & Troubleshooting\n\
     Please find FAQs and troubleshooting tips in the [FAQs section](https://my.apps.factset.com/oa/pages/23440)\
@@ -50,7 +52,10 @@ externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury
 servers:
-- url: https://api.factset.com/conversational/v1
+- description: Production
+  url: https://api.factset.com/conversational/v1
+- description: UAT
+  url: https://api.uat.factset.com/conversational/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []

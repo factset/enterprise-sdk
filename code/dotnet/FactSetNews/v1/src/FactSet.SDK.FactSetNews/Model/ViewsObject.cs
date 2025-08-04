@@ -37,7 +37,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// </summary>
         /// <param name="name">Name of the view..</param>
         /// <param name="tickers">tickers.</param>
-        /// <param name="isPrimary">If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned..</param>
+        /// <param name="isPrimary">If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.   .</param>
         /// <param name="categories">categories.</param>
         /// <param name="topics">topics.</param>
         /// <param name="sources">sources.</param>
@@ -71,9 +71,9 @@ namespace FactSet.SDK.FactSetNews.Model
         public List<CreateOrEditViewTickers> Tickers { get; set; }
 
         /// <summary>
-        /// If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned.
+        /// If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.   
         /// </summary>
-        /// <value>If true, then only stories with the provided ticker as a primary symbol will be returned. When this parameter is false, the symbol is either primary OR a related symbol will be returned.</value>
+        /// <value>If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.   </value>
         [DataMember(Name = "isPrimary", EmitDefaultValue = true)]
         public bool IsPrimary { get; set; }
 

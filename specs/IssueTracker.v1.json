@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Issue Tracker API",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "This API is used to file issues",
     "contact": {
       "name": "FactSet Research Systems",
@@ -142,7 +142,7 @@
             }
           }
         },
-        "description": "Creates a new issue in Issue Tracker",
+        "description": "Creates a new issue in Issue Tracker \r\n\r\n**Note:** connectorId, connectorDisplayId can be sent when integrations are configured on product, to sync back the updates from FactSet side. connectorDisplayId can't be set without connectorDisplayId. Reachout to factset team to check if the integrations re enabled on the product.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -157,7 +157,9 @@
                       "description": "<p>Here we can provide a complete description of why we are creating issue.</p>",
                       "productId": "13273",
                       "categoryId": "20589",
-                      "severity": "Medium"
+                      "severity": "Medium",
+                      "connectorId": "ae50cf22-f618-4941-af39-818e674ffe94",
+                      "connectorDisplayId": "53"
                     }
                   }
                 },
@@ -389,7 +391,7 @@
         }
       ],
       "patch": {
-        "summary": "Update severity and subject of issue or productId and categoryId of issue",
+        "summary": "Update issue details",
         "tags": [
           "Issue"
         ],
@@ -421,13 +423,50 @@
                   "$ref": "#/components/schemas/ErrorResponse"
                 },
                 "examples": {
-                  "Example 1": {
+                  "RequireProductId": {
+                    "summary": "Missing required fields",
                     "value": {
                       "errors": [
                         {
                           "id": "400",
-                          "title": "Bad Request",
-                          "code": "Bad Request"
+                          "code": "BadRequest",
+                          "title": "Bad Request - ProductId is required to update CategoryId."
+                        }
+                      ]
+                    }
+                  },
+                  "InvalidCombination": {
+                    "summary": "Invalid field combination",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "code": "BadRequest",
+                          "title": "Bad Request - Cannot update fields from multiple group StatusUpdate, ReadOnlyUpdate"
+                        }
+                      ]
+                    }
+                  },
+                  "StatusUpdateRejected": {
+                    "summary": "closeContent is Required for closing the issue.",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "code": "BadRequest",
+                          "title": "Bad Request - closeContent is required for closing issue"
+                        }
+                      ]
+                    }
+                  },
+                  "ReadOnlyUpdateRejected": {
+                    "summary": "ReadOnly update not allowed",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "400",
+                          "code": "BadRequest",
+                          "title": "Only Closed issues can be marked Read-Only"
                         }
                       ]
                     }
@@ -543,12 +582,34 @@
                       "productId": "41681"
                     }
                   }
+                },
+                "Sample request to replace Status alone": {
+                  "value": {
+                    "data": {
+                      "status": "In Progress"
+                    }
+                  }
+                },
+                "Sample request to replace readOnly alone": {
+                  "value": {
+                    "data": {
+                      "readOnly": true
+                    }
+                  }
+                },
+                "Sample request to replace Status Closed with closeContent": {
+                  "value": {
+                    "data": {
+                      "status": "Closed",
+                      "closeContent": "All Set .Thanks For the support .No longer support need about the issue"
+                    }
+                  }
                 }
               }
             }
           }
         },
-        "description": "User can update either `severity` with `subject` or `productId` with `categoryId`.\r\n\r\n**Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`"
+        "description": " Update Issue Properties Following Mentioned Constraints \n\n  Combo Updates (Must be sent together):\n\n1. Title + Severity\n2. ProductId + CategoryId\n\nSingle Field Updates:\n1. Title, Severity, ProductId can be updated alone\n2. Status (alone)\n\t2.1 If setting status to \"Closed\", closeContent is mandatory\n3. ReadOnly (alone)\n\t3.1 Only allowed if issue is already \"Closed\"\n\nInvalid Combinations (Will be rejected):\n\n1. Mixing Title with Status\n2. Updating Status + ReadOnly together\n3. Severity + ProductId\n4. Status = \"Closed\" without closeContent\n5. Setting ReadOnly when RPD is not closed."
       }
     },
     "/issues/{id}/comments": {
@@ -674,7 +735,7 @@
             }
           }
         },
-        "description": "Reply to the existing matched issue ",
+        "description": "Reply to the existing matched issue",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1416,6 +1477,14 @@
                 "items": {
                   "$ref": "#/components/schemas/Attachment"
                 }
+              },
+              "connectorId": {
+                "type": "string",
+                "description": "Id / GUID of the external system where Factset needs to sync back the data. Product should have the settings configured- Please reach out to factset product support team."
+              },
+              "connectorDisplayId": {
+                "type": "string",
+                "description": "User friendly Display ID of the external System"
               }
             }
           }
@@ -1535,6 +1604,23 @@
               "categoryId": {
                 "type": "string",
                 "description": "Category that needs to be replaced"
+              },
+              "status": {
+                "type": "string",
+                "description": "Status that need to be updated",
+                "enum": [
+                  "In Progress",
+                  "Closed",
+                  "Received"
+                ]
+              },
+              "closeContent": {
+                "type": "string",
+                "description": "Comment for resolving the issue"
+              },
+              "readOnly": {
+                "type": "boolean",
+                "description": "Mark the issue read-only to stop further modifications.can be set only on closed cards and it value should be only true"
               }
             }
           }

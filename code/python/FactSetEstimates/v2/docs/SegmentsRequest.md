@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**SegmentIds**](SegmentIds.md) |  | 
 **metrics** | [**Metrics**](Metrics.md) |  | 
-**start_date** | **str** | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.  | [optional] 
-**end_date** | **str** | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
-**relative_fiscal_start** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
-**relative_fiscal_end** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
+**start_date** | **date** | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint.  | [optional] 
+**end_date** | **date** | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
+**relative_fiscal_start** | [**RelativeFiscalStart**](RelativeFiscalStart.md) |  | [optional] 
+**relative_fiscal_end** | [**RelativeFiscalEnd**](RelativeFiscalEnd.md) |  | [optional] 
 **periodicity** | [**Periodicity**](Periodicity.md) |  | [optional] 
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **segment_type** | [**SegmentType**](SegmentType.md) |  | [optional] 

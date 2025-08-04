@@ -99,7 +99,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeadlinesRequestTickersObject" /> class.
         /// </summary>
-        /// <param name="value">The ticker symbol..</param>
+        /// <param name="value">Supports Ticker-Exchange, ISIN, CUSIP and SEDOL..</param>
         /// <param name="type">The type of asset associated with the ticker..</param>
         public HeadlinesRequestTickersObject(string value = default(string), TypeEnum? type = default(TypeEnum?))
         {
@@ -108,9 +108,9 @@ namespace FactSet.SDK.FactSetNews.Model
         }
 
         /// <summary>
-        /// The ticker symbol.
+        /// Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
         /// </summary>
-        /// <value>The ticker symbol.</value>
+        /// <value>Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

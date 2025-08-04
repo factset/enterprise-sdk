@@ -70,8 +70,8 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
             name="FactSet News View",
             tickers=[
                 CreateOrEditViewTickers(
-                    name="Russell 1000",
-                    value="R.1000",
+                    name="name_example",
+                    value="value_example",
                     type="Index",
                 ),
             ],
@@ -504,8 +504,8 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
             name="FactSet News View",
             tickers=[
                 CreateOrEditViewTickers(
-                    name="Russell 1000",
-                    value="R.1000",
+                    name="name_example",
+                    value="value_example",
                     type="Index",
                 ),
             ],

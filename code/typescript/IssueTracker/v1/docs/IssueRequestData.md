@@ -10,5 +10,7 @@ Name | Type | Description | Notes
 **categoryId** | **String** | category of Factset Product.  | [optional] 
 **severity** | **String** | severity of issue tracker ticket. Mainly it accepting three severities.  Critical, High and Medium. | [optional] 
 **attachments** | [**[Attachment]**](Attachment.md) |  | [optional] 
+**connectorId** | **String** | Id / GUID of the external system where Factset needs to sync back the data. Product should have the settings configured- Please reach out to factset product support team. | [optional] 
+**connectorDisplayId** | **String** | User friendly Display ID of the external System | [optional] 
 
 

@@ -17,7 +17,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Global Filings API
-  version: 2.0.0
+  version: 2.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/global-filings-api
@@ -42,7 +42,7 @@ paths:
       parameters:
       - description: Requested symbols or securities.  This is a comma-separated list
           with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-          CUSIP, or SEDOL.
+          CUSIP, SEDOL, ISIN, or Entity ID
         examples:
           oneId:
             summary: One identifier
@@ -53,6 +53,14 @@ paths:
             value:
             - MODN-US
             - OSIS-US
+            - EME-US
+            - VIRT-US
+            - LZ-US
+            - BIYA-US
+            - VSAT-US
+            - DEA-US
+            - KBH-US
+            - SYRE-US
         explode: false
         in: query
         name: ids
@@ -60,6 +68,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 1000
+          minItems: 1
           type: array
         style: form
       - description: |
@@ -153,7 +163,7 @@ paths:
             value:
             - EDG
             - FFR
-        explode: true
+        explode: false
         in: query
         name: sources
         required: true
@@ -192,9 +202,66 @@ paths:
           - false
           type: boolean
         style: form
-      - description: Restricts the search to include only document stories which include
-          the text searched.
-        example: Officer
+      - description: Restricts the search to include only document stories that include
+          the searched text. This parameter supports boolean operators as well.
+        examples:
+          simpleSearchText:
+            description: Selects documents that contain specified search term
+            summary: Simple search
+            value: Officer
+          andExample:
+            description: Selects documents that contain all specified search terms.
+            summary: Search using AND operator
+            value: price <AND> history
+          orExample:
+            description: Selects documents that contain at least one of the terms.
+            summary: Search using OR operator
+            value: foreign <OR> exchange
+          wordExample:
+            description: Used for exact search terms, including symbols or phrases.
+            summary: Search using WORD operator
+            value: Data <WORD> File
+          wordNoStemmingExample:
+            description: Prevents stemming to match only the exact word form.
+            summary: Search using WORD to prevent stemming
+            value: <WORD> File
+          nearExample:
+            description: Selects documents containing the search terms in close proximity,
+              ranked higher when terms are nearer.
+            summary: Search using NEAR operator
+            value: history <NEAR> earnings
+          nearWithDistanceExample:
+            description: Matches terms within a specific number of words.
+            summary: Search using NEAR with distance
+            value: history <NEAR/3> earnings
+          notExample:
+            description: Excludes documents containing a specific term.
+            summary: Search using NOT Modifier
+            value: template <NOT> Excel
+          paragraphExample:
+            description: Matches terms appearing in the same paragraph.
+            summary: Search using PARAGRAPH Modifier
+            value: template <PARAGRAPH> Excel
+          sentenceExample:
+            description: Matches terms appearing in the same sentence.
+            summary: Search using SENTENCE Modifier
+            value: template <SENTENCE> Excel
+          phraseExample:
+            description: Selects documents containing a phrase in exact order.
+            summary: Search using PHRASE operator
+            value: national <PHRASE> park
+          wildcardExample:
+            description: Matches words with the specified prefix.
+            summary: Search using Wildcard (*) operator
+            value: tech*
+          wildcardSetExample:
+            description: Matches custom character patterns using [ ].
+            summary: Search using WILDCARD set
+            value: <WILDCARD>'o[fg]e'
+          groupedExample:
+            description: Combined logic using parentheses for complex queries.
+            summary: Grouped Search Expression
+            value: online <AND> (auction <OR> connection)
         explode: true
         in: query
         name: searchText
@@ -375,8 +442,8 @@ paths:
           type: string
         style: form
       - description: Requested symbols or securities.  This is a comma-separated list
-          with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol,
-          CUSIP, or SEDOL.
+          with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+          CUSIP, SEDOL, ISIN, or Entity ID
         examples:
           oneId:
             summary: One identifier
@@ -394,6 +461,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 1000
+          minItems: 1
           type: array
         style: form
       - description: "Code for document source to include.This is a comma-separated\
@@ -413,6 +482,134 @@ paths:
         in: query
         name: sources
         required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: timeZone to return story dates and times.Time zones, represented
+          in POSIX format, are automatically adjusted for daylight savings. timeZone
+          names are sourced from the IANA timezone registry.
+        explode: true
+        in: query
+        name: timeZone
+        required: false
+        schema:
+          default: America/New_York
+          type: string
+        style: form
+      - description: |-
+          Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.
+
+          Default = All categories.
+        example:
+        - CN:US
+        explode: false
+        in: query
+        name: categories
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |-
+          Type of identifier search
+          * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier.
+          * false - Returns headlines of stories that mentioned or referred to the  identifier.
+        explode: true
+        in: query
+        name: primaryId
+        required: false
+        schema:
+          default: false
+          enum:
+          - true
+          - false
+          type: boolean
+        style: form
+      - description: Restricts the search to include only document stories that include
+          the searched text. This parameter supports boolean operators as well.
+        examples:
+          simpleSearchText:
+            description: Selects documents that contain specified search term
+            summary: Simple search
+            value: Officer
+          andExample:
+            description: Selects documents that contain all specified search terms.
+            summary: Search using AND operator
+            value: price <AND> history
+          orExample:
+            description: Selects documents that contain at least one of the terms.
+            summary: Search using OR operator
+            value: foreign <OR> exchange
+          wordExample:
+            description: Used for exact search terms, including symbols or phrases.
+            summary: Search using WORD operator
+            value: Data <WORD> File
+          wordNoStemmingExample:
+            description: Prevents stemming to match only the exact word form.
+            summary: Search using WORD to prevent stemming
+            value: <WORD> File
+          nearExample:
+            description: Selects documents containing the search terms in close proximity,
+              ranked higher when terms are nearer.
+            summary: Search using NEAR operator
+            value: history <NEAR> earnings
+          nearWithDistanceExample:
+            description: Matches terms within a specific number of words.
+            summary: Search using NEAR with distance
+            value: history <NEAR/3> earnings
+          notExample:
+            description: Excludes documents containing a specific term.
+            summary: Search using NOT Modifier
+            value: template <NOT> Excel
+          paragraphExample:
+            description: Matches terms appearing in the same paragraph.
+            summary: Search using PARAGRAPH Modifier
+            value: template <PARAGRAPH> Excel
+          sentenceExample:
+            description: Matches terms appearing in the same sentence.
+            summary: Search using SENTENCE Modifier
+            value: template <SENTENCE> Excel
+          phraseExample:
+            description: Selects documents containing a phrase in exact order.
+            summary: Search using PHRASE operator
+            value: national <PHRASE> park
+          wildcardExample:
+            description: Matches words with the specified prefix.
+            summary: Search using Wildcard (*) operator
+            value: tech*
+          wildcardSetExample:
+            description: Matches custom character patterns using [ ].
+            summary: Search using WILDCARD set
+            value: <WILDCARD>'o[fg]e'
+          groupedExample:
+            description: Combined logic using parentheses for complex queries.
+            summary: Grouped Search Expression
+            value: online <AND> (auction <OR> connection)
+        explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The search to include any form types of given sources
+        examples:
+          oneFormType:
+            summary: One formType
+            value:
+            - 15-12G
+          multipleFormTypes:
+            summary: Multiple formTypes
+            value:
+            - 15-12G
+            - "4"
+        explode: false
+        in: query
+        name: formTypes
+        required: false
         schema:
           items:
             type: string
@@ -512,6 +709,14 @@ paths:
                       description: ASX Company Announcements Delayed
                     - source: OMX
                       description: GlobeNewswire Europe
+                    - source: BursaMalaysia
+                      description: Bursa Malaysia Company Announcements
+                    - source: CNINFO
+                      description: CNINFO Company Announcements
+                    - source: NSE
+                      description: NSE India Company Announcements
+                    - source: BSE
+                      description: BSE India Company Announcements
               schema:
                 $ref: '#/components/schemas/SourceResponse'
           description: Success
@@ -843,7 +1048,7 @@ components:
     ids:
       description: Requested symbols or securities.  This is a comma-separated list
         with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, or SEDOL.
+        CUSIP, SEDOL, ISIN, or Entity ID
       examples:
         oneId:
           summary: One identifier
@@ -854,6 +1059,14 @@ components:
           value:
           - MODN-US
           - OSIS-US
+          - EME-US
+          - VIRT-US
+          - LZ-US
+          - BIYA-US
+          - VSAT-US
+          - DEA-US
+          - KBH-US
+          - SYRE-US
       explode: false
       in: query
       name: ids
@@ -861,12 +1074,14 @@ components:
       schema:
         items:
           type: string
+        maxItems: 1000
+        minItems: 1
         type: array
       style: form
     countIds:
       description: Requested symbols or securities.  This is a comma-separated list
-        with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, or SEDOL.
+        with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+        CUSIP, SEDOL, ISIN, or Entity ID
       examples:
         oneId:
           summary: One identifier
@@ -884,6 +1099,8 @@ components:
       schema:
         items:
           type: string
+        maxItems: 1000
+        minItems: 1
         type: array
       style: form
     startDate:
@@ -1023,7 +1240,7 @@ components:
           value:
           - EDG
           - FFR
-      explode: true
+      explode: false
       in: query
       name: sources
       required: true
@@ -1071,9 +1288,66 @@ components:
         type: array
       style: form
     searchText:
-      description: Restricts the search to include only document stories which include
-        the text searched.
-      example: Officer
+      description: Restricts the search to include only document stories that include
+        the searched text. This parameter supports boolean operators as well.
+      examples:
+        simpleSearchText:
+          description: Selects documents that contain specified search term
+          summary: Simple search
+          value: Officer
+        andExample:
+          description: Selects documents that contain all specified search terms.
+          summary: Search using AND operator
+          value: price <AND> history
+        orExample:
+          description: Selects documents that contain at least one of the terms.
+          summary: Search using OR operator
+          value: foreign <OR> exchange
+        wordExample:
+          description: Used for exact search terms, including symbols or phrases.
+          summary: Search using WORD operator
+          value: Data <WORD> File
+        wordNoStemmingExample:
+          description: Prevents stemming to match only the exact word form.
+          summary: Search using WORD to prevent stemming
+          value: <WORD> File
+        nearExample:
+          description: Selects documents containing the search terms in close proximity,
+            ranked higher when terms are nearer.
+          summary: Search using NEAR operator
+          value: history <NEAR> earnings
+        nearWithDistanceExample:
+          description: Matches terms within a specific number of words.
+          summary: Search using NEAR with distance
+          value: history <NEAR/3> earnings
+        notExample:
+          description: Excludes documents containing a specific term.
+          summary: Search using NOT Modifier
+          value: template <NOT> Excel
+        paragraphExample:
+          description: Matches terms appearing in the same paragraph.
+          summary: Search using PARAGRAPH Modifier
+          value: template <PARAGRAPH> Excel
+        sentenceExample:
+          description: Matches terms appearing in the same sentence.
+          summary: Search using SENTENCE Modifier
+          value: template <SENTENCE> Excel
+        phraseExample:
+          description: Selects documents containing a phrase in exact order.
+          summary: Search using PHRASE operator
+          value: national <PHRASE> park
+        wildcardExample:
+          description: Matches words with the specified prefix.
+          summary: Search using Wildcard (*) operator
+          value: tech*
+        wildcardSetExample:
+          description: Matches custom character patterns using [ ].
+          summary: Search using WILDCARD set
+          value: <WILDCARD>'o[fg]e'
+        groupedExample:
+          description: Combined logic using parentheses for complex queries.
+          summary: Grouped Search Expression
+          value: online <AND> (auction <OR> connection)
       explode: true
       in: query
       name: searchText
@@ -1525,7 +1799,14 @@ components:
         category: SB:ANLCH
       properties:
         subject:
-          description: subject code
+          description: |
+            The code which specifies various categories of information:
+            - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc.
+            - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc.
+            - LN: Specifies the language details.
+            - CN: Specifies the country details.
+            - RN: Specifies the region details.
+            - DT: Specifies the filings document type details.
           example: SB
           type: string
         category:

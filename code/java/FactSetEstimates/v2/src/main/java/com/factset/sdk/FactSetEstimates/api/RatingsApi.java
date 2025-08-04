@@ -16,6 +16,7 @@ import com.factset.sdk.FactSetEstimates.models.ConsensusRatingsResponse;
 import com.factset.sdk.FactSetEstimates.models.DetailRatingsRequest;
 import com.factset.sdk.FactSetEstimates.models.DetailRatingsResponse;
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
+import java.time.LocalDate;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -111,7 +112,7 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ConsensusRatingsResponse getConsensusRatings(java.util.List<String> ids, String startDate, String endDate, String frequency) throws ApiException {
+  public ConsensusRatingsResponse getConsensusRatings(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String frequency) throws ApiException {
     return getConsensusRatingsWithHttpInfo(ids, startDate, endDate, frequency).getData();
   }
 
@@ -135,7 +136,7 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ConsensusRatingsResponse> getConsensusRatingsWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency) throws ApiException {
+  public ApiResponse<ConsensusRatingsResponse> getConsensusRatingsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String frequency) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -287,7 +288,7 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailRatingsResponse getDetailRatings(java.util.List<String> ids, String startDate, String endDate, Boolean includeAll) throws ApiException {
+  public DetailRatingsResponse getDetailRatings(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Boolean includeAll) throws ApiException {
     return getDetailRatingsWithHttpInfo(ids, startDate, endDate, includeAll).getData();
   }
 
@@ -311,7 +312,7 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailRatingsResponse> getDetailRatingsWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, Boolean includeAll) throws ApiException {
+  public ApiResponse<DetailRatingsResponse> getDetailRatingsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Boolean includeAll) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set

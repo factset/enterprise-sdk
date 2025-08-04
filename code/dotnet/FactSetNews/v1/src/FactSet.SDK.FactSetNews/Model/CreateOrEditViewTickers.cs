@@ -100,7 +100,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// Initializes a new instance of the <see cref="CreateOrEditViewTickers" /> class.
         /// </summary>
         /// <param name="name">Name of the ticker..</param>
-        /// <param name="value">The ticker symbol..</param>
+        /// <param name="value">Supports Ticker-Exchange, ISIN, CUSIP and SEDOL..</param>
         /// <param name="type">The type of the asset associated with the ticker..</param>
         public CreateOrEditViewTickers(string name = default(string), string value = default(string), TypeEnum? type = default(TypeEnum?))
         {
@@ -117,9 +117,9 @@ namespace FactSet.SDK.FactSetNews.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The ticker symbol.
+        /// Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
         /// </summary>
-        /// <value>The ticker symbol.</value>
+        /// <value>Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

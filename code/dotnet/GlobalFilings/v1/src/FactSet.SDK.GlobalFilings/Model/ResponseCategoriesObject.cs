@@ -35,7 +35,7 @@ namespace FactSet.SDK.GlobalFilings.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseCategoriesObject" /> class.
         /// </summary>
-        /// <param name="subject">subject code.</param>
+        /// <param name="subject">The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details. .</param>
         /// <param name="category">category.</param>
         /// <param name="description">description.</param>
         public ResponseCategoriesObject(string subject = default(string), string category = default(string), string description = default(string))
@@ -46,9 +46,9 @@ namespace FactSet.SDK.GlobalFilings.Model
         }
 
         /// <summary>
-        /// subject code
+        /// The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details. 
         /// </summary>
-        /// <value>subject code</value>
+        /// <value>The code which specifies various categories of information: - SB: Specifies the subject information/code - Ex: IPO, Management Changes, Dividends, etc. - IN: Specifies the industry information/code - Ex: Banking, Oil, Semiconductors, etc. - LN: Specifies the language details. - CN: Specifies the country details. - RN: Specifies the region details. - DT: Specifies the filings document type details. </value>
         [DataMember(Name = "subject", EmitDefaultValue = false)]
         public string Subject { get; set; }
 

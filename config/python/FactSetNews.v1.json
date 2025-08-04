@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetNews",
   "projectName": "fds.sdk.FactSetNews",
-  "packageVersion": "0.1.1",
+  "packageVersion": "0.1.2",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet News client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetNews/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetNews/0.1.1",
+  "httpUserAgent": "fds-sdk/python/FactSetNews/0.1.2",
   "files": {
     "LICENSE": {}
   }

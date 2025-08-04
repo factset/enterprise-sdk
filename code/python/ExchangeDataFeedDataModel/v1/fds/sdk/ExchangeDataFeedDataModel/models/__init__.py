@@ -9,5 +9,11 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.ExchangeDataFeedDataModel.model.error_detail import ErrorDetail
 from fds.sdk.ExchangeDataFeedDataModel.model.error_response import ErrorResponse
-from fds.sdk.ExchangeDataFeedDataModel.model.rt_data_model_products import RTDataModelProducts
+from fds.sdk.ExchangeDataFeedDataModel.model.exchange_item import ExchangeItem
+from fds.sdk.ExchangeDataFeedDataModel.model.exchanges_response import ExchangesResponse
+from fds.sdk.ExchangeDataFeedDataModel.model.exchanges_response_data import ExchangesResponseData
+from fds.sdk.ExchangeDataFeedDataModel.model.product_item import ProductItem
+from fds.sdk.ExchangeDataFeedDataModel.model.products_response import ProductsResponse
+from fds.sdk.ExchangeDataFeedDataModel.model.products_response_data import ProductsResponseData

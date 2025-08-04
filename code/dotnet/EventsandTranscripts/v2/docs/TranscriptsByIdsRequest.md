@@ -5,7 +5,7 @@ Search criteria for transcripts based on various IDs and categories.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrimaryId** | **bool** | If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention. | [optional] [default to false]
+**PrimaryId** | **bool** | If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request.  | [optional] [default to false]
 **Ids** | **List&lt;string&gt;** | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
 **ReportIds** | **List&lt;string&gt;** | List of report IDs (max 1000). | [optional] 
 **Categories** | **List&lt;string&gt;** | List of category codes (country, industry, subject). Use &#x60;/meta/categories&#x60; endpoint. Default is all. | [optional] 

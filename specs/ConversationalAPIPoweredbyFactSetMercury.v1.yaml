@@ -71,6 +71,13 @@ info:
     better serve you content, we encourage you to use the `/feedback` endpoint. 
 
 
+    #### Conversational API Postman Collection
+
+    You can use our [Postman collection for
+    OpenAPI](https://factset-research-systems-inc-178.postman.co/workspace/Content-APIs~585717fd-3314-43da-93aa-acc1ee4c7214/collection/45777888-9f343f7b-9455-4142-a2f4-40a9e915ea8a?action=share&creator=45777888)
+    to help you get started with the Conversational API.
+
+
     #### Receive updates on changes to the Conversational API
 
     Subscribe to our FactSet Notify by clicking "Subscribe to notifications" in
@@ -105,6 +112,9 @@ info:
     url: https://developer.factset.com/contact
 servers:
   - url: https://api.factset.com/conversational/v1
+    description: Production
+  - url: https://api.uat.factset.com/conversational/v1
+    description: UAT
 paths:
   /query:
     post:

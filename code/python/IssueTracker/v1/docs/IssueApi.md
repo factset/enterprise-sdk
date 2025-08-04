@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/issue-tracker/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_issue**](IssueApi.md#get_issue) | **GET** /issues/{id} | Get the matched issue details
-[**patch_issue**](IssueApi.md#patch_issue) | **PATCH** /issues/{id} | Update severity and subject of issue or productId and categoryId of issue
+[**patch_issue**](IssueApi.md#patch_issue) | **PATCH** /issues/{id} | Update issue details
 [**post_issue**](IssueApi.md#post_issue) | **POST** /issues | Creates a Issue Tracker issue
 [**post_reply**](IssueApi.md#post_reply) | **POST** /issues/{id}/comments | post comment to Issue Tracker issue
 
@@ -112,9 +112,9 @@ Name | Type | Description  | Notes
 # **patch_issue**
 > IdResponse patch_issue(id)
 
-Update severity and subject of issue or productId and categoryId of issue
+Update issue details
 
-User can update either `severity` with `subject` or `productId` with `categoryId`.    **Note:** Users are not allowed to update `severity` with `productId` or `subject` with `productId`
+ Update Issue Properties Following Mentioned Constraints     Combo Updates (Must be sent together):  1. Title + Severity 2. ProductId + CategoryId  Single Field Updates: 1. Title, Severity, ProductId can be updated alone 2. Status (alone)  2.1 If setting status to \"Closed\", closeContent is mandatory 3. ReadOnly (alone)  3.1 Only allowed if issue is already \"Closed\"  Invalid Combinations (Will be rejected):  1. Mixing Title with Status 2. Updating Status + ReadOnly together 3. Severity + ProductId 4. Status = \"Closed\" without closeContent 5. Setting ReadOnly when RPD is not closed.
 
 ### Example
 
@@ -168,11 +168,14 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
             severity="severity_example",
             product_id="product_id_example",
             category_id="category_id_example",
+            status="In Progress",
+            close_content="close_content_example",
+            read_only=True,
         ),
     ) # UpdateIssueRequest |  (optional)
 
     try:
-        # Update severity and subject of issue or productId and categoryId of issue
+        # Update issue details
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.patch_issue(id, update_issue_request=update_issue_request)
@@ -222,7 +225,7 @@ Name | Type | Description  | Notes
 
 Creates a Issue Tracker issue
 
-Creates a new issue in Issue Tracker
+Creates a new issue in Issue Tracker     **Note:** connectorId, connectorDisplayId can be sent when integrations are configured on product, to sync back the updates from FactSet side. connectorDisplayId can't be set without connectorDisplayId. Reachout to factset team to check if the integrations re enabled on the product.
 
 ### Example
 
@@ -282,6 +285,8 @@ with fds.sdk.IssueTracker.ApiClient(configuration) as api_client:
                     name="name_example",
                 ),
             ],
+            connector_id="connector_id_example",
+            connector_display_id="connector_display_id_example",
         ),
     ) # IssueRequest |  (optional)
 
@@ -335,7 +340,7 @@ Name | Type | Description  | Notes
 
 post comment to Issue Tracker issue
 
-Reply to the existing matched issue 
+Reply to the existing matched issue
 
 ### Example
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **end_date_relative** | **int** | End date relative to today (0&#x3D;today, -1&#x3D;yesterday). *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used.*  | [optional] 
 **time_zone** | **str** | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. | [optional]  if omitted the server will use the default value of "America/New_York"
 **search_text** | **str** | Text to search for within the transcript document stories. | [optional] 
-**primary_id** | **bool** | If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention. | [optional]  if omitted the server will use the default value of False
+**primary_id** | **bool** | If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request.  | [optional]  if omitted the server will use the default value of False
 **report_ids** | **[str]** | List of report IDs (max 1000). | [optional] 
 **categories** | **[str]** | List of category codes (country, industry, subject). Use &#x60;/meta/categories&#x60; endpoint. Default is all. | [optional] 
 **event_ids** | **[str]** | List of event IDs (max 1000). | [optional] 

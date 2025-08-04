@@ -193,7 +193,7 @@ class TranscriptsRequestData(ModelComposed):
             end_date_relative (int): End date relative to today (0=today, -1=yesterday). *Either `endDate` or `endDateRelative` should be used.* . [optional]  # noqa: E501
             time_zone (str): Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones.. [optional] if omitted the server will use the default value of "America/New_York"  # noqa: E501
             search_text (str): Text to search for within the transcript document stories.. [optional]  # noqa: E501
-            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request. . [optional] if omitted the server will use the default value of False  # noqa: E501
             report_ids ([str]): List of report IDs (max 1000).. [optional]  # noqa: E501
             categories ([str]): List of category codes (country, industry, subject). Use `/meta/categories` endpoint. Default is all.. [optional]  # noqa: E501
             event_ids ([str]): List of event IDs (max 1000).. [optional]  # noqa: E501
@@ -306,7 +306,7 @@ class TranscriptsRequestData(ModelComposed):
             end_date_relative (int): End date relative to today (0=today, -1=yesterday). *Either `endDate` or `endDateRelative` should be used.* . [optional]  # noqa: E501
             time_zone (str): Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones.. [optional] if omitted the server will use the default value of "America/New_York"  # noqa: E501
             search_text (str): Text to search for within the transcript document stories.. [optional]  # noqa: E501
-            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            primary_id (bool): If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request. . [optional] if omitted the server will use the default value of False  # noqa: E501
             report_ids ([str]): List of report IDs (max 1000).. [optional]  # noqa: E501
             categories ([str]): List of category codes (country, industry, subject). Use `/meta/categories` endpoint. Default is all.. [optional]  # noqa: E501
             event_ids ([str]): List of event IDs (max 1000).. [optional]  # noqa: E501

@@ -86,11 +86,11 @@ public class TranscriptsByIdsRequest implements Serializable {
   }
 
    /**
-   * If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.
+   * If true, search only for documents where the provided &#x60;ids&#x60; are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId&#x3D;true or primaryId&#x3D;false is specified in the request. 
    * @return primaryId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.")
+  @ApiModelProperty(value = "If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request. ")
   @JsonProperty(JSON_PROPERTY_PRIMARY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

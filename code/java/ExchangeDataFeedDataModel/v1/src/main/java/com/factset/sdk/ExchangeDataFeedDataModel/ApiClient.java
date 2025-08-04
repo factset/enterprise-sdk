@@ -73,13 +73,13 @@ import com.factset.sdk.ExchangeDataFeedDataModel.auth.FactSetOAuth2ClientAuth;
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
-  protected String basePath = "https://api.factset.com/RTDataModel";
+  protected String basePath = "https://api.factset.com/rtdatamodel/v1";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://api.factset.com/RTDataModel",
+      "https://api.factset.com/rtdatamodel/v1",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -123,7 +123,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/ExchangeDataFeedDataModel/0.21.2 (" + System.getProperty("os.name") + "; Java " + System.getProperty("java.version") + ")");
+    setUserAgent("fds-sdk/java/ExchangeDataFeedDataModel/0.22.0 (" + System.getProperty("os.name") + "; Java " + System.getProperty("java.version") + ")");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

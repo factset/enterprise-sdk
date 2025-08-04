@@ -37,6 +37,11 @@ docs/EstimatesAndRatingsReportsApi.md
 docs/FixedConsensusRequest.md
 docs/FixedDetailRequest.md
 docs/Frequency.md
+docs/Guidance.md
+docs/GuidanceApi.md
+docs/GuidanceRequest.md
+docs/GuidanceRequestBody.md
+docs/GuidanceResponse.md
 docs/Ids.md
 docs/Meta.md
 docs/Metric.md
@@ -50,7 +55,9 @@ docs/PeriodicityDetail.md
 docs/PeriodicitySurprise.md
 docs/RatingsApi.md
 docs/RatingsCount.md
+docs/RelativeFiscalEnd.md
 docs/RelativeFiscalEndActuals.md
+docs/RelativeFiscalStart.md
 docs/RelativeFiscalStartActuals.md
 docs/RollingConsensusRequest.md
 docs/RollingDetailRequest.md
@@ -82,6 +89,7 @@ fds/sdk/FactSetEstimates/api/broker_detail_api.py
 fds/sdk/FactSetEstimates/api/consensus_api.py
 fds/sdk/FactSetEstimates/api/data_items_api.py
 fds/sdk/FactSetEstimates/api/estimates_and_ratings_reports_api.py
+fds/sdk/FactSetEstimates/api/guidance_api.py
 fds/sdk/FactSetEstimates/api/ratings_api.py
 fds/sdk/FactSetEstimates/api/segment_actuals_api.py
 fds/sdk/FactSetEstimates/api/segments_api.py
@@ -119,6 +127,10 @@ fds/sdk/FactSetEstimates/model/estimate_types_response.py
 fds/sdk/FactSetEstimates/model/fixed_consensus_request.py
 fds/sdk/FactSetEstimates/model/fixed_detail_request.py
 fds/sdk/FactSetEstimates/model/frequency.py
+fds/sdk/FactSetEstimates/model/guidance.py
+fds/sdk/FactSetEstimates/model/guidance_request.py
+fds/sdk/FactSetEstimates/model/guidance_request_body.py
+fds/sdk/FactSetEstimates/model/guidance_response.py
 fds/sdk/FactSetEstimates/model/ids.py
 fds/sdk/FactSetEstimates/model/meta.py
 fds/sdk/FactSetEstimates/model/metric.py
@@ -131,7 +143,9 @@ fds/sdk/FactSetEstimates/model/periodicity.py
 fds/sdk/FactSetEstimates/model/periodicity_detail.py
 fds/sdk/FactSetEstimates/model/periodicity_surprise.py
 fds/sdk/FactSetEstimates/model/ratings_count.py
+fds/sdk/FactSetEstimates/model/relative_fiscal_end.py
 fds/sdk/FactSetEstimates/model/relative_fiscal_end_actuals.py
+fds/sdk/FactSetEstimates/model/relative_fiscal_start.py
 fds/sdk/FactSetEstimates/model/relative_fiscal_start_actuals.py
 fds/sdk/FactSetEstimates/model/rolling_consensus_request.py
 fds/sdk/FactSetEstimates/model/rolling_detail_request.py

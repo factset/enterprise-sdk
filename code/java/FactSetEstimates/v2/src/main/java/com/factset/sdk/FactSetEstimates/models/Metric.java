@@ -1,8 +1,8 @@
 /*
  * FactSet Estimates
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
- * The version of the OpenAPI document: 2.7.0
+ * The version of the OpenAPI document: 2.8.0
  * Contact: api@factset.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -41,7 +41,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   Metric.JSON_PROPERTY_NAME,
   Metric.JSON_PROPERTY_CATEGORY,
   Metric.JSON_PROPERTY_SUBCATEGORY,
-  Metric.JSON_PROPERTY_OAURL
+  Metric.JSON_PROPERTY_OAURL,
+  Metric.JSON_PROPERTY_FACTOR
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -62,6 +63,9 @@ public class Metric implements Serializable {
 
   public static final String JSON_PROPERTY_OAURL = "OAurl";
   private JsonNullable<String> oaurl = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_FACTOR = "factor";
+  private JsonNullable<Double> factor = JsonNullable.<Double>undefined();
 
   public Metric() { 
   }
@@ -236,6 +240,40 @@ public class Metric implements Serializable {
   }
 
 
+  public Metric factor(Double factor) {
+    this.factor = JsonNullable.<Double>of(factor);
+    return this;
+  }
+
+   /**
+   * The factor for the metric (e.g. 1000 &#x3D; thousands).
+   * @return factor
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "1000000", value = "The factor for the metric (e.g. 1000 = thousands).")
+  @JsonIgnore
+
+  public Double getFactor() {
+        return factor.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Double> getFactor_JsonNullable() {
+    return factor;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACTOR)
+  public void setFactor_JsonNullable(JsonNullable<Double> factor) {
+    this.factor = factor;
+  }
+
+  public void setFactor(Double factor) {
+    this.factor = JsonNullable.<Double>of(factor);
+  }
+
+
   /**
    * Return true if this metric object is equal to o.
    */
@@ -252,7 +290,8 @@ public class Metric implements Serializable {
         equalsNullable(this.name, metric.name) &&
         equalsNullable(this.category, metric.category) &&
         equalsNullable(this.subcategory, metric.subcategory) &&
-        equalsNullable(this.oaurl, metric.oaurl);
+        equalsNullable(this.oaurl, metric.oaurl) &&
+        equalsNullable(this.factor, metric.factor);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -261,7 +300,7 @@ public class Metric implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(metric), hashCodeNullable(name), hashCodeNullable(category), hashCodeNullable(subcategory), hashCodeNullable(oaurl));
+    return Objects.hash(hashCodeNullable(metric), hashCodeNullable(name), hashCodeNullable(category), hashCodeNullable(subcategory), hashCodeNullable(oaurl), hashCodeNullable(factor));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -280,6 +319,7 @@ public class Metric implements Serializable {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    subcategory: ").append(toIndentedString(subcategory)).append("\n");
     sb.append("    oaurl: ").append(toIndentedString(oaurl)).append("\n");
+    sb.append("    factor: ").append(toIndentedString(factor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
+import java.time.LocalDate;
 import com.factset.sdk.FactSetEstimates.models.SurpriseRequest;
 import com.factset.sdk.FactSetEstimates.models.SurpriseResponse;
 
@@ -73,7 +74,7 @@ public class SurpriseApi {
    * Surprise estimates for rolling fiscal periods
    * Returns FactSet Estimates surprise data using rolling fiscal dates. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
@@ -93,7 +94,7 @@ public class SurpriseApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public SurpriseResponse getSurprise(java.util.List<String> ids, java.util.List<String> metrics, String startDate, String endDate, String frequency, String periodicity, String statistic, String currency) throws ApiException {
+  public SurpriseResponse getSurprise(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, String statistic, String currency) throws ApiException {
     return getSurpriseWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency).getData();
   }
 
@@ -101,7 +102,7 @@ public class SurpriseApi {
    * Surprise estimates for rolling fiscal periods
    * Returns FactSet Estimates surprise data using rolling fiscal dates. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
-   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
+   * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
@@ -121,7 +122,7 @@ public class SurpriseApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SurpriseResponse> getSurpriseWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, String startDate, String endDate, String frequency, String periodicity, String statistic, String currency) throws ApiException {
+  public ApiResponse<SurpriseResponse> getSurpriseWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, String statistic, String currency) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set

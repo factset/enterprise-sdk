@@ -1239,13 +1239,27 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/CreateOrEditViewTickers'
+              example:
+                - name: Marriott International, Inc. Class A.
+                  value: MAR-US
+                  type: Equity
+                - name: Audioboom Group plc.
+                  value: JE00BJYJFG60
+                  type: Equity
+                - name: Innergex Renewable Energy Inc.
+                  value: 45790B104
+                  type: Equity
+                - name: Fidelity National Information Services, Inc.
+                  value: '2769796'
+                  type: Equity
             isPrimary:
               type: boolean
               example: true
-              description: >-
-                If true, then only stories with the provided ticker as a primary
-                symbol will be returned. When this parameter is false, the
-                symbol is either primary OR a related symbol will be returned.
+              description: >
+                If true, stories that match the provided ticker on which the
+                ticker is a primary symbol will be returned. Additionally,
+                stories that match the other filters specified such as topics or
+                regions will also be returned. 
             categories:
               type: array
               items:
@@ -1288,15 +1302,12 @@ components:
       properties:
         name:
           type: string
-          example: Russell 1000
           description: Name of the ticker.
         value:
           type: string
-          example: R.1000
-          description: The ticker symbol.
+          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
         type:
           type: string
-          example: Index
           enum:
             - Index
             - ETF
@@ -1382,7 +1393,7 @@ components:
                   description: Non-negative maximum number of entries to return.
                 offset:
                   type: integer
-                  example: 100
+                  example: 0
                   default: 0
                   description: Non-negative number of entries to skip.
     HeadlinesRequest:
@@ -1402,9 +1413,10 @@ components:
             isPrimary:
               type: boolean
               description: >
-                If true, then only stories with the provided ticker as a primary
-                symbol will be returned. When this parameter is false, the
-                symbol is either primary OR a related symbol will be returned.
+                If true, stories that match the provided ticker on which the
+                ticker is a primary symbol will be returned. Additionally,
+                stories that match the other filters specified such as topics or
+                regions will also be returned. 
               example: true
             categories:
               type: array
@@ -1498,7 +1510,7 @@ components:
                   description: Non-negative maximum number of entries to return.
                 offset:
                   type: integer
-                  example: 100
+                  example: 0
                   default: 0
                   description: Non-negative number of entries to skip.
             attributes:
@@ -1526,7 +1538,7 @@ components:
       properties:
         value:
           type: string
-          description: The ticker symbol.
+          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
           example: SP50
         type:
           type: string
@@ -1602,13 +1614,13 @@ components:
           type: array
           items:
             type: string
-            example: AAPL-US
+            example: MAR-US
           description: The primary symbols associated with the headline.
         symbols:
           type: array
           items:
             type: string
-            example: AAPL-US
+            example: MAR-US
           description: All symbols associated with the headline.
         subjects:
           type: array
@@ -2067,12 +2079,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreateOrEditViewTickers'
+          example:
+            - name: Marriott International, Inc. Class A.
+              value: MAR-US
+              type: Equity
+            - name: Audioboom Group plc.
+              value: JE00BJYJFG60
+              type: Equity
+            - name: Innergex Renewable Energy Inc.
+              value: 45790B104
+              type: Equity
+            - name: Fidelity National Information Services, Inc.
+              value: '2769796'
+              type: Equity
         isPrimary:
           type: boolean
-          description: >-
-            If true, then only stories with the provided ticker as a primary
-            symbol will be returned. When this parameter is false, the symbol is
-            either primary OR a related symbol will be returned.
+          description: >
+            If true, stories that match the provided ticker on which the ticker
+            is a primary symbol will be returned. Additionally, stories that
+            match the other filters specified such as topics or regions will
+            also be returned.  
         categories:
           type: array
           items:
@@ -2181,8 +2207,14 @@ components:
       value:
         data:
           tickers:
-            - value: SP50
-              type: Index
+            - value: MAR-US
+              type: Equity
+            - value: JE00BJYJFG60
+              type: Equity
+            - value: 45790B104
+              type: Equity
+            - value: '2769796'
+              type: Equity
           isPrimary: true
           categories:
             - Earnings
@@ -2198,14 +2230,20 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     SearchTime:
       summary: Using searchTime
       value:
         data:
           tickers:
-            - value: SP50
-              type: Index
+            - value: MAR-US
+              type: Equity
+            - value: JE00BJYJFG60
+              type: Equity
+            - value: 45790B104
+              type: Equity
+            - value: '2769796'
+              type: Equity
           isPrimary: true
           categories:
             - Earnings
@@ -2223,7 +2261,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     400Example:
       summary: Sample error Response
       value:
@@ -2254,7 +2292,7 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0
     SearchTimeid:
       summary: Using searchTime with view name
       value:
@@ -2266,4 +2304,4 @@ components:
         meta:
           pagination:
             limit: 50
-            offset: 100
+            offset: 0

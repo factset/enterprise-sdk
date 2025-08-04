@@ -1,9 +1,9 @@
 /*
  * FactSet Estimates
  *
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
- * The version of the OpenAPI document: 2.7.0
+ * The version of the OpenAPI document: 2.8.0
  * Contact: api@factset.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -40,7 +40,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <returns>ConsensusRatingsResponse</returns>
-        ConsensusRatingsResponse GetConsensusRatings(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string));
+        ConsensusRatingsResponse GetConsensusRatings(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string));
 
         /// <summary>
         /// Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
@@ -54,7 +54,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <returns>ApiResponse of ConsensusRatingsResponse</returns>
-        ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string));
+        ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsWithHttpInfo(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string));
         /// <summary>
         /// Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         /// </summary>
@@ -88,7 +88,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <returns>DetailRatingsResponse</returns>
-        DetailRatingsResponse GetDetailRatings(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?));
+        DetailRatingsResponse GetDetailRatings(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?));
 
         /// <summary>
         /// Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
@@ -102,7 +102,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <returns>ApiResponse of DetailRatingsResponse</returns>
-        ApiResponse<DetailRatingsResponse> GetDetailRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?));
+        ApiResponse<DetailRatingsResponse> GetDetailRatingsWithHttpInfo(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?));
         /// <summary>
         /// Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         /// </summary>
@@ -146,7 +146,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsensusRatingsResponse</returns>
-        System.Threading.Tasks.Task<ConsensusRatingsResponse> GetConsensusRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConsensusRatingsResponse> GetConsensusRatingsAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
@@ -161,7 +161,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsensusRatingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsWithHttpInfoAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Ratings consensus estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         /// </summary>
@@ -198,7 +198,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailRatingsResponse</returns>
-        System.Threading.Tasks.Task<DetailRatingsResponse> GetDetailRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DetailRatingsResponse> GetDetailRatingsAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
@@ -213,7 +213,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailRatingsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DetailRatingsResponse>> GetDetailRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DetailRatingsResponse>> GetDetailRatingsWithHttpInfoAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Broker Detail estimates to fetch Buy, overWeight, Hold, underWeight, and Sell.
         /// </summary>
@@ -415,7 +415,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <returns>ConsensusRatingsResponse</returns>
-        public ConsensusRatingsResponse GetConsensusRatings(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
+        public ConsensusRatingsResponse GetConsensusRatings(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string))
         {
             var localVarResponse = GetConsensusRatingsWithHttpInfo(ids, startDate, endDate, frequency);
             return localVarResponse.Data;
@@ -430,7 +430,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <returns>ApiResponse of ConsensusRatingsResponse</returns>
-        public ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
+        public ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsWithHttpInfo(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -463,11 +463,11 @@ namespace FactSet.SDK.FactSetEstimates.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (frequency != null)
             {
@@ -520,7 +520,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsensusRatingsResponse</returns>
-        public async System.Threading.Tasks.Task<ConsensusRatingsResponse>GetConsensusRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConsensusRatingsResponse>GetConsensusRatingsAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetConsensusRatingsWithHttpInfoAsync(ids, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -537,7 +537,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsensusRatingsResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsWithHttpInfoAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -571,11 +571,11 @@ namespace FactSet.SDK.FactSetEstimates.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (frequency != null)
             {
@@ -807,7 +807,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <returns>DetailRatingsResponse</returns>
-        public DetailRatingsResponse GetDetailRatings(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?))
+        public DetailRatingsResponse GetDetailRatings(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?))
         {
             var localVarResponse = GetDetailRatingsWithHttpInfo(ids, startDate, endDate, includeAll);
             return localVarResponse.Data;
@@ -822,7 +822,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <returns>ApiResponse of DetailRatingsResponse</returns>
-        public ApiResponse<DetailRatingsResponse> GetDetailRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?))
+        public ApiResponse<DetailRatingsResponse> GetDetailRatingsWithHttpInfo(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -855,11 +855,11 @@ namespace FactSet.SDK.FactSetEstimates.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (includeAll != null)
             {
@@ -912,7 +912,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailRatingsResponse</returns>
-        public async System.Threading.Tasks.Task<DetailRatingsResponse>GetDetailRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailRatingsResponse>GetDetailRatingsAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetDetailRatingsWithHttpInfoAsync(ids, startDate, endDate, includeAll, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -929,7 +929,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailRatingsResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<DetailRatingsResponse>> GetDetailRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<DetailRatingsResponse>> GetDetailRatingsWithHttpInfoAsync(List<string> ids, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), bool? includeAll = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -963,11 +963,11 @@ namespace FactSet.SDK.FactSetEstimates.Api
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "startDate", new DateOnlyParameter(startDate.Value)));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("", "endDate", new DateOnlyParameter(endDate.Value)));
             }
             if (includeAll != null)
             {

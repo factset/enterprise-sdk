@@ -5,7 +5,7 @@
     <artifactId>eventsandtranscripts</artifactId>
     <packaging>jar</packaging>
     <name>eventsandtranscripts</name>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Events and Transcripts client library for Java</description>
     <scm>

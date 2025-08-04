@@ -149,7 +149,7 @@ class HeadlinesRequestTickersObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): The ticker symbol.. [optional]  # noqa: E501
+            value (str): Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.. [optional]  # noqa: E501
             type (str): The type of asset associated with the ticker.. [optional]  # noqa: E501
         """
 
@@ -232,7 +232,7 @@ class HeadlinesRequestTickersObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): The ticker symbol.. [optional]  # noqa: E501
+            value (str): Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.. [optional]  # noqa: E501
             type (str): The type of asset associated with the ticker.. [optional]  # noqa: E501
         """
 

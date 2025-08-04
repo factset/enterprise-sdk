@@ -37,6 +37,10 @@ from fds.sdk.FactSetEstimates.model.estimate_types_response import EstimateTypes
 from fds.sdk.FactSetEstimates.model.fixed_consensus_request import FixedConsensusRequest
 from fds.sdk.FactSetEstimates.model.fixed_detail_request import FixedDetailRequest
 from fds.sdk.FactSetEstimates.model.frequency import Frequency
+from fds.sdk.FactSetEstimates.model.guidance import Guidance
+from fds.sdk.FactSetEstimates.model.guidance_request import GuidanceRequest
+from fds.sdk.FactSetEstimates.model.guidance_request_body import GuidanceRequestBody
+from fds.sdk.FactSetEstimates.model.guidance_response import GuidanceResponse
 from fds.sdk.FactSetEstimates.model.ids import Ids
 from fds.sdk.FactSetEstimates.model.meta import Meta
 from fds.sdk.FactSetEstimates.model.metric import Metric
@@ -49,7 +53,9 @@ from fds.sdk.FactSetEstimates.model.periodicity import Periodicity
 from fds.sdk.FactSetEstimates.model.periodicity_detail import PeriodicityDetail
 from fds.sdk.FactSetEstimates.model.periodicity_surprise import PeriodicitySurprise
 from fds.sdk.FactSetEstimates.model.ratings_count import RatingsCount
+from fds.sdk.FactSetEstimates.model.relative_fiscal_end import RelativeFiscalEnd
 from fds.sdk.FactSetEstimates.model.relative_fiscal_end_actuals import RelativeFiscalEndActuals
+from fds.sdk.FactSetEstimates.model.relative_fiscal_start import RelativeFiscalStart
 from fds.sdk.FactSetEstimates.model.relative_fiscal_start_actuals import RelativeFiscalStartActuals
 from fds.sdk.FactSetEstimates.model.rolling_consensus_request import RollingConsensusRequest
 from fds.sdk.FactSetEstimates.model.rolling_detail_request import RollingDetailRequest

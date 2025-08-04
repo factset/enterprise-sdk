@@ -37,6 +37,11 @@ docs/EstimatesAndRatingsReportsApi.md
 docs/FixedConsensusRequest.md
 docs/FixedDetailRequest.md
 docs/Frequency.md
+docs/Guidance.md
+docs/GuidanceApi.md
+docs/GuidanceRequest.md
+docs/GuidanceRequestBody.md
+docs/GuidanceResponse.md
 docs/Meta.md
 docs/Metric.md
 docs/MetricsRequest.md
@@ -74,6 +79,7 @@ src/FactSet.SDK.FactSetEstimates/Api/BrokerDetailApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/ConsensusApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/DataItemsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/EstimatesAndRatingsReportsApi.cs
+src/FactSet.SDK.FactSetEstimates/Api/GuidanceApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/RatingsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/SegmentActualsApi.cs
 src/FactSet.SDK.FactSetEstimates/Api/SegmentsApi.cs
@@ -124,6 +130,10 @@ src/FactSet.SDK.FactSetEstimates/Model/EstimateTypesResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/FixedConsensusRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/FixedDetailRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/Frequency.cs
+src/FactSet.SDK.FactSetEstimates/Model/Guidance.cs
+src/FactSet.SDK.FactSetEstimates/Model/GuidanceRequest.cs
+src/FactSet.SDK.FactSetEstimates/Model/GuidanceRequestBody.cs
+src/FactSet.SDK.FactSetEstimates/Model/GuidanceResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/Meta.cs
 src/FactSet.SDK.FactSetEstimates/Model/Metric.cs
 src/FactSet.SDK.FactSetEstimates/Model/MetricsRequest.cs

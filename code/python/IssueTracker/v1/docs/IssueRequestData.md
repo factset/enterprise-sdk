@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **category_id** | **str** | category of Factset Product.  | [optional] 
 **severity** | **str** | severity of issue tracker ticket. Mainly it accepting three severities.  Critical, High and Medium. | [optional] 
 **attachments** | [**[Attachment]**](Attachment.md) |  | [optional] 
+**connector_id** | **str** | Id / GUID of the external system where Factset needs to sync back the data. Product should have the settings configured- Please reach out to factset product support team. | [optional] 
+**connector_display_id** | **str** | User friendly Display ID of the external System | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

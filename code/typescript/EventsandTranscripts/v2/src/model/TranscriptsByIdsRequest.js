@@ -78,7 +78,7 @@ class TranscriptsByIdsRequest {
 }
 
 /**
- * If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.
+ * If true, search only for documents where the provided `ids` are the primary identifiers. If false, search for any mention.  **Note:** Transcripts only have a primary ID, so the results remain the same regardless of whether primaryId=true or primaryId=false is specified in the request. 
  * @member {Boolean} primaryId
  * @default false
  */

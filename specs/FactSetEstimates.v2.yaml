@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.7.0
+  version: 2.8.0
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -23,6 +23,8 @@ info:
     - **Segments**
 
     - **Actuals**
+
+    - **Guidance**
 
     - **New Estimates and Ratings Reports Endpoints**
 
@@ -91,6 +93,8 @@ tags:
     description: The Product or Geographic Segment Estimates.
   - name: Segment Actuals
     description: The Segment Actuals data for company product or geographic segments.
+  - name: Guidance
+    description: The Guidance data for the requested metric.
   - name: Data Items
     description: Available Data Item Catalog to be used as input to the metrics parameters
   - name: Estimates and Ratings Reports
@@ -1139,6 +1143,80 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-estimates/v2/guidance:
+    get:
+      tags:
+        - Guidance
+      summary: Retrieves guidance for a requested list of ids and dates.
+      operationId: getGuidance
+      description: >
+        Returns FactSet Estimates guidance data for the current unreported
+        period as of the requested dates. </p>
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/metrics'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/relativeFiscalStart'
+        - $ref: '#/components/parameters/relativeFiscalEnd'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/guidanceResponse'
+              examples:
+                Guidance Response:
+                  $ref: '#/components/examples/guidanceExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Guidance
+      summary: Retrieves guidance for a requested list of ids and dates.
+      description: >
+        Returns FactSet Estimates guidance data for the current unreported
+        period as of the requested dates. <p>
+      operationId: getGuidanceForList
+      requestBody:
+        required: true
+        description: Request object for Estimate Data Items.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/guidanceRequest'
+      responses:
+        '200':
+          description: List of Estimate metric Ids
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/guidanceResponse'
+              examples:
+                Guidance Response:
+                  $ref: '#/components/examples/guidanceExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -1267,6 +1345,8 @@ components:
       required: false
       schema:
         type: integer
+        minimum: -20
+        maximum: 20
       description: >-
         Relative fiscal period, expressed as an integer, used to filter results.
         This is combined with the periodicity parameter to specify a relative
@@ -1279,6 +1359,8 @@ components:
       required: false
       schema:
         type: integer
+        minimum: -20
+        maximum: 20
       description: >-
         Relative fiscal period, expressed as an integer, used to filter results.
         This is combined with the periodicity parameter to specify a relative
@@ -1424,10 +1506,9 @@ components:
       explode: false
       description: >
         Requested metrics. Use the `/metrics` endpoint to return a list of
-        available estimate items. Note, the number of metrics you are allowed to
-        supply is limited to 1 for now. **Top 10** most used metrics are **EPS,
-        SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. 
-        For more details, visit [Online Assistant Page
+        available estimate items. **Top 10** most used metrics are **EPS, SALES,
+        DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more
+        details, visit [Online Assistant Page
         #15034](https://oa.apps.factset.com/pages/15034).
       examples:
         Metric:
@@ -1466,6 +1547,7 @@ components:
       required: false
       schema:
         type: string
+        format: date
       description: >-
         Start date for point in time of estimates expressed in YYYY-MM-DD
         format.
@@ -1476,6 +1558,7 @@ components:
       required: false
       schema:
         type: string
+        format: date
       description: End date for point in time of estimates expressed in YYYY-MM-DD format.
       example: '2019-08-30'
     frequency:
@@ -3262,6 +3345,12 @@ components:
           type: string
           example: https://my.apps.factset.com/oa/pages/16283
           nullable: true
+        factor:
+          description: The factor for the metric (e.g. 1000 = thousands).
+          type: number
+          format: double
+          example: 1000000
+          nullable: true
     ids:
       type: array
       items:
@@ -3302,6 +3391,7 @@ components:
         format. If left blank, the API will default to previous close. Future
         dates (T+1) are not accepted in this #endpoint.
       example: '2019-01-01'
+      format: date
     endDate:
       type: string
       description: >
@@ -3309,6 +3399,7 @@ components:
         If left blank, the API will default to previous close. Future dates
         (T+1) are not accepted in this endpoint.
       example: '2019-12-31'
+      format: date
     statistic:
       type: string
       enum:
@@ -3340,10 +3431,14 @@ components:
       example: AM
     relativeFiscalStart:
       type: integer
+      minimum: -20
+      maximum: 20
       description: Relative fiscal period, expressed as an integer, used to filter results.
       example: 1
     relativeFiscalEnd:
       type: integer
+      minimum: -20
+      maximum: 20
       description: Relative fiscal period, expressed as an integer, used to filter results.
       example: 3
     relativeFiscalStartActuals:
@@ -3582,7 +3677,7 @@ components:
         #15034](https://oa.apps.factset.com/pages/15034).
       example:
         - SALES
-      minItems: 1
+      maxItems: 1
     currency:
       description: >-
         Currency code for adjusting the data. Use input as 'ESTIMATE' for values
@@ -4131,6 +4226,223 @@ components:
           description: Estimate currency of the requested Security
           type: string
           example: USD
+          nullable: true
+    guidanceRequest:
+      title: Guidance Request Body
+      description: Request object for requesting guidance.
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/guidanceRequestBody'
+      required:
+        - data
+    guidanceRequestBody:
+      title: Guidance Request Body
+      description: Request object for requesting guidance.
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/ids'
+        metrics:
+          $ref: '#/components/schemas/metrics'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        periodicity:
+          $ref: '#/components/schemas/periodicity'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStart'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEnd'
+        currency:
+          $ref: '#/components/schemas/currency'
+      required:
+        - ids
+        - metrics
+    guidanceResponse:
+      type: object
+      title: Guidance Response
+      properties:
+        data:
+          description: >
+            Array of metric objects representing the metrics that can be
+            requested from the estimates APIs.
+          type: array
+          items:
+            $ref: '#/components/schemas/guidance'
+    guidance:
+      title: Guidance Object
+      type: object
+      properties:
+        requestId:
+          description: Guidance identifier to be used as `guidance` input in the endpoint.
+          type: string
+          example: A-US
+        fsymId:
+          description: >-
+            FactSet regional security identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: FWHC5K-R
+          nullable: true
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034)
+          type: string
+          example: SALES
+          nullable: true
+        currency:
+          description: >-
+            Currency code for adjusting the data. Use 'ESTIMATE' as input value
+            for the values in Estimate Currency. For a list of currency ISO
+            codes, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
+        periodicity:
+          description: >-
+            The reporting interval for the estimate. This is derived from
+            Estimate Date and is translated to the Period List = ANN, QTR, SEMI,
+            LTMA, or NMTA.
+          type: string
+          example: ANN
+          nullable: true
+        consensusDate:
+          description: >-
+            The perspective date representing the current consensus among
+            analysts as of today, visit [Online Assistant Page
+          type: string
+          format: date
+          example: '2024-12-01'
+          nullable: true
+        fiscalYear:
+          description: >-
+            Company's 'fiscal year' for the estimate record. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2018
+          nullable: true
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal end date' for the estimate record expressed in
+            YYYY-MM-DD format. For more details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-12-31'
+          nullable: true
+        relativePeriod:
+          description: >-
+            'Fiscal period' based on relationship to 'estimate date'. This is
+            not applicable for fixed-consensus endpoint. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2
+          nullable: true
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record.  'Periodicity'
+            defines context for period.
+          type: integer
+          example: 1
+          nullable: true
+        guidanceDate:
+          description: Date guidance was issued expressed in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2024-08-22'
+          nullable: true
+        guidanceMidpoint:
+          description: ' Represents the central value in a range of projected financial guidance.'
+          type: number
+          format: double
+          example: 6475.926
+          nullable: true
+        guidanceLow:
+          description: Represents the lower end of the projected financial guidance range.
+          type: number
+          format: double
+          example: 6450.683
+          nullable: true
+        guidanceHigh:
+          description: Represents the upper end of the projected financial guidance range.
+          type: number
+          format: double
+          example: 6500.126
+          nullable: true
+        guidanceRange:
+          description: >-
+            Represents the span between the lowest and highest values in the
+            projected financial guidance.
+          type: string
+          example: 6450.00-6500.00
+          nullable: true
+        prevMidpoint:
+          description: >-
+            This refers to the average or central point of the financial
+            guidance range given in a prior period.
+          type: number
+          format: double
+          example: 6460.345
+          nullable: true
+        prevLow:
+          description: >-
+            Refers to the lowest value or estimate in a financial guidance range
+            provided in a previous period.
+          type: number
+          format: double
+          example: 6420.267
+        prevHigh:
+          description: >-
+            Refers to the highest value or estimate in a financial guidance
+            range provided in a previous period.
+          type: number
+          format: double
+          example: 6500.12
+          nullable: true
+        meanBefore:
+          description: >-
+            This is the consensus value the day before the guidance was issued.
+            If guidance was previously issued for the period in question, this
+            consensus will only include estimates that have been updated since
+            the previous update.
+          type: number
+          format: double
+          example: 6823.863
+          nullable: true
+        meanSurpriseAmt:
+          description: ' This is the difference between the before value and the guidance.'
+          type: number
+          format: double
+          example: 6.13733
+          nullable: true
+        meanSurpriseAmtPercent:
+          description: >-
+            This represents the percentage difference between the before value
+            and the guidance actual.
+          type: number
+          format: double
+          example: 0.08993923
           nullable: true
   responses:
     '400':
@@ -5076,6 +5388,209 @@ components:
             reportDate: '2023-11-03'
             currency: USD
             estimateCurrency: USD
+    guidanceExample:
+      summary: Guidance Example
+      description: Example response for guidance.
+      value:
+        data:
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-08-22'
+            guidanceMidpoint: 6475
+            guidanceLow: 6450
+            guidanceHigh: 6500
+            prevMidpoint: 6460
+            prevLow: 6420
+            prevHigh: 6500
+            guidanceRange: 6450.00 - 6500.00
+            meanBefore: 6823.863
+            meanSurpriseAmt: 6.13733
+            meanSurpriseAmtPercent: 0.2363425
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-08-22'
+            guidanceMidpoint: 6475
+            guidanceLow: 6450
+            guidanceHigh: 6500
+            prevMidpoint: 6460
+            prevLow: 6420
+            prevHigh: 6500
+            guidanceRange: 6450.00 - 6500.00
+            meanBefore: 6823.863
+            meanSurpriseAmt: 15.267094
+            meanSurpriseAmtPercent: 0.2363425
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-08-22'
+            guidanceMidpoint: 6475
+            guidanceLow: 6450
+            guidanceHigh: 6500
+            prevMidpoint: 6460
+            prevLow: 6420
+            prevHigh: 6500
+            guidanceRange: 6450.00 - 6500.00
+            meanBefore: 6823.863
+            meanSurpriseAmt: 6.13733
+            meanSurpriseAmtPercent: 0.2363425
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-05-30'
+            guidanceMidpoint: 6460
+            guidanceLow: 6420
+            guidanceHigh: 6500
+            prevMidpoint: 6760
+            prevLow: 6710
+            prevHigh: 6810
+            guidanceRange: 6420.00 - 6500.00
+            meanBefore: 6763.017
+            meanSurpriseAmt: -303.0169
+            meanSurpriseAmtPercent: -4.4805
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-05-30'
+            guidanceMidpoint: 6460
+            guidanceLow: 6420
+            guidanceHigh: 6500
+            prevMidpoint: 6760
+            prevLow: 6710
+            prevHigh: 6810
+            guidanceRange: 6420.00 - 6500.00
+            meanBefore: 6763.017
+            meanSurpriseAmt: -303.0169
+            meanSurpriseAmtPercent: -4.4805
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-05-30'
+            guidanceMidpoint: 6460
+            guidanceLow: 6420
+            guidanceHigh: 6500
+            prevMidpoint: 6760
+            prevLow: 6710
+            prevHigh: 6810
+            guidanceRange: 6420.00 - 6500.00
+            meanBefore: 6763.017
+            meanSurpriseAmt: -303.0169
+            meanSurpriseAmtPercent: -4.4805
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-08-28'
+            guidanceMidpoint: 6760
+            guidanceLow: 6710
+            guidanceHigh: 6810
+            prevMidpoint: 6760
+            prevLow: 6710
+            prevHigh: 6810
+            guidanceRange: 6710.00 - 6810.00
+            meanBefore: 6732.629
+            meanSurpriseAmt: 27.37119
+            meanSurpriseAmtPercent: 0.4065453
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-08-28'
+            guidanceMidpoint: 6760
+            guidanceLow: 6710
+            guidanceHigh: 6810
+            prevMidpoint: 6760
+            prevLow: 6710
+            prevHigh: 6810
+            guidanceRange: 6710.00 - 6810.00
+            meanBefore: 6732.629
+            meanSurpriseAmt: 27.37119
+            meanSurpriseAmtPercent: 0.4065453
+          - requestId: A-US
+            fsymId: FWHC5K-R
+            metric: SALES
+            currency: USD
+            estimateCurrency: USD
+            periodicity: ANN
+            consensusDate: '2024-12-01'
+            fiscalYear: 2024
+            fiscalPeriod: 1
+            fiscalEndDate: '2024-10-31'
+            relativePeriod: 1
+            guidanceDate: '2024-08-28'
+            guidanceMidpoint: 6760
+            guidanceLow: 6710
+            guidanceHigh: 6810
+            prevMidpoint: 6760
+            prevLow: 6710
+            prevHigh: 6810
+            guidanceRange: 6710.00 - 6810.00
+            meanBefore: 6732.629
+            meanSurpriseAmt: 27.37119
+            meanSurpriseAmtPercent: 0.4065453
     metricsExample:
       summary: >-
         Mertics response with 'FINANCIAL_STATEMENT' category and '--'
@@ -5090,21 +5605,25 @@ components:
             category: FINANCIAL_STATEMENT
             subcategory: BALANCE_SHEET
             OAurl: https://my.apps.factset.com/oa/pages/16283
+            factor: 1000000
           - metric: CASH_ST
             name: Cash and Cash Equivalents (CASH_ST)
             category: FINANCIAL_STATEMENT
             subcategory: BALANCE_SHEET
             OAurl: https://my.apps.factset.com/oa/pages/16283
+            factor: 1000000
           - metric: RECEIV_NET
             name: Accounts Receivable (RECEIV_NET)
             category: FINANCIAL_STATEMENT
             subcategory: BALANCE_SHEET
             OAurl: https://my.apps.factset.com/oa/pages/16283
+            factor: 1000000
           - metric: INVEN
             name: Inventories (INVEN)
             category: FINANCIAL_STATEMENT
             subcategory: BALANCE_SHEET
             OAurl: https://my.apps.factset.com/oa/pages/16283
+            factor: 1000000
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **String** | The ticker symbol. |  [optional]
+**value** | **String** | Supports Ticker-Exchange, ISIN, CUSIP and SEDOL. |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | The type of asset associated with the ticker. |  [optional]
 
 

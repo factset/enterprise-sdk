@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getcount"></a>
 # **GetCount**
-> CountResponse GetCount (List<string> ids, List<string> sources, string startDate = null, string endDate = null)
+> CountResponse GetCount (List<string> ids, List<string> sources, string startDate = null, string endDate = null, string timeZone = null, List<string> categories = null, bool? primaryId = null, string searchText = null, List<string> formTypes = null)
 
 Returns the count of filings for specified source.
 
@@ -61,15 +61,20 @@ namespace Example
 
             var apiInstance = new FilingsAPIApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
             var sources = new List<string>(); // List<string> | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
             var startDate = "20240601";  // string | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional) 
             var endDate = "20241101";  // string | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) 
+            var timeZone = "\"America/New_York\"";  // string | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. (optional)  (default to "America/New_York")
+            var categories = new List<string>(); // List<string> | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories. (optional) 
+            var primaryId = true;  // bool? | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional)  (default to false)
+            var searchText = "Officer";  // string | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. (optional) 
+            var formTypes = new List<string>(); // List<string> | The search to include any form types of given sources (optional) 
 
             try
             {
                 // Returns the count of filings for specified source.
-                CountResponse result = apiInstance.GetCount(ids, sources, startDate, endDate);
+                CountResponse result = apiInstance.GetCount(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -87,10 +92,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**List&lt;string&gt;**](string.md)| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   | 
  **startDate** | **string**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **string**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
+ **timeZone** | **string**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] [default to &quot;America/New_York&quot;]
+ **categories** | [**List&lt;string&gt;**](string.md)| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
+ **primaryId** | **bool?**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
+ **searchText** | **string**| Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. | [optional] 
+ **formTypes** | [**List&lt;string&gt;**](string.md)| The search to include any form types of given sources | [optional] 
 
 ### Return type
 [**CountResponse**](CountResponse.md)
@@ -169,7 +179,7 @@ namespace Example
 
             var apiInstance = new FilingsAPIApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL.
+            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
             var sources = new List<string>(); // List<string> | 
             var startDate = "20240601";  // string | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional) 
             var endDate = "20241101";  // string | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) 
@@ -179,7 +189,7 @@ namespace Example
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending  order based on filingsDateTime.   * `filingsDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.   *  `-filingsDateTime` - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn't used in the query. (optional) 
             var categories = new List<string>(); // List<string> | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories. (optional) 
             var primaryId = true;  // bool? | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional)  (default to false)
-            var searchText = "Officer";  // string | Restricts the search to include only document stories which include the text searched. (optional) 
+            var searchText = "Officer";  // string | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. (optional) 
             var formTypes = new List<string>(); // List<string> | The search to include any form types of given sources (optional) 
             var edgarAccession = "edgarAccession_example";  // string | A unique identifier given to each EDGAR filings document. e.g. accession=0001013237-21-000069&sources=EDG.   > **Note:**  > When used in conjunction with the 'sources' parameter set to 'EDGAR, the API considers this accession for data retrieval.  > For non-EDGAR sources, this parameter is ignored. (optional) 
 
@@ -204,7 +214,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**List&lt;string&gt;**](string.md)|  | 
  **startDate** | **string**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **string**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
@@ -214,7 +224,7 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending  order based on filingsDateTime.   * &#x60;filingsDateTime&#x60; - sorting results in chronological (ascending) order. If a start date is not specified, the    API has a 10-year searching limitation.   *  &#x60;-filingsDateTime&#x60; - sorting results in reverse chronological (descending) order. This is the default value if     the sort parameter isn&#39;t used in the query. | [optional] 
  **categories** | [**List&lt;string&gt;**](string.md)| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **primaryId** | **bool?**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
- **searchText** | **string**| Restricts the search to include only document stories which include the text searched. | [optional] 
+ **searchText** | **string**| Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well. | [optional] 
  **formTypes** | [**List&lt;string&gt;**](string.md)| The search to include any form types of given sources | [optional] 
  **edgarAccession** | **string**| A unique identifier given to each EDGAR filings document. e.g. accession&#x3D;0001013237-21-000069&amp;sources&#x3D;EDG.   &gt; **Note:**  &gt; When used in conjunction with the &#39;sources&#39; parameter set to &#39;EDGAR, the API considers this accession for data retrieval.  &gt; For non-EDGAR sources, this parameter is ignored. | [optional] 
 

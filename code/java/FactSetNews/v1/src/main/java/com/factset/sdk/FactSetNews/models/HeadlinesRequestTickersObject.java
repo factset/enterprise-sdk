@@ -103,11 +103,11 @@ public class HeadlinesRequestTickersObject implements Serializable {
   }
 
    /**
-   * The ticker symbol.
+   * Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
    * @return value
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "SP50", value = "The ticker symbol.")
+  @ApiModelProperty(example = "SP50", value = "Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

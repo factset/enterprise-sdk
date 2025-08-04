@@ -1,0 +1,1054 @@
+openapi: 3.0.0
+info:
+  title: Vector Data API
+  version: 0.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  description: >-
+    The Vector Data API provides streamlined access to vector data through its
+    defined endpoints. It supports functionalities such as:
+
+    Retrieving detailed vector data based on user-defined parameters.
+
+    Efficiently processing associated text data for enhanced performance.
+
+    This API is designed to enable developers to integrate vector data into
+    their applications, ensuring flexibility and performance while leveraging
+    the specified endpoint functionalities.
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/vector-data-api
+servers:
+  - url: https://api.factset.com/content/vector/v0
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /data:
+    post:
+      summary: Return vector information based on the input parameters below
+      tags:
+        - Vector
+      responses:
+        '200':
+          description: Returns vector data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VectorDataResponse'
+              examples:
+                sampleResponse:
+                  $ref: '#/components/examples/SampleVectorDataResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorDetails'
+      operationId: postVector
+      description: Returns the vector information.
+      requestBody:
+        description: Input parameters for vector data.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VectorDataRequest'
+            examples:
+              Request for data endpoint:
+                $ref: '#/components/examples/dataRequest'
+              Request for data endpoint for semantic query:
+                $ref: '#/components/examples/searchRequestForQuery'
+              Request for data endpoint for optional parameters:
+                $ref: '#/components/examples/searchRequestForOptional'
+  /chunk-text:
+    get:
+      tags:
+        - Vector
+      operationId: getCount
+      summary: Returns chunked text for the given vectorId.
+      description: Returns content and link of provided vector id.
+      parameters:
+        - $ref: '#/components/parameters/vectorId'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChunkTextResponse'
+              examples:
+                default200Response:
+                  $ref: '#/components/examples/SampleChunkTextResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/sources:
+    get:
+      tags:
+        - Meta
+      operationId: getSources
+      summary: Returns the sources.
+      description: Retrieves and delivers a comprehensive list of all available `sources`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponse'
+              examples:
+                sources:
+                  summary: Sample 200 Response for Sources Parameter
+                  value:
+                    data:
+                      - source: EDG
+                        description: EDGAR
+                      - source: SA
+                        description: StreetAccount News
+                      - source: FCST
+                        description: FactSet CallStreet Transcripts
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/document-types:
+    get:
+      tags:
+        - Meta
+      operationId: getDocumentTypes
+      summary: Returns the document types.
+      description: >-
+        Retrieves and delivers a comprehensive list of all available
+        `documentTypes`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentTypesResponse'
+              examples:
+                sources:
+                  summary: Sample 200 Response for document types Parameter
+                  value:
+                    data:
+                      - documentType: News
+                        description: News
+                      - documentType: Transcripts
+                        description: Transcripts
+                      - documentType: 10-K
+                        description: 10-K documents
+                      - documentType: 10-Q
+                        description: 10-Q documents
+                      - documentType: 8-K
+                        description: 8-k documents
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/schemas:
+    get:
+      tags:
+        - Meta
+      operationId: getschemas
+      summary: Returns the schemas.
+      description: Retrieves and delivers a comprehensive list of all available `schemas`.
+      parameters:
+        - $ref: '#/components/parameters/sources'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemasResponse'
+              examples:
+                sources:
+                  summary: Sample 200 Response for schemas Parameter
+                  value:
+                    data:
+                      - source: EDG
+                        property: embedding
+                        type: dense_vector
+                      - source: SA
+                        property: content
+                        type: text
+                      - source: FCST
+                        property: embedding
+                        type: text
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/themes:
+    get:
+      tags:
+        - Meta
+      operationId: getThemes
+      summary: Returns the themes.
+      description: Retrieves and delivers a comprehensive list of all available `themes`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThemesResponse'
+              examples:
+                sources:
+                  summary: Sample 200 Response for themes Parameter
+                  value:
+                    data:
+                      - esgTheme: Accessible Food
+                        description: >-
+                          Company receives attention related to providing access
+                          to affordable, nutritious food options, including food
+                          deserts.
+                      - searchConcept: Tariff
+                        description: >-
+                          A tax imposed by a government on imports or exports of
+                          goods.
+                      - sentiment: Negative
+                        description: Sentiment is negative.
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorDetails'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    ErrorResponse:
+      type: object
+      description: Error response object
+      properties:
+        errors:
+          type: array
+          description: Errors Array Object.
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      description: Error Example Object.
+      properties:
+        code:
+          type: string
+          description: Specifies the error code.
+        title:
+          type: string
+          description: Specifies the error message.
+        id:
+          type: string
+          description: Specifies the id.
+        detail:
+          type: string
+          description: Detailed error message.
+    VectorDataRequest:
+      type: object
+      description: Parameters for querying vector data.
+      properties:
+        data:
+          type: object
+          description: Elements of vetctor data request.
+          properties:
+            query:
+              type: string
+              description: Search to include the query text.
+              example: Updates
+            startDate:
+              type: string
+              format: date
+              description: >-
+                Start Date. Format is YYYY-MM-DD or relative +/- days
+                (0,-1,etc).
+              example: '2023-12-22'
+            endDate:
+              type: string
+              format: date
+              description: End Date. Format is YYYY-MM-DD or relative +/- days (0,-1,etc).
+              example: '2023-12-23'
+            esgTheme:
+              type: array
+              minItems: 1
+              uniqueItems: true
+              items:
+                type: string
+              description: The search to include any esg themes of given sources.
+              example:
+                - Workplace Diversity
+                - Accessible Food
+            searchConcept:
+              type: array
+              minItems: 1
+              uniqueItems: true
+              items:
+                type: string
+              description: The search to include any concept of given sources.
+              example:
+                - Consumer Spending
+                - Regulatory Change
+            sentiment:
+              type: array
+              minItems: 1
+              uniqueItems: true
+              items:
+                type: string
+              description: The search to include any sentiment of given sources.
+              example:
+                - Neutral
+                - Negative
+            documentTypes:
+              type: array
+              minItems: 1
+              maxItems: 5
+              uniqueItems: true
+              items:
+                type: string
+              description: The search to include any of the document type.
+              example:
+                - 10-K
+                - 10-Q
+                - 8-K
+                - News
+                - Transcripts
+            sources:
+              type: array
+              minItems: 1
+              maxItems: 3
+              uniqueItems: true
+              items:
+                type: string
+              description: >-
+                Code for document source to include. Currently EDGAR,
+                StreetAccount and FactSet Callstreet Transcripts are available.
+              example:
+                - EDG
+                - FCST
+                - SA
+          required:
+            - sources
+            - startDate
+            - endDate
+            - query
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+        - data
+    Meta:
+      type: object
+      description: >-
+        Object defining the sorting and pagination attributes for an endpoint
+        request.
+      properties:
+        numberOfResults:
+          type: integer
+          format: int32
+          description: Number of results to return.
+          example: 10
+          default: 10
+          maximum: 15
+          minimum: 1
+    SourceResponse:
+      description: Response with list of available sources
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available sources
+          items:
+            $ref: '#/components/schemas/Source'
+    Source:
+      type: object
+      description: elements of sources
+      required:
+        - source
+        - description
+      properties:
+        source:
+          type: string
+          description: source value
+          example: EDG
+        description:
+          type: string
+          description: source description
+          example: EDGAR
+    DocumentTypesResponse:
+      description: Response with list of available document types.
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available document types.
+          items:
+            $ref: '#/components/schemas/DocumentTypes'
+    DocumentTypes:
+      type: object
+      description: elements of document types.
+      required:
+        - documentType
+        - description
+      properties:
+        documentType:
+          type: string
+          description: type of the document
+          example: 10-K
+        description:
+          type: string
+          description: document type description
+          example: 10-K
+    SchemasResponse:
+      description: Response with list of available schemas.
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available schemas.
+          items:
+            $ref: '#/components/schemas/Schemas'
+    Schemas:
+      type: object
+      description: Elements of schemas.
+      required:
+        - source
+        - property
+        - type
+      properties:
+        property:
+          type: string
+          description: The name of the schema.
+          example: content
+        type:
+          type: string
+          description: The type of the schema.
+          example: text
+        source:
+          type: string
+          description: Source of the schema.
+          example: EDG
+    ThemesResponse:
+      description: Response with list of available themes.
+      type: object
+      properties:
+        data:
+          type: array
+          description: List of available schemas.
+          items:
+            $ref: '#/components/schemas/Themes'
+    Themes:
+      type: object
+      description: elements of themes.
+      properties:
+        esgTheme:
+          type: string
+          description: theme of the source.
+          example: Accessible Food
+        searchConcept:
+          type: string
+          description: theme of the source.
+          example: Tariff
+        sentiment:
+          type: string
+          description: theme of the source.
+          example: Negative
+        description:
+          type: string
+          description: theme description
+          example: A tax imposed by a government on imports or exports of goods.
+      required:
+        - description
+    VectorDataResponse:
+      type: object
+      description: Response format for vector data endpoint.
+      properties:
+        data:
+          type: array
+          description: Provides vector and vectorid.
+          items:
+            $ref: '#/components/schemas/VectorDataResult'
+        meta:
+          type: object
+          description: >-
+            Object defining the sorting and pagination attributes for an
+            endpoint request.
+          properties:
+            numberOfResults:
+              type: integer
+              format: int32
+              description: Number of results to return.
+    VectorDataResult:
+      type: object
+      description: Returns vector information.
+      properties:
+        vector:
+          type: array
+          items:
+            type: string
+          description: Chuncked emedding vector.
+        vectorId:
+          type: string
+          description: Unique identifier for a document
+        similarityScore:
+          type: number
+          description: Score indicating the similarity.
+        storyDate:
+          type: string
+          format: date
+          description: Date associated with the story.
+          example: '2020-10-01'
+        themes:
+          type: string
+          description: Theme of the document.
+          example: doc
+        documentType:
+          type: string
+          description: Type of the document.
+        source:
+          type: string
+          description: Name of the source
+          example: EDG
+        documentID:
+          type: string
+          description: Unique identifier for a document.
+          example: 20230307-5b36f2cf
+        property:
+          type: string
+          description: The name of the schema.
+          example: content
+        type:
+          type: string
+          description: The type of the schema.
+          example: text
+        ids:
+          type: array
+          items:
+            type: string
+          description: List of related IDs.
+    ChunkTextResponse:
+      type: object
+      description: Response format for chunk text endpoint.
+      properties:
+        data:
+          type: array
+          description: List of chunked text data results.
+          items:
+            $ref: '#/components/schemas/ChunkTextResult'
+        meta:
+          type: object
+          description: Metadata about the response
+          properties:
+            pagination:
+              type: object
+              description: Information about pagination of results
+              properties:
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results.
+                total:
+                  type: integer
+                  description: >-
+                    Total number of files the API returns for a particular
+                    query.
+    ChunkTextResult:
+      type: object
+      description: Contains content and link for a single vector ID.
+      properties:
+        content:
+          type: string
+          description: Unique identifier for a document.
+        storyLink:
+          type: string
+          description: A secure HTTPS link for downloading the associated document.
+        storyDate:
+          type: string
+          format: date
+          description: Date associated with the story.
+          example: '2020-10-01'
+        themes:
+          type: string
+          description: Theme of the document.
+          example: doc
+        documentType:
+          type: string
+          description: Type of the document.
+        source:
+          type: string
+          description: Name of the source
+          example: EDG
+        documentID:
+          type: string
+          description: Unique identifier for a document.
+          example: 20230307-5b36f2cf
+        ids:
+          type: array
+          items:
+            type: string
+          description: List of related IDs.
+  examples:
+    ErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: BadRequest
+            title: Not a valid parameter
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: parameterError:['_paginationLimit'] is not a valid parameter(s).
+    AuthErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: NotAuthenticated
+            title: Unauthenticated USERNAME-SERIAL.
+            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+            detail: User is not authenticated properly.
+    AuthorizationErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Forbidden
+            title: USERNAME-SERIAL lacks permission.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: User is not authorized for this endpoint.
+    ServerErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: InternalServerError
+            title: An unexpected error occurred.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: The service you have requested has encountered an error.
+    SampleVectorDataResponse:
+      summary: Example of Vector Data Response
+      value:
+        data:
+          - vector:
+              - '0.007737964391708374'
+              - '-0.01896573044359684'
+            vectorId: 0001493152-24-046748-1_0001493152-24-046748-1_text_236_0
+            similarityScore: 0.9195987
+            storyDate: '2024-11-19'
+            themes: NA
+            documentType: 10-Q
+            source: EDG
+            documentID: 0001493152-24-046748-1
+            property: embedding
+            type: dense_vector
+            ids:
+              - GEDC-US
+              - GEDC
+              - RSRTD
+        meta:
+          numberOfResults: 10
+    SampleChunkTextResponse:
+      summary: Sample Chunk Text Response.
+      value:
+        data:
+          - content: Item 2. Managements Discussion...
+            storyLink: >-
+              https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
+            storyDate: '2024-11-19'
+            themes: NA
+            documentType: 10-Q
+            source: EDG
+            documentID: 0001493152-24-046748-1
+            ids:
+              - GEDC-US
+              - GEDC
+              - RSRTD
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 1
+    dataRequest:
+      summary: Semantic Search Query with All Parameters
+      value:
+        data:
+          query: >-
+            What are companies saying with a neutral sentiment on earnings calls
+            related to data centers and energy consumption?
+          startDate: '2024-01-01'
+          endDate: '2024-12-31'
+          esgTheme:
+            - Energy Consumption
+          searchConcept:
+            - Data Center
+          sentiment:
+            - Neutral
+          documentTypes:
+            - 10-K
+            - 10-Q
+            - 8-K
+            - News
+            - Transcripts
+          sources:
+            - EDG
+            - FCST
+            - SA
+        meta:
+          numberOfResults: 10
+    searchRequestForQuery:
+      summary: Semantic Search Query
+      value:
+        data:
+          query: summarize OXY last 3 earnings call
+          startDate: '2024-01-01'
+          endDate: '2024-12-31'
+          sources:
+            - EDG
+            - FCST
+        meta:
+          numberOfResults: 2
+    searchRequestForOptional:
+      summary: Semantic Search Query with Several Parameters
+      value:
+        data:
+          query: >-
+            How is the automotive industry adapting to the shift towards
+            electric vehicles?
+          startDate: '2024-12-22'
+          endDate: '2025-06-23'
+          searchConcept:
+            - Consumer Spending
+            - Regulatory Change
+          sentiment:
+            - Neutral
+            - Positive
+          sources:
+            - EDG
+            - FCST
+            - SA
+        meta:
+          numberOfResults: 10
+  parameters:
+    vectorId:
+      name: vectorId
+      in: query
+      required: true
+      schema:
+        type: array
+        minItems: 1
+        maxItems: 50
+        items:
+          type: string
+      description: Unique identifier for a document
+      examples:
+        oneId:
+          summary: One ID
+          value:
+            - 0001493152-24-046748-1_0001493152-24-046748-1_text_236_0
+        multipleIds:
+          summary: Multiple IDs
+          value:
+            - 0001493152-24-046748-1_0001493152-24-046748-1_text_236_0
+            - 3063689-t_3063689-t_qna_3_0
+    paginationLimit:
+      schema:
+        type: integer
+        format: int32
+        default: 25
+      in: query
+      name: _paginationLimit
+      example: 20
+      description: Number of results to return per page.
+    paginationOffset:
+      schema:
+        type: integer
+        format: int32
+        default: 0
+      in: query
+      name: _paginationOffset
+      description: 'Page number of the results to return. '
+    sources:
+      schema:
+        type: array
+        minItems: 1
+        maxItems: 3
+        items:
+          type: string
+      in: query
+      name: sources
+      required: false
+      examples:
+        oneSource:
+          summary: One Source
+          value:
+            - EDG
+        multipleSources:
+          summary: Multiple Sources
+          value:
+            - EDG
+            - SA
+            - FCST
+      description: >-
+        Code for document source to include.  This is a comma-separated list.
+        Use the `/meta/sources` endpoint to get the list of available sources.
+      explode: false
+tags:
+  - name: Vector
+    description: Endpoints providing access to vector data
+  - name: Meta
+    description: >-
+      These endpoints provide access to a comprehensive list of all available
+      values used in the Vector API endpoint parameters.

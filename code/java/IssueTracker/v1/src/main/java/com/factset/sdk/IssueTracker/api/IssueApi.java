@@ -171,8 +171,8 @@ public class IssueApi {
 
   }
   /**
-   * Update severity and subject of issue or productId and categoryId of issue
-   * User can update either &#x60;severity&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;severity&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
+   * Update issue details
+   *  Update Issue Properties Following Mentioned Constraints     Combo Updates (Must be sent together):  1. Title + Severity 2. ProductId + CategoryId  Single Field Updates: 1. Title, Severity, ProductId can be updated alone 2. Status (alone)  2.1 If setting status to \&quot;Closed\&quot;, closeContent is mandatory 3. ReadOnly (alone)  3.1 Only allowed if issue is already \&quot;Closed\&quot;  Invalid Combinations (Will be rejected):  1. Mixing Title with Status 2. Updating Status + ReadOnly together 3. Severity + ProductId 4. Status &#x3D; \&quot;Closed\&quot; without closeContent 5. Setting ReadOnly when RPD is not closed.
    * @param id ID of Issue Tracker issue (required)
    * @param updateIssueRequest  (optional)
    * @return IdResponse
@@ -192,8 +192,8 @@ public class IssueApi {
   }
 
   /**
-   * Update severity and subject of issue or productId and categoryId of issue
-   * User can update either &#x60;severity&#x60; with &#x60;subject&#x60; or &#x60;productId&#x60; with &#x60;categoryId&#x60;.    **Note:** Users are not allowed to update &#x60;severity&#x60; with &#x60;productId&#x60; or &#x60;subject&#x60; with &#x60;productId&#x60;
+   * Update issue details
+   *  Update Issue Properties Following Mentioned Constraints     Combo Updates (Must be sent together):  1. Title + Severity 2. ProductId + CategoryId  Single Field Updates: 1. Title, Severity, ProductId can be updated alone 2. Status (alone)  2.1 If setting status to \&quot;Closed\&quot;, closeContent is mandatory 3. ReadOnly (alone)  3.1 Only allowed if issue is already \&quot;Closed\&quot;  Invalid Combinations (Will be rejected):  1. Mixing Title with Status 2. Updating Status + ReadOnly together 3. Severity + ProductId 4. Status &#x3D; \&quot;Closed\&quot; without closeContent 5. Setting ReadOnly when RPD is not closed.
    * @param id ID of Issue Tracker issue (required)
    * @param updateIssueRequest  (optional)
    * @return ApiResponse&lt;IdResponse&gt;
@@ -256,7 +256,7 @@ public class IssueApi {
   }
   /**
    * Creates a Issue Tracker issue
-   * Creates a new issue in Issue Tracker
+   * Creates a new issue in Issue Tracker     **Note:** connectorId, connectorDisplayId can be sent when integrations are configured on product, to sync back the updates from FactSet side. connectorDisplayId can&#39;t be set without connectorDisplayId. Reachout to factset team to check if the integrations re enabled on the product.
    * @param issueRequest  (optional)
    * @return IdResponse
    * @throws ApiException if fails to make API call
@@ -276,7 +276,7 @@ public class IssueApi {
 
   /**
    * Creates a Issue Tracker issue
-   * Creates a new issue in Issue Tracker
+   * Creates a new issue in Issue Tracker     **Note:** connectorId, connectorDisplayId can be sent when integrations are configured on product, to sync back the updates from FactSet side. connectorDisplayId can&#39;t be set without connectorDisplayId. Reachout to factset team to check if the integrations re enabled on the product.
    * @param issueRequest  (optional)
    * @return ApiResponse&lt;IdResponse&gt;
    * @throws ApiException if fails to make API call
@@ -332,7 +332,7 @@ public class IssueApi {
   }
   /**
    * post comment to Issue Tracker issue
-   * Reply to the existing matched issue 
+   * Reply to the existing matched issue
    * @param id ID of Issue Tracker issue (required)
    * @param commentRequest  (optional)
    * @return IdResponse
@@ -353,7 +353,7 @@ public class IssueApi {
 
   /**
    * post comment to Issue Tracker issue
-   * Reply to the existing matched issue 
+   * Reply to the existing matched issue
    * @param id ID of Issue Tracker issue (required)
    * @param commentRequest  (optional)
    * @return ApiResponse&lt;IdResponse&gt;

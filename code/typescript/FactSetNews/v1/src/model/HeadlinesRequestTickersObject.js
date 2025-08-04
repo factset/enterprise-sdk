@@ -60,7 +60,7 @@ class HeadlinesRequestTickersObject {
 }
 
 /**
- * The ticker symbol.
+ * Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
  * @member {String} value
  */
 HeadlinesRequestTickersObject.prototype['value'] = undefined;

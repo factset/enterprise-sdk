@@ -94,7 +94,7 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
         meta=HeadlinesRequestMeta(
             pagination=HeadlinesRequestByViewMetaPagination(
                 limit=50,
-                offset=100,
+                offset=0,
             ),
             attributes=["headlines"],
         ),
@@ -209,7 +209,7 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
         meta=HeadlinesRequestByViewMeta(
             pagination=HeadlinesRequestByViewMetaPagination(
                 limit=50,
-                offset=100,
+                offset=0,
             ),
         ),
     ) # HeadlinesRequestByView | View body which needs to be sent with request. (optional)
