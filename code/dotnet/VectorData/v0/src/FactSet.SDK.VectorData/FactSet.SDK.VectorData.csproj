@@ -13,7 +13,7 @@
     <Description>Vector Data client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.VectorData</RootNamespace>
-    <Version>0.20.0</Version>
+    <Version>0.0.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.VectorData.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
