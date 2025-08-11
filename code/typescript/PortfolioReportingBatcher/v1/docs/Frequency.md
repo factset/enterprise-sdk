@@ -9,4 +9,6 @@
 
 * `weekly` (value: `"weekly"`)
 
+* `single` (value: `"single"`)
+
 

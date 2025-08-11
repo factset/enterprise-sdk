@@ -5,7 +5,7 @@
     <artifactId>portfolioreportingbatcher</artifactId>
     <packaging>jar</packaging>
     <name>portfolioreportingbatcher</name>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Portfolio Reporting Batcher client library for Java</description>
     <scm>

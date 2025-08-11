@@ -1,5 +1,5 @@
 # FactSet.SDK.PortfolioReportingBatcher.Model.JobOverridesCombinationsRootDateRange
-Used if the job needs to be executed for many dates periodically spaced, used for jobs type ADF. Please see OA page 20650 for more details.
+Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.
 
 ## Properties
 

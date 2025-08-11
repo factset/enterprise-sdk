@@ -62,7 +62,7 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
     api_instance = runs_api.RunsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | 
+    id = "id_example" # str | run id
 
     try:
         # cancel runs
@@ -79,7 +79,7 @@ with fds.sdk.PortfolioReportingBatcher.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  |
+ **id** | **str**| run id |
 
 ### Return type
 

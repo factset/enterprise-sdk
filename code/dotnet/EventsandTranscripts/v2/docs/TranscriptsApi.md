@@ -64,10 +64,10 @@ namespace Example
             var apiInstance = new TranscriptsApi(config);
 
             var ids = new List<string>(); // List<string> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-            var startDate = DateTime.Parse("2020-10-01");  // DateTime? | Start Date (YYYY-MM-DD).  (optional) 
-            var endDate = DateTime.Parse("2020-12-26");  // DateTime? | End Date (YYYY-MM-DD).  (optional) 
-            var startDateRelative = -3;  // int? | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.*  (optional) 
-            var endDateRelative = -1;  // int? | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.*  (optional) 
+            var startDate = DateTime.Parse("2025-05-01");  // DateTime? | Start Date (YYYY-MM-DD).  (optional) 
+            var endDate = DateTime.Parse("2025-07-24");  // DateTime? | End Date (YYYY-MM-DD).  (optional) 
+            var startDateRelative = 56;  // int? | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.*  (optional) 
+            var endDateRelative = 56;  // int? | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.*  (optional) 
             var categories = new List<string>(); // List<string> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional) 
             var timeZone = "\"America/New_York\"";  // string | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones. (optional)  (default to "America/New_York")
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) 
@@ -184,11 +184,11 @@ namespace Example
             var apiInstance = new TranscriptsApi(config);
 
             var ids = new List<string>(); // List<string> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-            var startDate = DateTime.Parse("2020-10-01");  // DateTime | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
-            var endDate = DateTime.Parse("2020-12-26");  // DateTime | End Date. Format is YYYY-MM-DD.
+            var startDate = DateTime.Parse("2025-07-23");  // DateTime | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+            var endDate = DateTime.Parse("2025-07-24");  // DateTime | End Date. Format is YYYY-MM-DD.
             var eventIds = new List<string>(); // List<string> | Requests Event IDs. This is a list with a maximum limit of 1000. (optional) 
             var categories = new List<string>(); // List<string> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional) 
-            var searchText = "Updates";  // string | Restricts the search to include only document stories which include the text searched.     (optional) 
+            var searchText = "presentation";  // string | Restricts the search to include only document stories which include the text searched.     (optional) 
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) 
             var paginationLimit = 25;  // int? | Number of results to return per page. (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of the next set of results. (optional)  (default to 0)

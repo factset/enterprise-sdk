@@ -65,10 +65,10 @@ public class Example {
 
         TranscriptsApi apiInstance = new TranscriptsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-        LocalDate startDate = LocalDate.parse("2020-10-01"); // LocalDate | Start Date (YYYY-MM-DD). 
-        LocalDate endDate = LocalDate.parse("2020-12-26"); // LocalDate | End Date (YYYY-MM-DD). 
-        Integer startDateRelative = -3; // Integer | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* 
-        Integer endDateRelative = -1; // Integer | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* 
+        LocalDate startDate = LocalDate.parse("2025-05-01"); // LocalDate | Start Date (YYYY-MM-DD). 
+        LocalDate endDate = LocalDate.parse("2025-07-24"); // LocalDate | End Date (YYYY-MM-DD). 
+        Integer startDateRelative = 56; // Integer | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* 
+        Integer endDateRelative = 56; // Integer | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* 
         java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
         String timeZone = "America/New_York"; // String | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
@@ -182,11 +182,11 @@ public class Example {
 
         TranscriptsApi apiInstance = new TranscriptsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-        LocalDate startDate = LocalDate.parse("2020-10-01"); // LocalDate | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
-        LocalDate endDate = LocalDate.parse("2020-12-26"); // LocalDate | End Date. Format is YYYY-MM-DD.
+        LocalDate startDate = LocalDate.parse("2025-07-23"); // LocalDate | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+        LocalDate endDate = LocalDate.parse("2025-07-24"); // LocalDate | End Date. Format is YYYY-MM-DD.
         java.util.List<String> eventIds = Arrays.asList(); // java.util.List<String> | Requests Event IDs. This is a list with a maximum limit of 1000.
         java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
-        String searchText = "Updates"; // String | Restricts the search to include only document stories which include the text searched.    
+        String searchText = "presentation"; // String | Restricts the search to include only document stories which include the text searched.    
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
         Integer paginationLimit = 25; // Integer | Number of results to return per page.
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of the next set of results.

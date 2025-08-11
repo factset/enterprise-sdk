@@ -70,7 +70,7 @@ public class RunsApi {
   /**
    * cancel runs
    * Use this endpoint with the DELETE method to cancel a specific run
-   * @param id  (required)
+   * @param id run id (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -92,7 +92,7 @@ public class RunsApi {
   /**
    * cancel runs
    * Use this endpoint with the DELETE method to cancel a specific run
-   * @param id  (required)
+   * @param id run id (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

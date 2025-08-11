@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Portfolio Reporting Batcher
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api
@@ -499,6 +499,44 @@ paths:
                       combinations:
                       - allTasks: true
                       runAsSerialNumber: "894550"
+              PA - date range:
+                description: Please note single is supported as frequency for PA jobs
+                value:
+                  data:
+                    jobType: PA
+                    jobName: pa_multi_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/TEST/PRB/DEMO_PA3_PRB500.ACCT
+                        - CLIENT:/TEST/PRB/DEMO_PA3_PRB501.ACCT
+                        dateRange:
+                          start: 2025-04-10
+                          end: 2025-05-10
+                          frequency: single
+                      - accounts:
+                        - CLIENT:/TEST/PRB/DEMO_PA3_PRB502.ACCT
+                        dateRange:
+                          start: 2025-03-14
+                          end: 2025-05-10
+                          frequency: weekly
+                      runAsSerialNumber: "894550"
+              PA - individual dates:
+                description: Please note individual dates are supported as snapshot
+                  dates with single frequency for PA jobs
+                value:
+                  data:
+                    jobType: PA
+                    jobName: pa_multi_date
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/TEST/PRB/DEMO_PA3_PRB500.ACCT
+                        - CLIENT:/TEST/PRB/DEMO_PA3_PRB501.ACCT
+                        dates:
+                        - 2025-04-09
+                        - 2025-04-10
+                      runAsSerialNumber: "894550"
               PD:
                 value:
                   data:
@@ -915,7 +953,8 @@ paths:
       description: Use this endpoint with the DELETE method to cancel a specific run
       operationId: v1CancelRunId
       parameters:
-      - explode: false
+      - description: run id
+        explode: false
         in: path
         name: id
         required: true
@@ -1225,13 +1264,15 @@ components:
       type: object
     Frequency:
       default: daily
-      description: Used for ADF and Vault job types only. Will determine the frequency
-        between the start and end dates. Please note that 'weekly' frequency is not
-        available for Vault Job type.
+      description: Used for PA, ADF, and Vault job types only. Will determine the
+        frequency between the start and end dates. Please note that 'weekly' frequency
+        is not available for Vault job type and 'single' frequency is only available
+        for PA job type.
       enum:
       - daily
       - monthly
       - weekly
+      - single
       type: string
     IdStatus:
       description: Details about the instance of the job run specified via id wrapped
@@ -1382,13 +1423,14 @@ components:
         valid for certain job types. Please see below for more details.
       properties:
         accounts:
-          description: An array of accounts, used for jobs types ADF, PUB, and Vault
+          description: An array of accounts, used for jobs types PA, ADF, PUB, and
+            Vault
           items:
             type: string
           type: array
         dates:
-          description: An array of dates, used for jobs types ADF, PUB, and Vault.
-            Please see OA Page 20650 for more details
+          description: An array of dates, used for jobs types PA, ADF, PUB, and Vault.
+            Please see OA Page 23173 for more details
           items:
             format: date
             type: string
@@ -1698,7 +1740,8 @@ components:
       type: object
     JobOverridesCombinationsRoot_dateRange:
       description: Used if the job needs to be executed for many dates periodically
-        spaced, used for jobs type ADF. Please see OA page 20650 for more details.
+        spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for
+        more details.
       properties:
         end:
           description: The end date in format YYYY-MM-DD

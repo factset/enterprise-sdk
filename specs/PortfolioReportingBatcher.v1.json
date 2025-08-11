@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Portfolio Reporting Batcher",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -889,6 +889,65 @@
                     }
                   }
                 },
+                "PA - date range": {
+                  "description": "Please note single is supported as frequency for PA jobs",
+                  "value": {
+                    "data": {
+                      "jobType": "PA",
+                      "jobName": "pa_multi_date",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/TEST/PRB/DEMO_PA3_PRB500.ACCT",
+                              "CLIENT:/TEST/PRB/DEMO_PA3_PRB501.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2025-04-10",
+                              "end": "2025-05-10",
+                              "frequency": "single"
+                            }
+                          },
+                          {
+                            "accounts": [
+                              "CLIENT:/TEST/PRB/DEMO_PA3_PRB502.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2025-03-14",
+                              "end": "2025-05-10",
+                              "frequency": "weekly"
+                            }
+                          }
+                        ],
+                        "runAsSerialNumber": "894550"
+                      }
+                    }
+                  }
+                },
+                "PA - individual dates": {
+                  "description": "Please note individual dates are supported as snapshot dates with single frequency for PA jobs",
+                  "value": {
+                    "data": {
+                      "jobType": "PA",
+                      "jobName": "pa_multi_date",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/TEST/PRB/DEMO_PA3_PRB500.ACCT",
+                              "CLIENT:/TEST/PRB/DEMO_PA3_PRB501.ACCT"
+                            ],
+                            "dates": [
+                              "2025-04-09",
+                              "2025-04-10"
+                            ]
+                          }
+                        ],
+                        "runAsSerialNumber": "894550"
+                      }
+                    }
+                  }
+                },
                 "PD": {
                   "value": {
                     "data": {
@@ -1349,7 +1408,8 @@
           },
           "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "run id"
         }
       ],
       "delete": {
@@ -1724,11 +1784,12 @@
       },
       "Frequency": {
         "default": "daily",
-        "description": "Used for ADF and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault Job type.",
+        "description": "Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.",
         "enum": [
           "daily",
           "monthly",
-          "weekly"
+          "weekly",
+          "single"
         ],
         "type": "string"
       },
@@ -1869,14 +1930,14 @@
         "description": "This creates a matrix of the given details. When the job is run, it will only run for the accounts, dates and/or tasks within the objects given. Dates can be specified either by giving individual dates in the `dates` parameter, or by using the `dateRange` parameter for where these are supported. The job will fail if both are provided. (Settings will only be used temporarily and no changes will be made to the default PRB job.) Certain parameters are only valid for certain job types. Please see below for more details.",
         "properties": {
           "accounts": {
-            "description": "An array of accounts, used for jobs types ADF, PUB, and Vault",
+            "description": "An array of accounts, used for jobs types PA, ADF, PUB, and Vault",
             "items": {
               "type": "string"
             },
             "type": "array"
           },
           "dates": {
-            "description": "An array of dates, used for jobs types ADF, PUB, and Vault. Please see OA Page 20650 for more details",
+            "description": "An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details",
             "items": {
               "format": "date",
               "type": "string"
@@ -1884,7 +1945,7 @@
             "type": "array"
           },
           "dateRange": {
-            "description": "Used if the job needs to be executed for many dates periodically spaced, used for jobs type ADF. Please see OA page 20650 for more details.",
+            "description": "Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.",
             "type": "object",
             "properties": {
               "end": {

@@ -63,12 +63,12 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     api_instance = transcripts_api.TranscriptsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["RTO-GB"] # [str] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-    start_date = dateutil_parser('2020-10-01').date() # date | Start Date (YYYY-MM-DD).  (optional)
-    end_date = dateutil_parser('2020-12-26').date() # date | End Date (YYYY-MM-DD).  (optional)
-    start_date_relative = -3 # int | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.*  (optional)
-    end_date_relative = -1 # int | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.*  (optional)
-    categories = ["CN:AU"] # [str] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional)
+    ids = ["ADT-US"] # [str] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+    start_date = dateutil_parser('2025-05-01').date() # date | Start Date (YYYY-MM-DD).  (optional)
+    end_date = dateutil_parser('2025-07-24').date() # date | End Date (YYYY-MM-DD).  (optional)
+    start_date_relative = 1 # int | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.*  (optional)
+    end_date_relative = 1 # int | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.*  (optional)
+    categories = ["CN:US"] # [str] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional)
     time_zone = "America/New_York" # str | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones. (optional) if omitted the server will use the default value of "America/New_York"
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
     pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
@@ -180,12 +180,12 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
     api_instance = transcripts_api.TranscriptsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["RTO-GB"] # [str] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-    start_date = dateutil_parser('2020-10-01').date() # date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
-    end_date = dateutil_parser('2020-12-26').date() # date | End Date. Format is YYYY-MM-DD.
-    event_ids = ["1202993804"] # [str] | Requests Event IDs. This is a list with a maximum limit of 1000. (optional)
-    categories = ["CN:AU"] # [str] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional)
-    search_text = "Updates" # str | Restricts the search to include only document stories which include the text searched.     (optional)
+    ids = ["ADT-US"] # [str] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+    start_date = dateutil_parser('2025-07-23').date() # date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+    end_date = dateutil_parser('2025-07-24').date() # date | End Date. Format is YYYY-MM-DD.
+    event_ids = ["1203806069"] # [str] | Requests Event IDs. This is a list with a maximum limit of 1000. (optional)
+    categories = ["CN:US"] # [str] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional)
+    search_text = "presentation" # str | Restricts the search to include only document stories which include the text searched.     (optional)
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
     pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
     pagination_offset = 0 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of the next set of results. (optional) if omitted the server will use the default value of 0

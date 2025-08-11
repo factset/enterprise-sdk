@@ -59,7 +59,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RunsApi apiInstance = new RunsApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "id_example"; // String | run id
         try {
             apiInstance.v1CancelRunId(id);
 
@@ -79,7 +79,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  |
+ **id** | **String**| run id |
 
 ### Return type
 

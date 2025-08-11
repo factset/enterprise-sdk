@@ -1226,7 +1226,8 @@ components:
     TranscriptsResponse:
       value:
         data:
-          - versionId: '7063634'
+          - transcriptResponseType: documentResult
+            versionId: '7063634'
             primaryIds:
               - XPRO-US
             allIds:
@@ -1263,9 +1264,11 @@ components:
     TranscriptsResponseById:
       value:
         data:
-          - requestId: IBM-US
+          - transcriptResponseType: transcriptById
+            requestId: IBM-US
             documents:
-              - versionId: '7063634'
+              - transcriptResponseType: documentResult
+                versionId: '7063634'
                 primaryIds:
                   - XPRO-US
                 allIds:
@@ -3946,7 +3949,7 @@ components:
         format: date
       in: query
       name: startDate
-      example: '2020-10-01'
+      example: '2025-05-01'
       description: |
         Start Date (YYYY-MM-DD).
     endDate:
@@ -3955,7 +3958,7 @@ components:
         format: date
       in: query
       name: endDate
-      example: '2020-12-26'
+      example: '2025-07-24'
       description: |
         End Date (YYYY-MM-DD).
     startDateRelative:
@@ -3965,7 +3968,6 @@ components:
         maximum: 0
       in: query
       name: startDateRelative
-      example: -3
       description: >
         The earliest date of the feed file the API should fetch based on the
         file timestamp, relative to today.
@@ -3981,7 +3983,6 @@ components:
         maximum: 0
       in: query
       name: endDateRelative
-      example: -1
       description: >
         The latest date of the feed file the API should fetch based on the file
         timestamp, relative to today.
@@ -4039,19 +4040,19 @@ components:
         oneId:
           summary: One identifier
           value:
-            - RTO-GB
+            - ADT-US
         multipleIds:
           summary: Multiple Identifiers
           value:
-            - RTO-GB
-            - ROAD-US
+            - ADT-US
+            - SLM-US
     startDateSlides:
       schema:
         type: string
         format: date
       in: query
       name: startDate
-      example: '2020-10-01'
+      example: '2025-07-23'
       required: true
       description: >
         Start Date. Format is YYYY-MM-DD 
@@ -4066,7 +4067,7 @@ components:
         format: date
       in: query
       name: endDate
-      example: '2020-12-26'
+      example: '2025-07-24'
       required: true
       description: End Date. Format is YYYY-MM-DD.
     event_ids:
@@ -4081,7 +4082,12 @@ components:
         oneId:
           summary: One identifier
           value:
-            - '1202993804'
+            - '1203806069'
+        multipleIds:
+          summary: Multiple identifiers
+          value:
+            - '1203806069'
+            - '1203802286'
       description: Requests Event IDs. This is a list with a maximum limit of 1000.
       explode: false
     categories:
@@ -4092,7 +4098,7 @@ components:
       in: query
       name: categories
       example:
-        - CN:AU
+        - CN:US
       description: >-
         Code for categories to include. This is a list, which represents
         country, industry, and subject codes. Use the ```/meta/categories```
@@ -4105,7 +4111,7 @@ components:
         type: string
       in: query
       name: searchText
-      example: Updates
+      example: presentation
       description: >-
         Restricts the search to include only document stories which include the
         text searched.    

@@ -52,13 +52,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TranscriptsApi();
-const ids = ["RTO-GB"]; // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+const ids = ["ADT-US"]; // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
 const opts = {
-  'startDate': 2020-10-01, // Date | Start Date (YYYY-MM-DD). 
-  'endDate': 2020-12-26, // Date | End Date (YYYY-MM-DD). 
-  'startDateRelative': -3, // Number | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* 
-  'endDateRelative': -1, // Number | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* 
-  'categories': ["CN:AU"], // [String] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
+  'startDate': 2025-05-01, // Date | Start Date (YYYY-MM-DD). 
+  'endDate': 2025-07-24, // Date | End Date (YYYY-MM-DD). 
+  'startDateRelative': 56, // Number | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* 
+  'endDateRelative': 56, // Number | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* 
+  'categories': ["CN:US"], // [String] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
   'timeZone': America/New_York, // String | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
   'paginationLimit': 20, // Number | Number of results to return per page.
@@ -151,13 +151,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TranscriptsApi();
-const ids = ["RTO-GB"]; // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-const startDate = 2020-10-01; // Date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
-const endDate = 2020-12-26; // Date | End Date. Format is YYYY-MM-DD.
+const ids = ["ADT-US"]; // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+const startDate = 2025-07-23; // Date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+const endDate = 2025-07-24; // Date | End Date. Format is YYYY-MM-DD.
 const opts = {
-  'eventIds': ["1202993804"], // [String] | Requests Event IDs. This is a list with a maximum limit of 1000.
-  'categories': ["CN:AU"], // [String] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
-  'searchText': Updates, // String | Restricts the search to include only document stories which include the text searched.    
+  'eventIds': ["1203806069"], // [String] | Requests Event IDs. This is a list with a maximum limit of 1000.
+  'categories': ["CN:US"], // [String] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
+  'searchText': presentation, // String | Restricts the search to include only document stories which include the text searched.    
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
   'paginationLimit': 20, // Number | Number of results to return per page.
   'paginationOffset': 0 // Number | Specifies the starting point for pagination. This parameter is used to identify the beginning of the next set of results.

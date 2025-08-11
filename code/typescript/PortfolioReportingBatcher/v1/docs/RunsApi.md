@@ -51,7 +51,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new RunsApi();
-const id = "id_example"; // String | 
+const id = "id_example"; // String | run id
 
 // Call api endpoint
 apiInstance.v1CancelRunId(id).then(
@@ -71,7 +71,7 @@ apiInstance.v1CancelRunId(id).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **id** | **String**| run id | 
 
 ### Return type
 

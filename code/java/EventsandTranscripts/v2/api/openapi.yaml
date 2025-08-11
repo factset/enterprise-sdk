@@ -669,12 +669,12 @@ paths:
           oneId:
             summary: One identifier
             value:
-            - RTO-GB
+            - ADT-US
           multipleIds:
             summary: Multiple Identifiers
             value:
-            - RTO-GB
-            - ROAD-US
+            - ADT-US
+            - SLM-US
         explode: false
         in: query
         name: ids
@@ -688,7 +688,7 @@ paths:
       - description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
           \ from 1995 onwards. Ensure that the provided Date falls within this range\
           \ for accurate results.**\n"
-        example: 2020-10-01
+        example: 2025-07-23
         explode: true
         in: query
         name: startDate
@@ -698,7 +698,7 @@ paths:
           type: string
         style: form
       - description: End Date. Format is YYYY-MM-DD.
-        example: 2020-12-26
+        example: 2025-07-24
         explode: true
         in: query
         name: endDate
@@ -712,7 +712,12 @@ paths:
           oneId:
             summary: One identifier
             value:
-            - "1202993804"
+            - "1203806069"
+          multipleIds:
+            summary: Multiple identifiers
+            value:
+            - "1203806069"
+            - "1203802286"
         explode: false
         in: query
         name: eventIds
@@ -728,7 +733,7 @@ paths:
           \ to get the list of available categories.\n\nDefault = All categories.\
           \  "
         example:
-        - CN:AU
+        - CN:US
         explode: true
         in: query
         name: categories
@@ -740,7 +745,7 @@ paths:
         style: form
       - description: 'Restricts the search to include only document stories which
           include the text searched.    '
-        example: Updates
+        example: presentation
         explode: true
         in: query
         name: searchText
@@ -855,7 +860,7 @@ paths:
       parameters:
       - description: |
           Start Date (YYYY-MM-DD).
-        example: 2020-10-01
+        example: 2025-05-01
         explode: true
         in: query
         name: startDate
@@ -866,7 +871,7 @@ paths:
         style: form
       - description: |
           End Date (YYYY-MM-DD).
-        example: 2020-12-26
+        example: 2025-07-24
         explode: true
         in: query
         name: endDate
@@ -879,7 +884,6 @@ paths:
           The earliest date of the feed file the API should fetch based on the file timestamp, relative to today.
           - Format: Integer (`0` for today, `-1` for yesterday, etc.).
           - *Either `startDate` or `startDateRelative` should be used, but not both.*
-        example: -3
         explode: true
         in: query
         name: startDateRelative
@@ -893,7 +897,6 @@ paths:
           The latest date of the feed file the API should fetch based on the file timestamp, relative to today.
           - Format: Integer (`0` for today, `-1` for yesterday, etc.).
           - *Either `endDate` or `endDateRelative` should be used, but not both.*
-        example: -1
         explode: true
         in: query
         name: endDateRelative
@@ -910,12 +913,12 @@ paths:
           oneId:
             summary: One identifier
             value:
-            - RTO-GB
+            - ADT-US
           multipleIds:
             summary: Multiple Identifiers
             value:
-            - RTO-GB
-            - ROAD-US
+            - ADT-US
+            - SLM-US
         explode: false
         in: query
         name: ids
@@ -931,7 +934,7 @@ paths:
           \ to get the list of available categories.\n\nDefault = All categories.\
           \  "
         example:
-        - CN:AU
+        - CN:US
         explode: true
         in: query
         name: categories
@@ -1546,7 +1549,8 @@ components:
     TranscriptsResponse:
       value:
         data:
-        - versionId: "7063634"
+        - transcriptResponseType: documentResult
+          versionId: "7063634"
           primaryIds:
           - XPRO-US
           allIds:
@@ -1581,9 +1585,11 @@ components:
     TranscriptsResponseById:
       value:
         data:
-        - requestId: IBM-US
+        - transcriptResponseType: transcriptById
+          requestId: IBM-US
           documents:
-          - versionId: "7063634"
+          - transcriptResponseType: documentResult
+            versionId: "7063634"
             primaryIds:
             - XPRO-US
             allIds:
@@ -2124,7 +2130,7 @@ components:
     startDate:
       description: |
         Start Date (YYYY-MM-DD).
-      example: 2020-10-01
+      example: 2025-05-01
       explode: true
       in: query
       name: startDate
@@ -2136,7 +2142,7 @@ components:
     endDate:
       description: |
         End Date (YYYY-MM-DD).
-      example: 2020-12-26
+      example: 2025-07-24
       explode: true
       in: query
       name: endDate
@@ -2150,7 +2156,6 @@ components:
         The earliest date of the feed file the API should fetch based on the file timestamp, relative to today.
         - Format: Integer (`0` for today, `-1` for yesterday, etc.).
         - *Either `startDate` or `startDateRelative` should be used, but not both.*
-      example: -3
       explode: true
       in: query
       name: startDateRelative
@@ -2165,7 +2170,6 @@ components:
         The latest date of the feed file the API should fetch based on the file timestamp, relative to today.
         - Format: Integer (`0` for today, `-1` for yesterday, etc.).
         - *Either `endDate` or `endDateRelative` should be used, but not both.*
-      example: -1
       explode: true
       in: query
       name: endDateRelative
@@ -2218,12 +2222,12 @@ components:
         oneId:
           summary: One identifier
           value:
-          - RTO-GB
+          - ADT-US
         multipleIds:
           summary: Multiple Identifiers
           value:
-          - RTO-GB
-          - ROAD-US
+          - ADT-US
+          - SLM-US
       explode: false
       in: query
       name: ids
@@ -2238,7 +2242,7 @@ components:
       description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
         \ from 1995 onwards. Ensure that the provided Date falls within this range\
         \ for accurate results.**\n"
-      example: 2020-10-01
+      example: 2025-07-23
       explode: true
       in: query
       name: startDate
@@ -2249,7 +2253,7 @@ components:
       style: form
     endDateSlides:
       description: End Date. Format is YYYY-MM-DD.
-      example: 2020-12-26
+      example: 2025-07-24
       explode: true
       in: query
       name: endDate
@@ -2264,7 +2268,12 @@ components:
         oneId:
           summary: One identifier
           value:
-          - "1202993804"
+          - "1203806069"
+        multipleIds:
+          summary: Multiple identifiers
+          value:
+          - "1203806069"
+          - "1203802286"
       explode: false
       in: query
       name: eventIds
@@ -2280,7 +2289,7 @@ components:
         \ country, industry, and subject codes. Use the ```/meta/categories``` endpoint\
         \ to get the list of available categories.\n\nDefault = All categories.  "
       example:
-      - CN:AU
+      - CN:US
       explode: true
       in: query
       name: categories
@@ -2293,7 +2302,7 @@ components:
     searchText:
       description: 'Restricts the search to include only document stories which include
         the text searched.    '
-      example: Updates
+      example: presentation
       explode: true
       in: query
       name: searchText

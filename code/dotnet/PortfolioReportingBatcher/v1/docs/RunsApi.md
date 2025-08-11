@@ -62,7 +62,7 @@ namespace Example
 
             var apiInstance = new RunsApi(config);
 
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | run id
 
             try
             {
@@ -84,7 +84,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **id** | **string**| run id | 
 
 ### Return type
 void (empty response body)

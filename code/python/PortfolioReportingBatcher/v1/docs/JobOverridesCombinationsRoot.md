@@ -5,8 +5,8 @@ This creates a matrix of the given details. When the job is run, it will only ru
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accounts** | **[str]** | An array of accounts, used for jobs types ADF, PUB, and Vault | [optional] 
-**dates** | **[date]** | An array of dates, used for jobs types ADF, PUB, and Vault. Please see OA Page 20650 for more details | [optional] 
+**accounts** | **[str]** | An array of accounts, used for jobs types PA, ADF, PUB, and Vault | [optional] 
+**dates** | **[date]** | An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details | [optional] 
 **date_range** | [**JobOverridesCombinationsRootDateRange**](JobOverridesCombinationsRootDateRange.md) |  | [optional] 
 **tasks** | **[str]** | Used only for jobs where type is ADF, PA, PUB, or vault | [optional] 
 **all_tasks** | **bool** | boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks | [optional] 
