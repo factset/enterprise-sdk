@@ -89,7 +89,7 @@ export default class ComponentsApi {
 
     /**
      * Get PA components
-     * This endpoint returns the list of PA components in a given PA document.
+     * This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned
      * @param {String} document Document Name
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ComponentSummaryRoot} and HTTP response
      */
@@ -126,7 +126,7 @@ export default class ComponentsApi {
 
     /**
      * Get PA components
-     * This endpoint returns the list of PA components in a given PA document.
+     * This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned
      * @param {String} document Document Name
      * @return { Promise.< module:model/ComponentSummaryRoot > } a Promise, with data of type {@link module:model/ComponentSummaryRoot }
      */

@@ -152,10 +152,10 @@ class EntityMatch(ModelNormal):
             'parent_match_flag': (bool, none_type,),  # noqa: E501
             'name_match_string': (str, none_type,),  # noqa: E501
             'name_match_source': (str, none_type,),  # noqa: E501
-            'client_exclude_entity_type': ([str],),  # noqa: E501
-            'client_exclude_entity_sub_type': ([str],),  # noqa: E501
-            'client_include_entity_type': ([str],),  # noqa: E501
-            'client_include_entity_sub_type': ([str],),  # noqa: E501
+            'client_exclude_entity_type': ([str], none_type,),  # noqa: E501
+            'client_exclude_entity_sub_type': ([str], none_type,),  # noqa: E501
+            'client_include_entity_type': ([str], none_type,),  # noqa: E501
+            'client_include_entity_sub_type': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -335,10 +335,10 @@ class EntityMatch(ModelNormal):
             parent_match_flag (bool, none_type): Flag denoting that the matched entity is the parent of another match.. [optional]  # noqa: E501
             name_match_string (str, none_type): String on which the Concordance algorithm mapped the submitted entity.. [optional]  # noqa: E501
             name_match_source (str, none_type): Type of name that the nameMatchString matched.. [optional]  # noqa: E501
-            client_exclude_entity_type ([str]): Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. . [optional]  # noqa: E501
-            client_exclude_entity_sub_type ([str]): Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. . [optional]  # noqa: E501
-            client_include_entity_type ([str]): Entity types to include in the search. If provided, only entities with the specified entity types will be considered. . [optional]  # noqa: E501
-            client_include_entity_sub_type ([str]): Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. . [optional]  # noqa: E501
+            client_exclude_entity_type ([str], none_type): Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. . [optional]  # noqa: E501
+            client_exclude_entity_sub_type ([str], none_type): Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. . [optional]  # noqa: E501
+            client_include_entity_type ([str], none_type): Entity types to include in the search. If provided, only entities with the specified entity types will be considered. . [optional]  # noqa: E501
+            client_include_entity_sub_type ([str], none_type): Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -482,10 +482,10 @@ class EntityMatch(ModelNormal):
             parent_match_flag (bool, none_type): Flag denoting that the matched entity is the parent of another match.. [optional]  # noqa: E501
             name_match_string (str, none_type): String on which the Concordance algorithm mapped the submitted entity.. [optional]  # noqa: E501
             name_match_source (str, none_type): Type of name that the nameMatchString matched.. [optional]  # noqa: E501
-            client_exclude_entity_type ([str]): Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. . [optional]  # noqa: E501
-            client_exclude_entity_sub_type ([str]): Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. . [optional]  # noqa: E501
-            client_include_entity_type ([str]): Entity types to include in the search. If provided, only entities with the specified entity types will be considered. . [optional]  # noqa: E501
-            client_include_entity_sub_type ([str]): Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. . [optional]  # noqa: E501
+            client_exclude_entity_type ([str], none_type): Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. . [optional]  # noqa: E501
+            client_exclude_entity_sub_type ([str], none_type): Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. . [optional]  # noqa: E501
+            client_include_entity_type ([str], none_type): Entity types to include in the search. If provided, only entities with the specified entity types will be considered. . [optional]  # noqa: E501
+            client_include_entity_sub_type ([str], none_type): Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,7 +1,7 @@
 /*
  * Classifications API
  *
- * The Classifications API gives access to various Industry Classifications for a given list of securities. Beginning first with GICS Direct, the service will then expand to offering NAICS, SIC, RBICS, and more.  
+ * Classifications API offers fast, reliable access to global security classification data - enabling smarter portfolio decisions and precise sector analytics using GICS standards. Instantly retrieve GICS sector, industry group, industry, and sub-industry data covering more than 37,000 securities worldwide to streamline portfolio benchmarking, custom screening, and regulatory compliance. 
  *
  * The version of the OpenAPI document: 1.0.1
  * Contact: api@factset.com

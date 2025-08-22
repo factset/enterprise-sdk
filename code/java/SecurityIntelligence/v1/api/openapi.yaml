@@ -1,0 +1,854 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Surfaces AI generated summaries intended to provide up to date insights
+    and guide users to currently relevant applications.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Security Intelligence API - V1
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/security-intelligence
+servers:
+- description: Production Server
+  url: https://api.factset.com/security-intelligence/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Endpoint for retrieving stock movement summaries
+  name: Stock Movement Summary
+- description: Endpoints for retrieving company summaries generated from past week's
+    news, events and other relevant data
+  name: Company Summary
+paths:
+  /company/stock-movement-summary:
+    get:
+      description: Returns the stock price movement over the last trading period or
+        intraday, and aims to explain that movement using StreetAccount news over
+        the last two trading days.
+      operationId: getStockMovementSummary
+      parameters:
+      - description: Ticker or FactSet Entity ID of the company
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Ticker or FactSet Entity ID of the company
+          title: Identifier
+          type: string
+        style: form
+      - description: Type of output to return. default for full summary and oneline
+          for one-line summary.
+        explode: true
+        in: query
+        name: outputType
+        required: false
+        schema:
+          default: default
+          description: Type of output to return. default for full summary and oneline
+            for one-line summary.
+          enum:
+          - default
+          - oneline
+          title: Output Type
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - title: Stock Movement Summary for Apple Inc.
+                  content: Apple Inc. experienced a significant stock price increase
+                    of 5.2% on April 15, 2025.
+                  generatedTimestamp: 2025-04-15T12:00:00Z
+                  references:
+                  - phrase: significant stock price increase
+                    url: https://example.com/source1
+                  - phrase: analyst upgrades
+                    url: https://example.com/source2
+                  competitors:
+                  - entityName: Microsoft Corporation
+                    entityId: MSFT-US
+                    priceChangePercentage: -0.29
+                meta:
+                  ticker: AAPL-US
+                  outputType: default
+              schema:
+                $ref: '#/components/schemas/StockMovementResponse'
+          description: Successful response with stock movement data
+        "400":
+          content:
+            application/json:
+              examples:
+                missing_identifier:
+                  summary: Missing Identifier
+                  value:
+                    errors:
+                    - id: 4365ABCD-1234-5678-90EF-1234567890AB
+                      title: Identifier must be a valid ticker or FactSet Entity ID.
+                        No Identifier was provided.
+                      code: MISSING_REQUIRED_FIELD
+              schema:
+                $ref: '#/components/schemas/CustomValidationError'
+          description: Bad request
+        "401":
+          description: Authentication Failed
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: 436902342-1234-5678-90EF-1234567890AB
+                  title: Service is currently unavailable. Please try again later.
+                  code: SERVER_ERROR
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Internal Server Error
+      summary: Get Stock Movement Summary
+      tags:
+      - Stock Movement Summary
+      x-accepts: application/json
+  /company/events:
+    get:
+      description: Returns a summary of company events including Dividends, Earnings
+        Releases and Stock Splits spanning 7 days in the past and 60 days into the
+        future.
+      operationId: getCompanyEvents
+      parameters:
+      - description: Ticker or FactSet Entity ID of the company
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Ticker or FactSet Entity ID of the company
+          title: Identifier
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - title: Events Summary for Apple Inc.
+                  content: Q3 2025 Earnings Release on Jul 31, '25
+                  generatedTimestamp: 2025-06-10T12:00:00Z
+                meta:
+                  ticker: AAPL-US
+              schema:
+                $ref: '#/components/schemas/EventsSummaryResponse'
+          description: Successful response with company data
+        "400":
+          content:
+            application/json:
+              examples:
+                missing_identifier:
+                  summary: Missing Identifier
+                  value:
+                    errors:
+                    - id: 4365ABCD-1234-5678-90EF-1234567890AB
+                      title: Identifier must be a valid ticker or FactSet Entity ID.
+                        No Identifier was provided.
+                      code: MISSING_REQUIRED_FIELD
+              schema:
+                $ref: '#/components/schemas/CustomValidationError'
+          description: Bad request
+        "401":
+          description: Authentication Failed
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: 436902342-1234-5678-90EF-1234567890AB
+                  title: Service is currently unavailable. Please try again later.
+                  code: SERVER_ERROR
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Internal Server Error
+      summary: Get Company Events
+      tags:
+      - Company Summary
+      x-accepts: application/json
+  /company/financials:
+    get:
+      description: Provides comprehensive financial data including Income Statement,
+        Cash Flow Statement, and Balance Sheet for the past 1.5 years.
+      operationId: getCompanyFinancialHighlights
+      parameters:
+      - description: Ticker or FactSet Entity ID of the company
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Ticker or FactSet Entity ID of the company
+          title: Identifier
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - title: Financial Highlights
+                  content: '- **Income Statement**: Sales have shown a gradual increase
+                    from $381,620,000,000 in Mar ''24 LTM to $400,370,000,000 in Mar
+                    ''25 LTM.- **Cash Flow Statement**: Net Operating Cash Flow has
+                    varied, with a peak at $118,250,000,000 in Sep ''24 LTM and a
+                    recent figure of $109,560,000,000 in Mar ''25 LTM.  Free Cash
+                    Flow also peaked at $108,810,000,000 in Sep ''24 LTM, decreasing
+                    to $98,490,000,000 in Mar ''25 LTM.- **Balance Sheet**: Total
+                    Assets decreased from $364,980,000,000 in Sep ''24 to $331,230,000,000
+                    in Mar ''25.  Total Liabilities have decreased from $308,030,000,000
+                    in Sep ''24 to $264,440,000,000 in Mar ''25.'
+                  generatedTimestamp: 2025-05-15T12:00:00Z
+                meta:
+                  ticker: AAPL-US
+              schema:
+                $ref: '#/components/schemas/FinancialHighlightsResponse'
+          description: Successful response with company data
+        "400":
+          content:
+            application/json:
+              examples:
+                missing_identifier:
+                  summary: Missing Identifier
+                  value:
+                    errors:
+                    - id: 4365ABCD-1234-5678-90EF-1234567890AB
+                      title: Identifier must be a valid ticker or FactSet Entity ID.
+                        No Identifier was provided.
+                      code: MISSING_REQUIRED_FIELD
+              schema:
+                $ref: '#/components/schemas/CustomValidationError'
+          description: Bad request
+        "401":
+          description: Authentication Failed
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: 436902342-1234-5678-90EF-1234567890AB
+                  title: Service is currently unavailable. Please try again later.
+                  code: SERVER_ERROR
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Internal Server Error
+      summary: Get Company Financial Highlights
+      tags:
+      - Company Summary
+      x-accepts: application/json
+  /company/debt:
+    get:
+      description: Presents the company's Debt Capital Structure maturity data, analysis
+        of Total Debt, and information on debt obligations due in the near term.
+      operationId: getCompanyDebtSummary
+      parameters:
+      - description: Ticker or FactSet Entity ID of the company
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Ticker or FactSet Entity ID of the company
+          title: Identifier
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - title: Debt Summary for Apple Inc.
+                  content: Apple Inc. has a total debt of $100 billion as of March
+                    2025, with a debt-to-equity ratio of 1.2.
+                  generatedTimestamp: 2025-05-15T12:00:00Z
+                meta:
+                  ticker: AAPL-US
+              schema:
+                $ref: '#/components/schemas/DebtSummaryResponse'
+          description: Successful response with company data
+        "400":
+          content:
+            application/json:
+              examples:
+                missing_identifier:
+                  summary: Missing Identifier
+                  value:
+                    errors:
+                    - id: 4365ABCD-1234-5678-90EF-1234567890AB
+                      title: Identifier must be a valid ticker or FactSet Entity ID.
+                        No Identifier was provided.
+                      code: MISSING_REQUIRED_FIELD
+              schema:
+                $ref: '#/components/schemas/CustomValidationError'
+          description: Bad request
+        "401":
+          description: Authentication Failed
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: 436902342-1234-5678-90EF-1234567890AB
+                  title: Service is currently unavailable. Please try again later.
+                  code: SERVER_ERROR
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Internal Server Error
+      summary: Get Company Debt Summary
+      tags:
+      - Company Summary
+      x-accepts: application/json
+  /company/mna:
+    get:
+      description: Reports on Mergers and Acquisitions activity related to the company
+        within the last 3 months.
+      operationId: getCompanyMNASummary
+      parameters:
+      - description: Ticker or FactSet Entity ID of the company
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Ticker or FactSet Entity ID of the company
+          title: Identifier
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - title: M&A Summary for Apple Inc.
+                  content: Apple Inc. completed the acquisition of XYZ Corp on March
+                    1, 2025, enhancing its AI capabilities.
+                  generatedTimestamp: 2025-05-15T12:00:00Z
+                meta:
+                  ticker: AAPL-US
+              schema:
+                $ref: '#/components/schemas/MnaSummaryResponse'
+          description: Successful response with company data
+        "400":
+          content:
+            application/json:
+              examples:
+                missing_identifier:
+                  summary: Missing Identifier
+                  value:
+                    errors:
+                    - id: 4365ABCD-1234-5678-90EF-1234567890AB
+                      title: Identifier must be a valid ticker or FactSet Entity ID.
+                        No Identifier was provided.
+                      code: MISSING_REQUIRED_FIELD
+              schema:
+                $ref: '#/components/schemas/CustomValidationError'
+          description: Bad request
+        "401":
+          description: Authentication Failed
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: 436902342-1234-5678-90EF-1234567890AB
+                  title: Service is currently unavailable. Please try again later.
+                  code: SERVER_ERROR
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Internal Server Error
+      summary: Get Company M&A Summary
+      tags:
+      - Company Summary
+      x-accepts: application/json
+  /company/ownership:
+    get:
+      description: Provides information on any activists targeting the company, and
+        highlights the largest ownership position changes over the last 6 months.
+      operationId: getCompanyOwnershipInsights
+      parameters:
+      - description: Ticker or FactSet Entity ID of the company
+        explode: true
+        in: query
+        name: identifier
+        required: true
+        schema:
+          description: Ticker or FactSet Entity ID of the company
+          title: Identifier
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - title: Ownership Insights for Apple Inc.
+                  content: Institutional ownership of Apple Inc. has increased to
+                    75% as of March 2025, with Vanguard and BlackRock being the largest
+                    shareholders.
+                  generatedTimestamp: 2025-05-15T12:00:00Z
+                meta:
+                  ticker: AAPL-US
+              schema:
+                $ref: '#/components/schemas/OwnershipInsightsResponse'
+          description: Successful response with company data
+        "400":
+          content:
+            application/json:
+              examples:
+                missing_identifier:
+                  summary: Missing Identifier
+                  value:
+                    errors:
+                    - id: 4365ABCD-1234-5678-90EF-1234567890AB
+                      title: Identifier must be a valid ticker or FactSet Entity ID.
+                        No Identifier was provided.
+                      code: MISSING_REQUIRED_FIELD
+              schema:
+                $ref: '#/components/schemas/CustomValidationError'
+          description: Bad request
+        "401":
+          description: Authentication Failed
+        "500":
+          content:
+            application/json:
+              example:
+                errors:
+                - id: 436902342-1234-5678-90EF-1234567890AB
+                  title: Service is currently unavailable. Please try again later.
+                  code: SERVER_ERROR
+              schema:
+                $ref: '#/components/schemas/ServerError'
+          description: Internal Server Error
+      summary: Get Company Ownership Insights
+      tags:
+      - Company Summary
+      x-accepts: application/json
+components:
+  schemas:
+    Competitor:
+      description: Model for competitor information.
+      example:
+        entityName: Intel Corporation
+        entityId: INTC-US
+        priceChangePercentage: -0.29
+      properties:
+        entityName:
+          description: Name of the competitor company
+          example: Intel Corporation
+          title: Entityname
+          type: string
+        entityId:
+          description: Identifier of the competitor company
+          example: INTC-US
+          title: Entityid
+          type: string
+        priceChangePercentage:
+          description: Price change of the competitor as a percentage value
+          example: -0.29
+          title: Pricechangepercentage
+          type: number
+      required:
+      - entityId
+      - entityName
+      - priceChangePercentage
+      title: Competitor
+      type: object
+    CustomValidationError:
+      description: Model for validation error responses (400 status code).
+      properties:
+        errors:
+          description: Array of validation errors
+          items:
+            $ref: '#/components/schemas/ErrorItem'
+          title: Errors
+          type: array
+      required:
+      - errors
+      title: CustomValidationError
+      type: object
+    DebtSummaryResponse:
+      description: Complete response model for debt summary endpoints.
+      example:
+        data:
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        meta:
+          ticker: AAPL-US
+      properties:
+        data:
+          description: Array of debt summary data items
+          items:
+            $ref: '#/components/schemas/SummaryItem'
+          title: Data
+          type: array
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      required:
+      - data
+      - meta
+      title: DebtSummaryResponse
+      type: object
+    ErrorItem:
+      description: Model for individual error items.
+      properties:
+        id:
+          description: Unique identifier for the error
+          title: Id
+          type: string
+        title:
+          description: Error message
+          title: Title
+          type: string
+        code:
+          description: Error code
+          title: Code
+          type: string
+      required:
+      - code
+      - id
+      - title
+      title: ErrorItem
+      type: object
+    EventsSummaryResponse:
+      description: Complete response model for events summary endpoints.
+      example:
+        data:
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        meta:
+          ticker: AAPL-US
+      properties:
+        data:
+          description: Array of events summary data items
+          items:
+            $ref: '#/components/schemas/SummaryItem'
+          title: Data
+          type: array
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      required:
+      - data
+      - meta
+      title: EventsSummaryResponse
+      type: object
+    FinancialHighlightsResponse:
+      description: Complete response model for financial highlights endpoints.
+      example:
+        data:
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        meta:
+          ticker: AAPL-US
+      properties:
+        data:
+          description: Array of financial highlights data items
+          items:
+            $ref: '#/components/schemas/SummaryItem'
+          title: Data
+          type: array
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      required:
+      - data
+      - meta
+      title: FinancialHighlightsResponse
+      type: object
+    MetaData:
+      description: Model for response metadata.
+      example:
+        ticker: AAPL-US
+      properties:
+        ticker:
+          description: Ticker symbol of the requested entity
+          example: AAPL-US
+          title: Ticker
+          type: string
+      required:
+      - ticker
+      title: MetaData
+      type: object
+    MnaSummaryResponse:
+      description: Complete response model for M&A summary endpoints.
+      example:
+        data:
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        meta:
+          ticker: AAPL-US
+      properties:
+        data:
+          description: Array of M&A summary data items
+          items:
+            $ref: '#/components/schemas/SummaryItem'
+          title: Data
+          type: array
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      required:
+      - data
+      - meta
+      title: MnaSummaryResponse
+      type: object
+    OwnershipInsightsResponse:
+      description: Complete response model for ownership insights endpoints.
+      example:
+        data:
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        - generatedTimestamp: 2025-04-15T12:00:00Z
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        meta:
+          ticker: AAPL-US
+      properties:
+        data:
+          description: Array of ownership insights data items
+          items:
+            $ref: '#/components/schemas/SummaryItem'
+          title: Data
+          type: array
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      required:
+      - data
+      - meta
+      title: OwnershipInsightsResponse
+      type: object
+    Reference:
+      description: Model for reference information with source links.
+      example:
+        phrase: significant stock price increase
+        url: https://example.com/source3
+      properties:
+        phrase:
+          description: Referenced text phrase from the content
+          example: significant stock price increase
+          title: Phrase
+          type: string
+        url:
+          description: URL to the source of the reference
+          example: https://example.com/source3
+          title: Url
+          type: string
+      required:
+      - phrase
+      - url
+      title: Reference
+      type: object
+    ServerError:
+      description: Model for server error responses (500 status code).
+      properties:
+        errors:
+          description: Array of error messages
+          items:
+            $ref: '#/components/schemas/ErrorItem'
+          title: Errors
+          type: array
+      required:
+      - errors
+      title: ServerError
+      type: object
+    StockMovementItem:
+      description: Model for stock movement data item.
+      example:
+        competitors:
+        - entityName: Intel Corporation
+          entityId: INTC-US
+          priceChangePercentage: -0.29
+        - entityName: Intel Corporation
+          entityId: INTC-US
+          priceChangePercentage: -0.29
+        generatedTimestamp: 2025-04-15T12:00:00Z
+        references:
+        - phrase: significant stock price increase
+          url: https://example.com/source3
+        - phrase: significant stock price increase
+          url: https://example.com/source3
+        title: Company Summary for Apple Inc.
+        content: Summary Content
+      properties:
+        title:
+          description: Title of the company summary
+          example: Company Summary for Apple Inc.
+          title: Title
+          type: string
+        content:
+          description: Detailed content of the company summary
+          example: Summary Content
+          title: Content
+          type: string
+        generatedTimestamp:
+          description: Timestamp when the summary was generated in ISO 8601 format
+            (YYYY-MM-DDTHH:MM:SSZ)
+          example: 2025-04-15T12:00:00Z
+          format: date-time
+          title: Generatedtimestamp
+          type: string
+        references:
+          description: List of references cited in the content
+          items:
+            $ref: '#/components/schemas/Reference'
+          title: References
+          type: array
+        competitors:
+          description: List of competitor companies and their performance
+          items:
+            $ref: '#/components/schemas/Competitor'
+          title: Competitors
+          type: array
+      required:
+      - competitors
+      - content
+      - generatedTimestamp
+      - references
+      - title
+      title: StockMovementItem
+      type: object
+    StockMovementMetaData:
+      description: Model for stock movement response metadata.
+      example:
+        ticker: AAPL-US
+        outputType: default
+      properties:
+        ticker:
+          description: Ticker symbol of the requested entity
+          example: AAPL-US
+          title: Ticker
+          type: string
+        outputType:
+          description: Type of output requested (default or oneline)
+          example: default
+          title: Outputtype
+          type: string
+      required:
+      - outputType
+      - ticker
+      title: StockMovementMetaData
+      type: object
+    StockMovementResponse:
+      description: Complete response model for stock movement endpoints.
+      example:
+        data:
+        - competitors:
+          - entityName: Intel Corporation
+            entityId: INTC-US
+            priceChangePercentage: -0.29
+          - entityName: Intel Corporation
+            entityId: INTC-US
+            priceChangePercentage: -0.29
+          generatedTimestamp: 2025-04-15T12:00:00Z
+          references:
+          - phrase: significant stock price increase
+            url: https://example.com/source3
+          - phrase: significant stock price increase
+            url: https://example.com/source3
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        - competitors:
+          - entityName: Intel Corporation
+            entityId: INTC-US
+            priceChangePercentage: -0.29
+          - entityName: Intel Corporation
+            entityId: INTC-US
+            priceChangePercentage: -0.29
+          generatedTimestamp: 2025-04-15T12:00:00Z
+          references:
+          - phrase: significant stock price increase
+            url: https://example.com/source3
+          - phrase: significant stock price increase
+            url: https://example.com/source3
+          title: Company Summary for Apple Inc.
+          content: Summary Content
+        meta:
+          ticker: AAPL-US
+          outputType: default
+      properties:
+        data:
+          description: Array of stock movement data items
+          items:
+            $ref: '#/components/schemas/StockMovementItem'
+          title: Data
+          type: array
+        meta:
+          $ref: '#/components/schemas/StockMovementMetaData'
+      required:
+      - data
+      - meta
+      title: StockMovementResponse
+      type: object
+    SummaryItem:
+      description: Model for company summary data item.
+      example:
+        generatedTimestamp: 2025-04-15T12:00:00Z
+        title: Company Summary for Apple Inc.
+        content: Summary Content
+      properties:
+        title:
+          description: Title of the company summary
+          example: Company Summary for Apple Inc.
+          title: Title
+          type: string
+        content:
+          description: Detailed content of the company summary
+          example: Summary Content
+          title: Content
+          type: string
+        generatedTimestamp:
+          description: Timestamp when the summary was generated in ISO 8601 format
+            (YYYY-MM-DDTHH:MM:SSZ)
+          example: 2025-04-15T12:00:00Z
+          format: date-time
+          title: Generatedtimestamp
+          type: string
+      required:
+      - content
+      - generatedTimestamp
+      - title
+      title: SummaryItem
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

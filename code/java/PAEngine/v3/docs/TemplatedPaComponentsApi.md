@@ -26,7 +26,7 @@ Remarks:
 
 *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. 
     Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), 
-    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.
+    VLT (Vaulted returns) or EXT (External Returns Data).
 
 *   Multi-horizon frequencies are not supported through this endpoint.
 
@@ -439,7 +439,7 @@ Remarks:
 
 *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. 
     Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), 
-    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H. 
+    VLT (Vaulted returns) or EXT (External Returns Data). 
 
 *   Multi-horizon frequencies are not supported through this endpoint.
 

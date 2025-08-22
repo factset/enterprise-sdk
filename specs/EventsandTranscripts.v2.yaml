@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Events and Transcripts API
-  version: 2.0.0
+  version: 2.1.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -1687,8 +1687,9 @@ components:
     ByIds:
       value:
         data:
-          reportId: 2666621
-          audioSourceId: 3256781
+          reportId: 2914985
+          audioSourceId: 561864
+          isLatest: false
           trimmed: false
     ByTranscriptsDates:
       value:
@@ -2632,6 +2633,10 @@ components:
           format: int32
           description: Unique ID for the specific internal recording for the reportId.
           example: 3256781
+        isLatest:
+          type: boolean
+          default: false
+          description: Search for latest audio file.
         trimmed:
           type: boolean
           default: false

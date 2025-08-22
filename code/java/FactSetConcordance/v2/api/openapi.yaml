@@ -8631,6 +8631,7 @@ components:
           - PVT
           items:
             type: string
+          nullable: true
           type: array
         clientExcludeEntitySubType:
           description: |
@@ -8640,6 +8641,7 @@ components:
           - IB
           items:
             type: string
+          nullable: true
           type: array
         clientIncludeEntityType:
           description: |
@@ -8648,6 +8650,7 @@ components:
           - PEF
           items:
             type: string
+          nullable: true
           type: array
         clientIncludeEntitySubType:
           description: |
@@ -8656,6 +8659,7 @@ components:
           - PR
           items:
             type: string
+          nullable: true
           type: array
       title: Entity Match
       type: object

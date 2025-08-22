@@ -862,7 +862,7 @@ Remarks:
 
 *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. 
     Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), 
-    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H. 
+    VLT (Vaulted returns) or EXT (External Returns Data). 
 
 *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
     the default frequency of the Beginning of Period to whatever we pass in the request body.
@@ -997,7 +997,7 @@ Remarks:
 
 *   Account identifiers must have .ACCT or .ACTM extension or BENCH: prefix. Holdings mode can be optionally set for every account. 
     Possible values for holdings mode are B&H (Buy and Hold), TBR (Transaction based returns), OMS (Order Management System), 
-    VLT (Vaulted returns) or EXT (External Returns Data). Default holdings mode value is B&H.
+    VLT (Vaulted returns) or EXT (External Returns Data).
 
 *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
     the default frequency of the Beginning of Period to whatever we pass in the request body.

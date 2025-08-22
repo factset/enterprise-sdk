@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Events and Transcripts API
-  version: 2.0.0
+  version: 2.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -1985,8 +1985,9 @@ components:
     ByIds:
       value:
         data:
-          reportId: 2666621
-          audioSourceId: 3256781
+          reportId: 2914985
+          audioSourceId: 561864
+          isLatest: false
           trimmed: false
     ByTranscriptsDates:
       value:
@@ -3399,6 +3400,10 @@ components:
           example: 3256781
           format: int32
           type: integer
+        isLatest:
+          default: false
+          description: Search for latest audio file.
+          type: boolean
         trimmed:
           default: false
           description: Search for trimmed audio files.

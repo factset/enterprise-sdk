@@ -67,10 +67,10 @@ Name | Type | Description | Notes
 **parent_match_flag** | **bool, none_type** | Flag denoting that the matched entity is the parent of another match. | [optional] 
 **name_match_string** | **str, none_type** | String on which the Concordance algorithm mapped the submitted entity. | [optional] 
 **name_match_source** | **str, none_type** | Type of name that the nameMatchString matched. | [optional] 
-**client_exclude_entity_type** | **[str]** | Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered.  | [optional] 
-**client_exclude_entity_sub_type** | **[str]** | Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
-**client_include_entity_type** | **[str]** | Entity types to include in the search. If provided, only entities with the specified entity types will be considered.  | [optional] 
-**client_include_entity_sub_type** | **[str]** | Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
+**client_exclude_entity_type** | **[str], none_type** | Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered.  | [optional] 
+**client_exclude_entity_sub_type** | **[str], none_type** | Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered.  | [optional] 
+**client_include_entity_type** | **[str], none_type** | Entity types to include in the search. If provided, only entities with the specified entity types will be considered.  | [optional] 
+**client_include_entity_sub_type** | **[str], none_type** | Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered.  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

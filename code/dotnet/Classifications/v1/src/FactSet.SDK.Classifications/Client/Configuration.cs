@@ -1,7 +1,7 @@
 /*
  * Classifications API
  *
- * The Classifications API gives access to various Industry Classifications for a given list of securities. Beginning first with GICS Direct, the service will then expand to offering NAICS, SIC, RBICS, and more.  
+ * Classifications API offers fast, reliable access to global security classification data - enabling smarter portfolio decisions and precise sector analytics using GICS standards. Instantly retrieve GICS sector, industry group, industry, and sub-industry data covering more than 37,000 securities worldwide to streamline portfolio benchmarking, custom screening, and regulatory compliance. 
  *
  * The version of the OpenAPI document: 1.0.1
  * Contact: api@factset.com
@@ -33,7 +33,7 @@ namespace FactSet.SDK.Classifications.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.10";
+        public const string Version = "1.0.11";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,7 +106,7 @@ namespace FactSet.SDK.Classifications.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/Classifications/1.0.10";
+            UserAgent = "fds-sdk/dotnet/Classifications/1.0.11";
             BasePath = "https://api.factset.com/content";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -484,7 +484,7 @@ namespace FactSet.SDK.Classifications.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.1\n";
-            report += "    SDK Package Version: 1.0.10\n";
+            report += "    SDK Package Version: 1.0.11\n";
 
             return report;
         }

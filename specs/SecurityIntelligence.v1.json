@@ -1,0 +1,1025 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Security Intelligence API - V1",
+    "description": "Surfaces AI generated summaries intended to provide up to date insights and guide users to currently relevant applications.",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/company/stock-movement-summary": {
+      "get": {
+        "tags": [
+          "Stock Movement Summary"
+        ],
+        "summary": "Get Stock Movement Summary",
+        "description": "Returns the stock price movement over the last trading period or intraday, and aims to explain that movement using StreetAccount news over the last two trading days.",
+        "operationId": "getStockMovementSummary",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "Ticker or FactSet Entity ID of the company"
+            },
+            "description": "Ticker or FactSet Entity ID of the company"
+          },
+          {
+            "name": "outputType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Output Type",
+              "description": "Type of output to return. default for full summary and oneline for one-line summary.",
+              "enum": [
+                "default",
+                "oneline"
+              ],
+              "default": "default"
+            },
+            "description": "Type of output to return. default for full summary and oneline for one-line summary."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with stock movement data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StockMovementResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "title": "Stock Movement Summary for Apple Inc.",
+                      "content": "Apple Inc. experienced a significant stock price increase of 5.2% on April 15, 2025.",
+                      "generatedTimestamp": "2025-04-15T12:00:00Z",
+                      "references": [
+                        {
+                          "phrase": "significant stock price increase",
+                          "url": "https://example.com/source1"
+                        },
+                        {
+                          "phrase": "analyst upgrades",
+                          "url": "https://example.com/source2"
+                        }
+                      ],
+                      "competitors": [
+                        {
+                          "entityName": "Microsoft Corporation",
+                          "entityId": "MSFT-US",
+                          "priceChangePercentage": -0.29
+                        }
+                      ]
+                    }
+                  ],
+                  "meta": {
+                    "ticker": "AAPL-US",
+                    "outputType": "default"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "missing_identifier": {
+                    "summary": "Missing Identifier",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "4365ABCD-1234-5678-90EF-1234567890AB",
+                          "title": "Identifier must be a valid ticker or FactSet Entity ID. No Identifier was provided.",
+                          "code": "MISSING_REQUIRED_FIELD"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "id": "436902342-1234-5678-90EF-1234567890AB",
+                      "title": "Service is currently unavailable. Please try again later.",
+                      "code": "SERVER_ERROR"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/events": {
+      "get": {
+        "tags": [
+          "Company Summary"
+        ],
+        "summary": "Get Company Events",
+        "description": "Returns a summary of company events including Dividends, Earnings Releases and Stock Splits spanning 7 days in the past and 60 days into the future.",
+        "operationId": "getCompanyEvents",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "Ticker or FactSet Entity ID of the company"
+            },
+            "description": "Ticker or FactSet Entity ID of the company"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventsSummaryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "title": "Events Summary for Apple Inc.",
+                      "content": "Q3 2025 Earnings Release on Jul 31, '25",
+                      "generatedTimestamp": "2025-06-10T12:00:00Z"
+                    }
+                  ],
+                  "meta": {
+                    "ticker": "AAPL-US"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "missing_identifier": {
+                    "summary": "Missing Identifier",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "4365ABCD-1234-5678-90EF-1234567890AB",
+                          "title": "Identifier must be a valid ticker or FactSet Entity ID. No Identifier was provided.",
+                          "code": "MISSING_REQUIRED_FIELD"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "id": "436902342-1234-5678-90EF-1234567890AB",
+                      "title": "Service is currently unavailable. Please try again later.",
+                      "code": "SERVER_ERROR"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/financials": {
+      "get": {
+        "tags": [
+          "Company Summary"
+        ],
+        "summary": "Get Company Financial Highlights",
+        "description": "Provides comprehensive financial data including Income Statement, Cash Flow Statement, and Balance Sheet for the past 1.5 years.",
+        "operationId": "getCompanyFinancialHighlights",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "Ticker or FactSet Entity ID of the company"
+            },
+            "description": "Ticker or FactSet Entity ID of the company"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialHighlightsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "title": "Financial Highlights",
+                      "content": "- **Income Statement**: Sales have shown a gradual increase from $381,620,000,000 in Mar '24 LTM to $400,370,000,000 in Mar '25 LTM.- **Cash Flow Statement**: Net Operating Cash Flow has varied, with a peak at $118,250,000,000 in Sep '24 LTM and a recent figure of $109,560,000,000 in Mar '25 LTM.  Free Cash Flow also peaked at $108,810,000,000 in Sep '24 LTM, decreasing to $98,490,000,000 in Mar '25 LTM.- **Balance Sheet**: Total Assets decreased from $364,980,000,000 in Sep '24 to $331,230,000,000 in Mar '25.  Total Liabilities have decreased from $308,030,000,000 in Sep '24 to $264,440,000,000 in Mar '25.",
+                      "generatedTimestamp": "2025-05-15T12:00:00Z"
+                    }
+                  ],
+                  "meta": {
+                    "ticker": "AAPL-US"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "missing_identifier": {
+                    "summary": "Missing Identifier",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "4365ABCD-1234-5678-90EF-1234567890AB",
+                          "title": "Identifier must be a valid ticker or FactSet Entity ID. No Identifier was provided.",
+                          "code": "MISSING_REQUIRED_FIELD"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "id": "436902342-1234-5678-90EF-1234567890AB",
+                      "title": "Service is currently unavailable. Please try again later.",
+                      "code": "SERVER_ERROR"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/debt": {
+      "get": {
+        "tags": [
+          "Company Summary"
+        ],
+        "summary": "Get Company Debt Summary",
+        "description": "Presents the company's Debt Capital Structure maturity data, analysis of Total Debt, and information on debt obligations due in the near term.",
+        "operationId": "getCompanyDebtSummary",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "Ticker or FactSet Entity ID of the company"
+            },
+            "description": "Ticker or FactSet Entity ID of the company"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DebtSummaryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "title": "Debt Summary for Apple Inc.",
+                      "content": "Apple Inc. has a total debt of $100 billion as of March 2025, with a debt-to-equity ratio of 1.2.",
+                      "generatedTimestamp": "2025-05-15T12:00:00Z"
+                    }
+                  ],
+                  "meta": {
+                    "ticker": "AAPL-US"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "missing_identifier": {
+                    "summary": "Missing Identifier",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "4365ABCD-1234-5678-90EF-1234567890AB",
+                          "title": "Identifier must be a valid ticker or FactSet Entity ID. No Identifier was provided.",
+                          "code": "MISSING_REQUIRED_FIELD"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "id": "436902342-1234-5678-90EF-1234567890AB",
+                      "title": "Service is currently unavailable. Please try again later.",
+                      "code": "SERVER_ERROR"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/mna": {
+      "get": {
+        "tags": [
+          "Company Summary"
+        ],
+        "summary": "Get Company M&A Summary",
+        "description": "Reports on Mergers and Acquisitions activity related to the company within the last 3 months.",
+        "operationId": "getCompanyMNASummary",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "Ticker or FactSet Entity ID of the company"
+            },
+            "description": "Ticker or FactSet Entity ID of the company"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MnaSummaryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "title": "M&A Summary for Apple Inc.",
+                      "content": "Apple Inc. completed the acquisition of XYZ Corp on March 1, 2025, enhancing its AI capabilities.",
+                      "generatedTimestamp": "2025-05-15T12:00:00Z"
+                    }
+                  ],
+                  "meta": {
+                    "ticker": "AAPL-US"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "missing_identifier": {
+                    "summary": "Missing Identifier",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "4365ABCD-1234-5678-90EF-1234567890AB",
+                          "title": "Identifier must be a valid ticker or FactSet Entity ID. No Identifier was provided.",
+                          "code": "MISSING_REQUIRED_FIELD"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "id": "436902342-1234-5678-90EF-1234567890AB",
+                      "title": "Service is currently unavailable. Please try again later.",
+                      "code": "SERVER_ERROR"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/ownership": {
+      "get": {
+        "tags": [
+          "Company Summary"
+        ],
+        "summary": "Get Company Ownership Insights",
+        "description": "Provides information on any activists targeting the company, and highlights the largest ownership position changes over the last 6 months.",
+        "operationId": "getCompanyOwnershipInsights",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "Ticker or FactSet Entity ID of the company"
+            },
+            "description": "Ticker or FactSet Entity ID of the company"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OwnershipInsightsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "title": "Ownership Insights for Apple Inc.",
+                      "content": "Institutional ownership of Apple Inc. has increased to 75% as of March 2025, with Vanguard and BlackRock being the largest shareholders.",
+                      "generatedTimestamp": "2025-05-15T12:00:00Z"
+                    }
+                  ],
+                  "meta": {
+                    "ticker": "AAPL-US"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "missing_identifier": {
+                    "summary": "Missing Identifier",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "4365ABCD-1234-5678-90EF-1234567890AB",
+                          "title": "Identifier must be a valid ticker or FactSet Entity ID. No Identifier was provided.",
+                          "code": "MISSING_REQUIRED_FIELD"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomValidationError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "example": {
+                  "errors": [
+                    {
+                      "id": "436902342-1234-5678-90EF-1234567890AB",
+                      "title": "Service is currently unavailable. Please try again later.",
+                      "code": "SERVER_ERROR"
+                    }
+                  ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ServerError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Competitor": {
+        "properties": {
+          "entityName": {
+            "type": "string",
+            "title": "Entityname",
+            "description": "Name of the competitor company",
+            "example": "Intel Corporation"
+          },
+          "entityId": {
+            "type": "string",
+            "title": "Entityid",
+            "description": "Identifier of the competitor company",
+            "example": "INTC-US"
+          },
+          "priceChangePercentage": {
+            "type": "number",
+            "title": "Pricechangepercentage",
+            "description": "Price change of the competitor as a percentage value",
+            "example": -0.29
+          }
+        },
+        "type": "object",
+        "required": [
+          "entityName",
+          "entityId",
+          "priceChangePercentage"
+        ],
+        "title": "Competitor",
+        "description": "Model for competitor information."
+      },
+      "CustomValidationError": {
+        "properties": {
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/ErrorItem"
+            },
+            "type": "array",
+            "title": "Errors",
+            "description": "Array of validation errors"
+          }
+        },
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "title": "CustomValidationError",
+        "description": "Model for validation error responses (400 status code)."
+      },
+      "DebtSummaryResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/SummaryItem"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "Array of debt summary data items"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "DebtSummaryResponse",
+        "description": "Complete response model for debt summary endpoints."
+      },
+      "ErrorItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Unique identifier for the error"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Error code"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "code"
+        ],
+        "title": "ErrorItem",
+        "description": "Model for individual error items."
+      },
+      "EventsSummaryResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/SummaryItem"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "Array of events summary data items"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "EventsSummaryResponse",
+        "description": "Complete response model for events summary endpoints."
+      },
+      "FinancialHighlightsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/SummaryItem"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "Array of financial highlights data items"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "FinancialHighlightsResponse",
+        "description": "Complete response model for financial highlights endpoints."
+      },
+      "MetaData": {
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "title": "Ticker",
+            "description": "Ticker symbol of the requested entity",
+            "example": "AAPL-US"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ticker"
+        ],
+        "title": "MetaData",
+        "description": "Model for response metadata."
+      },
+      "MnaSummaryResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/SummaryItem"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "Array of M&A summary data items"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "MnaSummaryResponse",
+        "description": "Complete response model for M&A summary endpoints."
+      },
+      "OwnershipInsightsResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/SummaryItem"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "Array of ownership insights data items"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "OwnershipInsightsResponse",
+        "description": "Complete response model for ownership insights endpoints."
+      },
+      "Reference": {
+        "properties": {
+          "phrase": {
+            "type": "string",
+            "title": "Phrase",
+            "description": "Referenced text phrase from the content",
+            "example": "significant stock price increase"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "URL to the source of the reference",
+            "example": "https://example.com/source3"
+          }
+        },
+        "type": "object",
+        "required": [
+          "phrase",
+          "url"
+        ],
+        "title": "Reference",
+        "description": "Model for reference information with source links."
+      },
+      "ServerError": {
+        "properties": {
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/ErrorItem"
+            },
+            "type": "array",
+            "title": "Errors",
+            "description": "Array of error messages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "errors"
+        ],
+        "title": "ServerError",
+        "description": "Model for server error responses (500 status code)."
+      },
+      "StockMovementItem": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Title of the company summary",
+            "example": "Company Summary for Apple Inc."
+          },
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "description": "Detailed content of the company summary",
+            "example": "Summary Content"
+          },
+          "generatedTimestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Generatedtimestamp",
+            "description": "Timestamp when the summary was generated in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)",
+            "example": "2025-04-15T12:00:00Z"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            },
+            "type": "array",
+            "title": "References",
+            "description": "List of references cited in the content"
+          },
+          "competitors": {
+            "items": {
+              "$ref": "#/components/schemas/Competitor"
+            },
+            "type": "array",
+            "title": "Competitors",
+            "description": "List of competitor companies and their performance"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "content",
+          "generatedTimestamp",
+          "references",
+          "competitors"
+        ],
+        "title": "StockMovementItem",
+        "description": "Model for stock movement data item."
+      },
+      "StockMovementMetaData": {
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "title": "Ticker",
+            "description": "Ticker symbol of the requested entity",
+            "example": "AAPL-US"
+          },
+          "outputType": {
+            "type": "string",
+            "title": "Outputtype",
+            "description": "Type of output requested (default or oneline)",
+            "example": "default"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ticker",
+          "outputType"
+        ],
+        "title": "StockMovementMetaData",
+        "description": "Model for stock movement response metadata."
+      },
+      "StockMovementResponse": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/StockMovementItem"
+            },
+            "type": "array",
+            "title": "Data",
+            "description": "Array of stock movement data items"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/StockMovementMetaData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "StockMovementResponse",
+        "description": "Complete response model for stock movement endpoints."
+      },
+      "SummaryItem": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Title of the company summary",
+            "example": "Company Summary for Apple Inc."
+          },
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "description": "Detailed content of the company summary",
+            "example": "Summary Content"
+          },
+          "generatedTimestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Generatedtimestamp",
+            "description": "Timestamp when the summary was generated in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)",
+            "example": "2025-04-15T12:00:00Z"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "content",
+          "generatedTimestamp"
+        ],
+        "title": "SummaryItem",
+        "description": "Model for company summary data item."
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Stock Movement Summary",
+      "description": "Endpoint for retrieving stock movement summaries"
+    },
+    {
+      "name": "Company Summary",
+      "description": "Endpoints for retrieving company summaries generated from past week's news, events and other relevant data"
+    }
+  ],
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.factset.com/security-intelligence/v1",
+      "description": "Production Server"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/security-intelligence"
+  }
+}

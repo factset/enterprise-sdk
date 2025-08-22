@@ -211,6 +211,7 @@ public class TransactionsApi {
    * @param frequency Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  (optional, default to M)
    * @param topNHolders Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  (optional, default to 25)
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
+   * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
    * @return InstitutionalTransactionsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -224,8 +225,8 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType) throws ApiException {
-    return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType).getData();
+  public InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure) throws ApiException {
+    return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure).getData();
   }
 
   /**
@@ -238,6 +239,7 @@ public class TransactionsApi {
    * @param frequency Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  (optional, default to M)
    * @param topNHolders Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  (optional, default to 25)
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
+   * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
    * @return ApiResponse&lt;InstitutionalTransactionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -251,7 +253,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InstitutionalTransactionsResponse> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType) throws ApiException {
+  public ApiResponse<InstitutionalTransactionsResponse> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -285,6 +287,7 @@ public class TransactionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "frequency", frequency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "topNHolders", topNHolders));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "holderType", holderType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "periodOfMeasure", periodOfMeasure));
 
     
     

@@ -17,10 +17,13 @@ docs/FundHoldingsResponse.md
 docs/HolderType.md
 docs/InsiderTransactions.md
 docs/InsiderTransactionsRequest.md
+docs/InsiderTransactionsRequestData.md
 docs/InsiderTransactionsResponse.md
 docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
+docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
 docs/SecurityHoldersApi.md
@@ -70,10 +73,13 @@ src/main/java/com/factset/sdk/FactSetOwnership/models/FundHoldingsResponse.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/HolderType.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InsiderTransactions.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InsiderTransactionsRequest.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/InsiderTransactionsRequestData.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InsiderTransactionsResponse.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactions.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactionsRequest.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactionsRequestData.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactionsResponse.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/PeriodOfMeasure.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/RowExclusion.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/SecurityHolders.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/SecurityHoldersRequest.java

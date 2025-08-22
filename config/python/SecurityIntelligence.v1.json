@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.SecurityIntelligence",
+  "projectName": "fds.sdk.SecurityIntelligence",
+  "packageVersion": "0.1.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Security Intelligence client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/SecurityIntelligence/v1",
+  "httpUserAgent": "fds-sdk/python/SecurityIntelligence/0.1.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

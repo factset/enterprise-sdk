@@ -155,7 +155,7 @@ public class ComponentsApi {
   }
   /**
    * Get PA components
-   * This endpoint returns the list of PA components in a given PA document.
+   * This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned
    * @param document Document Name (required)
    * @return ComponentSummaryRoot
    * @throws ApiException if fails to make API call
@@ -179,7 +179,7 @@ public class ComponentsApi {
 
   /**
    * Get PA components
-   * This endpoint returns the list of PA components in a given PA document.
+   * This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned
    * @param document Document Name (required)
    * @return ApiResponse&lt;ComponentSummaryRoot&gt;
    * @throws ApiException if fails to make API call

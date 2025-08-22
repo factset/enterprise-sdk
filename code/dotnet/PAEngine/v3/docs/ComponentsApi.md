@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 Get PA components
 
-This endpoint returns the list of PA components in a given PA document.
+This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned
 
 ### Example
 

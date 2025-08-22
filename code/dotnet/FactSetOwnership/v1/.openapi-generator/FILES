@@ -15,10 +15,13 @@ docs/FundHoldingsResponse.md
 docs/HolderType.md
 docs/InsiderTransactions.md
 docs/InsiderTransactionsRequest.md
+docs/InsiderTransactionsRequestData.md
 docs/InsiderTransactionsResponse.md
 docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
+docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
 docs/SecurityHoldersApi.md
@@ -59,10 +62,13 @@ src/FactSet.SDK.FactSetOwnership/Model/FundHoldingsResponse.cs
 src/FactSet.SDK.FactSetOwnership/Model/HolderType.cs
 src/FactSet.SDK.FactSetOwnership/Model/InsiderTransactions.cs
 src/FactSet.SDK.FactSetOwnership/Model/InsiderTransactionsRequest.cs
+src/FactSet.SDK.FactSetOwnership/Model/InsiderTransactionsRequestData.cs
 src/FactSet.SDK.FactSetOwnership/Model/InsiderTransactionsResponse.cs
 src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactions.cs
 src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactionsRequest.cs
+src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactionsRequestData.cs
 src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactionsResponse.cs
+src/FactSet.SDK.FactSetOwnership/Model/PeriodOfMeasure.cs
 src/FactSet.SDK.FactSetOwnership/Model/RowExclusion.cs
 src/FactSet.SDK.FactSetOwnership/Model/SecurityHolders.cs
 src/FactSet.SDK.FactSetOwnership/Model/SecurityHoldersRequest.cs

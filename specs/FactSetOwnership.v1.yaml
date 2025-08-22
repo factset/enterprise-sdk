@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.0
+  version: 1.3.0
   title: FactSet Ownership API
   contact:
     name: FactSet Research Systems
@@ -206,7 +206,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/insiderTransactionsResponse'
+                $ref: '#/components/schemas/InsiderTransactionsResponse'
               examples:
                 Single identifier request - Insider Transactions Example:
                   $ref: '#/components/examples/insiderTransactionsSingle'
@@ -234,7 +234,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/insiderTransactionsRequest'
+              $ref: '#/components/schemas/InsiderTransactionsRequest'
             examples:
               Request to fetch TSLA Insider Transaction Details:
                 $ref: '#/components/examples/insiderTransactionsPostRequest'
@@ -244,7 +244,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/insiderTransactionsResponse'
+                $ref: '#/components/schemas/InsiderTransactionsResponse'
               examples:
                 Single identifier request:
                   $ref: '#/components/examples/insiderTransactionsSingle'
@@ -279,13 +279,14 @@ paths:
         - $ref: '#/components/parameters/frequency'
         - $ref: '#/components/parameters/topNHolders'
         - $ref: '#/components/parameters/holderType'
+        - $ref: '#/components/parameters/periodOfMeasure'
       responses:
         '200':
           description: Institutional Transactions Response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/institutionalTransactionsResponse'
+                $ref: '#/components/schemas/InstitutionalTransactionsResponse'
               examples:
                 Single identifier request - Institutional Transactions Example:
                   $ref: '#/components/examples/institutionalTransactionsSingle'
@@ -317,7 +318,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/institutionalTransactionsRequest'
+              $ref: '#/components/schemas/InstitutionalTransactionsRequest'
             examples:
               Request to fetch the institutional transaction details for TSLA-US:
                 $ref: '#/components/examples/institutionalTransactionsPostRequest'
@@ -327,10 +328,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/institutionalTransactionsResponse'
+                $ref: '#/components/schemas/InstitutionalTransactionsResponse'
               examples:
                 Single identifier request:
                   $ref: '#/components/examples/institutionalTransactionsSingle'
+                Multiple identifier request - Institutional Transactions Example:
+                  $ref: '#/components/examples/institutionalTransactionsMultiple'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -579,6 +582,24 @@ components:
           * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
           * **O** = Options Exercised - executing stock options to acquire shares.
           * **M** = Other Transactions - any other types of equity-related actions not covered above.
+    periodOfMeasure:
+      name: periodOfMeasure
+      in: query
+      schema:
+        type: string
+        enum:
+          - 1M
+          - 3M
+          - 6M
+          - 12M
+        default: 6M
+      description: >
+        Determines the range over which the code calculates change for Percent
+        Ownership and Position Change.
+          * **1M** = 1 Month (last 30 days)
+          * **3M** = 3 Months (last 90 days)
+          * **6M** = 6 Months (last 180 days)
+          * **12M** = 12 Months (last 365 days)
     rowExclusion:
       name: rowExclusion
       in: query
@@ -631,9 +652,18 @@ components:
           $ref: '#/components/schemas/currency'
       required:
         - ids
-    insiderTransactionsRequest:
+    InsiderTransactionsRequest:
       title: Insider Transactions Request
       description: Insider Transactions Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/InsiderTransactionsRequestData'
+      required:
+        - data
+    InsiderTransactionsRequestData:
+      title: Insider Transactions Request Body
+      description: Insider Transactions Request Body elements
       type: object
       properties:
         ids:
@@ -652,9 +682,18 @@ components:
         - ids
         - startDate
         - endDate
-    institutionalTransactionsRequest:
+    InstitutionalTransactionsRequest:
       title: Institutional Transactions Request
       description: Institutional Transactions Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/InstitutionalTransactionsRequestData'
+      required:
+        - data
+    InstitutionalTransactionsRequestData:
+      title: Institutional Transactions Request Body
+      description: Institutional Transactions Request Body elements
       type: object
       properties:
         ids:
@@ -667,6 +706,8 @@ components:
           $ref: '#/components/schemas/topNHolders'
         holderType:
           $ref: '#/components/schemas/holderType'
+        periodOfMeasure:
+          $ref: '#/components/schemas/periodOfMeasure'
         currency:
           $ref: '#/components/schemas/currency'
         frequency:
@@ -1122,7 +1163,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/fundHolding'
-    insiderTransactionsResponse:
+    InsiderTransactionsResponse:
       title: Insider Transactions Response
       type: object
       description: insiderTransactions response
@@ -1132,7 +1173,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/insiderTransactions'
-    institutionalTransactionsResponse:
+    InstitutionalTransactionsResponse:
       title: Institutional Transactions Response
       type: object
       description: institutionalTransactions response
@@ -1317,6 +1358,21 @@ components:
           * **S** =  Insiders/Stakeholders
           * **FS** = Institutions/Insiders
           * **B** = Beneficial Owners
+    periodOfMeasure:
+      type: string
+      enum:
+        - 1M
+        - 3M
+        - 6M
+        - 12M
+      default: 6M
+      description: >
+        Determines the range over which the code calculates change for Percent
+        Ownership and Position Change.
+          * **1M** = 1 Month (last 30 days)
+          * **3M** = 3 Months (last 90 days)
+          * **6M** =  6 Months (last 180 days)
+          * **12M** = 12 Months (last 365 days)
     transactionType:
       type: string
       enum:
@@ -2270,25 +2326,28 @@ components:
       summary: Request body for Insider Transactions.
       description: Requesting insider transactions details for TSLA-US.
       value:
-        ids:
-          - TSLA-US
-        startDate: '2020-06-30'
-        endDate: '2021-06-30'
-        transactionType: A
-        rowExclusion: DB
-        currency: USD
+        data:
+          ids:
+            - TSLA-US
+          startDate: '2020-06-30'
+          endDate: '2021-06-30'
+          transactionType: A
+          rowExclusion: DB
+          currency: USD
     institutionalTransactionsPostRequest:
       summary: Request body for Institutional Transactions.
       description: Requesting institutional transactions details for TSLA-US.
       value:
-        ids:
-          - TSLA-US
-        startDate: '2020-06-30'
-        endDate: '2021-06-30'
-        topNHolders: '10'
-        holderType: F
-        frequency: MTD
-        currency: USD
+        data:
+          ids:
+            - TSLA-US
+          startDate: '2020-06-30'
+          endDate: '2020-08-30'
+          topNHolders: '10'
+          holderType: F
+          periodOfMeasure: 6M
+          frequency: MTD
+          currency: USD
     institutionalTransactionsSingle:
       summary: Single Identifier - Institutional Transactions Example.
       description: >-

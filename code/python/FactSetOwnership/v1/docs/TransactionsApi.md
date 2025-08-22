@@ -180,12 +180,13 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     frequency = "M" # str | Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the month.   * **MTD** = Month-to-date   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** =  Calendar quarter-to-date   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** = Calendar Year-to-date.  (optional) if omitted the server will use the default value of "M"
     top_n_holders = "25" # str | Specifies the number of top holders whose data is returned.   * **ALL** = All holders   * **5** = Top 5 Institutional Holders   * **10** = Top 10 Institutional Holders   * **25** = Top 25 Institutional Holders   * **50** = Top 50 Institutional Holders   * **100** = Top 100 Institutional Holders  (optional) if omitted the server will use the default value of "25"
     holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) if omitted the server will use the default value of "F"
+    period_of_measure = "6M" # str | Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** = 1 Month (last 30 days)   * **3M** = 3 Months (last 90 days)   * **6M** = 6 Months (last 180 days)   * **12M** = 12 Months (last 365 days)  (optional) if omitted the server will use the default value of "6M"
 
     try:
         # Get institutional transaction details for a list of requested identifiers.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_ownership_institutional_transactions(ids, start_date, end_date, currency=currency, frequency=frequency, top_n_holders=top_n_holders, holder_type=holder_type)
+        api_response = api_instance.get_ownership_institutional_transactions(ids, start_date, end_date, currency=currency, frequency=frequency, top_n_holders=top_n_holders, holder_type=holder_type, period_of_measure=period_of_measure)
 
         pprint(api_response)
 
@@ -205,6 +206,7 @@ Name | Type | Description  | Notes
  **frequency** | **str**| Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  | [optional] if omitted the server will use the default value of "M"
  **top_n_holders** | **str**| Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  | [optional] if omitted the server will use the default value of "25"
  **holder_type** | **str**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] if omitted the server will use the default value of "F"
+ **period_of_measure** | **str**| Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  | [optional] if omitted the server will use the default value of "6M"
 
 ### Return type
 
@@ -286,12 +288,14 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     insider_transactions_request = InsiderTransactionsRequest(
-        ids=IdTransactions(["FDS-US"]),
-        start_date=dateutil_parser('Tue Jun 30 00:00:00 UTC 2020').date(),
-        end_date=dateutil_parser('Wed Jun 30 00:00:00 UTC 2021').date(),
-        transaction_type=TransactionType("A"),
-        row_exclusion=RowExclusion("DB"),
-        currency="USD",
+        data=InsiderTransactionsRequestData(
+            ids=IdTransactions(["FDS-US"]),
+            start_date=dateutil_parser('Tue Jun 30 00:00:00 UTC 2020').date(),
+            end_date=dateutil_parser('Wed Jun 30 00:00:00 UTC 2021').date(),
+            transaction_type=TransactionType("A"),
+            row_exclusion=RowExclusion("DB"),
+            currency="USD",
+        ),
     ) # InsiderTransactionsRequest | Requesting Insider Transaction Details
 
     try:
@@ -392,13 +396,16 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     institutional_transactions_request = InstitutionalTransactionsRequest(
-        ids=IdTransactions(["FDS-US"]),
-        start_date=dateutil_parser('Tue Jun 30 00:00:00 UTC 2020').date(),
-        end_date=dateutil_parser('Wed Jun 30 00:00:00 UTC 2021').date(),
-        top_n_holders=TopNHolders("25"),
-        holder_type=HolderType("F"),
-        currency="USD",
-        frequency=Frequency("M"),
+        data=InstitutionalTransactionsRequestData(
+            ids=IdTransactions(["FDS-US"]),
+            start_date=dateutil_parser('Tue Jun 30 00:00:00 UTC 2020').date(),
+            end_date=dateutil_parser('Wed Jun 30 00:00:00 UTC 2021').date(),
+            top_n_holders=TopNHolders("25"),
+            holder_type=HolderType("F"),
+            period_of_measure=PeriodOfMeasure("6M"),
+            currency="USD",
+            frequency=Frequency("M"),
+        ),
     ) # InstitutionalTransactionsRequest | Requesting Institutional Transaction Details
 
     try:

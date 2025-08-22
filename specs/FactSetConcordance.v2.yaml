@@ -4019,6 +4019,7 @@ components:
           example:
             - PUB
             - PVT
+          nullable: true
         clientExcludeEntitySubType:
           description: >
             Entity sub-types to exclude from the search. If provided, entities
@@ -4029,6 +4030,7 @@ components:
           example:
             - CP
             - IB
+          nullable: true
         clientIncludeEntityType:
           description: >
             Entity types to include in the search. If provided, only entities
@@ -4038,6 +4040,7 @@ components:
             type: string
           example:
             - PEF
+          nullable: true
         clientIncludeEntitySubType:
           description: >
             Entity sub-types to include in the search. If provided, only
@@ -4047,6 +4050,7 @@ components:
             type: string
           example:
             - PR
+          nullable: true
     EntityTaskStatus:
       title: Entity Task Status
       description: >

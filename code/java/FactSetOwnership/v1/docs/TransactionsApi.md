@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ## getOwnershipInstitutionalTransactions
 
-> InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType)
+> InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure)
 
 Get institutional transaction details for a list of requested identifiers.
 
@@ -177,8 +177,9 @@ public class Example {
         String frequency = "M"; // String | Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the month.   * **MTD** = Month-to-date   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** =  Calendar quarter-to-date   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** = Calendar Year-to-date. 
         String topNHolders = "ALL"; // String | Specifies the number of top holders whose data is returned.   * **ALL** = All holders   * **5** = Top 5 Institutional Holders   * **10** = Top 10 Institutional Holders   * **25** = Top 25 Institutional Holders   * **50** = Top 50 Institutional Holders   * **100** = Top 100 Institutional Holders 
         String holderType = "F"; // String | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners 
+        String periodOfMeasure = "1M"; // String | Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** = 1 Month (last 30 days)   * **3M** = 3 Months (last 90 days)   * **6M** = 6 Months (last 180 days)   * **12M** = 12 Months (last 365 days) 
         try {
-            InstitutionalTransactionsResponse result = apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType);
+            InstitutionalTransactionsResponse result = apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -204,6 +205,7 @@ Name | Type | Description  | Notes
  **frequency** | **String**| Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  | [optional] [default to M] [enum: M, MTD, CQ, CQTD, CY, CYTD]
  **topNHolders** | **String**| Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  | [optional] [default to 25] [enum: ALL, 5, 10, 25, 50, 100]
  **holderType** | **String**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] [default to F] [enum: F, M, S, FS, B]
+ **periodOfMeasure** | **String**| Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  | [optional] [default to 6M] [enum: 1M, 3M, 6M, 12M]
 
 ### Return type
 

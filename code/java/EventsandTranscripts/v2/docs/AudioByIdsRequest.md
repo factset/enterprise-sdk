@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reportId** | **Integer** | Unique identifier for the event transcript/audio. |  [optional]
 **audioSourceId** | **Integer** | Unique ID for the specific internal recording for the reportId. |  [optional]
+**isLatest** | **Boolean** | Search for latest audio file. |  [optional]
 **trimmed** | **Boolean** | Search for trimmed audio files. |  [optional]
 
 

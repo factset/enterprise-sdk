@@ -22,10 +22,13 @@ from fds.sdk.FactSetOwnership.model.id_holders import IdHolders
 from fds.sdk.FactSetOwnership.model.id_transactions import IdTransactions
 from fds.sdk.FactSetOwnership.model.insider_transactions import InsiderTransactions
 from fds.sdk.FactSetOwnership.model.insider_transactions_request import InsiderTransactionsRequest
+from fds.sdk.FactSetOwnership.model.insider_transactions_request_data import InsiderTransactionsRequestData
 from fds.sdk.FactSetOwnership.model.insider_transactions_response import InsiderTransactionsResponse
 from fds.sdk.FactSetOwnership.model.institutional_transactions import InstitutionalTransactions
 from fds.sdk.FactSetOwnership.model.institutional_transactions_request import InstitutionalTransactionsRequest
+from fds.sdk.FactSetOwnership.model.institutional_transactions_request_data import InstitutionalTransactionsRequestData
 from fds.sdk.FactSetOwnership.model.institutional_transactions_response import InstitutionalTransactionsResponse
+from fds.sdk.FactSetOwnership.model.period_of_measure import PeriodOfMeasure
 from fds.sdk.FactSetOwnership.model.row_exclusion import RowExclusion
 from fds.sdk.FactSetOwnership.model.security_holders import SecurityHolders
 from fds.sdk.FactSetOwnership.model.security_holders_request import SecurityHoldersRequest

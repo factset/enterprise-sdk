@@ -369,7 +369,7 @@ class ComponentsApi(object):
     ) -> ComponentSummaryRoot:
         """Get PA components  # noqa: E501
 
-        This endpoint returns the list of PA components in a given PA document.  # noqa: E501
+        This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -416,7 +416,7 @@ class ComponentsApi(object):
     ) -> typing.Tuple[ComponentSummaryRoot, int, typing.MutableMapping]:
         """Get PA components  # noqa: E501
 
-        This endpoint returns the list of PA components in a given PA document.  # noqa: E501
+        This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -467,7 +467,7 @@ class ComponentsApi(object):
     ) -> "ApplyResult[ComponentSummaryRoot]":
         """Get PA components  # noqa: E501
 
-        This endpoint returns the list of PA components in a given PA document.  # noqa: E501
+        This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -513,7 +513,7 @@ class ComponentsApi(object):
     ) -> "ApplyResult[typing.Tuple[ComponentSummaryRoot, int, typing.MutableMapping]]":
         """Get PA components  # noqa: E501
 
-        This endpoint returns the list of PA components in a given PA document.  # noqa: E501
+        This endpoint returns the list of PA components in a given PA document.     Remarks:     Multi-horizon date frequency components are not supported, and the corresponding component IDs will not be returned  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **fileName** | **String** | The exact file name to search for. | [optional] 
 **reportId** | **Number** | Unique identifier for the event transcript/audio. | [optional] 
 **audioSourceId** | **Number** | Unique ID for the specific internal recording for the reportId. | [optional] 
+**isLatest** | **Boolean** | Search for latest audio file. | [optional] [default to false]
 
 
 

@@ -18,10 +18,13 @@ docs/IdHolders.md
 docs/IdTransactions.md
 docs/InsiderTransactions.md
 docs/InsiderTransactionsRequest.md
+docs/InsiderTransactionsRequestData.md
 docs/InsiderTransactionsResponse.md
 docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
+docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
 docs/SecurityHoldersApi.md
@@ -54,10 +57,13 @@ fds/sdk/FactSetOwnership/model/id_holders.py
 fds/sdk/FactSetOwnership/model/id_transactions.py
 fds/sdk/FactSetOwnership/model/insider_transactions.py
 fds/sdk/FactSetOwnership/model/insider_transactions_request.py
+fds/sdk/FactSetOwnership/model/insider_transactions_request_data.py
 fds/sdk/FactSetOwnership/model/insider_transactions_response.py
 fds/sdk/FactSetOwnership/model/institutional_transactions.py
 fds/sdk/FactSetOwnership/model/institutional_transactions_request.py
+fds/sdk/FactSetOwnership/model/institutional_transactions_request_data.py
 fds/sdk/FactSetOwnership/model/institutional_transactions_response.py
+fds/sdk/FactSetOwnership/model/period_of_measure.py
 fds/sdk/FactSetOwnership/model/row_exclusion.py
 fds/sdk/FactSetOwnership/model/security_holders.py
 fds/sdk/FactSetOwnership/model/security_holders_request.py

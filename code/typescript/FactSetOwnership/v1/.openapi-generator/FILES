@@ -15,10 +15,13 @@ docs/FundHoldingsResponse.md
 docs/HolderType.md
 docs/InsiderTransactions.md
 docs/InsiderTransactionsRequest.md
+docs/InsiderTransactionsRequestData.md
 docs/InsiderTransactionsResponse.md
 docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
+docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
 docs/SecurityHoldersApi.md
@@ -45,10 +48,13 @@ src/model/FundHoldingsResponse.js
 src/model/HolderType.js
 src/model/InsiderTransactions.js
 src/model/InsiderTransactionsRequest.js
+src/model/InsiderTransactionsRequestData.js
 src/model/InsiderTransactionsResponse.js
 src/model/InstitutionalTransactions.js
 src/model/InstitutionalTransactionsRequest.js
+src/model/InstitutionalTransactionsRequestData.js
 src/model/InstitutionalTransactionsResponse.js
+src/model/PeriodOfMeasure.js
 src/model/RowExclusion.js
 src/model/SecurityHolders.js
 src/model/SecurityHoldersRequest.js

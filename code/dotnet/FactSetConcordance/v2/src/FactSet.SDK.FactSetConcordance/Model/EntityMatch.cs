@@ -636,28 +636,28 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. 
         /// </summary>
         /// <value>Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. </value>
-        [DataMember(Name = "clientExcludeEntityType", EmitDefaultValue = false)]
+        [DataMember(Name = "clientExcludeEntityType", EmitDefaultValue = true)]
         public List<string> ClientExcludeEntityType { get; set; }
 
         /// <summary>
         /// Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. 
         /// </summary>
         /// <value>Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. </value>
-        [DataMember(Name = "clientExcludeEntitySubType", EmitDefaultValue = false)]
+        [DataMember(Name = "clientExcludeEntitySubType", EmitDefaultValue = true)]
         public List<string> ClientExcludeEntitySubType { get; set; }
 
         /// <summary>
         /// Entity types to include in the search. If provided, only entities with the specified entity types will be considered. 
         /// </summary>
         /// <value>Entity types to include in the search. If provided, only entities with the specified entity types will be considered. </value>
-        [DataMember(Name = "clientIncludeEntityType", EmitDefaultValue = false)]
+        [DataMember(Name = "clientIncludeEntityType", EmitDefaultValue = true)]
         public List<string> ClientIncludeEntityType { get; set; }
 
         /// <summary>
         /// Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. 
         /// </summary>
         /// <value>Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. </value>
-        [DataMember(Name = "clientIncludeEntitySubType", EmitDefaultValue = false)]
+        [DataMember(Name = "clientIncludeEntitySubType", EmitDefaultValue = true)]
         public List<string> ClientIncludeEntitySubType { get; set; }
 
         /// <summary>

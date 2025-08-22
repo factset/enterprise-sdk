@@ -6,7 +6,7 @@ info:
   description: |
     FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**, and **Transactions** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position details held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders. FactSet also provides extensive insider and institutional transactions data for multiple countries including the United States, China, and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around 110 countries. For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
   title: FactSet Ownership API
-  version: 1.2.0
+  version: 1.3.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -655,7 +655,7 @@ paths:
                 Multiple identifier request - Insider Transactions Example:
                   $ref: '#/components/examples/insiderTransactionsMultiple'
               schema:
-                $ref: '#/components/schemas/insiderTransactionsResponse'
+                $ref: '#/components/schemas/InsiderTransactionsResponse'
           description: Insider Transactions Response.
         "400":
           content:
@@ -739,7 +739,7 @@ paths:
               Request to fetch TSLA Insider Transaction Details:
                 $ref: '#/components/examples/insiderTransactionsPostRequest'
             schema:
-              $ref: '#/components/schemas/insiderTransactionsRequest'
+              $ref: '#/components/schemas/InsiderTransactionsRequest'
         description: Requesting Insider Transaction Details
         required: true
       responses:
@@ -752,7 +752,7 @@ paths:
                 Multiple identifier request:
                   $ref: '#/components/examples/insiderTransactionsMultiple'
               schema:
-                $ref: '#/components/schemas/insiderTransactionsResponse'
+                $ref: '#/components/schemas/InsiderTransactionsResponse'
           description: Insider Transactions Response.
         "400":
           content:
@@ -957,6 +957,25 @@ paths:
           - B
           type: string
         style: form
+      - description: |
+          Determines the range over which the code calculates change for Percent Ownership and Position Change.
+            * **1M** = 1 Month (last 30 days)
+            * **3M** = 3 Months (last 90 days)
+            * **6M** = 6 Months (last 180 days)
+            * **12M** = 12 Months (last 365 days)
+        explode: true
+        in: query
+        name: periodOfMeasure
+        required: false
+        schema:
+          default: 6M
+          enum:
+          - 1M
+          - 3M
+          - 6M
+          - 12M
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -967,7 +986,7 @@ paths:
                 Multiple identifier request - Institutional Transactions Example:
                   $ref: '#/components/examples/institutionalTransactionsMultiple'
               schema:
-                $ref: '#/components/schemas/institutionalTransactionsResponse'
+                $ref: '#/components/schemas/InstitutionalTransactionsResponse'
           description: Institutional Transactions Response.
         "400":
           content:
@@ -1052,7 +1071,7 @@ paths:
               Request to fetch the institutional transaction details for TSLA-US:
                 $ref: '#/components/examples/institutionalTransactionsPostRequest'
             schema:
-              $ref: '#/components/schemas/institutionalTransactionsRequest'
+              $ref: '#/components/schemas/InstitutionalTransactionsRequest'
         description: Requesting Institutional Transaction Details
         required: true
       responses:
@@ -1062,8 +1081,10 @@ paths:
               examples:
                 Single identifier request:
                   $ref: '#/components/examples/institutionalTransactionsSingle'
+                Multiple identifier request - Institutional Transactions Example:
+                  $ref: '#/components/examples/institutionalTransactionsMultiple'
               schema:
-                $ref: '#/components/schemas/institutionalTransactionsResponse'
+                $ref: '#/components/schemas/InstitutionalTransactionsResponse'
           description: Institutional Transactions Response.
         "400":
           content:
@@ -1979,25 +2000,28 @@ components:
       description: Requesting insider transactions details for TSLA-US.
       summary: Request body for Insider Transactions.
       value:
-        ids:
-        - TSLA-US
-        startDate: 2020-06-30
-        endDate: 2021-06-30
-        transactionType: A
-        rowExclusion: DB
-        currency: USD
+        data:
+          ids:
+          - TSLA-US
+          startDate: 2020-06-30
+          endDate: 2021-06-30
+          transactionType: A
+          rowExclusion: DB
+          currency: USD
     institutionalTransactionsPostRequest:
       description: Requesting institutional transactions details for TSLA-US.
       summary: Request body for Institutional Transactions.
       value:
-        ids:
-        - TSLA-US
-        startDate: 2020-06-30
-        endDate: 2021-06-30
-        topNHolders: "10"
-        holderType: F
-        frequency: MTD
-        currency: USD
+        data:
+          ids:
+          - TSLA-US
+          startDate: 2020-06-30
+          endDate: 2020-08-30
+          topNHolders: "10"
+          holderType: F
+          periodOfMeasure: 6M
+          frequency: MTD
+          currency: USD
     institutionalTransactionsSingle:
       description: 'Returns the top 10 Institutional Transactions for the following
         security: TSLA-US'
@@ -2643,6 +2667,26 @@ components:
         - M
         type: string
       style: form
+    periodOfMeasure:
+      description: |
+        Determines the range over which the code calculates change for Percent Ownership and Position Change.
+          * **1M** = 1 Month (last 30 days)
+          * **3M** = 3 Months (last 90 days)
+          * **6M** = 6 Months (last 180 days)
+          * **12M** = 12 Months (last 365 days)
+      explode: true
+      in: query
+      name: periodOfMeasure
+      required: false
+      schema:
+        default: 6M
+        enum:
+        - 1M
+        - 3M
+        - 6M
+        - 12M
+        type: string
+      style: form
     rowExclusion:
       description: |
         Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.
@@ -2795,8 +2839,30 @@ components:
       - ids
       title: Security Holders Request
       type: object
-    insiderTransactionsRequest:
+    InsiderTransactionsRequest:
       description: Insider Transactions Request
+      example:
+        data:
+          endDate: 2021-06-30T00:00:00.000+0000
+          ids:
+          - FDS-US
+          currency: USD
+          startDate: 2020-06-30T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/InsiderTransactionsRequestData'
+      required:
+      - data
+      title: Insider Transactions Request
+      type: object
+    InsiderTransactionsRequestData:
+      description: Insider Transactions Request Body elements
+      example:
+        endDate: 2021-06-30T00:00:00.000+0000
+        ids:
+        - FDS-US
+        currency: USD
+        startDate: 2020-06-30T00:00:00.000+0000
       properties:
         ids:
           description: List of identifiers.
@@ -2834,10 +2900,32 @@ components:
       - endDate
       - ids
       - startDate
-      title: Insider Transactions Request
+      title: Insider Transactions Request Body
       type: object
-    institutionalTransactionsRequest:
+    InstitutionalTransactionsRequest:
       description: Institutional Transactions Request
+      example:
+        data:
+          endDate: 2021-06-30T00:00:00.000+0000
+          ids:
+          - FDS-US
+          currency: USD
+          startDate: 2020-06-30T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/InstitutionalTransactionsRequestData'
+      required:
+      - data
+      title: Institutional Transactions Request
+      type: object
+    InstitutionalTransactionsRequestData:
+      description: Institutional Transactions Request Body elements
+      example:
+        endDate: 2021-06-30T00:00:00.000+0000
+        ids:
+        - FDS-US
+        currency: USD
+        startDate: 2020-06-30T00:00:00.000+0000
       properties:
         ids:
           description: List of identifiers.
@@ -2866,6 +2954,8 @@ components:
           $ref: '#/components/schemas/topNHolders'
         holderType:
           $ref: '#/components/schemas/holderType'
+        periodOfMeasure:
+          $ref: '#/components/schemas/periodOfMeasure'
         currency:
           description: Currency code for adjusting prices. Default is Local. For a
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -2877,7 +2967,7 @@ components:
       - endDate
       - ids
       - startDate
-      title: Institutional Transactions Request
+      title: Institutional Transactions Request Body
       type: object
     fundHolding:
       description: fundHolding response object
@@ -3349,7 +3439,7 @@ components:
           type: array
       title: Fund Holding Response
       type: object
-    insiderTransactionsResponse:
+    InsiderTransactionsResponse:
       description: insiderTransactions response
       example:
         data:
@@ -3395,7 +3485,7 @@ components:
           type: array
       title: Insider Transactions Response
       type: object
-    institutionalTransactionsResponse:
+    InstitutionalTransactionsResponse:
       description: institutionalTransactions response
       example:
         data:
@@ -3604,6 +3694,20 @@ components:
       - S
       - FS
       - B
+      type: string
+    periodOfMeasure:
+      default: 6M
+      description: |
+        Determines the range over which the code calculates change for Percent Ownership and Position Change.
+          * **1M** = 1 Month (last 30 days)
+          * **3M** = 3 Months (last 90 days)
+          * **6M** =  6 Months (last 180 days)
+          * **12M** = 12 Months (last 365 days)
+      enum:
+      - 1M
+      - 3M
+      - 6M
+      - 12M
       type: string
     transactionType:
       default: A

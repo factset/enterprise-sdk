@@ -334,16 +334,16 @@ public class EntityMatch implements Serializable {
   private JsonNullable<String> nameMatchSource = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_TYPE = "clientExcludeEntityType";
-  private java.util.List<String> clientExcludeEntityType = null;
+  private JsonNullable<java.util.List<String>> clientExcludeEntityType = JsonNullable.<java.util.List<String>>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_SUB_TYPE = "clientExcludeEntitySubType";
-  private java.util.List<String> clientExcludeEntitySubType = null;
+  private JsonNullable<java.util.List<String>> clientExcludeEntitySubType = JsonNullable.<java.util.List<String>>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_TYPE = "clientIncludeEntityType";
-  private java.util.List<String> clientIncludeEntityType = null;
+  private JsonNullable<java.util.List<String>> clientIncludeEntityType = JsonNullable.<java.util.List<String>>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_SUB_TYPE = "clientIncludeEntitySubType";
-  private java.util.List<String> clientIncludeEntitySubType = null;
+  private JsonNullable<java.util.List<String>> clientIncludeEntitySubType = JsonNullable.<java.util.List<String>>undefined();
 
   public EntityMatch() { 
   }
@@ -2457,15 +2457,19 @@ public class EntityMatch implements Serializable {
 
 
   public EntityMatch clientExcludeEntityType(java.util.List<String> clientExcludeEntityType) {
-    this.clientExcludeEntityType = clientExcludeEntityType;
+    this.clientExcludeEntityType = JsonNullable.<java.util.List<String>>of(clientExcludeEntityType);
     return this;
   }
 
   public EntityMatch addClientExcludeEntityTypeItem(String clientExcludeEntityTypeItem) {
-    if (this.clientExcludeEntityType == null) {
-      this.clientExcludeEntityType = new java.util.ArrayList<>();
+    if (this.clientExcludeEntityType == null || !this.clientExcludeEntityType.isPresent()) {
+      this.clientExcludeEntityType = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
     }
-    this.clientExcludeEntityType.add(clientExcludeEntityTypeItem);
+    try {
+      this.clientExcludeEntityType.get().add(clientExcludeEntityTypeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -2475,31 +2479,43 @@ public class EntityMatch implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"PUB\",\"PVT\"]", value = "Entity types to exclude from the search. If provided, entities with the specified entity types will not be considered. ")
-  @JsonProperty(JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public java.util.List<String> getClientExcludeEntityType() {
-    return clientExcludeEntityType;
+        return clientExcludeEntityType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientExcludeEntityType(java.util.List<String> clientExcludeEntityType) {
+
+  public JsonNullable<java.util.List<String>> getClientExcludeEntityType_JsonNullable() {
+    return clientExcludeEntityType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_TYPE)
+  public void setClientExcludeEntityType_JsonNullable(JsonNullable<java.util.List<String>> clientExcludeEntityType) {
     this.clientExcludeEntityType = clientExcludeEntityType;
+  }
+
+  public void setClientExcludeEntityType(java.util.List<String> clientExcludeEntityType) {
+    this.clientExcludeEntityType = JsonNullable.<java.util.List<String>>of(clientExcludeEntityType);
   }
 
 
   public EntityMatch clientExcludeEntitySubType(java.util.List<String> clientExcludeEntitySubType) {
-    this.clientExcludeEntitySubType = clientExcludeEntitySubType;
+    this.clientExcludeEntitySubType = JsonNullable.<java.util.List<String>>of(clientExcludeEntitySubType);
     return this;
   }
 
   public EntityMatch addClientExcludeEntitySubTypeItem(String clientExcludeEntitySubTypeItem) {
-    if (this.clientExcludeEntitySubType == null) {
-      this.clientExcludeEntitySubType = new java.util.ArrayList<>();
+    if (this.clientExcludeEntitySubType == null || !this.clientExcludeEntitySubType.isPresent()) {
+      this.clientExcludeEntitySubType = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
     }
-    this.clientExcludeEntitySubType.add(clientExcludeEntitySubTypeItem);
+    try {
+      this.clientExcludeEntitySubType.get().add(clientExcludeEntitySubTypeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -2509,31 +2525,43 @@ public class EntityMatch implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"CP\",\"IB\"]", value = "Entity sub-types to exclude from the search. If provided, entities with the specified entity sub-types will not be considered. ")
-  @JsonProperty(JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_SUB_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public java.util.List<String> getClientExcludeEntitySubType() {
-    return clientExcludeEntitySubType;
+        return clientExcludeEntitySubType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_SUB_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientExcludeEntitySubType(java.util.List<String> clientExcludeEntitySubType) {
+
+  public JsonNullable<java.util.List<String>> getClientExcludeEntitySubType_JsonNullable() {
+    return clientExcludeEntitySubType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_EXCLUDE_ENTITY_SUB_TYPE)
+  public void setClientExcludeEntitySubType_JsonNullable(JsonNullable<java.util.List<String>> clientExcludeEntitySubType) {
     this.clientExcludeEntitySubType = clientExcludeEntitySubType;
+  }
+
+  public void setClientExcludeEntitySubType(java.util.List<String> clientExcludeEntitySubType) {
+    this.clientExcludeEntitySubType = JsonNullable.<java.util.List<String>>of(clientExcludeEntitySubType);
   }
 
 
   public EntityMatch clientIncludeEntityType(java.util.List<String> clientIncludeEntityType) {
-    this.clientIncludeEntityType = clientIncludeEntityType;
+    this.clientIncludeEntityType = JsonNullable.<java.util.List<String>>of(clientIncludeEntityType);
     return this;
   }
 
   public EntityMatch addClientIncludeEntityTypeItem(String clientIncludeEntityTypeItem) {
-    if (this.clientIncludeEntityType == null) {
-      this.clientIncludeEntityType = new java.util.ArrayList<>();
+    if (this.clientIncludeEntityType == null || !this.clientIncludeEntityType.isPresent()) {
+      this.clientIncludeEntityType = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
     }
-    this.clientIncludeEntityType.add(clientIncludeEntityTypeItem);
+    try {
+      this.clientIncludeEntityType.get().add(clientIncludeEntityTypeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -2543,31 +2571,43 @@ public class EntityMatch implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"PEF\"]", value = "Entity types to include in the search. If provided, only entities with the specified entity types will be considered. ")
-  @JsonProperty(JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public java.util.List<String> getClientIncludeEntityType() {
-    return clientIncludeEntityType;
+        return clientIncludeEntityType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientIncludeEntityType(java.util.List<String> clientIncludeEntityType) {
+
+  public JsonNullable<java.util.List<String>> getClientIncludeEntityType_JsonNullable() {
+    return clientIncludeEntityType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_TYPE)
+  public void setClientIncludeEntityType_JsonNullable(JsonNullable<java.util.List<String>> clientIncludeEntityType) {
     this.clientIncludeEntityType = clientIncludeEntityType;
+  }
+
+  public void setClientIncludeEntityType(java.util.List<String> clientIncludeEntityType) {
+    this.clientIncludeEntityType = JsonNullable.<java.util.List<String>>of(clientIncludeEntityType);
   }
 
 
   public EntityMatch clientIncludeEntitySubType(java.util.List<String> clientIncludeEntitySubType) {
-    this.clientIncludeEntitySubType = clientIncludeEntitySubType;
+    this.clientIncludeEntitySubType = JsonNullable.<java.util.List<String>>of(clientIncludeEntitySubType);
     return this;
   }
 
   public EntityMatch addClientIncludeEntitySubTypeItem(String clientIncludeEntitySubTypeItem) {
-    if (this.clientIncludeEntitySubType == null) {
-      this.clientIncludeEntitySubType = new java.util.ArrayList<>();
+    if (this.clientIncludeEntitySubType == null || !this.clientIncludeEntitySubType.isPresent()) {
+      this.clientIncludeEntitySubType = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
     }
-    this.clientIncludeEntitySubType.add(clientIncludeEntitySubTypeItem);
+    try {
+      this.clientIncludeEntitySubType.get().add(clientIncludeEntitySubTypeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -2577,18 +2617,26 @@ public class EntityMatch implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"PR\"]", value = "Entity sub-types to include in the search. If provided, only entities with the specified entity sub-types will be considered. ")
-  @JsonProperty(JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_SUB_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public java.util.List<String> getClientIncludeEntitySubType() {
-    return clientIncludeEntitySubType;
+        return clientIncludeEntitySubType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_SUB_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientIncludeEntitySubType(java.util.List<String> clientIncludeEntitySubType) {
+
+  public JsonNullable<java.util.List<String>> getClientIncludeEntitySubType_JsonNullable() {
+    return clientIncludeEntitySubType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_INCLUDE_ENTITY_SUB_TYPE)
+  public void setClientIncludeEntitySubType_JsonNullable(JsonNullable<java.util.List<String>> clientIncludeEntitySubType) {
     this.clientIncludeEntitySubType = clientIncludeEntitySubType;
+  }
+
+  public void setClientIncludeEntitySubType(java.util.List<String> clientIncludeEntitySubType) {
+    this.clientIncludeEntitySubType = JsonNullable.<java.util.List<String>>of(clientIncludeEntitySubType);
   }
 
 
@@ -2666,10 +2714,10 @@ public class EntityMatch implements Serializable {
         equalsNullable(this.parentMatchFlag, entityMatch.parentMatchFlag) &&
         equalsNullable(this.nameMatchString, entityMatch.nameMatchString) &&
         equalsNullable(this.nameMatchSource, entityMatch.nameMatchSource) &&
-        Objects.equals(this.clientExcludeEntityType, entityMatch.clientExcludeEntityType) &&
-        Objects.equals(this.clientExcludeEntitySubType, entityMatch.clientExcludeEntitySubType) &&
-        Objects.equals(this.clientIncludeEntityType, entityMatch.clientIncludeEntityType) &&
-        Objects.equals(this.clientIncludeEntitySubType, entityMatch.clientIncludeEntitySubType);
+        equalsNullable(this.clientExcludeEntityType, entityMatch.clientExcludeEntityType) &&
+        equalsNullable(this.clientExcludeEntitySubType, entityMatch.clientExcludeEntitySubType) &&
+        equalsNullable(this.clientIncludeEntityType, entityMatch.clientIncludeEntityType) &&
+        equalsNullable(this.clientIncludeEntitySubType, entityMatch.clientIncludeEntitySubType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -2678,7 +2726,7 @@ public class EntityMatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(taskId), hashCodeNullable(universeId), hashCodeNullable(clientId), hashCodeNullable(clientBbgFigi), hashCodeNullable(clientBbgTicker), hashCodeNullable(clientBic), hashCodeNullable(clientCik), hashCodeNullable(clientCountry), hashCodeNullable(clientCrd), hashCodeNullable(clientCusip), hashCodeNullable(clientEin), hashCodeNullable(clientFactsetId), hashCodeNullable(clientFitch), hashCodeNullable(clientGvkey), hashCodeNullable(clientGvkeyIid), hashCodeNullable(clientIsin), hashCodeNullable(clientJcn), hashCodeNullable(clientLei), hashCodeNullable(clientLxid), hashCodeNullable(clientMd), hashCodeNullable(clientName), hashCodeNullable(clientPriority), hashCodeNullable(clientRedCode), hashCodeNullable(clientRssd), hashCodeNullable(clientSedol), hashCodeNullable(clientSpr), hashCodeNullable(clientState), hashCodeNullable(clientTicker), hashCodeNullable(clientTickerExchange), hashCodeNullable(clientTickerRegion), hashCodeNullable(clientUkch), hashCodeNullable(clientUrl), hashCodeNullable(clientValoren), hashCodeNullable(clientWkn), clientAdditionalContext, hashCodeNullable(symbolMatchType), hashCodeNullable(rowIndex), hashCodeNullable(matchFlag), hashCodeNullable(entityId), hashCodeNullable(entityName), hashCodeNullable(url), hashCodeNullable(mapStatus), hashCodeNullable(similarityScore), hashCodeNullable(confidenceScore), hashCodeNullable(countryCode), hashCodeNullable(countryName), hashCodeNullable(stateCode), hashCodeNullable(stateName), hashCodeNullable(sicCode), hashCodeNullable(entityTypeCode), hashCodeNullable(entityTypeDescription), hashCodeNullable(entitySubTypeCode), hashCodeNullable(locationCity), hashCodeNullable(regionName), hashCodeNullable(factsetIndustryCode), hashCodeNullable(factsetIndustryName), hashCodeNullable(factsetSectorCode), hashCodeNullable(factsetSectorName), hashCodeNullable(parentName), hashCodeNullable(parentMatchFlag), hashCodeNullable(nameMatchString), hashCodeNullable(nameMatchSource), clientExcludeEntityType, clientExcludeEntitySubType, clientIncludeEntityType, clientIncludeEntitySubType);
+    return Objects.hash(hashCodeNullable(taskId), hashCodeNullable(universeId), hashCodeNullable(clientId), hashCodeNullable(clientBbgFigi), hashCodeNullable(clientBbgTicker), hashCodeNullable(clientBic), hashCodeNullable(clientCik), hashCodeNullable(clientCountry), hashCodeNullable(clientCrd), hashCodeNullable(clientCusip), hashCodeNullable(clientEin), hashCodeNullable(clientFactsetId), hashCodeNullable(clientFitch), hashCodeNullable(clientGvkey), hashCodeNullable(clientGvkeyIid), hashCodeNullable(clientIsin), hashCodeNullable(clientJcn), hashCodeNullable(clientLei), hashCodeNullable(clientLxid), hashCodeNullable(clientMd), hashCodeNullable(clientName), hashCodeNullable(clientPriority), hashCodeNullable(clientRedCode), hashCodeNullable(clientRssd), hashCodeNullable(clientSedol), hashCodeNullable(clientSpr), hashCodeNullable(clientState), hashCodeNullable(clientTicker), hashCodeNullable(clientTickerExchange), hashCodeNullable(clientTickerRegion), hashCodeNullable(clientUkch), hashCodeNullable(clientUrl), hashCodeNullable(clientValoren), hashCodeNullable(clientWkn), clientAdditionalContext, hashCodeNullable(symbolMatchType), hashCodeNullable(rowIndex), hashCodeNullable(matchFlag), hashCodeNullable(entityId), hashCodeNullable(entityName), hashCodeNullable(url), hashCodeNullable(mapStatus), hashCodeNullable(similarityScore), hashCodeNullable(confidenceScore), hashCodeNullable(countryCode), hashCodeNullable(countryName), hashCodeNullable(stateCode), hashCodeNullable(stateName), hashCodeNullable(sicCode), hashCodeNullable(entityTypeCode), hashCodeNullable(entityTypeDescription), hashCodeNullable(entitySubTypeCode), hashCodeNullable(locationCity), hashCodeNullable(regionName), hashCodeNullable(factsetIndustryCode), hashCodeNullable(factsetIndustryName), hashCodeNullable(factsetSectorCode), hashCodeNullable(factsetSectorName), hashCodeNullable(parentName), hashCodeNullable(parentMatchFlag), hashCodeNullable(nameMatchString), hashCodeNullable(nameMatchSource), hashCodeNullable(clientExcludeEntityType), hashCodeNullable(clientExcludeEntitySubType), hashCodeNullable(clientIncludeEntityType), hashCodeNullable(clientIncludeEntitySubType));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
