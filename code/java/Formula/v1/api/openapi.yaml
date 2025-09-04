@@ -8,7 +8,7 @@ info:
 
     **FactSet Formula API**
 
-    FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.
+    FactSet's Formula API is a modern, flexible, formula-based API that enables users to access FactSet's wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet's expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.
 
     Leverage the power and flexibility of the Formula API to -
       * Pull data from across most content sets that a user has access to in a single request
@@ -37,7 +37,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Formula API
-  version: 1.8.0
+  version: 1.13.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/formula-api
@@ -55,7 +55,7 @@ paths:
   /time-series:
     get:
       description: |
-        The `/time-series` endpoint is closely aligned with FactSet’s powerful data retrieval language **FactSet Query Language (FQL)** which is optimized for time-series analysis. FQL can also perform sophisticated statistical, mathematical, logical, and other complex operations on the data.
+        The `/time-series` endpoint is closely aligned with FactSet's powerful data retrieval language **FactSet Query Language (FQL)** which is optimized for time-series analysis. FQL can also perform sophisticated statistical, mathematical, logical, and other complex operations on the data.
 
           This endpoint has a unique **TIMESERIES** data object that pairs the requested data with FactSet provided dates. This helps reduce the need for additional data requests and reduces the work required by users.
 
@@ -89,22 +89,21 @@ paths:
         style: form
       - description: "Specify the type of symbols submitted in the `ids` parameter.\
           \ This is only required when submitting ids that are not supported by default.\
-          \ \n\nAvailable symbol types -\n* DEFAULT - Accepted symbol types include\
-          \ Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.\n\n*\
-          \ BLOOMBERG - Accepted symbol types include Bloomberg Tickers and Bloomberg\
-          \ FIGIs. \n  * When submitting Bloomberg symbols, the Bloomberg symbol is\
-          \ translated to a FactSet Permanent Identifier which is then used to retrieve\
-          \ the requested FQL and Screening formulas. The Bloomberg symbol submitted\
-          \ will be returned in the response in the field *requestId*. To see the\
-          \ FactSet Permanent Identifer that the Bloomberg symbol resolved to, use\
-          \ the `fsymId` parameter in addition to the `symbolType` parameter.\n  *\
-          \ Bloomberg symbols can not be submitted with other symbol types. \n  *\
-          \ Bloomberg Symbol Resolution is not available via Batch Requests.\n\nBloomberg\
-          \ Symbol Resolution is included with the Individual User subscription. Users\
-          \ with a Production User subscription require additional access to submit\
-          \ Bloomberg symbols. If you would like to gain access to Bloomberg Symbol\
-          \ Resolution, please contact your FactSet Account Team or \"Report Issue\"\
-          \ above and our support teams can assist.\n"
+          \ \n<br/><br/>\nAvailable symbol types -\n<br/>\n* DEFAULT - Accepted symbol\
+          \ types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent\
+          \ Ids.\n<br/>\n* BLOOMBERG - Accepted symbol types include Bloomberg Tickers\
+          \ and Bloomberg FIGIs. \n  * When submitting Bloomberg symbols, the Bloomberg\
+          \ symbol is translated to a FactSet Permanent Identifier which is then used\
+          \ to retrieve the requested FQL and Screening formulas. The Bloomberg symbol\
+          \ submitted will be returned in the response in the field *requestId*. To\
+          \ see the FactSet Permanent Identifer that the Bloomberg symbol resolved\
+          \ to, use the `fsymId` parameter in addition to the `symbolType` parameter.\n\
+          \  * Bloomberg symbols can not be submitted with other symbol types. \n\
+          <br/>\nBloomberg Symbol Resolution is included with the Individual User\
+          \ subscription. Users with a Production User subscription require additional\
+          \ access to submit Bloomberg symbols. If you would like to gain access to\
+          \ Bloomberg Symbol Resolution, please contact your FactSet Account Team\
+          \ or \"Report Issue\" above and our support teams can assist.\n"
         explode: false
         in: query
         name: symbolType
@@ -114,6 +113,9 @@ paths:
           enum:
           - DEFAULT
           - BLOOMBERG
+          - null
+          example: DEFAULT
+          nullable: true
           type: string
         style: form
       - description: |
@@ -165,7 +167,54 @@ paths:
           - EQUITY
           - DEBT
           - FUND
+          example: EQUITY
           type: string
+        style: form
+      - description: "Specify the security types you would like to exclude from your\
+          \ *EQUITY* `universe` expression. The supported exclusion values are `INACTIVE`,\
+          \ `SECONDARY`, and `NONEQUITY`. You can specify more than one exclusion\
+          \ criteria within a request. For GET requests, each exclusion should be\
+          \ separated by a comma, and for POST requests, they should be supplied in\
+          \ an array. More information about each exclusion can be found below: \n\
+          <br/><br/>\n* Exclude Inactive Securities (`INACTIVE`): Omits securities\
+          \ that have ceased trading due to circumstances such as bankruptcy and M&A\
+          \ activity\n<br/>\n* Exclude Secondary Listings (`SECONDARY`): Omits securities\
+          \ linked to a primarily listing (e.g., ADRs, GDRs)\n<br/>\n* Exclude Non-Equity\
+          \ Securities (`NONEQUITY`): Omits securities including indices, market statistics,\
+          \ mutual funds, and exchange-traded funds (ETFs); preferred stock is excluded\
+          \ on a case-by-case basis\n<br/>\nFind more documentation on Universe Exclusion\
+          \ logic on [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606)\
+          \ under 'Understanding Criteria Options'.\n<br/><br/>\nThis parameter may\
+          \ only be used in conjunction with the `universe` parameter and the `universeType`\
+          \ set to EQUITY. Using this parameter with a `universeType` other than EQUITY\
+          \ will result in error.\n"
+        examples:
+          noExclusion:
+            summary: '---'
+            value: []
+          singleItem:
+            summary: Single Security Exclusion
+            value:
+            - INACTIVE
+          multipleItems:
+            summary: Multiple Security Exclusions
+            value:
+            - INACTIVE
+            - SECONDARY
+            - NONEQUITY
+        explode: true
+        in: query
+        name: universeExclusion
+        required: false
+        schema:
+          items:
+            enum:
+            - INACTIVE
+            - SECONDARY
+            - NONEQUITY
+            type: string
+          nullable: true
+          type: array
         style: form
       - description: List of FQL formulas
         examples:
@@ -195,11 +244,11 @@ paths:
             description: |
               These data items showcase the ability to include logic, mathematical operations, and other functions in the request itself.
 
-              The first data item using the division operator to calculate a P/E ratio from the last trading day of the company’s most recent fiscal year.
+              The first data item using the division operator to calculate a P/E ratio from the last trading day of the company's most recent fiscal year.
 
               The second data item uses the addition operator to calculate percentage of revenue exposure in the US and Japan for the same date as the first data item. Note that due to URI defintion of the plus sign, the **+** symbol must be URL percent encoded as **%2B** in GET requests. This means you should use **%2B** in place of the symbol **+** in the request.
 
-              The third data item uses the average function (**AVG**) and the **IF** function to indicate whether the average daily price change over the company’s most recent fiscal year is postive or negative.
+              The third data item uses the average function (**AVG**) and the **IF** function to indicate whether the average daily price change over the company's most recent fiscal year is postive or negative.
 
               You can find more information about the different functions you can use in FQL at the following Online Assistant pages -
               * Mathematical Operators - [Online Assistant Page 10600](https://my.apps.factset.com/oa/pages/10600)
@@ -254,7 +303,7 @@ paths:
       - description: |
           Specify **Y** for the `fsymId` parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the `requestId`, in addition to the **requestId** field, in each response object. The default value for the `fsymId` parameter is **N**.
 
-          The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+          The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
         explode: false
         in: query
         name: fsymId
@@ -264,6 +313,9 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          example: "N"
+          nullable: true
           type: string
         style: form
       - description: |
@@ -310,6 +362,9 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          example: "N"
+          nullable: true
           type: string
         style: form
       - description: |
@@ -327,6 +382,9 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          example: "Y"
+          nullable: true
           type: string
         style: form
       - description: |
@@ -345,6 +403,8 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          nullable: true
           type: string
         style: form
       responses:
@@ -367,7 +427,7 @@ paths:
                 Debt Universe and Multiple Data Items:
                   $ref: '#/components/examples/time-series-debtUniv-multipleItem'
               schema:
-                $ref: '#/components/schemas/time_series_response'
+                $ref: '#/components/schemas/TimeSeriesResponse'
           description: Gets an array of `Response Objects` for a list of IDs and FQL
             formulas.
           headers:
@@ -396,6 +456,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch request has been accepted.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "400":
           content:
             application/json:
@@ -422,6 +494,13 @@ paths:
                     title: The length of the list provided for the displayName parameter
                       must be equal to the number of formulas requested.
                     timeStamp: 2019-11-01 11:09:41.918
+                parameterError - Invalid Universe Expression:
+                  value:
+                    id: 66CF777535CFB202
+                    code: parameterError
+                    title: 'The expression entered for the universe parameter is invalid.
+                      Unknown expression: {invalid expression}'
+                    timeStamp: 2019-11-01 11:09:41.918
                 requestBodyInvalid:
                   value:
                     id: 5EFCCA8940CAEB6E
@@ -437,7 +516,7 @@ paths:
                       [0x85], [0xa0-0xd7ff], [0xe000-0xfffd], and [0x10000-0x10ffff].
                     timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Request
           headers:
             api-version:
@@ -452,11 +531,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Unauthenticated USERNAME-SERIAL. This error will also occur
-            if the API request is made from IP address not specified in the API Key
-            configuration. Note that additional IP addresses can be added to an existing
-            API Key configuration.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Missing or invalid authentication.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -475,8 +551,10 @@ paths:
                 title: USERNAME-SERIAL does not have permission to use /v1/{endpoint}
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Not Authorized.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Not Authorized. This error will will occur if the user lacks
+            the required permissions or if the API request is made from an IP address
+            not specified in the API Key configuration.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -495,7 +573,7 @@ paths:
                 title: '''/formula-api/v1/{invalid endpoint}'' is not a valid endpoint.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Endpoint Not Found
           headers:
             api-version:
@@ -516,7 +594,7 @@ paths:
                   resubmit the request using the HTTP methods GET or POST.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Method Not Allowed
         "406":
           content:
@@ -528,7 +606,7 @@ paths:
                   Accept header must include application/json.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Accept Header
           headers:
             api-version:
@@ -548,7 +626,7 @@ paths:
                 title: The request took too long. Try again with a smaller request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
             more than 30 minutes to process.
@@ -571,7 +649,7 @@ paths:
                   leverage batching to ensure successful processing.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Content Too Large. This error may be returned if the request
             payload size is too large to be processed in the alloted amount of time.
           headers:
@@ -593,7 +671,7 @@ paths:
                   The Content-Type header must include application/json'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Content-Type Header
           headers:
             api-version:
@@ -613,7 +691,7 @@ paths:
                 title: Rate limit is exceeded
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -643,7 +721,7 @@ paths:
                 title: An unexpected error happened.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Generic Server Error
           headers:
             api-version:
@@ -664,7 +742,7 @@ paths:
                   yet.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Implemented
           headers:
             api-version:
@@ -686,7 +764,7 @@ paths:
                   are expected to retry the request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Service Temporarily Unavailable
           headers:
             api-version:
@@ -701,11 +779,12 @@ paths:
         universe.
       tags:
       - Time-Series
+      x-factset-sdk-ignore: true
       x-factset-different-success-responses: true
       x-accepts: application/json
     post:
       description: |
-        The `/time-series` endpoint is closely aligned with FactSet’s powerful data retrieval language **FactSet Query Language (FQL)** which is optimized for time-series analysis. FQL can also perform sophisticated statistical, mathematical, logical, and other complex operations on the data.
+        The `/time-series` endpoint is closely aligned with FactSet's powerful data retrieval language **FactSet Query Language (FQL)** which is optimized for time-series analysis. FQL can also perform sophisticated statistical, mathematical, logical, and other complex operations on the data.
 
           This endpoint has a unique **TIMESERIES** data object that pairs the requested data with FactSet provided dates. This helps reduce the need for additional data requests and reduces the work required by users.
 
@@ -733,7 +812,7 @@ paths:
                 Debt Universe and Multiple Data Items:
                   $ref: '#/components/examples/time-series-debtUniv-multipleItem'
               schema:
-                $ref: '#/components/schemas/time_series_response'
+                $ref: '#/components/schemas/TimeSeriesResponse'
           description: Gets an array of `Response Objects` for a list of IDs and FQL
             formulas.
           headers:
@@ -762,6 +841,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch request has been accepted.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "400":
           content:
             application/json:
@@ -788,6 +879,13 @@ paths:
                     title: The length of the list provided for the displayName parameter
                       must be equal to the number of formulas requested.
                     timeStamp: 2019-11-01 11:09:41.918
+                parameterError - Invalid Universe Expression:
+                  value:
+                    id: 66CF777535CFB202
+                    code: parameterError
+                    title: 'The expression entered for the universe parameter is invalid.
+                      Unknown expression: {invalid expression}'
+                    timeStamp: 2019-11-01 11:09:41.918
                 requestBodyInvalid:
                   value:
                     id: 5EFCCA8940CAEB6E
@@ -803,7 +901,7 @@ paths:
                       [0x85], [0xa0-0xd7ff], [0xe000-0xfffd], and [0x10000-0x10ffff].
                     timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Request
           headers:
             api-version:
@@ -818,11 +916,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Unauthenticated USERNAME-SERIAL. This error will also occur
-            if the API request is made from IP address not specified in the API Key
-            configuration. Note that additional IP addresses can be added to an existing
-            API Key configuration.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Missing or invalid authentication.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -841,8 +936,10 @@ paths:
                 title: USERNAME-SERIAL does not have permission to use /v1/{endpoint}
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Not Authorized.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Not Authorized. This error will will occur if the user lacks
+            the required permissions or if the API request is made from an IP address
+            not specified in the API Key configuration.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -861,7 +958,7 @@ paths:
                 title: '''/formula-api/v1/{invalid endpoint}'' is not a valid endpoint.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Endpoint Not Found
           headers:
             api-version:
@@ -882,7 +979,7 @@ paths:
                   resubmit the request using the HTTP methods GET or POST.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Method Not Allowed
         "406":
           content:
@@ -894,7 +991,7 @@ paths:
                   Accept header must include application/json.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Accept Header
           headers:
             api-version:
@@ -914,7 +1011,7 @@ paths:
                 title: The request took too long. Try again with a smaller request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
             more than 30 minutes to process.
@@ -937,7 +1034,7 @@ paths:
                   leverage batching to ensure successful processing.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Content Too Large. This error may be returned if the request
             payload size is too large to be processed in the alloted amount of time.
           headers:
@@ -959,7 +1056,7 @@ paths:
                   The Content-Type header must include application/json'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Content-Type Header
           headers:
             api-version:
@@ -979,7 +1076,7 @@ paths:
                 title: Rate limit is exceeded
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -1009,7 +1106,7 @@ paths:
                 title: An unexpected error happened.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Generic Server Error
           headers:
             api-version:
@@ -1030,7 +1127,7 @@ paths:
                   yet.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Implemented
           headers:
             api-version:
@@ -1052,7 +1149,7 @@ paths:
                   are expected to retry the request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Service Temporarily Unavailable
           headers:
             api-version:
@@ -1067,13 +1164,14 @@ paths:
         universe.
       tags:
       - Time-Series
+      x-factset-sdk-main-example: true
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /cross-sectional:
     get:
-      description: "The `/cross-sectional` endpoint is closely aligned with FactSet’\
-        s powerful data retrieval **Screening language** which is optimized for analysis\
+      description: "The `/cross-sectional` endpoint is closely aligned with FactSet's\
+        \ powerful data retrieval **Screening language** which is optimized for analysis\
         \ of data items at single point in time for different entities and is extremely\
         \ efficient for large universes.\n\n\nThe `/cross-sectional` endpoint supports\
         \ Long Running asynchronous requests up to **30 minutes** via the `batch`\
@@ -1086,21 +1184,21 @@ paths:
         This endpoint supports the ability to automatically iterate through different\
         \ cross sections over time. The **Iterated Cross-Sectional Functionality (ICSF)**\
         \ expands the Cross-Sectional endpoint to support retrieving data items for\
-        \ *multiple dates*, allowing users to take advantage of the Screening engine’\
-        s efficiency even when history is required. \n\n\nUse the parameters `startDate`,\
+        \ *multiple dates*, allowing users to take advantage of the Screening engine's\
+        \ efficiency even when history is required. \n\n\nUse the parameters `startDate`,\
         \ `endDate`, and `frequency` in the Cross-Sectional endpoint to provide your\
-        \ desired dates. Specify “0” in date argument of the Screening formulas provided\
-        \ in the formulas parameter and/or the universe parameter. Lastly, the Iterated\
-        \ Cross-Sectional Functionality is required to run as a `batch` request. Therefore,\
-        \ the batch parameter must be set to “Y”. \n\n\nAccess to backtesting and\
-        \ batch functionality is required to leverage the Iterated Cross-Sectional\
-        \ Functionality. \n\n**When to use ICSF:**\n\nThe ICSF can offer better performance\
-        \ than Time-Series requests when the date range is relatively small, and so\
-        \ it is recommended to use ICSF if the number of IDs requested is greater\
-        \ than the number of dates. If the number of dates is greater than the number\
-        \ of IDs in the request, it is recommended to use Time-Series.\n\n*Note: This\
-        \ is a general rule of thumb and performance may vary depending on the formulas\
-        \ in use.*\n"
+        \ desired dates. Specify \"0\" in date argument of the Screening formulas\
+        \ provided in the formulas parameter and/or the universe parameter. Lastly,\
+        \ the Iterated Cross-Sectional Functionality is required to run as a `batch`\
+        \ request. Therefore, the batch parameter must be set to \"Y\". \n\n\nAccess\
+        \ to backtesting and batch functionality is required to leverage the Iterated\
+        \ Cross-Sectional Functionality. \n\n**When to use ICSF:**\n\nThe ICSF can\
+        \ offer better performance than Time-Series requests when the date range is\
+        \ relatively small, and so it is recommended to use ICSF if the number of\
+        \ IDs requested is greater than the number of dates. If the number of dates\
+        \ is greater than the number of IDs in the request, it is recommended to use\
+        \ Time-Series.\n\n*Note: This is a general rule of thumb and performance may\
+        \ vary depending on the formulas in use.*\n"
       operationId: getCrossSectionalData
       parameters:
       - description: |
@@ -1130,22 +1228,21 @@ paths:
         style: form
       - description: "Specify the type of symbols submitted in the `ids` parameter.\
           \ This is only required when submitting ids that are not supported by default.\
-          \ \n\nAvailable symbol types -\n* DEFAULT - Accepted symbol types include\
-          \ Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.\n\n*\
-          \ BLOOMBERG - Accepted symbol types include Bloomberg Tickers and Bloomberg\
-          \ FIGIs. \n  * When submitting Bloomberg symbols, the Bloomberg symbol is\
-          \ translated to a FactSet Permanent Identifier which is then used to retrieve\
-          \ the requested FQL and Screening formulas. The Bloomberg symbol submitted\
-          \ will be returned in the response in the field *requestId*. To see the\
-          \ FactSet Permanent Identifer that the Bloomberg symbol resolved to, use\
-          \ the `fsymId` parameter in addition to the `symbolType` parameter.\n  *\
-          \ Bloomberg symbols can not be submitted with other symbol types. \n  *\
-          \ Bloomberg Symbol Resolution is not available via Batch Requests.\n\nBloomberg\
-          \ Symbol Resolution is included with the Individual User subscription. Users\
-          \ with a Production User subscription require additional access to submit\
-          \ Bloomberg symbols. If you would like to gain access to Bloomberg Symbol\
-          \ Resolution, please contact your FactSet Account Team or \"Report Issue\"\
-          \ above and our support teams can assist.\n"
+          \ \n<br/><br/>\nAvailable symbol types -\n<br/>\n* DEFAULT - Accepted symbol\
+          \ types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent\
+          \ Ids.\n<br/>\n* BLOOMBERG - Accepted symbol types include Bloomberg Tickers\
+          \ and Bloomberg FIGIs. \n  * When submitting Bloomberg symbols, the Bloomberg\
+          \ symbol is translated to a FactSet Permanent Identifier which is then used\
+          \ to retrieve the requested FQL and Screening formulas. The Bloomberg symbol\
+          \ submitted will be returned in the response in the field *requestId*. To\
+          \ see the FactSet Permanent Identifer that the Bloomberg symbol resolved\
+          \ to, use the `fsymId` parameter in addition to the `symbolType` parameter.\n\
+          \  * Bloomberg symbols can not be submitted with other symbol types. \n\
+          <br/>\nBloomberg Symbol Resolution is included with the Individual User\
+          \ subscription. Users with a Production User subscription require additional\
+          \ access to submit Bloomberg symbols. If you would like to gain access to\
+          \ Bloomberg Symbol Resolution, please contact your FactSet Account Team\
+          \ or \"Report Issue\" above and our support teams can assist.\n"
         explode: false
         in: query
         name: symbolType
@@ -1155,6 +1252,9 @@ paths:
           enum:
           - DEFAULT
           - BLOOMBERG
+          - null
+          example: DEFAULT
+          nullable: true
           type: string
         style: form
       - description: |
@@ -1204,7 +1304,54 @@ paths:
           - EQUITY
           - DEBT
           - FUND
+          example: EQUITY
           type: string
+        style: form
+      - description: "Specify the security types you would like to exclude from your\
+          \ *EQUITY* `universe` expression. The supported exclusion values are `INACTIVE`,\
+          \ `SECONDARY`, and `NONEQUITY`. You can specify more than one exclusion\
+          \ criteria within a request. For GET requests, each exclusion should be\
+          \ separated by a comma, and for POST requests, they should be supplied in\
+          \ an array. More information about each exclusion can be found below: \n\
+          <br/><br/>\n* Exclude Inactive Securities (`INACTIVE`): Omits securities\
+          \ that have ceased trading due to circumstances such as bankruptcy and M&A\
+          \ activity\n<br/>\n* Exclude Secondary Listings (`SECONDARY`): Omits securities\
+          \ linked to a primarily listing (e.g., ADRs, GDRs)\n<br/>\n* Exclude Non-Equity\
+          \ Securities (`NONEQUITY`): Omits securities including indices, market statistics,\
+          \ mutual funds, and exchange-traded funds (ETFs); preferred stock is excluded\
+          \ on a case-by-case basis\n<br/>\nFind more documentation on Universe Exclusion\
+          \ logic on [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606)\
+          \ under 'Understanding Criteria Options'.\n<br/><br/>\nThis parameter may\
+          \ only be used in conjunction with the `universe` parameter and the `universeType`\
+          \ set to EQUITY. Using this parameter with a `universeType` other than EQUITY\
+          \ will result in error.\n"
+        examples:
+          noExclusion:
+            summary: '---'
+            value: []
+          singleItem:
+            summary: Single Security Exclusion
+            value:
+            - INACTIVE
+          multipleItems:
+            summary: Multiple Security Exclusions
+            value:
+            - INACTIVE
+            - SECONDARY
+            - NONEQUITY
+        explode: true
+        in: query
+        name: universeExclusion
+        required: false
+        schema:
+          items:
+            enum:
+            - INACTIVE
+            - SECONDARY
+            - NONEQUITY
+            type: string
+          nullable: true
+          type: array
         style: form
       - description: List of Screening formulas
         examples:
@@ -1223,7 +1370,7 @@ paths:
             description: |
               These data items showcase the ability to include logic, mathematical operations, and other functions in the request itself.
 
-              The first data item using the division operator to calculate a P/E ratio from the last trading day of the company’s most recent fiscal year.
+              The first data item using the division operator to calculate a P/E ratio from the last trading day of the company's most recent fiscal year.
 
               The second data item uses the addition operator to calculate percentage of revenue exposure in the US and Japan for the same date as the first data item. Note that due to URI defintion of the plus sign, the **+** symbol must be URL percent encoded as **%2B** in GET requests. This means you should use **%2B** in place of the symbol **+** in the request.
 
@@ -1263,6 +1410,7 @@ paths:
         name: backTestDate
         required: false
         schema:
+          example: 2020-06-01
           type: string
         style: form
       - description: Calendar of data returned. The default value is FIVEDAY which
@@ -1297,7 +1445,7 @@ paths:
           response object containing the data item **requestId**. The default value for `fsymId`
           is **N**.
 
-          The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+          The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
         explode: false
         in: query
         name: fsymId
@@ -1307,6 +1455,9 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          example: "N"
+          nullable: true
           type: string
         style: form
       - description: |
@@ -1353,6 +1504,9 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          example: "N"
+          nullable: true
           type: string
         style: form
       - description: |
@@ -1371,6 +1525,8 @@ paths:
           enum:
           - "Y"
           - "N"
+          - null
+          nullable: true
           type: string
         style: form
       - description: |-
@@ -1381,6 +1537,7 @@ paths:
         name: startDate
         required: false
         schema:
+          example: 2020-05-01
           type: string
         style: form
       - description: |-
@@ -1391,6 +1548,7 @@ paths:
         name: endDate
         required: false
         schema:
+          example: 2020-05-31
           type: string
         style: form
       - description: |-
@@ -1469,7 +1627,7 @@ paths:
                 Multiple IDs and Multiple dates using ICSF with flatten = Y:
                   $ref: '#/components/examples/cross-sectional-ICSF-multipleItem-Flatten'
               schema:
-                $ref: '#/components/schemas/cross_sectional_response'
+                $ref: '#/components/schemas/CrossSectionalResponse'
           description: Gets an array of `Response Objects` for a list of IDs and Screening
             formulas.
           headers:
@@ -1498,6 +1656,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch request has been accepted.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "400":
           content:
             application/json:
@@ -1524,6 +1694,13 @@ paths:
                     title: The length of the list provided for the displayName parameter
                       must be equal to the number of formulas requested.
                     timeStamp: 2019-11-01 11:09:41.918
+                parameterError - Invalid Universe Expression:
+                  value:
+                    id: 66CF777535CFB202
+                    code: parameterError
+                    title: 'The expression entered for the universe parameter is invalid.
+                      Unknown expression: {invalid expression}'
+                    timeStamp: 2019-11-01 11:09:41.918
                 requestBodyInvalid:
                   value:
                     id: 5EFCCA8940CAEB6E
@@ -1539,7 +1716,7 @@ paths:
                       [0x85], [0xa0-0xd7ff], [0xe000-0xfffd], and [0x10000-0x10ffff].
                     timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Request
           headers:
             api-version:
@@ -1554,11 +1731,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Unauthenticated USERNAME-SERIAL. This error will also occur
-            if the API request is made from IP address not specified in the API Key
-            configuration. Note that additional IP addresses can be added to an existing
-            API Key configuration.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Missing or invalid authentication.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -1577,8 +1751,10 @@ paths:
                 title: USERNAME-SERIAL does not have permission to use /v1/{endpoint}
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Not Authorized.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Not Authorized. This error will will occur if the user lacks
+            the required permissions or if the API request is made from an IP address
+            not specified in the API Key configuration.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -1597,7 +1773,7 @@ paths:
                 title: '''/formula-api/v1/{invalid endpoint}'' is not a valid endpoint.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Endpoint Not Found
           headers:
             api-version:
@@ -1618,7 +1794,7 @@ paths:
                   resubmit the request using the HTTP methods GET or POST.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Method Not Allowed
         "406":
           content:
@@ -1630,7 +1806,7 @@ paths:
                   Accept header must include application/json.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Accept Header
           headers:
             api-version:
@@ -1650,7 +1826,7 @@ paths:
                 title: The request took too long. Try again with a smaller request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
             more than 30 minutes to process.
@@ -1673,7 +1849,7 @@ paths:
                   leverage batching to ensure successful processing.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Content Too Large. This error may be returned if the request
             payload size is too large to be processed in the alloted amount of time.
           headers:
@@ -1695,7 +1871,7 @@ paths:
                   The Content-Type header must include application/json'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Content-Type Header
           headers:
             api-version:
@@ -1715,7 +1891,7 @@ paths:
                 title: Rate limit is exceeded
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -1745,7 +1921,7 @@ paths:
                 title: An unexpected error happened.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Generic Server Error
           headers:
             api-version:
@@ -1766,7 +1942,7 @@ paths:
                   yet.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Implemented
           headers:
             api-version:
@@ -1788,7 +1964,7 @@ paths:
                   are expected to retry the request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Service Temporarily Unavailable
           headers:
             api-version:
@@ -1803,11 +1979,12 @@ paths:
         or defined universe.
       tags:
       - Cross-Sectional
+      x-factset-sdk-ignore: true
       x-factset-different-success-responses: true
       x-accepts: application/json
     post:
-      description: "The `/cross-sectional` endpoint is closely aligned with FactSet’\
-        s powerful data retrieval **Screening language** which is optimized for analysis\
+      description: "The `/cross-sectional` endpoint is closely aligned with FactSet's\
+        \ powerful data retrieval **Screening language** which is optimized for analysis\
         \ of data items at single point in time for different entities and is extremely\
         \ efficient for large universes.\n\n\nThe `/cross-sectional` endpoint supports\
         \ Long Running asynchronous requests up to **30 minutes** via the `batch`\
@@ -1820,21 +1997,21 @@ paths:
         This endpoint supports the ability to automatically iterate through different\
         \ cross sections over time. The **Iterated Cross-Sectional Functionality (ICSF)**\
         \ expands the Cross-Sectional endpoint to support retrieving data items for\
-        \ *multiple dates*, allowing users to take advantage of the Screening engine’\
-        s efficiency even when history is required. \n\n\nUse the parameters `startDate`,\
+        \ *multiple dates*, allowing users to take advantage of the Screening engine's\
+        \ efficiency even when history is required. \n\n\nUse the parameters `startDate`,\
         \ `endDate`, and `frequency` in the Cross-Sectional endpoint to provide your\
-        \ desired dates. Specify “0” in date argument of the Screening formulas provided\
-        \ in the formulas parameter and/or the universe parameter. Lastly, the Iterated\
-        \ Cross-Sectional Functionality is required to run as a `batch` request. Therefore,\
-        \ the batch parameter must be set to “Y”. \n\n\nAccess to backtesting and\
-        \ batch functionality is required to leverage the Iterated Cross-Sectional\
-        \ Functionality. \n\n**When to use ICSF:**\n\nThe ICSF can offer better performance\
-        \ than Time-Series requests when the date range is relatively small, and so\
-        \ it is recommended to use ICSF if the number of IDs requested is greater\
-        \ than the number of dates. If the number of dates is greater than the number\
-        \ of IDs in the request, it is recommended to use Time-Series. \n\n*Note:\
-        \ This is a general rule of thumb and performance may vary depending on the\
-        \ formulas in use.*\n"
+        \ desired dates. Specify \"0\" in date argument of the Screening formulas\
+        \ provided in the formulas parameter and/or the universe parameter. Lastly,\
+        \ the Iterated Cross-Sectional Functionality is required to run as a `batch`\
+        \ request. Therefore, the batch parameter must be set to \"Y\". \n\n\nAccess\
+        \ to backtesting and batch functionality is required to leverage the Iterated\
+        \ Cross-Sectional Functionality. \n\n**When to use ICSF:**\n\nThe ICSF can\
+        \ offer better performance than Time-Series requests when the date range is\
+        \ relatively small, and so it is recommended to use ICSF if the number of\
+        \ IDs requested is greater than the number of dates. If the number of dates\
+        \ is greater than the number of IDs in the request, it is recommended to use\
+        \ Time-Series. \n\n*Note: This is a general rule of thumb and performance\
+        \ may vary depending on the formulas in use.*\n"
       operationId: getCrossSectionalDataForList
       requestBody:
         $ref: '#/components/requestBodies/cross-sectional-postBody'
@@ -1864,7 +2041,7 @@ paths:
                 Multiple IDs and Multiple dates using ICSF with flatten = Y:
                   $ref: '#/components/examples/cross-sectional-ICSF-multipleItem-Flatten'
               schema:
-                $ref: '#/components/schemas/cross_sectional_response'
+                $ref: '#/components/schemas/CrossSectionalResponse'
           description: Gets an array of `Response Objects` for a list of IDs and Screening
             formulas.
           headers:
@@ -1893,6 +2070,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch request has been accepted.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "400":
           content:
             application/json:
@@ -1919,6 +2108,13 @@ paths:
                     title: The length of the list provided for the displayName parameter
                       must be equal to the number of formulas requested.
                     timeStamp: 2019-11-01 11:09:41.918
+                parameterError - Invalid Universe Expression:
+                  value:
+                    id: 66CF777535CFB202
+                    code: parameterError
+                    title: 'The expression entered for the universe parameter is invalid.
+                      Unknown expression: {invalid expression}'
+                    timeStamp: 2019-11-01 11:09:41.918
                 requestBodyInvalid:
                   value:
                     id: 5EFCCA8940CAEB6E
@@ -1934,7 +2130,7 @@ paths:
                       [0x85], [0xa0-0xd7ff], [0xe000-0xfffd], and [0x10000-0x10ffff].
                     timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Request
           headers:
             api-version:
@@ -1949,11 +2145,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Unauthenticated USERNAME-SERIAL. This error will also occur
-            if the API request is made from IP address not specified in the API Key
-            configuration. Note that additional IP addresses can be added to an existing
-            API Key configuration.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Missing or invalid authentication.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -1972,8 +2165,10 @@ paths:
                 title: USERNAME-SERIAL does not have permission to use /v1/{endpoint}
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
-          description: Not Authorized.
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Not Authorized. This error will will occur if the user lacks
+            the required permissions or if the API request is made from an IP address
+            not specified in the API Key configuration.
           headers:
             api-version:
               $ref: '#/components/headers/api-version'
@@ -1992,7 +2187,7 @@ paths:
                 title: '''/formula-api/v1/{invalid endpoint}'' is not a valid endpoint.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Endpoint Not Found
           headers:
             api-version:
@@ -2013,7 +2208,7 @@ paths:
                   resubmit the request using the HTTP methods GET or POST.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Method Not Allowed
         "406":
           content:
@@ -2025,7 +2220,7 @@ paths:
                   Accept header must include application/json.'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Accept Header
           headers:
             api-version:
@@ -2045,7 +2240,7 @@ paths:
                 title: The request took too long. Try again with a smaller request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Request Timeout. This error may be returned if it takes more
             than 29 seconds for the request to process or if a batch request takes
             more than 30 minutes to process.
@@ -2068,7 +2263,7 @@ paths:
                   leverage batching to ensure successful processing.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Content Too Large. This error may be returned if the request
             payload size is too large to be processed in the alloted amount of time.
           headers:
@@ -2090,7 +2285,7 @@ paths:
                   The Content-Type header must include application/json'
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Bad Content-Type Header
           headers:
             api-version:
@@ -2110,7 +2305,7 @@ paths:
                 title: Rate limit is exceeded
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Rate Limits Exceeded
           headers:
             api-version:
@@ -2140,7 +2335,7 @@ paths:
                 title: An unexpected error happened.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Generic Server Error
           headers:
             api-version:
@@ -2161,7 +2356,7 @@ paths:
                   yet.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Implemented
           headers:
             api-version:
@@ -2183,7 +2378,7 @@ paths:
                   are expected to retry the request.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Service Temporarily Unavailable
           headers:
             api-version:
@@ -2219,6 +2414,7 @@ paths:
         name: id
         required: true
         schema:
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
           format: uuid
           type: string
         style: form
@@ -2235,12 +2431,16 @@ paths:
             created.
           headers:
             Location:
-              description: Path to Batch Request result.
-              example: batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              description: URL to pick up results of batch request.
               explode: false
               schema:
+                example: https://api.factset.com/formula-api/v1/batch-result?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
                 type: string
               style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "202":
           content:
             application/json:
@@ -2255,10 +2455,24 @@ paths:
                   $ref: '#/components/examples/BatchStatusFailedResponseMemoryLimit'
                 Batch Status Failed - Other:
                   $ref: '#/components/examples/BatchStatusFailedResponseOther'
+                Batch Status Canceled:
+                  $ref: '#/components/examples/BatchStatusCanceled'
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch Request has not finished and the result has NOT been
             created.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "404":
           content:
             application/json:
@@ -2268,7 +2482,7 @@ paths:
                 title: The Batch Request was not found. It has probably expired.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Found
           headers:
             api-version:
@@ -2307,12 +2521,16 @@ paths:
             created.
           headers:
             Location:
-              description: Path to Batch Request result.
-              example: batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              description: URL to pick up results of batch request.
               explode: false
               schema:
+                example: https://api.factset.com/formula-api/v1/batch-result?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
                 type: string
               style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "202":
           content:
             application/json:
@@ -2327,10 +2545,24 @@ paths:
                   $ref: '#/components/examples/BatchStatusFailedResponseMemoryLimit'
                 Batch Status Failed - Other:
                   $ref: '#/components/examples/BatchStatusFailedResponseOther'
+                Batch Status Canceled:
+                  $ref: '#/components/examples/BatchStatusCanceled'
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch Request has not finished and the result has NOT been
             created.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "404":
           content:
             application/json:
@@ -2340,7 +2572,7 @@ paths:
                 title: The Batch Request was not found. It has probably expired.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Found
           headers:
             api-version:
@@ -2354,6 +2586,7 @@ paths:
       summary: Returns the status for a Batch Request
       tags:
       - Batch Processing
+      x-factset-sdk-ignore: true
       x-contentType: application/json
       x-accepts: application/json
   /batch-result:
@@ -2362,7 +2595,7 @@ paths:
       description: |
         Returns the response data for the underlying batch request that is specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint.
+          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint. All batch requests expire within 48 hours of completion.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getBatchData
@@ -2374,6 +2607,7 @@ paths:
         name: id
         required: true
         schema:
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
           format: uuid
           type: string
         style: form
@@ -2390,6 +2624,27 @@ paths:
                 $ref: '#/components/schemas/BatchDataResponse'
           description: Request Response Object when batch request has completed and
             response is created
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            X-RateLimit-Limit-day:
+              $ref: '#/components/headers/X-RateLimit-Limit-day'
+            X-RateLimit-Remaining-day:
+              $ref: '#/components/headers/X-RateLimit-Remaining-day'
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "202":
           content:
             application/json:
@@ -2402,6 +2657,18 @@ paths:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch Request has not finished and the result has NOT been
             created.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "404":
           content:
             application/json:
@@ -2411,7 +2678,7 @@ paths:
                 title: The Batch Request was not found. It has probably expired.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Found
           headers:
             api-version:
@@ -2432,7 +2699,7 @@ paths:
       description: |
         Returns the response data for the underlying batch request that is specified by the id.
 
-          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint.
+          The Formula API supports Long Running asynchronous requests up to **30 minutes** via the `batch` parameter for both the `/time-series` and `/cross-sectional` endpoint. All batch requests expire within 48 hours of completion.
 
           *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
       operationId: getBatchDataWithPost
@@ -2451,6 +2718,27 @@ paths:
                 $ref: '#/components/schemas/BatchDataResponse'
           description: Request Response Object when batch request has completed and
             response is created
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            X-RateLimit-Limit-day:
+              $ref: '#/components/headers/X-RateLimit-Limit-day'
+            X-RateLimit-Remaining-day:
+              $ref: '#/components/headers/X-RateLimit-Remaining-day'
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "202":
           content:
             application/json:
@@ -2463,6 +2751,18 @@ paths:
                 $ref: '#/components/schemas/BatchStatusResponse'
           description: Batch Request has not finished and the result has NOT been
             created.
+          headers:
+            Location:
+              description: URL to poll for status of batch request.
+              explode: false
+              schema:
+                example: https://api.factset.com/formula-api/v1/batch-status?id=d5ec1564-08d4-11ef-bdfc-9e836b3b5a9a
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
         "404":
           content:
             application/json:
@@ -2472,7 +2772,7 @@ paths:
                 title: The Batch Request was not found. It has probably expired.
                 timeStamp: 2019-11-01 11:09:41.918
               schema:
-                $ref: '#/components/schemas/error_detail'
+                $ref: '#/components/schemas/ErrorDetail'
           description: Not Found
           headers:
             api-version:
@@ -2483,11 +2783,141 @@ paths:
               $ref: '#/components/headers/api-deprecated-versions'
             chain-id:
               $ref: '#/components/headers/chain-id'
-      summary: Returns the status for a Batch Request
+      summary: Returns the response for a Batch Request
       tags:
       - Batch Processing
       x-factset-different-success-responses: true
       x-contentType: application/json
+      x-accepts: application/json
+  /batch-list:
+    get:
+      description: "Return a list of all batch requests submitted by a user that have\
+        \ not yet expired. The `/batch-list` endpoint will return the batch `id`,\
+        \ `status`, `error`, and `expiration` for all ongoing or unexpired batch requests.\
+        \ All batch requests expire within 48 hours of completion. \n\n  *This feature\
+        \ is available to Individual Users subscribed to the Performance Package and\
+        \ Performance Package Plus Performance Tiers and all Production Users. If\
+        \ you are unsure which Performance Tier you are subscribed to or you would\
+        \ like to gain access to the batch capabilities, please contact your FactSet\
+        \ Account Team or \"Report Issue\" above and our support teams can assist.*\n"
+      operationId: getBatchList
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Batch List Response:
+                  $ref: '#/components/examples/BatchListResult'
+                Batch List Empty:
+                  $ref: '#/components/examples/BatchListEmpty'
+              schema:
+                $ref: '#/components/schemas/BatchListResponse'
+          description: Batch List Example
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+            X-RateLimit-Limit-second:
+              $ref: '#/components/headers/X-RateLimit-Limit-second'
+            X-RateLimit-Remaining-second:
+              $ref: '#/components/headers/X-RateLimit-Remaining-second'
+            X-RateLimit-Limit-day:
+              $ref: '#/components/headers/X-RateLimit-Limit-day'
+            X-RateLimit-Remaining-day:
+              $ref: '#/components/headers/X-RateLimit-Remaining-day'
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+      summary: Returns a list of all available Batch Requests submitted by a user
+      tags:
+      - Batch Processing
+      x-accepts: application/json
+  /batch-cancel:
+    delete:
+      deprecated: false
+      description: |
+        Cancel individual batch requests that are specified by the id via the `/batch-cancel` endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.
+
+          *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
+      operationId: cancelBatchJob
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "204":
+          description: No Content. The Batch Request has been canceled successfully.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+            X-FactSet-Api-Units-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+            X-FactSet-Api-Units-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+        "404":
+          content:
+            application/json:
+              example:
+                id: 5EFCCA8940CAEB6E
+                code: batchRequestNotFound
+                title: The Batch Request was not found. It has probably expired.
+                timeStamp: 2019-11-01T11:09:41.918Z
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+        "409":
+          content:
+            application/json:
+              example:
+                id: 66620293292EC1C3
+                code: BatchCancelDenied
+                title: The batch request cannot be canceled because it has either
+                  already completed, failed, or been previously canceled.
+                timestamp: 2024-06-06T18:40:19.669Z
+              schema:
+                $ref: '#/components/schemas/ErrorDetail'
+          description: Batch Request cannot be cancelled.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api-version'
+            api-supported-versions:
+              $ref: '#/components/headers/api-supported-versions'
+            api-deprecated-versions:
+              $ref: '#/components/headers/api-deprecated-versions'
+            chain-id:
+              $ref: '#/components/headers/chain-id'
+      summary: Cancels individual ongoing Batch Request
+      tags:
+      - Batch Processing
       x-accepts: application/json
 components:
   examples:
@@ -2733,7 +3163,7 @@ components:
           FG_COMPANY_NAME: Microsoft Corporation
     time-series-multipleId-multipleCalculatedItem:
       description: |
-        `time-series` Request to retrieve your own P/E ratio calculation from the last trading day of the company’s most recent fiscal year, the percentage of revenue exposure in the US and Japan for the same date as the first data item, and indicator of whether the average daily price change over the company’s most recent fiscal year was postive or negative for IBM,FDS, and MSFT.
+        `time-series` Request to retrieve your own P/E ratio calculation from the last trading day of the company's most recent fiscal year, the percentage of revenue exposure in the US and Japan for the same date as the first data item, and indicator of whether the average daily price change over the company's most recent fiscal year was postive or negative for IBM,FDS, and MSFT.
       summary: Mutiple Ids and Multiple Calculated Data Items
       value:
         data:
@@ -3514,7 +3944,7 @@ components:
           FF_ASSETS(ANN_R,0): 52148
     cross-sectional-multipleId-multipleCalculatedItem:
       description: |
-        `cross-sectional` Request for to retrieve your own P/E ratio calculation from the last trading day of the company’s most recent fiscal year, the percentage of revenue exposure in the US and Japan for the same date as the first data item, and indicator of indicate whether the latest fiscal year's sales were higher or lower than the previous year's sales for IBM, FDS, GE, GOOG, AAPL, MSFT, and TSLA
+        `cross-sectional` Request for to retrieve your own P/E ratio calculation from the last trading day of the company's most recent fiscal year, the percentage of revenue exposure in the US and Japan for the same date as the first data item, and indicator of indicate whether the latest fiscal year's sales were higher or lower than the previous year's sales for IBM, FDS, GE, GOOG, AAPL, MSFT, and TSLA
       summary: Mutiple Ids and Multiple Calculated Equity Data Items
       value:
         data:
@@ -3954,6 +4384,40 @@ components:
           startTime: 2023-09-20T13:37:13.653411Z
           endTime: 2023-09-20T13:38:25.841134Z
           error: Something went wrong. Contact FactSet for support.
+    BatchStatusCanceled:
+      description: Batch Status Canceled Response. The example response shows the
+        result of checking the status of a batch request that was canceled via the
+        `/batch-cancel` endpoint.
+      value:
+        data:
+          id: 43839790-a64e-452a-b8f0-fc26117bd9f4
+          status: CANCELED
+          startTime: 2023-09-20T13:37:13.653411Z
+          endTime: null
+          error: null
+    BatchListResult:
+      summary: Batch List Result
+      value:
+        data:
+        - id: a0cd26f2-2297-11ef-b504-0ed91d9085a9
+          status: EXECUTING
+          error: null
+          expiration: null
+        - id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: DONE
+          error: null
+          expiration: 2024-06-05T17:26:50.532480Z
+        - id: e6d72de6-2346-11ef-8d19-424d4eeb11bc
+          status: FAILED
+          error: The expression entered for the universe parameter is invalid.
+          expiration: 2024-06-06T14:21:29.974713Z
+    BatchListEmpty:
+      summary: Batch List Empty
+      value:
+        meta:
+          message: You have no ongoing batch requests or all exisitng requests have
+            expired.
+        data: null
   headers:
     api-version:
       description: the full semantic version of the API.
@@ -4019,6 +4483,20 @@ components:
         example: 62
         type: integer
       style: simple
+    X-FactSet-Api-Units-Limit:
+      description: Maximum number of concurrent batch requests that a user can execute.
+      explode: false
+      schema:
+        example: 10
+        type: integer
+      style: simple
+    X-FactSet-Api-Units-Remaining:
+      description: Number of remaining concurrent batch requests that can be executed.
+      explode: false
+      schema:
+        example: 3
+        type: integer
+      style: simple
   parameters:
     ids:
       description: |
@@ -4049,21 +4527,21 @@ components:
     symbolType:
       description: "Specify the type of symbols submitted in the `ids` parameter.\
         \ This is only required when submitting ids that are not supported by default.\
-        \ \n\nAvailable symbol types -\n* DEFAULT - Accepted symbol types include\
-        \ Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.\n\n* BLOOMBERG\
-        \ - Accepted symbol types include Bloomberg Tickers and Bloomberg FIGIs. \n\
-        \  * When submitting Bloomberg symbols, the Bloomberg symbol is translated\
-        \ to a FactSet Permanent Identifier which is then used to retrieve the requested\
-        \ FQL and Screening formulas. The Bloomberg symbol submitted will be returned\
-        \ in the response in the field *requestId*. To see the FactSet Permanent Identifer\
-        \ that the Bloomberg symbol resolved to, use the `fsymId` parameter in addition\
-        \ to the `symbolType` parameter.\n  * Bloomberg symbols can not be submitted\
-        \ with other symbol types. \n  * Bloomberg Symbol Resolution is not available\
-        \ via Batch Requests.\n\nBloomberg Symbol Resolution is included with the\
-        \ Individual User subscription. Users with a Production User subscription\
-        \ require additional access to submit Bloomberg symbols. If you would like\
-        \ to gain access to Bloomberg Symbol Resolution, please contact your FactSet\
-        \ Account Team or \"Report Issue\" above and our support teams can assist.\n"
+        \ \n<br/><br/>\nAvailable symbol types -\n<br/>\n* DEFAULT - Accepted symbol\
+        \ types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent\
+        \ Ids.\n<br/>\n* BLOOMBERG - Accepted symbol types include Bloomberg Tickers\
+        \ and Bloomberg FIGIs. \n  * When submitting Bloomberg symbols, the Bloomberg\
+        \ symbol is translated to a FactSet Permanent Identifier which is then used\
+        \ to retrieve the requested FQL and Screening formulas. The Bloomberg symbol\
+        \ submitted will be returned in the response in the field *requestId*. To\
+        \ see the FactSet Permanent Identifer that the Bloomberg symbol resolved to,\
+        \ use the `fsymId` parameter in addition to the `symbolType` parameter.\n\
+        \  * Bloomberg symbols can not be submitted with other symbol types. \n<br/>\n\
+        Bloomberg Symbol Resolution is included with the Individual User subscription.\
+        \ Users with a Production User subscription require additional access to submit\
+        \ Bloomberg symbols. If you would like to gain access to Bloomberg Symbol\
+        \ Resolution, please contact your FactSet Account Team or \"Report Issue\"\
+        \ above and our support teams can assist.\n"
       explode: false
       in: query
       name: symbolType
@@ -4073,6 +4551,9 @@ components:
         enum:
         - DEFAULT
         - BLOOMBERG
+        - null
+        example: DEFAULT
+        nullable: true
         type: string
       style: form
     universe:
@@ -4126,6 +4607,7 @@ components:
         - EQUITY
         - DEBT
         - FUND
+        example: EQUITY
         type: string
       style: form
     universeType_cross_sectional:
@@ -4148,6 +4630,7 @@ components:
         - EQUITY
         - DEBT
         - FUND
+        example: EQUITY
         type: string
       style: form
     formulas_time_series:
@@ -4179,11 +4662,11 @@ components:
           description: |
             These data items showcase the ability to include logic, mathematical operations, and other functions in the request itself.
 
-            The first data item using the division operator to calculate a P/E ratio from the last trading day of the company’s most recent fiscal year.
+            The first data item using the division operator to calculate a P/E ratio from the last trading day of the company's most recent fiscal year.
 
             The second data item uses the addition operator to calculate percentage of revenue exposure in the US and Japan for the same date as the first data item. Note that due to URI defintion of the plus sign, the **+** symbol must be URL percent encoded as **%2B** in GET requests. This means you should use **%2B** in place of the symbol **+** in the request.
 
-            The third data item uses the average function (**AVG**) and the **IF** function to indicate whether the average daily price change over the company’s most recent fiscal year is postive or negative.
+            The third data item uses the average function (**AVG**) and the **IF** function to indicate whether the average daily price change over the company's most recent fiscal year is postive or negative.
 
             You can find more information about the different functions you can use in FQL at the following Online Assistant pages -
             * Mathematical Operators - [Online Assistant Page 10600](https://my.apps.factset.com/oa/pages/10600)
@@ -4222,7 +4705,7 @@ components:
           description: |
             These data items showcase the ability to include logic, mathematical operations, and other functions in the request itself.
 
-            The first data item using the division operator to calculate a P/E ratio from the last trading day of the company’s most recent fiscal year.
+            The first data item using the division operator to calculate a P/E ratio from the last trading day of the company's most recent fiscal year.
 
             The second data item uses the addition operator to calculate percentage of revenue exposure in the US and Japan for the same date as the first data item. Note that due to URI defintion of the plus sign, the **+** symbol must be URL percent encoded as **%2B** in GET requests. This means you should use **%2B** in place of the symbol **+** in the request.
 
@@ -4263,6 +4746,7 @@ components:
       name: backTestDate
       required: false
       schema:
+        example: 2020-06-01
         type: string
       style: form
     calendar_time_series:
@@ -4326,7 +4810,7 @@ components:
       description: |
         Specify **Y** for the `fsymId` parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the `requestId`, in addition to the **requestId** field, in each response object. The default value for the `fsymId` parameter is **N**.
 
-        The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+        The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
       explode: false
       in: query
       name: fsymId
@@ -4336,6 +4820,9 @@ components:
         enum:
         - "Y"
         - "N"
+        - null
+        example: "N"
+        nullable: true
         type: string
       style: form
     fsymId_cross_sectional:
@@ -4345,7 +4832,7 @@ components:
         response object containing the data item **requestId**. The default value for `fsymId`
         is **N**.
 
-        The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+        The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
       explode: false
       in: query
       name: fsymId
@@ -4355,6 +4842,9 @@ components:
         enum:
         - "Y"
         - "N"
+        - null
+        example: "N"
+        nullable: true
         type: string
       style: form
     displayName_time_series:
@@ -4435,6 +4925,9 @@ components:
         enum:
         - "Y"
         - "N"
+        - null
+        example: "N"
+        nullable: true
         type: string
       style: form
     flatten_cross_sectional:
@@ -4451,6 +4944,9 @@ components:
         enum:
         - "Y"
         - "N"
+        - null
+        example: "N"
+        nullable: true
         type: string
       style: form
     dates_time_series:
@@ -4469,6 +4965,9 @@ components:
         enum:
         - "Y"
         - "N"
+        - null
+        example: "Y"
+        nullable: true
         type: string
       style: form
     batch:
@@ -4488,6 +4987,8 @@ components:
         enum:
         - "Y"
         - "N"
+        - null
+        nullable: true
         type: string
       style: form
     batchId:
@@ -4498,6 +4999,7 @@ components:
       name: id
       required: true
       schema:
+        example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         format: uuid
         type: string
       style: form
@@ -4510,6 +5012,7 @@ components:
       name: startDate
       required: false
       schema:
+        example: 2020-05-01
         type: string
       style: form
     endDate:
@@ -4521,6 +5024,7 @@ components:
       name: endDate
       required: false
       schema:
+        example: 2020-05-31
         type: string
       style: form
     frequency:
@@ -4573,6 +5077,53 @@ components:
       required: false
       schema:
         type: string
+      style: form
+    universeExclusion:
+      description: "Specify the security types you would like to exclude from your\
+        \ *EQUITY* `universe` expression. The supported exclusion values are `INACTIVE`,\
+        \ `SECONDARY`, and `NONEQUITY`. You can specify more than one exclusion criteria\
+        \ within a request. For GET requests, each exclusion should be separated by\
+        \ a comma, and for POST requests, they should be supplied in an array. More\
+        \ information about each exclusion can be found below: \n<br/><br/>\n* Exclude\
+        \ Inactive Securities (`INACTIVE`): Omits securities that have ceased trading\
+        \ due to circumstances such as bankruptcy and M&A activity\n<br/>\n* Exclude\
+        \ Secondary Listings (`SECONDARY`): Omits securities linked to a primarily\
+        \ listing (e.g., ADRs, GDRs)\n<br/>\n* Exclude Non-Equity Securities (`NONEQUITY`):\
+        \ Omits securities including indices, market statistics, mutual funds, and\
+        \ exchange-traded funds (ETFs); preferred stock is excluded on a case-by-case\
+        \ basis\n<br/>\nFind more documentation on Universe Exclusion logic on [Online\
+        \ Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606) under\
+        \ 'Understanding Criteria Options'.\n<br/><br/>\nThis parameter may only be\
+        \ used in conjunction with the `universe` parameter and the `universeType`\
+        \ set to EQUITY. Using this parameter with a `universeType` other than EQUITY\
+        \ will result in error.\n"
+      examples:
+        noExclusion:
+          summary: '---'
+          value: []
+        singleItem:
+          summary: Single Security Exclusion
+          value:
+          - INACTIVE
+        multipleItems:
+          summary: Multiple Security Exclusions
+          value:
+          - INACTIVE
+          - SECONDARY
+          - NONEQUITY
+      explode: true
+      in: query
+      name: universeExclusion
+      required: false
+      schema:
+        items:
+          enum:
+          - INACTIVE
+          - SECONDARY
+          - NONEQUITY
+          type: string
+        nullable: true
+        type: array
       style: form
   requestBodies:
     time-series-postBody:
@@ -4629,11 +5180,11 @@ components:
                   flatten: "Y"
             time-series-multipleId-mulipleCalculatedItem:
               description: |
-                The first data item using the division operator to calculate a P/E ratio from the last trading day of the company’s most recent fiscal year.
+                The first data item using the division operator to calculate a P/E ratio from the last trading day of the company's most recent fiscal year.
 
                 The second data item uses the addition operator to calculate percentage of revenue exposure in the US and Japan for the same date as the first data item.
 
-                The third data item uses the average function (**AVG**) and the **IF** function to indicate whether the average daily price change over the company’s most recent fiscal year was postive or negative.
+                The third data item uses the average function (**AVG**) and the **IF** function to indicate whether the average daily price change over the company's most recent fiscal year was postive or negative.
 
                 You can find more information about the different functions you can use in FQL at the following Online Assistant pages -
                 * Mathematical Operators - [Online Assistant Page 10600](https://my.apps.factset.com/oa/pages/10600)
@@ -4686,7 +5237,7 @@ components:
                   calendar: SEVENDAY
                   batch: "Y"
           schema:
-            $ref: '#/components/schemas/time_series_request'
+            $ref: '#/components/schemas/TimeSeriesRequest'
       required: true
     cross-sectional-postBody:
       content:
@@ -4748,7 +5299,7 @@ components:
                   flatten: "Y"
             cross-sectional-multipleId-mulipleCalculatedItem:
               description: |
-                The first data item using the division operator to calculate a P/E ratio from the last trading day of the company’s most recent fiscal year.
+                The first data item using the division operator to calculate a P/E ratio from the last trading day of the company's most recent fiscal year.
 
                 The second data item uses the addition operator to calculate percentage of revenue exposure in the US and Japan for the same date as the first data item.
 
@@ -4849,7 +5400,7 @@ components:
                   calendar: SEVENDAY
                   batch: "Y"
           schema:
-            $ref: '#/components/schemas/cross_sectional_request'
+            $ref: '#/components/schemas/CrossSectionalRequest'
       required: true
     batch-status-postBody:
       content:
@@ -4901,6 +5452,13 @@ components:
                 title: The length of the list provided for the displayName parameter
                   must be equal to the number of formulas requested.
                 timeStamp: 2019-11-01 11:09:41.918
+            parameterError - Invalid Universe Expression:
+              value:
+                id: 66CF777535CFB202
+                code: parameterError
+                title: 'The expression entered for the universe parameter is invalid.
+                  Unknown expression: {invalid expression}'
+                timeStamp: 2019-11-01 11:09:41.918
             requestBodyInvalid:
               value:
                 id: 5EFCCA8940CAEB6E
@@ -4916,7 +5474,7 @@ components:
                   [0x85], [0xa0-0xd7ff], [0xe000-0xfffd], and [0x10000-0x10ffff].
                 timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Bad Request
       headers:
         api-version:
@@ -4931,10 +5489,8 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/error_detail'
-      description: Unauthenticated USERNAME-SERIAL. This error will also occur if
-        the API request is made from IP address not specified in the API Key configuration.
-        Note that additional IP addresses can be added to an existing API Key configuration.
+            $ref: '#/components/schemas/ErrorDetail'
+      description: Missing or invalid authentication.
       headers:
         api-version:
           $ref: '#/components/headers/api-version'
@@ -4953,8 +5509,10 @@ components:
             title: USERNAME-SERIAL does not have permission to use /v1/{endpoint}
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
-      description: Not Authorized.
+            $ref: '#/components/schemas/ErrorDetail'
+      description: Not Authorized. This error will will occur if the user lacks the
+        required permissions or if the API request is made from an IP address not
+        specified in the API Key configuration.
       headers:
         api-version:
           $ref: '#/components/headers/api-version'
@@ -4973,7 +5531,7 @@ components:
             title: '''/formula-api/v1/{invalid endpoint}'' is not a valid endpoint.'
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Endpoint Not Found
       headers:
         api-version:
@@ -4994,7 +5552,7 @@ components:
               the request using the HTTP methods GET or POST.
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Method Not Allowed
     "406":
       content:
@@ -5006,7 +5564,7 @@ components:
               header must include application/json.'
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Bad Accept Header
       headers:
         api-version:
@@ -5026,7 +5584,7 @@ components:
             title: The request took too long. Try again with a smaller request.
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Request Timeout. This error may be returned if it takes more than
         29 seconds for the request to process or if a batch request takes more than
         30 minutes to process.
@@ -5049,7 +5607,7 @@ components:
               batching to ensure successful processing.
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Content Too Large. This error may be returned if the request payload
         size is too large to be processed in the alloted amount of time.
       headers:
@@ -5071,7 +5629,7 @@ components:
               Content-Type header must include application/json'
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Bad Content-Type Header
       headers:
         api-version:
@@ -5091,7 +5649,7 @@ components:
             title: Rate limit is exceeded
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Rate Limits Exceeded
       headers:
         api-version:
@@ -5121,7 +5679,7 @@ components:
             title: An unexpected error happened.
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Generic Server Error
       headers:
         api-version:
@@ -5142,7 +5700,7 @@ components:
               yet.
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Not Implemented
       headers:
         api-version:
@@ -5164,7 +5722,7 @@ components:
               are expected to retry the request.
             timeStamp: 2019-11-01 11:09:41.918
           schema:
-            $ref: '#/components/schemas/error_detail'
+            $ref: '#/components/schemas/ErrorDetail'
       description: Service Temporarily Unavailable
       headers:
         api-version:
@@ -5176,21 +5734,44 @@ components:
         chain-id:
           $ref: '#/components/headers/chain-id'
   schemas:
-    time_series_request:
+    TimeSeriesRequest:
       description: '`/time-series` Request Body'
+      example:
+        data:
+          calendar: SEVENDAY
+          flatten: "Y"
+          displayName:
+          - PRICE
+          - COMPANY_NAME
+          universe: FG_CONSTITUENTS(SP50,0,CLOSE)
+          formulas:
+          - P_PRICE(0,-2,D)
+          - FG_COMPANY_NAME
+          fsymId: "Y"
+          batch: "Y"
+          ids:
+          - FDS-US
+          - IBM-US
+          - XOM-US
+          dates: "N"
+          symbolType: symbolType
+          universeType: DEBT
+          universeExclusion:
+          - INACTIVE
+          - INACTIVE
       properties:
         data:
-          $ref: '#/components/schemas/time_series_request_data'
+          $ref: '#/components/schemas/TimeSeriesRequest_data'
       required:
       - data
       title: Time-Series Request Body
       type: object
-    time_series_response_object_items:
+    TimeSeriesResponseObjectItems:
       anyOf:
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened'
-      - $ref: '#/components/schemas/time_series_result_object_flattened'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattened'
+      - $ref: '#/components/schemas/UnifiedResultObjectFlattened'
       title: Time-Series Response Object
-    time_series_response:
+    TimeSeriesResponse:
       example:
         data:
         - null
@@ -5200,49 +5781,49 @@ components:
         data:
           description: Array of Time-Series `Response Objects`
           items:
-            $ref: '#/components/schemas/time_series_response_object_items'
+            $ref: '#/components/schemas/TimeSeriesResponseObjectItems'
           type: array
         meta:
           type: object
       title: Time-Series Response
       type: object
-    time_series_result_object_nonflattened:
+    TimeSeriesResultObjectNonflattened:
+      anyOf:
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedScalar'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedArray'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedMatrix'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedTimeseriesObject'
       discriminator:
         mapping:
-          SCALAR: '#/components/schemas/time_series_result_object_nonflattened_scalar'
-          ARRAY: '#/components/schemas/time_series_result_object_nonflattened_array'
-          MATRIX: '#/components/schemas/time_series_result_object_nonflattened_matrix'
-          TIMESERIES: '#/components/schemas/time_series_result_object_nonflattened_timeseries_object'
+          SCALAR: '#/components/schemas/TimeSeriesResultObjectNonflattenedScalar'
+          ARRAY: '#/components/schemas/TimeSeriesResultObjectNonflattenedArray'
+          MATRIX: '#/components/schemas/TimeSeriesResultObjectNonflattenedMatrix'
+          TIMESERIES: '#/components/schemas/TimeSeriesResultObjectNonflattenedTimeseriesObject'
         propertyName: objectType
-      oneOf:
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_scalar'
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_array'
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_matrix'
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_timeseries_object'
       title: Time-Series Non-Flattened Response Object
-    time_series_result_object_nonflattened_scalar:
+    TimeSeriesResultObjectNonflattenedScalar:
       allOf:
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_base'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedBase'
       properties:
         result:
-          $ref: '#/components/schemas/time_series_scalar_value'
+          $ref: '#/components/schemas/TimeSeriesScalarValue'
       title: Time-Series Non-Flattened Response Object with SCALAR Result Attribute
       type: object
-    time_series_result_object_nonflattened_array:
+    TimeSeriesResultObjectNonflattenedArray:
       allOf:
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_base'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedBase'
       description: The `result` attribute in the Time-Series Non-Flattened Response
         Object will be an ARRAY.
       properties:
         result:
           items:
-            $ref: '#/components/schemas/time_series_scalar_value'
+            $ref: '#/components/schemas/TimeSeriesScalarValue'
           type: array
       title: Time-Series Non-Flattened Response Object with ARRAY Result Attribute
       type: object
-    time_series_result_object_nonflattened_matrix:
+    TimeSeriesResultObjectNonflattenedMatrix:
       allOf:
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_base'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedBase'
       description: The `result` attribute in the Time-Series Non-Flattened Response
         Object will be a MATRIX, which will be represented as an array of arrays.
         Each array can be thought of as a row in the matrix.
@@ -5250,20 +5831,20 @@ components:
         result:
           items:
             items:
-              $ref: '#/components/schemas/time_series_scalar_value'
+              $ref: '#/components/schemas/TimeSeriesScalarValue'
             type: array
           type: array
       title: Time-Series Non-Flattened Response Object with MATRIX Result Attribute
       type: object
-    time_series_result_object_nonflattened_timeseries_object:
+    TimeSeriesResultObjectNonflattenedTimeseriesObject:
       allOf:
-      - $ref: '#/components/schemas/time_series_result_object_nonflattened_base'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattenedBase'
       properties:
         result:
-          $ref: '#/components/schemas/time_series_timeseries_object'
+          $ref: '#/components/schemas/TimeSeriesTimeseriesObject'
       title: Time-Series Non-Flattened Response Object with TIMESERIES Result Attribute
       type: object
-    time_series_result_object_nonflattened_base:
+    TimeSeriesResultObjectNonflattenedBase:
       description: An object returning the results for a single identifier and formula.
         This is the base of the response object. The result attribute depends on the
         formula requested. Response objects with the various result attribute types
@@ -5272,9 +5853,9 @@ components:
         error:
           description: |
             Indicates that there was an error in the execution of the FQL Formula.
-            * Zero – success
-            * Non-zero – failure
-          example: 0
+            * Zero - success
+            * Non-zero - failure
+          example: 1
           type: integer
         errorMessage:
           description: If error is non-zero, errorMessage will display the FQL formula
@@ -5298,7 +5879,7 @@ components:
           type: string
         fsymId:
           description: |
-            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the `fsymId` parameter is set to Y.
+            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the `fsymId` parameter is set to Y.
           example: SJY281-R
           nullable: true
           type: string
@@ -5308,6 +5889,7 @@ components:
           - STRING
           - INTEGER
           - DOUBLE
+          - null
           example: STRING
           nullable: true
           type: string
@@ -5329,23 +5911,21 @@ components:
       - result
       title: Time-Series Non-Flattened Base Response Object
       type: object
-    time_series_scalar_value:
+    TimeSeriesScalarValue:
       description: The `result` attribute in the Time-Series Non-Flattened Response
         Object will be a SCALAR.
       nullable: true
       oneOf:
       - example: International Business Machines Corporation
-        nullable: true
         type: string
       - example: 354.98
         format: double
-        nullable: true
         type: number
       - example: 4
         nullable: true
         type: integer
       title: Time-Series SCALAR Result
-    time_series_timeseries_object:
+    TimeSeriesTimeseriesObject:
       description: The `result` attribute in the Time-Series Non-Flattened Response
         Object will be a TIMESERIES object. A TIMESERIES object has a values attribute
         and a dates attribute that contain arrays of equal length so that the values
@@ -5359,7 +5939,7 @@ components:
           - 124.22
           - 122.44
           items:
-            $ref: '#/components/schemas/time_series_scalar_value'
+            $ref: '#/components/schemas/TimeSeriesScalarValue'
           title: values
           type: array
         dates:
@@ -5377,28 +5957,182 @@ components:
           type: array
       title: Time-Series TIMESERIES Result
       type: object
-    time_series_result_object_flattened_addl:
+    CrossSectionalRequest:
+      description: '`/cross-sectional` Request Body'
+      example:
+        data:
+          calendar: SEVENDAY
+          backTestDate: 2020-06-01
+          endDate: 2020-05-31
+          displayName:
+          - PRICE
+          - COMPANY_NAME
+          formulas:
+          - P_PRICE(0)
+          - FG_COMPANY_NAME
+          fsymId: "Y"
+          batch: "Y"
+          symbolType: symbolType
+          universeType: DEBT
+          universeExclusion:
+          - INACTIVE
+          - INACTIVE
+          frequency: AM
+          flatten: "Y"
+          universe: FG_CONSTITUENTS(SP50,0,CLOSE)
+          ids:
+          - FDS-US
+          - IBM-US
+          - XOM-US
+          startDate: 2020-05-01
+      properties:
+        data:
+          $ref: '#/components/schemas/CrossSectionalRequest_data'
+      required:
+      - data
+      title: Cross-Sectional Request Body
+      type: object
+    CrossSectionalResponseObjectItems:
+      oneOf:
+      - $ref: '#/components/schemas/CrossSectionalResultObjectNonflattened'
+      - $ref: '#/components/schemas/UnifiedResultObjectFlattened'
+      title: Cross-Sectional Response Object
+    CrossSectionalResponse:
+      example:
+        data:
+        - null
+        - null
+        meta: '{}'
+      properties:
+        data:
+          description: Array of Cross-Sectional `Response Objects`
+          items:
+            $ref: '#/components/schemas/CrossSectionalResponseObjectItems'
+          type: array
+        meta:
+          type: object
+      title: Cross-Sectional Response
+      type: object
+    CrossSectionalResultObjectNonflattenedResultAttribute:
+      description: An array containing the values for the data item
+      example:
+      - IBM
+      - FDS
+      - AAPL
+      - MSFT
+      nullable: true
+      oneOf:
+      - description: Array of strings
+        example: International Business Machines Corporation
+        nullable: true
+        type: string
+      - description: Array of doubles
+        example: 345.5
+        format: double
+        type: number
+      - description: Array of integers
+        example: 6
+        type: integer
+      title: Result Attribute in Cross-Sectional Non-Flattened Response Object
+    CrossSectionalResultObjectNonflattened:
+      description: An object returning the results for a single formula.
+      properties:
+        universe:
+          description: If `universe` is submitted instead of `ids`, then the universe
+            attribute will display the universe expression requested.
+          example: (FG_CONSTITUENTS(SP50,0,CLOSE) AND P_PRICE(0,USD)<10)=1
+          type: string
+        dataItemName:
+          description: Name of data item (requestId, requested Screening formula,
+            or fsymId)
+          example: P_PRICE(0)
+          type: string
+        displayName:
+          description: Display Name.
+          example: PRICE
+          nullable: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CrossSectionalResultObjectNonflattenedResultAttribute'
+          type: array
+        dataType:
+          description: Data type of the data item
+          enum:
+          - STRING
+          - INTEGER
+          - DOUBLE
+          example: STRING
+          type: string
+        error:
+          description: |
+            Data item error indicator.
+             * Zero - success
+             * Non-zero - failure
+          example: 1
+          type: integer
+        errorMessage:
+          description: If error is non-zero, errorMessage will display the Screening
+            formula error.
+          example: |
+            Error parsing formula arguments
+          nullable: true
+          type: string
+        warnings:
+          description: Screening formula warnings. This attribute is only displayed
+            if warnings are generated in the execution of the Screening formula.
+          items:
+            $ref: '#/components/schemas/WarningsObject'
+          type: array
+      required:
+      - dataItemName
+      - dataType
+      - error
+      - result
+      title: Cross-Sectional Non-Flattened Response Object
+      type: object
+    WarningsObject:
+      properties:
+        description:
+          description: Human readable message explaining the warning
+          example: The formula encountered division by zero in some records, which
+            may lead to inaccurate results.
+          nullable: true
+          type: string
+        effect:
+          description: Human readable message explaining the effect on the `result`
+          example: Due to the division by zero encountered in some records, the affected
+            results may display as null.
+          nullable: true
+          type: string
+      type: object
+    UnifiedResultObjectFlattenedAddl:
       description: |
         The Key in the Key-Value pair will be the formula. If the `displayName` parameter is used, then the Key will be displayName specified for that formula. The Value in the Key-Value pair will be the result of the formula for that "row".
       example: '"P_PRICE(0)": 142.32'
       nullable: true
       oneOf:
-      - nullable: true
+      - example: Price
         type: string
-      - format: double
-        nullable: true
+      - example: 120.4
+        format: double
         type: number
-      - nullable: true
+      - example: 1
+        nullable: true
         type: integer
-      title: Key-Value Pair for Time-Series Flattened Response Object
-    time_series_result_object_flattened:
+      title: Key-Value Pair for Time-Series or Cross-Sectional Flattened Response
+        Object
+    UnifiedResultObjectFlattened:
       additionalProperties:
-        $ref: '#/components/schemas/time_series_result_object_flattened_addl'
+        $ref: '#/components/schemas/UnifiedResultObjectFlattenedAddl'
       description: |2
 
-        Data model returned when the parameter **flatten=Y** is used in the request. This flattened, simplified JSON output returned from **flatten=Y** can be conceptualized as a table (rows and columns) where each data object in the result is a row in the table and each field names is a column name. The response will contain at least one data object for each requestId containing the requestId, fsymId (if requested), date (if applicable) and Key-Value pairs for each data item (formula). The number of data objects (rows) per requestId is dependent the the objectTypes of the formulas requested.
+        Data model returned when the parameter **flatten=Y** is used in the request. This flattened, simplified JSON data returned from **flatten=Y** can be conceptualized as a table (rows and columns) where each data object in the result is a row in the table and the field names are the column names.
+
+        There will be one data object for each request containing the request, fsymId if requested, and Key-Value pairs for each data item (formula).
 
         ---
+
         Formulas that have associated dates (TIMESERIES objectType in the standard **flatten=N** response model) will result in a data object for each date for each requestId.
 
         **flatten=N TIMESERIES Representation**
@@ -5553,7 +6287,7 @@ components:
           type: string
         fsymId:
           description: |
-            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the `fsymId` parameter is set to Y.
+            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the `fsymId` parameter is set to Y.
           example: SJY281-R
           nullable: true
           type: string
@@ -5565,162 +6299,9 @@ components:
           type: string
       required:
       - requestId
-      title: Time-Series Flattened Response Object
+      title: Unified Flattened Result Object
       type: object
-    cross_sectional_request:
-      description: '`/cross-sectional` Request Body'
-      properties:
-        data:
-          $ref: '#/components/schemas/cross_sectional_request_data'
-      required:
-      - data
-      title: Cross-Sectional Request Body
-      type: object
-    cross_sectional_response_object_items:
-      oneOf:
-      - $ref: '#/components/schemas/cross_sectional_result_object_nonflattened'
-      - $ref: '#/components/schemas/cross_sectional_result_object_flattened'
-      title: Cross-Sectional Response Object
-    cross_sectional_response:
-      example:
-        data:
-        - null
-        - null
-        meta: '{}'
-      properties:
-        data:
-          description: Array of Cross-Sectional `Response Objects`
-          items:
-            $ref: '#/components/schemas/cross_sectional_response_object_items'
-          type: array
-        meta:
-          type: object
-      title: Cross-Sectional Response
-      type: object
-    cross_sectional_result_object_nonflattened_result_attribute:
-      description: An array containing the values for the data item
-      example:
-      - IBM
-      - FDS
-      - AAPL
-      - MSFT
-      nullable: true
-      oneOf:
-      - description: Array of strings
-        nullable: true
-        type: string
-      - description: Array of doubles
-        format: double
-        type: number
-      - description: Array of integers
-        type: integer
-      title: Result Attribute in Cross-Sectional Non-Flattened Response Object
-    cross_sectional_result_object_nonflattened:
-      description: An object returning the results for a single formula.
-      properties:
-        universe:
-          description: If `universe` is submitted instead of `ids`, then the universe
-            attribute will display the universe expression requested.
-          example: (FG_CONSTITUENTS(SP50,0,CLOSE) AND P_PRICE(0,USD)<10)=1
-          type: string
-        dataItemName:
-          description: Name of data item (requestId, requested Screening formula,
-            or fsymId)
-          example: P_PRICE(0)
-          type: string
-        displayName:
-          description: Display Name.
-          example: PRICE
-          nullable: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/cross_sectional_result_object_nonflattened_result_attribute'
-          type: array
-        dataType:
-          description: Data type of the data item
-          enum:
-          - STRING
-          - INTEGER
-          - DOUBLE
-          example: STRING
-          type: string
-        error:
-          description: |
-            Data item error indicator.
-             * Zero – success
-             * Non-zero – failure
-          example: 0
-          type: integer
-        errorMessage:
-          description: If error is non-zero, errorMessage will display the Screening
-            formula error.
-          example: |
-            Error parsing formula arguments
-          nullable: true
-          type: string
-        warnings:
-          description: Screening formula warnings. This attribute is only displayed
-            if warnings are generated in the execution of the Screening formula.
-          items:
-            $ref: '#/components/schemas/warningsObject'
-          type: array
-      required:
-      - dataItemName
-      - dataType
-      - error
-      - result
-      title: Cross-Sectional Non-Flattened Response Object
-      type: object
-    warningsObject:
-      properties:
-        description:
-          description: Human readable message explaining the warning
-          nullable: true
-          type: string
-        effect:
-          description: Human readable message explaining the effect on the `result`
-          nullable: true
-          type: string
-      type: object
-    cross_sectional_result_object_flattened_addl:
-      description: |
-        The Key in the Key-Value pair will be the formula. If the `displayName` parameter is used, then the Key will be displayName specified for that formula. The Value in the Key-Value pair will be the result of the formula for that "row".
-      example: '"P_PRICE(0)": 142.32'
-      nullable: true
-      oneOf:
-      - nullable: true
-        type: string
-      - format: double
-        nullable: true
-        type: number
-      - nullable: true
-        type: integer
-      title: Key-Value Pair for Cross-Sectional Flattened Response Object
-    cross_sectional_result_object_flattened:
-      additionalProperties:
-        $ref: '#/components/schemas/cross_sectional_result_object_flattened_addl'
-      description: |2
-
-        Data model returned when the parameter **flatten=Y** is used in the request. This flattened, simplified JSON data returned from **flatten=Y** can be conceptualized as a table (rows and columns) where each data object in the result is a row in the table and the field names are the column names.
-
-        There will be one data object for each request containing the request, fsymId if requested, and Key-Value pairs for each data item (formula).
-      properties:
-        requestId:
-          description: Identifier requested.
-          example: IBM-US
-          type: string
-        fsymId:
-          description: |
-            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). Included only if the `fsymId` parameter is set to Y.
-          example: SJY281-R
-          nullable: true
-          type: string
-      required:
-      - requestId
-      title: Cross-Sectional Flattened Result Object
-      type: object
-    error_detail:
+    ErrorDetail:
       description: |
         `Error Object` is the response returned for an unsuccessful request.
       properties:
@@ -5729,11 +6310,11 @@ components:
         errors:
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/errorObject'
+            $ref: '#/components/schemas/ErrorObject'
           type: array
       title: Error Object
       type: object
-    errorObject:
+    ErrorObject:
       properties:
         id:
           description: Unique identifier for the request. Also known as the chain
@@ -5753,7 +6334,8 @@ components:
           nullable: true
           type: string
         timestamp:
-          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          description: timestamp in YYYY-MM-DDTHH:MM:SS.SSSZ
+          example: 2020-08-01T11:09:41.918Z
           format: date-time
           nullable: true
           type: string
@@ -5772,9 +6354,9 @@ components:
     BatchStatusResponse:
       example:
         data:
-          startTime: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          endTime: 2000-01-23T04:56:07.000+00:00
+          startTime: 2024-09-03T09:02:15.171462Z
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          endTime: 2024-09-03T09:02:19.529317Z
           error: The parameter 'formulas' is required and may not be empty.
           status: QUEUED
       properties:
@@ -5784,27 +6366,30 @@ components:
       type: object
     BatchStatus:
       example:
-        startTime: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        endTime: 2000-01-23T04:56:07.000+00:00
+        startTime: 2024-09-03T09:02:15.171462Z
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        endTime: 2024-09-03T09:02:19.529317Z
         error: The parameter 'formulas' is required and may not be empty.
         status: QUEUED
       properties:
         id:
           description: the id of batch request.
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
           format: uuid
           type: string
         startTime:
-          description: Time when the batch request is started. This is in Eastern
-            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
-            following ISO 8601.
+          description: Time when the batch request is started. This is in UTC Time
+            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SS], following
+            ISO 8601.
+          example: 2024-09-03T09:02:15.171462Z
           format: date-time
           nullable: true
           type: string
         endTime:
-          description: Time when the batch request is ended. This is in Eastern Time
-            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following
+          description: Time when the batch request is ended. This is in UTC Time Zone.
+            The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SS], following
             ISO 8601.
+          example: 2024-09-03T09:02:19.529317Z
           format: date-time
           nullable: true
           type: string
@@ -5814,6 +6399,8 @@ components:
           - EXECUTING
           - DONE
           - FAILED
+          - CANCELED
+          example: QUEUED
           type: string
         error:
           description: Error message.
@@ -5835,15 +6422,97 @@ components:
       title: Batch Data Response
       type: object
     BatchData:
-      anyOf:
-      - $ref: '#/components/schemas/cross_sectional_response_object_items'
-      - $ref: '#/components/schemas/time_series_response_object_items'
       description: |
         The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
         Please see the schema for that endpoint for the definition.
+      oneOf:
+      - $ref: '#/components/schemas/CrossSectionalResultObjectNonflattened'
+      - $ref: '#/components/schemas/TimeSeriesResultObjectNonflattened'
+      - $ref: '#/components/schemas/UnifiedResultObjectFlattened'
       title: Batch Data
       type: object
-    time_series_request_data:
+    BatchListResponse:
+      example:
+        data:
+        - expiration: 2024-09-03T09:02:15.529317Z
+          id: cdc42135-a9b8-4fd8-9d69-73cea0c23105
+          error: The expression entered for the universe parameter is invalid.
+          status: EXECUTING
+        - expiration: 2024-09-03T09:02:15.529317Z
+          id: cdc42135-a9b8-4fd8-9d69-73cea0c23105
+          error: The expression entered for the universe parameter is invalid.
+          status: EXECUTING
+        meta:
+          message: You have no ongoing batch requests or all existing requests have
+            expired.
+      properties:
+        meta:
+          $ref: '#/components/schemas/BatchListResponse_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/BatchList'
+          nullable: true
+          type: array
+      type: object
+    BatchList:
+      example:
+        expiration: 2024-09-03T09:02:15.529317Z
+        id: cdc42135-a9b8-4fd8-9d69-73cea0c23105
+        error: The expression entered for the universe parameter is invalid.
+        status: EXECUTING
+      properties:
+        id:
+          description: the id of batch request.
+          example: cdc42135-a9b8-4fd8-9d69-73cea0c23105
+          format: uuid
+          type: string
+        status:
+          enum:
+          - QUEUED
+          - EXECUTING
+          - DONE
+          - FAILED
+          - CANCELED
+          example: EXECUTING
+          type: string
+        error:
+          description: Error message.
+          example: The expression entered for the universe parameter is invalid.
+          nullable: true
+          type: string
+        expiration:
+          description: Time when the batch request will expire, which is 48 hours
+            after the batch is complete. This is in UTC Time Zone. The date-time format
+            is expressed as [YYYY-MM-DD]T[HH:MM:SS], following ISO 8601.
+          example: 2024-09-03T09:02:15.529317Z
+          format: date-time
+          nullable: true
+          type: string
+      title: Batch Lists
+      type: object
+    TimeSeriesRequest_data:
+      example:
+        calendar: SEVENDAY
+        flatten: "Y"
+        displayName:
+        - PRICE
+        - COMPANY_NAME
+        universe: FG_CONSTITUENTS(SP50,0,CLOSE)
+        formulas:
+        - P_PRICE(0,-2,D)
+        - FG_COMPANY_NAME
+        fsymId: "Y"
+        batch: "Y"
+        ids:
+        - FDS-US
+        - IBM-US
+        - XOM-US
+        dates: "N"
+        symbolType: symbolType
+        universeType: DEBT
+        universeExclusion:
+        - INACTIVE
+        - INACTIVE
       properties:
         ids:
           description: |
@@ -5861,8 +6530,8 @@ components:
         symbolType:
           description: "Specify the type of symbols submitted in the `ids` parameter.\
             \ This is only required when submitting ids that are not supported by\
-            \ default. \n\nAvailable symbol types -\n* DEFAULT - Accepted symbol types\
-            \ include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent\
+            \ default. \n<br/>\nAvailable symbol types -\n* DEFAULT - Accepted symbol\
+            \ types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent\
             \ Ids.\n\n* BLOOMBERG - Accepted symbol types include Bloomberg Tickers\
             \ and Bloomberg FIGIs. \n  * When submitting Bloomberg symbols, the Bloomberg\
             \ symbol is translated to a FactSet Permanent Identifier which is then\
@@ -5871,12 +6540,11 @@ components:
             \ To see the FactSet Permanent Identifer that the Bloomberg symbol resolved\
             \ to, use the `fsymId` parameter in addition to the `\n  ` parameter.\n\
             \  * Bloomberg symbols can not be submitted with other symbol types. \n\
-            \  * Bloomberg Symbol Resolution is not available via Batch Requests.\n\
-            \nBloomberg Symbol Resolution is included with the Individual User subscription.\
-            \ Users with a Production User subscription require additional access\
-            \ to submit Bloomberg symbols. If you would like to gain access to Bloomberg\
-            \ Symbol Resolution, please contact your FactSet Account Team or \"Report\
-            \ Issue\" above and our support teams can assist.\n"
+            <br/>\nBloomberg Symbol Resolution is included with the Individual User\
+            \ subscription. Users with a Production User subscription require additional\
+            \ access to submit Bloomberg symbols. If you would like to gain access\
+            \ to Bloomberg Symbol Resolution, please contact your FactSet Account\
+            \ Team or \"Report Issue\" above and our support teams can assist.\n"
           title: symbolType
           type: string
         universe:
@@ -5907,6 +6575,34 @@ components:
           example: DEBT
           title: universeType
           type: string
+        universeExclusion:
+          description: "Specify the security types you would like to exclude from\
+            \ your *EQUITY* `universe` expression. The supported exclusion values\
+            \ are `INACTIVE`, `SECONDARY`, and `NONEQUITY`. You can specify more than\
+            \ one exclusion criteria within a request. For GET requests, each exclusion\
+            \ should be separated by a comma and for POST requests, they should be\
+            \ supplied in an array. More information about each exclusion can be found\
+            \ below: \n\n* Exclude Inactive Securities (`INACTIVE`): Omits securities\
+            \ that have ceased trading due to circumstances such as bankruptcy and\
+            \ M&A activity\n\n* Exclude Secondary Listings (`SECONDARY`): Omits securities\
+            \ linked to a primarily listing (e.g., ADRs, GDRs)\n\n* Exclude Non-Equity\
+            \ Securities (`NONEQUITY`): Omits securities including indices, market\
+            \ statistics, mutual funds, and exchange-traded funds (ETFs); preferred\
+            \ stock is excluded on a case-by-case basis\n\nFind more documentation\
+            \ on Universe Exclusion logic on [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606)\
+            \ under 'Understanding Criteria Options'.\n\nThis parameter may only be\
+            \ used in conjunction with the `universe` parameter and the `universeType`\
+            \ set to EQUITY. Using this parameter with a `universeType` other than\
+            \ EQUITY will result in error.\n"
+          items:
+            enum:
+            - INACTIVE
+            - SECONDARY
+            - NONEQUITY
+            example: INACTIVE
+            type: string
+          title: universeExclusion
+          type: array
         formulas:
           description: Array of FQL formulas
           example:
@@ -5929,7 +6625,7 @@ components:
           description: |
             Specify **Y** for the `fsymId` parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the `requestId`, in addition to the **requestId** field, in each response object. The default value for the `fsymId` parameter is **N**.
 
-            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
           enum:
           - "Y"
           - "N"
@@ -5995,7 +6691,32 @@ components:
       required:
       - formulas
       type: object
-    cross_sectional_request_data:
+    CrossSectionalRequest_data:
+      example:
+        calendar: SEVENDAY
+        backTestDate: 2020-06-01
+        endDate: 2020-05-31
+        displayName:
+        - PRICE
+        - COMPANY_NAME
+        formulas:
+        - P_PRICE(0)
+        - FG_COMPANY_NAME
+        fsymId: "Y"
+        batch: "Y"
+        symbolType: symbolType
+        universeType: DEBT
+        universeExclusion:
+        - INACTIVE
+        - INACTIVE
+        frequency: AM
+        flatten: "Y"
+        universe: FG_CONSTITUENTS(SP50,0,CLOSE)
+        ids:
+        - FDS-US
+        - IBM-US
+        - XOM-US
+        startDate: 2020-05-01
       properties:
         ids:
           description: |
@@ -6025,7 +6746,6 @@ components:
             \ To see the FactSet Permanent Identifer that the Bloomberg symbol resolved\
             \ to, use the `fsymId` parameter in addition to the `symbolType` parameter.\n\
             \  * Bloomberg symbols can not be submitted with other symbol types. \n\
-            \  * Bloomberg Symbol Resolution is not available via Batch Requests.\n\
             \  \nBloomberg Symbol Resolution is included with the Individual User\
             \ subscription. Users with a Production User subscription require additional\
             \ access to submit Bloomberg symbols. If you would like to gain access\
@@ -6059,6 +6779,34 @@ components:
           example: DEBT
           title: universeType
           type: string
+        universeExclusion:
+          description: "Specify the security types you would like to exclude from\
+            \ your *EQUITY* `universe` expression. The supported exclusion values\
+            \ are `INACTIVE`, `SECONDARY`, and `NONEQUITY`. You can specify more than\
+            \ one exclusion criteria within a request. For GET requests, each exclusion\
+            \ should be separated by a comma and for POST requests, they should be\
+            \ supplied in an array. More information about each exclusion can be found\
+            \ below: \n\n* Exclude Inactive Securities (`INACTIVE`): Omits securities\
+            \ that have ceased trading due to circumstances such as bankruptcy and\
+            \ M&A activity\n\n* Exclude Secondary Listings (`SECONDARY`): Omits securities\
+            \ linked to a primarily listing (e.g., ADRs, GDRs)\n\n* Exclude Non-Equity\
+            \ Securities (`NONEQUITY`): Omits securities including indices, market\
+            \ statistics, mutual funds, and exchange-traded funds (ETFs); preferred\
+            \ stock is excluded on a case-by-case basis\n\nFind more documentation\
+            \ on Universe Exclusion logic on [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606)\
+            \ under 'Understanding Criteria Options'.\n\nThis parameter may only be\
+            \ used in conjunction with the `universe` parameter and the `universeType`\
+            \ set to EQUITY. Using this parameter with a `universeType` other than\
+            \ EQUITY will result in error.\n"
+          items:
+            enum:
+            - INACTIVE
+            - SECONDARY
+            - NONEQUITY
+            example: INACTIVE
+            type: string
+          title: universeExclusion
+          type: array
         formulas:
           description: Array of Screening formulas
           example:
@@ -6087,7 +6835,7 @@ components:
           description: |
             Specify **Y** for `fsymId` to return an additional response object for the data item fsymId which will contain the fsymIds of the requestIds, in addition to the response object containing the data item requestId. The default value for `fsymId` is **N**.
 
-            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
+            The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).
           enum:
           - "Y"
           - "N"
@@ -6140,7 +6888,7 @@ components:
           description: |
             Specify the start date for running the Iterated Cross Sectional Functionality request either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format.
           example: 2020-05-01
-          title: statDate
+          title: startDate
           type: string
         endDate:
           description: |
@@ -6177,6 +6925,17 @@ components:
           format: uuid
           type: string
       type: object
+    BatchListResponse_meta:
+      example:
+        message: You have no ongoing batch requests or all existing requests have
+          expired.
+      nullable: true
+      properties:
+        message:
+          example: You have no ongoing batch requests or all existing requests have
+            expired.
+          type: string
+      type: object
   securitySchemes:
     FactSetOAuth2:
       flows:
@@ -6187,4 +6946,5 @@ components:
     FactSetApiKey:
       scheme: basic
       type: http
+x-factset-sdk-has-main-example: true
 

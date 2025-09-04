@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **displayName** | **String** | Display Name. | [optional] 
 **result** | [**[CrossSectionalResultObjectNonflattenedResultAttribute]**](CrossSectionalResultObjectNonflattenedResultAttribute.md) |  | 
 **dataType** | **String** | Data type of the data item | 
-**error** | **Number** | Data item error indicator.  * Zero – success  * Non-zero – failure  | 
+**error** | **Number** | Data item error indicator.  * Zero - success  * Non-zero - failure  | 
 **errorMessage** | **String** | If error is non-zero, errorMessage will display the Screening formula error. | [optional] 
 **warnings** | [**[WarningsObject]**](WarningsObject.md) | Screening formula warnings. This attribute is only displayed if warnings are generated in the execution of the Screening formula. | [optional] 
 

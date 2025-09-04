@@ -1,9 +1,9 @@
 /*
  * FactSet Formula API
  *
- *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
+ *  **FactSet Formula API**  FactSet's Formula API is a modern, flexible, formula-based API that enables users to access FactSet's wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet's expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
  *
- * The version of the OpenAPI document: 1.8.0
+ * The version of the OpenAPI document: 1.13.0
  * Contact: api@factset.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.SDK.Formula.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace FactSet.SDK.Formula.Model
 {
@@ -36,22 +37,33 @@ namespace FactSet.SDK.Formula.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchData" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of CrossSectionalResponseObjectItems.</param>
-        public BatchData(CrossSectionalResponseObjectItems actualInstance)
+        /// <param name="actualInstance">An instance of CrossSectionalResultObjectNonflattened.</param>
+        public BatchData(CrossSectionalResultObjectNonflattened actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "anyOf";
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchData" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of TimeSeriesResponseObjectItems.</param>
-        public BatchData(TimeSeriesResponseObjectItems actualInstance)
+        /// <param name="actualInstance">An instance of TimeSeriesResultObjectNonflattened.</param>
+        public BatchData(TimeSeriesResultObjectNonflattened actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "anyOf";
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BatchData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of UnifiedResultObjectFlattened.</param>
+        public BatchData(UnifiedResultObjectFlattened actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -69,39 +81,53 @@ namespace FactSet.SDK.Formula.Model
             }
             set
             {
-                if (value is CrossSectionalResponseObjectItems)
+                if (value is CrossSectionalResultObjectNonflattened)
                 {
                     this._actualInstance = value;
                 }
-                else if (value is TimeSeriesResponseObjectItems)
+                else if (value is TimeSeriesResultObjectNonflattened)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is UnifiedResultObjectFlattened)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: CrossSectionalResponseObjectItems, TimeSeriesResponseObjectItems");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: CrossSectionalResultObjectNonflattened, TimeSeriesResultObjectNonflattened, UnifiedResultObjectFlattened");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `CrossSectionalResponseObjectItems`. If the actual instance is not `CrossSectionalResponseObjectItems`,
+        /// Get the actual instance of `CrossSectionalResultObjectNonflattened`. If the actual instance is not `CrossSectionalResultObjectNonflattened`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of CrossSectionalResponseObjectItems</returns>
-        public CrossSectionalResponseObjectItems GetCrossSectionalResponseObjectItems()
+        /// <returns>An instance of CrossSectionalResultObjectNonflattened</returns>
+        public CrossSectionalResultObjectNonflattened GetCrossSectionalResultObjectNonflattened()
         {
-            return (CrossSectionalResponseObjectItems)this.ActualInstance;
+            return (CrossSectionalResultObjectNonflattened)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `TimeSeriesResponseObjectItems`. If the actual instance is not `TimeSeriesResponseObjectItems`,
+        /// Get the actual instance of `TimeSeriesResultObjectNonflattened`. If the actual instance is not `TimeSeriesResultObjectNonflattened`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of TimeSeriesResponseObjectItems</returns>
-        public TimeSeriesResponseObjectItems GetTimeSeriesResponseObjectItems()
+        /// <returns>An instance of TimeSeriesResultObjectNonflattened</returns>
+        public TimeSeriesResultObjectNonflattened GetTimeSeriesResultObjectNonflattened()
         {
-            return (TimeSeriesResponseObjectItems)this.ActualInstance;
+            return (TimeSeriesResultObjectNonflattened)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `UnifiedResultObjectFlattened`. If the actual instance is not `UnifiedResultObjectFlattened`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of UnifiedResultObjectFlattened</returns>
+        public UnifiedResultObjectFlattened GetUnifiedResultObjectFlattened()
+        {
+            return (UnifiedResultObjectFlattened)this.ActualInstance;
         }
 
         /// <summary>
@@ -139,41 +165,71 @@ namespace FactSet.SDK.Formula.Model
             {
                 return newBatchData;
             }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
 
             try
             {
-                var hasAdditionalProperties = !(typeof(CrossSectionalResponseObjectItems).GetProperty("AdditionalProperties") is null);
-                newBatchData = new BatchData(JsonConvert.DeserializeObject<CrossSectionalResponseObjectItems>(
+                var hasAdditionalProperties = !(typeof(CrossSectionalResultObjectNonflattened).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<CrossSectionalResultObjectNonflattened>(
                     jsonString,
                     hasAdditionalProperties ? BatchData.AdditionalPropertiesSerializerSettings : BatchData.SerializerSettings
-                ));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newBatchData;
+                );
+                newBatchData = new BatchData(parsedValue);
+                matchedTypes.Add("CrossSectionalResultObjectNonflattened");
+                match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CrossSectionalResponseObjectItems: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CrossSectionalResultObjectNonflattened: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                var hasAdditionalProperties = !(typeof(TimeSeriesResponseObjectItems).GetProperty("AdditionalProperties") is null);
-                newBatchData = new BatchData(JsonConvert.DeserializeObject<TimeSeriesResponseObjectItems>(
+                var hasAdditionalProperties = !(typeof(TimeSeriesResultObjectNonflattened).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<TimeSeriesResultObjectNonflattened>(
                     jsonString,
                     hasAdditionalProperties ? BatchData.AdditionalPropertiesSerializerSettings : BatchData.SerializerSettings
-                ));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newBatchData;
+                );
+                newBatchData = new BatchData(parsedValue);
+                matchedTypes.Add("TimeSeriesResultObjectNonflattened");
+                match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TimeSeriesResponseObjectItems: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TimeSeriesResultObjectNonflattened: {1}", jsonString, exception.ToString()));
             }
 
-            // no match found, throw an exception
-            throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            try
+            {
+                var hasAdditionalProperties = !(typeof(UnifiedResultObjectFlattened).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<UnifiedResultObjectFlattened>(
+                    jsonString,
+                    hasAdditionalProperties ? BatchData.AdditionalPropertiesSerializerSettings : BatchData.SerializerSettings
+                );
+                newBatchData = new BatchData(parsedValue);
+                matchedTypes.Add("UnifiedResultObjectFlattened");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UnifiedResultObjectFlattened: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            }
+            else if (match > 1)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newBatchData;
         }
 
         /// <summary>

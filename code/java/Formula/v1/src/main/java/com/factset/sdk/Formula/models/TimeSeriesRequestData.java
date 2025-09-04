@@ -1,8 +1,8 @@
 /*
  * FactSet Formula API
- *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
+ *  **FactSet Formula API**  FactSet's Formula API is a modern, flexible, formula-based API that enables users to access FactSet's wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet's expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
  *
- * The version of the OpenAPI document: 1.8.0
+ * The version of the OpenAPI document: 1.13.0
  * Contact: api@factset.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -37,6 +37,7 @@ import com.factset.sdk.Formula.JSON;
   TimeSeriesRequestData.JSON_PROPERTY_SYMBOL_TYPE,
   TimeSeriesRequestData.JSON_PROPERTY_UNIVERSE,
   TimeSeriesRequestData.JSON_PROPERTY_UNIVERSE_TYPE,
+  TimeSeriesRequestData.JSON_PROPERTY_UNIVERSE_EXCLUSION,
   TimeSeriesRequestData.JSON_PROPERTY_FORMULAS,
   TimeSeriesRequestData.JSON_PROPERTY_CALENDAR,
   TimeSeriesRequestData.JSON_PROPERTY_FSYM_ID,
@@ -99,6 +100,46 @@ public class TimeSeriesRequestData implements Serializable {
   public static final String JSON_PROPERTY_UNIVERSE_TYPE = "universeType";
   private UniverseTypeEnum universeType = UniverseTypeEnum.EQUITY;
 
+  /**
+   * Gets or Sets universeExclusion
+   */
+  public enum UniverseExclusionEnum {
+    INACTIVE("INACTIVE"),
+    
+    SECONDARY("SECONDARY"),
+    
+    NONEQUITY("NONEQUITY");
+
+    private String value;
+
+    UniverseExclusionEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static UniverseExclusionEnum fromValue(String value) {
+      for (UniverseExclusionEnum b : UniverseExclusionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_UNIVERSE_EXCLUSION = "universeExclusion";
+  private java.util.List<UniverseExclusionEnum> universeExclusion = null;
+
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
   private java.util.List<String> formulas = new java.util.ArrayList<>();
 
@@ -106,7 +147,7 @@ public class TimeSeriesRequestData implements Serializable {
   private String calendar = "FIVEDAY";
 
   /**
-   * Specify **Y** for the &#x60;fsymId&#x60; parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the &#x60;requestId&#x60;, in addition to the **requestId** field, in each response object. The default value for the &#x60;fsymId&#x60; parameter is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the &#x60;requestId&#x60;. For all supported &#x60;requestId&#x60; symbol types, the &#x60;fsymId&#x60; parameter will return the Regional Level PermId &#39;-R&#39; which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted &#x60;requestId&#x60; symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). 
+   * Specify **Y** for the &#x60;fsymId&#x60; parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the &#x60;requestId&#x60;, in addition to the **requestId** field, in each response object. The default value for the &#x60;fsymId&#x60; parameter is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the &#x60;requestId&#x60;. For all supported &#x60;requestId&#x60; symbol types, the &#x60;fsymId&#x60; parameter will return the Regional Level PermId &#39;-R&#39; which identifies the security&#39;s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted &#x60;requestId&#x60; symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). 
    */
   public enum FsymIdEnum {
     Y("Y"),
@@ -311,11 +352,11 @@ public class TimeSeriesRequestData implements Serializable {
   }
 
    /**
-   * Specify the type of symbols submitted in the &#x60;ids&#x60; parameter. This is only required when submitting ids that are not supported by default.   Available symbol types - * DEFAULT - Accepted symbol types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.  * BLOOMBERG - Accepted symbol types include Bloomberg Tickers and Bloomberg FIGIs.    * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the &#x60;fsymId&#x60; parameter in addition to the &#x60;   &#x60; parameter.   * Bloomberg symbols can not be submitted with other symbol types.    * Bloomberg Symbol Resolution is not available via Batch Requests.  Bloomberg Symbol Resolution is included with the Individual User subscription. Users with a Production User subscription require additional access to submit Bloomberg symbols. If you would like to gain access to Bloomberg Symbol Resolution, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist. 
+   * Specify the type of symbols submitted in the &#x60;ids&#x60; parameter. This is only required when submitting ids that are not supported by default.  &lt;br/&gt; Available symbol types - * DEFAULT - Accepted symbol types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.  * BLOOMBERG - Accepted symbol types include Bloomberg Tickers and Bloomberg FIGIs.    * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the &#x60;fsymId&#x60; parameter in addition to the &#x60;   &#x60; parameter.   * Bloomberg symbols can not be submitted with other symbol types.  &lt;br/&gt; Bloomberg Symbol Resolution is included with the Individual User subscription. Users with a Production User subscription require additional access to submit Bloomberg symbols. If you would like to gain access to Bloomberg Symbol Resolution, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist. 
    * @return symbolType
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Specify the type of symbols submitted in the `ids` parameter. This is only required when submitting ids that are not supported by default.   Available symbol types - * DEFAULT - Accepted symbol types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.  * BLOOMBERG - Accepted symbol types include Bloomberg Tickers and Bloomberg FIGIs.    * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the `fsymId` parameter in addition to the `   ` parameter.   * Bloomberg symbols can not be submitted with other symbol types.    * Bloomberg Symbol Resolution is not available via Batch Requests.  Bloomberg Symbol Resolution is included with the Individual User subscription. Users with a Production User subscription require additional access to submit Bloomberg symbols. If you would like to gain access to Bloomberg Symbol Resolution, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist. ")
+  @ApiModelProperty(value = "Specify the type of symbols submitted in the `ids` parameter. This is only required when submitting ids that are not supported by default.  <br/> Available symbol types - * DEFAULT - Accepted symbol types include Market Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent Ids.  * BLOOMBERG - Accepted symbol types include Bloomberg Tickers and Bloomberg FIGIs.    * When submitting Bloomberg symbols, the Bloomberg symbol is translated to a FactSet Permanent Identifier which is then used to retrieve the requested FQL and Screening formulas. The Bloomberg symbol submitted will be returned in the response in the field *requestId*. To see the FactSet Permanent Identifer that the Bloomberg symbol resolved to, use the `fsymId` parameter in addition to the `   ` parameter.   * Bloomberg symbols can not be submitted with other symbol types.  <br/> Bloomberg Symbol Resolution is included with the Individual User subscription. Users with a Production User subscription require additional access to submit Bloomberg symbols. If you would like to gain access to Bloomberg Symbol Resolution, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist. ")
   @JsonProperty(JSON_PROPERTY_SYMBOL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -383,6 +424,40 @@ public class TimeSeriesRequestData implements Serializable {
   }
 
 
+  public TimeSeriesRequestData universeExclusion(java.util.List<UniverseExclusionEnum> universeExclusion) {
+    this.universeExclusion = universeExclusion;
+    return this;
+  }
+
+  public TimeSeriesRequestData addUniverseExclusionItem(UniverseExclusionEnum universeExclusionItem) {
+    if (this.universeExclusion == null) {
+      this.universeExclusion = new java.util.ArrayList<>();
+    }
+    this.universeExclusion.add(universeExclusionItem);
+    return this;
+  }
+
+   /**
+   * Specify the security types you would like to exclude from your *EQUITY* &#x60;universe&#x60; expression. The supported exclusion values are &#x60;INACTIVE&#x60;, &#x60;SECONDARY&#x60;, and &#x60;NONEQUITY&#x60;. You can specify more than one exclusion criteria within a request. For GET requests, each exclusion should be separated by a comma and for POST requests, they should be supplied in an array. More information about each exclusion can be found below:   * Exclude Inactive Securities (&#x60;INACTIVE&#x60;): Omits securities that have ceased trading due to circumstances such as bankruptcy and M&amp;A activity  * Exclude Secondary Listings (&#x60;SECONDARY&#x60;): Omits securities linked to a primarily listing (e.g., ADRs, GDRs)  * Exclude Non-Equity Securities (&#x60;NONEQUITY&#x60;): Omits securities including indices, market statistics, mutual funds, and exchange-traded funds (ETFs); preferred stock is excluded on a case-by-case basis  Find more documentation on Universe Exclusion logic on [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606) under &#39;Understanding Criteria Options&#39;.  This parameter may only be used in conjunction with the &#x60;universe&#x60; parameter and the &#x60;universeType&#x60; set to EQUITY. Using this parameter with a &#x60;universeType&#x60; other than EQUITY will result in error. 
+   * @return universeExclusion
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Specify the security types you would like to exclude from your *EQUITY* `universe` expression. The supported exclusion values are `INACTIVE`, `SECONDARY`, and `NONEQUITY`. You can specify more than one exclusion criteria within a request. For GET requests, each exclusion should be separated by a comma and for POST requests, they should be supplied in an array. More information about each exclusion can be found below:   * Exclude Inactive Securities (`INACTIVE`): Omits securities that have ceased trading due to circumstances such as bankruptcy and M&A activity  * Exclude Secondary Listings (`SECONDARY`): Omits securities linked to a primarily listing (e.g., ADRs, GDRs)  * Exclude Non-Equity Securities (`NONEQUITY`): Omits securities including indices, market statistics, mutual funds, and exchange-traded funds (ETFs); preferred stock is excluded on a case-by-case basis  Find more documentation on Universe Exclusion logic on [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606) under 'Understanding Criteria Options'.  This parameter may only be used in conjunction with the `universe` parameter and the `universeType` set to EQUITY. Using this parameter with a `universeType` other than EQUITY will result in error. ")
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_EXCLUSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<UniverseExclusionEnum> getUniverseExclusion() {
+    return universeExclusion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_EXCLUSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUniverseExclusion(java.util.List<UniverseExclusionEnum> universeExclusion) {
+    this.universeExclusion = universeExclusion;
+  }
+
+
   public TimeSeriesRequestData formulas(java.util.List<String> formulas) {
     this.formulas = formulas;
     return this;
@@ -446,11 +521,11 @@ public class TimeSeriesRequestData implements Serializable {
   }
 
    /**
-   * Specify **Y** for the &#x60;fsymId&#x60; parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the &#x60;requestId&#x60;, in addition to the **requestId** field, in each response object. The default value for the &#x60;fsymId&#x60; parameter is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the &#x60;requestId&#x60;. For all supported &#x60;requestId&#x60; symbol types, the &#x60;fsymId&#x60; parameter will return the Regional Level PermId &#39;-R&#39; which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted &#x60;requestId&#x60; symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). 
+   * Specify **Y** for the &#x60;fsymId&#x60; parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the &#x60;requestId&#x60;, in addition to the **requestId** field, in each response object. The default value for the &#x60;fsymId&#x60; parameter is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the &#x60;requestId&#x60;. For all supported &#x60;requestId&#x60; symbol types, the &#x60;fsymId&#x60; parameter will return the Regional Level PermId &#39;-R&#39; which identifies the security&#39;s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted &#x60;requestId&#x60; symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). 
    * @return fsymId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Y", value = "Specify **Y** for the `fsymId` parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the `requestId`, in addition to the **requestId** field, in each response object. The default value for the `fsymId` parameter is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). ")
+  @ApiModelProperty(example = "Y", value = "Specify **Y** for the `fsymId` parameter to return the **fsymId** (FactSet Default Permanent Identifier) of the `requestId`, in addition to the **requestId** field, in each response object. The default value for the `fsymId` parameter is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security's best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881). ")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -579,7 +654,7 @@ public class TimeSeriesRequestData implements Serializable {
 
 
   /**
-   * Return true if this time_series_request_data object is equal to o.
+   * Return true if this TimeSeriesRequest_data object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -594,6 +669,7 @@ public class TimeSeriesRequestData implements Serializable {
         Objects.equals(this.symbolType, timeSeriesRequestData.symbolType) &&
         Objects.equals(this.universe, timeSeriesRequestData.universe) &&
         Objects.equals(this.universeType, timeSeriesRequestData.universeType) &&
+        Objects.equals(this.universeExclusion, timeSeriesRequestData.universeExclusion) &&
         Objects.equals(this.formulas, timeSeriesRequestData.formulas) &&
         Objects.equals(this.calendar, timeSeriesRequestData.calendar) &&
         Objects.equals(this.fsymId, timeSeriesRequestData.fsymId) &&
@@ -605,7 +681,7 @@ public class TimeSeriesRequestData implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, symbolType, universe, universeType, formulas, calendar, fsymId, displayName, flatten, dates, batch);
+    return Objects.hash(ids, symbolType, universe, universeType, universeExclusion, formulas, calendar, fsymId, displayName, flatten, dates, batch);
   }
 
   @Override
@@ -616,6 +692,7 @@ public class TimeSeriesRequestData implements Serializable {
     sb.append("    symbolType: ").append(toIndentedString(symbolType)).append("\n");
     sb.append("    universe: ").append(toIndentedString(universe)).append("\n");
     sb.append("    universeType: ").append(toIndentedString(universeType)).append("\n");
+    sb.append("    universeExclusion: ").append(toIndentedString(universeExclusion)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    calendar: ").append(toIndentedString(calendar)).append("\n");
     sb.append("    fsymId: ").append(toIndentedString(fsymId)).append("\n");

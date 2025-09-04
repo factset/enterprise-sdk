@@ -2,7 +2,7 @@
 
 # TimeSeriesResultObjectNonflattened
 
-## oneOf schemas
+## anyOf schemas
 * [TimeSeriesResultObjectNonflattenedArray](TimeSeriesResultObjectNonflattenedArray.md)
 * [TimeSeriesResultObjectNonflattenedMatrix](TimeSeriesResultObjectNonflattenedMatrix.md)
 * [TimeSeriesResultObjectNonflattenedScalar](TimeSeriesResultObjectNonflattenedScalar.md)

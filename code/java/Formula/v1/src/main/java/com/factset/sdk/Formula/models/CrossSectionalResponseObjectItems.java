@@ -1,8 +1,8 @@
 /*
  * FactSet Formula API
- *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
+ *  **FactSet Formula API**  FactSet's Formula API is a modern, flexible, formula-based API that enables users to access FactSet's wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet's expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
  *
- * The version of the OpenAPI document: 1.8.0
+ * The version of the OpenAPI document: 1.13.0
  * Contact: api@factset.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -17,9 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.Formula.models.CrossSectionalResultObjectFlattened;
 import com.factset.sdk.Formula.models.CrossSectionalResultObjectNonflattened;
 import com.factset.sdk.Formula.models.CrossSectionalResultObjectNonflattenedResultAttribute;
+import com.factset.sdk.Formula.models.UnifiedResultObjectFlattened;
 import com.factset.sdk.Formula.models.WarningsObject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -128,30 +129,30 @@ public class CrossSectionalResponseObjectItems extends AbstractOpenApiSchema imp
                 log.log(Level.FINER, "Input data does not match schema 'CrossSectionalResultObjectNonflattened'", e);
             }
 
-            // deserialize CrossSectionalResultObjectFlattened
+            // deserialize UnifiedResultObjectFlattened
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (CrossSectionalResultObjectFlattened.class.equals(Integer.class) || CrossSectionalResultObjectFlattened.class.equals(Long.class) || CrossSectionalResultObjectFlattened.class.equals(Float.class) || CrossSectionalResultObjectFlattened.class.equals(Double.class) || CrossSectionalResultObjectFlattened.class.equals(Boolean.class) || CrossSectionalResultObjectFlattened.class.equals(String.class)) {
+                if (UnifiedResultObjectFlattened.class.equals(Integer.class) || UnifiedResultObjectFlattened.class.equals(Long.class) || UnifiedResultObjectFlattened.class.equals(Float.class) || UnifiedResultObjectFlattened.class.equals(Double.class) || UnifiedResultObjectFlattened.class.equals(Boolean.class) || UnifiedResultObjectFlattened.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((CrossSectionalResultObjectFlattened.class.equals(Integer.class) || CrossSectionalResultObjectFlattened.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((CrossSectionalResultObjectFlattened.class.equals(Float.class) || CrossSectionalResultObjectFlattened.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (CrossSectionalResultObjectFlattened.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (CrossSectionalResultObjectFlattened.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((UnifiedResultObjectFlattened.class.equals(Integer.class) || UnifiedResultObjectFlattened.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UnifiedResultObjectFlattened.class.equals(Float.class) || UnifiedResultObjectFlattened.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UnifiedResultObjectFlattened.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UnifiedResultObjectFlattened.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<CrossSectionalResultObjectFlattened>() { });
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<UnifiedResultObjectFlattened>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'CrossSectionalResultObjectFlattened'");
+                    log.log(Level.FINER, "Input data matches schema 'UnifiedResultObjectFlattened'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'CrossSectionalResultObjectFlattened'", e);
+                log.log(Level.FINER, "Input data does not match schema 'UnifiedResultObjectFlattened'", e);
             }
 
             if (match == 1) {
@@ -182,14 +183,14 @@ public class CrossSectionalResponseObjectItems extends AbstractOpenApiSchema imp
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-    public CrossSectionalResponseObjectItems(CrossSectionalResultObjectFlattened o) {
+    public CrossSectionalResponseObjectItems(UnifiedResultObjectFlattened o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
     static {
-        schemas.put("CrossSectionalResultObjectFlattened", new GenericType<CrossSectionalResultObjectFlattened>() {
-        });
         schemas.put("CrossSectionalResultObjectNonflattened", new GenericType<CrossSectionalResultObjectNonflattened>() {
+        });
+        schemas.put("UnifiedResultObjectFlattened", new GenericType<UnifiedResultObjectFlattened>() {
         });
         JSON.registerDescendants(CrossSectionalResponseObjectItems.class, Collections.unmodifiableMap(schemas));
     }
@@ -202,7 +203,7 @@ public class CrossSectionalResponseObjectItems extends AbstractOpenApiSchema imp
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CrossSectionalResultObjectFlattened, CrossSectionalResultObjectNonflattened
+     * CrossSectionalResultObjectNonflattened, UnifiedResultObjectFlattened
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -215,20 +216,20 @@ public class CrossSectionalResponseObjectItems extends AbstractOpenApiSchema imp
             return;
         }
 
-        // CrossSectionalResultObjectFlattened
-        if (JSON.isInstanceOf(CrossSectionalResultObjectFlattened.class, instance, new HashSet<Class<?>>())) {
+        // UnifiedResultObjectFlattened
+        if (JSON.isInstanceOf(UnifiedResultObjectFlattened.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CrossSectionalResultObjectFlattened, CrossSectionalResultObjectNonflattened");
+        throw new RuntimeException("Invalid instance type. Must be CrossSectionalResultObjectNonflattened, UnifiedResultObjectFlattened");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CrossSectionalResultObjectFlattened, CrossSectionalResultObjectNonflattened
+     * CrossSectionalResultObjectNonflattened, UnifiedResultObjectFlattened
      *
-     * @return The actual instance (CrossSectionalResultObjectFlattened, CrossSectionalResultObjectNonflattened)
+     * @return The actual instance (CrossSectionalResultObjectNonflattened, UnifiedResultObjectFlattened)
      */
     @Override
     public Object getActualInstance() {
@@ -247,14 +248,14 @@ public class CrossSectionalResponseObjectItems extends AbstractOpenApiSchema imp
     }
 
     /**
-     * Get the actual instance of `CrossSectionalResultObjectFlattened`. If the actual instance is not `CrossSectionalResultObjectFlattened`,
+     * Get the actual instance of `UnifiedResultObjectFlattened`. If the actual instance is not `UnifiedResultObjectFlattened`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CrossSectionalResultObjectFlattened`
-     * @throws ClassCastException if the instance is not `CrossSectionalResultObjectFlattened`
+     * @return The actual instance of `UnifiedResultObjectFlattened`
+     * @throws ClassCastException if the instance is not `UnifiedResultObjectFlattened`
      */
-    public CrossSectionalResultObjectFlattened getCrossSectionalResultObjectFlattened() throws ClassCastException {
-        return (CrossSectionalResultObjectFlattened)super.getActualInstance();
+    public UnifiedResultObjectFlattened getUnifiedResultObjectFlattened() throws ClassCastException {
+        return (UnifiedResultObjectFlattened)super.getActualInstance();
     }
 
 }

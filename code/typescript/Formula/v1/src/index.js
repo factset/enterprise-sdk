@@ -1,8 +1,8 @@
 /**
  * FactSet Formula API
- *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
+ *  **FactSet Formula API**  FactSet's Formula API is a modern, flexible, formula-based API that enables users to access FactSet's wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet's expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
  *
- * The version of the OpenAPI document: 1.8.0
+ * The version of the OpenAPI document: 1.13.0
  * Contact: api@factset.com
  *
  * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
@@ -16,14 +16,15 @@ import BatchData from './model/BatchData';
 import BatchDataRequest from './model/BatchDataRequest';
 import BatchDataRequestData from './model/BatchDataRequestData';
 import BatchDataResponse from './model/BatchDataResponse';
+import BatchList from './model/BatchList';
+import BatchListResponse from './model/BatchListResponse';
+import BatchListResponseMeta from './model/BatchListResponseMeta';
 import BatchStatus from './model/BatchStatus';
 import BatchStatusResponse from './model/BatchStatusResponse';
 import CrossSectionalRequest from './model/CrossSectionalRequest';
 import CrossSectionalRequestData from './model/CrossSectionalRequestData';
 import CrossSectionalResponse from './model/CrossSectionalResponse';
 import CrossSectionalResponseObjectItems from './model/CrossSectionalResponseObjectItems';
-import CrossSectionalResultObjectFlattened from './model/CrossSectionalResultObjectFlattened';
-import CrossSectionalResultObjectFlattenedAddl from './model/CrossSectionalResultObjectFlattenedAddl';
 import CrossSectionalResultObjectNonflattened from './model/CrossSectionalResultObjectNonflattened';
 import CrossSectionalResultObjectNonflattenedResultAttribute from './model/CrossSectionalResultObjectNonflattenedResultAttribute';
 import ErrorDetail from './model/ErrorDetail';
@@ -32,8 +33,6 @@ import TimeSeriesRequest from './model/TimeSeriesRequest';
 import TimeSeriesRequestData from './model/TimeSeriesRequestData';
 import TimeSeriesResponse from './model/TimeSeriesResponse';
 import TimeSeriesResponseObjectItems from './model/TimeSeriesResponseObjectItems';
-import TimeSeriesResultObjectFlattened from './model/TimeSeriesResultObjectFlattened';
-import TimeSeriesResultObjectFlattenedAddl from './model/TimeSeriesResultObjectFlattenedAddl';
 import TimeSeriesResultObjectNonflattened from './model/TimeSeriesResultObjectNonflattened';
 import TimeSeriesResultObjectNonflattenedArray from './model/TimeSeriesResultObjectNonflattenedArray';
 import TimeSeriesResultObjectNonflattenedBase from './model/TimeSeriesResultObjectNonflattenedBase';
@@ -42,16 +41,16 @@ import TimeSeriesResultObjectNonflattenedScalar from './model/TimeSeriesResultOb
 import TimeSeriesResultObjectNonflattenedTimeseriesObject from './model/TimeSeriesResultObjectNonflattenedTimeseriesObject';
 import TimeSeriesScalarValue from './model/TimeSeriesScalarValue';
 import TimeSeriesTimeseriesObject from './model/TimeSeriesTimeseriesObject';
+import UnifiedResultObjectFlattened from './model/UnifiedResultObjectFlattened';
+import UnifiedResultObjectFlattenedAddl from './model/UnifiedResultObjectFlattenedAddl';
 import WarningsObject from './model/WarningsObject';
 
 import BatchProcessingApi from './api/BatchProcessingApi';
 import GetBatchDataResponseWrapper from './api/BatchProcessingApi';
 import GetBatchDataWithPostResponseWrapper from './api/BatchProcessingApi';
 import CrossSectionalApi from './api/CrossSectionalApi';
-import GetCrossSectionalDataResponseWrapper from './api/CrossSectionalApi';
 import GetCrossSectionalDataForListResponseWrapper from './api/CrossSectionalApi';
 import TimeSeriesApi from './api/TimeSeriesApi';
-import GetTimeSeriesDataResponseWrapper from './api/TimeSeriesApi';
 import GetTimeSeriesDataForListResponseWrapper from './api/TimeSeriesApi';
 
 
@@ -117,6 +116,24 @@ export {
     BatchDataResponse,
 
     /**
+     * The BatchList model constructor.
+     * @property {module:model/BatchList}
+     */
+    BatchList,
+
+    /**
+     * The BatchListResponse model constructor.
+     * @property {module:model/BatchListResponse}
+     */
+    BatchListResponse,
+
+    /**
+     * The BatchListResponseMeta model constructor.
+     * @property {module:model/BatchListResponseMeta}
+     */
+    BatchListResponseMeta,
+
+    /**
      * The BatchStatus model constructor.
      * @property {module:model/BatchStatus}
      */
@@ -151,18 +168,6 @@ export {
      * @property {module:model/CrossSectionalResponseObjectItems}
      */
     CrossSectionalResponseObjectItems,
-
-    /**
-     * The CrossSectionalResultObjectFlattened model constructor.
-     * @property {module:model/CrossSectionalResultObjectFlattened}
-     */
-    CrossSectionalResultObjectFlattened,
-
-    /**
-     * The CrossSectionalResultObjectFlattenedAddl model constructor.
-     * @property {module:model/CrossSectionalResultObjectFlattenedAddl}
-     */
-    CrossSectionalResultObjectFlattenedAddl,
 
     /**
      * The CrossSectionalResultObjectNonflattened model constructor.
@@ -213,18 +218,6 @@ export {
     TimeSeriesResponseObjectItems,
 
     /**
-     * The TimeSeriesResultObjectFlattened model constructor.
-     * @property {module:model/TimeSeriesResultObjectFlattened}
-     */
-    TimeSeriesResultObjectFlattened,
-
-    /**
-     * The TimeSeriesResultObjectFlattenedAddl model constructor.
-     * @property {module:model/TimeSeriesResultObjectFlattenedAddl}
-     */
-    TimeSeriesResultObjectFlattenedAddl,
-
-    /**
      * The TimeSeriesResultObjectNonflattened model constructor.
      * @property {module:model/TimeSeriesResultObjectNonflattened}
      */
@@ -273,6 +266,18 @@ export {
     TimeSeriesTimeseriesObject,
 
     /**
+     * The UnifiedResultObjectFlattened model constructor.
+     * @property {module:model/UnifiedResultObjectFlattened}
+     */
+    UnifiedResultObjectFlattened,
+
+    /**
+     * The UnifiedResultObjectFlattenedAddl model constructor.
+     * @property {module:model/UnifiedResultObjectFlattenedAddl}
+     */
+    UnifiedResultObjectFlattenedAddl,
+
+    /**
      * The WarningsObject model constructor.
      * @property {module:model/WarningsObject}
      */
@@ -303,12 +308,6 @@ export {
     CrossSectionalApi,
 
     /**
-    * The GetCrossSectionalData response wrapper.
-    * @property {module:GetCalculationStatusByIdResponseWrapper}
-    */
-    GetCrossSectionalDataResponseWrapper,
-
-    /**
     * The GetCrossSectionalDataForList response wrapper.
     * @property {module:GetCalculationStatusByIdResponseWrapper}
     */
@@ -319,12 +318,6 @@ export {
     * @property {module:api/TimeSeriesApi}
     */
     TimeSeriesApi,
-
-    /**
-    * The GetTimeSeriesData response wrapper.
-    * @property {module:GetCalculationStatusByIdResponseWrapper}
-    */
-    GetTimeSeriesDataResponseWrapper,
 
     /**
     * The GetTimeSeriesDataForList response wrapper.

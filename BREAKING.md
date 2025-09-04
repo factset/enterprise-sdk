@@ -1,5 +1,63 @@
 # Breaking Changes
 
+## 2025-09-03 Formula API SDK: Removal of GET Endpoint versions and Deserialization fix for BatchData
+
+### Removal of GET Endpoint versions
+
+GET versions of several endpoints have been removed from the Formula API SDK in favor of their POST equivalents. This streamlines the interface and reduces confusion about which method should be used. Please update any usages of GET endpoints to the corresponding POST endpoint.
+
+#### Example
+
+**Before:**
+    
+    response_get = api.get_cross_sectional_data(
+        formulas=["PROPER_NAME", "P_PRICE(0)", "P_VOLUME(0)", "FF_OPER_MGN(ANN_R,0)", "FF_ASSETS(ANN_R,0)"],
+        ids=["FDS-US"],
+        calendar="SEVENDAY",
+        flatten="N"
+    )
+
+**After:**
+    
+    cross_sectional_request = CrossSectionalRequest(
+        data=CrossSectionalRequestData(
+            formulas=["PROPER_NAME", "P_PRICE(0)", "P_VOLUME(0)", "FF_OPER_MGN(ANN_R,0)", "FF_ASSETS(ANN_R,0)"],
+            ids=["FDS-US"],
+            calendar="SEVENDAY",
+            flatten="N"
+        ),
+    )
+    response_post = api.get_cross_sectional_data_for_list(cross_sectional_request)
+
+### Deserialization Fix for BatchData
+
+The [issue](#2024-10-01-formula-api-sdk-deserialization-of-batchdata) where `BatchData` objects were sometimes incorrectly deserialized as `CrossSectionalResponseObjectItems` instead of `TimeSeriesResponseObjectItems` has been resolved. The SDK now correctly returns the intended type, improving reliability in downstream processing and eliminating the need for extra type-checking code.
+
+**Before:**
+
+Previously, `BatchData` instances could be misclassified because the structures of `TimeSeriesResponseObjectItems` and `CrossSectionalResponseObjectItems` were similar. This would occasionally result in a time-series response being incorrectly handled as cross-sectional data, especially in flattened results.
+
+- BatchData
+  - CrossSectionalResponseObjectItems
+    - CrossSectionalResultObjectNonflattened
+    - CrossSectionalResultObjectFlattened
+  - TimeSeriesResponseObjectItems
+    - TimeSeriesResultObjectNonflattened
+    - TimeSeriesResultObjectFlattened
+
+**After:**
+
+Now, the SDK uses a unified result model for flattened responses, ensuring that each `BatchData` instance is properly deserialized according to its actual type. Flattened results are handled by `UnifiedResultObjectFlattened`, which is shared between both time-series and cross-sectional types. This reduces the risk of misclassification and simplifies response handling.
+
+- BatchData
+  - CrossSectionalResultObjectNonflattened
+  - TimeSeriesResultObjectNonflattened
+  - UnifiedResultObjectFlattened
+
+**Affected SDKs:**
+- Formula 
+
+
 ## 2024-09-01 IRN Meetings API SDK: Attachments-related functions
 
 Endpoints that return attachments now correctly return a file or stream object (depending on the programming language) instead of an empty response or generic object.

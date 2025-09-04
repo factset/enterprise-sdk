@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Unique identifier for the request. Also known as the chain id. | [optional] 
 **Code** | **string** | Textual error code | [optional] 
 **Title** | **string** | A short, human-readable summary of the problem | [optional] 
-**Timestamp** | **DateTime?** | timestamp in YYYY-MM-DD HH:MM:SS.SSS | [optional] 
+**Timestamp** | **DateTime?** | timestamp in YYYY-MM-DDTHH:MM:SS.SSSZ | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

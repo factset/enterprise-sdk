@@ -8,6 +8,9 @@ docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
 docs/BatchDataResponse.md
+docs/BatchList.md
+docs/BatchListResponse.md
+docs/BatchListResponseMeta.md
 docs/BatchProcessingApi.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
@@ -16,8 +19,6 @@ docs/CrossSectionalRequest.md
 docs/CrossSectionalRequestData.md
 docs/CrossSectionalResponse.md
 docs/CrossSectionalResponseObjectItems.md
-docs/CrossSectionalResultObjectFlattened.md
-docs/CrossSectionalResultObjectFlattenedAddl.md
 docs/CrossSectionalResultObjectNonflattened.md
 docs/CrossSectionalResultObjectNonflattenedResultAttribute.md
 docs/ErrorDetail.md
@@ -27,8 +28,6 @@ docs/TimeSeriesRequest.md
 docs/TimeSeriesRequestData.md
 docs/TimeSeriesResponse.md
 docs/TimeSeriesResponseObjectItems.md
-docs/TimeSeriesResultObjectFlattened.md
-docs/TimeSeriesResultObjectFlattenedAddl.md
 docs/TimeSeriesResultObjectNonflattened.md
 docs/TimeSeriesResultObjectNonflattenedArray.md
 docs/TimeSeriesResultObjectNonflattenedBase.md
@@ -37,6 +36,8 @@ docs/TimeSeriesResultObjectNonflattenedScalar.md
 docs/TimeSeriesResultObjectNonflattenedTimeseriesObject.md
 docs/TimeSeriesScalarValue.md
 docs/TimeSeriesTimeseriesObject.md
+docs/UnifiedResultObjectFlattened.md
+docs/UnifiedResultObjectFlattenedAddl.md
 docs/WarningsObject.md
 git_push.sh
 mocha.opts
@@ -50,14 +51,15 @@ src/model/BatchData.js
 src/model/BatchDataRequest.js
 src/model/BatchDataRequestData.js
 src/model/BatchDataResponse.js
+src/model/BatchList.js
+src/model/BatchListResponse.js
+src/model/BatchListResponseMeta.js
 src/model/BatchStatus.js
 src/model/BatchStatusResponse.js
 src/model/CrossSectionalRequest.js
 src/model/CrossSectionalRequestData.js
 src/model/CrossSectionalResponse.js
 src/model/CrossSectionalResponseObjectItems.js
-src/model/CrossSectionalResultObjectFlattened.js
-src/model/CrossSectionalResultObjectFlattenedAddl.js
 src/model/CrossSectionalResultObjectNonflattened.js
 src/model/CrossSectionalResultObjectNonflattenedResultAttribute.js
 src/model/ErrorDetail.js
@@ -66,8 +68,6 @@ src/model/TimeSeriesRequest.js
 src/model/TimeSeriesRequestData.js
 src/model/TimeSeriesResponse.js
 src/model/TimeSeriesResponseObjectItems.js
-src/model/TimeSeriesResultObjectFlattened.js
-src/model/TimeSeriesResultObjectFlattenedAddl.js
 src/model/TimeSeriesResultObjectNonflattened.js
 src/model/TimeSeriesResultObjectNonflattenedArray.js
 src/model/TimeSeriesResultObjectNonflattenedBase.js
@@ -76,4 +76,6 @@ src/model/TimeSeriesResultObjectNonflattenedScalar.js
 src/model/TimeSeriesResultObjectNonflattenedTimeseriesObject.js
 src/model/TimeSeriesScalarValue.js
 src/model/TimeSeriesTimeseriesObject.js
+src/model/UnifiedResultObjectFlattened.js
+src/model/UnifiedResultObjectFlattenedAddl.js
 src/model/WarningsObject.js

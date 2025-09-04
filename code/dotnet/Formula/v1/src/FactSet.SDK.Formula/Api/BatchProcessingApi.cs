@@ -1,9 +1,9 @@
 /*
  * FactSet Formula API
  *
- *  **FactSet Formula API**  FactSet’s Formula API is a modern, flexible, formula-based API that enables users to access FactSet’s wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet’s expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
+ *  **FactSet Formula API**  FactSet's Formula API is a modern, flexible, formula-based API that enables users to access FactSet's wide range of financial data and content. The API offers two endpoints, one optimized for time-series analysis and one designed for cross-sectional analysis, providing users a simplified interface into FactSet's expansive offering. By providing two endpoints, it allows for the optimization of user workflows, while reducing complexity.  Leverage the power and flexibility of the Formula API to -   * Pull data from across most content sets that a user has access to in a single request   * Include business logic and mathematical operations in request   * Submit a dynamic universe in both endpoints   * Return the fsymId to easily combine with other FactSet content / products   * Set the trading calendar   * Define custom display names  **Formula API Request Builder**  The Formula API Request Builder provides users everything they need to form a Formula API request. In the Request Builder, you can select identifiers, build a universe expression, select FQL or Screening formulas, easily apply business logic and mathematical functions to the FQL or Screening formulas, specify optional parameters, and construct a GET or POST request. The Request Builder eliminates the need to have previous FQL and Screening knowledge and allows you to quickly find your desired data items and form the request.  The Formula API Request Builder can be accessed by navigating to [https://developer.factset.com/formula-api-request-builder](https://developer.factset.com/formula-api-request-builder) and logging in using your FactSet.net ID. When using the Request Builder to construct requests for the one of the Formula API's endpoints, be sure to toggle to the correct endpoint at the top of the page.  **How to Check the Health and Availability of the Formula API**  Please use the below endpoint to check the health and availability of the Formula API. You must be authorized for this API to use the Health endpoint.  [https://api.factset.com/formula-api/health](https://api.factset.com/formula-api/health)  **How to Programmatically Download API Specification File**  You can download the FactSet Formula API Specification File in .yaml. using the \"Download Spec\" button to the right of the version number. This specification can then be used for Codegen to create your own SDKs. 
  *
- * The version of the OpenAPI document: 1.8.0
+ * The version of the OpenAPI document: 1.13.0
  * Contact: api@factset.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -29,10 +29,31 @@ namespace FactSet.SDK.Formula.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Cancels individual ongoing Batch Request
+        /// </summary>
+        /// <remarks>
+        /// Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <returns>void</returns>
+        void CancelBatchJob(Guid id);
+
+        /// <summary>
+        /// Cancels individual ongoing Batch Request
+        /// </summary>
+        /// <remarks>
+        /// Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CancelBatchJobWithHttpInfo(Guid id);
+        /// <summary>
         /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -43,17 +64,17 @@ namespace FactSet.SDK.Formula.Api
         /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
         /// <returns>ApiResponse of BatchProcessingApi.GetBatchDataResponseWrapper</returns>
         ApiResponse<BatchProcessingApi.GetBatchDataResponseWrapper> GetBatchDataWithHttpInfo(Guid id);
         /// <summary>
-        /// Returns the status for a Batch Request
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
@@ -61,15 +82,34 @@ namespace FactSet.SDK.Formula.Api
         BatchProcessingApi.GetBatchDataWithPostResponseWrapper GetBatchDataWithPost(BatchDataRequest batchDataRequest);
 
         /// <summary>
-        /// Returns the status for a Batch Request
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
         /// <returns>ApiResponse of BatchProcessingApi.GetBatchDataWithPostResponseWrapper</returns>
         ApiResponse<BatchProcessingApi.GetBatchDataWithPostResponseWrapper> GetBatchDataWithPostWithHttpInfo(BatchDataRequest batchDataRequest);
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user
+        /// </summary>
+        /// <remarks>
+        /// Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>BatchListResponse</returns>
+        BatchListResponse GetBatchList();
+
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user
+        /// </summary>
+        /// <remarks>
+        /// Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of BatchListResponse</returns>
+        ApiResponse<BatchListResponse> GetBatchListWithHttpInfo();
         /// <summary>
         /// Returns the status for a Batch Request
         /// </summary>
@@ -91,27 +131,6 @@ namespace FactSet.SDK.Formula.Api
         /// <param name="id">Batch Request identifier.</param>
         /// <returns>ApiResponse of BatchStatusResponse</returns>
         ApiResponse<BatchStatusResponse> GetBatchStatusWithHttpInfo(Guid id);
-        /// <summary>
-        /// Returns the status for a Batch Request
-        /// </summary>
-        /// <remarks>
-        /// Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <returns>BatchStatusResponse</returns>
-        BatchStatusResponse GetBatchStatusWithPost(BatchDataRequest batchDataRequest);
-
-        /// <summary>
-        /// Returns the status for a Batch Request
-        /// </summary>
-        /// <remarks>
-        /// Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <returns>ApiResponse of BatchStatusResponse</returns>
-        ApiResponse<BatchStatusResponse> GetBatchStatusWithPostWithHttpInfo(BatchDataRequest batchDataRequest);
         #endregion Synchronous Operations
     }
 
@@ -122,10 +141,33 @@ namespace FactSet.SDK.Formula.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Cancels individual ongoing Batch Request
+        /// </summary>
+        /// <remarks>
+        /// Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CancelBatchJobAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Cancels individual ongoing Batch Request
+        /// </summary>
+        /// <remarks>
+        /// Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelBatchJobWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -137,7 +179,7 @@ namespace FactSet.SDK.Formula.Api
         /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -145,10 +187,10 @@ namespace FactSet.SDK.Formula.Api
         /// <returns>Task of ApiResponse (BatchProcessingApi.GetBatchDataResponseWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchProcessingApi.GetBatchDataResponseWrapper>> GetBatchDataWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Returns the status for a Batch Request
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
@@ -157,16 +199,37 @@ namespace FactSet.SDK.Formula.Api
         System.Threading.Tasks.Task<BatchProcessingApi.GetBatchDataWithPostResponseWrapper> GetBatchDataWithPostAsync(BatchDataRequest batchDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Returns the status for a Batch Request
+        /// Returns the response for a Batch Request
         /// </summary>
         /// <remarks>
-        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BatchProcessingApi.GetBatchDataWithPostResponseWrapper)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchProcessingApi.GetBatchDataWithPostResponseWrapper>> GetBatchDataWithPostWithHttpInfoAsync(BatchDataRequest batchDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user
+        /// </summary>
+        /// <remarks>
+        /// Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatchListResponse</returns>
+        System.Threading.Tasks.Task<BatchListResponse> GetBatchListAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user
+        /// </summary>
+        /// <remarks>
+        /// Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatchListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BatchListResponse>> GetBatchListWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the status for a Batch Request
         /// </summary>
@@ -190,29 +253,6 @@ namespace FactSet.SDK.Formula.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BatchStatusResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BatchStatusResponse>> GetBatchStatusWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Returns the status for a Batch Request
-        /// </summary>
-        /// <remarks>
-        /// Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BatchStatusResponse</returns>
-        System.Threading.Tasks.Task<BatchStatusResponse> GetBatchStatusWithPostAsync(BatchDataRequest batchDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Returns the status for a Batch Request
-        /// </summary>
-        /// <remarks>
-        /// Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BatchStatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchStatusResponse>> GetBatchStatusWithPostWithHttpInfoAsync(BatchDataRequest batchDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -233,6 +273,10 @@ namespace FactSet.SDK.Formula.Api
 
         # region Response Type Disctionaries
         
+        private static readonly Dictionary<HttpStatusCode, System.Type> CancelBatchJobResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(BatchDataResponse) },
@@ -247,14 +291,12 @@ namespace FactSet.SDK.Formula.Api
             { (HttpStatusCode)404, typeof(ErrorDetail) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)201, typeof(BatchStatusResponse) },
-            { (HttpStatusCode)202, typeof(BatchStatusResponse) },
-            { (HttpStatusCode)404, typeof(ErrorDetail) },
+            { (HttpStatusCode)200, typeof(BatchListResponse) },
         };
 
-        private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchStatusWithPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBatchStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(BatchStatusResponse) },
             { (HttpStatusCode)202, typeof(BatchStatusResponse) },
@@ -555,7 +597,170 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Cancels individual ongoing Batch Request Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <returns>void</returns>
+        public void CancelBatchJob(Guid id)
+        {
+            CancelBatchJobWithHttpInfo(id);
+        }
+
+        /// <summary>
+        /// Cancels individual ongoing Batch Request Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CancelBatchJobWithHttpInfo(Guid id)
+        {
+            FactSet.SDK.Formula.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Formula.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Formula.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Formula.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = CancelBatchJobResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/batch-cancel", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelBatchJob", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancels individual ongoing Batch Request Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CancelBatchJobAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await CancelBatchJobWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Cancels individual ongoing Batch Request Cancel individual batch requests that are specified by the id via the &#x60;/batch-cancel&#x60; endpoint. The batch request cannot be canceled if it has already completed processing or if it has failed. Canceling a batch request releases a concurrency slot, allowing users to initiate a new batch request immediately.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Batch Request identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CancelBatchJobWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.Formula.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Formula.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Formula.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Formula.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = CancelBatchJobResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/batch-cancel", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelBatchJob", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -567,7 +772,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -636,7 +841,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -649,7 +854,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Batch Request identifier.</param>
@@ -722,7 +927,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
@@ -734,7 +939,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
@@ -810,7 +1015,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
@@ -823,7 +1028,7 @@ namespace FactSet.SDK.Formula.Api
         }
 
         /// <summary>
-        /// Returns the status for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// Returns the response for a Batch Request Returns the response data for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint. All batch requests expire within 48 hours of completion.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
         /// </summary>
         /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchDataRequest"></param>
@@ -900,6 +1105,165 @@ namespace FactSet.SDK.Formula.Api
 
             var getbatchdatawithpostResponse = new GetBatchDataWithPostResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
             return new ApiResponse<GetBatchDataWithPostResponseWrapper>(localVarResponse.StatusCode, getbatchdatawithpostResponse);
+        }
+
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>BatchListResponse</returns>
+        public BatchListResponse GetBatchList()
+        {
+            var localVarResponse = GetBatchListWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of BatchListResponse</returns>
+        public ApiResponse<BatchListResponse> GetBatchListWithHttpInfo()
+        {
+            FactSet.SDK.Formula.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Formula.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Formula.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetBatchListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            BatchListResponse>("/batch-list", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBatchList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BatchListResponse</returns>
+        public async System.Threading.Tasks.Task<BatchListResponse>GetBatchListAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetBatchListWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns a list of all available Batch Requests submitted by a user Return a list of all batch requests submitted by a user that have not yet expired. The &#x60;/batch-list&#x60; endpoint will return the batch &#x60;id&#x60;, &#x60;status&#x60;, &#x60;error&#x60;, and &#x60;expiration&#x60; for all ongoing or unexpired batch requests. All batch requests expire within 48 hours of completion.     *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (BatchListResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<BatchListResponse>> GetBatchListWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.Formula.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Formula.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Formula.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetBatchListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BatchListResponse>("/batch-list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBatchList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -1058,185 +1422,6 @@ namespace FactSet.SDK.Formula.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBatchStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </summary>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <returns>BatchStatusResponse</returns>
-        public BatchStatusResponse GetBatchStatusWithPost(BatchDataRequest batchDataRequest)
-        {
-            var localVarResponse = GetBatchStatusWithPostWithHttpInfo(batchDataRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </summary>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <returns>ApiResponse of BatchStatusResponse</returns>
-        public ApiResponse<BatchStatusResponse> GetBatchStatusWithPostWithHttpInfo(BatchDataRequest batchDataRequest)
-        {
-            // verify the required parameter 'batchDataRequest' is set
-            if (batchDataRequest == null)
-            {
-                throw new FactSet.SDK.Formula.Client.ApiException(400, "Missing required parameter 'batchDataRequest' when calling BatchProcessingApi->GetBatchStatusWithPost");
-            }
-
-            FactSet.SDK.Formula.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Formula.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = batchDataRequest;
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Formula.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = GetBatchStatusWithPostResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<
-            BatchStatusResponse>("/batch-status", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetBatchStatusWithPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </summary>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BatchStatusResponse</returns>
-        public async System.Threading.Tasks.Task<BatchStatusResponse>GetBatchStatusWithPostAsync(BatchDataRequest batchDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await GetBatchStatusWithPostWithHttpInfoAsync(batchDataRequest, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Returns the status for a Batch Request Return the status for the underlying batch request that is specified by the id.    The Formula API supports Long Running asynchronous requests up to **30 minutes** via the &#x60;batch&#x60; parameter for both the &#x60;/time-series&#x60; and &#x60;/cross-sectional&#x60; endpoint.    *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \&quot;Report Issue\&quot; above and our support teams can assist.* 
-        /// </summary>
-        /// <exception cref="FactSet.SDK.Formula.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchDataRequest"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BatchStatusResponse)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<BatchStatusResponse>> GetBatchStatusWithPostWithHttpInfoAsync(BatchDataRequest batchDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'batchDataRequest' is set
-            if (batchDataRequest == null)
-            {
-                throw new FactSet.SDK.Formula.Client.ApiException(400, "Missing required parameter 'batchDataRequest' when calling BatchProcessingApi->GetBatchStatusWithPost");
-            }
-
-
-            FactSet.SDK.Formula.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Formula.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.Formula.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = batchDataRequest;
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Formula.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = GetBatchStatusWithPostResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<BatchStatusResponse>("/batch-status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetBatchStatusWithPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

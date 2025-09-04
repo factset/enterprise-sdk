@@ -8,6 +8,9 @@ docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
 docs/BatchDataResponse.md
+docs/BatchList.md
+docs/BatchListResponse.md
+docs/BatchListResponseMeta.md
 docs/BatchProcessingApi.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
@@ -16,8 +19,6 @@ docs/CrossSectionalRequest.md
 docs/CrossSectionalRequestData.md
 docs/CrossSectionalResponse.md
 docs/CrossSectionalResponseObjectItems.md
-docs/CrossSectionalResultObjectFlattened.md
-docs/CrossSectionalResultObjectFlattenedAddl.md
 docs/CrossSectionalResultObjectNonflattened.md
 docs/CrossSectionalResultObjectNonflattenedResultAttribute.md
 docs/ErrorDetail.md
@@ -27,8 +28,6 @@ docs/TimeSeriesRequest.md
 docs/TimeSeriesRequestData.md
 docs/TimeSeriesResponse.md
 docs/TimeSeriesResponseObjectItems.md
-docs/TimeSeriesResultObjectFlattened.md
-docs/TimeSeriesResultObjectFlattenedAddl.md
 docs/TimeSeriesResultObjectNonflattened.md
 docs/TimeSeriesResultObjectNonflattenedArray.md
 docs/TimeSeriesResultObjectNonflattenedBase.md
@@ -37,6 +36,8 @@ docs/TimeSeriesResultObjectNonflattenedScalar.md
 docs/TimeSeriesResultObjectNonflattenedTimeseriesObject.md
 docs/TimeSeriesScalarValue.md
 docs/TimeSeriesTimeseriesObject.md
+docs/UnifiedResultObjectFlattened.md
+docs/UnifiedResultObjectFlattenedAddl.md
 docs/WarningsObject.md
 git_push.sh
 src/FactSet.SDK.Formula/Api/BatchProcessingApi.cs
@@ -64,14 +65,15 @@ src/FactSet.SDK.Formula/Model/BatchData.cs
 src/FactSet.SDK.Formula/Model/BatchDataRequest.cs
 src/FactSet.SDK.Formula/Model/BatchDataRequestData.cs
 src/FactSet.SDK.Formula/Model/BatchDataResponse.cs
+src/FactSet.SDK.Formula/Model/BatchList.cs
+src/FactSet.SDK.Formula/Model/BatchListResponse.cs
+src/FactSet.SDK.Formula/Model/BatchListResponseMeta.cs
 src/FactSet.SDK.Formula/Model/BatchStatus.cs
 src/FactSet.SDK.Formula/Model/BatchStatusResponse.cs
 src/FactSet.SDK.Formula/Model/CrossSectionalRequest.cs
 src/FactSet.SDK.Formula/Model/CrossSectionalRequestData.cs
 src/FactSet.SDK.Formula/Model/CrossSectionalResponse.cs
 src/FactSet.SDK.Formula/Model/CrossSectionalResponseObjectItems.cs
-src/FactSet.SDK.Formula/Model/CrossSectionalResultObjectFlattened.cs
-src/FactSet.SDK.Formula/Model/CrossSectionalResultObjectFlattenedAddl.cs
 src/FactSet.SDK.Formula/Model/CrossSectionalResultObjectNonflattened.cs
 src/FactSet.SDK.Formula/Model/CrossSectionalResultObjectNonflattenedResultAttribute.cs
 src/FactSet.SDK.Formula/Model/ErrorDetail.cs
@@ -80,8 +82,6 @@ src/FactSet.SDK.Formula/Model/TimeSeriesRequest.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesRequestData.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesResponse.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesResponseObjectItems.cs
-src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectFlattened.cs
-src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectFlattenedAddl.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectNonflattened.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectNonflattenedArray.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectNonflattenedBase.cs
@@ -90,4 +90,6 @@ src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectNonflattenedScalar.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesResultObjectNonflattenedTimeseriesObject.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesScalarValue.cs
 src/FactSet.SDK.Formula/Model/TimeSeriesTimeseriesObject.cs
+src/FactSet.SDK.Formula/Model/UnifiedResultObjectFlattened.cs
+src/FactSet.SDK.Formula/Model/UnifiedResultObjectFlattenedAddl.cs
 src/FactSet.SDK.Formula/Model/WarningsObject.cs

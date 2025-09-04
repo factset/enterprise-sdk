@@ -8,6 +8,9 @@ docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
 docs/BatchDataResponse.md
+docs/BatchList.md
+docs/BatchListResponse.md
+docs/BatchListResponseMeta.md
 docs/BatchProcessingApi.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
@@ -16,8 +19,6 @@ docs/CrossSectionalRequest.md
 docs/CrossSectionalRequestData.md
 docs/CrossSectionalResponse.md
 docs/CrossSectionalResponseObjectItems.md
-docs/CrossSectionalResultObjectFlattened.md
-docs/CrossSectionalResultObjectFlattenedAddl.md
 docs/CrossSectionalResultObjectNonflattened.md
 docs/CrossSectionalResultObjectNonflattenedResultAttribute.md
 docs/ErrorDetail.md
@@ -27,8 +28,6 @@ docs/TimeSeriesRequest.md
 docs/TimeSeriesRequestData.md
 docs/TimeSeriesResponse.md
 docs/TimeSeriesResponseObjectItems.md
-docs/TimeSeriesResultObjectFlattened.md
-docs/TimeSeriesResultObjectFlattenedAddl.md
 docs/TimeSeriesResultObjectNonflattened.md
 docs/TimeSeriesResultObjectNonflattenedArray.md
 docs/TimeSeriesResultObjectNonflattenedBase.md
@@ -37,6 +36,8 @@ docs/TimeSeriesResultObjectNonflattenedScalar.md
 docs/TimeSeriesResultObjectNonflattenedTimeseriesObject.md
 docs/TimeSeriesScalarValue.md
 docs/TimeSeriesTimeseriesObject.md
+docs/UnifiedResultObjectFlattened.md
+docs/UnifiedResultObjectFlattenedAddl.md
 docs/WarningsObject.md
 fds/__init__.py
 fds/sdk/Formula/__init__.py
@@ -53,14 +54,15 @@ fds/sdk/Formula/model/batch_data.py
 fds/sdk/Formula/model/batch_data_request.py
 fds/sdk/Formula/model/batch_data_request_data.py
 fds/sdk/Formula/model/batch_data_response.py
+fds/sdk/Formula/model/batch_list.py
+fds/sdk/Formula/model/batch_list_response.py
+fds/sdk/Formula/model/batch_list_response_meta.py
 fds/sdk/Formula/model/batch_status.py
 fds/sdk/Formula/model/batch_status_response.py
 fds/sdk/Formula/model/cross_sectional_request.py
 fds/sdk/Formula/model/cross_sectional_request_data.py
 fds/sdk/Formula/model/cross_sectional_response.py
 fds/sdk/Formula/model/cross_sectional_response_object_items.py
-fds/sdk/Formula/model/cross_sectional_result_object_flattened.py
-fds/sdk/Formula/model/cross_sectional_result_object_flattened_addl.py
 fds/sdk/Formula/model/cross_sectional_result_object_nonflattened.py
 fds/sdk/Formula/model/cross_sectional_result_object_nonflattened_result_attribute.py
 fds/sdk/Formula/model/error_detail.py
@@ -69,8 +71,6 @@ fds/sdk/Formula/model/time_series_request.py
 fds/sdk/Formula/model/time_series_request_data.py
 fds/sdk/Formula/model/time_series_response.py
 fds/sdk/Formula/model/time_series_response_object_items.py
-fds/sdk/Formula/model/time_series_result_object_flattened.py
-fds/sdk/Formula/model/time_series_result_object_flattened_addl.py
 fds/sdk/Formula/model/time_series_result_object_nonflattened.py
 fds/sdk/Formula/model/time_series_result_object_nonflattened_array.py
 fds/sdk/Formula/model/time_series_result_object_nonflattened_base.py
@@ -79,6 +79,8 @@ fds/sdk/Formula/model/time_series_result_object_nonflattened_scalar.py
 fds/sdk/Formula/model/time_series_result_object_nonflattened_timeseries_object.py
 fds/sdk/Formula/model/time_series_scalar_value.py
 fds/sdk/Formula/model/time_series_timeseries_object.py
+fds/sdk/Formula/model/unified_result_object_flattened.py
+fds/sdk/Formula/model/unified_result_object_flattened_addl.py
 fds/sdk/Formula/model/warnings_object.py
 fds/sdk/Formula/model_utils.py
 fds/sdk/Formula/models/__init__.py
