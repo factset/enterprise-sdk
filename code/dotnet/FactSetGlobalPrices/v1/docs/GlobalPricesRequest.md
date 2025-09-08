@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **StartDate** | **string** | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | 
 **EndDate** | **string** | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 **Frequency** | [**Frequency**](Frequency.md) |  | [optional] 
-**Currency** | **string** | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**Currency** | **string** | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to "LOCAL"]
 **Calendar** | [**Calendar**](Calendar.md) |  | [optional] 
 **Adjust** | [**Adjust**](Adjust.md) |  | [optional] 
 **Batch** | [**Batch**](Batch.md) |  | [optional] 

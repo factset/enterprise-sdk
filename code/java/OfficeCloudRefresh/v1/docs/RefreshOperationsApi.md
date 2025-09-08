@@ -113,6 +113,7 @@ GetFileByIdResponseWrapper
 | **202** | Accepted (resource not ready yet) |  * Location - Relative URL to check status of the request. <br>  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **410** | Expired File |  -  |
 | **422** | Failed to refresh file |  -  |
 | **500** | Server Error |  -  |
 
@@ -209,6 +210,7 @@ Name | Type | Description  | Notes
 | **202** | Accepted (resource not ready yet) |  * Location - Relative URL to check status of the request. <br>  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **410** | Expired File |  -  |
 | **422** | Failed to refresh file |  -  |
 | **500** | Server Error |  -  |
 

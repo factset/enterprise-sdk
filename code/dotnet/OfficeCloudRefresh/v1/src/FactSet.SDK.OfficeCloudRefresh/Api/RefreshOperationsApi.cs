@@ -215,6 +215,7 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
             { (HttpStatusCode)202, typeof(JobStatus) },
             { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)404, typeof(Errors) },
+            { (HttpStatusCode)410, typeof(Errors) },
             { (HttpStatusCode)422, typeof(Errors) },
             { (HttpStatusCode)500, typeof(Errors) },
         };
@@ -225,6 +226,7 @@ namespace FactSet.SDK.OfficeCloudRefresh.Api
             { (HttpStatusCode)202, typeof(JobStatus) },
             { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)404, typeof(Errors) },
+            { (HttpStatusCode)410, typeof(Errors) },
             { (HttpStatusCode)422, typeof(Errors) },
             { (HttpStatusCode)500, typeof(Errors) },
         };

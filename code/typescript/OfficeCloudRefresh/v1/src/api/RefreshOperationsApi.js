@@ -216,6 +216,7 @@ const GetFileByIdResponseWrapperTypeMap = {
   202: JobStatus,
   400: Errors,
   404: Errors,
+  410: Errors,
   422: Errors,
   500: Errors,
 

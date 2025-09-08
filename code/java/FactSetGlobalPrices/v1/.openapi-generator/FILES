@@ -35,6 +35,11 @@ docs/EventCategory.md
 docs/Frequency.md
 docs/GlobalPricesRequest.md
 docs/GlobalPricesResponse.md
+docs/MarketValueApi.md
+docs/MarketValueRequest.md
+docs/MarketValueRequestBody.md
+docs/MarketValueResponse.md
+docs/MarketValueResponseObject.md
 docs/Price.md
 docs/PricesApi.md
 docs/Returns.md
@@ -76,6 +81,7 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/StringUtil.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/BatchProcessingApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/CorporateActionsApi.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/api/MarketValueApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/PricesApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/ReturnsApi.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/api/SharesOutstandingApi.java
@@ -114,6 +120,10 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/models/EventCategory.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Frequency.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/GlobalPricesRequest.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/GlobalPricesResponse.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/MarketValueRequest.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/MarketValueRequestBody.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/MarketValueResponse.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/MarketValueResponseObject.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Price.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Returns.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ReturnsRequest.java

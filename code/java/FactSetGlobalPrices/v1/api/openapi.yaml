@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
   title: FactSet Global Prices API
-  version: 1.8.0
+  version: 1.9.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -166,6 +166,7 @@ paths:
         name: currency
         required: false
         schema:
+          default: LOCAL
           type: string
         style: form
       - description: "Controls the split and spinoff adjustments for the prices.\n\
@@ -619,6 +620,7 @@ paths:
         name: currency
         required: false
         schema:
+          default: LOCAL
           type: string
         style: form
       - description: |
@@ -942,6 +944,7 @@ paths:
         name: currency
         required: false
         schema:
+          default: LOCAL
           type: string
         style: form
       - description: "Enables the ability to asynchronously \"batch\" the request,\
@@ -1243,6 +1246,7 @@ paths:
         name: currency
         required: false
         schema:
+          default: LOCAL
           type: string
         style: form
       - description: "Controls the display frequency of the data returned.\n  * **D**\
@@ -1872,6 +1876,277 @@ paths:
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
+  /factset-global-prices/v1/market-value:
+    get:
+      description: "Provides the current market value (in USD millions) for a list\
+        \ of specified securities. \n"
+      operationId: getGPDMarketVal
+      parameters:
+      - description: The requested list of security identifiers. Accepted ID types
+          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
+          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          note, GET Method URL request lines are also limited to a total length of
+          8192 bytes (8KB). In cases where the service allows for thousands of ids,
+          which may lead to exceeding this request line limit of 8KB, it's advised
+          for any requests with large request lines to be requested through the respective
+          "POST" method.</p>*
+        examples:
+          oneEquityId:
+            summary: One Equity Market Identifier
+            value:
+            - AAPL-USA
+          multipleEquityIds:
+            summary: Multiple Equity Market Identifiers
+            value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: "Enables the ability to asynchronously \"batch\" the request,\
+          \ supporting a long-running request for up to 20 minutes. Upon requesting\
+          \ batch=Y, the service will respond with an HTTP Status Code of 202.\nOnce\
+          \ a batch request is submitted, use batch status to see if the job has been\
+          \ completed. Once completed, retrieve the results of the request via batch-result.\
+          \ \nFor single-day requests, the ids limit is 500 for non-batch and 2000\
+          \ for batch. For multi-day requests, the limit is 50 ids for both batch\
+          \ and non-batch. \nLimits on query string via GET method still apply. It's\
+          \ advised to submit large lists of ids via POST method.\n<B>Please note\
+          \ that the number of unique currencies present in the requested ids is limited\
+          \ to 50 per request.</B>\n"
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Prices over 1 week period for FDS-US and TSLA-US:
+                  $ref: '#/components/examples/MarketValueResponse'
+              schema:
+                $ref: '#/components/schemas/MarketValueResponse'
+          description: Array of Price Objects
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted.
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Provides the current market value for a list of specified securities.
+      tags:
+      - Market Value
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+    post:
+      description: Provides the current market value (in USD millions) for a list
+        of specified securities.
+      operationId: getSecurityPricesForListMarketVal
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Market Value Example:
+                $ref: '#/components/examples/PostMarketValue'
+            schema:
+              $ref: '#/components/schemas/MarketValueRequest'
+        description: Request object for `Market Value`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Current Market Value of AAPL-US:
+                  $ref: '#/components/examples/MarketValueResponse'
+              schema:
+                $ref: '#/components/schemas/MarketValueResponse'
+          description: Market Value Response
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted.
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Requests the current market value for a list of specified securities.
+      tags:
+      - Market Value
+      x-factset-different-success-responses: true
+      x-contentType: application/json
+      x-accepts: application/json
   /factset-global-prices/v1/batch-status:
     get:
       deprecated: false
@@ -2465,6 +2740,14 @@ components:
           adrDescription: American Despository Shares
           totalOutstanding: 980.22284
           adrTotalOutstanding: 225.30467
+    MarketValueResponse:
+      summary: Current Only - Market Value Response of FactSet (FDS-US)
+      value:
+        data:
+        - fsymId: MH33D6-R
+          date: 2024-11-26
+          currentMarketValue: 3520021.70201
+          requestId: AAPL-US
     postPrices:
       summary: Prices Request over 1 year period for FDS-US
       value:
@@ -2512,6 +2795,13 @@ components:
         - AAPL-US
         currency: USD
         batch: "N"
+    PostMarketValue:
+      summary: Market Value Request for AAPL-US
+      value:
+        data:
+          ids:
+          - AAPL-US
+          batch: "N"
     BatchStatusQueuedResponse:
       description: Batch Status Queued Response
       value:
@@ -3112,6 +3402,7 @@ components:
       name: currency
       required: false
       schema:
+        default: LOCAL
         type: string
       style: form
     adjust:
@@ -3547,6 +3838,7 @@ components:
         frequency:
           $ref: '#/components/schemas/frequency'
         currency:
+          default: LOCAL
           description: Currency code for adjusting prices. Default is Local. For a
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD
@@ -3899,6 +4191,7 @@ components:
           title: End Date
           type: string
         currency:
+          default: LOCAL
           description: Currency code for adjusting prices. Default is Local. For a
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD
@@ -3927,6 +4220,7 @@ components:
           title: ids
           type: array
         currency:
+          default: LOCAL
           description: Currency code for adjusting prices. Default is Local. For a
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD
@@ -4243,6 +4537,104 @@ components:
           type: number
       title: Shares Outstanding Object
       type: object
+    MarketValueRequest:
+      description: Market Value Request Body
+      example:
+        data:
+          ids:
+          - AAPL-US
+      properties:
+        data:
+          $ref: '#/components/schemas/MarketValueRequestBody'
+      required:
+      - data
+      title: Market Value Request Body
+      type: object
+    MarketValueRequestBody:
+      description: Market Value Request Body
+      example:
+        ids:
+        - AAPL-US
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
+          example:
+          - AAPL-US
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
+          type: array
+        batch:
+          $ref: '#/components/schemas/batch'
+      required:
+      - ids
+      title: Market Value Request Body
+      type: object
+    MarketValueResponse:
+      description: Market Value Response
+      example:
+        data:
+        - date: 2024-11-26T00:00:00.000+0000
+          currentMarketValue: 3520021.70201
+          requestId: AAPL-US
+          fsymId: MH33D6-R
+        - date: 2024-11-26T00:00:00.000+0000
+          currentMarketValue: 3520021.70201
+          requestId: AAPL-US
+          fsymId: MH33D6-R
+      properties:
+        data:
+          description: Array of Market Value Objects
+          items:
+            $ref: '#/components/schemas/MarketValueResponseObject'
+          type: array
+      title: Market Value Response
+      type: object
+    MarketValueResponseObject:
+      description: Market Value Response Object
+      example:
+        date: 2024-11-26T00:00:00.000+0000
+        currentMarketValue: 3520021.70201
+        requestId: AAPL-US
+        fsymId: MH33D6-R
+      properties:
+        fsymId:
+          description: Security-level FactSet Permanent Identifier associated with
+            the identifier.
+          example: MH33D6-R
+          nullable: true
+          type: string
+        requestId:
+          description: FactSet Security Permanent Identifier that was used for the
+            request.
+          example: AAPL-US
+          type: string
+        currentMarketValue:
+          description: Market Value for a specified security. (Current Only)
+          example: 3520021.70201
+          nullable: true
+          type: number
+        date:
+          description: Current Market Value Date
+          example: 2024-11-26
+          format: date
+          nullable: true
+          type: string
+      title: Market Value Object
+      type: object
+    idsBatchMax10000:
+      description: "The requested list of security identifiers. Accepted ID types\
+        \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
+        \ \n<p>ids limit =  1000 per non-batch request / 10000 per batch request for\
+        \ a single day and 50 per multi-day request</p>\n"
+      example:
+      - FDS-US
+      items:
+        type: string
+      type: array
     idsBatchMax2000:
       description: "The requested list of security identifiers. Accepted ID types\
         \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
@@ -4352,6 +4744,7 @@ components:
       - $ref: '#/components/schemas/corporateAction'
       - $ref: '#/components/schemas/annualizedDividendsObject'
       - $ref: '#/components/schemas/sharesOutstandingResponseObject'
+      - $ref: '#/components/schemas/MarketValueResponseObject'
       title: Batch Data
     eventCategory:
       default: ALL
@@ -4604,6 +4997,7 @@ components:
       title: cancelledDividend
       type: string
     requestCurrency:
+      default: LOCAL
       description: Currency code for adjusting prices. Default is Local. For a list
         of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
       example: USD
@@ -4986,6 +5380,7 @@ components:
           title: End Date
           type: string
         currency:
+          default: LOCAL
           description: Currency code for adjusting prices. Default is Local. For a
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD

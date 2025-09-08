@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fsym_id** | **str, none_type** | Security-level FactSet Permanent Identifier associated with the identifier. | [optional] 
-**date** | **date, none_type** | Date of the record in YYYY-MM-DD format. | [optional] 
+**date** | **date, none_type** | Current Market Value Date | [optional] 
 **currency** | **str, none_type** | Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
-**request_id** | **str, none_type** | FactSet Security Permanent Identifier that was used for the request. | [optional] 
+**request_id** | **str** | FactSet Security Permanent Identifier that was used for the request. | [optional] 
 **total_return** | **float, none_type** | Returns the data for the given input parameters. | [optional] 
 **event_id** | **str, none_type** | FactSet identifier that uniquely identifies the Event. | [optional] 
 **event_type_code** | **str, none_type** | Corporate Actions Event type code, possible values: [ DVC, DVCD, DRP, DVS, DVSS, BNS, BNSS, SPO, DSR, FSP, RSP, SPL ] | [optional] 
@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **adr_fsym_id** | **str, none_type** | Unique FactSet generated identifier assigned to a security, representing the ADR security. | [optional] 
 **total_outstanding** | **float, none_type** | Number of shares outstanding as of &#x60;date&#x60;. | [optional] 
 **adr_total_outstanding** | **float, none_type** | Number of shares outstanding for the ADR as of &#x60;date&#x60;. | [optional] 
+**current_market_value** | **float, none_type** | Market Value for a specified security. (Current Only) | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fsymId** | **String** | Security-level FactSet Permanent Identifier associated with the identifier. | [optional] 
-**date** | **Date** | Date of the record in YYYY-MM-DD format. | [optional] 
+**date** | **Date** | Current Market Value Date | [optional] 
 **currency** | **String** | Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **requestId** | **String** | FactSet Security Permanent Identifier that was used for the request. | [optional] 
 **totalReturn** | **Number** | Returns the data for the given input parameters. | [optional] 
@@ -30,5 +30,6 @@ Name | Type | Description | Notes
 **adrFsymId** | **String** | Unique FactSet generated identifier assigned to a security, representing the ADR security. | [optional] 
 **totalOutstanding** | **Number** | Number of shares outstanding as of &#x60;date&#x60;. | [optional] 
 **adrTotalOutstanding** | **Number** | Number of shares outstanding for the ADR as of &#x60;date&#x60;. | [optional] 
+**currentMarketValue** | **Number** | Market Value for a specified security. (Current Only) | [optional] 
 
 

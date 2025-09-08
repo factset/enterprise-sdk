@@ -37,10 +37,15 @@ from fds.sdk.FactSetGlobalPrices.model.fields_corporate_actions import FieldsCor
 from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
 from fds.sdk.FactSetGlobalPrices.model.global_prices_request import GlobalPricesRequest
 from fds.sdk.FactSetGlobalPrices.model.global_prices_response import GlobalPricesResponse
+from fds.sdk.FactSetGlobalPrices.model.ids_batch_max10000 import IdsBatchMax10000
 from fds.sdk.FactSetGlobalPrices.model.ids_batch_max2000 import IdsBatchMax2000
 from fds.sdk.FactSetGlobalPrices.model.ids_max100 import IdsMax100
 from fds.sdk.FactSetGlobalPrices.model.ids_max1000 import IdsMax1000
 from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
+from fds.sdk.FactSetGlobalPrices.model.market_value_request import MarketValueRequest
+from fds.sdk.FactSetGlobalPrices.model.market_value_request_body import MarketValueRequestBody
+from fds.sdk.FactSetGlobalPrices.model.market_value_response import MarketValueResponse
+from fds.sdk.FactSetGlobalPrices.model.market_value_response_object import MarketValueResponseObject
 from fds.sdk.FactSetGlobalPrices.model.price import Price
 from fds.sdk.FactSetGlobalPrices.model.prices_fields import PricesFields
 from fds.sdk.FactSetGlobalPrices.model.returns import Returns

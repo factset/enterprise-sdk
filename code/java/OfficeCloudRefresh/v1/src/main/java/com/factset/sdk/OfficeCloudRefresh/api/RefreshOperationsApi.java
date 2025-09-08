@@ -35,6 +35,7 @@ public class RefreshOperationsApi {
     getFileByIdResponseTypeMap.put(202, new GenericType<JobStatus>(){});
     getFileByIdResponseTypeMap.put(400, new GenericType<Errors>(){});
     getFileByIdResponseTypeMap.put(404, new GenericType<Errors>(){});
+    getFileByIdResponseTypeMap.put(410, new GenericType<Errors>(){});
     getFileByIdResponseTypeMap.put(422, new GenericType<Errors>(){});
     getFileByIdResponseTypeMap.put(500, new GenericType<Errors>(){});
   }
@@ -45,6 +46,7 @@ public class RefreshOperationsApi {
     getStatusByIdResponseTypeMap.put(202, new GenericType<JobStatus>(){});
     getStatusByIdResponseTypeMap.put(400, new GenericType<Errors>(){});
     getStatusByIdResponseTypeMap.put(404, new GenericType<Errors>(){});
+    getStatusByIdResponseTypeMap.put(410, new GenericType<Errors>(){});
     getStatusByIdResponseTypeMap.put(422, new GenericType<Errors>(){});
     getStatusByIdResponseTypeMap.put(500, new GenericType<Errors>(){});
   }
@@ -176,6 +178,7 @@ public class RefreshOperationsApi {
        <tr><td> 202 </td><td> Accepted (resource not ready yet) </td><td>  * Location - Relative URL to check status of the request. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 410 </td><td> Expired File </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Failed to refresh file </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
@@ -198,6 +201,7 @@ public class RefreshOperationsApi {
        <tr><td> 202 </td><td> Accepted (resource not ready yet) </td><td>  * Location - Relative URL to check status of the request. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 410 </td><td> Expired File </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Failed to refresh file </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
@@ -269,6 +273,7 @@ public class RefreshOperationsApi {
        <tr><td> 202 </td><td> Accepted (resource not ready yet) </td><td>  * Location - Relative URL to check status of the request. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 410 </td><td> Expired File </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Failed to refresh file </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
@@ -290,6 +295,7 @@ public class RefreshOperationsApi {
        <tr><td> 202 </td><td> Accepted (resource not ready yet) </td><td>  * Location - Relative URL to check status of the request. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 410 </td><td> Expired File </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Failed to refresh file </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>

@@ -33,6 +33,11 @@ docs/EventCategory.md
 docs/Frequency.md
 docs/GlobalPricesRequest.md
 docs/GlobalPricesResponse.md
+docs/MarketValueApi.md
+docs/MarketValueRequest.md
+docs/MarketValueRequestBody.md
+docs/MarketValueResponse.md
+docs/MarketValueResponseObject.md
 docs/Price.md
 docs/PricesApi.md
 docs/Returns.md
@@ -58,6 +63,7 @@ package.json
 src/ApiClient.js
 src/api/BatchProcessingApi.js
 src/api/CorporateActionsApi.js
+src/api/MarketValueApi.js
 src/api/PricesApi.js
 src/api/ReturnsApi.js
 src/api/SharesOutstandingApi.js
@@ -89,6 +95,10 @@ src/model/EventCategory.js
 src/model/Frequency.js
 src/model/GlobalPricesRequest.js
 src/model/GlobalPricesResponse.js
+src/model/MarketValueRequest.js
+src/model/MarketValueRequestBody.js
+src/model/MarketValueResponse.js
+src/model/MarketValueResponseObject.js
 src/model/Price.js
 src/model/Returns.js
 src/model/ReturnsRequest.js

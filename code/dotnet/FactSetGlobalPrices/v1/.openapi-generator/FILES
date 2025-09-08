@@ -33,6 +33,11 @@ docs/EventCategory.md
 docs/Frequency.md
 docs/GlobalPricesRequest.md
 docs/GlobalPricesResponse.md
+docs/MarketValueApi.md
+docs/MarketValueRequest.md
+docs/MarketValueRequestBody.md
+docs/MarketValueResponse.md
+docs/MarketValueResponseObject.md
 docs/Price.md
 docs/PricesApi.md
 docs/Returns.md
@@ -55,6 +60,7 @@ docs/StockDistributionsResponse.md
 git_push.sh
 src/FactSet.SDK.FactSetGlobalPrices/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/CorporateActionsApi.cs
+src/FactSet.SDK.FactSetGlobalPrices/Api/MarketValueApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/PricesApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/ReturnsApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/SharesOutstandingApi.cs
@@ -103,6 +109,10 @@ src/FactSet.SDK.FactSetGlobalPrices/Model/EventCategory.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Frequency.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/GlobalPricesRequest.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/GlobalPricesResponse.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/MarketValueRequest.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/MarketValueRequestBody.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/MarketValueResponse.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/MarketValueResponseObject.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Price.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Returns.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ReturnsRequest.cs

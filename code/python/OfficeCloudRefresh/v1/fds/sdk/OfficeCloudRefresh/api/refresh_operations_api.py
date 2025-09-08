@@ -101,7 +101,7 @@ class RefreshOperationsApi(object):
         self.get_file_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (file_type,), 202: (JobStatus,), 400: (Errors,), 404: (Errors,), 422: (Errors,), 500: (Errors,),  },
+                  { 200: (file_type,), 202: (JobStatus,), 400: (Errors,), 404: (Errors,), 410: (Errors,), 422: (Errors,), 500: (Errors,),  },
                   GetFileByIdResponseWrapper
                 ),
                 'auth': [
@@ -163,7 +163,7 @@ class RefreshOperationsApi(object):
         self.get_status_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 201: (JobStatus,), 202: (JobStatus,), 400: (Errors,), 404: (Errors,), 422: (Errors,), 500: (Errors,),  },
+                  { 201: (JobStatus,), 202: (JobStatus,), 400: (Errors,), 404: (Errors,), 410: (Errors,), 422: (Errors,), 500: (Errors,),  },
                   None
                 ),
                 'auth': [

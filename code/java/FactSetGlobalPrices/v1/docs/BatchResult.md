@@ -5,6 +5,7 @@
 ## anyOf schemas
 * [AnnualizedDividendsObject](AnnualizedDividendsObject.md)
 * [CorporateAction](CorporateAction.md)
+* [MarketValueResponseObject](MarketValueResponseObject.md)
 * [Price](Price.md)
 * [Returns](Returns.md)
 * [SharesOutstandingResponseObject](SharesOutstandingResponseObject.md)
@@ -15,6 +16,7 @@
 import com.factset.sdk.FactSetGlobalPrices.models.BatchResult;
 import com.factset.sdk.FactSetGlobalPrices.models.AnnualizedDividendsObject;
 import com.factset.sdk.FactSetGlobalPrices.models.CorporateAction;
+import com.factset.sdk.FactSetGlobalPrices.models.MarketValueResponseObject;
 import com.factset.sdk.FactSetGlobalPrices.models.Price;
 import com.factset.sdk.FactSetGlobalPrices.models.Returns;
 import com.factset.sdk.FactSetGlobalPrices.models.SharesOutstandingResponseObject;
@@ -36,6 +38,13 @@ public class Example {
         exampleBatchResult.setActualInstance(exampleCorporateAction);
         // to get back the CorporateAction set earlier
         CorporateAction testCorporateAction = (CorporateAction) exampleBatchResult.getActualInstance();
+
+        // create a new MarketValueResponseObject
+        MarketValueResponseObject exampleMarketValueResponseObject = new MarketValueResponseObject();
+        // set BatchResult to MarketValueResponseObject
+        exampleBatchResult.setActualInstance(exampleMarketValueResponseObject);
+        // to get back the MarketValueResponseObject set earlier
+        MarketValueResponseObject testMarketValueResponseObject = (MarketValueResponseObject) exampleBatchResult.getActualInstance();
 
         // create a new Price
         Price examplePrice = new Price();

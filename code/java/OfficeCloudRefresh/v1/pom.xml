@@ -5,7 +5,7 @@
     <artifactId>officecloudrefresh</artifactId>
     <packaging>jar</packaging>
     <name>officecloudrefresh</name>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Office Cloud Refresh client library for Java</description>
     <scm>

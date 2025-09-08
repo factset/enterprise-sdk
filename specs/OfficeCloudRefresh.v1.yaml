@@ -167,6 +167,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Errors'
+        '410':
+          description: Expired File
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
         '422':
           description: Failed to refresh file
           content:
@@ -237,6 +243,12 @@ paths:
                 $ref: '#/components/schemas/Errors'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+        '410':
+          description: Expired File
           content:
             application/json:
               schema:

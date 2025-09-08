@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.8.0
+  version: 1.9.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -619,6 +619,108 @@ paths:
         '500':
           $ref: '#/components/responses/SO500'
       x-factset-different-success-responses: true
+  /factset-global-prices/v1/market-value:
+    get:
+      tags:
+        - Market Value
+      summary: Provides the current market value for a list of specified securities.
+      operationId: getGPDMarketVal
+      description: >
+        Provides the current market value (in USD millions) for a list of
+        specified securities. 
+      parameters:
+        - $ref: '#/components/parameters/idsBatchMax50'
+        - $ref: '#/components/parameters/batch'
+      responses:
+        '200':
+          description: Array of Price Objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketValueResponse'
+              examples:
+                Prices over 1 week period for FDS-US and TSLA-US:
+                  $ref: '#/components/examples/MarketValueResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
+    post:
+      tags:
+        - Market Value
+      summary: Requests the current market value for a list of specified securities.
+      description: >-
+        Provides the current market value (in USD millions) for a list of
+        specified securities.
+      operationId: getSecurityPricesForListMarketVal
+      requestBody:
+        required: true
+        description: Request object for `Market Value`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketValueRequest'
+            examples:
+              Market Value Example:
+                $ref: '#/components/examples/PostMarketValue'
+      responses:
+        '200':
+          description: Market Value Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketValueResponse'
+              examples:
+                Current Market Value of AAPL-US:
+                  $ref: '#/components/examples/MarketValueResponse'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /factset-global-prices/v1/batch-status:
     get:
       tags:
@@ -1028,6 +1130,7 @@ components:
       in: query
       schema:
         type: string
+        default: LOCAL
       description: >-
         Currency code for adjusting prices. Default is Local. For a list of
         currency ISO codes, visit [Online Assistant Page
@@ -1728,6 +1831,75 @@ components:
           example: 980.22284
           nullable: true
       additionalProperties: false
+    MarketValueRequest:
+      title: Market Value Request Body
+      description: Market Value Request Body
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/MarketValueRequestBody'
+      required:
+        - data
+    MarketValueRequestBody:
+      title: Market Value Request Body
+      description: Market Value Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idsMax50'
+        batch:
+          $ref: '#/components/schemas/batch'
+      required:
+        - ids
+    MarketValueResponse:
+      description: Market Value Response
+      type: object
+      title: Market Value Response
+      properties:
+        data:
+          description: Array of Market Value Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketValueResponseObject'
+    MarketValueResponseObject:
+      description: Market Value Response Object
+      type: object
+      title: Market Value Object
+      properties:
+        fsymId:
+          description: >-
+            Security-level FactSet Permanent Identifier associated with the
+            identifier.
+          type: string
+          example: MH33D6-R
+          nullable: true
+        requestId:
+          description: FactSet Security Permanent Identifier that was used for the request.
+          type: string
+          example: AAPL-US
+        currentMarketValue:
+          description: Market Value for a specified security. (Current Only)
+          type: number
+          example: 3520021.70201
+          nullable: true
+        date:
+          description: Current Market Value Date
+          type: string
+          format: date
+          example: '2024-11-26'
+          nullable: true
+    idsBatchMax10000:
+      type: array
+      items:
+        type: string
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
+
+        <p>ids limit =  1000 per non-batch request / 10000 per batch request for
+        a single day and 50 per multi-day request</p>
+      example:
+        - FDS-US
     idsBatchMax2000:
       type: array
       items:
@@ -1824,6 +1996,7 @@ components:
         - $ref: '#/components/schemas/corporateAction'
         - $ref: '#/components/schemas/annualizedDividendsObject'
         - $ref: '#/components/schemas/sharesOutstandingResponseObject'
+        - $ref: '#/components/schemas/MarketValueResponseObject'
     eventCategory:
       title: eventCategory
       type: string
@@ -2072,6 +2245,7 @@ components:
     requestCurrency:
       title: Request Currency
       type: string
+      default: LOCAL
       description: >-
         Currency code for adjusting prices. Default is Local. For a list of
         currency ISO codes, visit [Online Assistant Page
@@ -3268,6 +3442,14 @@ components:
             adrDescription: American Despository Shares
             totalOutstanding: 980.22284
             adrTotalOutstanding: 225.30467
+    MarketValueResponse:
+      summary: Current Only - Market Value Response of FactSet (FDS-US)
+      value:
+        data:
+          - fsymId: MH33D6-R
+            date: '2024-11-26'
+            currentMarketValue: 3520021.70201
+            requestId: AAPL-US
     postPrices:
       summary: Prices Request over 1 year period for FDS-US
       value:
@@ -3315,6 +3497,13 @@ components:
           - AAPL-US
         currency: USD
         batch: 'N'
+    PostMarketValue:
+      summary: Market Value Request for AAPL-US
+      value:
+        data:
+          ids:
+            - AAPL-US
+          batch: 'N'
     BatchStatusQueuedResponse:
       description: Batch Status Queued Response
       value:
