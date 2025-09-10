@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **tenYearAnnualized** | **Double** | The ten year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. |  [optional]
 **date** | **LocalDate** | The date of the return in YYYY-MM-DD format. |  [optional]
 **requestId** | **String** | The requested Id sent as input. |  [optional]
+**sinceInceptionAnnualized** | **Double** | The average annual rate of return since the fund&#39;s inception date, calculated using compounding. This is always a total return (dividends are included) and is not affected by the dividendAdjust parameter. |  [optional]
 
 
 ## Implemented Interfaces

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.ConversationalAPIPoweredbyFactSetMercur
 namespace FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury.Model
 {
     /// <summary>
-    /// &#x60;Value&#x60; field contains tabular data surfaced from FactSet content sets in markdown format. 
+    /// &#x60;Value&#x60; field contains tabular FactSet data surfaced from FactSet content sets in markdown format. The data is exactly the same as that found in the &#x60;Table&#x60;, except that this table will not contain links to source data to the FactSet workstation, with the exception of links to news and documents. Users can decide which of the tables, either &#x60;Table&#x60; or &#x60;MarkdownTable&#x60;, to parse, with &#x60;MarkdownTable&#x60; being recommended as the easier, more universal option. 
     /// </summary>
     [DataContract(Name = "MarkdownTable")]
     public partial class MarkdownTable : IEquatable<MarkdownTable>, IValidatableObject

@@ -618,10 +618,11 @@ components:
       description: Relationships request body.
       value:
         data:
-          - ids: AAPL-US
-            relationshipType: COMPETITORS
-            companyType: PUBLIC_COMPANIES_ONLY
-            relationshipDirection: ALL
+          ids:
+            - AAPL-US
+          relationshipType: COMPETITORS
+          companyType: PUBLIC_COMPANIES_ONLY
+          relationshipDirection: ALL
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

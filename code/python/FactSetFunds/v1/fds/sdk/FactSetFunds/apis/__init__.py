@@ -21,3 +21,4 @@ from fds.sdk.FactSetFunds.api.helper_api import HelperApi
 from fds.sdk.FactSetFunds.api.market_aggregates_api import MarketAggregatesApi
 from fds.sdk.FactSetFunds.api.prices__returns_api import PricesReturnsApi
 from fds.sdk.FactSetFunds.api.reference_api import ReferenceApi
+from fds.sdk.FactSetFunds.api.screening_operations_api import ScreeningOperationsApi

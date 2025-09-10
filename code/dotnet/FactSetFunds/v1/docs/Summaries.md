@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 **TerminationDate** | **DateTime?** | The Termination Date in YYYY-MM-DD format. If still active, value will be null. | [optional] 
 **Type** | **string** | The Type of Fund, e.g. Mutual Fund, Unit Investment Trust | [optional] 
 **WebSite** | **string** | The URL of the Fund. | [optional] 
+**UcitsCompliance** | **int?** | A regulatory flag that shows if the fund can be marketed within all countries that are part of the European Union. Returns 1 for True to 0 for False. | [optional] 
+**UcitsScheme** | **string** | Determines whether the fund is regulated under the UCITS IV (Directive 2009/65/EC) or UCITS V (Directive 2014/91/EU) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

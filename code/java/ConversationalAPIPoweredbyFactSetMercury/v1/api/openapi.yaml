@@ -200,7 +200,8 @@ paths:
           description: Too Many Requests - The /query endpoint is currently rate-limited
             to 10 requests per minute and 200 requests per hour for an individual
             user serial. If you are receiving an unexpected amount of these errors,
-            please contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+            please contact the API team by selecting `Report Issue` at the top of
+            this page.
           headers:
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimit-Limit-minute'
@@ -396,8 +397,10 @@ paths:
             the used HTTP method.
         "429":
           description: Too Many Requests - This endpoint is currently rate-limited
-            to 10 requests per second for an individual user serial. If you are receiving
-            an unexpected amount of these errors, please contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+            to 10 requests per second and 300 requests per minute for an individual
+            user serial. If you are receiving an unexpected amount of these errors,
+            please contact the API team by selecting `Report Issue` at the top of
+            this page.
           headers:
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimit-Limit-second'
@@ -560,8 +563,10 @@ paths:
             the used HTTP method.
         "429":
           description: Too Many Requests - This endpoint is currently rate-limited
-            to 10 requests per second for an individual user serial. If you are receiving
-            an unexpected amount of these errors, please contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+            to 10 requests per second and 300 requests per minute for an individual
+            user serial. If you are receiving an unexpected amount of these errors,
+            please contact the API team by selecting `Report Issue` at the top of
+            this page.
           headers:
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimit-Limit-second'
@@ -692,8 +697,10 @@ paths:
             the used HTTP method.
         "429":
           description: Too Many Requests - This endpoint is currently rate-limited
-            to 10 requests per second for an individual user serial. If you are receiving
-            an unexpected amount of these errors, please contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+            to 10 requests per second and 300 requests per minute for an individual
+            user serial. If you are receiving an unexpected amount of these errors,
+            please contact the API team by selecting `Report Issue` at the top of
+            this page.
           headers:
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimit-Limit-second'
@@ -870,8 +877,10 @@ paths:
             the used HTTP method.
         "429":
           description: Too Many Requests - This endpoint is currently rate-limited
-            to 10 requests per second for an individual user serial. If you are receiving
-            an unexpected amount of these errors, please contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+            to 10 requests per second and 300 requests per minute for an individual
+            user serial. If you are receiving an unexpected amount of these errors,
+            please contact the API team by selecting `Report Issue` at the top of
+            this page.
           headers:
             RateLimit-Limit:
               $ref: '#/components/headers/RateLimit-Limit-second'
@@ -1975,8 +1984,9 @@ components:
       description: Internal Server Error
     TooManyRequestErrorResponse:
       description: Too Many Requests - This endpoint is currently rate-limited to
-        10 requests per second for an individual user serial. If you are receiving
-        an unexpected amount of these errors, please contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+        10 requests per second and 300 requests per minute for an individual user
+        serial. If you are receiving an unexpected amount of these errors, please
+        contact the API team by selecting `Report Issue` at the top of this page.
       headers:
         RateLimit-Limit:
           $ref: '#/components/headers/RateLimit-Limit-second'
@@ -1996,7 +2006,7 @@ components:
       description: Too Many Requests - The /query endpoint is currently rate-limited
         to 10 requests per minute and 200 requests per hour for an individual user
         serial. If you are receiving an unexpected amount of these errors, please
-        contact the API team at [genai.offplatform@factset.com](genai.offplatform@factset.com).
+        contact the API team by selecting `Report Issue` at the top of this page.
       headers:
         RateLimit-Limit:
           $ref: '#/components/headers/RateLimit-Limit-minute'
@@ -2548,8 +2558,13 @@ components:
       type: object
     Table:
       description: "`Value` field contains tabular FactSet data surfaced from FactSet\
-        \ content sets. \n\nThe Conversational API uses Factset's STACH V3 format\
-        \ to represent tabular data in JSON. Please refer to the [STACH V3 documentation](https://factset.github.io/stachschema/#/v3/README)\
+        \ content sets in STACH format. The data is exactly the same as that found\
+        \ in the `MarkdownTable`, except that this table potentially contains links\
+        \ to source data in the FactSet workstation. Users can decide which of the\
+        \ tables, either `Table` or `MarkdownTable`, to parse, with `MarkdownTable`\
+        \ being recommended as the easier, more universal option.\n\nThe Conversational\
+        \ API uses Factset's STACH V3 format to represent tabular data in JSON. Please\
+        \ refer to the [STACH V3 documentation](https://factset.github.io/stachschema/#/v3/README)\
         \ on column organized data for more information on how to process STACH-organized\
         \ data.\n\nData represented as a STACH table may also be available for download\
         \ as an Excel file; the `fileId` will be located in the `NextStep` array,\
@@ -2572,7 +2587,7 @@ components:
       type: object
     MarkdownTable:
       description: |
-        `Value` field contains tabular data surfaced from FactSet content sets in markdown format.
+        `Value` field contains tabular FactSet data surfaced from FactSet content sets in markdown format. The data is exactly the same as that found in the `Table`, except that this table will not contain links to source data to the FactSet workstation, with the exception of links to news and documents. Users can decide which of the tables, either `Table` or `MarkdownTable`, to parse, with `MarkdownTable` being recommended as the easier, more universal option.
       properties:
         type:
           description: Datatype contained in this data object

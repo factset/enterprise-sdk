@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **TenYearAnnualized** | **double?** | The ten year annualized return for the requested id and date. The return type is determined by including or excluding dividends through the dividendAdjust parameter. | [optional] 
 **Date** | **DateTime?** | The date of the return in YYYY-MM-DD format. | [optional] 
 **RequestId** | **string** | The requested Id sent as input. | [optional] 
+**SinceInceptionAnnualized** | **double?** | The average annual rate of return since the fund&#39;s inception date, calculated using compounding. This is always a total return (dividends are included) and is not affected by the dividendAdjust parameter. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

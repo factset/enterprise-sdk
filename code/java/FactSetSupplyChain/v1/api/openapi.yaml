@@ -467,7 +467,8 @@ components:
       summary: Relationships request body.
       value:
         data:
-        - ids: AAPL-US
+          ids:
+          - AAPL-US
           relationshipType: COMPETITORS
           companyType: PUBLIC_COMPANIES_ONLY
           relationshipDirection: ALL

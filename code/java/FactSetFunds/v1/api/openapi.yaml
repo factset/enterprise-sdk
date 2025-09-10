@@ -19,7 +19,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Funds API
-  version: 1.4.0
+  version: 1.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-funds-api
@@ -45,6 +45,9 @@ tags:
   name: Market Aggregates
 - description: Check the Fund's current status and database availability
   name: Helper
+- description: Enables data search, filtering, retrieval, and custom content set management
+    with field metadata access.
+  name: Screening Operations
 paths:
   /factset-funds/v1/summary:
     get:
@@ -4234,6 +4237,780 @@ paths:
       - Helper
       x-contentType: application/json
       x-accepts: application/json
+  /factset-funds/v1/screener/content-sets:
+    get:
+      description: |
+        Gets the content sets that are permissioned for the user. for example: `Factset Fundamentals`, `Factset Funds`, etc.
+      operationId: getContentSets
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Content sets response:
+                  $ref: '#/components/examples/contentSetsResponse'
+              schema:
+                $ref: '#/components/schemas/ContentSetsResponse'
+          description: The content-sets response object.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/screenerbadRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponseScreener'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get the content sets that are permissioned for the user.
+      tags:
+      - Screening Operations
+      x-accepts: application/json
+  /factset-funds/v1/screener/fields:
+    get:
+      description: "Gets the list of fields available for a given content set (or\
+        \ combination of content sets). For example: `Factset Fundamentals`, `Factset\
+        \ Funds`, etc. \nBoth default and custom content sets are supported.\n"
+      operationId: getFields
+      parameters:
+      - description: |
+          The content sets from which the fields are requested. For example: `Factset Fundamentals`,  `Factset Funds`, etc.
+        examples:
+          oneId:
+            summary: One Content Set
+            value:
+            - Factset Fundamentals
+          multipleIds:
+            summary: Multiple Content Sets
+            value:
+            - Factset Fundamentals
+            - Factset Funds
+        explode: true
+        in: query
+        name: contentSets
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fields response for default content set:
+                  $ref: '#/components/examples/fieldsResponseDefault'
+                Fields response for custom content set:
+                  $ref: '#/components/examples/fieldsResponseCustom'
+              schema:
+                $ref: '#/components/schemas/FieldsResponse'
+          description: The Fields response object for the given content set(s).
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get the list of fields available for given content set.
+      tags:
+      - Screening Operations
+      x-accepts: application/json
+  /factset-funds/v1/screener/distinct-count:
+    post:
+      description: |
+        Returns the number of records for a given field spread across all possible values that match the given criteria. Only string fields are supported.
+      operationId: getDistinctCount
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for 'distinct-count' endpoint:
+                $ref: '#/components/examples/distinctCountRequest'
+              Request for 'distinct-count' endpoint with filters:
+                $ref: '#/components/examples/distinctCountRequestWithFilters'
+              Request for 'distinct-count' endpoint with custom content set:
+                $ref: '#/components/examples/distinctCountRequestWithCustomContentSet'
+              Request for 'distinct-count' endpoint with mutiple filters:
+                $ref: '#/components/examples/distinctCountRequestWithMultipleFilters'
+            schema:
+              $ref: '#/components/schemas/DistinctCountRequest'
+        description: Request object for `distinct-count`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Distinct count response:
+                  $ref: '#/components/examples/distinctCountResponse'
+              schema:
+                $ref: '#/components/schemas/DistinctCountResponse'
+          description: Response object for distinct-count.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the number of records for a given field spread across all possible
+        values.
+      tags:
+      - Screening Operations
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-funds/v1/screener/statistics:
+    post:
+      description: |
+        Returns the statistics for a given field within the specified content sets. Only numerical fields are supported. If histogram flag is set to true, histogram data is also returned.
+      operationId: getStatistics
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for statistics endpoint:
+                $ref: '#/components/examples/statisticsRequest'
+              Request for statistics endpoint with custom content-set:
+                $ref: '#/components/examples/statisticsRequestWithCustomContentSet'
+              Request for statistics endpoint without filters:
+                $ref: '#/components/examples/statisticsRequestWithoutFilters'
+              Request for statistics endpoint with mutiple filters:
+                $ref: '#/components/examples/statisticsRequestWithMultipleFilters'
+            schema:
+              $ref: '#/components/schemas/StatisticsRequest'
+        description: Request object for `Statistics`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Statistics response with histogram:
+                  $ref: '#/components/examples/statisticsResponseWithHistogram'
+                Statistics response without histogram:
+                  $ref: '#/components/examples/statisticsResponseWithoutHistogram'
+              schema:
+                $ref: '#/components/schemas/StatisticsResponse'
+          description: Response object for statistics.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the statistics and histogram data for a given field within
+        the specified content sets.
+      tags:
+      - Screening Operations
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-funds/v1/screener/search:
+    post:
+      description: |
+        Returns the records that match the given criteria. The request object for `Search` allows the user to get back data for fields of their choosing.
+        Along with the fields requested, a unique identifier such as the ticker symbol will be returned in the response.
+
+        Custom search of fields actually uses `displayName`.
+      operationId: getScreenerData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for search endpoint without filters:
+                $ref: '#/components/examples/searchRequestWithoutFilters'
+              Request for search endpoint with custom content set:
+                $ref: '#/components/examples/searchRequestCustomContentSet'
+              Request for search endpoint with filters:
+                $ref: '#/components/examples/searchRequestWithFilters'
+              Request for search endpoint with EQ operator:
+                $ref: '#/components/examples/searchRequestWithEquals'
+              Request for search endpoint with NE operator:
+                $ref: '#/components/examples/searchRequestWithNotEquals'
+              Request for search endpoint with CT operator:
+                $ref: '#/components/examples/searchRequestWithContains'
+              Request for search endpoint with IN operator:
+                $ref: '#/components/examples/searchRequestWithIN'
+              Request for search endpoint with LT operator:
+                $ref: '#/components/examples/searchRequestWithLessThan'
+              Request for search endpoint with LTE operator:
+                $ref: '#/components/examples/searchRequestWithLessThanEqual'
+              Request for search endpoint with GT operator:
+                $ref: '#/components/examples/searchRequestWithGreaterThan'
+              Request for search endpoint with GTE opeator:
+                $ref: '#/components/examples/searchRequestWithGreaterThanEqual'
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+        description: Request object for `Search`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Search response:
+                  $ref: '#/components/examples/searchResponse'
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+          description: Response object for search endpoint.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns all the records that match the given criteria.
+      tags:
+      - Screening Operations
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-funds/v1/screener/content-sets/create:
+    post:
+      description: "Create a custom content set with the required set of fields. These\
+        \ fields are taken from the default content sets provided in the request.\
+        \ \nThe name for a custom content-set must be unique. The list of displayNames\
+        \ within each custom content-set must also be unique.\nDisplay names can be\
+        \ used as fieldName in other endpoints to perform screening operations.\n\n\
+        The `/screener/content-sets` and `/screener/fields` endpoints provide the\
+        \ authoritative lists of available content sets and fields. Use these endpoints\
+        \ to construct custom content sets and ensure that all content set names and\
+        \ displayName values are unique.\n"
+      operationId: createContentSet
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for 'content-set/create' endpoint:
+                $ref: '#/components/examples/createContentSetRequest'
+            schema:
+              $ref: '#/components/schemas/CreateContentSetRequest'
+        description: Request object for create content-set endpoint.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Create Content Set Response:
+                  $ref: '#/components/examples/createContentSetResponse'
+              schema:
+                $ref: '#/components/schemas/CreateContentSetResponse'
+          description: Response object for create content-set endpoint.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Create a new custom content set with required fields from the default
+        content sets.
+      tags:
+      - Screening Operations
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-funds/v1/screener/content-sets/{name}:
+    delete:
+      description: Delete a custom content set by providing the content set name.
+      operationId: deleteContentSet
+      parameters:
+      - description: The name of the content set to be deleted.
+        example: my-content-set
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The content set has been deleted successfully.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponseScreener'
+          description: Bad Request occurs when the content set name is not provided
+            or is invalid.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Delete a custom content set.
+      tags:
+      - Screening Operations
+      x-accepts: application/json
 components:
   examples:
     postSummary:
@@ -4414,6 +5191,8 @@ components:
           type: Mutual Fund
           webSite: https://www.blackrock.com/investing/products/227716/blackrock-Large
             Cap Focus-value-class-a-fund
+          ucitsCompliance: 1
+          ucitsScheme: UCITS IV
     fundClassifications:
       description: |
         The list of all associated basic Fund Classifications for MABAX-US.
@@ -4687,6 +5466,7 @@ components:
           tenYearAnnualized: 8.40773345012342,
           date: 2018-12-31
           requestId: MABAX-US
+          sinceInceptionAnnualized: 8.40773345012342
     fundReturnsRange:
       description: |
         The list of Fund Retuns Range for MABAX-US.
@@ -4962,6 +5742,667 @@ components:
           thirtyDayNetSecYield: 3.16187341965815
           thirtyDayGrossSecYield: 3.16187341965815
           requestId: MABAX
+    contentSetsResponse:
+      summary: Content sets response.
+      value:
+        data:
+        - name: Factset Fundamentals
+          description: Fundamental data for companies
+          custom: false
+        - name: my-content-set
+          description: Custom content set from Factset Fundamentals
+          custom: true
+    fieldsResponseDefault:
+      summary: Fields response for default content sets.
+      value:
+        data:
+        - contentSet: Factset Fundamentals
+          fields:
+          - fieldName: FF_SALES
+            type: float
+            description: The sales of the company.
+          - fieldName: FF_NET_INCOME
+            type: float
+            description: The net income of the company.
+        - contentSet: Partner Funds
+          fields:
+          - fieldName: benchmarkIndexName
+            type: text
+            description: The benchmark index name.
+          - fieldName: netAssets
+            type: float
+            description: The net assets of the fund.
+    fieldsResponseCustom:
+      summary: Fields response for custom content sets.
+      value:
+        data:
+        - contentSet: Factset Fundamentals
+          fields:
+          - fieldName: FF_SALES
+            displayName: Sales
+            type: float
+            description: The sales of the company.
+          - fieldName: FF_NET_INCOME
+            displayName: Net Income
+            type: float
+            description: The net income of the company.
+        - contentSet: Partner Funds
+          fields:
+          - fieldName: benchmarkIndexName
+            displayName: Benchmark Index Name
+            type: text
+            description: The benchmark index name.
+          - fieldName: netAssets
+            displayName: Net Assets
+            type: float
+            description: The net assets of the fund.
+    distinctCountRequest:
+      summary: Request for 'distinct-count' endpoint without filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: fund_currency
+    createContentSetRequest:
+      summary: Sample request for 'content-set/create' endpoint.
+      value:
+        data:
+          name: factsetfundscontentset
+          description: Custom content set from Factset Funds
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fieldName: fund_region
+              displayName: fundregion
+    createContentSetResponse:
+      summary: Response for 'content-set/create' endpoint.
+      value:
+        data:
+          id: mycontentset
+    distinctCountRequestWithFilters:
+      summary: Request for 'distinct-count' endpoint with filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: active_status
+          joinType: AND
+          filters:
+          - joinType: AND
+            criteria:
+            - fieldName: currency
+              operator: EQ
+              values:
+              - EUR
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    distinctCountRequestWithCustomContentSet:
+      summary: Request for 'distinct-count' endpoint with custom content set.
+      value:
+        data:
+          contentSet: my_content_set
+          fieldName: country
+          joinType: AND
+          filters:
+          - joinType: AND
+            criteria:
+            - fieldName: currency
+              operator: EQ
+              values:
+              - INR
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    distinctCountRequestWithMultipleFilters:
+      description: This request returns the distinct count of funds where `asset_class`
+        is "Equity" or "Fixed Income", and `country` is "US".
+      summary: Request for distinct count endpoint with multiple filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: fund_name
+          joinType: AND
+          filters:
+          - joinType: OR
+            criteria:
+            - fieldName: asset_class
+              operator: EQ
+              values:
+              - Equity
+            - fieldName: asset_class
+              operator: EQ
+              values:
+              - Fixed Income
+          - joinType: AND
+            criteria:
+            - fieldName: country
+              operator: EQ
+              values:
+              - US
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    distinctCountResponse:
+      summary: Distinct count response.
+      value:
+        data:
+        - value: Equity
+          count: 2780
+        - value: Fixed Income
+          count: 809
+        - value: Asset Allocation
+          count: 140
+        - value: Commodities
+          count: 100
+        - value: Currency
+          count: 67
+        - value: Alternatives
+          count: 61
+    statisticsRequest:
+      summary: Request for statistics endpoint.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: aum
+          joinType: AND
+          histogram: true
+          filters:
+          - joinType: AND
+            criteria:
+            - fieldName: expense_ratio_net
+              operator: GT
+              values:
+              - "0.5"
+    statisticsRequestWithoutFilters:
+      summary: Request for statistics endpoint without filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: ask_price
+          joinType: AND
+          histogram: true
+    statisticsRequestWithCustomContentSet:
+      summary: Request for statistics endpoint with custom content set.
+      value:
+        data:
+          contentSet: my_content_set
+          fieldName: three_year_return
+          joinType: AND
+          filters:
+          - joinType: AND
+            criteria:
+            - fieldName: asset_class
+              operator: EQ
+              values:
+              - Equity
+    statisticsRequestWithMultipleFilters:
+      description: This request returns
+      summary: Request for statistics endpoint with multiple filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: aum
+          histogram: true
+          joinType: AND
+          filters:
+          - joinType: AND
+            criteria:
+            - fieldName: fund_region
+              operator: EQ
+              values:
+              - Europe
+          - joinType: OR
+            criteria:
+            - fieldName: asset_class
+              operator: EQ
+              values:
+              - Equity
+            - fieldName: asset_class
+              operator: EQ
+              values:
+              - Fixed Income
+          - joinType: AND
+            criteria:
+            - fieldName: expense_ratio_net
+              operator: LT
+              values:
+              - "1.0"
+    statisticsResponseWithHistogram:
+      summary: Statistics response.
+      value:
+        data:
+          minimum: -55.609
+          maximum: 105.736
+          average: 0.752
+          sum: 2910.85
+          count: 3869
+          median: 0.752
+          stdDev: 0.752
+          histogram:
+          - minimum: -55.609
+            maximum: -45.609
+            count: 100
+          - minimum: -45.609
+            maximum: -35.609
+            count: 200
+          - minimum: -35.609
+            maximum: -25.609
+            count: 300
+          - minimum: -25.609
+            maximum: -15.609
+            count: 400
+          - minimum: -15.609
+            maximum: -5.609
+            count: 500
+          - minimum: -5.609
+            maximum: 4.391
+            count: 600
+          - minimum: 4.391
+            maximum: 14.391
+            count: 700
+          - minimum: 14.391
+            maximum: 24.391
+            count: 800
+          - minimum: 24.391
+            maximum: 34.391
+            count: 900
+          - minimum: 34.391
+            maximum: 44.391
+            count: 1000
+    statisticsResponseWithoutHistogram:
+      summary: Statistics response.
+      value:
+        data:
+          minimum: -55.609
+          maximum: 105.736
+          average: 0.752
+          sum: 2910.85
+          count: 3869
+          median: 0.752
+          stdDev: 0.752
+    searchRequestCustomContentSet:
+      description: This request will return Funds with Asset Class equal to Equity
+        sorted by 1-Month return in descending order.
+      summary: Request for search endpoint with custom content set.
+      value:
+        data:
+          contentSets:
+          - contentSet: My Custom Content Set
+            fields:
+            - ticker_region
+            - Sales
+          filters:
+          - joinType: AND
+            criteria:
+            - fieldName: Asset_Class
+              contentSet: My Custom Content Set
+              operator: EQ
+              values:
+              - Equity
+        meta:
+          sort:
+          - My Custom Content Set:1-Month return
+          pagination:
+            limit: 10
+            offset: 0
+    searchRequestWithFilters:
+      description: This request will return UCITS-compliant BlackRock funds with fund
+        name, issuer, share class name, and 1-year and 5-year return fields, sorted
+        by 5-year return in descending order.
+      summary: Request for search endpoint with multiple filters.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - one_year_return
+            - five_year_return
+            - issuer
+            - fund_share_class_name
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: ucits_compliance
+              operator: EQ
+              values:
+              - true
+            joinType: AND
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: EQ
+              values:
+              - BlackRock, Inc.
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:five_year_return
+          pagination:
+            offset: 0
+            limit: 10
+    searchRequestWithoutFilters:
+      description: This request will return funds with fund name, issuer, and share
+        class name fields, sorted by share class name.
+      summary: Request for search endpoint without filters.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+          joinType: AND
+        meta:
+          sort:
+          - Factset Funds:fund_share_class_name
+          pagination:
+            limit: 100
+            offset: 0
+    searchRequestWithEquals:
+      description: This request will return BlackRock funds with fund name, issuer,
+        share class name, and 1-year and 5-year return fields, sorted by fund name
+        in descending order.
+      summary: Request for search endpoint using EQ operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - one_year_return
+            - five_year_return
+            - issuer
+            - fund_share_class_name
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: EQ
+              values:
+              - BlackRock, Inc.
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:fund_name
+          pagination:
+            offset: 0
+            limit: 10
+    searchRequestWithNotEquals:
+      description: This request will return funds excluding those issued by Royal
+        London Group, with fund name, issuer, and share class name fields, sorted
+        by fund name.
+      summary: Request for search endpoint using NE operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: NE
+              values:
+              - Royal London Group
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - Factset Funds:fund_name
+          pagination:
+            offset: 0
+            limit: 10
+    searchRequestWithContains:
+      description: This request will return funds where the issuer name contains either
+        Vanguard or BlackRock, with fund name, issuer, and share class name fields,
+        sorted by issuer.
+      summary: Request for search endpoint using CT operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: CT
+              values:
+              - Vanguard
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: CT
+              values:
+              - BlackRock
+            joinType: OR
+          joinType: AND
+        meta:
+          sort:
+          - Factset Funds:issuer
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithIN:
+      description: This request will return funds issued by either Vanguard Group,
+        Inc. or BlackRock, Inc., with fund name, issuer, and share class name fields,
+        sorted by issuer in descending order.
+      summary: Request for search endpoint using IN operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: IN
+              values:
+              - Vanguard Group, Inc.
+              - BlackRock, Inc.
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:issuer
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithLessThan:
+      description: This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV less than 10,000, including fund name, issuer, share
+        class name, and NAV fields, sorted by NAV in descending order.
+      summary: Request for search endpoint using LT operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+            - nav
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: IN
+              values:
+              - Vanguard Group, Inc.
+              - BlackRock, Inc.
+            joinType: AND
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: nav
+              operator: LT
+              values:
+              - 10000
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:nav
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithLessThanEqual:
+      description: This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV less than or equal to 10,000, including fund name,
+        issuer, share class name, and NAV fields, sorted by NAV in descending order.
+      summary: Request for search endpoint using LTE operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+            - nav
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: IN
+              values:
+              - Vanguard Group, Inc.
+              - BlackRock, Inc.
+            joinType: AND
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: nav
+              operator: LTE
+              values:
+              - 10000
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:nav
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithGreaterThan:
+      description: This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV greater than 10,000, including fund name, issuer,
+        share class name, and NAV fields, sorted by NAV in descending order.
+      summary: Request for search endpoint using GT operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+            - nav
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: IN
+              values:
+              - Vanguard Group, Inc.
+              - BlackRock, Inc.
+            joinType: AND
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: nav
+              operator: GT
+              values:
+              - 10000
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:nav
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithGreaterThanEqual:
+      description: This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV greater than or equal to 10,000, including fund name,
+        issuer, share class name, and NAV fields, sorted by NAV in descending order.
+      summary: Request for search endpoint using GTE operator.
+      value:
+        data:
+          contentSets:
+          - contentSet: Factset Funds
+            fields:
+            - fund_name
+            - issuer
+            - fund_share_class_name
+            - nav
+          filters:
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: issuer
+              operator: IN
+              values:
+              - Vanguard Group, Inc.
+              - BlackRock, Inc.
+            joinType: AND
+          - criteria:
+            - contentSet: Factset Funds
+              fieldName: nav
+              operator: GTE
+              values:
+              - 10000
+            joinType: AND
+          joinType: AND
+        meta:
+          sort:
+          - -Factset Funds:nav
+          pagination:
+            offset: 0
+            limit: 100
+    searchResponse:
+      summary: Search response.
+      value:
+        data:
+        - fieldValues:
+          - fieldName: ticker_region
+            value: MSTZ-US
+          - fieldName: 1-Month return
+            value: -55.609500408
+          - fieldName: holdings
+            valueArray:
+            - fieldValues:
+              - fieldName: securityId
+                value: AAPL
+              - fieldName: securityName
+                value: Apple Inc - Common
+              - fieldName: weight
+                value: "8.72"
+        - fieldValues:
+          - fieldName: ticker_region
+            value: SMST-MI
+          - fieldName: 1-Month return
+            value: -54.932099581
+          - fieldName: holdings
+            valueArray:
+            - fieldValues:
+              - fieldName: securityId
+                value: MSFT
+              - fieldName: securityName
+                value: Microsoft Corp - Common
+              - fieldName: weight
+                value: "7.71"
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -5030,6 +6471,27 @@ components:
         path: /factset-funds/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    screenerbadRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the fql service.
+      summary: Bad Request - Read Timeout
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: Read Timeout
+          detail: The request took too long. Try again with a smaller request.
+    badRequestNotFound:
+      description: This error message occurs when the requested data could not be
+        found. This may be due to the data not existing for the provided criteria.
+      summary: Bad Request - Data Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Bad Request
+          title: The requested data could not be found
+          detail: The requested data could not be found. Please review the request
+            and try again.
     unauthenticated:
       description: This occurs when a user is not properly authenticated or recognized
         by the service. Please double check the USERNAME-SERIAL and API-Key used to
@@ -5053,6 +6515,15 @@ components:
         path: /factset-funds/v1/{endpoint}
         message: USERNAME-SERIAL does not have permission to use /factset-funds /v1/{endpoint}
         subErrors: null
+    notFound:
+      description: The requested endpoint could not be found.
+      summary: Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6
+          code: Not Found
+          title: No endpoint found
+          detail: The requested endpoint could not be found.
     unsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently the APIs only support 'application/json'.
@@ -5382,6 +6853,30 @@ components:
         - NO_DIV
         type: string
       style: form
+    contentSets:
+      description: |
+        The content sets from which the fields are requested. For example: `Factset Fundamentals`,  `Factset Funds`, etc.
+      examples:
+        oneId:
+          summary: One Content Set
+          value:
+          - Factset Fundamentals
+        multipleIds:
+          summary: Multiple Content Sets
+          value:
+          - Factset Fundamentals
+          - Factset Funds
+      explode: true
+      in: query
+      name: contentSets
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 10
+        minItems: 1
+        type: array
+      style: form
   responses:
     "400":
       content:
@@ -5426,6 +6921,15 @@ components:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
         respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Bad Request - Endpoint Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The requested endpoint could not be found.
     "415":
       content:
         application/json:
@@ -5498,6 +7002,7 @@ components:
           terminationDate: 2000-01-23
           webSite: https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
           issuerId: issuerId
+          ucitsCompliance: 1
           legalStructure: Open-Ended Fund
           fsymUltimateParentId: 002HJD-E
           requestId: MABAX
@@ -5514,6 +7019,7 @@ components:
           shrClassActiveFlag: 1
           fundOfFundsId: fundOfFundsId
           issuerName: BlackRock Inc.
+          ucitsScheme: UCITS IV
           shrClsTermDate: 2000-01-23
           shrClsCurrency: USD
           shrClsInceptDate: 1977-07-01T00:00:00.000+0000
@@ -5548,6 +7054,7 @@ components:
           terminationDate: 2000-01-23
           webSite: https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
           issuerId: issuerId
+          ucitsCompliance: 1
           legalStructure: Open-Ended Fund
           fsymUltimateParentId: 002HJD-E
           requestId: MABAX
@@ -5564,6 +7071,7 @@ components:
           shrClassActiveFlag: 1
           fundOfFundsId: fundOfFundsId
           issuerName: BlackRock Inc.
+          ucitsScheme: UCITS IV
           shrClsTermDate: 2000-01-23
           shrClsCurrency: USD
           shrClsInceptDate: 1977-07-01T00:00:00.000+0000
@@ -5607,6 +7115,7 @@ components:
         terminationDate: 2000-01-23
         webSite: https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
         issuerId: issuerId
+        ucitsCompliance: 1
         legalStructure: Open-Ended Fund
         fsymUltimateParentId: 002HJD-E
         requestId: MABAX
@@ -5623,6 +7132,7 @@ components:
         shrClassActiveFlag: 1
         fundOfFundsId: fundOfFundsId
         issuerName: BlackRock Inc.
+        ucitsScheme: UCITS IV
         shrClsTermDate: 2000-01-23
         shrClsCurrency: USD
         shrClsInceptDate: 1977-07-01T00:00:00.000+0000
@@ -5848,6 +7358,19 @@ components:
         webSite:
           description: The URL of the Fund.
           example: https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
+          nullable: true
+          type: string
+        ucitsCompliance:
+          description: A regulatory flag that shows if the fund can be marketed within
+            all countries that are part of the European Union. Returns 1 for True
+            to 0 for False.
+          example: 1
+          nullable: true
+          type: integer
+        ucitsScheme:
+          description: Determines whether the fund is regulated under the UCITS IV
+            (Directive 2009/65/EC) or UCITS V (Directive 2014/91/EU)
+          example: UCITS IV
           nullable: true
           type: string
       title: Funds Summary Object
@@ -6743,6 +8266,7 @@ components:
           yearToDate: 13.1398416886544
           fsymId: FNK7XP-S
           threeYear: 0.8008281904610115
+          sinceInceptionAnnualized: 7.86688289207509
           fiveYear: 25.2970433246628
           threeYearAnnualized: 6.027456183070403
           requestId: MABAX
@@ -6757,6 +8281,7 @@ components:
           yearToDate: 13.1398416886544
           fsymId: FNK7XP-S
           threeYear: 0.8008281904610115
+          sinceInceptionAnnualized: 7.86688289207509
           fiveYear: 25.2970433246628
           threeYearAnnualized: 6.027456183070403
           requestId: MABAX
@@ -6781,6 +8306,7 @@ components:
         yearToDate: 13.1398416886544
         fsymId: FNK7XP-S
         threeYear: 0.8008281904610115
+        sinceInceptionAnnualized: 7.86688289207509
         fiveYear: 25.2970433246628
         threeYearAnnualized: 6.027456183070403
         requestId: MABAX
@@ -6891,6 +8417,14 @@ components:
           description: The requested Id sent as input.
           example: MABAX
           type: string
+        sinceInceptionAnnualized:
+          description: The average annual rate of return since the fund's inception
+            date, calculated using compounding. This is always a total return (dividends
+            are included) and is not affected by the dividendAdjust parameter.
+          example: 7.86688289207509
+          format: double
+          nullable: true
+          type: number
       title: Returns Snapshot Object
       type: object
     returnsRangeRequest:
@@ -7870,6 +9404,1749 @@ components:
           type: string
       title: Market Aggregates Object
       type: object
+    ErrorResponseScreener:
+      description: Default Error Response
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObjectScreener'
+          type: array
+      title: Error Response
+      type: object
+    ErrorObjectScreener:
+      description: Error Object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          type: string
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        title:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        detail:
+          description: The detailed error message
+          example: The request body is malformed. Please review the request body and
+            try again.
+          type: string
+      type: object
+    ContentSetsResponse:
+      description: Content sets Response
+      example:
+        data:
+        - custom: true
+          name: Factset Fundamentals
+          description: Fundamental data for companies
+        - custom: true
+          name: Factset Fundamentals
+          description: Fundamental data for companies
+      properties:
+        data:
+          description: Array of Content sets permissioned for the user.
+          items:
+            $ref: '#/components/schemas/ContentSet'
+          type: array
+      title: Content sets Response
+      type: object
+    ContentSet:
+      description: Content set object
+      example:
+        custom: true
+        name: Factset Fundamentals
+        description: Fundamental data for companies
+      properties:
+        name:
+          description: The content set name.
+          example: Factset Fundamentals
+          type: string
+        description:
+          description: The content set description.
+          example: Fundamental data for companies
+          type: string
+        custom:
+          description: Indicates whether the content set is a custom content set (`true`),
+            or a default content set (`false`).
+          type: boolean
+      type: object
+    FieldsResponse:
+      description: Fields Response
+      example:
+        data:
+        - fields:
+          - fieldName: Factset Fundamentals - FF_SALES
+            displayName: Sales
+            description: The sales of the company.
+            type: text
+          - fieldName: Factset Fundamentals - FF_SALES
+            displayName: Sales
+            description: The sales of the company.
+            type: text
+          contentSet: Factset Fundamentals
+        - fields:
+          - fieldName: Factset Fundamentals - FF_SALES
+            displayName: Sales
+            description: The sales of the company.
+            type: text
+          - fieldName: Factset Fundamentals - FF_SALES
+            displayName: Sales
+            description: The sales of the company.
+            type: text
+          contentSet: Factset Fundamentals
+      properties:
+        data:
+          description: Array of field response objects.
+          items:
+            $ref: '#/components/schemas/FieldResponseObject'
+          type: array
+      title: Fields Response
+      type: object
+    FieldResponseObject:
+      description: Field Response Object
+      example:
+        fields:
+        - fieldName: Factset Fundamentals - FF_SALES
+          displayName: Sales
+          description: The sales of the company.
+          type: text
+        - fieldName: Factset Fundamentals - FF_SALES
+          displayName: Sales
+          description: The sales of the company.
+          type: text
+        contentSet: Factset Fundamentals
+      properties:
+        contentSet:
+          description: The content set name.
+          example: Factset Fundamentals
+          type: string
+        fields:
+          description: Array of fields available in the content set.
+          items:
+            $ref: '#/components/schemas/Field'
+          type: array
+      title: Field Response Object
+      type: object
+    Field:
+      description: Field
+      example:
+        fieldName: Factset Fundamentals - FF_SALES
+        displayName: Sales
+        description: The sales of the company.
+        type: text
+      properties:
+        fieldName:
+          description: Field name.
+          example: Factset Fundamentals - FF_SALES
+          type: string
+        displayName:
+          description: Field display name as provided during the creation of the content
+            set. This is returned only for custom content sets.
+          example: Sales
+          type: string
+        type:
+          description: "Field data type, where field datatype can be one of the following:\n\
+            * `text`  = String,\n* `float` = Floating point number,\n* `long`  = integer,\n\
+            * `date` = Date.\n* `boolean` = `true` or `false`. \n<br>\n"
+          enum:
+          - text
+          - float
+          - long
+          - date
+          - boolean
+          example: text
+          type: string
+        description:
+          description: Field description.
+          example: The sales of the company.
+          type: string
+      title: Field
+      type: object
+    CreateContentSetRequest:
+      description: Create Content Set Request
+      example:
+        data:
+          contentSets:
+          - contentSet: Factset Fundamentals
+            fields:
+            - fieldName: FF_NET_INCOME
+              displayName: Net Income
+            - fieldName: FF_SALES
+              displayName: Sales
+          - contentSet: Factset Estimates
+            fields:
+            - fieldName: EST_EPS
+              displayName: EPS
+            - fieldName: EST_REVENUE
+              displayName: Revenue
+          name: my-content-set
+          description: Custom content set for my user
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateContentSetRequestBody'
+      required:
+      - data
+      title: Create Content Set Request
+      type: object
+    CreateContentSetRequestBody:
+      description: Content Set Request Body
+      example:
+        contentSets:
+        - contentSet: Factset Fundamentals
+          fields:
+          - fieldName: FF_NET_INCOME
+            displayName: Net Income
+          - fieldName: FF_SALES
+            displayName: Sales
+        - contentSet: Factset Estimates
+          fields:
+          - fieldName: EST_EPS
+            displayName: EPS
+          - fieldName: EST_REVENUE
+            displayName: Revenue
+        name: my-content-set
+        description: Custom content set for my user
+      properties:
+        name:
+          description: The name of the content set. Name should contain only alphanumeric
+            characters, spaces, hyphens, and underscores.
+          example: my-content-set
+          type: string
+        description:
+          description: The description of the content set.
+          example: Custom content set for my user
+          type: string
+        contentSets:
+          description: |
+            The content sets from which the fields are requested, including the field names for each content set.
+          example:
+          - contentSet: Factset Fundamentals
+            fields:
+            - fieldName: FF_NET_INCOME
+              displayName: Net Income
+            - fieldName: FF_SALES
+              displayName: Sales
+          - contentSet: Factset Estimates
+            fields:
+            - fieldName: EST_EPS
+              displayName: EPS
+            - fieldName: EST_REVENUE
+              displayName: Revenue
+          items:
+            $ref: '#/components/schemas/CustomContentSetItem'
+          maxItems: 10
+          minItems: 1
+          type: array
+      required:
+      - contentSets
+      - description
+      - name
+      title: Content Set Request Body
+      type: object
+    CreateRequestFieldObject:
+      description: Input field object for Create Content Set Request
+      properties:
+        fieldName:
+          description: The name of the field.
+          example: FF_SALES
+          type: string
+        displayName:
+          description: The display name of the field.
+          example: Sales
+          type: string
+      required:
+      - displayName
+      - fieldName
+      title: Field object for Create Request
+      type: object
+    CreateContentSetResponse:
+      description: Create Content Set Response
+      example:
+        data:
+          id: contentset
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateContentSetResponse_data'
+      title: Create Content Set Response
+      type: object
+    DistinctCountRequest:
+      description: Distinct Count Request
+      example:
+        data:
+          fieldName: Company Name
+          joinType: AND
+          filters:
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          contentSet: Factset Fundamentals
+        meta:
+          pagination:
+            offset: 0
+            limit: 100
+      properties:
+        data:
+          $ref: '#/components/schemas/DistinctCountRequestBody'
+        meta:
+          $ref: '#/components/schemas/DistinctCountMeta'
+      required:
+      - data
+      title: Distinct Count Request
+      type: object
+    DistinctCountRequestBody:
+      description: Distinct count Request Body
+      example:
+        fieldName: Company Name
+        joinType: AND
+        filters:
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        contentSet: Factset Fundamentals
+      properties:
+        contentSet:
+          description: The content set from which the input field is taken.
+          example: Factset Fundamentals
+          type: string
+        fieldName:
+          description: The field name to be used in the filter criteria. For custom
+            content sets, display name should be used as a field name. The inputField
+            must be a member of the contentSet specified above.
+          example: Company Name
+          type: string
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        filters:
+          description: Filters to be applied to the request.
+          items:
+            $ref: '#/components/schemas/Filter'
+          maxItems: 10
+          minItems: 0
+          type: array
+      required:
+      - contentSet
+      - fieldName
+      title: Distinct count Request Body
+      type: object
+    CustomContentSets:
+      description: |
+        The content sets from which the fields are requested, including the field names for each content set.
+      example:
+      - contentSet: Factset Fundamentals
+        fields:
+        - fieldName: FF_NET_INCOME
+          displayName: Net Income
+        - fieldName: FF_SALES
+          displayName: Sales
+      - contentSet: Factset Estimates
+        fields:
+        - fieldName: EST_EPS
+          displayName: EPS
+        - fieldName: EST_REVENUE
+          displayName: Revenue
+      items:
+        $ref: '#/components/schemas/CustomContentSetItem'
+      maxItems: 10
+      minItems: 1
+      type: array
+    CustomContentSetItem:
+      description: objects of custom content set items.
+      properties:
+        contentSet:
+          description: The name of the content set.
+          example: Factset Fundamentals
+          type: string
+        fields:
+          description: The fields to retrieve from this content set.
+          items:
+            $ref: '#/components/schemas/CreateRequestFieldObject'
+          type: array
+      required:
+      - contentSet
+      - fields
+      type: object
+    SearchContentSets:
+      description: |
+        The content sets from which the fields are requested. For example: Factset Fundamentals, Factset Estimates, Partner Funds Fundata, etc.
+      example:
+      - contentSet: Factset Fundamentals
+        fields:
+        - ticker_region
+        - FF_SALES
+        - FF_EPS
+      - contentSet: Factset Estimates
+        fields:
+        - EST_EPS
+        - EST_REVENUE
+      items:
+        $ref: '#/components/schemas/ContentSetItem'
+      maxItems: 10
+      minItems: 1
+      type: array
+    ContentSetItem:
+      description: objects of content set items.
+      properties:
+        contentSet:
+          description: The content set the field belongs to, e.g., "Factset Fundamentals"
+            or "Factset Estimates".
+          example: Factset Fundamentals
+          type: string
+        fields:
+          description: "Fields to be returned in the response.\n\nDefault fields are:\
+            \ `tickerRegion`, `fsymId`, `entityId`, `instrumentName`.\n\nRequesting\
+            \ any additional fields beyond these default fields will result in an\
+            \ error unless proper permissions are granted. \n\nPlease contact FactSet\
+            \ Support for access permissions to additional fields.\n"
+          items:
+            $ref: '#/components/schemas/InputField'
+          maxItems: 50
+          minItems: 1
+          type: array
+      required:
+      - contentSet
+      - fields
+      type: object
+    SearchFilter:
+      description: Filter object
+      example:
+        criteria:
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          contentSet: Factset Fundamentals
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          contentSet: Factset Fundamentals
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          contentSet: Factset Fundamentals
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          contentSet: Factset Fundamentals
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          contentSet: Factset Fundamentals
+          operator: EQ
+        joinType: AND
+      properties:
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        criteria:
+          description: Criteria to filter by
+          items:
+            $ref: '#/components/schemas/SearchCriterion'
+          maxItems: 10
+          minItems: 1
+          type: array
+      required:
+      - criteria
+      type: object
+    SearchCriterion:
+      description: Criteria to filter by
+      example:
+        fieldName: Company Name
+        values:
+        - Apple Inc.
+        contentSet: Factset Fundamentals
+        operator: EQ
+      properties:
+        contentSet:
+          description: The content set the field belongs to, e.g., "Factset Fundamentals"
+            or "Factset Estimates".
+          example: Factset Fundamentals
+          type: string
+        fieldName:
+          description: The field name to be used in the filter criteria. For custom
+            content sets, display name should be used as a field name. The inputField
+            must be a member of the contentSet specified above.
+          example: Company Name
+          type: string
+        operator:
+          $ref: '#/components/schemas/Operator'
+        values:
+          description: The value to be used in the filter criteria.
+          example:
+          - Apple Inc.
+          items:
+            type: string
+          type: array
+      required:
+      - contentSet
+      - fieldName
+      - operator
+      - values
+      type: object
+    Filter:
+      description: Filter object
+      example:
+        criteria:
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          operator: EQ
+        - fieldName: Company Name
+          values:
+          - Apple Inc.
+          operator: EQ
+        joinType: AND
+      properties:
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        criteria:
+          description: Criteria to filter by
+          items:
+            $ref: '#/components/schemas/Criterion'
+          maxItems: 10
+          minItems: 1
+          type: array
+      required:
+      - criteria
+      type: object
+    Criterion:
+      description: Criteria to filter by
+      example:
+        fieldName: Company Name
+        values:
+        - Apple Inc.
+        operator: EQ
+      properties:
+        fieldName:
+          description: The field name to be used in the filter criteria. For custom
+            content sets, display name should be used as a field name. The inputField
+            must be a member of the contentSet specified above.
+          example: Company Name
+          type: string
+        operator:
+          $ref: '#/components/schemas/Operator'
+        values:
+          description: The value to be used in the filter criteria.
+          example:
+          - Apple Inc.
+          items:
+            type: string
+          type: array
+      required:
+      - fieldName
+      - operator
+      - values
+      type: object
+    Operator:
+      description: "The operator to be used in the filter criteria, where\n  * **EQ**\
+        \  = Equals,\n  * **NE** = Not equals,\n  * **CT**  = Contains returns values\
+        \ which contain given substring,\n  * **NOT_CT** = Not Contains - returns\
+        \ values that **do not** contain the given substring,\n  * **IN** = The \"\
+        In\" operator accepts an array of values and returns data that matches any\
+        \ of them,\n  * **NOT_IN** = The \"NOT_IN\" operator accepts an array of values\
+        \ and returns data that matches none of them,\n  * **LT** = Less than,\n \
+        \ * **LTE** = Less than or equal to,\n  * **GT**  = Greater than,\n  * **GTE**\
+        \ = Greater than or equal to.\n  \n  <br>\n**Note:** Both the `IN` and `NOT_IN`\
+        \ operators accept multiple values, while all other operators should be used\
+        \ with a single value.\n"
+      enum:
+      - EQ
+      - NE
+      - CT
+      - NOT_CT
+      - IN
+      - NOT_IN
+      - LT
+      - LTE
+      - GT
+      - GTE
+      example: EQ
+      type: string
+    JoinType:
+      default: AND
+      description: The join type to be used in the filter criteria. If the filter
+        criteria array contains only one element, joinType has no effect.
+      enum:
+      - AND
+      - OR
+      example: AND
+      type: string
+    InputField:
+      description: The field name to be used in the filter criteria. For custom content
+        sets, display name should be used as a field name. The inputField must be
+        a member of the contentSet specified above.
+      example: Company Name
+      type: string
+    SortField:
+      description: "Represents a single sort field. Specify each field using the format\
+        \ `{prefix}{ContentSetName}:{FieldName}`.  \nUse a `-` prefix for descending\
+        \ order.\n"
+      type: string
+    DistinctCountResponse:
+      description: Distinct Count Response object
+      example:
+        data:
+        - count: 100
+          value: Apple Inc.
+        - count: 100
+          value: Apple Inc.
+      properties:
+        data:
+          description: Number of records for a given field spread across all possible
+            values.
+          items:
+            $ref: '#/components/schemas/DistinctCountData'
+          type: array
+      title: Distinct Count Response
+      type: object
+    DistinctCountData:
+      description: Distinct Count Data
+      example:
+        count: 100
+        value: Apple Inc.
+      properties:
+        value:
+          description: The value of the field.
+          example: Apple Inc.
+          type: string
+        count:
+          description: The number of records with the corresponding value.
+          example: 100
+          format: int64
+          type: integer
+      type: object
+    StatisticsRequest:
+      description: Statistics Request
+      example:
+        data:
+          histogram: true
+          fieldName: Company Name
+          joinType: AND
+          filters:
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              operator: EQ
+            joinType: AND
+          contentSet: Factset Fundamentals
+      properties:
+        data:
+          $ref: '#/components/schemas/StatisticsRequestBody'
+      required:
+      - data
+      title: Statistics Request
+      type: object
+    StatisticsRequestBody:
+      description: Statistics Request Body
+      example:
+        histogram: true
+        fieldName: Company Name
+        joinType: AND
+        filters:
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            operator: EQ
+          joinType: AND
+        contentSet: Factset Fundamentals
+      properties:
+        contentSet:
+          description: The content set from which the input field is taken.
+          example: Factset Fundamentals
+          type: string
+        fieldName:
+          description: The field name to be used in the filter criteria. For custom
+            content sets, display name should be used as a field name. The inputField
+            must be a member of the contentSet specified above.
+          example: Company Name
+          type: string
+        histogram:
+          description: Flag to indicate if histogram data is required.
+          example: true
+          type: boolean
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        filters:
+          description: Filters to be applied to the request.
+          items:
+            $ref: '#/components/schemas/Filter'
+          maxItems: 10
+          minItems: 0
+          type: array
+      required:
+      - contentSet
+      - fieldName
+      title: Statistics Request Body
+      type: object
+    StatisticsResponse:
+      description: Statistics Response object
+      example:
+        data:
+          histogram:
+          - count: 3869
+            maximum: 105.736
+            minimum: -55.609
+          - count: 3869
+            maximum: 105.736
+            minimum: -55.609
+          average: 0.752
+          median: 0.752
+          count: 3869
+          maximum: 105.736
+          sum: 2910.85
+          stdDev: 0.752
+          minimum: -55.609
+      properties:
+        data:
+          $ref: '#/components/schemas/StatisticsResponse_data'
+      title: Statistics Response
+      type: object
+    HistogramData:
+      description: Histogram Data
+      example:
+        count: 3869
+        maximum: 105.736
+        minimum: -55.609
+      properties:
+        minimum:
+          description: The minimum value of the bin.
+          example: -55.609
+          type: number
+        maximum:
+          description: The maximum value of the bin.
+          example: 105.736
+          type: number
+        count:
+          description: The number of records in the bin.
+          example: 3869
+          format: int64
+          type: integer
+      type: object
+    SearchRequest:
+      description: Search Request
+      example:
+        data:
+          contentSets:
+          - contentSet: Factset Fundamentals
+            fields:
+            - ticker_region
+            - FF_SALES
+            - FF_EPS
+          - contentSet: Factset Estimates
+            fields:
+            - EST_EPS
+            - EST_REVENUE
+          joinType: AND
+          filters:
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            joinType: AND
+          - criteria:
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            - fieldName: Company Name
+              values:
+              - Apple Inc.
+              contentSet: Factset Fundamentals
+              operator: EQ
+            joinType: AND
+        meta:
+          pagination:
+            offset: 0
+            limit: 100
+          sort:
+          - null
+          - null
+          - null
+          - null
+          - null
+      properties:
+        data:
+          $ref: '#/components/schemas/SearchRequestBody'
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+      - data
+      title: Search Request
+      type: object
+    SearchRequestBody:
+      description: Search Request Body
+      example:
+        contentSets:
+        - contentSet: Factset Fundamentals
+          fields:
+          - ticker_region
+          - FF_SALES
+          - FF_EPS
+        - contentSet: Factset Estimates
+          fields:
+          - EST_EPS
+          - EST_REVENUE
+        joinType: AND
+        filters:
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          joinType: AND
+        - criteria:
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          - fieldName: Company Name
+            values:
+            - Apple Inc.
+            contentSet: Factset Fundamentals
+            operator: EQ
+          joinType: AND
+      properties:
+        contentSets:
+          description: |
+            The content sets from which the fields are requested. For example: Factset Fundamentals, Factset Estimates, Partner Funds Fundata, etc.
+          example:
+          - contentSet: Factset Fundamentals
+            fields:
+            - ticker_region
+            - FF_SALES
+            - FF_EPS
+          - contentSet: Factset Estimates
+            fields:
+            - EST_EPS
+            - EST_REVENUE
+          items:
+            $ref: '#/components/schemas/ContentSetItem'
+          maxItems: 10
+          minItems: 1
+          type: array
+        filters:
+          description: Filters to be applied to the request.
+          items:
+            $ref: '#/components/schemas/SearchFilter'
+          maxItems: 10
+          minItems: 0
+          type: array
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+      required:
+      - contentSets
+      title: Search Request Body
+      type: object
+    Meta:
+      description: Object defining the sorting and pagination attributes for an endpoint
+        request.
+      example:
+        pagination:
+          offset: 0
+          limit: 100
+        sort:
+        - null
+        - null
+        - null
+        - null
+        - null
+      properties:
+        sort:
+          description: Fields to be used for sorting the response.
+          items:
+            $ref: '#/components/schemas/SortField'
+          maxItems: 10
+          type: array
+        pagination:
+          $ref: '#/components/schemas/Meta_pagination'
+      type: object
+    DistinctCountMeta:
+      description: Object defining the sorting and pagination attributes for an endpoint
+        request.
+      example:
+        pagination:
+          offset: 0
+          limit: 100
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Meta_pagination'
+      type: object
+    SearchResponse:
+      description: Search Response object
+      example:
+        data:
+        - fieldValues:
+          - fieldName: Company Name
+            valueArray:
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            value: Apple Inc.
+          - fieldName: Company Name
+            valueArray:
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            value: Apple Inc.
+        - fieldValues:
+          - fieldName: Company Name
+            valueArray:
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            value: Apple Inc.
+          - fieldName: Company Name
+            valueArray:
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            - fieldValues:
+              - fieldName: Company Name
+                value: Apple Inc.
+              - fieldName: Company Name
+                value: Apple Inc.
+            value: Apple Inc.
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Records that match the given criteria.
+          items:
+            $ref: '#/components/schemas/SearchData'
+          type: array
+        meta:
+          $ref: '#/components/schemas/SearchMeta'
+      title: Search Response
+      type: object
+    SearchData:
+      description: Search Data
+      example:
+        fieldValues:
+        - fieldName: Company Name
+          valueArray:
+          - fieldValues:
+            - fieldName: Company Name
+              value: Apple Inc.
+            - fieldName: Company Name
+              value: Apple Inc.
+          - fieldValues:
+            - fieldName: Company Name
+              value: Apple Inc.
+            - fieldName: Company Name
+              value: Apple Inc.
+          value: Apple Inc.
+        - fieldName: Company Name
+          valueArray:
+          - fieldValues:
+            - fieldName: Company Name
+              value: Apple Inc.
+            - fieldName: Company Name
+              value: Apple Inc.
+          - fieldValues:
+            - fieldName: Company Name
+              value: Apple Inc.
+            - fieldName: Company Name
+              value: Apple Inc.
+          value: Apple Inc.
+      properties:
+        fieldValues:
+          description: Field values for the record, which can contain fieldName, value,
+            and valueArray.
+          items:
+            $ref: '#/components/schemas/FieldValues'
+          type: array
+      type: object
+    SearchMeta:
+      description: Metadata object for the search response
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      title: Search Meta
+      type: object
+    Pagination:
+      description: Pagination object for the search response
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of records the API returns for a particular query.
+          format: int64
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of records
+            returned is exact or an estimate. This is defaulted to False as the API
+            should always return the exact count.
+          type: boolean
+      title: Pagination
+      type: object
+    FieldValues:
+      description: Field Values
+      example:
+        fieldName: Company Name
+        valueArray:
+        - fieldValues:
+          - fieldName: Company Name
+            value: Apple Inc.
+          - fieldName: Company Name
+            value: Apple Inc.
+        - fieldValues:
+          - fieldName: Company Name
+            value: Apple Inc.
+          - fieldName: Company Name
+            value: Apple Inc.
+        value: Apple Inc.
+      properties:
+        fieldName:
+          description: The field name.
+          example: Company Name
+          type: string
+        value:
+          description: The field value.
+          example: Apple Inc.
+          type: string
+        valueArray:
+          description: The field value array.
+          items:
+            $ref: '#/components/schemas/NestedFieldValues'
+          type: array
+      type: object
+    NestedFieldValues:
+      description: Nested field values
+      example:
+        fieldValues:
+        - fieldName: Company Name
+          value: Apple Inc.
+        - fieldName: Company Name
+          value: Apple Inc.
+      properties:
+        fieldValues:
+          description: objects of field values.
+          items:
+            $ref: '#/components/schemas/NestedFieldValueObject'
+          type: array
+      type: object
+    NestedFieldValueObject:
+      description: Nested field values
+      example:
+        fieldName: Company Name
+        value: Apple Inc.
+      properties:
+        fieldName:
+          description: The field name.
+          example: Company Name
+          type: string
+        value:
+          description: The field value.
+          example: Apple Inc.
+          type: string
+      type: object
     ids:
       description: |
         The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1000 per request*</p>
@@ -8073,6 +11350,95 @@ components:
         subErrors:
           $ref: '#/components/schemas/errorResponse_subErrors'
       title: Error Response
+      type: object
+    CreateContentSetResponse_data:
+      description: The response for the request.
+      example:
+        id: contentset
+      properties:
+        id:
+          description: a unique content set name for the query requested
+          example: contentset
+          type: string
+      type: object
+    StatisticsResponse_data:
+      description: Aggregate statistics for a given field within the specified content
+        sets.
+      example:
+        histogram:
+        - count: 3869
+          maximum: 105.736
+          minimum: -55.609
+        - count: 3869
+          maximum: 105.736
+          minimum: -55.609
+        average: 0.752
+        median: 0.752
+        count: 3869
+        maximum: 105.736
+        sum: 2910.85
+        stdDev: 0.752
+        minimum: -55.609
+      properties:
+        minimum:
+          description: The minimum value of the field.
+          example: -55.609
+          type: number
+        maximum:
+          description: The maximum value of the field.
+          example: 105.736
+          type: number
+        average:
+          description: The average value of the field.
+          example: 0.752
+          type: number
+        sum:
+          description: The sum of the field values.
+          example: 2910.85
+          type: number
+        count:
+          description: The number of records.
+          example: 3869
+          format: int64
+          type: integer
+        median:
+          description: The median value of the field.
+          example: 0.752
+          type: number
+        stdDev:
+          description: The standard deviation of the field values.
+          example: 0.752
+          type: number
+        histogram:
+          description: The histogram of the field values. The histogram is an array
+            of 10 bins, each bin containing the minimum, maximum, and count of records
+            in that bin. The bins are equally spaced between the minimum and maximum
+            values of the field.
+          items:
+            $ref: '#/components/schemas/HistogramData'
+          type: array
+      type: object
+    Meta_pagination:
+      description: Object defining the pagination attributes for an endpoint request.
+      example:
+        offset: 0
+        limit: 100
+      properties:
+        limit:
+          default: 20
+          description: The maximum number of records to return. The default is 20.
+          example: 100
+          format: int32
+          maximum: 500
+          minimum: 1
+          type: integer
+        offset:
+          default: 0
+          description: The number of records to skip before the first record to return.
+            The default is 0.
+          example: 0
+          format: int32
+          type: integer
       type: object
     errorResponse_subErrors:
       description: subErrors related to the error message. Null if not applicable.

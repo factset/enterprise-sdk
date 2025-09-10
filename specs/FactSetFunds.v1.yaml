@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.4.0
+  version: 1.5.0
   title: FactSet Funds API
   contact:
     name: FactSet Research Systems
@@ -54,6 +54,10 @@ tags:
     description: Market Aggregates over a requested time-series.
   - name: Helper
     description: Check the Fund's current status and database availability
+  - name: Screening Operations
+    description: >-
+      Enables data search, filtering, retrieval, and custom content set
+      management with field metadata access.
 paths:
   /factset-funds/v1/summary:
     get:
@@ -1557,6 +1561,350 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/content-sets:
+    get:
+      tags:
+        - Screening Operations
+      summary: Get the content sets that are permissioned for the user.
+      operationId: getContentSets
+      description: >
+        Gets the content sets that are permissioned for the user. for example:
+        `Factset Fundamentals`, `Factset Funds`, etc.
+      responses:
+        '200':
+          description: The content-sets response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentSetsResponse'
+              examples:
+                Content sets response:
+                  $ref: '#/components/examples/contentSetsResponse'
+        '400':
+          description: >-
+            Bad Request. This can occur for several reasons. Please review the
+            "message" for more details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseScreener'
+              examples:
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/screenerbadRequestReadTimeout'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/fields:
+    get:
+      tags:
+        - Screening Operations
+      summary: Get the list of fields available for given content set.
+      operationId: getFields
+      description: >
+        Gets the list of fields available for a given content set (or
+        combination of content sets). For example: `Factset Fundamentals`,
+        `Factset Funds`, etc. 
+
+        Both default and custom content sets are supported.
+      parameters:
+        - $ref: '#/components/parameters/contentSets'
+      responses:
+        '200':
+          description: The Fields response object for the given content set(s).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsResponse'
+              examples:
+                Fields response for default content set:
+                  $ref: '#/components/examples/fieldsResponseDefault'
+                Fields response for custom content set:
+                  $ref: '#/components/examples/fieldsResponseCustom'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/distinct-count:
+    post:
+      tags:
+        - Screening Operations
+      summary: >-
+        Returns the number of records for a given field spread across all
+        possible values.
+      description: >
+        Returns the number of records for a given field spread across all
+        possible values that match the given criteria. Only string fields are
+        supported.
+      operationId: getDistinctCount
+      requestBody:
+        required: true
+        description: Request object for `distinct-count`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DistinctCountRequest'
+            examples:
+              Request for 'distinct-count' endpoint:
+                $ref: '#/components/examples/distinctCountRequest'
+              Request for 'distinct-count' endpoint with filters:
+                $ref: '#/components/examples/distinctCountRequestWithFilters'
+              Request for 'distinct-count' endpoint with custom content set:
+                $ref: '#/components/examples/distinctCountRequestWithCustomContentSet'
+              Request for 'distinct-count' endpoint with mutiple filters:
+                $ref: '#/components/examples/distinctCountRequestWithMultipleFilters'
+      responses:
+        '200':
+          description: Response object for distinct-count.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistinctCountResponse'
+              examples:
+                Distinct count response:
+                  $ref: '#/components/examples/distinctCountResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/statistics:
+    post:
+      tags:
+        - Screening Operations
+      summary: >-
+        Returns the statistics and histogram data for a given field within the
+        specified content sets.
+      description: >
+        Returns the statistics for a given field within the specified content
+        sets. Only numerical fields are supported. If histogram flag is set to
+        true, histogram data is also returned.
+      operationId: getStatistics
+      requestBody:
+        required: true
+        description: Request object for `Statistics`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatisticsRequest'
+            examples:
+              Request for statistics endpoint:
+                $ref: '#/components/examples/statisticsRequest'
+              Request for statistics endpoint with custom content-set:
+                $ref: '#/components/examples/statisticsRequestWithCustomContentSet'
+              Request for statistics endpoint without filters:
+                $ref: '#/components/examples/statisticsRequestWithoutFilters'
+              Request for statistics endpoint with mutiple filters:
+                $ref: '#/components/examples/statisticsRequestWithMultipleFilters'
+      responses:
+        '200':
+          description: Response object for statistics.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatisticsResponse'
+              examples:
+                Statistics response with histogram:
+                  $ref: '#/components/examples/statisticsResponseWithHistogram'
+                Statistics response without histogram:
+                  $ref: '#/components/examples/statisticsResponseWithoutHistogram'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/search:
+    post:
+      tags:
+        - Screening Operations
+      summary: Returns all the records that match the given criteria.
+      description: >
+        Returns the records that match the given criteria. The request object
+        for `Search` allows the user to get back data for fields of their
+        choosing.
+
+        Along with the fields requested, a unique identifier such as the ticker
+        symbol will be returned in the response.
+
+
+        Custom search of fields actually uses `displayName`.
+      operationId: getScreenerData
+      requestBody:
+        required: true
+        description: Request object for `Search`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              Request for search endpoint without filters:
+                $ref: '#/components/examples/searchRequestWithoutFilters'
+              Request for search endpoint with custom content set:
+                $ref: '#/components/examples/searchRequestCustomContentSet'
+              Request for search endpoint with filters:
+                $ref: '#/components/examples/searchRequestWithFilters'
+              Request for search endpoint with EQ operator:
+                $ref: '#/components/examples/searchRequestWithEquals'
+              Request for search endpoint with NE operator:
+                $ref: '#/components/examples/searchRequestWithNotEquals'
+              Request for search endpoint with CT operator:
+                $ref: '#/components/examples/searchRequestWithContains'
+              Request for search endpoint with IN operator:
+                $ref: '#/components/examples/searchRequestWithIN'
+              Request for search endpoint with LT operator:
+                $ref: '#/components/examples/searchRequestWithLessThan'
+              Request for search endpoint with LTE operator:
+                $ref: '#/components/examples/searchRequestWithLessThanEqual'
+              Request for search endpoint with GT operator:
+                $ref: '#/components/examples/searchRequestWithGreaterThan'
+              Request for search endpoint with GTE opeator:
+                $ref: '#/components/examples/searchRequestWithGreaterThanEqual'
+      responses:
+        '200':
+          description: Response object for search endpoint.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+              examples:
+                Search response:
+                  $ref: '#/components/examples/searchResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/content-sets/create:
+    post:
+      tags:
+        - Screening Operations
+      summary: >-
+        Create a new custom content set with required fields from the default
+        content sets.
+      description: >
+        Create a custom content set with the required set of fields. These
+        fields are taken from the default content sets provided in the request. 
+
+        The name for a custom content-set must be unique. The list of
+        displayNames within each custom content-set must also be unique.
+
+        Display names can be used as fieldName in other endpoints to perform
+        screening operations.
+
+
+        The `/screener/content-sets` and `/screener/fields` endpoints provide
+        the authoritative lists of available content sets and fields. Use these
+        endpoints to construct custom content sets and ensure that all content
+        set names and displayName values are unique.
+      operationId: createContentSet
+      requestBody:
+        required: true
+        description: Request object for create content-set endpoint.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContentSetRequest'
+            examples:
+              Request for 'content-set/create' endpoint:
+                $ref: '#/components/examples/createContentSetRequest'
+      responses:
+        '201':
+          description: Response object for create content-set endpoint.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateContentSetResponse'
+              examples:
+                Create Content Set Response:
+                  $ref: '#/components/examples/createContentSetResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-funds/v1/screener/content-sets/{name}:
+    delete:
+      tags:
+        - Screening Operations
+      summary: Delete a custom content set.
+      description: Delete a custom content set by providing the content set name.
+      operationId: deleteContentSet
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the content set to be deleted.
+          example: my-content-set
+      responses:
+        '204':
+          description: The content set has been deleted successfully.
+        '400':
+          description: >-
+            Bad Request occurs when the content set name is not provided or is
+            invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseScreener'
+              examples:
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -1871,6 +2219,29 @@ components:
         * DIV = Include Dividends, Total Return
 
         * NO_DIV = Exclude Dividends, Simple Return
+    contentSets:
+      name: contentSets
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 10
+      required: true
+      description: >
+        The content sets from which the fields are requested. For example:
+        `Factset Fundamentals`,  `Factset Funds`, etc.
+      examples:
+        oneId:
+          summary: One Content Set
+          value:
+            - Factset Fundamentals
+        multipleIds:
+          summary: Multiple Content Sets
+          value:
+            - Factset Fundamentals
+            - Factset Funds
   schemas:
     summariesRequest:
       title: Summaries Request Body
@@ -2139,6 +2510,21 @@ components:
           type: string
           example: >-
             https://www.blackrock.com/investing/products/227716/blackrock-basic-value-class-a-fund
+          nullable: true
+        ucitsCompliance:
+          description: >-
+            A regulatory flag that shows if the fund can be marketed within all
+            countries that are part of the European Union. Returns 1 for True to
+            0 for False.
+          type: integer
+          example: 1
+          nullable: true
+        ucitsScheme:
+          description: >-
+            Determines whether the fund is regulated under the UCITS IV
+            (Directive 2009/65/EC) or UCITS V (Directive 2014/91/EU)
+          type: string
+          example: UCITS IV
           nullable: true
     classificationsRequest:
       title: Classifications Request Body
@@ -2901,6 +3287,16 @@ components:
           description: The requested Id sent as input.
           type: string
           example: MABAX
+        sinceInceptionAnnualized:
+          description: >-
+            The average annual rate of return since the fund's inception date,
+            calculated using compounding. This is always a total return
+            (dividends are included) and is not affected by the dividendAdjust
+            parameter.
+          type: number
+          format: double
+          example: 7.86688289207509
+          nullable: true
     returnsRangeRequest:
       title: Returns Range Request Body
       description: Returns Range Request Body
@@ -3550,6 +3946,734 @@ components:
           description: The requested Id sent as input.
           type: string
           example: MABAX
+    ErrorResponseScreener:
+      type: object
+      title: Error Response
+      description: Default Error Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObjectScreener'
+    ErrorObjectScreener:
+      type: object
+      description: Error Object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code:
+          description: status
+          type: string
+          example: Bad Request
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        detail:
+          description: The detailed error message
+          type: string
+          example: >-
+            The request body is malformed. Please review the request body and
+            try again.
+    ContentSetsResponse:
+      type: object
+      title: Content sets Response
+      description: Content sets Response
+      properties:
+        data:
+          description: Array of Content sets permissioned for the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentSet'
+    ContentSet:
+      type: object
+      description: Content set object
+      properties:
+        name:
+          type: string
+          description: The content set name.
+          example: Factset Fundamentals
+        description:
+          type: string
+          description: The content set description.
+          example: Fundamental data for companies
+        custom:
+          type: boolean
+          description: >-
+            Indicates whether the content set is a custom content set (`true`),
+            or a default content set (`false`).
+    FieldsResponse:
+      type: object
+      title: Fields Response
+      description: Fields Response
+      properties:
+        data:
+          description: Array of field response objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldResponseObject'
+    FieldResponseObject:
+      title: Field Response Object
+      type: object
+      description: Field Response Object
+      properties:
+        contentSet:
+          type: string
+          description: The content set name.
+          example: Factset Fundamentals
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/Field'
+          description: Array of fields available in the content set.
+    Field:
+      title: Field
+      type: object
+      description: Field
+      properties:
+        fieldName:
+          description: Field name.
+          type: string
+          example: Factset Fundamentals - FF_SALES
+        displayName:
+          description: >-
+            Field display name as provided during the creation of the content
+            set. This is returned only for custom content sets.
+          type: string
+          example: Sales
+        type:
+          description: |
+            Field data type, where field datatype can be one of the following:
+            * `text`  = String,
+            * `float` = Floating point number,
+            * `long`  = integer,
+            * `date` = Date.
+            * `boolean` = `true` or `false`. 
+            <br>
+          type: string
+          example: text
+          enum:
+            - text
+            - float
+            - long
+            - date
+            - boolean
+        description:
+          description: Field description.
+          type: string
+          example: The sales of the company.
+    CreateContentSetRequest:
+      title: Create Content Set Request
+      description: Create Content Set Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateContentSetRequestBody'
+      required:
+        - data
+    CreateContentSetRequestBody:
+      type: object
+      title: Content Set Request Body
+      description: Content Set Request Body
+      properties:
+        name:
+          type: string
+          description: >-
+            The name of the content set. Name should contain only alphanumeric
+            characters, spaces, hyphens, and underscores.
+          example: my-content-set
+        description:
+          type: string
+          description: The description of the content set.
+          example: Custom content set for my user
+        contentSets:
+          $ref: '#/components/schemas/CustomContentSets'
+      required:
+        - name
+        - description
+        - contentSets
+    CreateRequestFieldObject:
+      title: Field object for Create Request
+      description: Input field object for Create Content Set Request
+      type: object
+      properties:
+        fieldName:
+          type: string
+          description: The name of the field.
+          example: FF_SALES
+        displayName:
+          type: string
+          description: The display name of the field.
+          example: Sales
+      required:
+        - fieldName
+        - displayName
+    CreateContentSetResponse:
+      title: Create Content Set Response
+      description: Create Content Set Response
+      type: object
+      properties:
+        data:
+          type: object
+          description: The response for the request.
+          properties:
+            id:
+              description: a unique content set name for the query requested
+              type: string
+              example: contentset
+    DistinctCountRequest:
+      title: Distinct Count Request
+      description: Distinct Count Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/DistinctCountRequestBody'
+        meta:
+          $ref: '#/components/schemas/DistinctCountMeta'
+      required:
+        - data
+    DistinctCountRequestBody:
+      title: Distinct count Request Body
+      description: Distinct count Request Body
+      type: object
+      properties:
+        contentSet:
+          type: string
+          description: The content set from which the input field is taken.
+          example: Factset Fundamentals
+        fieldName:
+          $ref: '#/components/schemas/InputField'
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        filters:
+          type: array
+          description: Filters to be applied to the request.
+          items:
+            $ref: '#/components/schemas/Filter'
+          minItems: 0
+          maxItems: 10
+      required:
+        - contentSet
+        - fieldName
+    CustomContentSets:
+      type: array
+      description: >
+        The content sets from which the fields are requested, including the
+        field names for each content set.
+      items:
+        $ref: '#/components/schemas/CustomContentSetItem'
+      minItems: 1
+      maxItems: 10
+      example:
+        - contentSet: Factset Fundamentals
+          fields:
+            - fieldName: FF_NET_INCOME
+              displayName: Net Income
+            - fieldName: FF_SALES
+              displayName: Sales
+        - contentSet: Factset Estimates
+          fields:
+            - fieldName: EST_EPS
+              displayName: EPS
+            - fieldName: EST_REVENUE
+              displayName: Revenue
+    CustomContentSetItem:
+      type: object
+      description: objects of custom content set items.
+      required:
+        - contentSet
+        - fields
+      properties:
+        contentSet:
+          type: string
+          description: The name of the content set.
+          example: Factset Fundamentals
+        fields:
+          type: array
+          description: The fields to retrieve from this content set.
+          items:
+            $ref: '#/components/schemas/CreateRequestFieldObject'
+    SearchContentSets:
+      type: array
+      items:
+        $ref: '#/components/schemas/ContentSetItem'
+      minItems: 1
+      maxItems: 10
+      description: >
+        The content sets from which the fields are requested. For example:
+        Factset Fundamentals, Factset Estimates, Partner Funds Fundata, etc.
+      example:
+        - contentSet: Factset Fundamentals
+          fields:
+            - ticker_region
+            - FF_SALES
+            - FF_EPS
+        - contentSet: Factset Estimates
+          fields:
+            - EST_EPS
+            - EST_REVENUE
+    ContentSetItem:
+      type: object
+      description: objects of content set items.
+      properties:
+        contentSet:
+          type: string
+          description: >-
+            The content set the field belongs to, e.g., "Factset Fundamentals"
+            or "Factset Estimates".
+          example: Factset Fundamentals
+        fields:
+          type: array
+          description: >
+            Fields to be returned in the response.
+
+
+            Default fields are: `tickerRegion`, `fsymId`, `entityId`,
+            `instrumentName`.
+
+
+            Requesting any additional fields beyond these default fields will
+            result in an error unless proper permissions are granted. 
+
+
+            Please contact FactSet Support for access permissions to additional
+            fields.
+          items:
+            $ref: '#/components/schemas/InputField'
+          minItems: 1
+          maxItems: 50
+      required:
+        - contentSet
+        - fields
+    SearchFilter:
+      type: object
+      description: Filter object
+      properties:
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        criteria:
+          type: array
+          description: Criteria to filter by
+          items:
+            $ref: '#/components/schemas/SearchCriterion'
+          minItems: 1
+          maxItems: 10
+      required:
+        - criteria
+    SearchCriterion:
+      type: object
+      description: Criteria to filter by
+      properties:
+        contentSet:
+          type: string
+          description: >-
+            The content set the field belongs to, e.g., "Factset Fundamentals"
+            or "Factset Estimates".
+          example: Factset Fundamentals
+        fieldName:
+          $ref: '#/components/schemas/InputField'
+        operator:
+          $ref: '#/components/schemas/Operator'
+        values:
+          type: array
+          items:
+            type: string
+          description: The value to be used in the filter criteria.
+          example:
+            - Apple Inc.
+      required:
+        - contentSet
+        - fieldName
+        - operator
+        - values
+    Filter:
+      type: object
+      description: Filter object
+      properties:
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        criteria:
+          type: array
+          description: Criteria to filter by
+          items:
+            $ref: '#/components/schemas/Criterion'
+          minItems: 1
+          maxItems: 10
+      required:
+        - criteria
+    Criterion:
+      type: object
+      description: Criteria to filter by
+      properties:
+        fieldName:
+          $ref: '#/components/schemas/InputField'
+        operator:
+          $ref: '#/components/schemas/Operator'
+        values:
+          type: array
+          items:
+            type: string
+          description: The value to be used in the filter criteria.
+          example:
+            - Apple Inc.
+      required:
+        - fieldName
+        - operator
+        - values
+    Operator:
+      type: string
+      enum:
+        - EQ
+        - NE
+        - CT
+        - NOT_CT
+        - IN
+        - NOT_IN
+        - LT
+        - LTE
+        - GT
+        - GTE
+      description: >
+        The operator to be used in the filter criteria, where
+          * **EQ**  = Equals,
+          * **NE** = Not equals,
+          * **CT**  = Contains returns values which contain given substring,
+          * **NOT_CT** = Not Contains - returns values that **do not** contain the given substring,
+          * **IN** = The "In" operator accepts an array of values and returns data that matches any of them,
+          * **NOT_IN** = The "NOT_IN" operator accepts an array of values and returns data that matches none of them,
+          * **LT** = Less than,
+          * **LTE** = Less than or equal to,
+          * **GT**  = Greater than,
+          * **GTE** = Greater than or equal to.
+          
+          <br>
+        **Note:** Both the `IN` and `NOT_IN` operators accept multiple values,
+        while all other operators should be used with a single value.
+      example: EQ
+    JoinType:
+      type: string
+      enum:
+        - AND
+        - OR
+      description: >-
+        The join type to be used in the filter criteria. If the filter criteria
+        array contains only one element, joinType has no effect.
+      example: AND
+      default: AND
+    InputField:
+      type: string
+      description: >-
+        The field name to be used in the filter criteria. For custom content
+        sets, display name should be used as a field name. The inputField must
+        be a member of the contentSet specified above.
+      example: Company Name
+    SortField:
+      type: string
+      description: >
+        Represents a single sort field. Specify each field using the format
+        `{prefix}{ContentSetName}:{FieldName}`.  
+
+        Use a `-` prefix for descending order.
+    DistinctCountResponse:
+      type: object
+      title: Distinct Count Response
+      description: Distinct Count Response object
+      properties:
+        data:
+          description: >-
+            Number of records for a given field spread across all possible
+            values.
+          type: array
+          items:
+            $ref: '#/components/schemas/DistinctCountData'
+    DistinctCountData:
+      type: object
+      description: Distinct Count Data
+      properties:
+        value:
+          type: string
+          description: The value of the field.
+          example: Apple Inc.
+        count:
+          type: integer
+          format: int64
+          description: The number of records with the corresponding value.
+          example: 100
+    StatisticsRequest:
+      title: Statistics Request
+      description: Statistics Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/StatisticsRequestBody'
+      required:
+        - data
+    StatisticsRequestBody:
+      title: Statistics Request Body
+      description: Statistics Request Body
+      type: object
+      properties:
+        contentSet:
+          type: string
+          description: The content set from which the input field is taken.
+          example: Factset Fundamentals
+        fieldName:
+          $ref: '#/components/schemas/InputField'
+        histogram:
+          type: boolean
+          description: Flag to indicate if histogram data is required.
+          example: true
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+        filters:
+          type: array
+          description: Filters to be applied to the request.
+          items:
+            $ref: '#/components/schemas/Filter'
+          minItems: 0
+          maxItems: 10
+      required:
+        - contentSet
+        - fieldName
+    StatisticsResponse:
+      type: object
+      title: Statistics Response
+      description: Statistics Response object
+      properties:
+        data:
+          description: >-
+            Aggregate statistics for a given field within the specified content
+            sets.
+          type: object
+          properties:
+            minimum:
+              type: number
+              description: The minimum value of the field.
+              example: -55.609
+            maximum:
+              type: number
+              description: The maximum value of the field.
+              example: 105.736
+            average:
+              type: number
+              description: The average value of the field.
+              example: 0.752
+            sum:
+              type: number
+              description: The sum of the field values.
+              example: 2910.85
+            count:
+              type: integer
+              format: int64
+              description: The number of records.
+              example: 3869
+            median:
+              type: number
+              description: The median value of the field.
+              example: 0.752
+            stdDev:
+              type: number
+              description: The standard deviation of the field values.
+              example: 0.752
+            histogram:
+              type: array
+              description: >-
+                The histogram of the field values. The histogram is an array of
+                10 bins, each bin containing the minimum, maximum, and count of
+                records in that bin. The bins are equally spaced between the
+                minimum and maximum values of the field.
+              items:
+                $ref: '#/components/schemas/HistogramData'
+    HistogramData:
+      type: object
+      description: Histogram Data
+      properties:
+        minimum:
+          type: number
+          description: The minimum value of the bin.
+          example: -55.609
+        maximum:
+          type: number
+          description: The maximum value of the bin.
+          example: 105.736
+        count:
+          type: integer
+          format: int64
+          description: The number of records in the bin.
+          example: 3869
+    SearchRequest:
+      title: Search Request
+      description: Search Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SearchRequestBody'
+        meta:
+          $ref: '#/components/schemas/Meta'
+      required:
+        - data
+    SearchRequestBody:
+      title: Search Request Body
+      description: Search Request Body
+      type: object
+      properties:
+        contentSets:
+          $ref: '#/components/schemas/SearchContentSets'
+        filters:
+          type: array
+          description: Filters to be applied to the request.
+          items:
+            $ref: '#/components/schemas/SearchFilter'
+          minItems: 0
+          maxItems: 10
+        joinType:
+          $ref: '#/components/schemas/JoinType'
+      required:
+        - contentSets
+    Meta:
+      type: object
+      description: >-
+        Object defining the sorting and pagination attributes for an endpoint
+        request.
+      properties:
+        sort:
+          type: array
+          description: Fields to be used for sorting the response.
+          items:
+            $ref: '#/components/schemas/SortField'
+          maxItems: 10
+        pagination:
+          type: object
+          description: Object defining the pagination attributes for an endpoint request.
+          properties:
+            limit:
+              type: integer
+              format: int32
+              description: The maximum number of records to return. The default is 20.
+              example: 100
+              minimum: 1
+              maximum: 500
+              default: 20
+            offset:
+              type: integer
+              format: int32
+              description: >-
+                The number of records to skip before the first record to return.
+                The default is 0.
+              example: 0
+              default: 0
+    DistinctCountMeta:
+      type: object
+      description: >-
+        Object defining the sorting and pagination attributes for an endpoint
+        request.
+      properties:
+        pagination:
+          type: object
+          description: Object defining the pagination attributes for an endpoint request.
+          properties:
+            limit:
+              type: integer
+              format: int32
+              description: The maximum number of records to return. The default is 20.
+              example: 100
+              minimum: 1
+              maximum: 500
+              default: 20
+            offset:
+              type: integer
+              format: int32
+              description: >-
+                The number of records to skip before the first record to return.
+                The default is 0.
+              example: 0
+              default: 0
+    SearchResponse:
+      type: object
+      title: Search Response
+      description: Search Response object
+      properties:
+        data:
+          description: Records that match the given criteria.
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchData'
+        meta:
+          $ref: '#/components/schemas/SearchMeta'
+    SearchData:
+      type: object
+      description: Search Data
+      properties:
+        fieldValues:
+          type: array
+          description: >-
+            Field values for the record, which can contain fieldName, value, and
+            valueArray.
+          items:
+            $ref: '#/components/schemas/FieldValues'
+    SearchMeta:
+      title: Search Meta
+      description: Metadata object for the search response
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      title: Pagination
+      description: Pagination object for the search response
+      type: object
+      properties:
+        total:
+          description: Total number of records the API returns for a particular query.
+          type: integer
+          format: int64
+        isEstimatedTotal:
+          description: >-
+            Boolean value that represents whether the total count of records
+            returned is exact or an estimate. This is defaulted to False as the
+            API should always return the exact count.
+          type: boolean
+    FieldValues:
+      type: object
+      description: Field Values
+      properties:
+        fieldName:
+          type: string
+          description: The field name.
+          example: Company Name
+        value:
+          type: string
+          description: The field value.
+          example: Apple Inc.
+        valueArray:
+          type: array
+          description: The field value array.
+          items:
+            $ref: '#/components/schemas/NestedFieldValues'
+    NestedFieldValues:
+      type: object
+      description: Nested field values
+      properties:
+        fieldValues:
+          type: array
+          description: objects of field values.
+          items:
+            $ref: '#/components/schemas/NestedFieldValueObject'
+    NestedFieldValueObject:
+      type: object
+      description: Nested field values
+      properties:
+        fieldName:
+          type: string
+          description: The field name.
+          example: Company Name
+        value:
+          type: string
+          description: The field value.
+          example: Apple Inc.
     ids:
       type: array
       items:
@@ -3847,6 +4971,15 @@ components:
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/forbidden'
+    '404':
+      description: The requested endpoint could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Endpoint Not Found:
+              $ref: '#/components/examples/notFound'
     '415':
       description: >-
         Unsupported Media Type. This error may be returned when the caller sends
@@ -4060,6 +5193,8 @@ components:
             webSite: >-
               https://www.blackrock.com/investing/products/227716/blackrock-Large
               Cap Focus-value-class-a-fund
+            ucitsCompliance: 1
+            ucitsScheme: UCITS IV
     fundClassifications:
       summary: List of Fund Classifications for MABAX-US.
       description: |
@@ -4333,6 +5468,7 @@ components:
             tenYearAnnualized: 8.40773345012342,
             date: '2018-12-31'
             requestId: MABAX-US
+            sinceInceptionAnnualized: 8.40773345012342
     fundReturnsRange:
       summary: List of Fund Retuns Range for MABAX-US.
       description: |
@@ -4608,6 +5744,682 @@ components:
             thirtyDayNetSecYield: 3.16187341965815
             thirtyDayGrossSecYield: 3.16187341965815
             requestId: MABAX
+    contentSetsResponse:
+      summary: Content sets response.
+      value:
+        data:
+          - name: Factset Fundamentals
+            description: Fundamental data for companies
+            custom: false
+          - name: my-content-set
+            description: Custom content set from Factset Fundamentals
+            custom: true
+    fieldsResponseDefault:
+      summary: Fields response for default content sets.
+      value:
+        data:
+          - contentSet: Factset Fundamentals
+            fields:
+              - fieldName: FF_SALES
+                type: float
+                description: The sales of the company.
+              - fieldName: FF_NET_INCOME
+                type: float
+                description: The net income of the company.
+          - contentSet: Partner Funds
+            fields:
+              - fieldName: benchmarkIndexName
+                type: text
+                description: The benchmark index name.
+              - fieldName: netAssets
+                type: float
+                description: The net assets of the fund.
+    fieldsResponseCustom:
+      summary: Fields response for custom content sets.
+      value:
+        data:
+          - contentSet: Factset Fundamentals
+            fields:
+              - fieldName: FF_SALES
+                displayName: Sales
+                type: float
+                description: The sales of the company.
+              - fieldName: FF_NET_INCOME
+                displayName: Net Income
+                type: float
+                description: The net income of the company.
+          - contentSet: Partner Funds
+            fields:
+              - fieldName: benchmarkIndexName
+                displayName: Benchmark Index Name
+                type: text
+                description: The benchmark index name.
+              - fieldName: netAssets
+                displayName: Net Assets
+                type: float
+                description: The net assets of the fund.
+    distinctCountRequest:
+      summary: Request for 'distinct-count' endpoint without filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: fund_currency
+    createContentSetRequest:
+      summary: Sample request for 'content-set/create' endpoint.
+      value:
+        data:
+          name: factsetfundscontentset
+          description: Custom content set from Factset Funds
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fieldName: fund_region
+                  displayName: fundregion
+    createContentSetResponse:
+      summary: Response for 'content-set/create' endpoint.
+      value:
+        data:
+          id: mycontentset
+    distinctCountRequestWithFilters:
+      summary: Request for 'distinct-count' endpoint with filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: active_status
+          joinType: AND
+          filters:
+            - joinType: AND
+              criteria:
+                - fieldName: currency
+                  operator: EQ
+                  values:
+                    - EUR
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    distinctCountRequestWithCustomContentSet:
+      summary: Request for 'distinct-count' endpoint with custom content set.
+      value:
+        data:
+          contentSet: my_content_set
+          fieldName: country
+          joinType: AND
+          filters:
+            - joinType: AND
+              criteria:
+                - fieldName: currency
+                  operator: EQ
+                  values:
+                    - INR
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    distinctCountRequestWithMultipleFilters:
+      summary: Request for distinct count endpoint with multiple filters.
+      description: >-
+        This request returns the distinct count of funds where `asset_class` is
+        "Equity" or "Fixed Income", and `country` is "US".
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: fund_name
+          joinType: AND
+          filters:
+            - joinType: OR
+              criteria:
+                - fieldName: asset_class
+                  operator: EQ
+                  values:
+                    - Equity
+                - fieldName: asset_class
+                  operator: EQ
+                  values:
+                    - Fixed Income
+            - joinType: AND
+              criteria:
+                - fieldName: country
+                  operator: EQ
+                  values:
+                    - US
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    distinctCountResponse:
+      summary: Distinct count response.
+      value:
+        data:
+          - value: Equity
+            count: 2780
+          - value: Fixed Income
+            count: 809
+          - value: Asset Allocation
+            count: 140
+          - value: Commodities
+            count: 100
+          - value: Currency
+            count: 67
+          - value: Alternatives
+            count: 61
+    statisticsRequest:
+      summary: Request for statistics endpoint.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: aum
+          joinType: AND
+          histogram: true
+          filters:
+            - joinType: AND
+              criteria:
+                - fieldName: expense_ratio_net
+                  operator: GT
+                  values:
+                    - '0.5'
+    statisticsRequestWithoutFilters:
+      summary: Request for statistics endpoint without filters.
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: ask_price
+          joinType: AND
+          histogram: true
+    statisticsRequestWithCustomContentSet:
+      summary: Request for statistics endpoint with custom content set.
+      value:
+        data:
+          contentSet: my_content_set
+          fieldName: three_year_return
+          joinType: AND
+          filters:
+            - joinType: AND
+              criteria:
+                - fieldName: asset_class
+                  operator: EQ
+                  values:
+                    - Equity
+    statisticsRequestWithMultipleFilters:
+      summary: Request for statistics endpoint with multiple filters.
+      description: This request returns
+      value:
+        data:
+          contentSet: Factset Funds
+          fieldName: aum
+          histogram: true
+          joinType: AND
+          filters:
+            - joinType: AND
+              criteria:
+                - fieldName: fund_region
+                  operator: EQ
+                  values:
+                    - Europe
+            - joinType: OR
+              criteria:
+                - fieldName: asset_class
+                  operator: EQ
+                  values:
+                    - Equity
+                - fieldName: asset_class
+                  operator: EQ
+                  values:
+                    - Fixed Income
+            - joinType: AND
+              criteria:
+                - fieldName: expense_ratio_net
+                  operator: LT
+                  values:
+                    - '1.0'
+    statisticsResponseWithHistogram:
+      summary: Statistics response.
+      value:
+        data:
+          minimum: -55.609
+          maximum: 105.736
+          average: 0.752
+          sum: 2910.85
+          count: 3869
+          median: 0.752
+          stdDev: 0.752
+          histogram:
+            - minimum: -55.609
+              maximum: -45.609
+              count: 100
+            - minimum: -45.609
+              maximum: -35.609
+              count: 200
+            - minimum: -35.609
+              maximum: -25.609
+              count: 300
+            - minimum: -25.609
+              maximum: -15.609
+              count: 400
+            - minimum: -15.609
+              maximum: -5.609
+              count: 500
+            - minimum: -5.609
+              maximum: 4.391
+              count: 600
+            - minimum: 4.391
+              maximum: 14.391
+              count: 700
+            - minimum: 14.391
+              maximum: 24.391
+              count: 800
+            - minimum: 24.391
+              maximum: 34.391
+              count: 900
+            - minimum: 34.391
+              maximum: 44.391
+              count: 1000
+    statisticsResponseWithoutHistogram:
+      summary: Statistics response.
+      value:
+        data:
+          minimum: -55.609
+          maximum: 105.736
+          average: 0.752
+          sum: 2910.85
+          count: 3869
+          median: 0.752
+          stdDev: 0.752
+    searchRequestCustomContentSet:
+      summary: Request for search endpoint with custom content set.
+      description: >-
+        This request will return Funds with Asset Class equal to Equity sorted
+        by 1-Month return in descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: My Custom Content Set
+              fields:
+                - ticker_region
+                - Sales
+          filters:
+            - joinType: AND
+              criteria:
+                - fieldName: Asset_Class
+                  contentSet: My Custom Content Set
+                  operator: EQ
+                  values:
+                    - Equity
+        meta:
+          sort:
+            - My Custom Content Set:1-Month return
+          pagination:
+            limit: 10
+            offset: 0
+    searchRequestWithFilters:
+      summary: Request for search endpoint with multiple filters.
+      description: >-
+        This request will return UCITS-compliant BlackRock funds with fund name,
+        issuer, share class name, and 1-year and 5-year return fields, sorted by
+        5-year return in descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - one_year_return
+                - five_year_return
+                - issuer
+                - fund_share_class_name
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: ucits_compliance
+                  operator: EQ
+                  values:
+                    - true
+              joinType: AND
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: EQ
+                  values:
+                    - BlackRock, Inc.
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:five_year_return'
+          pagination:
+            offset: 0
+            limit: 10
+    searchRequestWithoutFilters:
+      summary: Request for search endpoint without filters.
+      description: >-
+        This request will return funds with fund name, issuer, and share class
+        name fields, sorted by share class name.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+          joinType: AND
+        meta:
+          sort:
+            - Factset Funds:fund_share_class_name
+          pagination:
+            limit: 100
+            offset: 0
+    searchRequestWithEquals:
+      summary: Request for search endpoint using EQ operator.
+      description: >-
+        This request will return BlackRock funds with fund name, issuer, share
+        class name, and 1-year and 5-year return fields, sorted by fund name in
+        descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - one_year_return
+                - five_year_return
+                - issuer
+                - fund_share_class_name
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: EQ
+                  values:
+                    - BlackRock, Inc.
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:fund_name'
+          pagination:
+            offset: 0
+            limit: 10
+    searchRequestWithNotEquals:
+      summary: Request for search endpoint using NE operator.
+      description: >-
+        This request will return funds excluding those issued by Royal London
+        Group, with fund name, issuer, and share class name fields, sorted by
+        fund name.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: NE
+                  values:
+                    - Royal London Group
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - Factset Funds:fund_name
+          pagination:
+            offset: 0
+            limit: 10
+    searchRequestWithContains:
+      summary: Request for search endpoint using CT operator.
+      description: >-
+        This request will return funds where the issuer name contains either
+        Vanguard or BlackRock, with fund name, issuer, and share class name
+        fields, sorted by issuer.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: CT
+                  values:
+                    - Vanguard
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: CT
+                  values:
+                    - BlackRock
+              joinType: OR
+          joinType: AND
+        meta:
+          sort:
+            - Factset Funds:issuer
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithIN:
+      summary: Request for search endpoint using IN operator.
+      description: >-
+        This request will return funds issued by either Vanguard Group, Inc. or
+        BlackRock, Inc., with fund name, issuer, and share class name fields,
+        sorted by issuer in descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: IN
+                  values:
+                    - Vanguard Group, Inc.
+                    - BlackRock, Inc.
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:issuer'
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithLessThan:
+      summary: Request for search endpoint using LT operator.
+      description: >-
+        This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV less than 10,000, including fund name, issuer,
+        share class name, and NAV fields, sorted by NAV in descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+                - nav
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: IN
+                  values:
+                    - Vanguard Group, Inc.
+                    - BlackRock, Inc.
+              joinType: AND
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: nav
+                  operator: LT
+                  values:
+                    - 10000
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:nav'
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithLessThanEqual:
+      summary: Request for search endpoint using LTE operator.
+      description: >-
+        This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV less than or equal to 10,000, including fund
+        name, issuer, share class name, and NAV fields, sorted by NAV in
+        descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+                - nav
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: IN
+                  values:
+                    - Vanguard Group, Inc.
+                    - BlackRock, Inc.
+              joinType: AND
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: nav
+                  operator: LTE
+                  values:
+                    - 10000
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:nav'
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithGreaterThan:
+      summary: Request for search endpoint using GT operator.
+      description: >-
+        This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV greater than 10,000, including fund name,
+        issuer, share class name, and NAV fields, sorted by NAV in descending
+        order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+                - nav
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: IN
+                  values:
+                    - Vanguard Group, Inc.
+                    - BlackRock, Inc.
+              joinType: AND
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: nav
+                  operator: GT
+                  values:
+                    - 10000
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:nav'
+          pagination:
+            offset: 0
+            limit: 100
+    searchRequestWithGreaterThanEqual:
+      summary: Request for search endpoint using GTE operator.
+      description: >-
+        This request will return funds issued by Vanguard Group, Inc. or
+        BlackRock, Inc. with NAV greater than or equal to 10,000, including fund
+        name, issuer, share class name, and NAV fields, sorted by NAV in
+        descending order.
+      value:
+        data:
+          contentSets:
+            - contentSet: Factset Funds
+              fields:
+                - fund_name
+                - issuer
+                - fund_share_class_name
+                - nav
+          filters:
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: issuer
+                  operator: IN
+                  values:
+                    - Vanguard Group, Inc.
+                    - BlackRock, Inc.
+              joinType: AND
+            - criteria:
+                - contentSet: Factset Funds
+                  fieldName: nav
+                  operator: GTE
+                  values:
+                    - 10000
+              joinType: AND
+          joinType: AND
+        meta:
+          sort:
+            - '-Factset Funds:nav'
+          pagination:
+            offset: 0
+            limit: 100
+    searchResponse:
+      summary: Search response.
+      value:
+        data:
+          - fieldValues:
+              - fieldName: ticker_region
+                value: MSTZ-US
+              - fieldName: 1-Month return
+                value: '-55.609500408'
+              - fieldName: holdings
+                valueArray:
+                  - fieldValues:
+                      - fieldName: securityId
+                        value: AAPL
+                      - fieldName: securityName
+                        value: Apple Inc - Common
+                      - fieldName: weight
+                        value: '8.72'
+          - fieldValues:
+              - fieldName: ticker_region
+                value: SMST-MI
+              - fieldName: 1-Month return
+                value: '-54.932099581'
+              - fieldName: holdings
+                valueArray:
+                  - fieldValues:
+                      - fieldName: securityId
+                        value: MSFT
+                      - fieldName: securityName
+                        value: Microsoft Corp - Common
+                      - fieldName: weight
+                        value: '7.71'
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-
@@ -4685,6 +6497,30 @@ components:
         path: /factset-funds/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
+    screenerbadRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the fql service.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: Read Timeout
+            detail: The request took too long. Try again with a smaller request.
+    badRequestNotFound:
+      summary: Bad Request - Data Not Found
+      description: >-
+        This error message occurs when the requested data could not be found.
+        This may be due to the data not existing for the provided criteria.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Bad Request
+            title: The requested data could not be found
+            detail: >-
+              The requested data could not be found. Please review the request
+              and try again.
     unauthenticated:
       summary: User Authentication Failed
       description: >-
@@ -4713,6 +6549,15 @@ components:
           USERNAME-SERIAL does not have permission to use /factset-funds
           /v1/{endpoint}
         subErrors: null
+    notFound:
+      summary: Not Found
+      description: The requested endpoint could not be found.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6
+            code: Not Found
+            title: No endpoint found
+            detail: The requested endpoint could not be found.
     unsupportedMediaType:
       summary: Unsupported Media Type
       description: >-
