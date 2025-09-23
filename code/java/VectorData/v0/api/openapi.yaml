@@ -798,7 +798,7 @@ components:
           description: Number of results to return.
           example: 10
           format: int32
-          maximum: 15
+          maximum: 50
           minimum: 1
           type: integer
       type: object

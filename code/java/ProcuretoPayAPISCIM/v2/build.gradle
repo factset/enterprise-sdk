@@ -14,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.factset.sdk'
-version = '0.24.1'
+version = '0.24.2'
 
 repositories {
     mavenCentral()

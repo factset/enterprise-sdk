@@ -36,17 +36,30 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public Status? Status { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        public Status Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DealsPublicRequestBody" /> class.
         /// </summary>
-        /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. .</param>
-        /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. .</param>
-        /// <param name="status">status.</param>
-        public DealsPublicRequestBody(string startDate = default(string), string endDate = default(string), Status status = default(Status))
+        [JsonConstructorAttribute]
+        protected DealsPublicRequestBody() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DealsPublicRequestBody" /> class.
+        /// </summary>
+        /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
+        /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
+        /// <param name="status">status (required).</param>
+        public DealsPublicRequestBody(string startDate, string endDate, Status status)
         {
+            // to ensure "startDate" is required (not null)
+            if (startDate == null) {
+                throw new ArgumentNullException("startDate is a required property for DealsPublicRequestBody and cannot be null");
+            }
             this.StartDate = startDate;
+            // to ensure "endDate" is required (not null)
+            if (endDate == null) {
+                throw new ArgumentNullException("endDate is a required property for DealsPublicRequestBody and cannot be null");
+            }
             this.EndDate = endDate;
             this.Status = status;
         }
@@ -55,14 +68,14 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         /// </summary>
         /// <value>The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. </value>
-        [DataMember(Name = "startDate", EmitDefaultValue = false)]
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
         /// The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         /// </summary>
         /// <value>The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. </value>
-        [DataMember(Name = "endDate", EmitDefaultValue = false)]
+        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = false)]
         public string EndDate { get; set; }
 
         /// <summary>

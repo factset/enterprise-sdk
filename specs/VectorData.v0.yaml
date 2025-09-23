@@ -606,7 +606,7 @@ components:
           description: Number of results to return.
           example: 10
           default: 10
-          maximum: 15
+          maximum: 50
           minimum: 1
     SourceResponse:
       description: Response with list of available sources

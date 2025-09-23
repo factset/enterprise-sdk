@@ -9,6 +9,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.ProcuretoPayAPISCIM.model.authentication_scheme import AuthenticationScheme
 from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
 from fds.sdk.ProcuretoPayAPISCIM.model.federation_resource import FederationResource
 from fds.sdk.ProcuretoPayAPISCIM.model.federation_resource_list import FederationResourceList
@@ -50,13 +51,13 @@ from fds.sdk.ProcuretoPayAPISCIM.model.product_resource import ProductResource
 from fds.sdk.ProcuretoPayAPISCIM.model.product_resource_list import ProductResourceList
 from fds.sdk.ProcuretoPayAPISCIM.model.product_resource_meta import ProductResourceMeta
 from fds.sdk.ProcuretoPayAPISCIM.model.product_resource_reference import ProductResourceReference
+from fds.sdk.ProcuretoPayAPISCIM.model.product_resource_reference_with_rapid_activation_info import ProductResourceReferenceWithRapidActivationInfo
 from fds.sdk.ProcuretoPayAPISCIM.model.schema import Schema
 from fds.sdk.ProcuretoPayAPISCIM.model.schema_attribute import SchemaAttribute
 from fds.sdk.ProcuretoPayAPISCIM.model.schema_list import SchemaList
 from fds.sdk.ProcuretoPayAPISCIM.model.schema_meta import SchemaMeta
 from fds.sdk.ProcuretoPayAPISCIM.model.schema_sub_attribute import SchemaSubAttribute
 from fds.sdk.ProcuretoPayAPISCIM.model.service_provider_config import ServiceProviderConfig
-from fds.sdk.ProcuretoPayAPISCIM.model.service_provider_config_authentication_schemes import ServiceProviderConfigAuthenticationSchemes
 from fds.sdk.ProcuretoPayAPISCIM.model.service_provider_config_bulk import ServiceProviderConfigBulk
 from fds.sdk.ProcuretoPayAPISCIM.model.service_provider_config_change_password import ServiceProviderConfigChangePassword
 from fds.sdk.ProcuretoPayAPISCIM.model.service_provider_config_etag import ServiceProviderConfigEtag

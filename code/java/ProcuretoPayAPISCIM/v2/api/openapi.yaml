@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet SCIM API
-  version: 2.4.0
+  version: 2.6.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/procure-to-pay-api-scim
@@ -289,25 +289,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -372,6 +393,52 @@ paths:
     post:
       description: Create a user resource.
       operationId: createUser
+      parameters:
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/userResource'
       responses:
@@ -515,6 +582,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -587,6 +699,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/patchUserResource'
       responses:
@@ -673,6 +830,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/userResource'
       responses:
@@ -814,25 +1016,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -907,6 +1130,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -980,6 +1248,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/patchGroupResource'
       responses:
@@ -1066,6 +1379,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/groupResource'
       responses:
@@ -1208,25 +1566,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -1291,6 +1670,52 @@ paths:
     post:
       description: Create a location resource.
       operationId: createLocation
+      parameters:
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/locationResource'
       responses:
@@ -1367,6 +1792,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -1439,6 +1909,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/patchLocationResource'
       responses:
@@ -1526,6 +2041,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/locationResource'
       responses:
@@ -1667,25 +2227,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -1760,6 +2341,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -1886,25 +2512,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -1979,6 +2626,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -2105,25 +2797,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -2198,6 +2911,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -2324,25 +3082,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -2417,6 +3196,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -2519,25 +3343,46 @@ paths:
           resource attribute names to be returned in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *excludedAttributes* parameter.
-        explode: true
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: attributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - description: Attribute blacklist filter string. A comma-separated list of
           resource attribute names to be excluded in the response, overriding the
           set of attributes that would be returned by default. Attribute names must
           be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-          This parameter cannot be used with the *attributes* parameter.
-        explode: true
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
         in: query
         name: excludedAttributes
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -2612,6 +3457,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -2684,6 +3574,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/patchFederationResource'
       responses:
@@ -2760,6 +3695,51 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Attribute whitelist filter string. A comma-separated list of
+          resource attribute names to be returned in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: attributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Attribute blacklist filter string. A comma-separated list of
+          resource attribute names to be excluded in the response, overriding the
+          set of attributes that would be returned by default. Attribute names must
+          be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+          This parameter cannot be used with the *attributes* or *additionalAttributes*
+          parameters.
+        explode: false
+        in: query
+        name: excludedAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Non-standard attribute filter string. A comma-separated list
+          of resource attribute names to be included in the response, complementing
+          the set of attributes that would be returned by default. Attribute names
+          must be specified in standard attribute notation (see [RFC 7644 section
+          3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+          parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
+        explode: false
+        in: query
+        name: additionalAttributes
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/federationResource'
       responses:
@@ -2966,26 +3946,48 @@ components:
         attribute names to be returned in the response, overriding the set of attributes
         that would be returned by default. Attribute names must be specified in standard
         attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-        This parameter cannot be used with the *excludedAttributes* parameter.
-      explode: true
+        This parameter cannot be used with the *excludedAttributes* or *additionalAttributes*
+        parameters.
+      explode: false
       in: query
       name: attributes
       required: false
       schema:
-        type: string
+        items:
+          type: string
+        type: array
       style: form
     excludedAttributes:
       description: Attribute blacklist filter string. A comma-separated list of resource
         attribute names to be excluded in the response, overriding the set of attributes
         that would be returned by default. Attribute names must be specified in standard
         attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
-        This parameter cannot be used with the *attributes* parameter.
-      explode: true
+        This parameter cannot be used with the *attributes* or *additionalAttributes*
+        parameters.
+      explode: false
       in: query
       name: excludedAttributes
       required: false
       schema:
-        type: string
+        items:
+          type: string
+        type: array
+      style: form
+    additionalAttributes:
+      description: Non-standard attribute filter string. A comma-separated list of
+        resource attribute names to be included in the response, complementing the
+        set of attributes that would be returned by default. Attribute names must
+        be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).)
+        This parameter cannot be used with the *attributes* or *excludedAttributes*
+        parameters.
+      explode: false
+      in: query
+      name: additionalAttributes
+      required: false
+      schema:
+        items:
+          type: string
+        type: array
       style: form
   requestBodies:
     userResource:
@@ -3405,6 +4407,33 @@ components:
             $ref: '#/components/schemas/FileManagerAudit'
       description: Success.
   schemas:
+    AuthenticationScheme:
+      properties:
+        type:
+          description: The authentication scheme.
+          readOnly: true
+          type: string
+        name:
+          description: The common authentication scheme name, e.g., HTTP Basic.
+          readOnly: true
+          type: string
+        description:
+          description: A description of the authentication scheme.
+          readOnly: true
+          type: string
+        specUri:
+          description: An HTTP-addressable URL pointing to the authentication scheme's
+            specification.
+          format: url
+          readOnly: true
+          type: string
+        documentationUri:
+          description: An HTTP-addressable URL pointing to the authentication scheme's
+            usage documentation.
+          format: url
+          readOnly: true
+          type: string
+      type: object
     ServiceProviderConfig:
       example:
         patch:
@@ -3467,7 +4496,26 @@ components:
         etag:
           $ref: '#/components/schemas/ServiceProviderConfig_etag'
         authenticationSchemes:
-          $ref: '#/components/schemas/ServiceProviderConfig_authenticationSchemes'
+          description: A complex type that specifies supported authentication scheme
+            properties.
+          example:
+          - type: oauth2
+            name: OAuth 2.0
+            description: FactSet OAuth 2.0 authentication.
+            specUri: http://www.rfc-editor.org/info/rfc6749
+            documentationUrl: https://developer.factset.com/learn/authentication-oauth2
+          - type: httpbasic
+            name: HTTP Basic
+            description: FactSet API key authentication.
+            specUri: http://www.rfc-editor.org/info/rfc7617
+            documentationUrl: https://developer.factset.com/learn/authentication-api-key
+          items:
+            $ref: '#/components/schemas/AuthenticationScheme'
+          required:
+          - description
+          - name
+          - type
+          type: array
       required:
       - authenticationSchemes
       - bulk
@@ -3680,6 +4728,29 @@ components:
             mutability: immutable
             returned: default
             uniqueness: none
+          - name: rapidActivationStatus
+            type: string
+            multiValued: false
+            description: Whether the associated product has been activated for the
+              current month. Possible values are "eligible" and "active".
+            required: false
+            caseExact: false
+            canonicalValues:
+            - eligible
+            - active
+            mutability: readOnly
+            returned: request
+            uniqueness: none
+          - name: activationHistoryMonths
+            type: string
+            multiValued: false
+            description: A list of the most recent three months (including the current
+              month) during which the associated product has been activated.
+            required: false
+            caseExact: false
+            mutability: readOnly
+            returned: request
+            uniqueness: none
           mutability: readWrite
           returned: default
         - name: pendingProductOrders
@@ -3829,7 +4900,7 @@ components:
           required: false
           caseExact: true
           mutability: immutable
-          returned: never
+          returned: default
           uniqueness: none
         id: urn:scim:schemas:extension:FactSet:Core:1.0:User
       properties:
@@ -4049,6 +5120,29 @@ components:
               mutability: immutable
               returned: default
               uniqueness: none
+            - name: rapidActivationStatus
+              type: string
+              multiValued: false
+              description: Whether the associated product has been activated for the
+                current month. Possible values are "eligible" and "active".
+              required: false
+              caseExact: false
+              canonicalValues:
+              - eligible
+              - active
+              mutability: readOnly
+              returned: request
+              uniqueness: none
+            - name: activationHistoryMonths
+              type: string
+              multiValued: false
+              description: A list of the most recent three months (including the current
+                month) during which the associated product has been activated.
+              required: false
+              caseExact: false
+              mutability: readOnly
+              returned: request
+              uniqueness: none
             mutability: readWrite
             returned: default
           - name: pendingProductOrders
@@ -4198,7 +5292,7 @@ components:
             required: false
             caseExact: true
             mutability: immutable
-            returned: never
+            returned: default
             uniqueness: none
           items:
             $ref: '#/components/schemas/SchemaAttribute'
@@ -4590,6 +5684,29 @@ components:
               mutability: immutable
               returned: default
               uniqueness: none
+            - name: rapidActivationStatus
+              type: string
+              multiValued: false
+              description: Whether the associated product has been activated for the
+                current month. Possible values are "eligible" and "active".
+              required: false
+              caseExact: false
+              canonicalValues:
+              - eligible
+              - active
+              mutability: readOnly
+              returned: request
+              uniqueness: none
+            - name: activationHistoryMonths
+              type: string
+              multiValued: false
+              description: A list of the most recent three months (including the current
+                month) during which the associated product has been activated.
+              required: false
+              caseExact: false
+              mutability: readOnly
+              returned: request
+              uniqueness: none
             mutability: readWrite
             returned: default
           - name: pendingProductOrders
@@ -4739,7 +5856,7 @@ components:
             required: false
             caseExact: true
             mutability: immutable
-            returned: never
+            returned: default
             uniqueness: none
           id: urn:scim:schemas:extension:FactSet:Core:1.0:User
         - meta:
@@ -4943,6 +6060,29 @@ components:
               mutability: immutable
               returned: default
               uniqueness: none
+            - name: rapidActivationStatus
+              type: string
+              multiValued: false
+              description: Whether the associated product has been activated for the
+                current month. Possible values are "eligible" and "active".
+              required: false
+              caseExact: false
+              canonicalValues:
+              - eligible
+              - active
+              mutability: readOnly
+              returned: request
+              uniqueness: none
+            - name: activationHistoryMonths
+              type: string
+              multiValued: false
+              description: A list of the most recent three months (including the current
+                month) during which the associated product has been activated.
+              required: false
+              caseExact: false
+              mutability: readOnly
+              returned: request
+              uniqueness: none
             mutability: readWrite
             returned: default
           - name: pendingProductOrders
@@ -5092,7 +6232,7 @@ components:
             required: false
             caseExact: true
             mutability: immutable
-            returned: never
+            returned: default
             uniqueness: none
           id: urn:scim:schemas:extension:FactSet:Core:1.0:User
       properties:
@@ -5197,12 +6337,22 @@ components:
           uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
           username: FIN_WEALTH
           products:
-          - display: FactSet Identity
-            value: "6781"
-            $ref: https://api.factset.com/scim/v2/Products/6781
-          - display: FactSet Identity
-            value: "6781"
-            $ref: https://api.factset.com/scim/v2/Products/6781
+          - activationHistoryMonths:
+            - 2025-08
+            - 2025-07
+            - 2025-06
+            rapidActivationStatus: active
+            display: Exchange NYSE American and Regionals - RT
+            value: "11"
+            $ref: https://api.factset.com/scim/v2/Products/11
+          - activationHistoryMonths:
+            - 2025-08
+            - 2025-07
+            - 2025-06
+            rapidActivationStatus: active
+            display: Exchange NYSE American and Regionals - RT
+            value: "11"
+            $ref: https://api.factset.com/scim/v2/Products/11
         email: jdoe@factset.com
         phoneNumbers:
         - display: (555) 867-5309
@@ -5448,12 +6598,22 @@ components:
             uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
             username: FIN_WEALTH
             products:
-            - display: FactSet Identity
-              value: "6781"
-              $ref: https://api.factset.com/scim/v2/Products/6781
-            - display: FactSet Identity
-              value: "6781"
-              $ref: https://api.factset.com/scim/v2/Products/6781
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
           email: jdoe@factset.com
           phoneNumbers:
           - display: (555) 867-5309
@@ -5549,12 +6709,22 @@ components:
             uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
             username: FIN_WEALTH
             products:
-            - display: FactSet Identity
-              value: "6781"
-              $ref: https://api.factset.com/scim/v2/Products/6781
-            - display: FactSet Identity
-              value: "6781"
-              $ref: https://api.factset.com/scim/v2/Products/6781
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
           email: jdoe@factset.com
           phoneNumbers:
           - display: (555) 867-5309
@@ -6633,6 +7803,50 @@ components:
       required:
       - value
       type: object
+    ProductResourceReferenceWithRapidActivationInfo:
+      example:
+        activationHistoryMonths:
+        - 2025-08
+        - 2025-07
+        - 2025-06
+        rapidActivationStatus: active
+        display: Exchange NYSE American and Regionals - RT
+        value: "11"
+        $ref: https://api.factset.com/scim/v2/Products/11
+      properties:
+        value:
+          description: Identifier of the product.
+          example: "11"
+          type: string
+        $ref:
+          description: The URI corresponding to this product.
+          example: https://api.factset.com/scim/v2/Products/11
+          type: string
+        display:
+          description: A human-readable name, primarily used for display purposes.
+          example: Exchange NYSE American and Regionals - RT
+          type: string
+        rapidActivationStatus:
+          description: Whether the associated product has been activated for the current
+            month. Possible values are "eligible" and "active".
+          enum:
+          - active
+          - eligible
+          example: active
+          type: string
+        activationHistoryMonths:
+          description: A list of the most recent three months (including the current
+            month) during which the associated product has been activated.
+          example:
+          - 2025-08
+          - 2025-07
+          - 2025-06
+          items:
+            type: string
+          type: array
+      required:
+      - value
+      type: object
     PendingProductOrder:
       example:
         product:
@@ -6658,7 +7872,7 @@ components:
           description: Status of the pending product order.
           enum:
           - Processing
-          - Queued
+          - Pending approval
           example: Pending approval
           readOnly: true
           type: string
@@ -7231,49 +8445,6 @@ components:
       required:
       - supported
       type: object
-    ServiceProviderConfig_authenticationSchemes:
-      description: A complex type that specifies supported authentication scheme properties.
-      example:
-      - type: oauth2
-        name: OAuth 2.0
-        description: FactSet OAuth 2.0 authentication.
-        specUri: http://www.rfc-editor.org/info/rfc6749
-        documentationUrl: https://developer.factset.com/learn/authentication-oauth2
-      - type: httpbasic
-        name: HTTP Basic
-        description: FactSet API key authentication.
-        specUri: http://www.rfc-editor.org/info/rfc7617
-        documentationUrl: https://developer.factset.com/learn/authentication-api-key
-      properties:
-        type:
-          description: The authentication scheme.
-          readOnly: true
-          type: string
-        name:
-          description: The common authentication scheme name, e.g., HTTP Basic.
-          readOnly: true
-          type: string
-        description:
-          description: A description of the authentication scheme.
-          readOnly: true
-          type: string
-        specUri:
-          description: An HTTP-addressable URL pointing to the authentication scheme's
-            specification.
-          format: url
-          readOnly: true
-          type: string
-        documentationUri:
-          description: An HTTP-addressable URL pointing to the authentication scheme's
-            usage documentation.
-          format: url
-          readOnly: true
-          type: string
-      required:
-      - description
-      - name
-      - type
-      type: object
     Schema_meta:
       example:
         location: https://api.factset.com/scim/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User
@@ -7389,12 +8560,22 @@ components:
         uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
         username: FIN_WEALTH
         products:
-        - display: FactSet Identity
-          value: "6781"
-          $ref: https://api.factset.com/scim/v2/Products/6781
-        - display: FactSet Identity
-          value: "6781"
-          $ref: https://api.factset.com/scim/v2/Products/6781
+        - activationHistoryMonths:
+          - 2025-08
+          - 2025-07
+          - 2025-06
+          rapidActivationStatus: active
+          display: Exchange NYSE American and Regionals - RT
+          value: "11"
+          $ref: https://api.factset.com/scim/v2/Products/11
+        - activationHistoryMonths:
+          - 2025-08
+          - 2025-07
+          - 2025-06
+          rapidActivationStatus: active
+          display: Exchange NYSE American and Regionals - RT
+          value: "11"
+          $ref: https://api.factset.com/scim/v2/Products/11
       properties:
         username:
           description: A FactSet "username" is FactSet's logical structure for grouping
@@ -7434,7 +8615,7 @@ components:
           description: An array of FactSet products to allocate/remove from an individual.
             Individual must have a FactSet serial number associated with them.
           items:
-            $ref: '#/components/schemas/ProductResourceReference'
+            $ref: '#/components/schemas/ProductResourceReferenceWithRapidActivationInfo'
           type: array
         pendingProductOrders:
           description: An array of pending FactSet product orders.

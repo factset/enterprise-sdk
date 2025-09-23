@@ -14,12 +14,15 @@
 import ApiClient from './ApiClient';
 import ActiveJobIDs from './model/ActiveJobIDs';
 import ActiveJobsData from './model/ActiveJobsData';
+import DelimitedOptions from './model/DelimitedOptions';
 import ErrorArray from './model/ErrorArray';
 import ErrorCode from './model/ErrorCode';
 import ErrorObject from './model/ErrorObject';
 import ErrorObjectSource from './model/ErrorObjectSource';
+import ExcelOptions from './model/ExcelOptions';
 import PaginatedCalculationResponse from './model/PaginatedCalculationResponse';
 import PaginationResponse from './model/PaginationResponse';
+import PdfOptions from './model/PdfOptions';
 import ResourceStatusResponse from './model/ResourceStatusResponse';
 import ResourceStatusResponseData from './model/ResourceStatusResponseData';
 import ResultsMetadata from './model/ResultsMetadata';
@@ -28,6 +31,10 @@ import ScreenArchiveOFDBParametersData from './model/ScreenArchiveOFDBParameters
 import ScreenArchiveOFDBParametersDataArchiveOptions from './model/ScreenArchiveOFDBParametersDataArchiveOptions';
 import ScreenCalcParameters from './model/ScreenCalcParameters';
 import ScreenCalcParametersData from './model/ScreenCalcParametersData';
+import ScreenExportParameters from './model/ScreenExportParameters';
+import ScreenExportParametersData from './model/ScreenExportParametersData';
+import SubmitExportResponse from './model/SubmitExportResponse';
+import SubmitExportResponseData from './model/SubmitExportResponseData';
 
 import JobManagementApi from './api/JobManagementApi';
 import ScreeningOperationsApi from './api/ScreeningOperationsApi';
@@ -83,6 +90,12 @@ export {
     ActiveJobsData,
 
     /**
+     * The DelimitedOptions model constructor.
+     * @property {module:model/DelimitedOptions}
+     */
+    DelimitedOptions,
+
+    /**
      * The ErrorArray model constructor.
      * @property {module:model/ErrorArray}
      */
@@ -107,6 +120,12 @@ export {
     ErrorObjectSource,
 
     /**
+     * The ExcelOptions model constructor.
+     * @property {module:model/ExcelOptions}
+     */
+    ExcelOptions,
+
+    /**
      * The PaginatedCalculationResponse model constructor.
      * @property {module:model/PaginatedCalculationResponse}
      */
@@ -117,6 +136,12 @@ export {
      * @property {module:model/PaginationResponse}
      */
     PaginationResponse,
+
+    /**
+     * The PdfOptions model constructor.
+     * @property {module:model/PdfOptions}
+     */
+    PdfOptions,
 
     /**
      * The ResourceStatusResponse model constructor.
@@ -165,6 +190,30 @@ export {
      * @property {module:model/ScreenCalcParametersData}
      */
     ScreenCalcParametersData,
+
+    /**
+     * The ScreenExportParameters model constructor.
+     * @property {module:model/ScreenExportParameters}
+     */
+    ScreenExportParameters,
+
+    /**
+     * The ScreenExportParametersData model constructor.
+     * @property {module:model/ScreenExportParametersData}
+     */
+    ScreenExportParametersData,
+
+    /**
+     * The SubmitExportResponse model constructor.
+     * @property {module:model/SubmitExportResponse}
+     */
+    SubmitExportResponse,
+
+    /**
+     * The SubmitExportResponseData model constructor.
+     * @property {module:model/SubmitExportResponseData}
+     */
+    SubmitExportResponseData,
 
     /**
     * The JobManagementApi service constructor.

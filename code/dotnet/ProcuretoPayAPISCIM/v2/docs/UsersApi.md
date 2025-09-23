@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="createuser"></a>
 # **CreateUser**
-> UserResource CreateUser (UserResource userResource)
+> UserResource CreateUser (UserResource userResource, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Create a user.
 
@@ -66,11 +66,14 @@ namespace Example
             var apiInstance = new UsersApi(config);
 
             var userResource = new UserResource(); // UserResource | User resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Create a user.
-                UserResource result = apiInstance.CreateUser(userResource);
+                UserResource result = apiInstance.CreateUser(userResource, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -89,6 +92,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userResource** | [**UserResource**](UserResource.md)| User resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**UserResource**](UserResource.md)
@@ -220,7 +226,7 @@ void (empty response body)
 
 <a name="getuser"></a>
 # **GetUser**
-> UserResource GetUser (string id)
+> UserResource GetUser (string id, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Get a user.
 
@@ -271,11 +277,14 @@ namespace Example
             var apiInstance = new UsersApi(config);
 
             var id = "id_example";  // string | ID of resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Get a user.
-                UserResource result = apiInstance.GetUser(id);
+                UserResource result = apiInstance.GetUser(id, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -294,6 +303,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**UserResource**](UserResource.md)
@@ -323,7 +335,7 @@ Name | Type | Description  | Notes
 
 <a name="getusers"></a>
 # **GetUsers**
-> UserResourceList GetUsers (string filter = null, string sortBy = null, string sortOrder = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
+> UserResourceList GetUsers (string filter = null, string sortBy = null, string sortOrder = null, int? startIndex = null, int? count = null, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Get a list of users.
 
@@ -378,13 +390,14 @@ namespace Example
             var sortOrder = "sortOrder_example";  // string | The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are ''ascending'' (the default value) or ''descending''. This parameter may not be used unless the *sortBy* parameter is also specified. (optional) 
             var startIndex = 56;  // int? | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional) 
             var count = 56;  // int? | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional) 
-            var attributes = "attributes_example";  // string | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional) 
-            var excludedAttributes = "excludedAttributes_example";  // string | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional) 
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Get a list of users.
-                UserResourceList result = apiInstance.GetUsers(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes);
+                UserResourceList result = apiInstance.GetUsers(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -407,8 +420,9 @@ Name | Type | Description  | Notes
  **sortOrder** | **string**| The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. | [optional] 
  **startIndex** | **int?**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional] 
  **count** | **int?**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional] 
- **attributes** | **string**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional] 
- **excludedAttributes** | **string**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**UserResourceList**](UserResourceList.md)
@@ -438,7 +452,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyuser"></a>
 # **ModifyUser**
-> UserResource ModifyUser (string id, Patch patch = null)
+> UserResource ModifyUser (string id, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null, Patch patch = null)
 
 Patch a user.
 
@@ -489,12 +503,15 @@ namespace Example
             var apiInstance = new UsersApi(config);
 
             var id = "id_example";  // string | ID of resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
             var patch = new Patch(); // Patch |  (optional) 
 
             try
             {
                 // Patch a user.
-                UserResource result = apiInstance.ModifyUser(id, patch);
+                UserResource result = apiInstance.ModifyUser(id, attributes, excludedAttributes, additionalAttributes, patch);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -513,6 +530,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
  **patch** | [**Patch**](Patch.md)|  | [optional] 
 
 ### Return type
@@ -544,7 +564,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceuser"></a>
 # **ReplaceUser**
-> UserResource ReplaceUser (string id, UserResource userResource)
+> UserResource ReplaceUser (string id, UserResource userResource, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Replace a user.
 
@@ -596,11 +616,14 @@ namespace Example
 
             var id = "id_example";  // string | ID of resource.
             var userResource = new UserResource(); // UserResource | User resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Replace a user.
-                UserResource result = apiInstance.ReplaceUser(id, userResource);
+                UserResource result = apiInstance.ReplaceUser(id, userResource, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -620,6 +643,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of resource. | 
  **userResource** | [**UserResource**](UserResource.md)| User resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**UserResource**](UserResource.md)

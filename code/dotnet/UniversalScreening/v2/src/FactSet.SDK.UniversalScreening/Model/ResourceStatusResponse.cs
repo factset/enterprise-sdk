@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.UniversalScreening.Client.OpenAPIDateCo
 namespace FactSet.SDK.UniversalScreening.Model
 {
     /// <summary>
-    /// ResourceStatusResponse contains information regarding the status of a long-running job. \&quot;Job\&quot; refers to a screen calculation or archival.
+    /// ResourceStatusResponse contains information regarding the status of a long-running job. \&quot;Job\&quot; refers to a screen calculation, archival, or export.
     /// </summary>
     [DataContract(Name = "ResourceStatusResponse")]
     public partial class ResourceStatusResponse : IEquatable<ResourceStatusResponse>, IValidatableObject

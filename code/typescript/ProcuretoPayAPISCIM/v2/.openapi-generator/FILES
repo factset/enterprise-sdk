@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/AuthenticationScheme.md
 docs/Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
@@ -49,6 +50,7 @@ docs/ProductResource.md
 docs/ProductResourceList.md
 docs/ProductResourceMeta.md
 docs/ProductResourceReference.md
+docs/ProductResourceReferenceWithRapidActivationInfo.md
 docs/ProductsApi.md
 docs/Schema.md
 docs/SchemaAttribute.md
@@ -57,7 +59,6 @@ docs/SchemaMeta.md
 docs/SchemaSubAttribute.md
 docs/SchemasApi.md
 docs/ServiceProviderConfig.md
-docs/ServiceProviderConfigAuthenticationSchemes.md
 docs/ServiceProviderConfigBulk.md
 docs/ServiceProviderConfigChangePassword.md
 docs/ServiceProviderConfigEtag.md
@@ -103,6 +104,7 @@ src/api/UserClassesApi.js
 src/api/UserPositionsApi.js
 src/api/UsersApi.js
 src/index.js
+src/model/AuthenticationScheme.js
 src/model/Error.js
 src/model/FederationResource.js
 src/model/FederationResourceList.js
@@ -143,13 +145,13 @@ src/model/ProductResource.js
 src/model/ProductResourceList.js
 src/model/ProductResourceMeta.js
 src/model/ProductResourceReference.js
+src/model/ProductResourceReferenceWithRapidActivationInfo.js
 src/model/Schema.js
 src/model/SchemaAttribute.js
 src/model/SchemaList.js
 src/model/SchemaMeta.js
 src/model/SchemaSubAttribute.js
 src/model/ServiceProviderConfig.js
-src/model/ServiceProviderConfigAuthenticationSchemes.js
 src/model/ServiceProviderConfigBulk.js
 src/model/ServiceProviderConfigChangePassword.js
 src/model/ServiceProviderConfigEtag.js

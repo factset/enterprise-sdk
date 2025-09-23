@@ -4,6 +4,7 @@
 .travis.yml
 LICENSE
 README.md
+docs/AuthenticationScheme.md
 docs/Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
@@ -50,6 +51,7 @@ docs/ProductResource.md
 docs/ProductResourceList.md
 docs/ProductResourceMeta.md
 docs/ProductResourceReference.md
+docs/ProductResourceReferenceWithRapidActivationInfo.md
 docs/ProductsApi.md
 docs/Schema.md
 docs/SchemaAttribute.md
@@ -58,7 +60,6 @@ docs/SchemaMeta.md
 docs/SchemaSubAttribute.md
 docs/SchemasApi.md
 docs/ServiceProviderConfig.md
-docs/ServiceProviderConfigAuthenticationSchemes.md
 docs/ServiceProviderConfigBulk.md
 docs/ServiceProviderConfigChangePassword.md
 docs/ServiceProviderConfigEtag.md
@@ -107,6 +108,7 @@ fds/sdk/ProcuretoPayAPISCIM/apis/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/configuration.py
 fds/sdk/ProcuretoPayAPISCIM/exceptions.py
 fds/sdk/ProcuretoPayAPISCIM/model/__init__.py
+fds/sdk/ProcuretoPayAPISCIM/model/authentication_scheme.py
 fds/sdk/ProcuretoPayAPISCIM/model/error.py
 fds/sdk/ProcuretoPayAPISCIM/model/federation_resource.py
 fds/sdk/ProcuretoPayAPISCIM/model/federation_resource_list.py
@@ -148,13 +150,13 @@ fds/sdk/ProcuretoPayAPISCIM/model/product_resource.py
 fds/sdk/ProcuretoPayAPISCIM/model/product_resource_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/product_resource_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/product_resource_reference.py
+fds/sdk/ProcuretoPayAPISCIM/model/product_resource_reference_with_rapid_activation_info.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_attribute.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/schema_sub_attribute.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config.py
-fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_authentication_schemes.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_bulk.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_change_password.py
 fds/sdk/ProcuretoPayAPISCIM/model/service_provider_config_etag.py

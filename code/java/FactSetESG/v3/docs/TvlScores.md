@@ -1,0 +1,55 @@
+
+
+# TvlScores
+
+TVL Scores Object
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**date** | **LocalDate** | Date for the period requested expressed in YYYY-MM-DD format. |  [optional]
+**fsymId** | **String** | FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E). |  [optional]
+**requestId** | **String** | Identifier that was used for the request. |  [optional]
+**scoreType** | **String** | The name of the specific SASB Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT. |  [optional]
+**allCategoriesPulse** | **BigDecimal** | The overall pulse across all categories. |  [optional]
+**materialityPulse** | **BigDecimal** | The pulse related to materiality. |  [optional]
+**accessAffordPulse** | **BigDecimal** | The pulse related to access affordability. |  [optional]
+**airQualityPulse** | **BigDecimal** | The pulse related to air quality. |  [optional]
+**businessEthicsPulse** | **BigDecimal** | The pulse related to business ethics. |  [optional]
+**businessModelPulse** | **BigDecimal** | The pulse related to the business model. |  [optional]
+**competitivePulse** | **BigDecimal** | The pulse related to competitive factors. |  [optional]
+**criticalRiskPulse** | **BigDecimal** | The pulse related to critical risks. |  [optional]
+**customerPrivPulse** | **BigDecimal** | The pulse related to customer privacy. |  [optional]
+**customePelfarePulse** | **BigDecimal** | The pulse related to customer welfare. |  [optional]
+**dataSecurityPulse** | **BigDecimal** | The pulse related to data security. |  [optional]
+**ecologicalPulse** | **BigDecimal** | The pulse related to ecological factors. |  [optional]
+**employeeEngagementPulse** | **BigDecimal** | The pulse related to employee engagement. |  [optional]
+**employeeHealthPulse** | **BigDecimal** | The pulse related to employee health. |  [optional]
+**energyPulse** | **BigDecimal** | The pulse related to energy. |  [optional]
+**ghgEmissionsPulse** | **BigDecimal** | The pulse related to greenhouse gas emissions. |  [optional]
+**humanRightsPulse** | **BigDecimal** | The pulse related to human rights. |  [optional]
+**laborPracticesPulse** | **BigDecimal** | The pulse related to labor practices. |  [optional]
+**legalRegulationsPulse** | **BigDecimal** | The pulse related to legal regulations. |  [optional]
+**materialSourcingPulse** | **BigDecimal** | The pulse related to material sourcing. |  [optional]
+**climateChangePulse** | **BigDecimal** | The pulse related to climate change. |  [optional]
+**productLifecyclePulse** | **BigDecimal** | The pulse related to the product lifecycle. |  [optional]
+**productQualityPulse** | **BigDecimal** | The pulse related to product quality. |  [optional]
+**sellingPracticesPulse** | **BigDecimal** | The pulse related to selling practices. |  [optional]
+**supplyChainPulse** | **BigDecimal** | The pulse related to supply chain practices. |  [optional]
+**systemicRiskPulse** | **BigDecimal** | The pulse related to systemic risks. |  [optional]
+**hazardousMaterialsPulse** | **BigDecimal** | The pulse related to management of hazardous materials. |  [optional]
+**waterWasteWaterPulse** | **BigDecimal** | The pulse related to water and wastewater management. |  [optional]
+**dimBusinessCatvolDay** | **BigDecimal** | Category volume related to Business dimension. |  [optional]
+**dimEnvironmentCatvolDay** | **BigDecimal** | Category volume related to Environment dimension. |  [optional]
+**dimHumancapCatvolDay** | **BigDecimal** | Category volume related to Human Capital dimension. |  [optional]
+**dimLeadershipCatvolDay** | **BigDecimal** | Category volume related to Leadership dimension. |  [optional]
+**dimSocialcapCatvolDay** | **BigDecimal** | Category volume related to Social Capital dimension. |  [optional]
+**error** | [**InvalidIdErrorObject**](InvalidIdErrorObject.md) |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

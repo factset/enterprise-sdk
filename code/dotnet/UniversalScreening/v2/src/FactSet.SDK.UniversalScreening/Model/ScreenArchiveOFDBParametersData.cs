@@ -75,7 +75,7 @@ namespace FactSet.SDK.UniversalScreening.Model
         /// Initializes a new instance of the <see cref="ScreenArchiveOFDBParametersData" /> class.
         /// </summary>
         /// <param name="archiveOptions">archiveOptions.</param>
-        /// <param name="backtestDate">Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use..</param>
+        /// <param name="backtestDate">Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use..</param>
         /// <param name="globalVariablesMap">Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty..</param>
         /// <param name="legacyUniverseType">Universe type to open a Screen 1.0 document with\\ &#x60;equity&#x60;: Uses the equity universe from the Screen 1.0 document.\\ &#x60;debt&#x60;: Uses the debt universe from the Screen 1.0 document.\\ &#x60;fund&#x60;: Uses the fund universe from the Screen 1.0 document. (default to LegacyUniverseTypeEnum.Equity).</param>
         /// <param name="screenName">Full file path to a valid screen (required).</param>
@@ -99,9 +99,9 @@ namespace FactSet.SDK.UniversalScreening.Model
         public ScreenArchiveOFDBParametersDataArchiveOptions ArchiveOptions { get; set; }
 
         /// <summary>
-        /// Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.
+        /// Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.
         /// </summary>
-        /// <value>Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.</value>
+        /// <value>Specifies the backtest date used when running the screen, replacing   the backtest date saved in the screen, can be written in YYYYMMDD,   MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.</value>
         [DataMember(Name = "backtestDate", EmitDefaultValue = true)]
         public string BacktestDate { get; set; }
 

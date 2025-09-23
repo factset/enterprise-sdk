@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getgroup"></a>
 # **GetGroup**
-> GroupResource GetGroup (string id)
+> GroupResource GetGroup (string id, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Get a group.
 
@@ -64,11 +64,14 @@ namespace Example
             var apiInstance = new GroupsApi(config);
 
             var id = "id_example";  // string | ID of resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Get a group.
-                GroupResource result = apiInstance.GetGroup(id);
+                GroupResource result = apiInstance.GetGroup(id, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -87,6 +90,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**GroupResource**](GroupResource.md)
@@ -116,7 +122,7 @@ Name | Type | Description  | Notes
 
 <a name="getgroups"></a>
 # **GetGroups**
-> GroupResourceList GetGroups (string filter = null, string sortBy = null, string sortOrder = null, int? startIndex = null, int? count = null, string attributes = null, string excludedAttributes = null)
+> GroupResourceList GetGroups (string filter = null, string sortBy = null, string sortOrder = null, int? startIndex = null, int? count = null, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Get a list of groups.
 
@@ -171,13 +177,14 @@ namespace Example
             var sortOrder = "sortOrder_example";  // string | The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are ''ascending'' (the default value) or ''descending''. This parameter may not be used unless the *sortBy* parameter is also specified. (optional) 
             var startIndex = 56;  // int? | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional) 
             var count = 56;  // int? | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional) 
-            var attributes = "attributes_example";  // string | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional) 
-            var excludedAttributes = "excludedAttributes_example";  // string | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional) 
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Get a list of groups.
-                GroupResourceList result = apiInstance.GetGroups(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes);
+                GroupResourceList result = apiInstance.GetGroups(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -200,8 +207,9 @@ Name | Type | Description  | Notes
  **sortOrder** | **string**| The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. | [optional] 
  **startIndex** | **int?**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional] 
  **count** | **int?**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional] 
- **attributes** | **string**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional] 
- **excludedAttributes** | **string**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional] 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**GroupResourceList**](GroupResourceList.md)
@@ -231,7 +239,7 @@ Name | Type | Description  | Notes
 
 <a name="modifygroup"></a>
 # **ModifyGroup**
-> GroupResource ModifyGroup (string id, Patch patch = null)
+> GroupResource ModifyGroup (string id, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null, Patch patch = null)
 
 Patch a group.
 
@@ -282,12 +290,15 @@ namespace Example
             var apiInstance = new GroupsApi(config);
 
             var id = "id_example";  // string | ID of resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
             var patch = new Patch(); // Patch |  (optional) 
 
             try
             {
                 // Patch a group.
-                GroupResource result = apiInstance.ModifyGroup(id, patch);
+                GroupResource result = apiInstance.ModifyGroup(id, attributes, excludedAttributes, additionalAttributes, patch);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -306,6 +317,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
  **patch** | [**Patch**](Patch.md)|  | [optional] 
 
 ### Return type
@@ -337,7 +351,7 @@ Name | Type | Description  | Notes
 
 <a name="replacegroup"></a>
 # **ReplaceGroup**
-> GroupResource ReplaceGroup (string id, GroupResource groupResource)
+> GroupResource ReplaceGroup (string id, GroupResource groupResource, List<string> attributes = null, List<string> excludedAttributes = null, List<string> additionalAttributes = null)
 
 Replace a group.
 
@@ -389,11 +403,14 @@ namespace Example
 
             var id = "id_example";  // string | ID of resource.
             var groupResource = new GroupResource(); // GroupResource | Group resource.
+            var attributes = new List<string>(); // List<string> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional) 
+            var excludedAttributes = new List<string>(); // List<string> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional) 
+            var additionalAttributes = new List<string>(); // List<string> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional) 
 
             try
             {
                 // Replace a group.
-                GroupResource result = apiInstance.ReplaceGroup(id, groupResource);
+                GroupResource result = apiInstance.ReplaceGroup(id, groupResource, attributes, excludedAttributes, additionalAttributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -413,6 +430,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID of resource. | 
  **groupResource** | [**GroupResource**](GroupResource.md)| Group resource. | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional] 
+ **excludedAttributes** | [**List&lt;string&gt;**](string.md)| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional] 
+ **additionalAttributes** | [**List&lt;string&gt;**](string.md)| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional] 
 
 ### Return type
 [**GroupResource**](GroupResource.md)

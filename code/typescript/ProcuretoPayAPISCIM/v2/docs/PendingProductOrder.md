@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 * `Processing` (value: `"Processing"`)
 
-* `Queued` (value: `"Queued"`)
+* `Pending approval` (value: `"Pending approval"`)
 
 
 

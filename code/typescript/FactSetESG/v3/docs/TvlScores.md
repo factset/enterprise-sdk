@@ -1,0 +1,46 @@
+# factsetesg.TvlScores
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**date** | **Date** | Date for the period requested expressed in YYYY-MM-DD format. | [optional] 
+**fsymId** | **String** | FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E). | [optional] 
+**requestId** | **String** | Identifier that was used for the request. | [optional] 
+**scoreType** | **String** | The name of the specific SASB Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT. | [optional] 
+**allCategoriesPulse** | **Number** | The overall pulse across all categories. | [optional] 
+**materialityPulse** | **Number** | The pulse related to materiality. | [optional] 
+**accessAffordPulse** | **Number** | The pulse related to access affordability. | [optional] 
+**airQualityPulse** | **Number** | The pulse related to air quality. | [optional] 
+**businessEthicsPulse** | **Number** | The pulse related to business ethics. | [optional] 
+**businessModelPulse** | **Number** | The pulse related to the business model. | [optional] 
+**competitivePulse** | **Number** | The pulse related to competitive factors. | [optional] 
+**criticalRiskPulse** | **Number** | The pulse related to critical risks. | [optional] 
+**customerPrivPulse** | **Number** | The pulse related to customer privacy. | [optional] 
+**customePelfarePulse** | **Number** | The pulse related to customer welfare. | [optional] 
+**dataSecurityPulse** | **Number** | The pulse related to data security. | [optional] 
+**ecologicalPulse** | **Number** | The pulse related to ecological factors. | [optional] 
+**employeeEngagementPulse** | **Number** | The pulse related to employee engagement. | [optional] 
+**employeeHealthPulse** | **Number** | The pulse related to employee health. | [optional] 
+**energyPulse** | **Number** | The pulse related to energy. | [optional] 
+**ghgEmissionsPulse** | **Number** | The pulse related to greenhouse gas emissions. | [optional] 
+**humanRightsPulse** | **Number** | The pulse related to human rights. | [optional] 
+**laborPracticesPulse** | **Number** | The pulse related to labor practices. | [optional] 
+**legalRegulationsPulse** | **Number** | The pulse related to legal regulations. | [optional] 
+**materialSourcingPulse** | **Number** | The pulse related to material sourcing. | [optional] 
+**climateChangePulse** | **Number** | The pulse related to climate change. | [optional] 
+**productLifecyclePulse** | **Number** | The pulse related to the product lifecycle. | [optional] 
+**productQualityPulse** | **Number** | The pulse related to product quality. | [optional] 
+**sellingPracticesPulse** | **Number** | The pulse related to selling practices. | [optional] 
+**supplyChainPulse** | **Number** | The pulse related to supply chain practices. | [optional] 
+**systemicRiskPulse** | **Number** | The pulse related to systemic risks. | [optional] 
+**hazardousMaterialsPulse** | **Number** | The pulse related to management of hazardous materials. | [optional] 
+**waterWasteWaterPulse** | **Number** | The pulse related to water and wastewater management. | [optional] 
+**dimBusinessCatvolDay** | **Number** | Category volume related to Business dimension. | [optional] 
+**dimEnvironmentCatvolDay** | **Number** | Category volume related to Environment dimension. | [optional] 
+**dimHumancapCatvolDay** | **Number** | Category volume related to Human Capital dimension. | [optional] 
+**dimLeadershipCatvolDay** | **Number** | Category volume related to Leadership dimension. | [optional] 
+**dimSocialcapCatvolDay** | **Number** | Category volume related to Social Capital dimension. | [optional] 
+**error** | [**InvalidIdErrorObject**](InvalidIdErrorObject.md) |  | [optional] 
+
+

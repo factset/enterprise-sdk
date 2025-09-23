@@ -18,6 +18,8 @@ import PaginatedCalculationResponse from '../model/PaginatedCalculationResponse'
 import ResourceStatusResponse from '../model/ResourceStatusResponse';
 import ScreenArchiveOFDBParameters from '../model/ScreenArchiveOFDBParameters';
 import ScreenCalcParameters from '../model/ScreenCalcParameters';
+import ScreenExportParameters from '../model/ScreenExportParameters';
+import SubmitExportResponse from '../model/SubmitExportResponse';
 
 /**
 * ScreeningOperations service.
@@ -90,6 +92,55 @@ export default class ScreeningOperationsApi {
      */
     getCalculateResults(id, opts) {
       return this.getCalculateResultsWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieve results of an export request.
+     * @param {String} id Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
+     */
+    getExportResultsWithHttpInfo(id) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getExportResults");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/pdf', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'text/csv', 'text/plain', 'application/json'];
+
+
+      let returnType = File;
+
+      return this.apiClient.callApi(
+        '/job/{id}/export', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Retrieve results of an export request.
+     * @param {String} id Unique identifier for a job. \"Job\" refers to a screen calculation or archival.
+     * @return { Promise.< File > } a Promise, with data of type {@link File }
+     */
+    getExportResults(id) {
+      return this.getExportResultsWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -233,6 +284,53 @@ export default class ScreeningOperationsApi {
      */
     submitCalculate(opts) {
       return this.submitCalculateWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ScreenExportParameters} opts.screenExportParameters Data required for an export request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubmitExportResponse} and HTTP response
+     */
+    submitExportWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['screenExportParameters'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = SubmitExportResponse;
+
+      return this.apiClient.callApi(
+        '/job/export', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/ScreenExportParameters} opts.screenExportParameters Data required for an export request
+     * @return { Promise.< module:model/SubmitExportResponse > } a Promise, with data of type {@link module:model/SubmitExportResponse }
+     */
+    submitExport(opts) {
+      return this.submitExportWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

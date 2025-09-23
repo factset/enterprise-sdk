@@ -31,9 +31,9 @@ import com.factset.sdk.UniversalScreening.JSON;
 
 
 /**
- * ResourceStatusResponse contains information regarding the status of a long-running job. \&quot;Job\&quot; refers to a screen calculation or archival.
+ * ResourceStatusResponse contains information regarding the status of a long-running job. \&quot;Job\&quot; refers to a screen calculation, archival, or export.
  */
-@ApiModel(description = "ResourceStatusResponse contains information regarding the status of a long-running job. \"Job\" refers to a screen calculation or archival.")
+@ApiModel(description = "ResourceStatusResponse contains information regarding the status of a long-running job. \"Job\" refers to a screen calculation, archival, or export.")
 @JsonPropertyOrder({
   ResourceStatusResponse.JSON_PROPERTY_DATA
 })

@@ -29,7 +29,7 @@ REMOVE | &quot;Remove&quot;
 Name | Value
 ---- | -----
 PROCESSING | &quot;Processing&quot;
-QUEUED | &quot;Queued&quot;
+PENDING_APPROVAL | &quot;Pending approval&quot;
 
 
 ## Implemented Interfaces

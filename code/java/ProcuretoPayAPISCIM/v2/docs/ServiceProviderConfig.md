@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **changePassword** | [**ServiceProviderConfigChangePassword**](ServiceProviderConfigChangePassword.md) |  | 
 **sort** | [**ServiceProviderConfigSort**](ServiceProviderConfigSort.md) |  | 
 **etag** | [**ServiceProviderConfigEtag**](ServiceProviderConfigEtag.md) |  | 
-**authenticationSchemes** | [**ServiceProviderConfigAuthenticationSchemes**](ServiceProviderConfigAuthenticationSchemes.md) |  | 
+**authenticationSchemes** | [**java.util.List&lt;AuthenticationScheme&gt;**](AuthenticationScheme.md) | A complex type that specifies supported authentication scheme properties. | 
 
 
 

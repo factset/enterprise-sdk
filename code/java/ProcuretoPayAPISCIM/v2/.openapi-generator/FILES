@@ -6,6 +6,7 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/AuthenticationScheme.md
 docs/Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
@@ -51,6 +52,7 @@ docs/ProductResource.md
 docs/ProductResourceList.md
 docs/ProductResourceMeta.md
 docs/ProductResourceReference.md
+docs/ProductResourceReferenceWithRapidActivationInfo.md
 docs/ProductsApi.md
 docs/Schema.md
 docs/SchemaAttribute.md
@@ -59,7 +61,6 @@ docs/SchemaMeta.md
 docs/SchemaSubAttribute.md
 docs/SchemasApi.md
 docs/ServiceProviderConfig.md
-docs/ServiceProviderConfigAuthenticationSchemes.md
 docs/ServiceProviderConfigBulk.md
 docs/ServiceProviderConfigChangePassword.md
 docs/ServiceProviderConfigEtag.md
@@ -128,6 +129,7 @@ src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/auth/OAuth.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/AuthenticationScheme.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/Error.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/FederationResource.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/FederationResourceList.java
@@ -168,13 +170,13 @@ src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ProductResource.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ProductResourceList.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ProductResourceMeta.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ProductResourceReference.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ProductResourceReferenceWithRapidActivationInfo.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/Schema.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/SchemaAttribute.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/SchemaList.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/SchemaMeta.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/SchemaSubAttribute.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ServiceProviderConfig.java
-src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ServiceProviderConfigAuthenticationSchemes.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ServiceProviderConfigBulk.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ServiceProviderConfigChangePassword.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ServiceProviderConfigEtag.java

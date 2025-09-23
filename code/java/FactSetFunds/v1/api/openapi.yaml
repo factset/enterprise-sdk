@@ -19,7 +19,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Funds API
-  version: 1.5.0
+  version: 1.6.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-funds-api
@@ -5124,6 +5124,7 @@ components:
           fsymRegionalId: SJY03Z-R
           fsymTickerRegion: MABAX-US
           fsymUltimateParentId: 002HJD-E
+          isin: US09251G5071
           requestId: MABAX-US
           activeFlag: 1
           activelyManagedFlag: 1
@@ -5150,6 +5151,7 @@ components:
             assets in foreign issuers.
           issuerId: "7"
           issuerName: BlackRock, Inc.
+          issuerLegacyName: BlackRock, Inc.
           legalStructure: Open-Ended Fund
           leverageFactor: 0
           leverageInverse: Neither
@@ -5180,6 +5182,8 @@ components:
             invest in not less than 30 to not more than 50 companies.
           priceFirstDate: 2008-05-30
           priceRecentDate: 2024-04-05
+          primaryAdvisor: BlackRock Advisors LLC
+          subAdvisor: null
           shrClass: Institutional Class
           shrClassActiveFlag: 1
           shrClsActivelyManagedFlag: 1
@@ -7015,6 +7019,7 @@ components:
           navCurrency: USD
           fsymRegionalId: SJY03Z-R
           activeFlag: 1
+          subAdvisor: DWS Investment GmbH
           shrClass: Institutional Class
           shrClassActiveFlag: 1
           fundOfFundsId: fundOfFundsId
@@ -7028,6 +7033,9 @@ components:
           fsymEntityId: 04BFG7-E
           priceFirstDate: 2018-04-18T00:00:00.000+0000
           name: BlackRock Basic Value Fund Incorporated
+          issuerLegacyName: BlackRock Inc.
+          primaryAdvisor: BlackRock Advisors LLC
+          isin: US09251G5071
           countryDomicile: US
         - descInfo: The investment objective of the BlackRock Basic Value Fund, Inc.
             (the Fund) is to seek capital appreciation and, secondarily, income by
@@ -7067,6 +7075,7 @@ components:
           navCurrency: USD
           fsymRegionalId: SJY03Z-R
           activeFlag: 1
+          subAdvisor: DWS Investment GmbH
           shrClass: Institutional Class
           shrClassActiveFlag: 1
           fundOfFundsId: fundOfFundsId
@@ -7080,6 +7089,9 @@ components:
           fsymEntityId: 04BFG7-E
           priceFirstDate: 2018-04-18T00:00:00.000+0000
           name: BlackRock Basic Value Fund Incorporated
+          issuerLegacyName: BlackRock Inc.
+          primaryAdvisor: BlackRock Advisors LLC
+          isin: US09251G5071
           countryDomicile: US
       properties:
         data:
@@ -7128,6 +7140,7 @@ components:
         navCurrency: USD
         fsymRegionalId: SJY03Z-R
         activeFlag: 1
+        subAdvisor: DWS Investment GmbH
         shrClass: Institutional Class
         shrClassActiveFlag: 1
         fundOfFundsId: fundOfFundsId
@@ -7141,6 +7154,9 @@ components:
         fsymEntityId: 04BFG7-E
         priceFirstDate: 2018-04-18T00:00:00.000+0000
         name: BlackRock Basic Value Fund Incorporated
+        issuerLegacyName: BlackRock Inc.
+        primaryAdvisor: BlackRock Advisors LLC
+        isin: US09251G5071
         countryDomicile: US
       properties:
         fsymId:
@@ -7173,6 +7189,12 @@ components:
           description: The FactSet Ultimate Parent Entity Identifer, with a -E suffix
             (XXXXXX-E).
           example: 002HJD-E
+          nullable: true
+          type: string
+        isin:
+          description: Unique 12-character identifier for the requested fund, as per
+            the International Securities Identification Number (ISIN) standard.
+          example: US09251G5071
           nullable: true
           type: string
         requestId:
@@ -7247,6 +7269,11 @@ components:
           example: BlackRock Inc.
           nullable: true
           type: string
+        issuerLegacyName:
+          description: The Issuer Legacy Name in proper format.
+          example: BlackRock Inc.
+          nullable: true
+          type: string
         legalStructure:
           description: The legal structure of the fund, e.g. Open-Ended Fund, close-ended
             fund
@@ -7303,6 +7330,16 @@ components:
             format.
           example: 2021-03-26
           format: date
+          nullable: true
+          type: string
+        primaryAdvisor:
+          description: The name of the fund's primary advisor.
+          example: BlackRock Advisors LLC
+          nullable: true
+          type: string
+        subAdvisor:
+          description: The name of the fund's sub-advisor.
+          example: DWS Investment GmbH
           nullable: true
           type: string
         shrClass:

@@ -69,7 +69,7 @@ class ScreenCalcParametersData {
 }
 
 /**
- * Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.
+ * Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.
  * @member {String} backtestDate
  */
 ScreenCalcParametersData.prototype['backtestDate'] = undefined;

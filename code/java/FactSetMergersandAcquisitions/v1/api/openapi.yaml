@@ -855,7 +855,9 @@ components:
           title: End Date
           type: string
       required:
+      - endDate
       - ids
+      - startDate
       title: Deals Request Body
       type: object
     DealsPublicRequest:
@@ -893,6 +895,10 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/Status'
+      required:
+      - endDate
+      - startDate
+      - status
       title: Deals Request Body
       type: object
     DetailsRequest:
@@ -2359,7 +2365,6 @@ components:
       title: End Date
       type: string
     Status:
-      default: All
       description: |
         Status of the deal
       enum:

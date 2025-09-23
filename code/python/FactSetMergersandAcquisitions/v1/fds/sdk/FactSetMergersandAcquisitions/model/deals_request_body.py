@@ -111,11 +111,13 @@ class DealsRequestBody(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, ids, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, ids, start_date, end_date, *args, **kwargs):  # noqa: E501
         """DealsRequestBody - a model defined in OpenAPI
 
         Args:
             ids (Ids):
+            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,8 +150,6 @@ class DealsRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
-            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -178,6 +178,8 @@ class DealsRequestBody(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.ids = ids
+        self.start_date = start_date
+        self.end_date = end_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -198,11 +200,13 @@ class DealsRequestBody(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, ids, *args, **kwargs):  # noqa: E501
+    def __init__(self, ids, start_date, end_date, *args, **kwargs):  # noqa: E501
         """DealsRequestBody - a model defined in OpenAPI
 
         Args:
             ids (Ids):
+            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,8 +239,6 @@ class DealsRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
-            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,6 +265,8 @@ class DealsRequestBody(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.ids = ids
+        self.start_date = start_date
+        self.end_date = end_date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

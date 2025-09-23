@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getFederation
 
-> FederationResource getFederation(id)
+> FederationResource getFederation(id, attributes, excludedAttributes, additionalAttributes)
 
 Get a federation.
 
@@ -61,8 +61,11 @@ public class Example {
 
         FederationsApi apiInstance = new FederationsApi(defaultClient);
         String id = "id_example"; // String | ID of resource.
+        java.util.List<String> attributes = Arrays.asList(); // java.util.List<String> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters.
+        java.util.List<String> excludedAttributes = Arrays.asList(); // java.util.List<String> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters.
+        java.util.List<String> additionalAttributes = Arrays.asList(); // java.util.List<String> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
         try {
-            FederationResource result = apiInstance.getFederation(id);
+            FederationResource result = apiInstance.getFederation(id, attributes, excludedAttributes, additionalAttributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -82,6 +85,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of resource. |
+ **attributes** | **List&lt;String&gt;**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional]
+ **excludedAttributes** | **List&lt;String&gt;**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional]
+ **additionalAttributes** | **List&lt;String&gt;**| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional]
 
 ### Return type
 
@@ -109,7 +115,7 @@ Name | Type | Description  | Notes
 
 ## getFederations
 
-> FederationResourceList getFederations(filter, startIndex, count, attributes, excludedAttributes)
+> FederationResourceList getFederations(filter, startIndex, count, attributes, excludedAttributes, additionalAttributes)
 
 Get a list of federations.
 
@@ -159,10 +165,11 @@ public class Example {
         String filter = "filter_example"; // String | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against string attributes. When using the \"re\" operator, do not include slash characters as delimiters (e.g. use \"foo\" instead of \"/foo/\".) Also note the case-sensitivity of the regular expression corresponds to the \"caseExact\" characteristic of the target attribute.
         Integer startIndex = 56; // Integer | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument.
         Integer count = 56; // Integer | Maximum resource count. The server will not return more resources than this value, although it may return fewer.
-        String attributes = "attributes_example"; // String | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter.
-        String excludedAttributes = "excludedAttributes_example"; // String | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter.
+        java.util.List<String> attributes = Arrays.asList(); // java.util.List<String> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters.
+        java.util.List<String> excludedAttributes = Arrays.asList(); // java.util.List<String> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters.
+        java.util.List<String> additionalAttributes = Arrays.asList(); // java.util.List<String> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
         try {
-            FederationResourceList result = apiInstance.getFederations(filter, startIndex, count, attributes, excludedAttributes);
+            FederationResourceList result = apiInstance.getFederations(filter, startIndex, count, attributes, excludedAttributes, additionalAttributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -184,8 +191,9 @@ Name | Type | Description  | Notes
  **filter** | **String**| Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. | [optional]
  **startIndex** | **Integer**| Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. | [optional]
  **count** | **Integer**| Maximum resource count. The server will not return more resources than this value, although it may return fewer. | [optional]
- **attributes** | **String**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. | [optional]
- **excludedAttributes** | **String**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. | [optional]
+ **attributes** | **List&lt;String&gt;**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional]
+ **excludedAttributes** | **List&lt;String&gt;**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional]
+ **additionalAttributes** | **List&lt;String&gt;**| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional]
 
 ### Return type
 
@@ -213,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## modifyFederation
 
-> FederationResource modifyFederation(id, patch)
+> FederationResource modifyFederation(id, attributes, excludedAttributes, additionalAttributes, patch)
 
 Patch a federation.
 
@@ -261,9 +269,12 @@ public class Example {
 
         FederationsApi apiInstance = new FederationsApi(defaultClient);
         String id = "id_example"; // String | ID of resource.
+        java.util.List<String> attributes = Arrays.asList(); // java.util.List<String> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters.
+        java.util.List<String> excludedAttributes = Arrays.asList(); // java.util.List<String> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters.
+        java.util.List<String> additionalAttributes = Arrays.asList(); // java.util.List<String> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
         Patch patch = new Patch(); // Patch | 
         try {
-            FederationResource result = apiInstance.modifyFederation(id, patch);
+            FederationResource result = apiInstance.modifyFederation(id, attributes, excludedAttributes, additionalAttributes, patch);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -283,6 +294,9 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of resource. |
+ **attributes** | **List&lt;String&gt;**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional]
+ **excludedAttributes** | **List&lt;String&gt;**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional]
+ **additionalAttributes** | **List&lt;String&gt;**| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional]
  **patch** | [**Patch**](Patch.md)|  | [optional]
 
 ### Return type
@@ -311,7 +325,7 @@ Name | Type | Description  | Notes
 
 ## replaceFederation
 
-> FederationResource replaceFederation(id, federationResource)
+> FederationResource replaceFederation(id, federationResource, attributes, excludedAttributes, additionalAttributes)
 
 Replace a federation.
 
@@ -360,8 +374,11 @@ public class Example {
         FederationsApi apiInstance = new FederationsApi(defaultClient);
         String id = "id_example"; // String | ID of resource.
         FederationResource federationResource = new FederationResource(); // FederationResource | Federation resource.
+        java.util.List<String> attributes = Arrays.asList(); // java.util.List<String> | Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters.
+        java.util.List<String> excludedAttributes = Arrays.asList(); // java.util.List<String> | Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters.
+        java.util.List<String> additionalAttributes = Arrays.asList(); // java.util.List<String> | Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters.
         try {
-            FederationResource result = apiInstance.replaceFederation(id, federationResource);
+            FederationResource result = apiInstance.replaceFederation(id, federationResource, attributes, excludedAttributes, additionalAttributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -382,6 +399,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of resource. |
  **federationResource** | [**FederationResource**](FederationResource.md)| Federation resource. |
+ **attributes** | **List&lt;String&gt;**| Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. | [optional]
+ **excludedAttributes** | **List&lt;String&gt;**| Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. | [optional]
+ **additionalAttributes** | **List&lt;String&gt;**| Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. | [optional]
 
 ### Return type
 

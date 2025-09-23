@@ -23,10 +23,12 @@ class DealsRequestBody {
      * Deals Request Body
      * @alias module:model/DealsRequestBody
      * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 500 IDs are supported. 
+     * @param startDate {String} The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+     * @param endDate {String} The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
      */
-    constructor(ids) { 
+    constructor(ids, startDate, endDate) { 
         
-        DealsRequestBody.initialize(this, ids);
+        DealsRequestBody.initialize(this, ids, startDate, endDate);
     }
 
     /**
@@ -34,8 +36,10 @@ class DealsRequestBody {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, ids) { 
+    static initialize(obj, ids, startDate, endDate) { 
         obj['ids'] = ids;
+        obj['startDate'] = startDate;
+        obj['endDate'] = endDate;
     }
 
     /**

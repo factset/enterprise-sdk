@@ -198,6 +198,8 @@ components:
           $ref: '#/components/schemas/EndDate'
       required:
         - ids
+        - startDate
+        - endDate
     DealsPublicRequest:
       title: Deals Request
       description: Deals Request
@@ -218,6 +220,10 @@ components:
           $ref: '#/components/schemas/EndDate'
         status:
           $ref: '#/components/schemas/Status'
+      required:
+        - startDate
+        - endDate
+        - status
     DetailsRequest:
       title: Details Request
       description: Details Request
@@ -1073,7 +1079,6 @@ components:
         - All
         - Pending
         - Complete
-      default: All
       example: All
     ErrorResponse:
       type: object

@@ -55,7 +55,7 @@ public class Meta implements Serializable {
    /**
    * Number of results to return.
    * minimum: 1
-   * maximum: 15
+   * maximum: 50
    * @return numberOfResults
   **/
   @jakarta.annotation.Nullable

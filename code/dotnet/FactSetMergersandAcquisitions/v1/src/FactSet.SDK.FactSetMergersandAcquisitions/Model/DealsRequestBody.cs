@@ -41,16 +41,24 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// Initializes a new instance of the <see cref="DealsRequestBody" /> class.
         /// </summary>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 500 IDs are supported.  (required).</param>
-        /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. .</param>
-        /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. .</param>
-        public DealsRequestBody(List<string> ids,string startDate = default(string), string endDate = default(string))
+        /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
+        /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
+        public DealsRequestBody(List<string> ids, string startDate, string endDate)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
                 throw new ArgumentNullException("ids is a required property for DealsRequestBody and cannot be null");
             }
             this.Ids = ids;
+            // to ensure "startDate" is required (not null)
+            if (startDate == null) {
+                throw new ArgumentNullException("startDate is a required property for DealsRequestBody and cannot be null");
+            }
             this.StartDate = startDate;
+            // to ensure "endDate" is required (not null)
+            if (endDate == null) {
+                throw new ArgumentNullException("endDate is a required property for DealsRequestBody and cannot be null");
+            }
             this.EndDate = endDate;
         }
 
@@ -65,14 +73,14 @@ namespace FactSet.SDK.FactSetMergersandAcquisitions.Model
         /// The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         /// </summary>
         /// <value>The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. </value>
-        [DataMember(Name = "startDate", EmitDefaultValue = false)]
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = false)]
         public string StartDate { get; set; }
 
         /// <summary>
         /// The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         /// </summary>
         /// <value>The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. </value>
-        [DataMember(Name = "endDate", EmitDefaultValue = false)]
+        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = false)]
         public string EndDate { get; set; }
 
         /// <summary>

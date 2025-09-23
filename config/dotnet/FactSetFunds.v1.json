@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetFunds",
-  "packageVersion": "2.1.0",
+  "packageVersion": "2.2.0",
   "packageGuid": "{35e47b80-50fa-5805-803f-e722cd5cae49}",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/FactSetFunds/v1",
   "targetFramework": "netstandard2.0",
@@ -18,7 +18,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetFunds/2.1.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetFunds/2.2.0",
   "files": {
     "LICENSE": {}
   },

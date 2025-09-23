@@ -1,0 +1,12 @@
+# ArticlesFields
+
+Request available Articles data fields to be included in the response.  Default is all fields. `factsetEntityId` and `articleId` are always included.    <h3>Common Fields</h3>    |field|description|   |---|---|   |factsetEntityId|Factset Regional Security Identifier|   |articleId|Unique ID of the article assigned by Truvalue|               <h3>Articles Fields</h3>     |field|description|   |---|---|   |datePublication|Publication date of the article in YYYY-MM-DD format|   |dateIngestion|Date of the TVL article ingestion and processing|   |headlineEn|Title of the article|   |sourceName|Source of the article|   |articleCategory|Categories assigned by Truvalue|   |bulletsEn|AI-generated bullet point summary for each article. Note, including bullets increases response size drastically|   |author|Author of the article|   |url|URL of the article|   |sourceLang|Language code of the article|   |orgName|Organization name assigned by Truvalue|   |pillarsDimensions|Categorizes and tags the articles under 3-Pillars and 5-Dimensions|    
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**value** | **[str]** | Request available Articles data fields to be included in the response.  Default is all fields. &#x60;factsetEntityId&#x60; and &#x60;articleId&#x60; are always included.    &lt;h3&gt;Common Fields&lt;/h3&gt;    |field|description|   |---|---|   |factsetEntityId|Factset Regional Security Identifier|   |articleId|Unique ID of the article assigned by Truvalue|               &lt;h3&gt;Articles Fields&lt;/h3&gt;     |field|description|   |---|---|   |datePublication|Publication date of the article in YYYY-MM-DD format|   |dateIngestion|Date of the TVL article ingestion and processing|   |headlineEn|Title of the article|   |sourceName|Source of the article|   |articleCategory|Categories assigned by Truvalue|   |bulletsEn|AI-generated bullet point summary for each article. Note, including bullets increases response size drastically|   |author|Author of the article|   |url|URL of the article|   |sourceLang|Language code of the article|   |orgName|Organization name assigned by Truvalue|   |pillarsDimensions|Categorizes and tags the articles under 3-Pillars and 5-Dimensions|     | defaults to ["ALL"]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

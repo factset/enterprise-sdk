@@ -152,7 +152,7 @@ class ScreenCalcParametersData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            backtest_date (str, none_type): Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.. [optional]  # noqa: E501
+            backtest_date (str, none_type): Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.. [optional]  # noqa: E501
             global_variables_map ({str: (str,)}): Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.. [optional]  # noqa: E501
             legacy_universe_type (str, none_type): Universe type to open a Screen 1.0 document with\\ `equity`: Uses the equity universe from the Screen 1.0 document.\\ `debt`: Uses the debt universe from the Screen 1.0 document.\\ `fund`: Uses the fund universe from the Screen 1.0 document.. [optional] if omitted the server will use the default value of "equity"  # noqa: E501
         """
@@ -240,7 +240,7 @@ class ScreenCalcParametersData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            backtest_date (str, none_type): Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.. [optional]  # noqa: E501
+            backtest_date (str, none_type): Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.. [optional]  # noqa: E501
             global_variables_map ({str: (str,)}): Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.. [optional]  # noqa: E501
             legacy_universe_type (str, none_type): Universe type to open a Screen 1.0 document with\\ `equity`: Uses the equity universe from the Screen 1.0 document.\\ `debt`: Uses the debt universe from the Screen 1.0 document.\\ `fund`: Uses the fund universe from the Screen 1.0 document.. [optional] if omitted the server will use the default value of "equity"  # noqa: E501
         """

@@ -57,6 +57,27 @@ namespace FactSet.SDK.UniversalScreening.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Retrieve results of an export request.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetExportResults(Guid id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Retrieve results of an export request.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetExportResultsWithHttpInfo(Guid id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// Polls the job with a given screen ID and returns job status
         /// </remarks>
         /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
@@ -116,6 +137,27 @@ namespace FactSet.SDK.UniversalScreening.Api
         /// <param name="screenCalcParameters">Data required for a calculation request (optional)</param>
         /// <returns>ApiResponse of ResourceStatusResponse</returns>
         ApiResponse<ResourceStatusResponse> SubmitCalculateWithHttpInfo(ScreenCalcParameters screenCalcParameters = default(ScreenCalcParameters));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <returns>SubmitExportResponse</returns>
+        SubmitExportResponse SubmitExport(ScreenExportParameters screenExportParameters = default(ScreenExportParameters));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <returns>ApiResponse of SubmitExportResponse</returns>
+        ApiResponse<SubmitExportResponse> SubmitExportWithHttpInfo(ScreenExportParameters screenExportParameters = default(ScreenExportParameters));
         #endregion Synchronous Operations
     }
 
@@ -152,6 +194,29 @@ namespace FactSet.SDK.UniversalScreening.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalculationResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PaginatedCalculationResponse>> GetCalculateResultsWithHttpInfoAsync(Guid id, int? paginationLimit = default(int?), int? paginationCursor = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Retrieve results of an export request.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetExportResultsAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Retrieve results of an export request.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetExportResultsWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -221,6 +286,29 @@ namespace FactSet.SDK.UniversalScreening.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ResourceStatusResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ResourceStatusResponse>> SubmitCalculateWithHttpInfoAsync(ScreenCalcParameters screenCalcParameters = default(ScreenCalcParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SubmitExportResponse</returns>
+        System.Threading.Tasks.Task<SubmitExportResponse> SubmitExportAsync(ScreenExportParameters screenExportParameters = default(ScreenExportParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SubmitExportResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmitExportResponse>> SubmitExportWithHttpInfoAsync(ScreenExportParameters screenExportParameters = default(ScreenExportParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -253,6 +341,18 @@ namespace FactSet.SDK.UniversalScreening.Api
             { (HttpStatusCode)429, typeof(ErrorArray) },
         };
 
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetExportResultsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(System.IO.Stream) },
+            { (HttpStatusCode)202, typeof(ResourceStatusResponse) },
+            { (HttpStatusCode)400, typeof(ErrorArray) },
+            { (HttpStatusCode)401, typeof(ErrorArray) },
+            { (HttpStatusCode)403, typeof(ErrorArray) },
+            { (HttpStatusCode)404, typeof(ErrorArray) },
+            { (HttpStatusCode)410, typeof(ErrorArray) },
+            { (HttpStatusCode)429, typeof(ErrorArray) },
+        };
+
         private static readonly Dictionary<HttpStatusCode, System.Type> PollCalculateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)201, typeof(ResourceStatusResponse) },
@@ -275,6 +375,14 @@ namespace FactSet.SDK.UniversalScreening.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> SubmitCalculateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(ResourceStatusResponse) },
+            { (HttpStatusCode)400, typeof(ErrorArray) },
+            { (HttpStatusCode)401, typeof(ErrorArray) },
+            { (HttpStatusCode)429, typeof(ErrorArray) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> SubmitExportResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(SubmitExportResponse) },
             { (HttpStatusCode)400, typeof(ErrorArray) },
             { (HttpStatusCode)401, typeof(ErrorArray) },
             { (HttpStatusCode)429, typeof(ErrorArray) },
@@ -569,6 +677,179 @@ namespace FactSet.SDK.UniversalScreening.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculateResults", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Retrieve results of an export request.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetExportResults(Guid id)
+        {
+            var localVarResponse = GetExportResultsWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Retrieve results of an export request.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public ApiResponse<System.IO.Stream> GetExportResultsWithHttpInfo(Guid id)
+        {
+            FactSet.SDK.UniversalScreening.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.UniversalScreening.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/pdf",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "text/csv",
+                "text/plain",
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.UniversalScreening.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.UniversalScreening.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetExportResultsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            System.IO.Stream>("/job/{id}/export", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetExportResults", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Retrieve results of an export request.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream>GetExportResultsAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetExportResultsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Retrieve results of an export request.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetExportResultsWithHttpInfoAsync(Guid id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.UniversalScreening.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.UniversalScreening.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/pdf",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "text/csv",
+                "text/plain",
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.UniversalScreening.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.UniversalScreening.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetExportResultsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/job/{id}/export", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetExportResults", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1068,6 +1349,173 @@ namespace FactSet.SDK.UniversalScreening.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubmitCalculate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <returns>SubmitExportResponse</returns>
+        public SubmitExportResponse SubmitExport(ScreenExportParameters screenExportParameters = default(ScreenExportParameters))
+        {
+            var localVarResponse = SubmitExportWithHttpInfo(screenExportParameters);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <returns>ApiResponse of SubmitExportResponse</returns>
+        public ApiResponse<SubmitExportResponse> SubmitExportWithHttpInfo(ScreenExportParameters screenExportParameters = default(ScreenExportParameters))
+        {
+            FactSet.SDK.UniversalScreening.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.UniversalScreening.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = screenExportParameters;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.UniversalScreening.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = SubmitExportResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            SubmitExportResponse>("/job/export", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitExport", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SubmitExportResponse</returns>
+        public async System.Threading.Tasks.Task<SubmitExportResponse>SubmitExportAsync(ScreenExportParameters screenExportParameters = default(ScreenExportParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await SubmitExportWithHttpInfoAsync(screenExportParameters, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.UniversalScreening.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenExportParameters">Data required for an export request (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SubmitExportResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<SubmitExportResponse>> SubmitExportWithHttpInfoAsync(ScreenExportParameters screenExportParameters = default(ScreenExportParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.UniversalScreening.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.UniversalScreening.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.UniversalScreening.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = screenExportParameters;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.UniversalScreening.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = SubmitExportResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SubmitExportResponse>("/job/export", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitExport", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

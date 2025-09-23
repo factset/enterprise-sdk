@@ -51,9 +51,21 @@ public class DealsPublicRequestBody implements Serializable {
   private String endDate;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private Status status = Status.ALL;
+  private Status status;
 
   public DealsPublicRequestBody() { 
+  }
+
+  @JsonCreator
+  public DealsPublicRequestBody(
+    @JsonProperty(value=JSON_PROPERTY_START_DATE, required=true) String startDate, 
+    @JsonProperty(value=JSON_PROPERTY_END_DATE, required=true) String endDate, 
+    @JsonProperty(value=JSON_PROPERTY_STATUS, required=true) Status status
+  ) {
+    this();
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.status = status;
   }
 
   public DealsPublicRequestBody startDate(String startDate) {
@@ -65,10 +77,10 @@ public class DealsPublicRequestBody implements Serializable {
    * The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
    * @return startDate
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2017-12-01", value = "The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. ")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "2017-12-01", required = true, value = "The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. ")
   @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getStartDate() {
     return startDate;
@@ -76,7 +88,7 @@ public class DealsPublicRequestBody implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
@@ -91,10 +103,10 @@ public class DealsPublicRequestBody implements Serializable {
    * The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
    * @return endDate
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2017-12-31", value = "The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. ")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "2017-12-31", required = true, value = "The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. ")
   @JsonProperty(JSON_PROPERTY_END_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEndDate() {
     return endDate;
@@ -102,7 +114,7 @@ public class DealsPublicRequestBody implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_END_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
@@ -117,10 +129,10 @@ public class DealsPublicRequestBody implements Serializable {
    * Get status
    * @return status
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Status getStatus() {
     return status;
@@ -128,7 +140,7 @@ public class DealsPublicRequestBody implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(Status status) {
     this.status = status;
   }

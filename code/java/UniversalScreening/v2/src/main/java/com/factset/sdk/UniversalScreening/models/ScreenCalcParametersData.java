@@ -114,11 +114,11 @@ public class ScreenCalcParametersData implements Serializable {
   }
 
    /**
-   * Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.
+   * Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.
    * @return backtestDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "20040412", value = "Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires addtional access to use.")
+  @ApiModelProperty(example = "20040412", value = "Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.")
   @JsonIgnore
 
   public String getBacktestDate() {

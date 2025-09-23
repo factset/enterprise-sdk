@@ -21,7 +21,7 @@ import ResourceStatusResponseData from './ResourceStatusResponseData';
 class ResourceStatusResponse {
     /**
      * Constructs a new <code>ResourceStatusResponse</code>.
-     * ResourceStatusResponse contains information regarding the status of a long-running job. \&quot;Job\&quot; refers to a screen calculation or archival.
+     * ResourceStatusResponse contains information regarding the status of a long-running job. \&quot;Job\&quot; refers to a screen calculation, archival, or export.
      * @alias module:model/ResourceStatusResponse
      */
     constructor() { 

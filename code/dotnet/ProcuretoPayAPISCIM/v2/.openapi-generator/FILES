@@ -4,6 +4,7 @@ FactSet.SDK.ProcuretoPayAPISCIM.sln
 LICENSE
 README.md
 appveyor.yml
+docs/AuthenticationScheme.md
 docs/Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
@@ -49,6 +50,7 @@ docs/ProductResource.md
 docs/ProductResourceList.md
 docs/ProductResourceMeta.md
 docs/ProductResourceReference.md
+docs/ProductResourceReferenceWithRapidActivationInfo.md
 docs/ProductsApi.md
 docs/Schema.md
 docs/SchemaAttribute.md
@@ -57,7 +59,6 @@ docs/SchemaMeta.md
 docs/SchemaSubAttribute.md
 docs/SchemasApi.md
 docs/ServiceProviderConfig.md
-docs/ServiceProviderConfigAuthenticationSchemes.md
 docs/ServiceProviderConfigBulk.md
 docs/ServiceProviderConfigChangePassword.md
 docs/ServiceProviderConfigEtag.md
@@ -117,6 +118,7 @@ src/FactSet.SDK.ProcuretoPayAPISCIM/Client/RequestOptions.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Client/RetryConfiguration.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/FactSet.SDK.ProcuretoPayAPISCIM.csproj
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/AuthenticationScheme.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/Error.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/FederationResource.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/FederationResourceList.cs
@@ -157,13 +159,13 @@ src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ProductResource.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ProductResourceList.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ProductResourceMeta.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ProductResourceReference.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ProductResourceReferenceWithRapidActivationInfo.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/Schema.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/SchemaAttribute.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/SchemaList.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/SchemaMeta.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/SchemaSubAttribute.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ServiceProviderConfig.cs
-src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ServiceProviderConfigAuthenticationSchemes.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ServiceProviderConfigBulk.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ServiceProviderConfigChangePassword.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ServiceProviderConfigEtag.cs

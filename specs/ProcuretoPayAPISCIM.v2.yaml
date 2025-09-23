@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: FactSet SCIM API
-  version: 2.4.0
+  version: 2.6.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -130,6 +130,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/usersSuccess'
@@ -149,6 +150,10 @@ paths:
       summary: Create a user.
       description: Create a user resource.
       operationId: createUser
+      parameters:
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/userResource'
       responses:
@@ -173,6 +178,9 @@ paths:
       operationId: getUser
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/userSuccess'
@@ -194,6 +202,9 @@ paths:
       operationId: replaceUser
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/userResource'
       responses:
@@ -221,6 +232,9 @@ paths:
       operationId: modifyUser
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/patchUserResource'
       responses:
@@ -274,6 +288,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/groupsSuccess'
@@ -296,6 +311,9 @@ paths:
       operationId: getGroup
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/groupSuccess'
@@ -317,6 +335,9 @@ paths:
       operationId: replaceGroup
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/groupResource'
       responses:
@@ -344,6 +365,9 @@ paths:
       operationId: modifyGroup
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/patchGroupResource'
       responses:
@@ -376,6 +400,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/locationsSuccess'
@@ -395,6 +420,10 @@ paths:
       summary: Create a location.
       description: Create a location resource.
       operationId: createLocation
+      parameters:
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/locationResource'
       responses:
@@ -419,6 +448,9 @@ paths:
       operationId: getLocation
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/locationSuccess'
@@ -442,6 +474,9 @@ paths:
       operationId: replaceLocation
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/locationResource'
       responses:
@@ -469,6 +504,9 @@ paths:
       operationId: modifyLocation
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/patchLocationResource'
       responses:
@@ -501,6 +539,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/firmDescriptionsSuccess'
@@ -523,6 +562,9 @@ paths:
       operationId: getFirmDescription
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/firmDescriptionSuccess'
@@ -551,6 +593,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/userClassesSuccess'
@@ -573,6 +616,9 @@ paths:
       operationId: getUserClass
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/userClassSuccess'
@@ -601,6 +647,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/userPositionsSuccess'
@@ -623,6 +670,9 @@ paths:
       operationId: getUserPosition
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/userPositionSuccess'
@@ -651,6 +701,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/productsSuccess'
@@ -673,6 +724,9 @@ paths:
       operationId: getProduct
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/productSuccess'
@@ -699,6 +753,7 @@ paths:
         - $ref: '#/components/parameters/count'
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/federationsSuccess'
@@ -721,6 +776,9 @@ paths:
       operationId: getFederation
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       responses:
         '200':
           $ref: '#/components/responses/federationSuccess'
@@ -744,6 +802,9 @@ paths:
       operationId: replaceFederation
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/federationResource'
       responses:
@@ -771,6 +832,9 @@ paths:
       operationId: modifyFederation
       parameters:
         - $ref: '#/components/parameters/resourceId'
+        - $ref: '#/components/parameters/attributes'
+        - $ref: '#/components/parameters/excludedAttributes'
+        - $ref: '#/components/parameters/additionalAttributes'
       requestBody:
         $ref: '#/components/requestBodies/patchFederationResource'
       responses:
@@ -895,10 +959,14 @@ components:
         attributes that would be returned by default. Attribute names must be
         specified in standard attribute notation (see [RFC 7644 section
         3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
-        parameter cannot be used with the *excludedAttributes* parameter.
+        parameter cannot be used with the *excludedAttributes* or
+        *additionalAttributes* parameters.
       in: query
       schema:
-        type: string
+        type: array
+        items:
+          type: string
+      explode: false
       required: false
     excludedAttributes:
       name: excludedAttributes
@@ -908,10 +976,31 @@ components:
         attributes that would be returned by default. Attribute names must be
         specified in standard attribute notation (see [RFC 7644 section
         3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
-        parameter cannot be used with the *attributes* parameter.
+        parameter cannot be used with the *attributes* or *additionalAttributes*
+        parameters.
       in: query
       schema:
-        type: string
+        type: array
+        items:
+          type: string
+      explode: false
+      required: false
+    additionalAttributes:
+      name: additionalAttributes
+      description: >-
+        Non-standard attribute filter string. A comma-separated list of resource
+        attribute names to be included in the response, complementing the set of
+        attributes that would be returned by default. Attribute names must be
+        specified in standard attribute notation (see [RFC 7644 section
+        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
+        parameter cannot be used with the *attributes* or *excludedAttributes*
+        parameters.
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
       required: false
   requestBodies:
     userResource:
@@ -1337,6 +1426,35 @@ components:
           schema:
             $ref: '#/components/schemas/FileManagerAudit'
   schemas:
+    AuthenticationScheme:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The authentication scheme.
+          readOnly: true
+        name:
+          type: string
+          description: The common authentication scheme name, e.g., HTTP Basic.
+          readOnly: true
+        description:
+          type: string
+          description: A description of the authentication scheme.
+          readOnly: true
+        specUri:
+          type: string
+          format: url
+          description: >-
+            An HTTP-addressable URL pointing to the authentication scheme's
+            specification.
+          readOnly: true
+        documentationUri:
+          type: string
+          format: url
+          description: >-
+            An HTTP-addressable URL pointing to the authentication scheme's
+            usage documentation.
+          readOnly: true
     ServiceProviderConfig:
       type: object
       properties:
@@ -1461,37 +1579,12 @@ components:
           required:
             - supported
         authenticationSchemes:
-          type: object
+          type: array
           description: >-
             A complex type that specifies supported authentication scheme
             properties.
-          properties:
-            type:
-              type: string
-              description: The authentication scheme.
-              readOnly: true
-            name:
-              type: string
-              description: The common authentication scheme name, e.g., HTTP Basic.
-              readOnly: true
-            description:
-              type: string
-              description: A description of the authentication scheme.
-              readOnly: true
-            specUri:
-              type: string
-              format: url
-              description: >-
-                An HTTP-addressable URL pointing to the authentication scheme's
-                specification.
-              readOnly: true
-            documentationUri:
-              type: string
-              format: url
-              description: >-
-                An HTTP-addressable URL pointing to the authentication scheme's
-                usage documentation.
-              readOnly: true
+          items:
+            $ref: '#/components/schemas/AuthenticationScheme'
           example:
             - type: oauth2
               name: OAuth 2.0
@@ -1757,6 +1850,32 @@ components:
                   mutability: immutable
                   returned: default
                   uniqueness: none
+                - name: rapidActivationStatus
+                  type: string
+                  multiValued: false
+                  description: >-
+                    Whether the associated product has been activated for the
+                    current month. Possible values are "eligible" and "active".
+                  required: false
+                  caseExact: false
+                  canonicalValues:
+                    - eligible
+                    - active
+                  mutability: readOnly
+                  returned: request
+                  uniqueness: none
+                - name: activationHistoryMonths
+                  type: string
+                  multiValued: false
+                  description: >-
+                    A list of the most recent three months (including the
+                    current month) during which the associated product has been
+                    activated.
+                  required: false
+                  caseExact: false
+                  mutability: readOnly
+                  returned: request
+                  uniqueness: none
               mutability: readWrite
               returned: default
             - name: pendingProductOrders
@@ -1913,7 +2032,7 @@ components:
               required: false
               caseExact: true
               mutability: immutable
-              returned: never
+              returned: default
               uniqueness: none
         meta:
           type: object
@@ -2273,7 +2392,8 @@ components:
                 individual. Individual must have a FactSet serial number
                 associated with them.
               items:
-                $ref: '#/components/schemas/ProductResourceReference'
+                $ref: >-
+                  #/components/schemas/ProductResourceReferenceWithRapidActivationInfo
             pendingProductOrders:
               type: array
               description: An array of pending FactSet product orders.
@@ -3107,6 +3227,43 @@ components:
           example: FactSet Identity
       required:
         - value
+    ProductResourceReferenceWithRapidActivationInfo:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Identifier of the product.
+          example: '11'
+        $ref:
+          type: string
+          description: The URI corresponding to this product.
+          example: https://api.factset.com/scim/v2/Products/11
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+          example: Exchange NYSE American and Regionals - RT
+        rapidActivationStatus:
+          type: string
+          enum:
+            - active
+            - eligible
+          description: >-
+            Whether the associated product has been activated for the current
+            month. Possible values are "eligible" and "active".
+          example: active
+        activationHistoryMonths:
+          type: array
+          description: >-
+            A list of the most recent three months (including the current month)
+            during which the associated product has been activated.
+          items:
+            type: string
+          example:
+            - 2025-08
+            - 2025-07
+            - 2025-06
+      required:
+        - value
     PendingProductOrder:
       type: object
       properties:
@@ -3124,7 +3281,7 @@ components:
           type: string
           enum:
             - Processing
-            - Queued
+            - Pending approval
           description: Status of the pending product order.
           example: Pending approval
           readOnly: true

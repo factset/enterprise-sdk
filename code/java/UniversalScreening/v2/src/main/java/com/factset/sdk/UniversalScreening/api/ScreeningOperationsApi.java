@@ -12,10 +12,13 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.UniversalScreening.models.ErrorArray;
+import java.io.File;
 import com.factset.sdk.UniversalScreening.models.PaginatedCalculationResponse;
 import com.factset.sdk.UniversalScreening.models.ResourceStatusResponse;
 import com.factset.sdk.UniversalScreening.models.ScreenArchiveOFDBParameters;
 import com.factset.sdk.UniversalScreening.models.ScreenCalcParameters;
+import com.factset.sdk.UniversalScreening.models.ScreenExportParameters;
+import com.factset.sdk.UniversalScreening.models.SubmitExportResponse;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -40,6 +43,18 @@ public class ScreeningOperationsApi {
     getCalculateResultsResponseTypeMap.put(404, new GenericType<ErrorArray>(){});
     getCalculateResultsResponseTypeMap.put(410, new GenericType<ErrorArray>(){});
     getCalculateResultsResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
+  }
+
+  private static final Map<Integer, GenericType> getExportResultsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getExportResultsResponseTypeMap.put(200, new GenericType<File>(){});
+    getExportResultsResponseTypeMap.put(202, new GenericType<ResourceStatusResponse>(){});
+    getExportResultsResponseTypeMap.put(400, new GenericType<ErrorArray>(){});
+    getExportResultsResponseTypeMap.put(401, new GenericType<ErrorArray>(){});
+    getExportResultsResponseTypeMap.put(403, new GenericType<ErrorArray>(){});
+    getExportResultsResponseTypeMap.put(404, new GenericType<ErrorArray>(){});
+    getExportResultsResponseTypeMap.put(410, new GenericType<ErrorArray>(){});
+    getExportResultsResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
   }
 
   private static final Map<Integer, GenericType> pollCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -67,6 +82,14 @@ public class ScreeningOperationsApi {
     submitCalculateResponseTypeMap.put(400, new GenericType<ErrorArray>(){});
     submitCalculateResponseTypeMap.put(401, new GenericType<ErrorArray>(){});
     submitCalculateResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
+  }
+
+  private static final Map<Integer, GenericType> submitExportResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    submitExportResponseTypeMap.put(202, new GenericType<SubmitExportResponse>(){});
+    submitExportResponseTypeMap.put(400, new GenericType<ErrorArray>(){});
+    submitExportResponseTypeMap.put(401, new GenericType<ErrorArray>(){});
+    submitExportResponseTypeMap.put(429, new GenericType<ErrorArray>(){});
   }
 
   
@@ -182,6 +205,96 @@ public class ScreeningOperationsApi {
     > apiResponse = apiClient.invokeAPI("ScreeningOperationsApi.getCalculateResults", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getCalculateResultsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * 
+   * Retrieve results of an export request.
+   * @param id Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Body of the requested export file. Content-type will be conditioned on requested export type. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Content-Disposition -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Long-running job still in progress </td><td>  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> The requested screen could not be opened. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized for this operation. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 410 </td><td> The results have been fetched for this ID. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
+     </table>
+   */
+  public File getExportResults(java.util.UUID id) throws ApiException {
+    return getExportResultsWithHttpInfo(id).getData();
+  }
+
+  /**
+   * 
+   * Retrieve results of an export request.
+   * @param id Unique identifier for a job. \&quot;Job\&quot; refers to a screen calculation or archival. (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Body of the requested export file. Content-type will be conditioned on requested export type. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Content-Disposition -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Long-running job still in progress </td><td>  * Location -  <br>  * X-FactSet-Api-PickUp-Progress -  <br>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> The requested screen could not be opened. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized for this operation. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Job ID not found. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 410 </td><td> The results have been fetched for this ID. </td><td>  * X-RateLimit-Limit-second -  <br>  * X-RateLimit-Remaining-second -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<File> getExportResultsWithHttpInfo(java.util.UUID id) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExportResults");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/job/{id}/export"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/pdf", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "text/csv", "text/plain", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        File
+      
+    > apiResponse = apiClient.invokeAPI("ScreeningOperationsApi.getExportResults", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getExportResultsResponseTypeMap, false);
 
     return apiResponse;
 
@@ -422,6 +535,82 @@ public class ScreeningOperationsApi {
     > apiResponse = apiClient.invokeAPI("ScreeningOperationsApi.submitCalculate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, submitCalculateResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * 
+   * Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+   * @param screenExportParameters Data required for an export request (optional)
+   * @return SubmitExportResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 202 </td><td> Successful export submission response, returns the job ID unique to this export and the URL in the Location header to check the status of the export. </td><td>  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid request body. </td><td>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
+     </table>
+   */
+  public SubmitExportResponse submitExport(ScreenExportParameters screenExportParameters) throws ApiException {
+    return submitExportWithHttpInfo(screenExportParameters).getData();
+  }
+
+  /**
+   * 
+   * Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.
+   * @param screenExportParameters Data required for an export request (optional)
+   * @return ApiResponse&lt;SubmitExportResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 202 </td><td> Successful export submission response, returns the job ID unique to this export and the URL in the Location header to check the status of the export. </td><td>  * Location -  <br>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid request body. </td><td>  * X-RateLimit-Limit-604800 -  <br>  * X-RateLimit-Remaining-604800 -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Invalid or missing authentication. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too many requests. </td><td>  * X-FactSet-Api-Units-Limit -  <br>  * X-FactSet-Api-Units-Remaining -  <br>  * RateLimit-Limit -  <br>  * RateLimit-Remaining -  <br>  * RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  * Request-Key - Provide this key when reporting this issue <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<SubmitExportResponse> submitExportWithHttpInfo(ScreenExportParameters screenExportParameters) throws ApiException {
+    Object localVarPostBody = screenExportParameters;
+    
+    // create path and map variables
+    String localVarPath = "/job/export";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        SubmitExportResponse
+      
+    > apiResponse = apiClient.invokeAPI("ScreeningOperationsApi.submitExport", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, submitExportResponseTypeMap, false);
 
     return apiResponse;
 

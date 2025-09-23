@@ -39,6 +39,12 @@ components:
           schema:
             $ref: '#/components/schemas/ScreenArchiveOFDBParameters'
       description: Data required for an archive to OFDB request
+    submitExportRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScreenExportParameters'
+      description: Data required for an export request
     submitCalcRequest:
       content:
         application/json:
@@ -122,6 +128,36 @@ components:
           $ref: '#/components/headers/X-RateLimit-Remaining-second'
         RateLimit-Reset:
           $ref: '#/components/headers/RateLimit-Reset'
+    ExportResponse:
+      content:
+        application/pdf:
+          schema:
+            $ref: '#/components/schemas/PdfExportResponse'
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+          schema:
+            $ref: '#/components/schemas/ExcelExportResponse'
+        text/csv:
+          schema:
+            $ref: '#/components/schemas/CsvExportResponse'
+        text/plain:
+          schema:
+            $ref: '#/components/schemas/DatabaseExportResponse'
+      description: >-
+        Body of the requested export file. Content-type will be conditioned on
+        requested export type.
+      headers:
+        X-RateLimit-Limit-second:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        X-RateLimit-Remaining-second:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit-second'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining-second'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
+        Content-Disposition:
+          $ref: '#/components/headers/Content-Disposition'
     Error400InvalidRequest:
       content:
         application/json:
@@ -237,6 +273,32 @@ components:
         Successful archive OFDB submission response, returns the job ID unique
         to this archive and the URL in the Location header to check the status
         of the archive.
+      headers:
+        Location:
+          $ref: '#/components/headers/StatusLocation'
+        X-FactSet-Api-Units-Limit:
+          $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
+        X-FactSet-Api-Units-Remaining:
+          $ref: '#/components/headers/X-FactSet-Api-Units-Remaining'
+        X-RateLimit-Limit-604800:
+          $ref: '#/components/headers/X-RateLimit-Limit-604800'
+        X-RateLimit-Remaining-604800:
+          $ref: '#/components/headers/X-RateLimit-Remaining-604800'
+        RateLimit-Limit:
+          $ref: '#/components/headers/RateLimit-Limit'
+        RateLimit-Remaining:
+          $ref: '#/components/headers/RateLimit-Remaining'
+        RateLimit-Reset:
+          $ref: '#/components/headers/RateLimit-Reset'
+    SubmitExportResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SubmitExportResponse'
+      description: >-
+        Successful export submission response, returns the job ID unique to this
+        export and the URL in the Location header to check the status of the
+        export.
       headers:
         Location:
           $ref: '#/components/headers/StatusLocation'
@@ -389,7 +451,8 @@ components:
     ResourceStatusResponse:
       description: >-
         ResourceStatusResponse contains information regarding the status of a
-        long-running job. "Job" refers to a screen calculation or archival.
+        long-running job. "Job" refers to a screen calculation, archival, or
+        export.
       properties:
         data:
           description: Information about the status of the long-running job.
@@ -430,6 +493,46 @@ components:
             id: 123e4567-e89b-12d3-a456-426655440000
             status: queued
       type: object
+    SubmitExportResponse:
+      description: >-
+        SubmitExportResponse contains information regarding the start of a
+        long-running export job.
+      properties:
+        data:
+          description: Information about the status of the long-running job.
+          properties:
+            id:
+              description: ID of the submitted job
+              type: string
+              format: uuid
+              example: 123e4567-e89b-12d3-a456-426655440002
+            status:
+              description: >-
+                Current status of the job.\
+
+                `queued`: The job has not started.\
+
+                `executing`: The job is in progress.\
+
+                `created`: The job completed successfully.\
+
+                `failed`: The job failed. See the `error` property for more
+                information.\
+
+                `cancelled`: The job was cancelled before it could finish.
+              type: string
+              enum:
+                - queued
+                - executing
+                - created
+                - failed
+                - cancelled
+              example: queued
+          type: object
+          example:
+            id: 123e4567-e89b-12d3-a456-426655440000
+            status: queued
+      type: object
     ResultsMetadata:
       description: Metadata containing results pagination information
       properties:
@@ -452,6 +555,28 @@ components:
         data:
           $ref: '#/components/schemas/StachPackage'
       type: object
+    PdfExportResponse:
+      description: Base64 encoded byte-stream of the screen results exported as a PDF file.
+      type: string
+      format: binary
+    ExcelExportResponse:
+      description: >-
+        Base64 encoded byte-stream of the screen results exported as an Excel
+        file.
+      type: string
+      format: binary
+    CsvExportResponse:
+      description: Base64 encoded byte-stream of the screen results exported as a CSV file.
+      type: string
+      format: binary
+    DatabaseExportResponse:
+      description: >-
+        Base64 encoded byte-stream of the screen results exported as a legacy
+        Database file format.
+
+        Additional access required for this format.
+      type: string
+      format: binary
     ScreenArchiveOFDBParameters:
       description: Request body for screen archive request
       properties:
@@ -568,7 +693,7 @@ components:
                 replacing
                   the backtest date saved in the screen, can be written in YYYYMMDD,
                   MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
-                Requires addtional access to use.
+                Requires additional access to use.
               type: string
               nullable: true
               example: '19951203'
@@ -610,6 +735,89 @@ components:
       required:
         - data
       type: object
+    ScreenExportParameters:
+      description: >-
+        Request body to calculate and then export a screen to a specified file
+        format.
+      properties:
+        data:
+          description: Object containing screen and export data
+          properties:
+            screenName:
+              description: File path to a valid screen
+              type: string
+              example: SAMPLE_SCREENS:KPI_AIR.USWEB
+            file:
+              description: Data required for file export.
+              properties:
+                type:
+                  description: >-
+                    File format of the export. "text/csv" will ignore custom
+                    delimiters and use commas.
+
+                    For custom delimiters or legacy database type, use
+                    "text/plain".
+                  type: string
+                  enum:
+                    - >-
+                      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                    - application/pdf
+                    - text/csv
+                    - text/plain
+                  example: >-
+                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                excelOptions:
+                  $ref: '#/components/schemas/ExcelOptions'
+                delimitedOptions:
+                  $ref: '#/components/schemas/DelimitedOptions'
+                pdfOptions:
+                  $ref: '#/components/schemas/PdfOptions'
+              required:
+                - type
+            backtestDate:
+              description: >-
+                Specifies the backtest date used when running the screen,
+                replacing the backtest date saved in the screen, can be written
+                in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
+                Requires additional access to use.
+              type: string
+              nullable: true
+              example: '20040412'
+            globalVariablesMap:
+              additionalProperties:
+                type: string
+              description: >-
+                Modifies existing global variables for this calculation request,
+                temporarily adds them if they do not already exist
+
+                Variable names can only contain the characters A-Z (case
+                insensitive). Variable values must be non-empty.
+              type: object
+            legacyUniverseType:
+              description: >-
+                Universe type to open a Screen 1.0 document (.usscreen) with\
+
+                `equity`: Uses the equity universe from the Screen 1.0
+                document.\
+
+                `debt`: Uses the debt universe from the Screen 1.0 document.\
+
+                `fund`: Uses the fund universe from the Screen 1.0 document.
+              type: string
+              enum:
+                - equity
+                - debt
+                - fund
+              default: equity
+              nullable: true
+              example: equity
+          required:
+            - screenName
+            - file
+          type: object
+      required:
+        - data
+      type: object
     ScreenCalcParameters:
       description: Request body to calculate a screen.
       properties:
@@ -621,7 +829,7 @@ components:
                 Specifies the backtest date used when running the screen,
                 replacing the backtest date saved in the screen, can be written
                 in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
-                Requires addtional access to use.
+                Requires additional access to use.
               type: string
               nullable: true
               example: '20040412'
@@ -663,6 +871,214 @@ components:
       required:
         - data
       type: object
+    DelimitedOptions:
+      description: Options applied to delimited output.
+      type: object
+      nullable: true
+      properties:
+        isDatabase:
+          description: >-
+            Output will be returned in a legacy database format.  Will be
+            ignored if file type of "text/csv" is
+
+            requested.  Default is false.  Additional access is required for
+            this format.
+          type: boolean
+          example: true
+          default: false
+        delimiter:
+          description: >-
+            Specifies the delimiter used between each data point.  A comma is
+            the default delimiter;
+
+            if this argument is not specified, a comma delimiter will be used. 
+            If the file type of
+
+            "text/csv" is requested, this field will be ignored and a comma will
+            be used.
+          type: string
+          example: '|'
+          default: ','
+          nullable: true
+        hideHeaderRows:
+          description: >-
+            Specifies whether column column headers should be included in the
+            output. By default,
+
+            the option is set to true.
+          type: boolean
+          example: false
+          default: true
+          nullable: true
+        applyQuotedStrings:
+          description: |-
+            Specifies whether textual data should have quotes around it
+            (i.e., true will include quotes around textual values). By default,
+            the option is set to true.
+          type: boolean
+          example: false
+          default: true
+          nullable: true
+        applySavedNAFormatting:
+          description: >-
+            Specifies that the NA formatting specified in the column format menu
+            will be used to
+
+            indicate unavailable data in your output. By default, this option is
+            set to false,
+
+            which means "NA" will be used to indicate the data that is not
+            available.
+          type: boolean
+          default: false
+          example: true
+          nullable: true
+        applyFilters:
+          description: >-
+            Specifies whether the filters present in the screen should be
+            applied to the output.
+
+            By default, this option is set to false, which means that filters
+            will not be applied
+
+            and all securities passing the screen will be included in the
+            output.
+          type: boolean
+          default: false
+          nullable: true
+          example: true
+    ExcelOptions:
+      description: Options applied to Excel output.
+      type: object
+      nullable: true
+      properties:
+        isSummary:
+          description: >-
+            Specifies that a summary will be generated instead of the full
+            results output.
+
+            Only the "applyFilters" option will have any affect if this is true.
+            By default this
+
+            option is set to false.
+          type: boolean
+          default: false
+          example: false
+          nullable: true
+        applySavedNAFormatting:
+          description: >-
+            Specifies that the NA formatting specified in the column format menu
+            will be used to
+
+            indicate unavailable data in your output. By default, this option is
+            set to false,
+
+            which means "NA" will be used to indicate the data that is not
+            available.
+          type: boolean
+          default: false
+          example: true
+          nullable: true
+        applyFilters:
+          description: >-
+            Specifies whether the filters present in the screen should be
+            applied to the output.
+
+            By default, this option is set to false, which means that filters
+            will not be applied
+
+            and all securities passing the screen will be included in the
+            output.
+          type: boolean
+          default: false
+          example: false
+          nullable: true
+        applyAlternateRowShading:
+          description: >-
+            Specifies whether every other row shading should be applied to the
+            output. By default,
+
+            this option is set to false, which means that every other row
+            shading will not be included
+
+            in the download.
+          type: boolean
+          default: false
+          example: true
+          nullable: true
+        applyExcelOutlining:
+          description: >-
+            Specifies that the Download Outline feature will be used when
+            putting the screen's groupings
+
+            into an Excel spreadsheet. By default, this option is set to false.
+          type: boolean
+          default: false
+          example: true
+          nullable: true
+        condenseTabsToOneSheet:
+          description: >-
+            Specifies whether the report will be downloaded into a single
+            spreadsheet, or into separate
+
+            sheets following the tabs in the report. By default, this option is
+            set to false.
+          type: boolean
+          default: false
+          example: false
+          nullable: true
+    PdfOptions:
+      description: Options applied to PDF output.
+      type: object
+      nullable: true
+      properties:
+        applyAlternateRowShading:
+          description: >-
+            Specifies whether every other row shading should be applied to the
+            output. By default,
+
+            this option is set to false, which means that every other row
+            shading will not be included
+
+            in the download.
+          type: boolean
+          default: false
+          example: true
+          nullable: true
+        applyFilters:
+          description: >-
+            Specifies whether the filters present in the screen should be
+            applied to the output.
+
+            By default, this option is set to false, which means that filters
+            will not be applied
+
+            and all securities passing the screen will be included in the
+            output.
+          type: boolean
+          default: false
+          example: false
+          nullable: true
+        applyTextWrapping:
+          description: >-
+            Specifies that the text in cells be wrapped if there are more
+            characters than can fit in
+
+            the space available. By default, this option is set to true.
+          type: boolean
+          default: true
+          example: true
+          nullable: true
+        orientationLandscape:
+          description: >-
+            Specifies the page orientation of the downloaded file. Value true
+            for Landscape, false
+
+            for Portrait. By default this is set to false.
+          type: boolean
+          default: false
+          example: true
+          nullable: true
   headers:
     StatusLocation:
       description: Relative location to poll for job status
@@ -729,6 +1145,13 @@ components:
       schema:
         type: string
         example: '1'
+    Content-Disposition:
+      description: >-
+        Specifies response has an attachment and the filename with extension
+        that will match the content-type.
+      schema:
+        type: string
+        example: attachment; filename="KPI_AIR.pdf"
   securitySchemes:
     FactSetOAuth2:
       type: oauth2
@@ -797,6 +1220,27 @@ paths:
       responses:
         '202':
           $ref: '#/components/responses/SubmitArchiveOFDBResponse'
+        '400':
+          $ref: '#/components/responses/Error400InvalidRequest'
+        '401':
+          $ref: '#/components/responses/Error401Response'
+        '429':
+          $ref: '#/components/responses/Error429Response'
+        '500':
+          $ref: '#/components/responses/Generic500ErrorResponse'
+      tags:
+        - Screening Operations
+  /job/export:
+    post:
+      description: >-
+        Begins the calculate and export of screen to specified file format.
+        Subject to rate limiting by serial.
+      operationId: submitExport
+      requestBody:
+        $ref: '#/components/requestBodies/submitExportRequest'
+      responses:
+        '202':
+          $ref: '#/components/responses/SubmitExportResponse'
         '400':
           $ref: '#/components/responses/Error400InvalidRequest'
         '401':
@@ -941,6 +1385,33 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/PaginatedCalculateResponse'
+        '202':
+          $ref: '#/components/responses/CalculateInProgressResponse'
+        '400':
+          $ref: '#/components/responses/Error400ScreenOpen'
+        '401':
+          $ref: '#/components/responses/Error401Response'
+        '403':
+          $ref: '#/components/responses/Error403Response'
+        '404':
+          $ref: '#/components/responses/Error404Response'
+        '410':
+          $ref: '#/components/responses/Error410Response'
+        '429':
+          $ref: '#/components/responses/Error429Response'
+        '500':
+          $ref: '#/components/responses/Generic500ErrorResponse'
+      tags:
+        - Screening Operations
+  /job/{id}/export:
+    get:
+      description: Retrieve results of an export request.
+      operationId: getExportResults
+      parameters:
+        - $ref: '#/components/parameters/ScreenCalcID'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExportResponse'
         '202':
           $ref: '#/components/responses/CalculateInProgressResponse'
         '400':

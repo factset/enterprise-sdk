@@ -96,6 +96,9 @@ public class FederationsApi {
    * Get a federation.
    * Get a specific federation resource.
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return FederationResource
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -109,14 +112,17 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public FederationResource getFederation(String id) throws ApiException {
-    return getFederationWithHttpInfo(id).getData();
+  public FederationResource getFederation(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return getFederationWithHttpInfo(id, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
    * Get a federation.
    * Get a specific federation resource.
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;FederationResource&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -130,7 +136,7 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FederationResource> getFederationWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<FederationResource> getFederationWithHttpInfo(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -148,6 +154,9 @@ public class FederationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -182,8 +191,9 @@ public class FederationsApi {
    * @param filter Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. (optional)
    * @param startIndex Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
    * @param count Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
-   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional)
-   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return FederationResourceList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -197,8 +207,8 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public FederationResourceList getFederations(String filter, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
-    return getFederationsWithHttpInfo(filter, startIndex, count, attributes, excludedAttributes).getData();
+  public FederationResourceList getFederations(String filter, Integer startIndex, Integer count, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return getFederationsWithHttpInfo(filter, startIndex, count, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
@@ -207,8 +217,9 @@ public class FederationsApi {
    * @param filter Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \&quot;re\&quot; operator for regular expression matching against string attributes. When using the \&quot;re\&quot; operator, do not include slash characters as delimiters (e.g. use \&quot;foo\&quot; instead of \&quot;/foo/\&quot;.) Also note the case-sensitivity of the regular expression corresponds to the \&quot;caseExact\&quot; characteristic of the target attribute. (optional)
    * @param startIndex Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
    * @param count Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
-   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional)
-   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;FederationResourceList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -222,7 +233,7 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FederationResourceList> getFederationsWithHttpInfo(String filter, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
+  public ApiResponse<FederationResourceList> getFederationsWithHttpInfo(String filter, Integer startIndex, Integer count, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -237,8 +248,9 @@ public class FederationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startIndex", startIndex));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -271,6 +283,9 @@ public class FederationsApi {
    * Patch a federation.
    * Modify a specific federation resource (i.e. add, replace, or remove attributes of a federation resource.)
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @param patch  (optional)
    * @return FederationResource
    * @throws ApiException if fails to make API call
@@ -285,14 +300,17 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public FederationResource modifyFederation(String id, Patch patch) throws ApiException {
-    return modifyFederationWithHttpInfo(id, patch).getData();
+  public FederationResource modifyFederation(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes, Patch patch) throws ApiException {
+    return modifyFederationWithHttpInfo(id, attributes, excludedAttributes, additionalAttributes, patch).getData();
   }
 
   /**
    * Patch a federation.
    * Modify a specific federation resource (i.e. add, replace, or remove attributes of a federation resource.)
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @param patch  (optional)
    * @return ApiResponse&lt;FederationResource&gt;
    * @throws ApiException if fails to make API call
@@ -307,7 +325,7 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FederationResource> modifyFederationWithHttpInfo(String id, Patch patch) throws ApiException {
+  public ApiResponse<FederationResource> modifyFederationWithHttpInfo(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes, Patch patch) throws ApiException {
     Object localVarPostBody = patch;
     
     // verify the required parameter 'id' is set
@@ -325,6 +343,9 @@ public class FederationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -358,6 +379,9 @@ public class FederationsApi {
    * Replace a specific federation resource with another provided federation resource.
    * @param id ID of resource. (required)
    * @param federationResource Federation resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return FederationResource
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -372,8 +396,8 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public FederationResource replaceFederation(String id, FederationResource federationResource) throws ApiException {
-    return replaceFederationWithHttpInfo(id, federationResource).getData();
+  public FederationResource replaceFederation(String id, FederationResource federationResource, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return replaceFederationWithHttpInfo(id, federationResource, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
@@ -381,6 +405,9 @@ public class FederationsApi {
    * Replace a specific federation resource with another provided federation resource.
    * @param id ID of resource. (required)
    * @param federationResource Federation resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;FederationResource&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -395,7 +422,7 @@ public class FederationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FederationResource> replaceFederationWithHttpInfo(String id, FederationResource federationResource) throws ApiException {
+  public ApiResponse<FederationResource> replaceFederationWithHttpInfo(String id, FederationResource federationResource, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = federationResource;
     
     // verify the required parameter 'id' is set
@@ -418,6 +445,9 @@ public class FederationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     

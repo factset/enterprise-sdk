@@ -107,6 +107,9 @@ public class LocationsApi {
    * Create a location.
    * Create a location resource.
    * @param locationResource Location resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return LocationResource
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -120,14 +123,17 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResource createLocation(LocationResource locationResource) throws ApiException {
-    return createLocationWithHttpInfo(locationResource).getData();
+  public LocationResource createLocation(LocationResource locationResource, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return createLocationWithHttpInfo(locationResource, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
    * Create a location.
    * Create a location resource.
    * @param locationResource Location resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;LocationResource&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -141,7 +147,7 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResource> createLocationWithHttpInfo(LocationResource locationResource) throws ApiException {
+  public ApiResponse<LocationResource> createLocationWithHttpInfo(LocationResource locationResource, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = locationResource;
     
     // verify the required parameter 'locationResource' is set
@@ -158,6 +164,9 @@ public class LocationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -190,6 +199,9 @@ public class LocationsApi {
    * Get a location.
    * Get a specific location resource.
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return LocationResource
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -203,14 +215,17 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResource getLocation(String id) throws ApiException {
-    return getLocationWithHttpInfo(id).getData();
+  public LocationResource getLocation(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return getLocationWithHttpInfo(id, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
    * Get a location.
    * Get a specific location resource.
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;LocationResource&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -224,7 +239,7 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResource> getLocationWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<LocationResource> getLocationWithHttpInfo(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -242,6 +257,9 @@ public class LocationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -278,8 +296,9 @@ public class LocationsApi {
    * @param sortOrder The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. (optional)
    * @param startIndex Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
    * @param count Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
-   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional)
-   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return LocationResourceList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -293,8 +312,8 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResourceList getLocations(String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
-    return getLocationsWithHttpInfo(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes).getData();
+  public LocationResourceList getLocations(String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return getLocationsWithHttpInfo(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
@@ -305,8 +324,9 @@ public class LocationsApi {
    * @param sortOrder The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are &#39;&#39;ascending&#39;&#39; (the default value) or &#39;&#39;descending&#39;&#39;. This parameter may not be used unless the *sortBy* parameter is also specified. (optional)
    * @param startIndex Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional)
    * @param count Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional)
-   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* parameter. (optional)
-   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* parameter. (optional)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;LocationResourceList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -320,7 +340,7 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResourceList> getLocationsWithHttpInfo(String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, String attributes, String excludedAttributes) throws ApiException {
+  public ApiResponse<LocationResourceList> getLocationsWithHttpInfo(String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -337,8 +357,9 @@ public class LocationsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortOrder", sortOrder));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startIndex", startIndex));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -371,6 +392,9 @@ public class LocationsApi {
    * Patch a location.
    * Modify a specific location resource (i.e. add, replace, or remove attributes of a location resource.)
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @param patch  (optional)
    * @return LocationResource
    * @throws ApiException if fails to make API call
@@ -386,14 +410,17 @@ public class LocationsApi {
        <tr><td> 501 </td><td> Operation is not supported. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResource modifyLocation(String id, Patch patch) throws ApiException {
-    return modifyLocationWithHttpInfo(id, patch).getData();
+  public LocationResource modifyLocation(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes, Patch patch) throws ApiException {
+    return modifyLocationWithHttpInfo(id, attributes, excludedAttributes, additionalAttributes, patch).getData();
   }
 
   /**
    * Patch a location.
    * Modify a specific location resource (i.e. add, replace, or remove attributes of a location resource.)
    * @param id ID of resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @param patch  (optional)
    * @return ApiResponse&lt;LocationResource&gt;
    * @throws ApiException if fails to make API call
@@ -409,7 +436,7 @@ public class LocationsApi {
        <tr><td> 501 </td><td> Operation is not supported. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResource> modifyLocationWithHttpInfo(String id, Patch patch) throws ApiException {
+  public ApiResponse<LocationResource> modifyLocationWithHttpInfo(String id, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes, Patch patch) throws ApiException {
     Object localVarPostBody = patch;
     
     // verify the required parameter 'id' is set
@@ -427,6 +454,9 @@ public class LocationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     
@@ -460,6 +490,9 @@ public class LocationsApi {
    * Replace a specific location resource with another provided location resource.
    * @param id ID of resource. (required)
    * @param locationResource Location resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return LocationResource
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -474,8 +507,8 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public LocationResource replaceLocation(String id, LocationResource locationResource) throws ApiException {
-    return replaceLocationWithHttpInfo(id, locationResource).getData();
+  public LocationResource replaceLocation(String id, LocationResource locationResource, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
+    return replaceLocationWithHttpInfo(id, locationResource, attributes, excludedAttributes, additionalAttributes).getData();
   }
 
   /**
@@ -483,6 +516,9 @@ public class LocationsApi {
    * Replace a specific location resource with another provided location resource.
    * @param id ID of resource. (required)
    * @param locationResource Location resource. (required)
+   * @param attributes Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters. (optional)
+   * @param excludedAttributes Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters. (optional)
+   * @param additionalAttributes Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters. (optional)
    * @return ApiResponse&lt;LocationResource&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -497,7 +533,7 @@ public class LocationsApi {
        <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LocationResource> replaceLocationWithHttpInfo(String id, LocationResource locationResource) throws ApiException {
+  public ApiResponse<LocationResource> replaceLocationWithHttpInfo(String id, LocationResource locationResource, java.util.List<String> attributes, java.util.List<String> excludedAttributes, java.util.List<String> additionalAttributes) throws ApiException {
     Object localVarPostBody = locationResource;
     
     // verify the required parameter 'id' is set
@@ -520,6 +556,9 @@ public class LocationsApi {
     java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "attributes", attributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "excludedAttributes", excludedAttributes));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "additionalAttributes", additionalAttributes));
 
     
     

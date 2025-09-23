@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ChangePassword** | [**ServiceProviderConfigChangePassword**](ServiceProviderConfigChangePassword.md) |  | 
 **Sort** | [**ServiceProviderConfigSort**](ServiceProviderConfigSort.md) |  | 
 **Etag** | [**ServiceProviderConfigEtag**](ServiceProviderConfigEtag.md) |  | 
-**AuthenticationSchemes** | [**ServiceProviderConfigAuthenticationSchemes**](ServiceProviderConfigAuthenticationSchemes.md) |  | 
+**AuthenticationSchemes** | [**List&lt;AuthenticationScheme&gt;**](AuthenticationScheme.md) | A complex type that specifies supported authentication scheme properties. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

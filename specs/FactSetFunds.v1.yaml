@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.5.0
+  version: 1.6.0
   title: FactSet Funds API
   contact:
     name: FactSet Research Systems
@@ -2303,6 +2303,13 @@ components:
           type: string
           example: 002HJD-E
           nullable: true
+        isin:
+          description: >-
+            Unique 12-character identifier for the requested fund, as per the
+            International Securities Identification Number (ISIN) standard.
+          type: string
+          example: US09251G5071
+          nullable: true
         requestId:
           description: The requested Id sent as input.
           type: string
@@ -2385,6 +2392,11 @@ components:
           type: string
           example: BlackRock Inc.
           nullable: true
+        issuerLegacyName:
+          description: The Issuer Legacy Name in proper format.
+          type: string
+          example: BlackRock Inc.
+          nullable: true
         legalStructure:
           description: >-
             The legal structure of the fund, e.g. Open-Ended Fund, close-ended
@@ -2448,6 +2460,16 @@ components:
           type: string
           format: date
           example: '2021-03-26'
+          nullable: true
+        primaryAdvisor:
+          description: The name of the fund's primary advisor.
+          type: string
+          example: BlackRock Advisors LLC
+          nullable: true
+        subAdvisor:
+          description: The name of the fund's sub-advisor.
+          type: string
+          example: DWS Investment GmbH
           nullable: true
         shrClass:
           description: The Funds Share class type name in proper format.
@@ -5116,6 +5138,7 @@ components:
             fsymRegionalId: SJY03Z-R
             fsymTickerRegion: MABAX-US
             fsymUltimateParentId: 002HJD-E
+            isin: US09251G5071
             requestId: MABAX-US
             activeFlag: 1
             activelyManagedFlag: 1
@@ -5146,6 +5169,7 @@ components:
               issuers.
             issuerId: '7'
             issuerName: BlackRock, Inc.
+            issuerLegacyName: BlackRock, Inc.
             legalStructure: Open-Ended Fund
             leverageFactor: 0
             leverageInverse: Neither
@@ -5181,6 +5205,8 @@ components:
               50 companies.
             priceFirstDate: '2008-05-30'
             priceRecentDate: '2024-04-05'
+            primaryAdvisor: BlackRock Advisors LLC
+            subAdvisor: null
             shrClass: Institutional Class
             shrClassActiveFlag: 1
             shrClsActivelyManagedFlag: 1

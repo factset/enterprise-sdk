@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetFunds",
   "projectName": "fds.sdk.FactSetFunds",
-  "packageVersion": "2.1.0",
+  "packageVersion": "2.2.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Funds client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetFunds/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetFunds/2.1.0",
+  "httpUserAgent": "fds-sdk/python/FactSetFunds/2.2.0",
   "files": {
     "LICENSE": {}
   }

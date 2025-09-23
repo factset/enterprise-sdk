@@ -60,7 +60,7 @@ class Meta(ModelNormal):
 
     validations = {
         ('number_of_results',): {
-            'inclusive_maximum': 15,
+            'inclusive_maximum': 50,
             'inclusive_minimum': 1,
         },
     }

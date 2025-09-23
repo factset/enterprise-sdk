@@ -111,8 +111,13 @@ class DealsPublicRequestBody(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, start_date, end_date, status, *args, **kwargs):  # noqa: E501
         """DealsPublicRequestBody - a model defined in OpenAPI
+
+        Args:
+            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+            status (Status):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,9 +150,6 @@ class DealsPublicRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
-            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
-            status (Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -175,6 +177,9 @@ class DealsPublicRequestBody(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.start_date = start_date
+        self.end_date = end_date
+        self.status = status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,8 +200,13 @@ class DealsPublicRequestBody(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, start_date, end_date, status, *args, **kwargs):  # noqa: E501
         """DealsPublicRequestBody - a model defined in OpenAPI
+
+        Args:
+            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+            status (Status):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,9 +239,6 @@ class DealsPublicRequestBody(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
-            end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
-            status (Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,6 +264,9 @@ class DealsPublicRequestBody(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.start_date = start_date
+        self.end_date = end_date
+        self.status = status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

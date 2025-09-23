@@ -120,9 +120,9 @@ namespace FactSet.SDK.VectorData.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // NumberOfResults (int) maximum
-            if (this.NumberOfResults > (int)15)
+            if (this.NumberOfResults > (int)50)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfResults, must be a value less than or equal to 15.", new [] { "NumberOfResults" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfResults, must be a value less than or equal to 50.", new [] { "NumberOfResults" });
             }
 
             // NumberOfResults (int) minimum

@@ -23,10 +23,13 @@ class DealsPublicRequestBody {
      * Constructs a new <code>DealsPublicRequestBody</code>.
      * Deals Request Body
      * @alias module:model/DealsPublicRequestBody
+     * @param startDate {String} The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+     * @param endDate {String} The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
+     * @param status {module:model/Status} 
      */
-    constructor() { 
+    constructor(startDate, endDate, status) { 
         
-        DealsPublicRequestBody.initialize(this);
+        DealsPublicRequestBody.initialize(this, startDate, endDate, status);
     }
 
     /**
@@ -34,7 +37,10 @@ class DealsPublicRequestBody {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, startDate, endDate, status) { 
+        obj['startDate'] = startDate;
+        obj['endDate'] = endDate;
+        obj['status'] = status;
     }
 
     /**
