@@ -1,0 +1,1923 @@
+openapi: 3.0.0
+info:
+  title: Investment Research API
+  version: 0.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  description: >-
+
+    The Investment Research API provides a comprehensive set of functionalities
+    for searching and retrieving research reports and documents from various
+    contributors.
+
+
+    This API is designed to expose document search and document retrieval
+    functionality. A document search will allow a request to query FactSet
+    document databases based on certain search criteria specified in the
+    request.
+
+
+    FactSet collects research reports and models from brokers, independent
+    research providers, market research firms, rating agencies, and other
+    publishers of research. These documents are processed and made available to
+    clients within about two minutes of receipt.
+
+
+    FactSet delivers this content through two main products:
+
+
+    **FactSet Research Connect** – real-time research for investment managers
+    entitled by the contributors to access the content.
+
+
+    **FactSet Aftermarket Research** – delayed research for investment bankers
+    permitted by contributors to purchase the research.
+
+
+    The meta endpoints namely time-zones, categories, research-contributors,
+    research-analysts, security-types and asset-types provide comprehensive
+    lists of data that is used in the research endpoints.
+
+      
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/investment-research-api
+servers:
+  - url: https://api.factset.com/content/investment-research/v0
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+paths:
+  /search:
+    post:
+      summary: >-
+        Retrieve investment research documents and related metadata within
+        FactSet coverage.
+      tags:
+        - Research
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              Request by Date:
+                $ref: '#/components/examples/ByDate'
+              Request by Relative Dates:
+                $ref: '#/components/examples/ByRelativeDates'
+      responses:
+        '200':
+          description: >-
+            Array of downloadable URLs consisting of investment research
+            documents with related metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvestmentResearchResponse'
+              examples:
+                Sample Example:
+                  value:
+                    data:
+                      - requestId: IBM-US
+                        documents:
+                          - headline: >-
+                              Zukin's Next Week Today 4/7/2023 (Wolfe Research)
+                              97 pages
+                            source: FRC
+                            allIds:
+                              - IBM-US
+                            primaryIds:
+                              - IBM-US
+                            storyDateTime: '2023-03-07T19:40:26Z'
+                            categories:
+                              - CN:US,DT:AN-FILNS,DT:FILNS, DT:FILNS
+                            link: >-
+                              https://api.factset.com/investment-research/v0/story?key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+                            contributorName: Wolfe Research
+                            contributorId: 6684559
+                            analystName:
+                              - Alex Zukin
+                              - Joshua Tilton
+                              - Allan Verkhovski
+                              - Strecker Backe
+                              - Ryan Krieger
+                              - Arsenije Matovic
+                            analystId:
+                              - 8240309
+                              - 15919163
+                              - 16345620
+                              - 0
+                              - 16853000
+                              - 0
+                            pages: 97
+                            documentId: 20230307-5b36f2cf-49bd-ed11-abc3-12bc89a8f273_0
+                      - requestId: MSFT-US
+                        documents: []
+                      - requestId: M
+                        error:
+                          code: parameterError
+                          title: Invalid id
+                          detail: >-
+                            This id does not follow the format of FactSet
+                            exchange symbol, CUSIP, ISIN, Entity ID or SEDOL.
+                    meta:
+                      pagination:
+                        isEstimatedTotal: false
+                        total: 25
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+      operationId: getInvestmentResearchData
+      description: >-
+        The /search endpoint returns the details about research documents,
+        including headline, source, contributors, analyst information,
+        categories, document links, relevant IDs and publication date.
+  /count:
+    post:
+      tags:
+        - Research
+      operationId: getCount
+      summary: Returns the count of documents for specified source.
+      description: Returns the count of documents along with other response fields.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountRequest'
+            examples:
+              Count by Date:
+                $ref: '#/components/examples/CountByDate'
+              Count by Relative Dates:
+                $ref: '#/components/examples/CountByRelativeDates'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/CountResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/time-zones:
+    get:
+      tags:
+        - Meta
+      operationId: getTimezones
+      summary: Returns the time zones.
+      description: >-
+        Retrieves and delivers a comprehensive list of all available
+        `time-zones`supported by API.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeZonesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/TimeZonesResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/categories:
+    get:
+      tags:
+        - Meta
+      operationId: getCategories
+      summary: Returns the categories.
+      description: >-
+        Retrieves and delivers a comprehensive list of all available
+        `categories`.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/CategoriesResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/research-contributors:
+    get:
+      tags:
+        - Meta
+      operationId: getResearchContributor
+      summary: Returns the research contributors' details.
+      description: >-
+        Retrieves and delivers a comprehensive list of all the Contributor IDs
+        that your firm is permissioned to view.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResearchContributorResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/ResearchContributorResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/research-analysts:
+    get:
+      tags:
+        - Meta
+      operationId: getResearchAnalyst
+      summary: Returns the research analysts' details.
+      description: >-
+        Retrieves and delivers a comprehensive list of all the analysts
+        available for the individual Contributor. The results will provide an
+        analyst name and the analyst’s id number.
+      parameters:
+        - $ref: '#/components/parameters/contributorsId'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResearchAnalystResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/ResearchAnalystResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/security-types:
+    get:
+      tags:
+        - Meta
+      operationId: getSecurityTypes
+      summary: Returns the codes indicating security types.
+      description: >-
+        Retrieves and delivers a comprehensive list all codes indicating
+        security types.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityTypesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/SecurityTypesResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /meta/asset-types:
+    get:
+      tags:
+        - Meta
+      operationId: getAssetTypes
+      summary: Returns the codes indicating asset types.
+      description: >-
+        Retrieves and delivers a comprehensive list all codes indicating asset
+        types.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetTypesResponse'
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/AssetTypesResponseExample'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: >-
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are
+            connecting from. For more help, select the Report Issue in the top
+            right corner of this Developer Portal specification card and choose
+            Connectivity 401 or 403 Responses.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: >-
+            The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the
+            server is refusing to respond. Please reach out to FactSet Account
+            Team for assistance with authorization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    contributorsId:
+      schema:
+        type: integer
+      in: query
+      required: true
+      name: contributorId
+      explode: false
+      example: 27513283
+      description: >-
+        Contributor id. Use the ```/meta/research-contributors``` endpoint to
+        get the list of permissioned contributors.
+  schemas:
+    SearchRequest:
+      title: Search Request Body
+      description: Search request body elements
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SearchRequestBody'
+        meta:
+          type: object
+          description: meta object
+          properties:
+            pagination:
+              type: object
+              description: meta object
+              properties:
+                limit:
+                  type: integer
+                  format: int32
+                  minimum: 0
+                  maximum: 500
+                  default: 25
+                  description: Number of results to return per page.
+                offset:
+                  type: integer
+                  format: int32
+                  default: 0
+                  description: Non-negative number of entries to skip.
+            sort:
+              description: >
+                Sorting the results in chronological (oldest to newest) or
+                reverse chronological (newest to oldest) order. 
+
+                 *  `-storyDateTime` - sorting results in reverse chronological (descending) order. This is the default value if
+                    the sort parameter isn't used in the query.
+                    
+                 *  ` storyDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the
+                   API has a 10-year searching limitation. 
+                      type: array
+              type: array
+              items:
+                type: string
+                enum:
+                  - storyDateTime
+                  - '-storyDateTime'
+              maxItems: 1
+              default:
+                - '-storyDateTime'
+      required:
+        - data
+    SearchRequestBody:
+      title: Search Request Body
+      description: Search request body elements
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/Ids'
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        startDateRelative:
+          $ref: '#/components/schemas/StartDateRelative'
+        endDateRelative:
+          $ref: '#/components/schemas/EndDateRelative'
+        sources:
+          $ref: '#/components/schemas/Sources'
+        timezone:
+          $ref: '#/components/schemas/Timezone'
+        categories:
+          $ref: '#/components/schemas/Categories'
+        primaryId:
+          $ref: '#/components/schemas/PrimaryId'
+        searchText:
+          $ref: '#/components/schemas/SearchText'
+        contributorId:
+          $ref: '#/components/schemas/ContributorId'
+        analystId:
+          $ref: '#/components/schemas/AnalystId'
+        reportFoci:
+          $ref: '#/components/schemas/ReportFoci'
+        securityTypes:
+          $ref: '#/components/schemas/SecurityTypes'
+        assetTypes:
+          $ref: '#/components/schemas/AssetTypes'
+        assetClasses:
+          $ref: '#/components/schemas/AssetClasses'
+        coverageActions:
+          $ref: '#/components/schemas/CoverageActions'
+        compilationIndicators:
+          $ref: '#/components/schemas/CompilationIndicators'
+        disciplines:
+          $ref: '#/components/schemas/Disciplines'
+        issuerTypes:
+          $ref: '#/components/schemas/IssuerTypes'
+        periodicities:
+          $ref: '#/components/schemas/Periodicities'
+        purposes:
+          $ref: '#/components/schemas/Purposes'
+        ratingActions:
+          $ref: '#/components/schemas/RatingActions'
+        researchApproaches:
+          $ref: '#/components/schemas/ResearchApproaches'
+        targetActions:
+          $ref: '#/components/schemas/TargetActions'
+        weightingActions:
+          $ref: '#/components/schemas/WeightingActions'
+      required:
+        - ids
+    Ids:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      example:
+        - MODN-US
+      description: >-
+        Requested symbols or securities.  This is a comma-separated list with a
+        maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
+        CUSIP, ISIN, Entity ID and SEDOL. 
+    StartDate:
+      type: string
+      format: date
+      example: '2012-12-21'
+      description: >
+        Start Date. Format is YYYY-MM-DD. If the parameter is not provided, will
+        return the today's results.
+    EndDate:
+      type: string
+      format: date
+      example: '2012-12-23'
+      description: >
+        End Date. Format is YYYY-MM-DD. If the parameter is not provided, will
+        return the today's results.
+    StartDateRelative:
+      type: integer
+      format: int32
+      default: '0'
+      example: -1
+      description: >
+        The earliest date of the feed file the API should fetch based on the
+        file timestamp.
+
+
+        - Format: Specify the date using a relative term as an integer: '0' for
+        today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative
+        values are used to represent past dates.
+
+
+
+        - *Either `startDate` or `startDateRelative` should be used, but not
+        both.*
+
+        - *If both `startDate` and `startDateRelative` are provided in the same
+        request, the API will return an error.*
+
+        - *If users provide future dates in requests for `startDate` or
+        `startDateRelative`, the API will not return any data.*
+    EndDateRelative:
+      type: integer
+      format: int32
+      default: '0'
+      example: -1
+      description: >
+        The latest date of the feed file the API should fetch based on the file
+        timestamp. 
+
+
+        Format: Specify the date using a relative term as an integer: '0' for
+        today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative
+        values are used to represent past dates.
+
+
+        - Either `endDate` or `endDateRelative` should be used, but not both.
+
+        - If both `endDate` and `endDateRelative` are provided in the same
+        request, the API will return an error.
+
+        - If users provide future dates in requests for `endDate` or
+        `endDateRelative`, the API will not return any data.
+    PrimaryId:
+      type: boolean
+      default: false
+      description: Type of identifier search — set to true to search by primary identifier.
+    Timezone:
+      type: string
+      default: America/New_York
+      description: >-
+        Returns a list of all time zones supported by the API, formatted in
+        POSIX style (e.g., `America/New_York`, `Africa/Malabo`). These time
+        zones are automatically adjusted for daylight saving time where
+        applicable. This list is used for setting or converting story dates and
+        times accurately across different regions.
+    Sources:
+      description: >-
+        Code for document source to include.  This is a comma-separated list.
+        Available values:- 
+
+          * FRC - FactSet Research Connect
+          
+          * AMR - Aftermarket Research
+          
+        If this parameter is not provided, data is queried from the entitled
+        sources.
+      type: array
+      items:
+        type: string
+        enum:
+          - FRC
+          - AMR
+      uniqueItems: true
+    Categories:
+      type: array
+      items:
+        type: string
+      example:
+        - SB:ANLCH
+        - IN:OIL
+      description: >-
+        Code for categories to include.  This is a comma-separated list. Use the
+        ```/meta/categories``` endpoint to get the list of available categories.
+
+
+        Default = All categories.
+    SearchText:
+      type: string
+      description: >
+        Restricts the search to include only document stories that include the
+        searched text. This parameter supports boolean operators as well.
+      example: Officer
+    ContributorId:
+      type: array
+      items:
+        type: integer
+      example:
+        - 27513283
+        - 27323471
+      description: >-
+        One or more contributor codes. This is a comma-separated list. Use the
+        ```/meta/research-contributors``` endpoint to get the list of
+        permissioned contributors. If this parameter is not used, by default
+        will get all permissioned contributors.
+    AnalystId:
+      type: array
+      items:
+        type: integer
+      example:
+        - 6885167
+        - 6885168
+      description: >-
+        One or more analyst codes of authors who were the primary or secondary
+        authors of the documents. This is a comma-separated list. Use the
+        ```/meta/research-analysts``` endpoint to get the list of permissioned
+        analysts for the provided contibutor ID. If this parameter is omitted,
+        the result set is not filtered by analyst code, and the corresponding
+        analyst field(s) and details are not returned in the response.
+    AssetTypes:
+      type: array
+      items:
+        type: string
+      example:
+        - Agencycredit
+        - Assetbackedcredit
+      description: >-
+        One or more codes indicating asset types. A This is a comma-separated
+        list. Use the ```/meta/asset-types``` endpoint to get the list of
+        available asset-types. If this parameter is omitted, the result set is
+        not filtered by asset types, and the corresponding asset type field and
+        details are not returned in the response.
+    SecurityTypes:
+      type: array
+      items:
+        type: string
+      example:
+        - Agencycredit
+        - Agencypassthroughsecurities
+      description: >-
+        One or more codes indicating security types. A This is a comma-separated
+        list. Use the ```/meta/security-types``` endpoint to get the list of
+        available security types. If this parameter is omitted, the result set
+        is not filtered by security type, and the corresponding security type
+        fields and details are not returned in the response.
+    ReportFoci:
+      description: >
+        One or more classification codes indicating the primary focus of the
+        document. These codes help categorize the content based on various
+        dimensions such as the subject entity, geographic scope, asset
+        characteristics, and financial classification. If this parameter is
+        omitted, the result set is not filtered by reportFoci code, and the
+        corresponding report focus fields and details are not returned in the
+        response.
+
+        The supported types are:
+
+          - Issuer - Identifies the specific company or entity the document is about.
+          - SectorIndustry - Indicates the relevant economic sector and industry classification.
+          - Region - Denotes the broader geographic area covered.
+          - Country - Specifies the particular country in focus.
+          - AssetClass - Defines the general asset category (e.g., Equity, Fixed Income, Commodities).
+          - AssetType - Represents the specific type of asset within the asset class.
+          - SecurityType - Describes the structure or legal form of the security.
+          - Discipline - Indicates the analytical lens or domain.
+          - Index - References a benchmark index discussed or tracked in the document.
+          - Exchange - Points to the stock or commodity exchange relevant to the content.
+          - Market - Represents the broader financial market or segment involved.
+      type: array
+      items:
+        type: string
+        enum:
+          - Issuer
+          - SectorIndustry
+          - Region
+          - Country
+          - AssetClass
+          - AssetType
+          - SecurityType
+          - Discipline
+          - Index
+          - Exchange
+          - Market
+      uniqueItems: true
+    AssetClasses:
+      description: >
+        One or more codes indicating asset classes covered in the document. The
+        supported classifications are:
+
+          - Commodity - Includes physical goods like oil, gold, and agricultural products.
+          - Currency - Covers foreign exchange and currency-related instruments.
+          - Equity - Refers to ownership interests such as stocks or shares.
+          - FixedIncome - Includes debt instruments like bonds and treasury bills.
+          
+          If this parameter is omitted, the result set is not filtered by asset class, and the corresponding fields and details are not returned in the response.
+      type: array
+      items:
+        type: string
+        enum:
+          - Commodity
+          - Currency
+          - Equity
+          - FixedIncome
+      uniqueItems: true
+    CoverageActions:
+      description: >
+        One or more codes indicating coverage actions discussed in the document.
+        The supported actions are:
+
+          - Drop - Permanent discontinuation of research coverage. No further updates or publications will be issued for the entity.
+          
+          - Initiate - Formal commencement of research coverage. Typically includes an initial report and sets ongoing analytical attention.
+          
+          - Resume - Reinstatement of previously suspended or dropped coverage. Research publication and updates resume for the entity.
+          
+          - Suspend - Temporary halt in research coverage. No updates will be issued during this period, but coverage may be resumed later.
+          
+           If this parameter is omitted, the result set is not filtered by coverage action, and the corresponding coverage action field and details are not returned in the response.
+      type: array
+      items:
+        type: string
+        enum:
+          - Drop
+          - Initiate
+          - Resume
+          - Suspend
+      uniqueItems: true
+    CompilationIndicators:
+      type: boolean
+      description: >-
+        An indication of whether the document contains new material or is a
+        compilation/summary of separately published material. If this parameter
+        is not used, it will not return whether the record in the result has
+        complilation indicator or not.
+         
+         
+    Disciplines:
+      description: >
+        One or more codes indicating the disciplines reflected in the document.
+        The supported disciplines:
+          - Investment - Coverage related to investment assets, individual securities, or portfolio-level analysis.
+          - Strategy - Coverage concerning broader investment strategies, asset allocation, and portfolio construction insights.
+          - Economics - Coverage involving economic analysis, including macroeconomic trends, monetary policy, inflation, GDP, and related indicators.
+          
+        If this parameter is omitted, the result set is not filtered by
+        discipline, and the corresponding discipline field and details are not
+        returned in the response.
+      type: array
+      items:
+        type: string
+        enum:
+          - Investment
+          - Strategy
+          - Economics
+      uniqueItems: true
+    IssuerTypes:
+      description: >
+        One or more codes indicating issuer types covered in the document. The
+        supported issuer types:
+          - Agency - Debt issued by a government-sponsored or supported agency.
+          - Corporate - Securities issued by private or publicly traded corporations. 
+          - Exchange - Instruments or debt issued via an exchange platform—typically exchange-traded notes or listed debt.
+          - Municipality - Bonds issued by state, local, or municipal governments.
+          - MutualFund - Shares issued by an open-end investment fund that pools investor assets to buy securities.
+          - REIT - Equity or debt securities issued by a Real Estate Investment Trust, which invests in income-generating property.
+          - Sovereign - Debt issued by a national government.
+          - SupranationalOrganizations - Debt issued by multinational agencies or international institutions.
+          
+        If this parameter is omitted, the result set is not filtered by issuer
+        types, and the corresponding issuer type field and details are not
+        returned in the response.
+      type: array
+      items:
+        type: string
+        enum:
+          - Agency
+          - Corporate
+          - Exchange
+          - Municipality
+          - MutualFund
+          - REIT
+          - Sovereign
+          - SupranationalOrganizations
+      uniqueItems: true
+    Periodicities:
+      description: >
+        One or more codes indicating the fixed time interval at which the
+        document is published.   The supported periodicities:
+          - Annually - Document is published once every year.
+          - Daily - Document is published every day.
+          - EveryTwoWeeks - Document is published every two weeks (biweekly).
+          - Hourly - Document is published every hour.
+          - IntraDay - Document is published multiple times within the same day.
+          - Monthly - Document is published once every month.
+          - None - No fixed periodicity; publication is irregular or ad hoc.
+          - Other - Publication follows a custom or unspecified interval.
+          - Quarterly - Document is published once every quarter (every three months).
+          - SemiAnnually - Document is published twice a year.
+          - Weekly - Document is published once every week.
+          
+        If this parameter is omitted, the result set is not filtered by
+        periodicities, and the corresponding periodicities field and details are
+        not returned in the response.
+      type: array
+      items:
+        type: string
+        enum:
+          - Annually
+          - Daily
+          - EveryTwoWeeks
+          - Hourly
+          - IntraDay
+          - Monthly
+          - None
+          - Other
+          - Quarterly
+          - SemiAnnually
+          - Weekly
+      uniqueItems: true
+    Purposes:
+      description: >
+        One or more codes indicating the report purpose of the document.   The
+        supported purposes:
+          - Action - Intended to drive or recommend a specific investment decision or action.
+          - Influence - Aimed at shaping opinions or market sentiment without directly recommending action.
+          - Education - Designed to inform or explain concepts, methodologies, or market mechanics.
+          
+        If this parameter is omitted, the result set is not filtered by
+        purposes, and the corresponding purposes field and details are not
+        returned in the response. 
+      type: array
+      items:
+        type: string
+        enum:
+          - Action
+          - Influence
+          - Education
+      uniqueItems: true
+    RatingActions:
+      description: >
+        One or more codes indicating rating actions discussed in the document.
+        The supported rating actions:
+          - Affirmed - Maintains the current rating after review.
+          - Downgrade - Lowers the rating to a worse category.
+          - Drop - Removes rating coverage entirely.
+          - Initiate - Applies a rating for the first time on the entity.
+          - NegativeOutlook - Assigns a negative outlook without changing the rating.
+          - NewRating - Introduces a rating where none existed before.
+          - PositiveOutlook - Assigns a positive outlook without changing the rating.
+          - RatingRestored - Reinstates a previously withdrawn or suspended rating.
+          - RatingWithdrawn - Removes the current rating but leaves open resumption.
+          - Reiterate - Reaffirms the existing rating without change.
+          - ReviewDirectionUncertain - Places rating under review without a clear direction.
+          - ReviewForDowngrade - Places rating under review, likely to be downgraded.
+          - ReviewForUpgrade - Places rating under review, likely to be upgraded.
+          - Revise - Modifies rating details or scale without changing direction.
+          - Upgrade - Raises the rating to a better category.
+          
+          
+         If this parameter is omitted, the result set is not filtered by rating actions, and the corresponding rating actions field and details are not returned in the response. 
+      type: array
+      items:
+        type: string
+        enum:
+          - Affirmed
+          - Downgrade
+          - Drop
+          - Initiate
+          - NegativeOutlook
+          - NewRating
+          - PositiveOutlook
+          - RatingRestored
+          - RatingWithdrawn
+          - Reiterate
+          - ReviewDirectionUncertain
+          - ReviewForDowngrade
+          - ReviewForUpgrade
+          - Revise
+          - Upgrade
+      uniqueItems: true
+    ResearchApproaches:
+      description: >
+        One or more codes indicating the research perspective provided in the
+        document.   The supported research approaches:
+          - Fundamental - Based on analysis of financial statements, industry conditions, and management quality to determine intrinsic value.
+          - Quantitative - Relies on statistical models, mathematical algorithms, and historical data to identify patterns and signals.
+          - Technical - Focuses on price charts, trading volume, and market trends to forecast future price movements.
+          
+         If this parameter is omitted, the result set is not filtered by research approaches, and the corresponding research approaches field and details are not returned in the response.   
+      type: array
+      items:
+        type: string
+        enum:
+          - Fundamental
+          - Quantitative
+          - Technical
+      uniqueItems: true
+    TargetActions:
+      description: >
+        One or more codes indicating target price actions discussed in the
+        document.   The supported target actions:
+          - Decrease - Lowers the previously stated target price for a security.
+          - Increase - Raises the previously stated target price for a security.
+          - Reiterate - Confirms the existing target price without change.
+          - Update - Modifies the target price, direction may or may not be specified.
+          
+         If this parameter is omitted, the result set is not filtered by target actions, and the corresponding target actions field and details are not returned in the response.   
+      type: array
+      items:
+        type: string
+        enum:
+          - Decrease
+          - Increase
+          - Reiterate
+          - Update
+      uniqueItems: true
+    WeightingActions:
+      description: >
+        One or more codes indicating weighting actions discussed in the
+        document.   The supported weighting actions:
+          - Decrease - Lowers the portfolio weighting or exposure to a security or sector.
+          - Increase - Raises the portfolio weighting or exposure to a security or sector.
+          - Reiterate - Maintains the current weighting recommendation without change.
+          - Update - Adjusts the weighting, potentially reflecting a revised strategy or allocation.
+          
+         If this parameter is omitted, the result set is not filtered by weighting actions, and the corresponding weighting actions field and details are not returned in the response. 
+      type: array
+      items:
+        type: string
+        enum:
+          - Decrease
+          - Increase
+          - Reiterate
+          - Update
+      uniqueItems: true
+    CountRequest:
+      title: Search Request Body
+      description: Search request body elements
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/CountRequestBody'
+      required:
+        - data
+    CountRequestBody:
+      title: Count Request Body
+      description: Count request body elements
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/Ids'
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        startDateRelative:
+          $ref: '#/components/schemas/StartDateRelative'
+        endDateRelative:
+          $ref: '#/components/schemas/EndDateRelative'
+        sources:
+          $ref: '#/components/schemas/Sources'
+        timezone:
+          $ref: '#/components/schemas/Timezone'
+        categories:
+          $ref: '#/components/schemas/Categories'
+        primaryId:
+          $ref: '#/components/schemas/PrimaryId'
+        searchText:
+          $ref: '#/components/schemas/SearchText'
+        contributorId:
+          $ref: '#/components/schemas/ContributorId'
+        analystId:
+          $ref: '#/components/schemas/AnalystId'
+        reportFoci:
+          $ref: '#/components/schemas/ReportFoci'
+        securityTypes:
+          $ref: '#/components/schemas/SecurityTypes'
+        assetTypes:
+          $ref: '#/components/schemas/AssetTypes'
+        assetClasses:
+          $ref: '#/components/schemas/AssetClasses'
+        coverageActions:
+          $ref: '#/components/schemas/CoverageActions'
+        compilationIndicators:
+          $ref: '#/components/schemas/CompilationIndicators'
+        disciplines:
+          $ref: '#/components/schemas/Disciplines'
+        issuerTypes:
+          $ref: '#/components/schemas/IssuerTypes'
+        periodicities:
+          $ref: '#/components/schemas/Periodicities'
+        purposes:
+          $ref: '#/components/schemas/Purposes'
+        ratingActions:
+          $ref: '#/components/schemas/RatingActions'
+        researchApproaches:
+          $ref: '#/components/schemas/ResearchApproaches'
+        targetActions:
+          $ref: '#/components/schemas/TargetActions'
+        weightingActions:
+          $ref: '#/components/schemas/WeightingActions'
+      required:
+        - ids
+    CountResponse:
+      description: Count Response Object
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of count results.
+          items:
+            $ref: '#/components/schemas/CountResponseObject'
+    CountResponseObject:
+      type: object
+      description: Count Response
+      properties:
+        requestId:
+          type: string
+          description: id
+          example: IBM-US
+        source:
+          type: string
+          description: source
+          example: AMR
+        count:
+          type: string
+          description: source value
+          example: '8000'
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+    AssetTypesResponse:
+      description: List of supported asset types
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AssetResponse'
+    AssetResponse:
+      type: object
+      description: Asset Type
+      properties:
+        assetTypes:
+          type: array
+          description: Array of supported asset types.
+          items:
+            type: string
+            example: Assetbackedcredit
+    SecurityTypesResponse:
+      description: List of supported security types.
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SecurityResponse'
+    SecurityResponse:
+      type: object
+      description: Security Type
+      properties:
+        securityTypes:
+          type: array
+          description: Array of supported security types.
+          items:
+            type: string
+            example: ADRGDR
+    ResearchAnalystResponse:
+      description: >-
+        List of individual research analysts associated with authored research
+        documents.
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of research analyst records.
+          items:
+            $ref: '#/components/schemas/ResearchAnalystResponseObject'
+    ResearchAnalystResponseObject:
+      type: object
+      description: Analyst Details
+      properties:
+        analystName:
+          type: string
+          description: Name of the analyst
+          example: Rawat, Aakash
+        analystId:
+          type: integer
+          description: Identifier associated with the analyst.
+          example: 6885167
+    ResearchContributorResponse:
+      description: >-
+        List of research contributors who have authored or provided research
+        documents.
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of research contributor data.
+          items:
+            $ref: '#/components/schemas/ResearchContributorResponseObject'
+    ResearchContributorResponseObject:
+      type: object
+      description: Contributor details
+      properties:
+        contributorName:
+          type: string
+          description: Name of the contributor
+          example: Wealth First Finserv
+        contributorId:
+          type: integer
+          description: Identifier associated with the contributor.
+          example: 27323471
+    CategoriesResponse:
+      description: >-
+        List of available categories used to classify the research documents by
+        subject, region, or industry.
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of category entries available.
+          items:
+            $ref: '#/components/schemas/CategoriesResponseObject'
+    CategoriesResponseObject:
+      type: object
+      description: Categories
+      properties:
+        subject:
+          type: string
+          description: subject code
+          example: SB
+        category:
+          type: string
+          description: category
+          example: SB:ANLCH
+        description:
+          type: string
+          description: Description of the category
+          example: Analysts Revisions
+    TimeZonesResponse:
+      description: List of supported time zones.
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/TimeZoneResponse'
+    TimeZoneResponse:
+      type: object
+      description: TimeZone
+      properties:
+        timeZones:
+          type: array
+          description: Array of supported time zones.
+          items:
+            type: string
+            example: Africa/Malabo
+    ErrorResponse:
+      type: object
+      description: Error Response Object
+      properties:
+        errors:
+          type: array
+          description: Errors Array Object
+          items:
+            $ref: '#/components/schemas/ErrorExample'
+    ErrorExample:
+      type: object
+      description: Error Example Object
+      properties:
+        code:
+          description: Specifies the error code.
+          type: string
+        title:
+          description: ' Specifies the error message.'
+          type: string
+        id:
+          description: Specifies the id.
+          type: string
+        detail:
+          description: Specifies the error message in detail.
+          type: string
+    InvestmentResearchResponse:
+      description: Investment Research Response Object
+      type: object
+      properties:
+        data:
+          type: array
+          description: Data Array Object
+          items:
+            $ref: '#/components/schemas/InvestmentResearchResponseItems'
+        meta:
+          type: object
+          description: Meta Object
+          properties:
+            pagination:
+              type: object
+              description: Pagination Object
+              properties:
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results.
+                total:
+                  type: integer
+                  description: >-
+                    Total number of files the API returns for a particular
+                    query.    
+    InvestmentResearchResponseItems:
+      type: object
+      description: >
+        The data being returned in the search response are search results, and
+        under each search result, the documents are organized by requested
+        identifiers.
+      properties:
+        requestId:
+          type: string
+          description: The requested identifier associated with this group of documents.
+        documents:
+          type: array
+          description: Contains list of documents
+          items:
+            $ref: '#/components/schemas/Document'
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+    Document:
+      title: Files
+      type: object
+      description: Response
+      properties:
+        headline:
+          type: string
+          description: Concise title or summary of the research story or document.
+        source:
+          type: string
+          description: |-
+            Provides source of the document.
+
+            • FRC – FactSet Research Connect  
+            • AMR – Aftermarket Research
+        primaryIds:
+          type: array
+          items:
+            type: string
+          description: Refers to the main company a particular document refers to.
+        allIds:
+          type: array
+          items:
+            type: string
+          description: >-
+            Refers to all companies mentioned in the document. This could also
+            include the primary company id as well.
+        categories:
+          type: array
+          items:
+            type: string
+          description: >-
+            Provides the category of the document, list is provided by the
+            `/meta/categories` endpoint.
+        storyDateTime:
+          type: string
+          format: date-time
+          description: >-
+            Publish date and time of the latest version, in RFC 3339 format (a
+            subset of ISO 8601), e.g., 2024-07-03T14:00:00Z (UTC).
+        link:
+          type: string
+          format: url
+          description: The link to download the document.
+        contributorName:
+          type: string
+          description: >-
+            Research specific metadata providing the name of the research
+            contributor.
+        contributorId:
+          type: integer
+          description: >-
+            Research specific metadata providing the ID of the research
+            contributor.
+        analystName:
+          type: array
+          items:
+            type: string
+          description: >-
+            Research specific metadata providing the name of the analyst(s) who
+            wrote the research.
+        analystId:
+          type: array
+          items:
+            type: integer
+          description: >-
+            Research specific metadata providing the ID of the analyst(s) who
+            wrote the research.
+        pages:
+          type: integer
+          description: Total number of pages in the document.
+        documentId:
+          type: string
+          description: Unique identifier for a document.
+        reportFoci:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more classification codes indicating the primary focus of the
+            document.
+        assetClasses:
+          type: array
+          items:
+            type: string
+          description: One or more codes indicating asset classes covered in the document.
+        assetTypes:
+          type: array
+          items:
+            type: string
+          description: One or more codes indicating asset types.
+        coverageActions:
+          type: array
+          items:
+            type: string
+          description: One or more codes indicating coverage actions.
+        compilationIndicators:
+          type: boolean
+          description: >-
+            An indication of whether the document contains new material or is a
+            compilation/summary of separately published material.
+        disciplines:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more codes indicating the disciplines reflected in the
+            document.
+        issuerTypes:
+          type: array
+          items:
+            type: string
+          description: One or more codes indicating issuer types covered in the document.
+        periodicities:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more codes indicating the fixed time interval at which the
+            document is published.
+        purposes:
+          type: array
+          items:
+            type: string
+          description: One or more codes indicating the report purpose of the document.
+        ratingActions:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more codes indicating rating actions discussed in the
+            document.
+        researchApproaches:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more codes indicating the research perspective provided in
+            the document.
+        securityTypes:
+          type: array
+          items:
+            type: string
+          description: One or more codes indicating security types.
+        targetActions:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more codes indicating target price actions discussed in the
+            document.
+        weightingActions:
+          type: array
+          items:
+            type: string
+          description: >-
+            One or more codes indicating weighting actions discussed in the
+            document.
+    InvalidIdErrorObject:
+      type: object
+      nullable: true
+      description: error
+      properties:
+        code:
+          description: status
+          type: string
+          example: GenericError
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        detail:
+          description: Error details explanation
+          type: string
+          example: Validation Error
+  examples:
+    ByDate:
+      value:
+        data:
+          ids:
+            - IBM-US
+          startDate: '2025-08-01'
+          endDate: '2025-09-15'
+          sources:
+            - FRC
+          timezone: America/New_York
+          categories:
+            - CN:US
+          primaryId: false
+          reportFoci:
+            - Issuer
+          securityTypes:
+            - Common
+          assetTypes:
+            - Stock
+          assetClasses:
+            - Equity
+          compilationIndicators: false
+          disciplines:
+            - Investment
+          issuerTypes:
+            - Corporate
+          periodicities:
+            - None
+          researchApproaches:
+            - Technical
+        meta:
+          pagination:
+            limit: 50
+            offset: 0
+          sort:
+            - '-storyDateTime'
+    ByRelativeDates:
+      value:
+        data:
+          ids:
+            - IBM-US
+          startDateRelative: -30
+          endDateRelative: 0
+          sources:
+            - FRC
+          timezone: America/New_York
+          categories:
+            - CN:US
+          primaryId: false
+          reportFoci:
+            - Issuer
+          securityTypes:
+            - Common
+          assetTypes:
+            - Stock
+          assetClasses:
+            - Equity
+          compilationIndicators: false
+          disciplines:
+            - Investment
+          issuerTypes:
+            - Corporate
+          periodicities:
+            - None
+          researchApproaches:
+            - Technical
+        meta:
+          pagination:
+            limit: 50
+            offset: 0
+          sort:
+            - '-storyDateTime'
+    CountByDate:
+      value:
+        data:
+          ids:
+            - IBM-US
+          startDate: '2025-08-01'
+          endDate: '2025-09-15'
+          sources:
+            - FRC
+          timezone: America/New_York
+          categories:
+            - CN:US
+          primaryId: false
+          reportFoci:
+            - Issuer
+          securityTypes:
+            - Common
+          assetTypes:
+            - Stock
+          assetClasses:
+            - Equity
+          compilationIndicators: false
+          disciplines:
+            - Investment
+          issuerTypes:
+            - Corporate
+          periodicities:
+            - None
+          researchApproaches:
+            - Technical
+    CountByRelativeDates:
+      value:
+        data:
+          ids:
+            - IBM-US
+          startDateRelative: -30
+          endDateRelative: 0
+          sources:
+            - FRC
+          timezone: America/New_York
+          categories:
+            - CN:US
+          primaryId: false
+          reportFoci:
+            - Issuer
+          securityTypes:
+            - Common
+          assetTypes:
+            - Stock
+          assetClasses:
+            - Equity
+          compilationIndicators: false
+          disciplines:
+            - Investment
+          issuerTypes:
+            - Corporate
+          periodicities:
+            - None
+          researchApproaches:
+            - Technical
+    CountResponseExample:
+      summary: Sample Response
+      value:
+        data:
+          - requestId: IBM-US
+            source: AMR
+            count: '8000'
+          - requestId: IBM-US
+            source: FRC
+            count: '10000'
+    AssetTypesResponseExample:
+      summary: Sample 200 Response for asset types parameter
+      value:
+        data:
+          assetTypes:
+            - Agencycredit
+            - Assetbackedcredit
+    SecurityTypesResponseExample:
+      summary: Sample 200 Response for security types parameter
+      value:
+        data:
+          securityTypes:
+            - ADRGDR
+            - Generalobligationbonds
+    ResearchAnalystResponseExample:
+      summary: Sample 200 Response for Research Analyst parameter.
+      value:
+        data:
+          - analystName: Rawat, Aakash
+            analystId: 27323467
+    ResearchContributorResponseExample:
+      summary: Sample 200 Response for Research Contributor parameter.
+      value:
+        data:
+          - contributorName: Wealth First Finserv
+            contributorId: 27323471
+    CategoriesResponseExample:
+      summary: Sample 200 Response for categories parameter.
+      value:
+        data:
+          - subject: SB
+            category: SB:ANLCH
+            description: Analysts Revisions
+    TimeZonesResponseExample:
+      summary: Sample 200 Response for timeZone parameter
+      value:
+        data:
+          timeZones:
+            - Africa/Malabo
+    ErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Bad Request
+            title: Not a valid parameter
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: parameterError:['_paginationLimit'] is not a valid parameter(s).
+    AuthErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Not Authenticated
+            title: Unauthenticated USERNAME-SERIAL.
+            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+            detail: User is not authenticated properly
+    AuthorizationErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Forbidden
+            title: USERNAME-SERIAL does not have permission.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: User is not authorized for this endpoint
+    ServerErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+          - code: Internal Server Error
+            title: An unexpected error happened.
+            id: 7af3d86ca5954503b9244f2620fcf5eb
+            detail: The service you have requested has encountered an error
+tags:
+  - name: Research
+    description: >-
+      These endpoints provide access to search and download research documents
+      from various sources.
+  - name: Meta
+    description: >-
+      These endpoints provide access to a comprehensive list of all available
+      values used in the Research API endpoint parameters.

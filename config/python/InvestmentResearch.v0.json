@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.InvestmentResearch",
+  "projectName": "fds.sdk.InvestmentResearch",
+  "packageVersion": "0.1.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Investment Research client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/InvestmentResearch/v0",
+  "httpUserAgent": "fds-sdk/python/InvestmentResearch/0.1.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

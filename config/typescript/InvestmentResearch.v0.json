@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-investmentresearch",
+  "projectVersion": "0.1.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Investment Research client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "investmentresearch",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/InvestmentResearch/0.1.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}
