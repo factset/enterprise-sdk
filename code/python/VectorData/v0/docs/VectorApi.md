@@ -174,6 +174,10 @@ with fds.sdk.VectorData.ApiClient(configuration) as api_client:
             sentiment=["Neutral","Negative"],
             document_types=["10-K","10-Q","8-K","News","Transcripts"],
             sources=["EDG","FCST","SA"],
+            trimmed=False,
+            ids=[
+                "ids_example",
+            ],
         ),
         meta=Meta(
             number_of_results=10,

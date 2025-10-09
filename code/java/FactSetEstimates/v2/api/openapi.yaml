@@ -34,7 +34,7 @@ info:
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.8.0
+  version: 2.8.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -5266,6 +5266,8 @@ components:
           fiscalEndDate: 2024-10-31
           relativePeriod: 1
           guidanceDate: 2024-08-22
+          inputDateLow: 2024-08-21
+          inputDateHigh: 2024-08-21
           guidanceMidpoint: 6475
           guidanceLow: 6450
           guidanceHigh: 6500
@@ -5288,6 +5290,8 @@ components:
           fiscalEndDate: 2024-10-31
           relativePeriod: 1
           guidanceDate: 2024-08-22
+          inputDateLow: 2024-08-21
+          inputDateHigh: 2024-08-21
           guidanceMidpoint: 6475
           guidanceLow: 6450
           guidanceHigh: 6500
@@ -5310,6 +5314,8 @@ components:
           fiscalEndDate: 2024-10-31
           relativePeriod: 1
           guidanceDate: 2024-08-22
+          inputDateLow: 2024-08-21
+          inputDateHigh: 2024-08-21
           guidanceMidpoint: 6475
           guidanceLow: 6450
           guidanceHigh: 6500
@@ -5320,138 +5326,6 @@ components:
           meanBefore: 6823.863
           meanSurpriseAmt: 6.13733
           meanSurpriseAmtPercent: 0.2363425
-        - requestId: A-US
-          fsymId: FWHC5K-R
-          metric: SALES
-          currency: USD
-          estimateCurrency: USD
-          periodicity: ANN
-          consensusDate: 2024-12-01
-          fiscalYear: 2024
-          fiscalPeriod: 1
-          fiscalEndDate: 2024-10-31
-          relativePeriod: 1
-          guidanceDate: 2024-05-30
-          guidanceMidpoint: 6460
-          guidanceLow: 6420
-          guidanceHigh: 6500
-          prevMidpoint: 6760
-          prevLow: 6710
-          prevHigh: 6810
-          guidanceRange: 6420.00 - 6500.00
-          meanBefore: 6763.017
-          meanSurpriseAmt: -303.0169
-          meanSurpriseAmtPercent: -4.4805
-        - requestId: A-US
-          fsymId: FWHC5K-R
-          metric: SALES
-          currency: USD
-          estimateCurrency: USD
-          periodicity: ANN
-          consensusDate: 2024-12-01
-          fiscalYear: 2024
-          fiscalPeriod: 1
-          fiscalEndDate: 2024-10-31
-          relativePeriod: 1
-          guidanceDate: 2024-05-30
-          guidanceMidpoint: 6460
-          guidanceLow: 6420
-          guidanceHigh: 6500
-          prevMidpoint: 6760
-          prevLow: 6710
-          prevHigh: 6810
-          guidanceRange: 6420.00 - 6500.00
-          meanBefore: 6763.017
-          meanSurpriseAmt: -303.0169
-          meanSurpriseAmtPercent: -4.4805
-        - requestId: A-US
-          fsymId: FWHC5K-R
-          metric: SALES
-          currency: USD
-          estimateCurrency: USD
-          periodicity: ANN
-          consensusDate: 2024-12-01
-          fiscalYear: 2024
-          fiscalPeriod: 1
-          fiscalEndDate: 2024-10-31
-          relativePeriod: 1
-          guidanceDate: 2024-05-30
-          guidanceMidpoint: 6460
-          guidanceLow: 6420
-          guidanceHigh: 6500
-          prevMidpoint: 6760
-          prevLow: 6710
-          prevHigh: 6810
-          guidanceRange: 6420.00 - 6500.00
-          meanBefore: 6763.017
-          meanSurpriseAmt: -303.0169
-          meanSurpriseAmtPercent: -4.4805
-        - requestId: A-US
-          fsymId: FWHC5K-R
-          metric: SALES
-          currency: USD
-          estimateCurrency: USD
-          periodicity: ANN
-          consensusDate: 2024-12-01
-          fiscalYear: 2024
-          fiscalPeriod: 1
-          fiscalEndDate: 2024-10-31
-          relativePeriod: 1
-          guidanceDate: 2024-08-28
-          guidanceMidpoint: 6760
-          guidanceLow: 6710
-          guidanceHigh: 6810
-          prevMidpoint: 6760
-          prevLow: 6710
-          prevHigh: 6810
-          guidanceRange: 6710.00 - 6810.00
-          meanBefore: 6732.629
-          meanSurpriseAmt: 27.37119
-          meanSurpriseAmtPercent: 0.4065453
-        - requestId: A-US
-          fsymId: FWHC5K-R
-          metric: SALES
-          currency: USD
-          estimateCurrency: USD
-          periodicity: ANN
-          consensusDate: 2024-12-01
-          fiscalYear: 2024
-          fiscalPeriod: 1
-          fiscalEndDate: 2024-10-31
-          relativePeriod: 1
-          guidanceDate: 2024-08-28
-          guidanceMidpoint: 6760
-          guidanceLow: 6710
-          guidanceHigh: 6810
-          prevMidpoint: 6760
-          prevLow: 6710
-          prevHigh: 6810
-          guidanceRange: 6710.00 - 6810.00
-          meanBefore: 6732.629
-          meanSurpriseAmt: 27.37119
-          meanSurpriseAmtPercent: 0.4065453
-        - requestId: A-US
-          fsymId: FWHC5K-R
-          metric: SALES
-          currency: USD
-          estimateCurrency: USD
-          periodicity: ANN
-          consensusDate: 2024-12-01
-          fiscalYear: 2024
-          fiscalPeriod: 1
-          fiscalEndDate: 2024-10-31
-          relativePeriod: 1
-          guidanceDate: 2024-08-28
-          guidanceMidpoint: 6760
-          guidanceLow: 6710
-          guidanceHigh: 6810
-          prevMidpoint: 6760
-          prevLow: 6710
-          prevHigh: 6810
-          guidanceRange: 6710.00 - 6810.00
-          meanBefore: 6732.629
-          meanSurpriseAmt: 27.37119
-          meanSurpriseAmtPercent: 0.4065453
     metricsExample:
       description: Mertics response with 'FINANCIAL_STATEMENT' category and '--' subcategory
       summary: Mertics response with 'FINANCIAL_STATEMENT' category and '--' subcategory
@@ -9626,6 +9500,7 @@ components:
           estimateCurrency: USD
           meanSurpriseAmt: 6.13733
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
+          inputDateLow: 2024-08-21T00:00:00.000+0000
           guidanceRange: 6450.00-6500.00
           prevHigh: 6500.12
           guidanceLow: 6450.683
@@ -9639,6 +9514,7 @@ components:
           fiscalYear: 2018
           relativePeriod: 2
           guidanceDate: 2024-08-22T00:00:00.000+0000
+          inputDateHigh: 2024-08-21T00:00:00.000+0000
         - guidanceHigh: 6500.126
           guidanceMidpoint: 6475.926
           meanSurpriseAmtPercent: 0.08993923
@@ -9648,6 +9524,7 @@ components:
           estimateCurrency: USD
           meanSurpriseAmt: 6.13733
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
+          inputDateLow: 2024-08-21T00:00:00.000+0000
           guidanceRange: 6450.00-6500.00
           prevHigh: 6500.12
           guidanceLow: 6450.683
@@ -9661,6 +9538,7 @@ components:
           fiscalYear: 2018
           relativePeriod: 2
           guidanceDate: 2024-08-22T00:00:00.000+0000
+          inputDateHigh: 2024-08-21T00:00:00.000+0000
       properties:
         data:
           description: |
@@ -9681,6 +9559,7 @@ components:
         estimateCurrency: USD
         meanSurpriseAmt: 6.13733
         fiscalEndDate: 2017-12-31T00:00:00.000+0000
+        inputDateLow: 2024-08-21T00:00:00.000+0000
         guidanceRange: 6450.00-6500.00
         prevHigh: 6500.12
         guidanceLow: 6450.683
@@ -9694,6 +9573,7 @@ components:
         fiscalYear: 2018
         relativePeriod: 2
         guidanceDate: 2024-08-22T00:00:00.000+0000
+        inputDateHigh: 2024-08-21T00:00:00.000+0000
       properties:
         requestId:
           description: Guidance identifier to be used as `guidance` input in the endpoint.
@@ -9772,6 +9652,20 @@ components:
         guidanceDate:
           description: Date guidance was issued expressed in YYYY-MM-DD format.
           example: 2024-08-22
+          format: date
+          nullable: true
+          type: string
+        inputDateHigh:
+          description: Represents the date FactSet collected the data in YYYY-MM-DD
+            format for guidance high.
+          example: 2024-08-21
+          format: date
+          nullable: true
+          type: string
+        inputDateLow:
+          description: Represents the date FactSet collected the data in YYYY-MM-DD
+            format for guidance low.
+          example: 2024-08-21
           format: date
           nullable: true
           type: string

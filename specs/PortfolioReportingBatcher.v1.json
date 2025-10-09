@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Portfolio Reporting Batcher",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "The Portfolio Reporting Batcher (PRB) API allows clients to systematically leverage functionalities of the PRB application.",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -58,7 +58,8 @@
                       ],
                       "meta": {
                         "pagination": {
-                          "hasNext": false
+                          "total": 5,
+                          "isEstimatedTotal": false
                         }
                       }
                     }
@@ -79,7 +80,8 @@
                       ],
                       "meta": {
                         "pagination": {
-                          "hasNext": false
+                          "total": 10,
+                          "isEstimatedTotal": false
                         }
                       }
                     },
@@ -90,7 +92,8 @@
                       "data": [],
                       "meta": {
                         "pagination": {
-                          "hasNext": false
+                          "total": 0,
+                          "isEstimatedTotal": false
                         }
                       }
                     },
@@ -1866,8 +1869,12 @@
               "pagination": {
                 "description": "Contains pagination information",
                 "properties": {
-                  "hasNext": {
-                    "description": "Indicates whether more information exists which can be requested by changing the input pagination parameters",
+                  "total": {
+                    "description": "Total number of pages available.",
+                    "type": "integer"
+                  },
+                  "isEstimatedTotal": {
+                    "description": "Flag indicating that the value of total pages is estimated.",
                     "type": "boolean"
                   }
                 },

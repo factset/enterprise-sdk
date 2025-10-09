@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hasNext** | **Boolean** | Indicates whether more information exists which can be requested by changing the input pagination parameters | [optional] 
+**total** | **Number** | Total number of pages available. | [optional] 
+**isEstimatedTotal** | **Boolean** | Flag indicating that the value of total pages is estimated. | [optional] 
 
 

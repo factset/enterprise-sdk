@@ -268,7 +268,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NonPeriodicResponse'
               examples:
-                Result of multiple companies with single non-periodic (fpe_amt_raised_usd) item:
+                Result of multiple companies with single non-periodic (fpe_amt_raised_vc_usd) item:
                   $ref: >-
                     #/components/examples/resultOfMultipleIdswithSingleNonPeriodicItem
                 Result of single company with multiple non-periodic items:
@@ -464,7 +464,7 @@ components:
         type: array
         items:
           type: string
-          example: FPE_AMT_RAISED_USD
+          example: FPE_AMT_RAISED_VC_USD
         minItems: 1
         maxItems: 100
       explode: false
@@ -472,11 +472,11 @@ components:
         oneItem:
           summary: One non-periodic item
           value:
-            - FPE_AMT_RAISED_USD
+            - FPE_AMT_RAISED_VC_USD
         multipleItems:
           summary: Multiple non-periodic items
           value:
-            - FPE_AMT_RAISED_USD
+            - FPE_AMT_RAISED_VC_USD
             - FPE_INVESTORS_ACTIVE
             - FPE_INVESTMT_LAST_DATE
     startDate:
@@ -713,7 +713,7 @@ components:
             The requested `metric` input representing the Private Company
             Financial Data Item.
           type: string
-          example: FPE_AMT_RAISED_USD
+          example: FPE_AMT_RAISED_VC_USD
           nullable: true
         value:
           $ref: '#/components/schemas/NonPeriodicValue'
@@ -1219,11 +1219,11 @@ components:
         oneNonPeriodicMetric:
           summary: One non-periodic metric
           value:
-            - FPE_AMT_RAISED
+            - FPE_AMT_RAISED_VC
         multipleNonPeriodicMetrics:
           summary: Multiple non-periodic metrics
           value:
-            - FPE_AMT_RAISED
+            - FPE_AMT_RAISED_VC
             - FPD_CEO_CURR
     startDate:
       title: Start Date
@@ -1389,7 +1389,7 @@ components:
             - 0G3F5Z-E
             - 00DK61-E
           metrics:
-            - FPE_AMT_RAISED_USD
+            - FPE_AMT_RAISED_VC_USD
     postEntityMatches:
       description: >-
         Post body request Request example to fetch entity matches for a list of
@@ -1498,21 +1498,21 @@ components:
         data:
           - requestId: 0H3R4Y-E
             fsymId: 0H3R4Y-E
-            metric: FPE_AMT_RAISED_USD
+            metric: FPE_AMT_RAISED_VC_USD
             value:
               stringValue: null
               numberValue: 678.683
               valueType: number
           - requestId: 0G3F5Z-E
             fsymId: 0G3F5Z-E
-            metric: FPE_AMT_RAISED_USD
+            metric: FPE_AMT_RAISED_VC_USD
             value:
               stringValue: null
               numberValue: 132.512
               valueType: number
           - requestId: 00DK61-E
             fsymId: 00DK61-E
-            metric: FPE_AMT_RAISED_USD
+            metric: FPE_AMT_RAISED_VC_USD
             value:
               stringValue: null
               numberValue: 257.093
@@ -1527,7 +1527,7 @@ components:
         data:
           - requestId: 0H3R4Y-E
             fsymId: 0H3R4Y-E
-            metric: FPE_AMT_RAISED_USD
+            metric: FPE_AMT_RAISED_VC_USD
             value:
               stringValue: null
               numberValue: 678.683

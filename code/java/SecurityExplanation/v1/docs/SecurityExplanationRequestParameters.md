@@ -9,16 +9,17 @@ Parameters for the security explanation request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. | 
-**startDate** | **LocalDate** | Start date of the explain request in YYYY-MM-DD format | 
-**endDate** | **LocalDate** | End date of the explain request in YYYY-MM-DD format | 
-**enableLinks** | **Boolean** | If true, explain response will have link to the related news articles |  [optional]
+**startDate** | **LocalDate** | Start date of the explain request in YYYY-MM-DD format. | 
+**endDate** | **LocalDate** | End date of the explain request in YYYY-MM-DD format. | 
+**enableLinks** | **Boolean** | Include or exclude hyperlinks to underlying sources. |  [optional]
 **explanationStyle** | [**ExplanationStyleEnum**](#ExplanationStyleEnum) | Determines the style of the Explanation |  [optional]
-**includePerformance** | **Boolean** | If true, includes the performance statement in the explanation |  [optional]
-**internalInvestmentRationale** | [**InternalInvestmentRationaleEnum**](#InternalInvestmentRationaleEnum) | Include summarized IRN notes on the company, or just the footnote, or none. Only available for IRN users |  [optional]
-**includeCompanyDescription** | **Boolean** | If true, includes the company description in the explanation.In order to include &#39;Company Business Description&#39;, &#39;includePerformance&#39; must be set to True. Even if &#39;includeCompanyDescription&#39; is set to True, if &#39;includePerformance&#39; is false, it will be omitted |  [optional]
-**includeMarketSummary** | **Boolean** | If true, Includes another paragraph detailing macro news influencing the target company. |  [optional]
-**includeInternalInvestmentRationaleRecommendation** | **Boolean** | If true, Includes recommendation from IRN. If you don&#39;t have a recommendation, it will be omitted. If &#39;internalInvestmentRationale&#39; is set to &#39;none&#39;, this will be ignored. |  [optional]
-**includeInternalInvestmentRationalePriceTarget** | **Boolean** | If true, Includes price target from IRN. If you don&#39;t have a price target, it will be omitted. If &#39;internalInvestmentRationale&#39; is set to &#39;none&#39;, this will be ignored. |  [optional]
+**includePerformance** | **Boolean** | Include or exclude the company&#39;s total return for the request period. |  [optional]
+**internalInvestmentRationale** | [**InternalInvestmentRationaleEnum**](#InternalInvestmentRationaleEnum) | For IRN users only; select to include a summary, footnotes, or no IRN notes for the period. |  [optional]
+**includeCompanyDescription** | **Boolean** | Include or exclude the target company&#39;s business description. |  [optional]
+**includeMarketSummary** | **Boolean** | Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context. |  [optional]
+**includeInternalInvestmentRationaleRecommendation** | **Boolean** | For IRN users only; include or exclude your firm&#39;s rating in the summary or footnote. |  [optional]
+**includeInternalInvestmentRationalePriceTarget** | **Boolean** | For IRN users only; include or exclude your firm&#39;s price target in the summary or footnote. |  [optional]
+**brokerResearchSummary** | [**BrokerResearchSummary**](BrokerResearchSummary.md) |  |  [optional]
 
 
 

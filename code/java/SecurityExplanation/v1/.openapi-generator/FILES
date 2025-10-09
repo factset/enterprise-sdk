@@ -8,6 +8,7 @@ build.gradle
 build.sbt
 docs/APIClientErrorResponse.md
 docs/APIError.md
+docs/BrokerResearchSummary.md
 docs/ErrorSource.md
 docs/ExplanationCreateResponse.md
 docs/ExplanationCreateResponseRoot.md
@@ -49,6 +50,7 @@ src/main/java/com/factset/sdk/SecurityExplanation/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/SecurityExplanation/models/APIClientErrorResponse.java
 src/main/java/com/factset/sdk/SecurityExplanation/models/APIError.java
 src/main/java/com/factset/sdk/SecurityExplanation/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/SecurityExplanation/models/BrokerResearchSummary.java
 src/main/java/com/factset/sdk/SecurityExplanation/models/ErrorSource.java
 src/main/java/com/factset/sdk/SecurityExplanation/models/ExplanationCreateResponse.java
 src/main/java/com/factset/sdk/SecurityExplanation/models/ExplanationCreateResponseRoot.java

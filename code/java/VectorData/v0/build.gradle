@@ -14,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.factset.sdk'
-version = '0.0.2'
+version = '0.0.3'
 
 repositories {
     mavenCentral()
@@ -119,6 +119,8 @@ jreleaser {
                 'release-deploy' {
                     url = "https://central.sonatype.com/api/v1/publisher"
                     stagingRepository("build/staging-deploy")
+                    retryDelay = 30
+                    maxRetries = 100
                 }
                 return
             }

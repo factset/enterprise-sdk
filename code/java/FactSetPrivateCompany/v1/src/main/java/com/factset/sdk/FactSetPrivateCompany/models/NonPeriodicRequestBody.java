@@ -107,7 +107,7 @@ public class NonPeriodicRequestBody implements Serializable {
    * @return metrics
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "{\"oneNonPeriodicMetric\":{\"summary\":\"One non-periodic metric\",\"value\":[\"FPE_AMT_RAISED\"]},\"multipleNonPeriodicMetrics\":{\"summary\":\"Multiple non-periodic metrics\",\"value\":[\"FPE_AMT_RAISED\",\"FPD_CEO_CURR\"]}}", required = true, value = "Private Company Non-Periodic Metrics. ")
+  @ApiModelProperty(example = "{\"oneNonPeriodicMetric\":{\"summary\":\"One non-periodic metric\",\"value\":[\"FPE_AMT_RAISED_VC\"]},\"multipleNonPeriodicMetrics\":{\"summary\":\"Multiple non-periodic metrics\",\"value\":[\"FPE_AMT_RAISED_VC\",\"FPD_CEO_CURR\"]}}", required = true, value = "Private Company Non-Periodic Metrics. ")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

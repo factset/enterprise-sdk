@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/APIClientErrorResponse.md
 docs/APIError.md
+docs/BrokerResearchSummary.md
 docs/ErrorSource.md
 docs/ExplanationCreateResponse.md
 docs/ExplanationCreateResponseRoot.md
@@ -24,6 +25,7 @@ src/api/SecurityExplanationApi.js
 src/index.js
 src/model/APIClientErrorResponse.js
 src/model/APIError.js
+src/model/BrokerResearchSummary.js
 src/model/ErrorSource.js
 src/model/ExplanationCreateResponse.js
 src/model/ExplanationCreateResponseRoot.js

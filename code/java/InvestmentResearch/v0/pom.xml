@@ -5,7 +5,7 @@
     <artifactId>investmentresearch</artifactId>
     <packaging>jar</packaging>
     <name>investmentresearch</name>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Investment Research client library for Java</description>
     <scm>

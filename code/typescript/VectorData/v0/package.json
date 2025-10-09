@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-vectordata",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vector Data client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

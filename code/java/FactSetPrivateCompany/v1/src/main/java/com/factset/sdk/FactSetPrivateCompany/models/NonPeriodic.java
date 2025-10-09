@@ -134,7 +134,7 @@ public class NonPeriodic implements Serializable {
    * @return metric
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "FPE_AMT_RAISED_USD", value = "The requested `metric` input representing the Private Company Financial Data Item.")
+  @ApiModelProperty(example = "FPE_AMT_RAISED_VC_USD", value = "The requested `metric` input representing the Private Company Financial Data Item.")
   @JsonIgnore
 
   public String getMetric() {

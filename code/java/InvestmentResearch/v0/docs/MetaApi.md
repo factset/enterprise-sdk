@@ -244,7 +244,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         MetaApi apiInstance = new MetaApi(defaultClient);
-        Integer contributorId = 27513283; // Integer | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
+        Integer contributorId = 20120205; // Integer | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
         try {
             ResearchAnalystResponse result = apiInstance.getResearchAnalyst(contributorId);
             System.out.println(result);

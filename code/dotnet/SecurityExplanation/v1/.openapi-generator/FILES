@@ -6,6 +6,7 @@ README.md
 appveyor.yml
 docs/APIClientErrorResponse.md
 docs/APIError.md
+docs/BrokerResearchSummary.md
 docs/ErrorSource.md
 docs/ExplanationCreateResponse.md
 docs/ExplanationCreateResponseRoot.md
@@ -38,6 +39,7 @@ src/FactSet.SDK.SecurityExplanation/FactSet.SDK.SecurityExplanation.csproj
 src/FactSet.SDK.SecurityExplanation/Model/APIClientErrorResponse.cs
 src/FactSet.SDK.SecurityExplanation/Model/APIError.cs
 src/FactSet.SDK.SecurityExplanation/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.SecurityExplanation/Model/BrokerResearchSummary.cs
 src/FactSet.SDK.SecurityExplanation/Model/ErrorSource.cs
 src/FactSet.SDK.SecurityExplanation/Model/ExplanationCreateResponse.cs
 src/FactSet.SDK.SecurityExplanation/Model/ExplanationCreateResponseRoot.cs

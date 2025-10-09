@@ -204,7 +204,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new MetaApi();
-const contributorId = 27513283; // Number | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
+const contributorId = 20120205; // Number | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
 
 // Call api endpoint
 apiInstance.getResearchAnalyst(contributorId).then(

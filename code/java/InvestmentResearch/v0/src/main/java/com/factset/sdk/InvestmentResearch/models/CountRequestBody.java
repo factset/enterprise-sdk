@@ -971,7 +971,7 @@ public class CountRequestBody implements Serializable {
    * @return contributorId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "[27513283,27323471]", value = "One or more contributor codes. This is a comma-separated list. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors. If this parameter is not used, by default will get all permissioned contributors.")
+  @ApiModelProperty(example = "[20120205,21069618]", value = "One or more contributor codes. This is a comma-separated list. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors. If this parameter is not used, by default will get all permissioned contributors.")
   @JsonProperty(JSON_PROPERTY_CONTRIBUTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

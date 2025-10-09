@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Portfolio Reporting Batcher
-  version: 1.1.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/portfolio-reporting-batcher-api
@@ -89,7 +89,8 @@ paths:
                       isApiTriggered: false
                     meta:
                       pagination:
-                        hasNext: false
+                        total: 5
+                        isEstimatedTotal: false
                 Example 2:
                   description: Only `name`, `type`, and `serialNumber` will be shown
                     if the jobs have not been run before
@@ -103,7 +104,8 @@ paths:
                       serialNumber: "310362"
                     meta:
                       pagination:
-                        hasNext: false
+                        total: 10
+                        isEstimatedTotal: false
                 Example 3:
                   description: An empty `data` array can be expected if no jobs are
                     found, please expand the query parameters
@@ -111,7 +113,8 @@ paths:
                     data: []
                     meta:
                       pagination:
-                        hasNext: false
+                        total: 0
+                        isEstimatedTotal: false
               schema:
                 $ref: '#/components/schemas/JobListResponse'
           description: OK
@@ -1356,7 +1359,8 @@ components:
           status: queued
         meta:
           pagination:
-            hasNext: true
+            total: 0
+            isEstimatedTotal: true
       properties:
         data:
           description: The object that contains the main information requested
@@ -1722,18 +1726,22 @@ components:
     JobListResponse_meta_pagination:
       description: Contains pagination information
       example:
-        hasNext: true
+        total: 0
+        isEstimatedTotal: true
       properties:
-        hasNext:
-          description: Indicates whether more information exists which can be requested
-            by changing the input pagination parameters
+        total:
+          description: Total number of pages available.
+          type: integer
+        isEstimatedTotal:
+          description: Flag indicating that the value of total pages is estimated.
           type: boolean
       type: object
     JobListResponse_meta:
       description: Contains meta information, e.g. about pagination
       example:
         pagination:
-          hasNext: true
+          total: 0
+          isEstimatedTotal: true
       properties:
         pagination:
           $ref: '#/components/schemas/JobListResponse_meta_pagination'

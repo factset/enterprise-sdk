@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/APIClientErrorResponse.md
 docs/APIError.md
+docs/BrokerResearchSummary.md
 docs/ErrorSource.md
 docs/ExplanationCreateResponse.md
 docs/ExplanationCreateResponseRoot.md
@@ -27,6 +28,7 @@ fds/sdk/SecurityExplanation/exceptions.py
 fds/sdk/SecurityExplanation/model/__init__.py
 fds/sdk/SecurityExplanation/model/api_client_error_response.py
 fds/sdk/SecurityExplanation/model/api_error.py
+fds/sdk/SecurityExplanation/model/broker_research_summary.py
 fds/sdk/SecurityExplanation/model/error_source.py
 fds/sdk/SecurityExplanation/model/explanation_create_response.py
 fds/sdk/SecurityExplanation/model/explanation_create_response_root.py

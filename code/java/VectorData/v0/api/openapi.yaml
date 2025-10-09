@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Vector Data API
-  version: 0.0.0
+  version: 0.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/vector-data-api
@@ -53,6 +53,8 @@ paths:
               examples:
                 sampleResponse:
                   $ref: '#/components/examples/SampleVectorDataResponse'
+                sampleResponseTrimmed:
+                  $ref: '#/components/examples/SampleVectorDataResponseTrimmed'
               schema:
                 $ref: '#/components/schemas/VectorDataResponse'
           description: Returns vector data
@@ -574,6 +576,27 @@ components:
           - GEDC-US
           - GEDC
           - RSRTD
+          trimmed: false
+        meta:
+          numberOfResults: 10
+    SampleVectorDataResponseTrimmed:
+      summary: Example of Vector Data Response when used trimmed=true flag
+      value:
+        data:
+        - vectorId: 0001493152-24-046748-1_0001493152-24-046748-1_text_236_0
+          similarityScore: 0.9195987
+          storyDate: 2024-11-19
+          themes: NA
+          documentType: 10-Q
+          source: EDG
+          documentID: 0001493152-24-046748-1
+          property: embedding
+          type: dense_vector
+          ids:
+          - GEDC-US
+          - GEDC
+          - RSRTD
+          trimmed: true
         meta:
           numberOfResults: 10
     SampleChunkTextResponse:
@@ -619,6 +642,10 @@ components:
           - EDG
           - FCST
           - SA
+          ids:
+          - GEDC-US
+          - RSRTD
+          trimmed: false
         meta:
           numberOfResults: 10
     searchRequestForQuery:
@@ -776,6 +803,13 @@ components:
           - 8-K
           - News
           - Transcripts
+          ids:
+          - ids
+          - ids
+          - ids
+          - ids
+          - ids
+          trimmed: false
           startDate: 2023-12-22T00:00:00.000+0000
         meta:
           numberOfResults: 10
@@ -973,6 +1007,7 @@ components:
           documentID: 20230307-5b36f2cf
           source: EDG
           type: text
+          trimmed: true
           similarityScore: 0.8008281904610115
         - themes: doc
           documentType: documentType
@@ -988,6 +1023,7 @@ components:
           documentID: 20230307-5b36f2cf
           source: EDG
           type: text
+          trimmed: true
           similarityScore: 0.8008281904610115
         meta:
           numberOfResults: 6
@@ -1017,6 +1053,7 @@ components:
         documentID: 20230307-5b36f2cf
         source: EDG
         type: text
+        trimmed: true
         similarityScore: 0.8008281904610115
       properties:
         vector:
@@ -1063,6 +1100,11 @@ components:
           items:
             type: string
           type: array
+        trimmed:
+          description: "Trimmed attribute indicates whether the vectors are trimmed\
+            \ or not. \n- If **true**, the vectors has been trimmed.  \n- If **false**,\
+            \ the vectors are been returned.\n"
+          type: boolean
       type: object
     ChunkTextResponse:
       description: Response format for chunk text endpoint.
@@ -1171,6 +1213,13 @@ components:
         - 8-K
         - News
         - Transcripts
+        ids:
+        - ids
+        - ids
+        - ids
+        - ids
+        - ids
+        trimmed: false
         startDate: 2023-12-22T00:00:00.000+0000
       properties:
         query:
@@ -1218,7 +1267,8 @@ components:
           type: array
           uniqueItems: true
         documentTypes:
-          description: The search to include any of the document type.
+          description: The search to include one valid document type for the provided
+            sources.
           example:
           - 10-K
           - 10-Q
@@ -1244,6 +1294,20 @@ components:
           minItems: 1
           type: array
           uniqueItems: true
+        trimmed:
+          default: false
+          description: "Trimmed the vectors from response based on provided value\n\
+            - If **true**, the vectors has been trimmed.  \n- If **false**, the vectors\
+            \ are been returned.\n"
+          type: boolean
+        ids:
+          description: Requested symbols or securities. Each symbol can be a FactSet
+            exchange symbol
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
       required:
       - endDate
       - query

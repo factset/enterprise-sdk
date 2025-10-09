@@ -62,7 +62,7 @@ with fds.sdk.FactSetPrivateCompany.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["0H3R4Y-E"] # [str] | The requested FactSet Private Company Entity Identifier in XXXXXX-E format.<br/><br/> *Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the  service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB,  it's advised for any requests with large request lines to be requested through the respective \\\"POST\\\" method.* 
-    metrics = ["FPE_AMT_RAISED_USD"] # [str] | Requested list of Private Company Non-Periodic Metrics. 
+    metrics = ["FPE_AMT_RAISED_VC_USD"] # [str] | Requested list of Private Company Non-Periodic Metrics. 
 
     try:
         # Returns Private Company Reference Data.
@@ -165,7 +165,7 @@ with fds.sdk.FactSetPrivateCompany.ApiClient(configuration) as api_client:
     non_periodic_request = NonPeriodicRequest(
         data=NonPeriodicRequestBody(
             ids=PrivateMarketIds({"oneId":{"summary":"One security or entity identifier","value":["0H3R4Y-E"]},"multipleIds":{"summary":"Multiple security or entity identifiers","value":["0H3R4Y-E","0G3F5Z-E","00DK61-E"]}}),
-            metrics=NonPeriodicMetrics({"oneNonPeriodicMetric":{"summary":"One non-periodic metric","value":["FPE_AMT_RAISED"]},"multipleNonPeriodicMetrics":{"summary":"Multiple non-periodic metrics","value":["FPE_AMT_RAISED","FPD_CEO_CURR"]}}),
+            metrics=NonPeriodicMetrics({"oneNonPeriodicMetric":{"summary":"One non-periodic metric","value":["FPE_AMT_RAISED_VC"]},"multipleNonPeriodicMetrics":{"summary":"Multiple non-periodic metrics","value":["FPE_AMT_RAISED_VC","FPD_CEO_CURR"]}}),
         ),
     ) # NonPeriodicRequest | Request Body to request a list of Private Company non-periodic objects.
 

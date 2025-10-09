@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.8.0
+  version: 2.8.1
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -4372,6 +4372,22 @@ components:
           format: date
           example: '2024-08-22'
           nullable: true
+        inputDateHigh:
+          description: >-
+            Represents the date FactSet collected the data in YYYY-MM-DD format
+            for guidance high.
+          type: string
+          format: date
+          example: '2024-08-21'
+          nullable: true
+        inputDateLow:
+          description: >-
+            Represents the date FactSet collected the data in YYYY-MM-DD format
+            for guidance low.
+          type: string
+          format: date
+          example: '2024-08-21'
+          nullable: true
         guidanceMidpoint:
           description: ' Represents the central value in a range of projected financial guidance.'
           type: number
@@ -5405,6 +5421,8 @@ components:
             fiscalEndDate: '2024-10-31'
             relativePeriod: 1
             guidanceDate: '2024-08-22'
+            inputDateLow: '2024-08-21'
+            inputDateHigh: '2024-08-21'
             guidanceMidpoint: 6475
             guidanceLow: 6450
             guidanceHigh: 6500
@@ -5427,6 +5445,8 @@ components:
             fiscalEndDate: '2024-10-31'
             relativePeriod: 1
             guidanceDate: '2024-08-22'
+            inputDateLow: '2024-08-21'
+            inputDateHigh: '2024-08-21'
             guidanceMidpoint: 6475
             guidanceLow: 6450
             guidanceHigh: 6500
@@ -5449,6 +5469,8 @@ components:
             fiscalEndDate: '2024-10-31'
             relativePeriod: 1
             guidanceDate: '2024-08-22'
+            inputDateLow: '2024-08-21'
+            inputDateHigh: '2024-08-21'
             guidanceMidpoint: 6475
             guidanceLow: 6450
             guidanceHigh: 6500
@@ -5459,138 +5481,6 @@ components:
             meanBefore: 6823.863
             meanSurpriseAmt: 6.13733
             meanSurpriseAmtPercent: 0.2363425
-          - requestId: A-US
-            fsymId: FWHC5K-R
-            metric: SALES
-            currency: USD
-            estimateCurrency: USD
-            periodicity: ANN
-            consensusDate: '2024-12-01'
-            fiscalYear: 2024
-            fiscalPeriod: 1
-            fiscalEndDate: '2024-10-31'
-            relativePeriod: 1
-            guidanceDate: '2024-05-30'
-            guidanceMidpoint: 6460
-            guidanceLow: 6420
-            guidanceHigh: 6500
-            prevMidpoint: 6760
-            prevLow: 6710
-            prevHigh: 6810
-            guidanceRange: 6420.00 - 6500.00
-            meanBefore: 6763.017
-            meanSurpriseAmt: -303.0169
-            meanSurpriseAmtPercent: -4.4805
-          - requestId: A-US
-            fsymId: FWHC5K-R
-            metric: SALES
-            currency: USD
-            estimateCurrency: USD
-            periodicity: ANN
-            consensusDate: '2024-12-01'
-            fiscalYear: 2024
-            fiscalPeriod: 1
-            fiscalEndDate: '2024-10-31'
-            relativePeriod: 1
-            guidanceDate: '2024-05-30'
-            guidanceMidpoint: 6460
-            guidanceLow: 6420
-            guidanceHigh: 6500
-            prevMidpoint: 6760
-            prevLow: 6710
-            prevHigh: 6810
-            guidanceRange: 6420.00 - 6500.00
-            meanBefore: 6763.017
-            meanSurpriseAmt: -303.0169
-            meanSurpriseAmtPercent: -4.4805
-          - requestId: A-US
-            fsymId: FWHC5K-R
-            metric: SALES
-            currency: USD
-            estimateCurrency: USD
-            periodicity: ANN
-            consensusDate: '2024-12-01'
-            fiscalYear: 2024
-            fiscalPeriod: 1
-            fiscalEndDate: '2024-10-31'
-            relativePeriod: 1
-            guidanceDate: '2024-05-30'
-            guidanceMidpoint: 6460
-            guidanceLow: 6420
-            guidanceHigh: 6500
-            prevMidpoint: 6760
-            prevLow: 6710
-            prevHigh: 6810
-            guidanceRange: 6420.00 - 6500.00
-            meanBefore: 6763.017
-            meanSurpriseAmt: -303.0169
-            meanSurpriseAmtPercent: -4.4805
-          - requestId: A-US
-            fsymId: FWHC5K-R
-            metric: SALES
-            currency: USD
-            estimateCurrency: USD
-            periodicity: ANN
-            consensusDate: '2024-12-01'
-            fiscalYear: 2024
-            fiscalPeriod: 1
-            fiscalEndDate: '2024-10-31'
-            relativePeriod: 1
-            guidanceDate: '2024-08-28'
-            guidanceMidpoint: 6760
-            guidanceLow: 6710
-            guidanceHigh: 6810
-            prevMidpoint: 6760
-            prevLow: 6710
-            prevHigh: 6810
-            guidanceRange: 6710.00 - 6810.00
-            meanBefore: 6732.629
-            meanSurpriseAmt: 27.37119
-            meanSurpriseAmtPercent: 0.4065453
-          - requestId: A-US
-            fsymId: FWHC5K-R
-            metric: SALES
-            currency: USD
-            estimateCurrency: USD
-            periodicity: ANN
-            consensusDate: '2024-12-01'
-            fiscalYear: 2024
-            fiscalPeriod: 1
-            fiscalEndDate: '2024-10-31'
-            relativePeriod: 1
-            guidanceDate: '2024-08-28'
-            guidanceMidpoint: 6760
-            guidanceLow: 6710
-            guidanceHigh: 6810
-            prevMidpoint: 6760
-            prevLow: 6710
-            prevHigh: 6810
-            guidanceRange: 6710.00 - 6810.00
-            meanBefore: 6732.629
-            meanSurpriseAmt: 27.37119
-            meanSurpriseAmtPercent: 0.4065453
-          - requestId: A-US
-            fsymId: FWHC5K-R
-            metric: SALES
-            currency: USD
-            estimateCurrency: USD
-            periodicity: ANN
-            consensusDate: '2024-12-01'
-            fiscalYear: 2024
-            fiscalPeriod: 1
-            fiscalEndDate: '2024-10-31'
-            relativePeriod: 1
-            guidanceDate: '2024-08-28'
-            guidanceMidpoint: 6760
-            guidanceLow: 6710
-            guidanceHigh: 6810
-            prevMidpoint: 6760
-            prevLow: 6710
-            prevHigh: 6810
-            guidanceRange: 6710.00 - 6810.00
-            meanBefore: 6732.629
-            meanSurpriseAmt: 27.37119
-            meanSurpriseAmtPercent: 0.4065453
     metricsExample:
       summary: >-
         Mertics response with 'FINANCIAL_STATEMENT' category and '--'

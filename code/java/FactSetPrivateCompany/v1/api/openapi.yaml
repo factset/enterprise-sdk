@@ -542,11 +542,11 @@ paths:
           oneItem:
             summary: One non-periodic item
             value:
-            - FPE_AMT_RAISED_USD
+            - FPE_AMT_RAISED_VC_USD
           multipleItems:
             summary: Multiple non-periodic items
             value:
-            - FPE_AMT_RAISED_USD
+            - FPE_AMT_RAISED_VC_USD
             - FPE_INVESTORS_ACTIVE
             - FPE_INVESTMT_LAST_DATE
         explode: false
@@ -555,7 +555,7 @@ paths:
         required: true
         schema:
           items:
-            example: FPE_AMT_RAISED_USD
+            example: FPE_AMT_RAISED_VC_USD
             type: string
           maxItems: 100
           minItems: 1
@@ -665,7 +665,7 @@ paths:
           content:
             application/json:
               examples:
-                Result of multiple companies with single non-periodic (fpe_amt_raised_usd) item:
+                Result of multiple companies with single non-periodic (fpe_amt_raised_vc_usd) item:
                   $ref: '#/components/examples/resultOfMultipleIdswithSingleNonPeriodicItem'
                 Result of single company with multiple non-periodic items:
                   $ref: '#/components/examples/resultOfSingleIdwithMultipleNonPeriodicItems'
@@ -1124,7 +1124,7 @@ components:
           - 0G3F5Z-E
           - 00DK61-E
           metrics:
-          - FPE_AMT_RAISED_USD
+          - FPE_AMT_RAISED_VC_USD
     postEntityMatches:
       description: Post body request Request example to fetch entity matches for a
         list of names and attributes.
@@ -1228,21 +1228,21 @@ components:
         data:
         - requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
-          metric: FPE_AMT_RAISED_USD
+          metric: FPE_AMT_RAISED_VC_USD
           value:
             stringValue: null
             numberValue: 678.683
             valueType: number
         - requestId: 0G3F5Z-E
           fsymId: 0G3F5Z-E
-          metric: FPE_AMT_RAISED_USD
+          metric: FPE_AMT_RAISED_VC_USD
           value:
             stringValue: null
             numberValue: 132.512
             valueType: number
         - requestId: 00DK61-E
           fsymId: 00DK61-E
-          metric: FPE_AMT_RAISED_USD
+          metric: FPE_AMT_RAISED_VC_USD
           value:
             stringValue: null
             numberValue: 257.093
@@ -1256,7 +1256,7 @@ components:
         data:
         - requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
-          metric: FPE_AMT_RAISED_USD
+          metric: FPE_AMT_RAISED_VC_USD
           value:
             stringValue: null
             numberValue: 678.683
@@ -1596,11 +1596,11 @@ components:
         oneItem:
           summary: One non-periodic item
           value:
-          - FPE_AMT_RAISED_USD
+          - FPE_AMT_RAISED_VC_USD
         multipleItems:
           summary: Multiple non-periodic items
           value:
-          - FPE_AMT_RAISED_USD
+          - FPE_AMT_RAISED_VC_USD
           - FPE_INVESTORS_ACTIVE
           - FPE_INVESTMT_LAST_DATE
       explode: false
@@ -1609,7 +1609,7 @@ components:
       required: true
       schema:
         items:
-          example: FPE_AMT_RAISED_USD
+          example: FPE_AMT_RAISED_VC_USD
           type: string
         maxItems: 100
         minItems: 1
@@ -1914,14 +1914,14 @@ components:
       description: Private Company Non-Periodic Response
       example:
         data:
-        - metric: FPE_AMT_RAISED_USD
+        - metric: FPE_AMT_RAISED_VC_USD
           requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
           value:
             stringValue: stringValue
             valueType: Number
             numberValue: 678.683
-        - metric: FPE_AMT_RAISED_USD
+        - metric: FPE_AMT_RAISED_VC_USD
           requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
           value:
@@ -1938,7 +1938,7 @@ components:
     NonPeriodic:
       description: Private Company Non-Periodic
       example:
-        metric: FPE_AMT_RAISED_USD
+        metric: FPE_AMT_RAISED_VC_USD
         requestId: 0H3R4Y-E
         fsymId: 0H3R4Y-E
         value:
@@ -1959,7 +1959,7 @@ components:
         metric:
           description: The requested `metric` input representing the Private Company
             Financial Data Item.
-          example: FPE_AMT_RAISED_USD
+          example: FPE_AMT_RAISED_VC_USD
           nullable: true
           type: string
         value:
@@ -2655,11 +2655,11 @@ components:
             oneNonPeriodicMetric:
               summary: One non-periodic metric
               value:
-              - FPE_AMT_RAISED
+              - FPE_AMT_RAISED_VC
             multipleNonPeriodicMetrics:
               summary: Multiple non-periodic metrics
               value:
-              - FPE_AMT_RAISED
+              - FPE_AMT_RAISED_VC
               - FPD_CEO_CURR
       properties:
         data:
@@ -2686,11 +2686,11 @@ components:
           oneNonPeriodicMetric:
             summary: One non-periodic metric
             value:
-            - FPE_AMT_RAISED
+            - FPE_AMT_RAISED_VC
           multipleNonPeriodicMetrics:
             summary: Multiple non-periodic metrics
             value:
-            - FPE_AMT_RAISED
+            - FPE_AMT_RAISED_VC
             - FPD_CEO_CURR
       properties:
         ids:
@@ -2720,11 +2720,11 @@ components:
             oneNonPeriodicMetric:
               summary: One non-periodic metric
               value:
-              - FPE_AMT_RAISED
+              - FPE_AMT_RAISED_VC
             multipleNonPeriodicMetrics:
               summary: Multiple non-periodic metrics
               value:
-              - FPE_AMT_RAISED
+              - FPE_AMT_RAISED_VC
               - FPD_CEO_CURR
           items:
             type: string
@@ -2832,11 +2832,11 @@ components:
         oneNonPeriodicMetric:
           summary: One non-periodic metric
           value:
-          - FPE_AMT_RAISED
+          - FPE_AMT_RAISED_VC
         multipleNonPeriodicMetrics:
           summary: Multiple non-periodic metrics
           value:
-          - FPE_AMT_RAISED
+          - FPE_AMT_RAISED_VC
           - FPD_CEO_CURR
       items:
         type: string

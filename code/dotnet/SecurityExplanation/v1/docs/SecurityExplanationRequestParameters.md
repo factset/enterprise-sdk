@@ -6,16 +6,17 @@ Parameters for the security explanation request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. | 
-**StartDate** | **DateTime** | Start date of the explain request in YYYY-MM-DD format | 
-**EndDate** | **DateTime** | End date of the explain request in YYYY-MM-DD format | 
-**EnableLinks** | **bool** | If true, explain response will have link to the related news articles | [optional] [default to false]
+**StartDate** | **DateTime** | Start date of the explain request in YYYY-MM-DD format. | 
+**EndDate** | **DateTime** | End date of the explain request in YYYY-MM-DD format. | 
+**EnableLinks** | **bool** | Include or exclude hyperlinks to underlying sources. | [optional] [default to false]
 **ExplanationStyle** | **string** | Determines the style of the Explanation | [optional] [default to ExplanationStyleEnum.Short]
-**IncludePerformance** | **bool** | If true, includes the performance statement in the explanation | [optional] [default to false]
-**InternalInvestmentRationale** | **string** | Include summarized IRN notes on the company, or just the footnote, or none. Only available for IRN users | [optional] [default to InternalInvestmentRationaleEnum.None]
-**IncludeCompanyDescription** | **bool** | If true, includes the company description in the explanation.In order to include &#39;Company Business Description&#39;, &#39;includePerformance&#39; must be set to True. Even if &#39;includeCompanyDescription&#39; is set to True, if &#39;includePerformance&#39; is false, it will be omitted | [optional] [default to false]
-**IncludeMarketSummary** | **bool** | If true, Includes another paragraph detailing macro news influencing the target company. | [optional] [default to true]
-**IncludeInternalInvestmentRationaleRecommendation** | **bool** | If true, Includes recommendation from IRN. If you don&#39;t have a recommendation, it will be omitted. If &#39;internalInvestmentRationale&#39; is set to &#39;none&#39;, this will be ignored. | [optional] [default to true]
-**IncludeInternalInvestmentRationalePriceTarget** | **bool** | If true, Includes price target from IRN. If you don&#39;t have a price target, it will be omitted. If &#39;internalInvestmentRationale&#39; is set to &#39;none&#39;, this will be ignored. | [optional] [default to true]
+**IncludePerformance** | **bool** | Include or exclude the company&#39;s total return for the request period. | [optional] [default to false]
+**InternalInvestmentRationale** | **string** | For IRN users only; select to include a summary, footnotes, or no IRN notes for the period. | [optional] [default to InternalInvestmentRationaleEnum.None]
+**IncludeCompanyDescription** | **bool** | Include or exclude the target company&#39;s business description. | [optional] [default to false]
+**IncludeMarketSummary** | **bool** | Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context. | [optional] [default to true]
+**IncludeInternalInvestmentRationaleRecommendation** | **bool** | For IRN users only; include or exclude your firm&#39;s rating in the summary or footnote. | [optional] [default to true]
+**IncludeInternalInvestmentRationalePriceTarget** | **bool** | For IRN users only; include or exclude your firm&#39;s price target in the summary or footnote. | [optional] [default to true]
+**BrokerResearchSummary** | [**BrokerResearchSummary**](BrokerResearchSummary.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

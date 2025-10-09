@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Property** | **string** | The name of the schema. | [optional] 
 **Type** | **string** | The type of the schema. | [optional] 
 **Ids** | **List&lt;string&gt;** | List of related IDs. | [optional] 
+**Trimmed** | **bool** | Trimmed attribute indicates whether the vectors are trimmed or not.  - If **true**, the vectors has been trimmed.   - If **false**, the vectors are been returned.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

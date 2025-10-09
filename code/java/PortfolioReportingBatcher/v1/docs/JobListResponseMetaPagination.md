@@ -8,7 +8,8 @@ Contains pagination information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hasNext** | **Boolean** | Indicates whether more information exists which can be requested by changing the input pagination parameters |  [optional]
+**total** | **Integer** | Total number of pages available. |  [optional]
+**isEstimatedTotal** | **Boolean** | Flag indicating that the value of total pages is estimated. |  [optional]
 
 
 ## Implemented Interfaces

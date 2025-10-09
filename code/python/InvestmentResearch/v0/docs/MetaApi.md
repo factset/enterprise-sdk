@@ -253,7 +253,7 @@ with fds.sdk.InvestmentResearch.ApiClient(configuration) as api_client:
     api_instance = meta_api.MetaApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    contributor_id = 27513283 # int | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
+    contributor_id = 20120205 # int | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
 
     try:
         # Returns the research analysts' details.

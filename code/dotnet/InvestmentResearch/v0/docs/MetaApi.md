@@ -261,7 +261,7 @@ namespace Example
 
             var apiInstance = new MetaApi(config);
 
-            var contributorId = 27513283;  // int | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
+            var contributorId = 20120205;  // int | Contributor id. Use the ```/meta/research-contributors``` endpoint to get the list of permissioned contributors.
 
             try
             {

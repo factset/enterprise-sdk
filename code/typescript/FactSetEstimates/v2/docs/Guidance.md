@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **relativePeriod** | **Number** | &#39;Fiscal period&#39; based on relationship to &#39;estimate date&#39;. This is not applicable for fixed-consensus endpoint. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) | [optional] 
 **fiscalPeriod** | **Number** | Company&#39;s &#39;fiscal period&#39; for the estimate record.  &#39;Periodicity&#39; defines context for period. | [optional] 
 **guidanceDate** | **Date** | Date guidance was issued expressed in YYYY-MM-DD format. | [optional] 
+**inputDateHigh** | **Date** | Represents the date FactSet collected the data in YYYY-MM-DD format for guidance high. | [optional] 
+**inputDateLow** | **Date** | Represents the date FactSet collected the data in YYYY-MM-DD format for guidance low. | [optional] 
 **guidanceMidpoint** | **Number** |  Represents the central value in a range of projected financial guidance. | [optional] 
 **guidanceLow** | **Number** | Represents the lower end of the projected financial guidance range. | [optional] 
 **guidanceHigh** | **Number** | Represents the upper end of the projected financial guidance range. | [optional] 

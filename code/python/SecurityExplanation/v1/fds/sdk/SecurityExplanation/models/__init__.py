@@ -11,6 +11,7 @@
 
 from fds.sdk.SecurityExplanation.model.api_client_error_response import APIClientErrorResponse
 from fds.sdk.SecurityExplanation.model.api_error import APIError
+from fds.sdk.SecurityExplanation.model.broker_research_summary import BrokerResearchSummary
 from fds.sdk.SecurityExplanation.model.error_source import ErrorSource
 from fds.sdk.SecurityExplanation.model.explanation_create_response import ExplanationCreateResponse
 from fds.sdk.SecurityExplanation.model.explanation_create_response_root import ExplanationCreateResponseRoot

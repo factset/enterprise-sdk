@@ -51,7 +51,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NonPeriodicApi();
 const ids = ["0H3R4Y-E"]; // [String] | The requested FactSet Private Company Entity Identifier in XXXXXX-E format.<br/><br/> *Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the  service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB,  it's advised for any requests with large request lines to be requested through the respective \\\"POST\\\" method.* 
-const metrics = ["FPE_AMT_RAISED_USD"]; // [String] | Requested list of Private Company Non-Periodic Metrics. 
+const metrics = ["FPE_AMT_RAISED_VC_USD"]; // [String] | Requested list of Private Company Non-Periodic Metrics. 
 
 // Call api endpoint
 apiInstance.getNonPeriodic(ids, metrics).then(

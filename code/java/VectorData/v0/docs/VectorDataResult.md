@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **property** | **String** | The name of the schema. |  [optional]
 **type** | **String** | The type of the schema. |  [optional]
 **ids** | **java.util.List&lt;String&gt;** | List of related IDs. |  [optional]
+**trimmed** | **Boolean** | Trimmed attribute indicates whether the vectors are trimmed or not.  - If **true**, the vectors has been trimmed.   - If **false**, the vectors are been returned.  |  [optional]
 
 
 ## Implemented Interfaces

@@ -75,7 +75,7 @@ with fds.sdk.InvestmentResearch.ApiClient(configuration) as api_client:
             categories=Categories(["SB:ANLCH","IN:OIL"]),
             primary_id=False,
             search_text="Officer",
-            contributor_id=ContributorId([27513283,27323471]),
+            contributor_id=ContributorId([20120205,21069618]),
             analyst_id=AnalystId([6885167,6885168]),
             report_foci=ReportFoci([
                 "Issuer",
@@ -226,7 +226,7 @@ with fds.sdk.InvestmentResearch.ApiClient(configuration) as api_client:
             categories=Categories(["SB:ANLCH","IN:OIL"]),
             primary_id=False,
             search_text="Officer",
-            contributor_id=ContributorId([27513283,27323471]),
+            contributor_id=ContributorId([20120205,21069618]),
             analyst_id=AnalystId([6885167,6885168]),
             report_foci=ReportFoci([
                 "Issuer",

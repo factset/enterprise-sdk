@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vector Data API
-  version: 0.0.0
+  version: 0.2.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -44,6 +44,8 @@ paths:
               examples:
                 sampleResponse:
                   $ref: '#/components/examples/SampleVectorDataResponse'
+                sampleResponseTrimmed:
+                  $ref: '#/components/examples/SampleVectorDataResponseTrimmed'
         '400':
           description: Bad request.
           content:
@@ -564,7 +566,9 @@ components:
               uniqueItems: true
               items:
                 type: string
-              description: The search to include any of the document type.
+              description: >-
+                The search to include one valid document type for the provided
+                sources.
               example:
                 - 10-K
                 - 10-Q
@@ -585,6 +589,22 @@ components:
                 - EDG
                 - FCST
                 - SA
+            trimmed:
+              type: boolean
+              default: false
+              description: |
+                Trimmed the vectors from response based on provided value
+                - If **true**, the vectors has been trimmed.  
+                - If **false**, the vectors are been returned.
+            ids:
+              type: array
+              items:
+                type: string
+              maxItems: 100
+              minItems: 1
+              description: >-
+                Requested symbols or securities. Each symbol can be a FactSet
+                exchange symbol
           required:
             - sources
             - startDate
@@ -783,6 +803,12 @@ components:
           items:
             type: string
           description: List of related IDs.
+        trimmed:
+          type: boolean
+          description: |
+            Trimmed attribute indicates whether the vectors are trimmed or not. 
+            - If **true**, the vectors has been trimmed.  
+            - If **false**, the vectors are been returned.
     ChunkTextResponse:
       type: object
       description: Response format for chunk text endpoint.
@@ -899,6 +925,27 @@ components:
               - GEDC-US
               - GEDC
               - RSRTD
+            trimmed: false
+        meta:
+          numberOfResults: 10
+    SampleVectorDataResponseTrimmed:
+      summary: Example of Vector Data Response when used trimmed=true flag
+      value:
+        data:
+          - vectorId: 0001493152-24-046748-1_0001493152-24-046748-1_text_236_0
+            similarityScore: 0.9195987
+            storyDate: '2024-11-19'
+            themes: NA
+            documentType: 10-Q
+            source: EDG
+            documentID: 0001493152-24-046748-1
+            property: embedding
+            type: dense_vector
+            ids:
+              - GEDC-US
+              - GEDC
+              - RSRTD
+            trimmed: true
         meta:
           numberOfResults: 10
     SampleChunkTextResponse:
@@ -946,6 +993,10 @@ components:
             - EDG
             - FCST
             - SA
+          ids:
+            - GEDC-US
+            - RSRTD
+          trimmed: false
         meta:
           numberOfResults: 10
     searchRequestForQuery:

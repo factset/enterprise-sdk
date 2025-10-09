@@ -660,7 +660,7 @@ components:
       required: true
       name: contributorId
       explode: false
-      example: 27513283
+      example: 20120205
       description: >-
         Contributor id. Use the ```/meta/research-contributors``` endpoint to
         get the list of permissioned contributors.
@@ -900,8 +900,8 @@ components:
       items:
         type: integer
       example:
-        - 27513283
-        - 27323471
+        - 20120205
+        - 21069618
       description: >-
         One or more contributor codes. This is a comma-separated list. Use the
         ```/meta/research-contributors``` endpoint to get the list of

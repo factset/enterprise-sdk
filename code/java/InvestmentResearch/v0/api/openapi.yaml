@@ -429,7 +429,7 @@ paths:
       parameters:
       - description: Contributor id. Use the ```/meta/research-contributors``` endpoint
           to get the list of permissioned contributors.
-        example: 27513283
+        example: 20120205
         explode: false
         in: query
         name: contributorId
@@ -837,7 +837,7 @@ components:
     contributorsId:
       description: Contributor id. Use the ```/meta/research-contributors``` endpoint
         to get the list of permissioned contributors.
-      example: 27513283
+      example: 20120205
       explode: false
       in: query
       name: contributorId
@@ -874,8 +874,8 @@ components:
           - Issuer
           - Issuer
           contributorId:
-          - 27513283
-          - 27323471
+          - 20120205
+          - 21069618
           issuerTypes:
           - Agency
           - Agency
@@ -953,8 +953,8 @@ components:
         - Issuer
         - Issuer
         contributorId:
-        - 27513283
-        - 27323471
+        - 20120205
+        - 21069618
         issuerTypes:
         - Agency
         - Agency
@@ -1086,8 +1086,8 @@ components:
             permissioned contributors. If this parameter is not used, by default will
             get all permissioned contributors.
           example:
-          - 27513283
-          - 27323471
+          - 20120205
+          - 21069618
           items:
             type: integer
           type: array
@@ -1496,8 +1496,8 @@ components:
         contributors. If this parameter is not used, by default will get all permissioned
         contributors.
       example:
-      - 27513283
-      - 27323471
+      - 20120205
+      - 21069618
       items:
         type: integer
       type: array
@@ -1831,8 +1831,8 @@ components:
           - Issuer
           - Issuer
           contributorId:
-          - 27513283
-          - 27323471
+          - 20120205
+          - 21069618
           issuerTypes:
           - Agency
           - Agency
@@ -1902,8 +1902,8 @@ components:
         - Issuer
         - Issuer
         contributorId:
-        - 27513283
-        - 27323471
+        - 20120205
+        - 21069618
         issuerTypes:
         - Agency
         - Agency
@@ -2035,8 +2035,8 @@ components:
             permissioned contributors. If this parameter is not used, by default will
             get all permissioned contributors.
           example:
-          - 27513283
-          - 27323471
+          - 20120205
+          - 21069618
           items:
             type: integer
           type: array
