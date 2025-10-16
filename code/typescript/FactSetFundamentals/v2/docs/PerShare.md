@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **earningsPerShare** | **Number** | Earnings per share (EPS) is the portion of a company&#39;s profit allocated to each share of common stock | [optional] 
 **revenuePerShare** | **Number** | The portion of a company&#39;s revenue that is allocated to each share of common stock. | [optional] 
 **salesPerShare** | **Number** | Sales per share is a ratio that computes the total revenue earned per share over a designated period | [optional] 
-**trailingTwelveMonthEarningsPerShare** | **Number** | Earnings per share over the last 12 months. | [optional] 
+**trailingTwelveMonthEarningsPerShare** | **Number** |  Earnings per share over the last 12 months. | [optional] 
 
 

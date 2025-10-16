@@ -89,6 +89,9 @@ class EntitySecuritiesApi(object):
                     ('security_type',): {
 
                         "EQ": "EQ",
+                        "AEQ": "AEQ",
+                        "PR": "PR",
+                        "F": "F",
                         "FI": "FI",
                         "ALL": "ALL"
                     },
@@ -205,7 +208,7 @@ class EntitySecuritiesApi(object):
             ids ([str]): The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
         Keyword Args:
-            security_type (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).. [optional] if omitted the server will use the default value of "EQ"
+            security_type (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . [optional] if omitted the server will use the default value of "EQ"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -253,7 +256,7 @@ class EntitySecuritiesApi(object):
             ids ([str]): The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
         Keyword Args:
-            security_type (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).. [optional] if omitted the server will use the default value of "EQ"
+            security_type (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . [optional] if omitted the server will use the default value of "EQ"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -305,7 +308,7 @@ class EntitySecuritiesApi(object):
             ids ([str]): The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
         Keyword Args:
-            security_type (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).. [optional] if omitted the server will use the default value of "EQ"
+            security_type (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . [optional] if omitted the server will use the default value of "EQ"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -352,7 +355,7 @@ class EntitySecuritiesApi(object):
             ids ([str]): The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
         Keyword Args:
-            security_type (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).. [optional] if omitted the server will use the default value of "EQ"
+            security_type (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . [optional] if omitted the server will use the default value of "EQ"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

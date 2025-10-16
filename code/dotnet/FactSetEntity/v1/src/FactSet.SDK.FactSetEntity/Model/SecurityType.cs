@@ -27,9 +27,9 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetEntity.Client.OpenAPIDateConvert
 namespace FactSet.SDK.FactSetEntity.Model
 {
     /// <summary>
-    /// Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). 
+    /// The category describes which security types will be returned in the response. Defined as: * **EQ** &#x3D; All related traded equity listings * **AEQ** &#x3D; All active traded and non-traded equity listings * **PR** &#x3D; All active preferred securities * **F** &#x3D; All active funds * **FI** &#x3D; All debt instruments * **ALL** &#x3D; All related traded equity listings and debt 
     /// </summary>
-    /// <value>Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). </value>
+    /// <value>The category describes which security types will be returned in the response. Defined as: * **EQ** &#x3D; All related traded equity listings * **AEQ** &#x3D; All active traded and non-traded equity listings * **PR** &#x3D; All active preferred securities * **F** &#x3D; All active funds * **FI** &#x3D; All debt instruments * **ALL** &#x3D; All related traded equity listings and debt </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SecurityType
     {
@@ -40,16 +40,34 @@ namespace FactSet.SDK.FactSetEntity.Model
         EQ = 1,
 
         /// <summary>
+        /// Enum AEQ for value: AEQ
+        /// </summary>
+        [EnumMember(Value = "AEQ")]
+        AEQ = 2,
+
+        /// <summary>
+        /// Enum PR for value: PR
+        /// </summary>
+        [EnumMember(Value = "PR")]
+        PR = 3,
+
+        /// <summary>
+        /// Enum F for value: F
+        /// </summary>
+        [EnumMember(Value = "F")]
+        F = 4,
+
+        /// <summary>
         /// Enum FI for value: FI
         /// </summary>
         [EnumMember(Value = "FI")]
-        FI = 2,
+        FI = 5,
 
         /// <summary>
         /// Enum ALL for value: ALL
         /// </summary>
         [EnumMember(Value = "ALL")]
-        ALL = 3
+        ALL = 6
 
     }
 

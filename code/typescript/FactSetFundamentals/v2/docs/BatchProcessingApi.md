@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Returns the response for a Batch Request
 
-Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+Returns the response data for the underlying batch request that is specified by the id. The response structure will be based on the endpoint that initiated the batch request (/fundamentals, /segments, /point-in-time, or /periods).  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
 
 ### Example
 

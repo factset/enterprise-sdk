@@ -1,0 +1,20 @@
+# FactSet.SDK.FactSetFundamentals.Model.FundamentalsPITRequestBody
+Parameters for requesting Point-in-Time fundamentals data via POST.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Ids** | **List&lt;string&gt;** | Array of identifiers supported in async requests to &#x60;/point-in-time&#x60; and &#x60;/periods&#x60; endpoints.  Accepted types: Tickers, SEDOLs, ISINs, CUSIPs, FactSet Permanent Security, Regional, and Entity Identifiers. | 
+**Periodicity** | **PeriodicityEnum** |  | [optional] 
+**FiscalPeriodStart** | **DateTime** | Filters for fiscal periods ending on or after this date (YYYY-MM-DD). Used with &#x60;fiscalPeriodEnd&#x60; for a range, or alone for the earliest period. | 
+**FiscalPeriodEnd** | **DateTime** | Filters for fiscal periods ending on or before this date (YYYY-MM-DD). Used with &#x60;fiscalPeriodStart&#x60; for a range, or alone for the latest period. | [optional] 
+**Metrics** | **List&lt;string&gt;** | An array of fundamentals metric identifiers. Use the &#x60;/metrics&#x60; endpoint for a complete list of available metric identifiers. | 
+**Frequency** | **FrequencyEnum** |  | [optional] 
+**PitStart** | **DateTime** | Filters PIT snapshots taken on or after this UTC date and time. * Use ISO 8601 format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;. * If &#x60;pitStart&#x60; and &#x60;pitEnd&#x60; are omitted, the full PIT history is returned (respecting &#x60;frequency&#x60; if provided). * For a specific point in time, provide the same value for both &#x60;pitStart&#x60; and &#x60;pitEnd&#x60;.  | [optional] 
+**PitEnd** | **DateTime** | Filters PIT snapshots taken on or before this UTC date and time. * Use ISO 8601 format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60;. * Must be used with &#x60;pitStart&#x60; to define a range. * For a specific point in time, use the same value for both &#x60;pitStart&#x60; and &#x60;pitEnd&#x60;.  | [optional] 
+**UpdateType** | **UpdateType** |  | [optional] 
+**Active** | **bool** | Optional flag to restrict results to securities that were active on the snapshot (PIT) date.  When set to true, applies point-in-time filtering based on the security&#39;s active date range. Prevents inclusion of future-dated entities. | [optional] [default to true]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

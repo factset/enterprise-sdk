@@ -264,9 +264,33 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Controls the response to return all related equity listings (EQ),
-          all debt instruments (FI), or both all equity and all debt (ALL).
-        example: EQ
+      - description: |
+          The category describes which security types will be returned in the response. Defined as:
+          * **EQ** = All related traded equity listings
+          * **AEQ** = All active traded and non-traded equity listings
+          * **PR** = All active preferred securities
+          * **F** = All active funds
+          * **FI** = All debt instruments
+          * **ALL** = All related traded equity listings and debt
+        examples:
+          EQ:
+            summary: EQ
+            value: EQ
+          AEQ:
+            summary: AEQ
+            value: AEQ
+          PR:
+            summary: PR
+            value: PR
+          F:
+            summary: F
+            value: F
+          FI:
+            summary: FI
+            value: FI
+          ALL:
+            summary: ALL
+            value: ALL
         explode: true
         in: query
         name: securityType
@@ -275,6 +299,9 @@ paths:
           default: EQ
           enum:
           - EQ
+          - AEQ
+          - PR
+          - F
           - FI
           - ALL
           type: string
@@ -1751,9 +1778,33 @@ components:
         type: array
       style: form
     securityType:
-      description: Controls the response to return all related equity listings (EQ),
-        all debt instruments (FI), or both all equity and all debt (ALL).
-      example: EQ
+      description: |
+        The category describes which security types will be returned in the response. Defined as:
+        * **EQ** = All related traded equity listings
+        * **AEQ** = All active traded and non-traded equity listings
+        * **PR** = All active preferred securities
+        * **F** = All active funds
+        * **FI** = All debt instruments
+        * **ALL** = All related traded equity listings and debt
+      examples:
+        EQ:
+          summary: EQ
+          value: EQ
+        AEQ:
+          summary: AEQ
+          value: AEQ
+        PR:
+          summary: PR
+          value: PR
+        F:
+          summary: F
+          value: F
+        FI:
+          summary: FI
+          value: FI
+        ALL:
+          summary: ALL
+          value: ALL
       explode: true
       in: query
       name: securityType
@@ -1762,6 +1813,9 @@ components:
         default: EQ
         enum:
         - EQ
+        - AEQ
+        - PR
+        - F
         - FI
         - ALL
         type: string
@@ -2835,9 +2889,18 @@ components:
     securityType:
       default: EQ
       description: |
-        Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).
+        The category describes which security types will be returned in the response. Defined as:
+        * **EQ** = All related traded equity listings
+        * **AEQ** = All active traded and non-traded equity listings
+        * **PR** = All active preferred securities
+        * **F** = All active funds
+        * **FI** = All debt instruments
+        * **ALL** = All related traded equity listings and debt
       enum:
       - EQ
+      - AEQ
+      - PR
+      - F
       - FI
       - ALL
       example: EQ

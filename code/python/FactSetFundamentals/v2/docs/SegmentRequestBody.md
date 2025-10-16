@@ -6,7 +6,7 @@ Segments request body elements
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ids** | [**IdsBatchMax30000**](IdsBatchMax30000.md) |  | 
-**metrics** | **str** | Metrics are the data items available for business and geographic segments, where   * **SALES**  &#x3D; Sales/Revenue - Total revenues from the business line/geographic region,   * **OPINC** &#x3D; Operating Income/Loss - Operating income generated from the business line/geographic region,   * **ASSETS** &#x3D; Total Assets - Total assets from the business line/geographic region,   * **DEP** &#x3D; Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,   * **CAPEX** &#x3D; Capital Expenditures - Capital expenditures resulting from the business line/geographic region  | 
+**metrics** | **str** | Metrics are the data items available for business and geographic segments, where   * **SALES**  &#x3D; Sales/Revenue - Total revenues from the business line/geographic region,   * **OPINC** &#x3D; Operating Income/Loss - Operating income generated from the business line/geographic region,   * **ASSETS** &#x3D; Total assets from the business line/geographic region,   * **DEP** &#x3D; Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,   * **CAPEX** &#x3D; Capital Expenditures - Capital expenditures resulting from the business line/geographic region | 
 **periodicity** | [**SegmentsPeriodicity**](SegmentsPeriodicity.md) |  | [optional] 
 **fiscal_period** | [**FiscalPeriod**](FiscalPeriod.md) |  | [optional] 
 **segment_type** | [**SegmentType**](SegmentType.md) |  | [optional] 

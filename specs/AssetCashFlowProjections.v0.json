@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Asset Cash Flow Projections API",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Allow clients to upload scenario files through APIs.",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -20,7 +20,7 @@
     }
   ],
   "paths": {
-    "/scenarios/upload": {
+    "/scenarios": {
       "post": {
         "tags": [
           "Scenarios"
@@ -36,7 +36,7 @@
                   "$ref": "#/components/schemas/ClientUploadResponse"
                 },
                 "examples": {
-                  "example-1": {
+                  "example - 1": {
                     "value": {
                       "data": {
                         "uploadId": "string",
@@ -49,36 +49,30 @@
                 }
               }
             },
+            "links": {
+              "longRunningStatus": {
+                "description": "Link to use the uploadID returned in the response from POST and use it as input to the GET Status endpoint.",
+                "operationId": "getScenariosUploadStatusById",
+                "parameters": {
+                  "id": "$response.body#/data/uploadId"
+                }
+              }
+            },
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -90,51 +84,27 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "examples": {
-                  "example-1": {
-                    "value": {
-                      "errors": [
-                        {
-                          "id": "string",
-                          "code": "Bad Request",
-                          "title": "Failed to process the request",
-                          "detail": "Invalid request body."
-                        }
-                      ]
-                    }
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
                   }
                 }
               }
             },
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -142,51 +112,30 @@
             "description": "Missing or invalid authentication.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "403": {
             "description": "User is forbidden with current credentials",
             "headers": {
-              "X-DataDirect-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -194,40 +143,30 @@
             "description": "Not Found - invalid inputs",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not Found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
                 }
               }
             }
@@ -240,7 +179,7 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "examples": {
-                  "example-1": {
+                  "409 - Conflict": {
                     "value": {
                       "errors": [
                         {
@@ -257,34 +196,19 @@
             },
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -292,40 +216,22 @@
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
-              "X-FactSet-Api-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
-              "X-FactSet-Api-RateLimit-Reset\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               },
               "Retry-After": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Time to wait in seconds before making a new request as the rate limit has reached."
+                "$ref": "#/components/headers/Retry-After"
               }
             },
             "content": {
@@ -340,16 +246,10 @@
             "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
@@ -357,16 +257,10 @@
             "description": "Request timed out. Retry the request in sometime.",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           }
@@ -378,7 +272,7 @@
                 "$ref": "#/components/schemas/ClientScenariosUpload"
               },
               "examples": {
-                "example-1": {
+                "example - 1": {
                   "value": {
                     "data": {
                       "fileName": "my_scenarios.csv",
@@ -388,10 +282,10 @@
                     }
                   }
                 },
-                "example-2": {
+                "example - 2": {
                   "value": {
                     "data": {
-                      "fileName": "my_scenarios.scn",
+                      "fileName": "$my_#scenarios.scn",
                       "asOfDate": "2024-03-05",
                       "overwrite": true,
                       "replaceSpecialCharacters": true
@@ -433,7 +327,7 @@
                   "$ref": "#/components/schemas/UploadStatusResponse"
                 },
                 "examples": {
-                  "example-1": {
+                  "example - 1": {
                     "value": {
                       "data": {
                         "uploadId": "9629ef2697f29b3197ef330851d8ce4b",
@@ -452,34 +346,19 @@
             },
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -491,7 +370,7 @@
                   "$ref": "#/components/schemas/UploadStatusResponse"
                 },
                 "examples": {
-                  "example-1": {
+                  "example - 1": {
                     "value": {
                       "data": {
                         "uploadId": "9629ef2697f29b3197ef330851d8ce4b",
@@ -505,7 +384,7 @@
                       }
                     }
                   },
-                  "example-2": {
+                  "example - 2": {
                     "value": {
                       "data": {
                         "uploadId": "9629ef2697f29b3197ef330851d8ce4b",
@@ -524,34 +403,19 @@
             },
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -563,103 +427,58 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "examples": {
-                  "example-1": {
-                    "value": {
-                      "errors": [
-                        {
-                          "id": "string",
-                          "code": "Bad Request",
-                          "title": "Failed to process the request",
-                          "detail": "Date does not fit the required date string format"
-                        }
-                      ]
-                    }
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
                   }
                 }
               }
             },
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
           "401": {
             "description": "Missing or invalid authentication.",
             "headers": {
-              "X-DataDirect-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
-              "X-FactSet-Api-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "403": {
             "description": "User is forbidden with current credentials",
             "headers": {
-              "X-DataDirect-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
-              "X-FactSet-Api-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
-              "X-FactSet-Api-RateLimit-Limit\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             }
           },
@@ -667,40 +486,30 @@
             "description": "Not Found - uploadId does not exist",
             "headers": {
               "X-DataDirect-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               }
             },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
                 }
               }
             }
@@ -708,41 +517,23 @@
           "429": {
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
-              "X-DataDirect-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
               "X-FactSet-Api-Request-Key": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of allowed requests for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
               },
               "X-FactSet-Api-RateLimit-Remaining": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of requests left for the time window."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
               "X-FactSet-Api-RateLimit-Reset": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Number of seconds remaining till rate limit resets."
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               },
               "Retry-After": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Time to wait in seconds before making a new request as the rate limit has reached."
+                "$ref": "#/components/headers/Retry-After"
               }
             },
             "content": {
@@ -756,34 +547,22 @@
           "500": {
             "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
             "headers": {
-              "X-DataDirect-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
-              "X-FactSet-Api-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           },
           "503": {
             "description": "Request timed out. Retry the request in sometime.",
             "headers": {
-              "X-DataDirect-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "FactSet's request key header."
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
               },
-              "X-FactSet-Api-Request-Key\t": {
-                "schema": {
-                  "type": "string"
-                },
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               }
             }
           }
@@ -792,191 +571,870 @@
         "description": "This endpoint is used for getting the status of a file",
         "parameters": []
       }
+    },
+    "/documents": {
+      "post": {
+        "summary": "Create new document based on existing document - Save as",
+        "operationId": "postDocument",
+        "tags": [
+          "Documents"
+        ],
+        "responses": {
+          "201": {
+            "description": "Expected response, document created successfully",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body parameters.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "409 - Conflict": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "string",
+                          "code": "Conflict",
+                          "title": "Failed to process the request",
+                          "detail": "Duplicate file names exist."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. ",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "description": "This will create a new document based on existing one.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNewDocument"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "existingDocumentName": "Client:/ACFP/OldTestScenario100",
+                      "portfolios": [
+                        "Client:/ACFP/PORTFOLIO1.OFDB",
+                        "Client:/ACFP/PORTFOLIO2.ACTM"
+                      ],
+                      "scenarios": [
+                        "Client:Scenario1.CSV",
+                        "Client:Scenario2.SCN"
+                      ],
+                      "asOfDate": "2025-04-21",
+                      "newDocumentName": "Client:/ACFP/NewTestScenario100"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documents/{documentPath}": {
+      "put": {
+        "summary": "Update existing document - Save",
+        "operationId": "putDocument",
+        "tags": [
+          "Documents"
+        ],
+        "responses": {
+          "204": {
+            "description": "Expected response, document updated succesfully",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid path or request body parameters provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. ",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateNewDocument"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "portfolios": [
+                        "Client:/ACFP/PORTFOLIO1.OFDB",
+                        "Client:/ACFP/PORTFOLIO2.ACTM"
+                      ],
+                      "scenarios": [
+                        "Client:Scenario1.CSV",
+                        "Client:Scenario2.SCN"
+                      ],
+                      "asOfDate": "2019-08-24"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "This will update existing document.",
+        "parameters": []
+      },
+      "get": {
+        "summary": "Retrieve a document",
+        "tags": [
+          "Documents"
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of all the documents and the directories.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateNewDocument"
+                },
+                "examples": {
+                  "200 - successful response": {
+                    "value": {
+                      "data": {
+                        "portfolios": [
+                          "Client:/ACFP/PORTFOLIO1.OFDB",
+                          "Client:/ACFP/PORTFOLIO2.ACTM"
+                        ],
+                        "scenarios": [
+                          "Client:Scenario1.CSV",
+                          "Client:Scenario2.SCN"
+                        ],
+                        "asOfDate": "2019-08-24"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid path parameter or value provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "404": {
+            "description": "404 - Path not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "operationId": "getDocumentDetails",
+        "description": "Provides information about the document settings."
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "documentPath",
+          "in": "path",
+          "required": true,
+          "description": "Enter the path to existing document name",
+          "example": "Client:/ACFP/Scenario_01"
+        }
+      ]
+    },
+    "/batch": {
+      "post": {
+        "summary": "Trigger batch job",
+        "tags": [
+          "Batch"
+        ],
+        "responses": {
+          "202": {
+            "description": "Batch Submitted Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchJobResponse"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "data": {
+                        "batchId": "d94edff4-3805-476e-9baf-a489b0dce3b2"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "404": {
+            "description": "Document Not Found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              },
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "operationId": "postBatch",
+        "description": "This endpoint triggers a batch job for the provided document.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBatchJob"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "documentName": "Client:Myscenario_01"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "ClientScenariosUpload": {
-        "description": "Details required for uploading scenario files wrapped in a data object",
-        "type": "object",
+      "BatchJobResponse": {
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/ClientScenariosUploadParameters"
+            "$ref": "#/components/schemas/BatchJobResponseRoot"
           }
         },
-        "additionalProperties": false
+        "title": "BatchJobResponse",
+        "type": "object"
       },
-      "ClientScenariosUploadParameters": {
-        "description": "Details required for uploading scenario files",
-        "type": "object",
+      "BatchJobResponseRoot": {
         "properties": {
-          "fileName": {
-            "type": "string",
-            "description": "Scenario file name including file extension.",
-            "pattern": "^.*\\.(csv|scn|fac|rts|CSV|SCN|FAC|RTS)$",
-            "maxLength": 41
-          },
-          "asOfDate": {
-            "type": "string",
-            "format": "date",
-            "description": "Scenario As of Date ( Please select a Date not later than Previous Close Date)"
-          },
-          "overwrite": {
-            "type": "boolean",
-            "default": false,
-            "description": "Flag to indicate if existing file needs to be overwritten. Please expect a 409 if the file already exists and the overwrite is not set to true."
-          },
-          "replaceSpecialCharacters": {
-            "type": "boolean",
-            "default": false,
-            "description": "Flag to indicate if the special characters in the fileName can be replaced with underscore. Please expect a 400 if their exists some special characters in the filename and this parameter is not set to true.\n- `SpecialCharacters`: .^%~$!#{} ()'`+,:/"
+          "batchId": {
+            "type": "string"
           }
         },
-        "required": [
-          "fileName",
-          "asOfDate"
-        ],
-        "additionalProperties": false
-      },
-      "ClientUploadResponse": {
-        "description": "Gives details to upload the file wrapped in a data object",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/ClientUploadResponseParameters"
-          }
-        }
-      },
-      "ClientUploadResponseParameters": {
-        "description": "Client upload status response parameters",
-        "type": "object",
-        "properties": {
-          "uploadId": {
-            "description": "Unique Identifier for the file",
-            "type": "string"
-          },
-          "fileName": {
-            "description": "Actuarial Scenario file name",
-            "type": "string"
-          },
-          "signedUrl": {
-            "description": "Signed url to upload the scenarios file",
-            "type": "string"
-          },
-          "expirationTime": {
-            "description": "The signed URL remains valid for a duration of 4 hours and is usable until it becomes invalid or outdated.",
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "UploadStatusResponse": {
-        "description": "Validation status of the uploaded file",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/UploadStatusResponseParameters"
-          }
-        }
-      },
-      "UploadStatusResponseParameters": {
-        "type": "object",
-        "description": "Uploaded status response parameters",
-        "properties": {
-          "uploadId": {
-            "description": "Unique Identifier for the file",
-            "type": "string"
-          },
-          "fileName": {
-            "type": "string",
-            "description": "Actuarial Scenario file name"
-          },
-          "asOfDate": {
-            "type": "string",
-            "description": "Scenario As of Date",
-            "format": "date"
-          },
-          "type": {
-            "type": "string",
-            "description": "Actuarial Scenario File Type",
-            "enum": [
-              "Tillinghast Actuarial Software (TAS)",
-              "Milliman's MG-ALFA (ALFA)",
-              "Sungard iWorks Prophet",
-              "FactSet"
-            ]
-          },
-          "acfpStatus": {
-            "type": "string",
-            "description": "The ACFP status of the uploaded file, can be one of the following:\n- `pending`: File validation is pending.\n- `validating`:File is being validated.\n- `error`: File failed validation. \n- `replicating`: File is being copied.\n- `good`: File is successfully validated.\n- `preparing`: File is being parsed. \n- `uninitiated`: File upload is not initiated.",
-            "enum": [
-              "pending",
-              "validating",
-              "error",
-              "replicating",
-              "good",
-              "preparing",
-              "uninitiated"
-            ]
-          },
-          "status": {
-            "type": "string",
-            "description": "The status of the uploaded file, can be one of the following:",
-            "enum": [
-              "queued",
-              "executing",
-              "created"
-            ]
-          },
-          "uploadDateTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "The time stamp when the file is uploaded"
-          },
-          "numberOfScenarios": {
-            "type": "number",
-            "description": "Number of scenarios that are within a scenario file"
-          }
-        }
-      },
-      "Errors": {
-        "title": "Errors",
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "source": {
-            "$ref": "#/components/schemas/ErrorSource"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ErrorSource": {
-        "title": "ErrorSource",
-        "type": "object",
-        "properties": {
-          "pointer": {
-            "type": "string",
-            "nullable": true
-          },
-          "parameter": {
-            "type": "string",
-            "nullable": true
-          }
-        }
+        "title": "BatchJobResponseRoot",
+        "type": "object"
       },
       "ClientErrorResponse": {
         "description": "The response schema for reporting errors",
@@ -990,6 +1448,357 @@
           }
         },
         "type": "object"
+      },
+      "ClientScenariosUpload": {
+        "additionalProperties": false,
+        "description": "Details required for uploading scenario files wrapped in a data object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientScenariosUploadParameters"
+          }
+        },
+        "type": "object"
+      },
+      "ClientScenariosUploadParameters": {
+        "additionalProperties": false,
+        "description": "Details required for uploading scenario files",
+        "properties": {
+          "asOfDate": {
+            "description": "Scenario As of Date ( Please select a Date not later than Previous Close Date) in YYYY-MM-DD format. ",
+            "format": "date",
+            "type": "string",
+            "example": "2024-03-01"
+          },
+          "fileName": {
+            "description": "Scenario file name including file extension.",
+            "maxLength": 41,
+            "pattern": "^.*\\.(csv|scn|fac|rts|CSV|SCN|FAC|RTS)$",
+            "type": "string"
+          },
+          "overwrite": {
+            "default": false,
+            "description": "Flag to indicate if existing file needs to be overwritten. Please expect a 409 if the file already exists and the overwrite is not set to true.",
+            "type": "boolean"
+          },
+          "replaceSpecialCharacters": {
+            "default": false,
+            "description": "Flag to indicate if the special characters in the fileName can be replaced with underscore. Please expect a 400 if their exists some special characters in the filename and this parameter is not set to true.\n- `SpecialCharacters`: .^%~$!#{} ()'`+,:/",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "fileName",
+          "asOfDate"
+        ],
+        "type": "object"
+      },
+      "ClientUploadResponse": {
+        "description": "Gives details to upload the file wrapped in a data object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientUploadResponseParameters"
+          }
+        },
+        "type": "object"
+      },
+      "ClientUploadResponseParameters": {
+        "description": "Client upload status response parameters",
+        "properties": {
+          "expirationTime": {
+            "description": "The signed URL remains valid for a duration of 4 hours and is usable until it becomes invalid or outdated.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "fileName": {
+            "description": "Actuarial Scenario file name",
+            "type": "string"
+          },
+          "signedUrl": {
+            "description": "Signed url to upload the scenarios file",
+            "type": "string"
+          },
+          "uploadId": {
+            "description": "Unique Identifier for the file",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "CreateBatchJob": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateBatchJobRoot"
+          }
+        }
+      },
+      "CreateBatchJobRoot": {
+        "title": "CreateBatchJobRoot",
+        "type": "object",
+        "properties": {
+          "documentName": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateNewDocument": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateNewDocumentRoot"
+          }
+        },
+        "title": "CreatenewDocument",
+        "type": "object"
+      },
+      "CreateNewDocumentRoot": {
+        "properties": {
+          "asOfDate": {
+            "description": "As of Date should be in YYYY-MM-DD format.",
+            "format": "date",
+            "type": "string",
+            "example": "2025-04-21"
+          },
+          "existingDocumentName": {
+            "description": "Existing document name",
+            "type": "string"
+          },
+          "newDocumentName": {
+            "description": "New document name",
+            "type": "string"
+          },
+          "portfolios": {
+            "description": "Portfolios",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "scenarios": {
+            "description": "Scenarios - Actuarial Scenarios input requires extension whereas Fixed Income Scenario Editor Scenarios won’t have any extension ",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "existingDocumentName",
+          "newDocumentName"
+        ],
+        "title": "CreateNewDocumentRoot",
+        "type": "object"
+      },
+      "ErrorSource": {
+        "properties": {
+          "parameter": {
+            "nullable": true,
+            "type": "string"
+          },
+          "pointer": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "title": "ErrorSource",
+        "type": "object"
+      },
+      "Errors": {
+        "required": [
+          "code",
+          "id",
+          "title"
+        ],
+        "properties": {
+          "code": {
+            "nullable": true,
+            "type": "string"
+          },
+          "detail": {
+            "nullable": true,
+            "type": "string"
+          },
+          "id": {
+            "nullable": true,
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          },
+          "title": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "title": "Errors",
+        "type": "object"
+      },
+      "UpdateNewDocument": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/UpdateNewDocumentRoot"
+          }
+        },
+        "title": "UpdateNewDocument",
+        "type": "object"
+      },
+      "UpdateNewDocumentRoot": {
+        "type": "object",
+        "properties": {
+          "asOfDate": {
+            "description": "As of Date should be in YYYY-MM-DD format.",
+            "format": "date",
+            "type": "string",
+            "example": "2024-04-24"
+          },
+          "portfolios": {
+            "description": "Portfolio",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scenarios": {
+            "description": "Scenario",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "UploadStatusResponse": {
+        "description": "Validation status of the uploaded file",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/UploadStatusResponseParameters"
+          }
+        },
+        "type": "object"
+      },
+      "UploadStatusResponseParameters": {
+        "description": "Uploaded status response parameters",
+        "properties": {
+          "acfpStatus": {
+            "description": "The ACFP status of the uploaded file, can be one of the following:\n- `pending`: File validation is pending.\n- `validating`:File is being validated.\n- `error`: File failed validation. \n- `replicating`: File is being copied.\n- `good`: File is successfully validated.\n- `preparing`: File is being parsed. \n- `uninitiated`: File upload is not initiated.",
+            "enum": [
+              "pending",
+              "validating",
+              "error",
+              "replicating",
+              "good",
+              "preparing",
+              "uninitiated"
+            ],
+            "type": "string"
+          },
+          "asOfDate": {
+            "description": "Scenario As of Date",
+            "format": "date",
+            "type": "string",
+            "example": "2024-03-19"
+          },
+          "fileName": {
+            "description": "Actuarial Scenario file name",
+            "type": "string"
+          },
+          "numberOfScenarios": {
+            "description": "Number of scenarios that are within a scenario file",
+            "type": "number"
+          },
+          "status": {
+            "description": "The status of the uploaded file, can be one of the following:",
+            "enum": [
+              "queued",
+              "executing",
+              "created"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "description": "Actuarial Scenario File Type",
+            "enum": [
+              "Tillinghast Actuarial Software (TAS)",
+              "Milliman's MG-ALFA (ALFA)",
+              "Sungard iWorks Prophet",
+              "FactSet"
+            ],
+            "type": "string"
+          },
+          "uploadDateTime": {
+            "description": "The time stamp when the file is uploaded",
+            "format": "date-time",
+            "type": "string"
+          },
+          "uploadId": {
+            "description": "Unique Identifier for the file",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "headers": {
+      "X-DataDirect-Request-Key": {
+        "schema": {
+          "type": "string"
+        },
+        "description": "FactSet's request key header."
+      },
+      "X-FactSet-Api-Request-Key": {
+        "schema": {
+          "type": "string"
+        },
+        "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+      },
+      "X-FactSet-Api-RateLimit-Limit": {
+        "schema": {
+          "type": "string"
+        },
+        "description": "Number of allowed requests for the time window."
+      },
+      "X-FactSet-Api-RateLimit-Remaining": {
+        "schema": {
+          "type": "string"
+        },
+        "description": "Number of requests left for the time window."
+      },
+      "X-FactSet-Api-RateLimit-Reset": {
+        "schema": {
+          "type": "string"
+        },
+        "description": "Number of seconds remaining till rate limit resets."
+      },
+      "Retry-After": {
+        "schema": {
+          "type": "string"
+        },
+        "description": "Time to wait in seconds before making a new request as the rate limit has reached."
+      }
+    },
+    "examples": {
+      "400BadRequest": {
+        "value": {
+          "errors": [
+            {
+              "id": "667BBEFFBD1F4651",
+              "code": "BadRequest",
+              "title": "Failed to process request",
+              "detail": "Error processing the request"
+            }
+          ]
+        }
+      },
+      "404PathNotFound": {
+        "value": {
+          "errors": [
+            {
+              "id": "668BDDBB7D633388",
+              "code": "NotFound",
+              "title": "Failed to process request",
+              "detail": "Path not found"
+            }
+          ]
+        }
       }
     },
     "securitySchemes": {
@@ -1008,17 +1817,23 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Scenarios"
-    }
-  ],
   "security": [
     {
       "FactSetApiKey": []
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Scenarios"
+    },
+    {
+      "name": "Documents"
+    },
+    {
+      "name": "Batch"
     }
   ],
   "externalDocs": {

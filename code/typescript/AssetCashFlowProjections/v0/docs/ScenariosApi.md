@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/analytics/asset-cash-flow-proj
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getUploadStatus**](ScenariosApi.md#getUploadStatus) | **GET** /scenarios/{uploadId}/status | Get scenarios upload status
-[**uploadScenarios**](ScenariosApi.md#uploadScenarios) | **POST** /scenarios/upload | Upload actuarial scenarios
+[**uploadScenarios**](ScenariosApi.md#uploadScenarios) | **POST** /scenarios | Upload actuarial scenarios
 
 
 

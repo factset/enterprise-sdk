@@ -5,12 +5,12 @@ info:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: |
-    Gain access to current, comprehensive, and comparative information on securities in worldwide developed and emerging markets. Composed of annual and interim/quarterly data, detailed historical financial statement content, per-share data, and calculated ratios, FactSet Fundamentals provides you with the information you need for a global investment perspective.<p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>
+    Gain access to current, comprehensive, and comparative information on securities in worldwide developed and emerging markets. In addition to the latest reported data, this API provides Point-in-Time (PIT) views to access fundamentals data as it was known on any given date. Composed of annual and interim/quarterly data, detailed historical financial statement content, per-share data, and calculated ratios, FactSet Fundamentals provides you with the information you need for a global investment perspective.<p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Fundamentals API
-  version: 2.4.1
+  version: 2.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-fundamentals-api
@@ -21,16 +21,27 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: FactSet Fundamentals
-- name: Segments
-- name: Metrics
-- name: Company Reports
-- name: Batch Processing
+- description: Retrieving standardized fundamentals data for companies.
+  name: FactSet Fundamentals
+- description: Retrieving business and geographic segment data for companies.
+  name: Segments
+- description: Retrieve Point-in-Time fundamentals data and related fiscal period
+    information for securities.
+  name: Fundamentals Point In Time
+- description: Discovering available fundamental metrics, their definitions, and related
+    metadata to use in other API requests.
+  name: Metrics
+- description: Retrieving pre-formatted, report-style information, such as company
+    profiles, financial statements, and key fundamental summaries.
+  name: Company Reports
+- description: Manage asynchronous requests by checking their status and retrieving
+    results for long-running batch jobs.
+  name: Batch Processing
 paths:
   /fundamentals:
     get:
       description: |
-        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.
+        Retrieves FactSet Fundamentals standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.
 
 
         The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 2000 ids per request when using batch capability and 250 ids without batching. (1 metric per ID, for 1 day in both the cases). This feature is available for all users.
@@ -148,6 +159,7 @@ paths:
         required: false
         schema:
           example: 2017-09-01
+          nullable: true
           type: string
         style: form
       - description: |
@@ -158,10 +170,11 @@ paths:
         required: false
         schema:
           example: 2018-03-01
+          nullable: true
           type: string
         style: form
       - description: |
-          Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. <p>*When requesting multiple metrics, you cannot mix metric data types (e.g. strings and floats). Please use /metrics endpoints for context on metric dataType to avoid null data.*</p> <p>***metrics limit** =  1600 per request*</p>
+          Requested List of Financial Statement Items or Ratios. Use `/metrics` endpoint for a complete list of available FF_* metric items. <p>*When requesting multiple metrics, you cannot mix metric data types (e.g. strings and floats). Please use /metrics endpoints for context on metric dataType to avoid null data.*</p> <p>***metrics limit** =  1600 per request*</p>
           *<p>Make note, GET Method URL request lines are also limited to a total
           length of 8192 bytes (8KB). In cases where the service allows for thousands
           of metrics, which may lead to exceeding this request line limit of 8KB, its
@@ -196,7 +209,7 @@ paths:
       - description: |
           Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
 
-          Giving input as "DOC" would give the values in reporting currency for the requested ids.
+          Giving input as `DOC` would give the values in reporting currency for the requested ids.
         explode: true
         in: query
         name: currency
@@ -206,7 +219,7 @@ paths:
           example: USD
           type: string
         style: form
-      - description: |
+      - description: |-
           Update Status Flag:
             * **RP** = Include preliminary data,
             * **RF** = Only final data
@@ -230,7 +243,7 @@ paths:
         style: form
       - description: |
           Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
-          Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, id limit is set to 2000 ids per request (1 metric per ID, for 1 day) and 250 ids per request without batching (1 metric per ID, for 1 day) though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
+          Once a batch request is submitted, use the corresponding `/status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/result` endpoint.
         explode: true
         in: query
         name: batch
@@ -255,7 +268,7 @@ paths:
                   $ref: '#/components/examples/resultOfSingleIdwithMultipleMetricItem'
               schema:
                 $ref: '#/components/schemas/FundamentalsResponse'
-          description: Fundamental data items
+          description: Fundamentals data items
         "202":
           content:
             application/json:
@@ -283,7 +296,7 @@ paths:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - More Than One Fundamental Metric Id:
+                Bad Request - More Than One Fundamentals Metric Id:
                   $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
                 Bad Request - Malformed JSON:
                   $ref: '#/components/examples/badRequestMalformedJSON'
@@ -342,7 +355,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
-      summary: Returns Company Fundamental Data.
+      summary: Returns Company Fundamentals Data.
       tags:
       - FactSet Fundamentals
       x-factset-sdk-ignore: true
@@ -350,7 +363,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.
+        Retrieves FactSet Fundamentals standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.
 
 
         The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users.
@@ -378,13 +391,13 @@ paths:
               examples:
                 Result of Single Company (FDS-US), sales(FF_SALES) details for the given period:
                   $ref: '#/components/examples/resultOfSingleIdwithSingleMetricItem'
-                Result of Multiple Companies single metric item details:
+                Result of Multiple companies single metric item details:
                   $ref: '#/components/examples/resultOfMultipleIdwithSingleMetricItem'
                 Result of Single Company (FDS-US), and Multiple Metrics (FF_SALES, FF_PE):
                   $ref: '#/components/examples/resultOfSingleIdwithMultipleMetricItem'
               schema:
                 $ref: '#/components/schemas/FundamentalsResponse'
-          description: Fundamental data items
+          description: Fundamentals data items
         "202":
           content:
             application/json:
@@ -412,7 +425,7 @@ paths:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - More Than One Fundamental Metric Id:
+                Bad Request - More Than One Fundamentals Metric Id:
                   $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
                 Bad Request - Malformed JSON:
                   $ref: '#/components/examples/badRequestMalformedJSON'
@@ -471,7 +484,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
-      summary: Returns Company Fundamental Data.
+      summary: Returns Company Fundamentals Data.
       tags:
       - FactSet Fundamentals
       x-factset-different-success-responses: true
@@ -544,6 +557,7 @@ paths:
         required: false
         schema:
           example: 2017-09-01
+          nullable: true
           type: string
         style: form
       - description: |
@@ -554,13 +568,14 @@ paths:
         required: false
         schema:
           example: 2018-03-01
+          nullable: true
           type: string
         style: form
       - description: |
           Metrics are the data items available for business and geographic segments, where
             * **SALES**  = Sales/Revenue - Total revenues from the business line/geographic region,
             * **OPINC** = Operating Income/Loss - Operating income generated from the business line/geographic region,
-            * **ASSETS** = Total Assets - Total assets from the business line/geographic region,
+            * **ASSETS** = Total assets from the business line/geographic region,
             * **DEP** = Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,
             * **CAPEX** = Capital Expenditures - Capital expenditures resulting from the business line/geographic region
         explode: false
@@ -601,7 +616,7 @@ paths:
         style: form
       - description: |
           Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
-          Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, id limit is set to 2000 ids per request (1 metric per ID, for 1 day) and 250 ids per request without batching (1 metric per ID, for 1 day) though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
+          Once a batch request is submitted, use the corresponding `/status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/result` endpoint.
         explode: true
         in: query
         name: batch
@@ -652,7 +667,7 @@ paths:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - More Than One Fundamental Metric Id:
+                Bad Request - More Than One Fundamentals Metric Id:
                   $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
                 Bad Request - Malformed JSON:
                   $ref: '#/components/examples/badRequestMalformedJSON'
@@ -776,7 +791,7 @@ paths:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - More Than One Fundamental Metric Id:
+                Bad Request - More Than One Fundamentals Metric Id:
                   $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
                 Bad Request - Malformed JSON:
                   $ref: '#/components/examples/badRequestMalformedJSON'
@@ -839,6 +854,313 @@ paths:
       tags:
       - Segments
       x-factset-different-success-responses: true
+      x-contentType: application/json
+      x-accepts: application/json
+  /point-in-time:
+    post:
+      description: |
+        This endpoint initiates an asynchronous batch job to fetch Point-in-Time (PIT) data. PIT data allows you to view fundamentals data as it was known on a specific date. This is crucial for backtesting trading strategies, performing academic research, and avoiding lookahead bias. All requests will return a `202 Accepted` response with a `Location` header pointing to the `/batch-status` endpoint. Use the `id` from the status response to check for completion and retrieve the result from the `/batch-result` endpoint. **All timestamps are in UTC.**
+      operationId: postFundamentalsPITData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              singleIdSingleMetric:
+                $ref: '#/components/examples/postBodySingleIdSingleMetricExample'
+              multiIdMultiMetric:
+                summary: Multiple IDs, Metrics, and an ASYNC Request
+                value:
+                  data:
+                    ids:
+                    - FDS-US
+                    - AAPL-US
+                    - MSFT-US
+                    periodicity: ANN
+                    fiscalPeriodStart: 2019-01-01
+                    fiscalPeriodEnd: 2021-12-31
+                    metrics:
+                    - FF_SALES
+                    - FF_EPS
+                    - FF_NET_INC
+                    updateType: RP
+                    pitStart: 2020-01-01T00:00:00Z
+                    pitEnd: 2020-12-31T23:59:59Z
+                    active: true
+            schema:
+              $ref: '#/components/schemas/FundamentalsPITRequest'
+        description: Request object containing parameters for the PIT fundamentals
+          request.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                batchAccepted:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted. Poll the status URL provided
+            in the `Location` header to check for completion.
+          headers:
+            Location:
+              description: The URL to poll for status of the batch request.
+              explode: false
+              schema:
+                example: /batch-status?id=d6dd1d02-0f17-45a1-88c8-49f3c97f2922
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Fundamentals Metric Id:
+                  $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests - The rate limit for the API has been exceeded.
+            Wait before sending more requests. See `Retry-After` header.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+        "503":
+          content:
+            application/json:
+              examples:
+                serviceUnavailable:
+                  $ref: '#/components/examples/errorServiceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable - The server is currently unable to handle
+            the request due to temporary overloading or maintenance of the server.
+            This implies a temporary condition which will be alleviated after some
+            delay. Please try again later. Check `Retry-After` header if present.
+          headers:
+            Retry-After:
+              description: Indicates how long to wait (in seconds or as an HTTP date)
+                before retrying the request when receiving a 429 or 503 response.
+              example: 60
+              explode: false
+              schema:
+                oneOf:
+                - description: Wait time in seconds.
+                  format: int32
+                  type: integer
+                - description: Specific date and time to retry after.
+                  format: date-time
+                  type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet-specific request tracing identifier used for troubleshooting
+                purposes. Please include this key when reporting issues.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Retrieve Point-in-Time data for multiple securities.
+      tags:
+      - Fundamentals Point In Time
+      x-contentType: application/json
+      x-accepts: application/json
+  /periods:
+    post:
+      description: |
+        This endpoint initiates an asynchronous batch job to fetch detailed information about fiscal periods. The request allows filtering for fiscal periods ending within a specified calendar date range. The response provides Point-in-Time (PIT) details, showing when each period's information was first published and when it was superseded. This is crucial for historical backtesting. All requests will return a `202 Accepted` response with a `Location` header pointing to the `/batch-status` endpoint. Use the `id` from the status response to check for completion and retrieve the result from the `/batch-result` endpoint. **All timestamps are in UTC.**
+      operationId: postFundamentalsFiscalPeriods
+      requestBody:
+        content:
+          application/json:
+            examples:
+              periodsRequestExample:
+                summary: Example Periods Request Body
+                value:
+                  data:
+                    ids:
+                    - FDS-US
+                    - AAPL-US
+                    periodicity: QTR
+                    fiscalPeriodStart: 2021-01-01
+                    fiscalPeriodEnd: 2021-12-31
+            schema:
+              $ref: '#/components/schemas/PeriodsRequest'
+        description: Request object containing parameters for the fiscal periods request.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                batchAccepted:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted. Poll the status URL provided
+            in the `Location` header to check for completion.
+          headers:
+            Location:
+              description: The URL to poll for status of the batch request.
+              explode: false
+              schema:
+                example: /batch-status?id=b6dd1d02-0f17-45a1-88c8-49f3c97f2933
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Fundamentals Metric Id:
+                  $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests - The rate limit for the API has been exceeded.
+            Wait before sending more requests. See `Retry-After` header.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+        "503":
+          content:
+            application/json:
+              examples:
+                serviceUnavailable:
+                  $ref: '#/components/examples/errorServiceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable - The server is currently unable to handle
+            the request due to temporary overloading or maintenance of the server.
+            This implies a temporary condition which will be alleviated after some
+            delay. Please try again later. Check `Retry-After` header if present.
+          headers:
+            Retry-After:
+              description: Indicates how long to wait (in seconds or as an HTTP date)
+                before retrying the request when receiving a 429 or 503 response.
+              example: 60
+              explode: false
+              schema:
+                oneOf:
+                - description: Wait time in seconds.
+                  format: int32
+                  type: integer
+                - description: Specific date and time to retry after.
+                  format: date-time
+                  type: string
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet-specific request tracing identifier used for troubleshooting
+                purposes. Please include this key when reporting issues.
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: 'Fiscal Periods: Retrieve fiscal period details for multiple securities
+        using POST.'
+      tags:
+      - Fundamentals Point In Time
       x-contentType: application/json
       x-accepts: application/json
   /company-reports/financial-statement:
@@ -937,7 +1259,7 @@ paths:
       - description: |
           Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
 
-          Giving input as "DOC" would give the values in reporting currency for the requested ids.
+          Giving input as `DOC` would give the values in reporting currency for the requested ids.
         explode: true
         in: query
         name: currency
@@ -947,7 +1269,7 @@ paths:
           example: USD
           type: string
         style: form
-      - description: |
+      - description: |-
           Update Status Flag:
             * **RP** = Include preliminary data,
             * **RF** = Only final data
@@ -1047,8 +1369,9 @@ paths:
         Retrieves a comprehensive overview of key profile details and information of specified list of identifiers. The response includes the company name, address, industry, sector, number of employees, CEO, business summary, exchange, market capitalization, shares outstanding, P/E ratio, year founded, and other details. All values provided in the response are absolute.
       operationId: getFdsProfiles
       parameters:
-      - description: |
-          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p>
+      - description: The requested list of security identifiers. Accepted ID types
+          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          <p>***ids limit** =  50 per request*</p>
         examples:
           oneId:
             summary: One Market Identifier
@@ -1143,8 +1466,9 @@ paths:
         **Note:** Due to variations in calculation time of average exchange rates, there may be some minor differences in the values of company report financial statement attributes if you are requesting for a currency other than local, when compared to the workstation.
       operationId: getFundamentals
       parameters:
-      - description: |
-          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p>
+      - description: The requested list of security identifiers. Accepted ID types
+          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          <p>***ids limit** =  50 per request*</p>
         examples:
           oneId:
             summary: One Market Identifier
@@ -1169,7 +1493,7 @@ paths:
       - description: |
           Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
 
-          Giving input as "DOC" would give the values in reporting currency for the requested ids.
+          Giving input as `DOC` would give the values in reporting currency for the requested ids.
         explode: true
         in: query
         name: currency
@@ -1180,7 +1504,7 @@ paths:
           type: string
         style: form
       - description: |
-          Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.
+          Periodicity or frequency of the fiscal periods. If omitted, will return the latest available data irrespective of the periodicity.
             * **ANN**  = Annual - Original,
             * **QTR**  = Quarterly - Original
             * **SEMI** = Semi-Annual
@@ -1216,7 +1540,7 @@ paths:
                   $ref: '#/components/examples/resultOfCompanyFundamentalsDetailsWithError'
               schema:
                 $ref: '#/components/schemas/CompanyFundamentalsResponse'
-          description: Fundamental data items
+          description: Fundamentals data items
         "400":
           content:
             application/json:
@@ -1276,7 +1600,7 @@ paths:
         **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.**
       operationId: getFdsFundamentalsMetrics
       parameters:
-      - description: |
+      - description: |-
           Filters the list of FF_* metrics by major category -
             * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.
             * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.
@@ -1338,7 +1662,7 @@ paths:
           - DATES
           type: string
         style: form
-      - description: |
+      - description: |-
           Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
             * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, EXPENSES, OPERATING_COST, NON-RECURRING_ITEMS, REVENUES, OTHER
             * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
@@ -1580,8 +1904,8 @@ paths:
           - REVENUES
           type: string
         style: form
-      - description: |
-          Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned
+      - description: Returns general data type of the metrics like integer, float
+          or strings. When left blank, metrics with all data types would be returned.
         examples:
           integer:
             summary: Integer Metrics
@@ -1600,7 +1924,27 @@ paths:
         name: metricDataType
         required: false
         schema:
+          default: ""
           type: string
+        style: form
+      - description: |-
+          Filters the list of metrics based on whether they are available for Point-in-Time (PIT) historical data.
+          * `true` - Returns metrics that are available in PIT datasets. These metrics can be used in the `/point-in-time` endpoint.
+          * `false` (default) - Returns metrics that are available in non-PIT datasets.
+        examples:
+          pitDataItems:
+            summary: Get metrics available for PIT datasets
+            value: true
+          nonPitDataItems:
+            summary: Get metrics available for non-PIT datasets
+            value: false
+        explode: true
+        in: query
+        name: pitDataItems
+        required: false
+        schema:
+          default: false
+          type: boolean
         style: form
       responses:
         "200":
@@ -1611,7 +1955,7 @@ paths:
                   $ref: '#/components/examples/metricsresponse'
               schema:
                 $ref: '#/components/schemas/MetricsResponse'
-          description: Fundamental data metric items
+          description: Fundamentals data metric items
         "400":
           content:
             application/json:
@@ -1622,7 +1966,7 @@ paths:
                   $ref: '#/components/examples/badRequestRequiredParameter'
                 Bad Request - Invalid Parameter:
                   $ref: '#/components/examples/badRequestInvalidParameters'
-                Bad Request - More Than One Fundamental Metric Id:
+                Bad Request - More Than One Fundamentals Metric Id:
                   $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
                 Bad Request - Malformed JSON:
                   $ref: '#/components/examples/badRequestMalformedJSON'
@@ -1752,7 +2096,7 @@ paths:
     get:
       deprecated: false
       description: |
-        Returns the response data for the underlying batch request that is specified by the id.
+        Returns the response data for the underlying batch request that is specified by the id. The response structure will be based on the endpoint that initiated the batch request (/fundamentals, /segments, /point-in-time, or /periods).
 
         By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the "accept" parameter as "text/csv" instead of "application/json".
       operationId: getBatchData
@@ -1772,21 +2116,30 @@ paths:
           content:
             application/json:
               examples:
-                Fundamentals endpoint response of Single Company (FDS-US), and Multiple Metrics (FF_SALES, FF_PE):
+                fundamentalsResult:
                   $ref: '#/components/examples/resultOfSingleIdwithMultipleMetricItem'
-                Segments endpoint response of Single Company (AAPL-US), sales(SALES) details for the given period:
+                segmentsResult:
                   $ref: '#/components/examples/resultOfSingleIdwithSingleMetricItemSegment'
+                pitResult:
+                  $ref: '#/components/examples/resultWithPITDatesExample'
+                pitResultWeekly:
+                  $ref: '#/components/examples/resultWeeklyFrequency'
+                pitResultMonthly:
+                  $ref: '#/components/examples/resultMonthlyFrequency'
+                periodsResult:
+                  $ref: '#/components/examples/periodsResponseExample'
               schema:
                 $ref: '#/components/schemas/BatchResultResponse'
-          description: Request Response Object when the batch request has been completed
-            and the response is created
+          description: The long-running request has been completed and the result
+            is created. The response structure will be based on the endpoint that
+            initiated the batch request.
         "202":
           content:
             application/json:
               examples:
-                Batch Request Queued:
+                Batch Status Queued:
                   $ref: '#/components/examples/BatchStatusQueuedResponse'
-                Batch Request Executing:
+                Batch Status Executing:
                   $ref: '#/components/examples/BatchStatusExecutingResponse'
               schema:
                 $ref: '#/components/schemas/BatchStatusResponse'
@@ -1978,6 +2331,8 @@ components:
           name: Total Assets
           category: BALANCE_SHEET
           subcategory: ASSETS
+          isPIT: false
+          isNonPIT: true
           oaPageId: D10585
           description: |-
             Total Assets
@@ -2231,7 +2586,7 @@ components:
           dividend:
             annualdividendPerShare: 6.59
             distributionFrequency: Quarterly
-            dividendPerShare: 1.6599997
+            dividendPerShare: 1.65999997
             exDividendDate: 2024-05-10
             indicativeDividendRate: "6.64"
             payableDate: 2024-05-16
@@ -2445,6 +2800,172 @@ components:
           metrics: SALES
           segmentType: BUS
           batch: "Y"
+    resultWithPITDatesExample:
+      description: Shows FF_SALES for FDS-US, Q1 2018, illustrating how the value
+        changed over different PIT windows (full history). Timestamps are in UTC.
+      summary: Example PIT Result for FDS-US Sales (UTC)
+      value:
+        data:
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 20345000
+          updateType: Final
+          pitStart: 2017-12-16T05:00:00Z
+          pitEnd: 2018-01-10T05:00:00Z
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 21345000
+          updateType: Final
+          pitStart: 2018-01-11T05:00:00Z
+          pitEnd: null
+    resultWeeklyFrequency:
+      description: Shows FF_SALES for FDS-US, Q1 2018, with PIT snapshots taken at
+        the end of each week within the requested range. `pitStart` is null, `pitEnd`
+        is the week-end date in UTC.
+      summary: Example PIT Result (Weekly Frequency, UTC)
+      value:
+        data:
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 20345000
+          updateType: Final
+          pitStart: null
+          pitEnd: 2017-12-22T23:59:59Z
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 20345000
+          updateType: Final
+          pitStart: null
+          pitEnd: 2017-12-29T23:59:59Z
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 21345000
+          updateType: Final
+          pitStart: null
+          pitEnd: 2018-01-05T23:59:59Z
+    resultMonthlyFrequency:
+      description: Shows FF_SALES for FDS-US, Q1 2018, with PIT snapshots taken at
+        the end of each month within the requested range. `pitStart` is null, `pitEnd`
+        is the month-end date in UTC.
+      summary: Example PIT Result (Monthly Frequency, UTC)
+      value:
+        data:
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 20345000
+          updateType: Final
+          pitStart: null
+          pitEnd: 2017-12-31T23:59:59Z
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          metric: FF_SALES
+          periodicity: QTR
+          fiscalPeriod: 1
+          fiscalYear: 2018
+          fiscalEndDate: 2017-11-30
+          currency: USD
+          value: 21345000
+          updateType: Final
+          pitStart: null
+          pitEnd: 2018-01-31T23:59:59Z
+    postBodySingleIdSingleMetricExample:
+      description: POST request body for `FDS-US` `FF_SALES`, `QTR` periodicity, fiscal
+        periods ending `2017-09-01` to `2018-03-01`, Final data only (`RF`), specifying
+        a PIT range in UTC.
+      summary: Example POST Body for FDS-US Sales (Quarterly, UTC)
+      value:
+        data:
+          ids:
+          - FDS-US
+          periodicity: QTR
+          fiscalPeriodStart: 2017-09-01
+          fiscalPeriodEnd: 2018-03-01
+          metrics:
+          - FF_SALES
+          updateType: RF
+          active: true
+          pitStart: 2018-01-01T00:00:00Z
+          pitEnd: 2018-06-30T23:59:59Z
+    periodsResponseExample:
+      description: Sample successful response for a request to the /periods endpoint,
+        showing periods known within the requested PIT window.
+      summary: Example Periods Response (PIT-based, UTC)
+      value:
+        data:
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          fiscalInterimNumber: 3
+          periodicity: QTR
+          pitStart: 2001-06-16T21:32:20Z
+          pitEnd: 2001-09-22T03:01:14Z
+          fiscalDate: 2001-05-31
+          fyeChange: false
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          fiscalInterimNumber: 4
+          periodicity: QTR
+          pitStart: 2001-09-22T03:01:14Z
+          pitEnd: null
+          fiscalDate: 2001-08-31
+          fyeChange: false
+    periodsResponseExamplePost:
+      description: Sample successful response for a POST request to the /periods endpoint
+        requesting Quarterly data known within a specific PIT window.
+      summary: Example POST /periods Response (QTR, UTC)
+      value:
+        data:
+        - requestId: FDS-US
+          fsymId: SQFMK3-R
+          fiscalInterimNumber: 1
+          periodicity: QTR
+          pitStart: 2020-12-18T11:00:00Z
+          pitEnd: null
+          fiscalDate: 2020-11-30
+          fyeChange: false
+        - requestId: AAPL-US
+          fsymId: BH4WHN-R
+          fiscalInterimNumber: 1
+          periodicity: QTR
+          pitStart: 2021-01-28T21:05:00Z
+          pitEnd: null
+          fiscalDate: 2020-12-26
+          fyeChange: false
     BatchStatusQueuedResponse:
       description: Batch Status Queued Response
       value:
@@ -2510,7 +3031,7 @@ components:
     badRequestMoreThanOneFundamentalMetricId:
       description: This error message occurs when the user is passing more than one
         metric as input.
-      summary: Bad Request - More Than One Fundamental Metric Id
+      summary: Bad Request - More Than One Fundamentals Metric Id
       value:
         errors:
         - id: adb01824-252f-4420-b0c6-35a1e3507ef5
@@ -2520,9 +3041,9 @@ components:
           title: 'getFdsFundamentals.metrics: size must be between 1 and 1'
     badRequestInvalidParameters:
       description: This error message occurs when the user is passing Invalid Metric
-        Id. Please use the helper endpoint */metrics* for the sample Fundamental Metric
-        Id.
-      summary: Bad Request - Passing invalid Fundamental Metric Id
+        Id. Please use the helper endpoint */metrics* for the sample Fundamentals
+        Metric Id.
+      summary: Bad Request - Passing invalid Fundamentals Metric Id
       value:
         errors:
         - id: adb01824-252f-4420-b0c6-35a1e3507ef5
@@ -2578,6 +3099,16 @@ components:
             about: /factset-fundamentals/v2/{endpoint}
           title: User is not authorized for the id requested, please reach out to
             FactSet for support
+    errorRateLimitExceeded:
+      description: Example error when API request rate limit is exceeded.
+      summary: Error Example - Rate Limit Exceeded (429)
+      value:
+        errors:
+        - id: a1b2c3d4-e5f6-7890-1234-567890abcdef
+          code: RateLimitExceeded
+          title: Too Many Requests
+          detail: You have exceeded the allowed request rate. Please try again later,
+            respecting the Retry-After header if provided.
     unsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently, the APIs only support 'application/json'.
@@ -2612,6 +3143,15 @@ components:
           links:
             about: /factset-fundamentals/v2/{endpoint}
           title: Unexpected error
+    errorServiceUnavailable:
+      description: Example error when the service is temporarily offline or overloaded.
+      summary: Error Example - Service Unavailable (503)
+      value:
+        errors:
+        - id: d2a4c8e0-7b1f-4e3a-9c8d-5b2e6f0a1b3c
+          code: ServiceUnavailable
+          title: Service Currently Unavailable
+          detail: The service is temporarily unavailable. Please try again later.
     notFound:
       description: The requested item was not found.
       summary: Not Found
@@ -2783,9 +3323,9 @@ components:
         - YTD
         type: string
       style: form
-    fundamentalPeriodicity:
+    crFundamentalsPeriodicity:
       description: |
-        Periodicity or frequency of the fiscal periods. If not specified, default will be empty, which will return the latest available data irrespective of the periodicity.
+        Periodicity or frequency of the fiscal periods. If omitted, will return the latest available data irrespective of the periodicity.
           * **ANN**  = Annual - Original,
           * **QTR**  = Quarterly - Original
           * **SEMI** = Semi-Annual
@@ -2868,8 +3408,9 @@ components:
         type: string
       style: form
     ids:
-      description: |
-        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p>
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids
+        limit** =  50 per request*</p>
       examples:
         oneId:
           summary: One Market Identifier
@@ -2900,6 +3441,7 @@ components:
       required: false
       schema:
         example: 2017-09-01
+        nullable: true
         type: string
       style: form
     fiscalPeriodEnd:
@@ -2911,11 +3453,12 @@ components:
       required: false
       schema:
         example: 2018-03-01
+        nullable: true
         type: string
       style: form
     metrics:
       description: |
-        Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. <p>*When requesting multiple metrics, you cannot mix metric data types (e.g. strings and floats). Please use /metrics endpoints for context on metric dataType to avoid null data.*</p> <p>***metrics limit** =  1600 per request*</p>
+        Requested List of Financial Statement Items or Ratios. Use `/metrics` endpoint for a complete list of available FF_* metric items. <p>*When requesting multiple metrics, you cannot mix metric data types (e.g. strings and floats). Please use /metrics endpoints for context on metric dataType to avoid null data.*</p> <p>***metrics limit** =  1600 per request*</p>
         *<p>Make note, GET Method URL request lines are also limited to a total
         length of 8192 bytes (8KB). In cases where the service allows for thousands
         of metrics, which may lead to exceeding this request line limit of 8KB, its
@@ -2952,7 +3495,7 @@ components:
         Metrics are the data items available for business and geographic segments, where
           * **SALES**  = Sales/Revenue - Total revenues from the business line/geographic region,
           * **OPINC** = Operating Income/Loss - Operating income generated from the business line/geographic region,
-          * **ASSETS** = Total Assets - Total assets from the business line/geographic region,
+          * **ASSETS** = Total assets from the business line/geographic region,
           * **DEP** = Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,
           * **CAPEX** = Capital Expenditures - Capital expenditures resulting from the business line/geographic region
       explode: false
@@ -2995,7 +3538,7 @@ components:
     batch:
       description: |
         Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
-        Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, id limit is set to 2000 ids per request (1 metric per ID, for 1 day) and 250 ids per request without batching (1 metric per ID, for 1 day) though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
+        Once a batch request is submitted, use the corresponding `/status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/result` endpoint.
       explode: true
       in: query
       name: batch
@@ -3022,7 +3565,7 @@ components:
       description: |
         Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
 
-        Giving input as "DOC" would give the values in reporting currency for the requested ids.
+        Giving input as `DOC` would give the values in reporting currency for the requested ids.
       explode: true
       in: query
       name: currency
@@ -3033,7 +3576,7 @@ components:
         type: string
       style: form
     updateType:
-      description: |
+      description: |-
         Update Status Flag:
           * **RP** = Include preliminary data,
           * **RF** = Only final data
@@ -3067,7 +3610,7 @@ components:
         type: integer
       style: form
     category:
-      description: |
+      description: |-
         Filters the list of FF_* metrics by major category -
           * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.
           * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.
@@ -3129,7 +3672,7 @@ components:
         type: string
       style: form
     subcategory:
-      description: |
+      description: |-
         Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
           * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, EXPENSES, OPERATING_COST, NON-RECURRING_ITEMS, REVENUES, OTHER
           * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
@@ -3372,8 +3915,8 @@ components:
         type: string
       style: form
     metricDataType:
-      description: |
-        Returns general data type of the metrics like integer, float or strings, when left blankmetrics with all data types would be returned
+      description: Returns general data type of the metrics like integer, float or
+        strings. When left blank, metrics with all data types would be returned.
       examples:
         integer:
           summary: Integer Metrics
@@ -3392,7 +3935,28 @@ components:
       name: metricDataType
       required: false
       schema:
+        default: ""
         type: string
+      style: form
+    pitDataItems:
+      description: |-
+        Filters the list of metrics based on whether they are available for Point-in-Time (PIT) historical data.
+        * `true` - Returns metrics that are available in PIT datasets. These metrics can be used in the `/point-in-time` endpoint.
+        * `false` (default) - Returns metrics that are available in non-PIT datasets.
+      examples:
+        pitDataItems:
+          summary: Get metrics available for PIT datasets
+          value: true
+        nonPitDataItems:
+          summary: Get metrics available for non-PIT datasets
+          value: false
+      explode: true
+      in: query
+      name: pitDataItems
+      required: false
+      schema:
+        default: false
+        type: boolean
       style: form
   responses:
     "400":
@@ -3405,7 +3969,7 @@ components:
               $ref: '#/components/examples/badRequestRequiredParameter'
             Bad Request - Invalid Parameter:
               $ref: '#/components/examples/badRequestInvalidParameters'
-            Bad Request - More Than One Fundamental Metric Id:
+            Bad Request - More Than One Fundamentals Metric Id:
               $ref: '#/components/examples/badRequestMoreThanOneFundamentalMetricId'
             Bad Request - Malformed JSON:
               $ref: '#/components/examples/badRequestMalformedJSON'
@@ -3459,6 +4023,16 @@ components:
         sends a resource in a format that is not accepted by the server. This can
         be fixed by ensuring that the Content-Type header is set to the correct value.
         In this instance, "application/json" would be the appropriate value.
+    "429":
+      content:
+        application/json:
+          examples:
+            rateLimitExceeded:
+              $ref: '#/components/examples/errorRateLimitExceeded'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Too Many Requests - The rate limit for the API has been exceeded.
+        Wait before sending more requests. See `Retry-After` header.
     "500":
       content:
         application/json:
@@ -3470,6 +4044,40 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
       description: Internal Server Error.
+    "503":
+      content:
+        application/json:
+          examples:
+            serviceUnavailable:
+              $ref: '#/components/examples/errorServiceUnavailable'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Service Unavailable - The server is currently unable to handle
+        the request due to temporary overloading or maintenance of the server. This
+        implies a temporary condition which will be alleviated after some delay. Please
+        try again later. Check `Retry-After` header if present.
+      headers:
+        Retry-After:
+          description: Indicates how long to wait (in seconds or as an HTTP date)
+            before retrying the request when receiving a 429 or 503 response.
+          example: 60
+          explode: false
+          schema:
+            oneOf:
+            - description: Wait time in seconds.
+              format: int32
+              type: integer
+            - description: Specific date and time to retry after.
+              format: date-time
+              type: string
+          style: simple
+        X-DataDirect-Request-Key:
+          description: FactSet-specific request tracing identifier used for troubleshooting
+            purposes. Please include this key when reporting issues.
+          explode: false
+          schema:
+            type: string
+          style: simple
     Company400:
       content:
         application/json:
@@ -3519,10 +4127,11 @@ components:
         updateType: RP
       properties:
         ids:
-          description: "The requested list of security identifiers. Accepted ID types\
-            \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  250 per non-batch request (1 metric per ID, for 1\
-            \ day) and 5000 per batch request (1 metric per ID, for 1 day).</p>\n"
+          description: |-
+            The requested list of security identifiers.
+            Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+            <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p>
           example:
           - FDS-US
           items:
@@ -3535,8 +4144,8 @@ components:
         fiscalPeriod:
           $ref: '#/components/schemas/FiscalPeriod'
         metrics:
-          description: |
-            Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items.
+          description: Requested List of Financial Statement Items or Ratios. Use
+            /metrics endpoint for a complete list of available FF_* metric items.
           example:
           - FF_SALES
           items:
@@ -3547,8 +4156,8 @@ components:
           type: array
         currency:
           default: LOCAL
-          description: |
-            Currency code for currency values. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+          description: 'Currency code for currency values. For a list of currency
+            ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           title: Currency
           type: string
@@ -3628,22 +4237,24 @@ components:
           nullable: true
           type: string
         metric:
-          description: The requested `metric` input, representing the Fundamental
-            Data Item. For a definition of the item please use the /fundamentals/v#/metrics
+          description: The requested `metric` input, representing the Fundamentals
+            Data Item. For a definition of the item please use the `/fundamentals/v2/metrics`
             endpoint.
           example: FF_SALES
           nullable: true
           type: string
         periodicity:
-          description: Periodicity or frequency of the fiscal periods, where ANN =
-            Annual Original, ANN_R = Annual Latest, QTR = Quarterly Original, QTR_R
-            = Quarterly Latest, SEMI = Semi-Annual Original, SEMI_R = Semi-Annual
-            Latest, LTM = Last Twelve Months Original, LTM_R = Last Twelve Months
-            Latest, LTMSG = Last Twelve Months Global, [OA17959](https://my.apps.factset.com/oa/pages/17959),
-            LTM_SEMI = Last Twelve Months - Semi-Annual Data, LTM_SEMI_R = Last Twelve
-            Months - Semi-Annual Latest Data and YTD = Year-to-date. Please note that
-            the coverage for SEMI_R and LTM_R may be limited as fewer companies report
-            with these periodicities.
+          description: "Periodicity or frequency of the fiscal periods, where \n*\
+            \ **ANN** = Annual Original, \n* **ANN_R** = Annual Latest, \n* **QTR**\
+            \ = Quarterly Original, \n* **QTR_R** = Quarterly Latest, \n* **SEMI**\
+            \ = Semi-Annual Original, \n* **SEMI_R** = Semi-Annual Latest, \n* **CAL**\
+            \ = Last Twelve Months Original, \n* **LTM** = Last Twelve Months Original,\n\
+            * **LTM_R** = Last Twelve Months Latest, \n* **LTMSG** = Last Twelve Months\
+            \ Global [OA17959](https://my.apps.factset.com/oa/pages/17959), \n* **LTM_SEMI**\
+            \ = Last Twelve Months - Semi-Annual Data, \n* **LTM_SEMI_R** = Last Twelve\
+            \ Months - Semi-Annual\n Latest Data \n* **YTD** = Year-to-date. \n\n\
+            Please note that the coverage for SEMI_R and LTM_R may be limited as fewer\
+            \ companies report with these periodicities.\n"
           enum:
           - ANN
           - ANN_R
@@ -3663,9 +4274,9 @@ components:
           type: string
         fiscalPeriod:
           description: 'Fiscal Period indicator. Returns an integer representing the
-            fiscal period for the requested item and periodicity. QUARTERLY CODE:
-            1-Fist Quarter; 2-Second Quarter; 3-Third Quarter; 4-Fourth Quarter. SEMI-CODE:
-            1-First Semi-annual Period; 2-Second Semi-annual Period.'
+            fiscal period for the requested item and periodicity.  QUARTERLY CODE:
+            1-First Quarter; 2-Second Quarter; 3-Third Quarter; 4-Fourth Quarter.
+            SEMI-CODE: 1-First Semi-annual Period; 2-Second Semi-annual Period.'
           example: 4
           nullable: true
           type: integer
@@ -3693,16 +4304,16 @@ components:
           type: string
         epsReportDate:
           description: The date the EPS was reported for the requested periodicity.
-            In YYYY-MM-DD format. Unavailable data returned as 0001-01-01.
+            In YYYY-MM-DD format.
           example: 2018-02-24
           format: date
           nullable: true
           type: string
         updateType:
-          description: 'Update Type: Preliminary - The period is updated from a report
-            that usually contains limited or only key information., Final - The period
-            is updated from a report where detailed information is available in financial
-            statements including the notes to the line items.'
+          description: 'Update Type: `Preliminary` - The period is updated from a
+            report that usually contains limited or only key information., `Final`
+            - The period is updated from a report where detailed information is available
+            in financial statements including the notes to the line items.'
           enum:
           - Preliminary
           - Final
@@ -3732,6 +4343,433 @@ components:
       - format: double
         nullable: true
         type: number
+    IdentifierList:
+      description: "Array of identifiers supported in async requests to `/point-in-time`\
+        \ and `/periods` endpoints. \nAccepted types: Tickers, SEDOLs, ISINs, CUSIPs,\
+        \ FactSet Permanent Security, Regional, and Entity Identifiers."
+      example:
+      - FDS-US
+      - AAPL-US
+      - MSFT-US
+      items:
+        description: A single security or company identifier.
+        type: string
+      maxItems: 1000
+      minItems: 1
+      title: List of Security or Company Identifiers
+      type: array
+    MetricList:
+      description: An array of fundamentals metric identifiers. Use the `/metrics`
+        endpoint for a complete list of available metric identifiers.
+      example:
+      - FF_SALES
+      - FF_EPS
+      items:
+        description: A single metric identifier string.
+        type: string
+      maxItems: 1600
+      minItems: 1
+      title: List of Metrics
+      type: array
+    PeriodicityEnum:
+      default: ANN
+      description: |
+        Specifies the frequency of fiscal periods for the data requested.
+
+        * `ANN`: Annual Original
+        * `ANN_R`: Annual Restated
+        * `QTR`: Quarterly Original
+        * `QTR_R`: Quarterly Restated
+        * `SEMI`: Semi-Annual Original
+        * `SEMI_R`: Semi-Annual Restated
+        * `LTM`: Last Twelve Months (Calculated)
+        * `LTM_R`: Last Twelve Months Restated (Calculated)
+        * `LTM_SEMI`: LTM based on Semi-Annual
+        * `LTM_SEMI_R`: LTM Restated based on Semi-Annual
+        * `LTMSG`: LTM Global (QTR preferred over SEMI)
+        * `YTD`: Year-to-Date
+      enum:
+      - ANN
+      - ANN_R
+      - QTR
+      - QTR_R
+      - SEMI
+      - SEMI_R
+      - LTM
+      - LTM_R
+      - LTM_SEMI
+      - LTM_SEMI_R
+      - LTMSG
+      - YTD
+      example: QTR
+      title: Periodicity Selection
+      type: string
+    FrequencyEnum:
+      description: |-
+        Frequency of Point-in-Time data snapshots captured.
+        * `W`: Weekly (snapshots taken at the end of the week)
+        * `M`: Monthly (snapshots taken at the end of the month)
+
+        If this parameter is omitted from the request, the endpoint will return the full Point-in-Time history (all changes for the data).
+      enum:
+      - W
+      - M
+      example: W
+      title: PIT Snapshot Frequency
+      type: string
+    FundamentalsPITResponse:
+      description: Contains the array of Point-in-Time fundamentals data results matching
+        the request criteria.
+      properties:
+        data:
+          description: Array of fundamentals data points. Each object represents a
+            metric value for a security, period, and specific PIT window.
+          items:
+            $ref: '#/components/schemas/FundamentalsPITData'
+          type: array
+      title: Fundamentals PIT Response
+      type: object
+    FundamentalsPITData:
+      description: Represents a single value for a fundamental metric as it was known
+        during a specific Point-in-Time window for a given security and fiscal period.
+      properties:
+        requestId:
+          description: The identifier provided in the input request that corresponds
+            to this data point.
+          example: FDS-US
+          type: string
+        fsymId:
+          description: FactSet Regional Security Identifier representing the specific
+            data series for the requested `requestId`.
+          example: SQFMK3-R
+          nullable: true
+          type: string
+        metric:
+          description: The identifier of the fundamental metric being reported (e.g.,
+            `FF_SALES`).
+          example: FF_SALES
+          nullable: true
+          type: string
+        periodicity:
+          description: Periodicity of this data point (e.g., `QTR`, `ANN`).
+          example: QTR
+          nullable: true
+          type: string
+        fiscalPeriod:
+          description: Integer representing the fiscal period. For `QTR` periodicity,
+            possible values are 1, 2, 3, or 4. For `SEMI` periodicity, possible values
+            are 1 or 2.
+          example: 1
+          format: int32
+          nullable: true
+          type: integer
+        fiscalYear:
+          description: Fiscal year of the reported period, expressed in a YYYY format.
+          example: 2018
+          format: int32
+          nullable: true
+          type: integer
+        fiscalEndDate:
+          description: The official ending date of the fiscal period (YYYY-MM-DD).
+          example: 2017-11-30
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: 'Currency of the reported `value`, expressed as a 3-character
+            ISO 4217 code. For a list of currency ISO codes, visit [Online Assistant
+            Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+        value:
+          $ref: '#/components/schemas/FundamentalValue'
+        updateType:
+          description: Indicates the status of the source filing when this data point
+            was recorded (`Preliminary` or `Final`).
+          enum:
+          - Preliminary
+          - Final
+          example: Final
+          nullable: true
+          type: string
+        pitStart:
+          description: |
+            Start of Point-in-Time (inclusive, in UTC) during which this value was current.
+            Format: ISO 8601 `YYYY-MM-DDTHH:MM:SSZ`.
+            If frequency is weekly (w) or monthly (m), this will be null.
+          example: 2017-12-16T05:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        pitEnd:
+          description: |
+            End of Point-in-Time (inclusive, in UTC).
+            Format: ISO 8601 `YYYY-MM-DDTHH:MM:SSZ`.
+            If value is `null` -> this value is current (latest active snapshot).
+            If frequency is weekly or monthly, and this is an end-of-week or end-of-month snapshot -> `pitStart` will be null.
+          example: 2018-01-13T04:59:59Z
+          format: date-time
+          nullable: true
+          type: string
+      title: Fundamentals Data Point (PIT)
+      type: object
+    FundamentalsPITRequest:
+      description: Wrapper object containing the parameters for a POST request to
+        the /point-in-time endpoint.
+      example:
+        data:
+          fiscalPeriodEnd: 2021-12-31T00:00:00.000+0000
+          fiscalPeriodStart: 2019-01-01T00:00:00.000+0000
+          periodicity: QTR
+          ids:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+          active: true
+          metrics:
+          - FF_SALES
+          - FF_EPS
+          pitStart: 2020-08-30T13:00:00Z
+          pitEnd: 2021-12-31T22:00:00Z
+          frequency: W
+          updateType: RP
+      properties:
+        data:
+          $ref: '#/components/schemas/FundamentalsPITRequestBody'
+      required:
+      - data
+      title: Fundamentals PIT Request Body Wrapper
+      type: object
+    FundamentalsPITRequestBody:
+      description: Parameters for requesting Point-in-Time fundamentals data via POST.
+      example:
+        fiscalPeriodEnd: 2021-12-31T00:00:00.000+0000
+        fiscalPeriodStart: 2019-01-01T00:00:00.000+0000
+        periodicity: QTR
+        ids:
+        - FDS-US
+        - AAPL-US
+        - MSFT-US
+        active: true
+        metrics:
+        - FF_SALES
+        - FF_EPS
+        pitStart: 2020-08-30T13:00:00Z
+        pitEnd: 2021-12-31T22:00:00Z
+        frequency: W
+        updateType: RP
+      properties:
+        ids:
+          description: "Array of identifiers supported in async requests to `/point-in-time`\
+            \ and `/periods` endpoints. \nAccepted types: Tickers, SEDOLs, ISINs,\
+            \ CUSIPs, FactSet Permanent Security, Regional, and Entity Identifiers."
+          example:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+          items:
+            description: A single security or company identifier.
+            type: string
+          maxItems: 1000
+          minItems: 1
+          title: List of Security or Company Identifiers
+          type: array
+        periodicity:
+          $ref: '#/components/schemas/PeriodicityEnum'
+        fiscalPeriodStart:
+          description: Filters for fiscal periods ending on or after this date (YYYY-MM-DD).
+            Used with `fiscalPeriodEnd` for a range, or alone for the earliest period.
+          example: 2019-01-01
+          format: date
+          type: string
+        fiscalPeriodEnd:
+          description: Filters for fiscal periods ending on or before this date (YYYY-MM-DD).
+            Used with `fiscalPeriodStart` for a range, or alone for the latest period.
+          example: 2021-12-31
+          format: date
+          type: string
+        metrics:
+          description: An array of fundamentals metric identifiers. Use the `/metrics`
+            endpoint for a complete list of available metric identifiers.
+          example:
+          - FF_SALES
+          - FF_EPS
+          items:
+            description: A single metric identifier string.
+            type: string
+          maxItems: 1600
+          minItems: 1
+          title: List of Metrics
+          type: array
+        frequency:
+          $ref: '#/components/schemas/FrequencyEnum'
+        pitStart:
+          description: |
+            Filters PIT snapshots taken on or after this UTC date and time.
+            * Use ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+            * If `pitStart` and `pitEnd` are omitted, the full PIT history is returned (respecting `frequency` if provided).
+            * For a specific point in time, provide the same value for both `pitStart` and `pitEnd`.
+          example: 2020-08-30T13:00:00Z
+          format: date-time
+          type: string
+        pitEnd:
+          description: |
+            Filters PIT snapshots taken on or before this UTC date and time.
+            * Use ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+            * Must be used with `pitStart` to define a range.
+            * For a specific point in time, use the same value for both `pitStart` and `pitEnd`.
+          example: 2021-12-31T22:00:00Z
+          format: date-time
+          type: string
+        updateType:
+          $ref: '#/components/schemas/UpdateType'
+        active:
+          default: true
+          description: "Optional flag to restrict results to securities that were\
+            \ active on the\nsnapshot (PIT) date. \nWhen set to true, applies point-in-time\
+            \ filtering\nbased on the security's active date range. Prevents inclusion\
+            \ of future-dated entities."
+          example: true
+          type: boolean
+      required:
+      - fiscalPeriodStart
+      - ids
+      - metrics
+      title: Fundamentals PIT Request Parameters
+      type: object
+    PeriodsRequest:
+      description: Wrapper object containing the parameters for a POST request to
+        the `/periods` endpoint.
+      example:
+        data:
+          fiscalPeriodEnd: 2021-12-31T00:00:00.000+0000
+          fiscalPeriodStart: 2019-01-01T00:00:00.000+0000
+          periodicity: QTR
+          ids:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      properties:
+        data:
+          $ref: '#/components/schemas/PeriodsRequestBody'
+      required:
+      - data
+      title: Fiscal Periods Request Body Wrapper
+      type: object
+    PeriodsRequestBody:
+      description: Parameters for requesting fiscal period information via POST.
+      example:
+        fiscalPeriodEnd: 2021-12-31T00:00:00.000+0000
+        fiscalPeriodStart: 2019-01-01T00:00:00.000+0000
+        periodicity: QTR
+        ids:
+        - FDS-US
+        - AAPL-US
+        - MSFT-US
+      properties:
+        ids:
+          description: "Array of identifiers supported in async requests to `/point-in-time`\
+            \ and `/periods` endpoints. \nAccepted types: Tickers, SEDOLs, ISINs,\
+            \ CUSIPs, FactSet Permanent Security, Regional, and Entity Identifiers."
+          example:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+          items:
+            description: A single security or company identifier.
+            type: string
+          maxItems: 1000
+          minItems: 1
+          title: List of Security or Company Identifiers
+          type: array
+        periodicity:
+          $ref: '#/components/schemas/PeriodicityEnum'
+        fiscalPeriodStart:
+          description: Filters for fiscal periods ending on or after this date (YYYY-MM-DD).
+            Used with `fiscalPeriodEnd` for a range, or alone for the earliest period.
+          example: 2019-01-01
+          format: date
+          type: string
+        fiscalPeriodEnd:
+          description: Filters for fiscal periods ending on or before this date (YYYY-MM-DD).
+            Used with `fiscalPeriodStart` for a range, or alone for the latest period.
+          example: 2021-12-31
+          format: date
+          type: string
+      required:
+      - fiscalPeriodStart
+      - ids
+      title: Fiscal Periods Request Parameters
+      type: object
+    PeriodsResponse:
+      description: Contains the array of fiscal period information matching the request
+        criteria.
+      properties:
+        data:
+          description: Array of fiscal period detail objects.
+          items:
+            $ref: '#/components/schemas/PeriodInfo'
+          type: array
+      title: Fiscal Periods Response
+      type: object
+    PeriodInfo:
+      description: Detailed information about a single fiscal period for a security,
+        including its Point-in-Time validity.
+      properties:
+        requestId:
+          description: The identifier provided in the input request that corresponds
+            to this period information.
+          example: FDS-US
+          type: string
+        fsymId:
+          description: FactSet Regional Security Identifier representing the specific
+            data series for the requested `requestId`.
+          example: SQFMK3-R
+          nullable: true
+          type: string
+        fiscalInterimNumber:
+          description: The sequential number of the interim period within the fiscal
+            year (e.g., 1 for Q1, 2 for Q2).
+          example: 1
+          format: int32
+          nullable: true
+          type: integer
+        periodicity:
+          description: Periodicity code for this fiscal period (e.g., `QTR`, `ANN`).
+          example: QTR
+          nullable: true
+          type: string
+        fiscalDate:
+          description: The specific date used for reporting the period end, which
+            may occasionally differ slightly from the period's actual calendar end
+            date (YYYY-MM-DD).
+          example: 2017-11-30
+          format: date
+          nullable: true
+          type: string
+        fyeChange:
+          description: Flag indicating if a Fiscal Year End (FYE) change occurred
+            during or impacted this specific period (`true` if changed, `false` otherwise).
+          example: false
+          nullable: true
+          type: boolean
+        pitStart:
+          description: The UTC timestamp for when the fiscal period information was
+            first published and became available.
+          example: 2018-03-27T14:01:17Z
+          format: date-time
+          nullable: true
+          type: string
+        pitEnd:
+          description: The UTC timestamp for when this version of the fiscal period
+            information was superseded by a newer version. A `null` value indicates
+            that this is the latest available version.
+          format: date-time
+          nullable: true
+          type: string
+      title: Fiscal Period Information
+      type: object
     SegmentsRequest:
       description: Segments request body elements
       example:
@@ -3764,10 +4802,11 @@ components:
         segmentType: BUS
       properties:
         ids:
-          description: "The requested list of security identifiers. Accepted ID types\
-            \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  250 per non-batch request (1 metric per ID, for 1\
-            \ day) and 5000 per batch request (1 metric per ID, for 1 day).</p>\n"
+          description: |-
+            The requested list of security identifiers.
+            Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+            <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p>
           example:
           - FDS-US
           items:
@@ -3780,11 +4819,11 @@ components:
         fiscalPeriod:
           $ref: '#/components/schemas/FiscalPeriod'
         metrics:
-          description: |
+          description: |-
             Metrics are the data items available for business and geographic segments, where
               * **SALES**  = Sales/Revenue - Total revenues from the business line/geographic region,
               * **OPINC** = Operating Income/Loss - Operating income generated from the business line/geographic region,
-              * **ASSETS** = Total Assets - Total assets from the business line/geographic region,
+              * **ASSETS** = Total assets from the business line/geographic region,
               * **DEP** = Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,
               * **CAPEX** = Capital Expenditures - Capital expenditures resulting from the business line/geographic region
           example: SALES
@@ -3844,8 +4883,8 @@ components:
           nullable: true
           type: string
         metric:
-          description: The requested `metric` input, representing the Fundamental
-            Data Item. For a definition of the item please use the /fundamentals/v#/metrics
+          description: The requested `metric` input, representing the Fundamentals
+            Data Item. For a definition of the item please use the `/fundamentals/v2/metrics`
             endpoint.
           example: SALES
           nullable: true
@@ -3868,9 +4907,9 @@ components:
       title: Segment Object
       type: object
     SegmentValue:
-      description: 'Value of the data metric requested. Note that the type of value
-        is ''object'', and depending on the data metric requested, the value could
-        be an object representation of a string or double. '
+      description: Value of the data metric requested. Note that the type of value
+        is `object`, and depending on the data metric requested, the value could be
+        an object representation of a `string` or `double`.
       nullable: true
       oneOf:
       - nullable: true
@@ -3978,11 +5017,11 @@ components:
           type: string
         reportDate:
           items:
-            $ref: '#/components/schemas/reportDate'
+            $ref: '#/components/schemas/ReportDate'
           type: array
         fiscalYear:
           items:
-            $ref: '#/components/schemas/fiscalYear'
+            $ref: '#/components/schemas/FiscalYear'
           type: array
         items:
           items:
@@ -4003,7 +5042,7 @@ components:
           description: Name of the metric
           type: string
         ffCode:
-          description: FactSet Fundamental code representing the corresponding financial
+          description: FactSet Fundamentals code representing the corresponding financial
             metric
           type: string
         displayLevel:
@@ -4022,12 +5061,12 @@ components:
             type: number
           type: array
       type: object
-    reportDate:
+    ReportDate:
       description: The date the reported fiscal period ended.
       example: 2017-12-30
       nullable: true
       type: string
-    fiscalYear:
+    FiscalYear:
       description: Fiscal year of the reported period in YYYY format.
       example: "2018"
       nullable: true
@@ -4363,7 +5402,7 @@ components:
           type: string
       type: object
     CompanyFundamentalsResponse:
-      description: Array of Fundamental objects
+      description: Array of Fundamentals objects
       example:
         data:
         - enterpriseValue: 2989652.948
@@ -4488,7 +5527,7 @@ components:
       title: Fundamentals Response
       type: object
     Fundamentals:
-      description: Factset Fundamental Response item
+      description: Factset Fundamentals Response item
       example:
         enterpriseValue: 2989652.948
         perShare:
@@ -4627,9 +5666,9 @@ components:
           nullable: true
           type: number
         numberOfEmployees:
-          description: Represents the number of employees under the company's payroll
+          description: ' Represents the number of employees under the company''s payroll
             as reported by the management to the shareholders within 90 days of the
-            fiscal year-end.
+            fiscal year-end.'
           example: 311300
           format: int32
           nullable: true
@@ -4677,7 +5716,7 @@ components:
           format: double
           nullable: true
           type: number
-      title: Fundamental Object
+      title: Fundamentals Object
       type: object
     PerShare:
       example:
@@ -4733,7 +5772,7 @@ components:
           nullable: true
           type: number
         trailingTwelveMonthEarningsPerShare:
-          description: Earnings per share over the last 12 months.
+          description: ' Earnings per share over the last 12 months.'
           example: 7.621
           format: double
           nullable: true
@@ -4976,6 +6015,7 @@ components:
           oaPageId: D10585
           dataType: doubleArray
           name: Total Assets
+          isNonPIT: true
           description: |-
             Total Assets
 
@@ -5016,6 +6056,7 @@ components:
             This will be equal to the as reported total assets value if the items stated above are not reported.
           category: BALANCE_SHEET
           subcategory: ASSETS
+          isPIT: true
           factor: 1000000
           sdfPackage: BASIC
         - oaUrl: https://my.apps.factset.com/oa/pages/D10585
@@ -5023,6 +6064,7 @@ components:
           oaPageId: D10585
           dataType: doubleArray
           name: Total Assets
+          isNonPIT: true
           description: |-
             Total Assets
 
@@ -5063,12 +6105,14 @@ components:
             This will be equal to the as reported total assets value if the items stated above are not reported.
           category: BALANCE_SHEET
           subcategory: ASSETS
+          isPIT: true
           factor: 1000000
           sdfPackage: BASIC
       properties:
         data:
-          description: |
-            Array of metric objects representing the metrics that can be requested from the fundamentals APIs.
+          description: |-
+            Array of metric objects representing the metrics that can be requested
+            from the fundamentals APIs.
           items:
             $ref: '#/components/schemas/Metric'
           type: array
@@ -5081,6 +6125,7 @@ components:
         oaPageId: D10585
         dataType: doubleArray
         name: Total Assets
+        isNonPIT: true
         description: |-
           Total Assets
 
@@ -5121,11 +6166,12 @@ components:
           This will be equal to the as reported total assets value if the items stated above are not reported.
         category: BALANCE_SHEET
         subcategory: ASSETS
+        isPIT: true
         factor: 1000000
         sdfPackage: BASIC
       properties:
         metric:
-          description: Metric identifier to be used as `metrics` input in `/fundamentals/v#/fundamentals`
+          description: Metric identifier to be used as `metrics` input in `/fundamentals/v2/fundamentals`
             endpoint.
           example: FF_ASSETS
           nullable: true
@@ -5147,6 +6193,17 @@ components:
           example: ASSETS
           nullable: true
           type: string
+        isPIT:
+          description: Flag indicating if the metric is available in Point-in-Time
+            (PIT) datasets, and can be used with the `/point-in-time` endpoint.
+          example: true
+          type: boolean
+        isNonPIT:
+          description: Flag indicating if the metric is available in non-Point-in-Time
+            (non-PIT) datasets, and can be used with the `/fundamentals` endpoint.
+            A metric can be available in both PIT and non-PIT datasets.
+          example: true
+          type: boolean
         oaPageId:
           description: The Online Assistant Page ID in D***** format, used to look
             up the definition and methodology of the requested item. Visit my.apps.factset.com/oa/pages/[D*****]
@@ -5220,7 +6277,7 @@ components:
           nullable: true
           type: string
         dataType:
-          description: |
+          description: |-
             The data type for the metric. Make note, mixing data types within a single /fundamentals API is not supported. Each dataType is defined below -
               * **date** - date format expressed in YYYY-MM-DD.
               * **doubleArray** - A double is a FactSet data type, similar to a float or an integer. A double represents numeric data but provides a greater amount of decimal precision than the float data type. Double values have up to 15 digits of precision, while float values have up to 7 digits (integers have up to 10 digits).
@@ -5235,10 +6292,11 @@ components:
       title: Metric Object
       type: object
     IdsBatchMax30000:
-      description: "The requested list of security identifiers. Accepted ID types\
-        \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-        \ \n<p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day)\
-        \ and 5000 per batch request (1 metric per ID, for 1 day).</p>\n"
+      description: |-
+        The requested list of security identifiers.
+        Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+        <p>ids limit =  250 per non-batch request (1 metric per ID, for 1 day) and 5000 per batch request (1 metric per ID, for 1 day).</p>
       example:
       - FDS-US
       items:
@@ -5248,7 +6306,7 @@ components:
       type: array
     Periodicity:
       default: ANN
-      description: |
+      description: |-
         Periodicity or frequency of the fiscal periods, where
           * **ANN** = Annual Original,
           * **ANN_R** = Annual Latest - *Includes Restatements*,
@@ -5263,6 +6321,7 @@ components:
           * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959) and
           * **YTD** = Year-to-date
         <br><br>
+
         Please note that the coverage for SEMI_R and LTM_R may be limited as fewer companies report with these periodicities.
       enum:
       - ANN
@@ -5282,7 +6341,7 @@ components:
       type: string
     SegmentsPeriodicity:
       default: ANN
-      description: |
+      description: |-
         Periodicity or frequency of the fiscal periods, where
           * **ANN** = Annual Original,
           * **ANN_R** = Annual Latest - *Includes Restatements*,
@@ -5300,19 +6359,20 @@ components:
         end: 2014-01-01
       properties:
         start:
-          description: |
-            The fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to the most recently completed period during resolution.
+          description: The fiscal period start expressed as YYYY-MM-DD.  Calendar
+            date that will fall back to the most recently completed period during
+            resolution.
           example: 2012-01-01
           type: string
         end:
-          description: |
-            The fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to the most recent completed period during resolution.
+          description: The fiscal period end expressed YYYY-MM-DD.  Calendar date
+            that will fall back to the most recent completed period during resolution.
           example: 2014-01-01
           type: string
       type: object
     Metrics:
-      description: |
-        Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items.
+      description: Requested List of Financial Statement Items or Ratios. Use /metrics
+        endpoint for a complete list of available FF_* metric items.
       example:
       - FF_SALES
       items:
@@ -5322,11 +6382,11 @@ components:
       title: Metrics
       type: array
     SegmentsMetrics:
-      description: |
+      description: |-
         Metrics are the data items available for business and geographic segments, where
           * **SALES**  = Sales/Revenue - Total revenues from the business line/geographic region,
           * **OPINC** = Operating Income/Loss - Operating income generated from the business line/geographic region,
-          * **ASSETS** = Total Assets - Total assets from the business line/geographic region,
+          * **ASSETS** = Total assets from the business line/geographic region,
           * **DEP** = Depreciation Exp - Depreciation expense resulting from the business line/geographic segment,
           * **CAPEX** = Capital Expenditures - Capital expenditures resulting from the business line/geographic region
       example: SALES
@@ -5346,17 +6406,17 @@ components:
       type: string
     Currency:
       default: LOCAL
-      description: |
-        Currency code for currency values. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+      description: 'Currency code for currency values. For a list of currency ISO
+        codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
       example: USD
       title: Currency
       type: string
     UpdateType:
       default: RP
-      description: |
+      description: |-
         Update Status flag:
-          * **RP** = Include preliminary data,
-          * **RF** = Only final data
+          * **`RP`** = Include preliminary data,
+          * **`RF`** = Only final data
       enum:
       - RP
       - RF
@@ -5365,8 +6425,11 @@ components:
       type: string
     Batch:
       default: "N"
-      description: |
-        Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, id limit is set to 5000 ids per request (1 metric per ID, for 1 day) and 250 ids per request without batching (1 metric per ID, for 1 day) though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
+      description: Enables the ability to asynchronously "batch" the request, supporting
+        a long-running request. Upon requesting batch=Y, the service will respond
+        back with an HTTP Status Code of 202. Once a batch request is submitted, use
+        the corresponding `/status` and `/result` endpoints to retrieve the status
+        and result.
       enum:
       - "Y"
       - "N"
@@ -5387,45 +6450,6 @@ components:
           $ref: '#/components/schemas/BatchStatus'
       title: Batch Status Response
       type: object
-    BatchStatus:
-      example:
-        startTime: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        endTime: 2000-01-23T04:56:07.000+00:00
-        error:
-          code: GenericError
-          id: adb01824-252f-4420-b0c6-35a1e3507ef5
-          title: Validation Error
-        status: queued
-      properties:
-        id:
-          description: the id of batch request.
-          format: uuid
-          type: string
-        startTime:
-          description: Time when the batch request is started. This is in Eastern
-            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
-            following ISO 8601.
-          format: date-time
-          type: string
-        endTime:
-          description: Time when the batch request is ended. This is in Eastern Time
-            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following
-            ISO 8601.
-          format: date-time
-          nullable: true
-          type: string
-        status:
-          enum:
-          - queued
-          - executing
-          - created
-          - failed
-          type: string
-        error:
-          $ref: '#/components/schemas/BatchErrorObject'
-      title: Batch Status
-      type: object
     BatchResultResponse:
       example:
         data:
@@ -5444,7 +6468,48 @@ components:
       oneOf:
       - $ref: '#/components/schemas/Fundamental'
       - $ref: '#/components/schemas/Segment'
+      - $ref: '#/components/schemas/FundamentalsPITData'
+      - $ref: '#/components/schemas/PeriodInfo'
       title: Batch Data
+    BatchStatus:
+      example:
+        startTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        endTime: 2000-01-23T04:56:07.000+00:00
+        error:
+          code: GenericError
+          id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          title: Validation Error
+        status: queued
+      properties:
+        id:
+          description: the id of batch request.
+          format: uuid
+          type: string
+        startTime:
+          description: Time when the batch request is started. This is in Eastern
+            Time Zone. The date-time format is expressed as `[YYYY-MM-DD]T[HH:MM:SSS]`,
+            following ISO 8601.
+          format: date-time
+          type: string
+        endTime:
+          description: Time when the batch request is ended. This is in Eastern Time
+            Zone. The date-time format is expressed as `[YYYY-MM-DD]T[HH:MM:SSS]`,
+            following ISO 8601.
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          enum:
+          - queued
+          - executing
+          - created
+          - failed
+          type: string
+        error:
+          $ref: '#/components/schemas/BatchErrorObject'
+      title: Batch Status
+      type: object
     ErrorResponse:
       description: Error Default Response
       properties:

@@ -60,7 +60,7 @@ public class Example {
 
         EntitySecuritiesApi apiInstance = new EntitySecuritiesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-        String securityType = "EQ"; // String | Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL).
+        String securityType = "EQ"; // String | The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt 
         try {
             EntitySecuritiesResponse result = apiInstance.getEntitySecurities(ids, securityType);
             System.out.println(result);
@@ -82,7 +82,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  |
- **securityType** | **String**| Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). | [optional] [default to EQ] [enum: EQ, FI, ALL]
+ **securityType** | **String**| The category describes which security types will be returned in the response. Defined as: * **EQ** &#x3D; All related traded equity listings * **AEQ** &#x3D; All active traded and non-traded equity listings * **PR** &#x3D; All active preferred securities * **F** &#x3D; All active funds * **FI** &#x3D; All debt instruments * **ALL** &#x3D; All related traded equity listings and debt  | [optional] [default to EQ] [enum: EQ, AEQ, PR, F, FI, ALL]
 
 ### Return type
 

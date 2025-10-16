@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.scenarios_api import ScenariosApi
+#   from .api.batch_api import BatchApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,6 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.AssetCashFlowProjections.api.batch_api import BatchApi
+from fds.sdk.AssetCashFlowProjections.api.documents_api import DocumentsApi
 from fds.sdk.AssetCashFlowProjections.api.scenarios_api import ScenariosApi

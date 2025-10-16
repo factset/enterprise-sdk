@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetFundamentals.Model.CompanyFundamentalsResponse
-Array of Fundamental objects
+Array of Fundamentals objects
 
 ## Properties
 

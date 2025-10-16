@@ -27,6 +27,27 @@ export default class SecurityType {
 
     
         /**
+         * value: "AEQ"
+         * @const
+         */
+        "AEQ" = "AEQ";
+
+    
+        /**
+         * value: "PR"
+         * @const
+         */
+        "PR" = "PR";
+
+    
+        /**
+         * value: "F"
+         * @const
+         */
+        "F" = "F";
+
+    
+        /**
          * value: "FI"
          * @const
          */

@@ -2,7 +2,7 @@
 
 # CompanyFundamentalsResponse
 
-Array of Fundamental objects
+Array of Fundamentals objects
 
 ## Properties
 

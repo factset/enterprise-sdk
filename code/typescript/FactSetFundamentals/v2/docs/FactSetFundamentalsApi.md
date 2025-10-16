@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/content/factset-fundamentals/v
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFdsFundamentalsForList**](FactSetFundamentalsApi.md#getFdsFundamentalsForList) | **POST** /fundamentals | Returns Company Fundamental Data.
+[**getFdsFundamentalsForList**](FactSetFundamentalsApi.md#getFdsFundamentalsForList) | **POST** /fundamentals | Returns Company Fundamentals Data.
 
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 
 > FundamentalsResponse getFdsFundamentalsForList(fundamentalsRequest)
 
-Returns Company Fundamental Data.
+Returns Company Fundamentals Data.
 
-Retrieves FactSet Fundamental standardized data for specified securities. Use the &#x60;&#x60;&#x60;/metrics&#x60;&#x60;&#x60; endpoint to retrieve a full list of valid metrics or data items.   The &#x60;&#x60;&#x60;/fundamentals&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
+Retrieves FactSet Fundamentals standardized data for specified securities. Use the &#x60;&#x60;&#x60;/metrics&#x60;&#x60;&#x60; endpoint to retrieve a full list of valid metrics or data items.   The &#x60;&#x60;&#x60;/fundamentals&#x60;&#x60;&#x60; endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
 
 ### Example
 

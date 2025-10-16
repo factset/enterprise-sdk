@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Returns the response for a Batch Request
 
-Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\". 
+Returns the response data for the underlying batch request that is specified by the id. The response structure will be based on the endpoint that initiated the batch request (/fundamentals, /segments, /point-in-time, or /periods).  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\". 
 
 ### Example
 
@@ -109,7 +109,7 @@ The endpoint generates varying objects correlating with the successful status co
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Request Response Object when the batch request has been completed and the response is created |  -  |
+**200** | The long-running request has been completed and the result is created. The response structure will be based on the endpoint that initiated the batch request. |  -  |
 **202** | The batch Request has not finished and the result has NOT been created. |  -  |
 **404** | Resource not found. |  -  |
 

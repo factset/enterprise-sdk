@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetFundamentals.Model.SegmentsPeriodicity
-Periodicity or frequency of the fiscal periods, where   * **ANN** = Annual Original,   * **ANN_R** = Annual Latest - *Includes Restatements*, 
+Periodicity or frequency of the fiscal periods, where   * **ANN** = Annual Original,   * **ANN_R** = Annual Latest - *Includes Restatements*,
 
 ## Properties
 

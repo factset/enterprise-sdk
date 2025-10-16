@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Global Filings API
-  version: 2.1.0
+  version: 2.1.1
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -290,6 +290,8 @@ paths:
                         description: Taiwan Stock Exchange
                       - source: ASXD
                         description: ASX Company Announcements Delayed
+                      - source: ASX
+                        description: ASX Company Announcements Real Time
                       - source: OMX
                         description: GlobeNewswire Europe
                       - source: BursaMalaysia
@@ -980,9 +982,6 @@ components:
     primaryId:
       schema:
         type: boolean
-        enum:
-          - true
-          - false
         default: false
       in: query
       name: primaryId

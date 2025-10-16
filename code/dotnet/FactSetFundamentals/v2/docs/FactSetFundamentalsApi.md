@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/content/factset-fundamentals/v
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFdsFundamentalsForList**](FactSetFundamentalsApi.md#getfdsfundamentalsforlist) | **POST** /fundamentals | Returns Company Fundamental Data.
+[**GetFdsFundamentalsForList**](FactSetFundamentalsApi.md#getfdsfundamentalsforlist) | **POST** /fundamentals | Returns Company Fundamentals Data.
 
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 # **GetFdsFundamentalsForList**
 > FundamentalsResponse GetFdsFundamentalsForList (FundamentalsRequest fundamentalsRequest)
 
-Returns Company Fundamental Data.
+Returns Company Fundamentals Data.
 
-Retrieves FactSet Fundamental standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
+Retrieves FactSet Fundamentals standardized data for specified securities. Use the ```/metrics``` endpoint to retrieve a full list of valid metrics or data items.   The ```/fundamentals``` endpoint currently supports Long Running asynchronous requests up to **20 minutes** via batch parameter. Id limit is set to 5000 ids per request when using batch capability and 250 ids per request without batching (1 metric per ID, for 1 day in both the cases). This feature is available for all users. 
 
 ### Example
 
@@ -65,7 +65,7 @@ namespace Example
 
             try
             {
-                // Returns Company Fundamental Data.
+                // Returns Company Fundamentals Data.
                 FactSetFundamentalsApi.GetFdsFundamentalsForListResponseWrapper result = apiInstance.GetFdsFundamentalsForList(fundamentalsRequest);
 
                 switch (result.StatusCode)
@@ -114,7 +114,7 @@ GetFdsFundamentalsForListResponseWrapper
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Fundamental data items |  -  |
+| **200** | Fundamentals data items |  -  |
 | **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |

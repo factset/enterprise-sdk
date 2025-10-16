@@ -54,6 +54,9 @@ class SecurityType(ModelSimple):
     allowed_values = {
         ('value',): {
             'EQ': "EQ",
+            'AEQ': "AEQ",
+            'PR': "PR",
+            'F': "F",
             'FI': "FI",
             'ALL': "ALL",
 
@@ -109,10 +112,10 @@ class SecurityType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). . if omitted defaults to "EQ", must be one of ["EQ", "FI", "ALL", ]  # noqa: E501
+            args[0] (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . if omitted defaults to "EQ", must be one of ["EQ", "AEQ", "PR", "F", "FI", "ALL", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). . if omitted defaults to "EQ", must be one of ["EQ", "FI", "ALL", ]  # noqa: E501
+            value (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . if omitted defaults to "EQ", must be one of ["EQ", "AEQ", "PR", "F", "FI", "ALL", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -195,10 +198,10 @@ class SecurityType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). . if omitted defaults to "EQ", must be one of ["EQ", "FI", "ALL", ]  # noqa: E501
+            args[0] (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . if omitted defaults to "EQ", must be one of ["EQ", "AEQ", "PR", "F", "FI", "ALL", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). . if omitted defaults to "EQ", must be one of ["EQ", "FI", "ALL", ]  # noqa: E501
+            value (str): The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt . if omitted defaults to "EQ", must be one of ["EQ", "AEQ", "PR", "F", "FI", "ALL", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

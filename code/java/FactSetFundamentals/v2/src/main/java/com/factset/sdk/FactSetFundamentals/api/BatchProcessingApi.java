@@ -50,7 +50,7 @@ public class BatchProcessingApi {
    * <p>
    * Responses:
    * <ul>
-   *   <li>200 : {@code BatchResultResponse }<br>Request Response Object when the batch request has been completed and the response is created</li>
+   *   <li>200 : {@code BatchResultResponse }<br>The long-running request has been completed and the result is created. The response structure will be based on the endpoint that initiated the batch request.</li>
    * 
    *   <li>202 : {@code BatchStatusResponse }<br>The batch Request has not finished and the result has NOT been created.</li>
    * </ul>
@@ -147,14 +147,14 @@ public class BatchProcessingApi {
 
   /**
    * Returns the response for a Batch Request
-   * Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+   * Returns the response data for the underlying batch request that is specified by the id. The response structure will be based on the endpoint that initiated the batch request (/fundamentals, /segments, /point-in-time, or /periods).  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
    * @param id Batch Request identifier. (required)
    * @return GetBatchDataResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Request Response Object when the batch request has been completed and the response is created </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> The long-running request has been completed and the result is created. The response structure will be based on the endpoint that initiated the batch request. </td><td>  -  </td></tr>
        <tr><td> 202 </td><td> The batch Request has not finished and the result has NOT been created. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Resource not found. </td><td>  -  </td></tr>
      </table>
@@ -165,14 +165,14 @@ public class BatchProcessingApi {
 
   /**
    * Returns the response for a Batch Request
-   * Returns the response data for the underlying batch request that is specified by the id.  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
+   * Returns the response data for the underlying batch request that is specified by the id. The response structure will be based on the endpoint that initiated the batch request (/fundamentals, /segments, /point-in-time, or /periods).  By default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \&quot;accept\&quot; parameter as \&quot;text/csv\&quot; instead of \&quot;application/json\&quot;. 
    * @param id Batch Request identifier. (required)
    * @return ApiResponse&lt;GetBatchDataResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Request Response Object when the batch request has been completed and the response is created </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> The long-running request has been completed and the result is created. The response structure will be based on the endpoint that initiated the batch request. </td><td>  -  </td></tr>
        <tr><td> 202 </td><td> The batch Request has not finished and the result has NOT been created. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Resource not found. </td><td>  -  </td></tr>
      </table>

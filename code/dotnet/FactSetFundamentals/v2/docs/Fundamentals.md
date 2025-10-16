@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetFundamentals.Model.Fundamentals
-Factset Fundamental Response item
+Factset Fundamentals Response item
 
 ## Properties
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **FiveYearDividendGrowthRate** | **double?** | The dividend growth rate is the annualized percentage rate of growth that a particular stock&#39;s dividend undergoes over five years of time | [optional] 
 **FloatingSharesOutstanding** | **double?** | Represents the number of shares outstanding less closely held shares for the period and date(s) requested | [optional] 
 **NetIncome** | **double?** | This equals to net earnings (profit) calculated as sales less cost of goods sold, selling, general and administrative expenses, operating expenses, depreciation, interest, taxes and other expenses | [optional] 
-**NumberOfEmployees** | **int?** | Represents the number of employees under the company&#39;s payroll as reported by the management to the shareholders within 90 days of the fiscal year-end. | [optional] 
+**NumberOfEmployees** | **int?** |  Represents the number of employees under the company&#39;s payroll as reported by the management to the shareholders within 90 days of the fiscal year-end. | [optional] 
 **SalesPerEmployee** | **double?** | Revenue per employee is a ratio that is calculated as a company&#39;s total revenue divided by its current number of employees | [optional] 
 **ShareHolderEquity** | **double?** | Shareholder equity represents the amount of financing the company experiences through common and preferred shares | [optional] 
 **ThreeYearAverageYield** | **double?** | Average of the dividend yield with yield calculated for each of the past three years | [optional] 

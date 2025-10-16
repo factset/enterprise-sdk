@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetEntity.Model.SecurityType
-Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). 
+The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt 
 
 ## Properties
 

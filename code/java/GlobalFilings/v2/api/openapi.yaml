@@ -17,7 +17,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Global Filings API
-  version: 2.1.0
+  version: 2.1.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/global-filings-api
@@ -197,9 +197,6 @@ paths:
         required: false
         schema:
           default: false
-          enum:
-          - true
-          - false
           type: boolean
         style: form
       - description: Restricts the search to include only document stories that include
@@ -523,9 +520,6 @@ paths:
         required: false
         schema:
           default: false
-          enum:
-          - true
-          - false
           type: boolean
         style: form
       - description: Restricts the search to include only document stories that include
@@ -707,6 +701,8 @@ paths:
                       description: Taiwan Stock Exchange
                     - source: ASXD
                       description: ASX Company Announcements Delayed
+                    - source: ASX
+                      description: ASX Company Announcements Real Time
                     - source: OMX
                       description: GlobeNewswire Europe
                     - source: BursaMalaysia
@@ -1135,9 +1131,6 @@ components:
       required: false
       schema:
         default: false
-        enum:
-        - true
-        - false
         type: boolean
       style: form
     paginationLimit:

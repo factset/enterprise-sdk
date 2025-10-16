@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetFundamentals.Model.UpdateType
-Update Status flag:   * **RP** = Include preliminary data,   * **RF** = Only final data 
+Update Status flag:   * **`RP`** = Include preliminary data,   * **`RF`** = Only final data
 
 ## Properties
 

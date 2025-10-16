@@ -1,6 +1,6 @@
 # Fundamentals
 
-Factset Fundamental Response item
+Factset Fundamentals Response item
 
 ## Properties
 Name | Type | Description | Notes
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **five_year_dividend_growth_rate** | **float, none_type** | The dividend growth rate is the annualized percentage rate of growth that a particular stock&#39;s dividend undergoes over five years of time | [optional] 
 **floating_shares_outstanding** | **float, none_type** | Represents the number of shares outstanding less closely held shares for the period and date(s) requested | [optional] 
 **net_income** | **float, none_type** | This equals to net earnings (profit) calculated as sales less cost of goods sold, selling, general and administrative expenses, operating expenses, depreciation, interest, taxes and other expenses | [optional] 
-**number_of_employees** | **int, none_type** | Represents the number of employees under the company&#39;s payroll as reported by the management to the shareholders within 90 days of the fiscal year-end. | [optional] 
+**number_of_employees** | **int, none_type** |  Represents the number of employees under the company&#39;s payroll as reported by the management to the shareholders within 90 days of the fiscal year-end. | [optional] 
 **sales_per_employee** | **float, none_type** | Revenue per employee is a ratio that is calculated as a company&#39;s total revenue divided by its current number of employees | [optional] 
 **share_holder_equity** | **float, none_type** | Shareholder equity represents the amount of financing the company experiences through common and preferred shares | [optional] 
 **three_year_average_yield** | **float, none_type** | Average of the dividend yield with yield calculated for each of the past three years | [optional] 

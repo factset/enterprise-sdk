@@ -41,7 +41,7 @@ export default class EntitySecuritiesApi {
      * Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity. 
      * @param {Array.<String>} ids The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.securityType Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (default to 'EQ')
+     * @param {module:model/String} opts.securityType The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt  (default to 'EQ')
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EntitySecuritiesResponse} and HTTP response
      */
     getEntitySecuritiesWithHttpInfo(ids, opts) {
@@ -82,7 +82,7 @@ export default class EntitySecuritiesApi {
      * Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity. 
      * @param {Array.<String>} ids The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.securityType Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (default to 'EQ')
+     * @param {module:model/String} opts.securityType The category describes which security types will be returned in the response. Defined as: * **EQ** = All related traded equity listings * **AEQ** = All active traded and non-traded equity listings * **PR** = All active preferred securities * **F** = All active funds * **FI** = All debt instruments * **ALL** = All related traded equity listings and debt  (default to 'EQ')
      * @return { Promise.< module:model/EntitySecuritiesResponse > } a Promise, with data of type {@link module:model/EntitySecuritiesResponse }
      */
     getEntitySecurities(ids, opts) {

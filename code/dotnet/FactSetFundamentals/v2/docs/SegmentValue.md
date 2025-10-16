@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetFundamentals.Model.SegmentValue
-Value of the data metric requested. Note that the type of value is 'object', and depending on the data metric requested, the value could be an object representation of a string or double. 
+Value of the data metric requested. Note that the type of value is `object`, and depending on the data metric requested, the value could be an object representation of a `string` or `double`.
 
 ## Properties
 

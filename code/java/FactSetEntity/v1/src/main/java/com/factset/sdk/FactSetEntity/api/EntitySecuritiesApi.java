@@ -73,7 +73,7 @@ public class EntitySecuritiesApi {
    * Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
    * Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity. 
    * @param ids The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  (required)
-   * @param securityType Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional, default to EQ)
+   * @param securityType The category describes which security types will be returned in the response. Defined as: * **EQ** &#x3D; All related traded equity listings * **AEQ** &#x3D; All active traded and non-traded equity listings * **PR** &#x3D; All active preferred securities * **F** &#x3D; All active funds * **FI** &#x3D; All debt instruments * **ALL** &#x3D; All related traded equity listings and debt  (optional, default to EQ)
    * @return EntitySecuritiesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -95,7 +95,7 @@ public class EntitySecuritiesApi {
    * Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
    * Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity. 
    * @param ids The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  (required)
-   * @param securityType Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional, default to EQ)
+   * @param securityType The category describes which security types will be returned in the response. Defined as: * **EQ** &#x3D; All related traded equity listings * **AEQ** &#x3D; All active traded and non-traded equity listings * **PR** &#x3D; All active preferred securities * **F** &#x3D; All active funds * **FI** &#x3D; All debt instruments * **ALL** &#x3D; All related traded equity listings and debt  (optional, default to EQ)
    * @return ApiResponse&lt;EntitySecuritiesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

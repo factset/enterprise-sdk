@@ -589,18 +589,51 @@ components:
     securityType:
       name: securityType
       in: query
-      description: >-
-        Controls the response to return all related equity listings (EQ), all
-        debt instruments (FI), or both all equity and all debt (ALL).
+      description: >
+        The category describes which security types will be returned in the
+        response. Defined as:
+
+        * **EQ** = All related traded equity listings
+
+        * **AEQ** = All active traded and non-traded equity listings
+
+        * **PR** = All active preferred securities
+
+        * **F** = All active funds
+
+        * **FI** = All debt instruments
+
+        * **ALL** = All related traded equity listings and debt
       required: false
       schema:
         type: string
         enum:
           - EQ
+          - AEQ
+          - PR
+          - F
           - FI
           - ALL
         default: EQ
-      example: EQ
+      examples:
+        EQ:
+          summary: EQ
+          value: EQ
+        AEQ:
+          summary: AEQ
+          value: AEQ
+        PR:
+          summary: PR
+          value: PR
+        F:
+          summary: F
+          value: F
+        FI:
+          summary: FI
+          value: FI
+        ALL:
+          summary: ALL
+          value: ALL
     level:
       name: level
       in: query
@@ -1316,11 +1349,26 @@ components:
     securityType:
       title: securityType
       description: >
-        Controls the response to return all related equity listings (EQ), all
-        debt instruments (FI), or both all equity and all debt (ALL).
+        The category describes which security types will be returned in the
+        response. Defined as:
+
+        * **EQ** = All related traded equity listings
+
+        * **AEQ** = All active traded and non-traded equity listings
+
+        * **PR** = All active preferred securities
+
+        * **F** = All active funds
+
+        * **FI** = All debt instruments
+
+        * **ALL** = All related traded equity listings and debt
       type: string
       enum:
         - EQ
+        - AEQ
+        - PR
+        - F
         - FI
         - ALL
       default: EQ

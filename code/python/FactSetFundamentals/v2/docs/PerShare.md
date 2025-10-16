@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **earnings_per_share** | **float, none_type** | Earnings per share (EPS) is the portion of a company&#39;s profit allocated to each share of common stock | [optional] 
 **revenue_per_share** | **float, none_type** | The portion of a company&#39;s revenue that is allocated to each share of common stock. | [optional] 
 **sales_per_share** | **float, none_type** | Sales per share is a ratio that computes the total revenue earned per share over a designated period | [optional] 
-**trailing_twelve_month_earnings_per_share** | **float, none_type** | Earnings per share over the last 12 months. | [optional] 
+**trailing_twelve_month_earnings_per_share** | **float, none_type** |  Earnings per share over the last 12 months. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

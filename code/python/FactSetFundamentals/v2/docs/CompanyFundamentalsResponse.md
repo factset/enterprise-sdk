@@ -1,6 +1,6 @@
 # CompanyFundamentalsResponse
 
-Array of Fundamental objects
+Array of Fundamentals objects
 
 ## Properties
 Name | Type | Description | Notes
