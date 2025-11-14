@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Headlines** | **string** | The Headline. | [optional] 
 **Id** | **string** | The ID associated with the headline. | [optional] 
 **Url** | **string** | The URI associated with the headline. | [optional] 
+**HtmlUrl** | **string** | The URL to view the story in HTML format.  **Note:** HTML version does not include footer or metadata details that appear in the standard story view.  | [optional] 
 **Source** | **string** | The source associated with the headline. | [optional] 
 **Product** | **string** | The source associated with the headline. | [optional] 
 **PrimarySymbols** | **List&lt;string&gt;** | The primary symbols associated with the headline. | [optional] 

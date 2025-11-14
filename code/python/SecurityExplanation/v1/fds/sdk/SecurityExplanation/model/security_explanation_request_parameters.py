@@ -112,6 +112,7 @@ class SecurityExplanationRequestParameters(ModelNormal):
             'include_market_summary': (bool,),  # noqa: E501
             'include_internal_investment_rationale_recommendation': (bool,),  # noqa: E501
             'include_internal_investment_rationale_price_target': (bool,),  # noqa: E501
+            'include_security_summary': (bool,),  # noqa: E501
             'broker_research_summary': (BrokerResearchSummary,),  # noqa: E501
         }
 
@@ -132,6 +133,7 @@ class SecurityExplanationRequestParameters(ModelNormal):
         'include_market_summary': 'includeMarketSummary',  # noqa: E501
         'include_internal_investment_rationale_recommendation': 'includeInternalInvestmentRationaleRecommendation',  # noqa: E501
         'include_internal_investment_rationale_price_target': 'includeInternalInvestmentRationalePriceTarget',  # noqa: E501
+        'include_security_summary': 'includeSecuritySummary',  # noqa: E501
         'broker_research_summary': 'brokerResearchSummary',  # noqa: E501
     }
 
@@ -186,9 +188,10 @@ class SecurityExplanationRequestParameters(ModelNormal):
             include_performance (bool): Include or exclude the company's total return for the request period.. [optional] if omitted the server will use the default value of False  # noqa: E501
             internal_investment_rationale (str): For IRN users only; select to include a summary, footnotes, or no IRN notes for the period.. [optional] if omitted the server will use the default value of "none"  # noqa: E501
             include_company_description (bool): Include or exclude the target company's business description.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            include_market_summary (bool): Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            include_market_summary (bool): Include or exclude market and sector news relating to the target company for additional context.. [optional] if omitted the server will use the default value of True  # noqa: E501
             include_internal_investment_rationale_recommendation (bool): For IRN users only; include or exclude your firm's rating in the summary or footnote.. [optional] if omitted the server will use the default value of True  # noqa: E501
             include_internal_investment_rationale_price_target (bool): For IRN users only; include or exclude your firm's price target in the summary or footnote.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            include_security_summary (bool): Include or exclude summary of a security's performance over the specified period.. [optional] if omitted the server will use the default value of True  # noqa: E501
             broker_research_summary (BrokerResearchSummary): [optional]  # noqa: E501
         """
 
@@ -284,9 +287,10 @@ class SecurityExplanationRequestParameters(ModelNormal):
             include_performance (bool): Include or exclude the company's total return for the request period.. [optional] if omitted the server will use the default value of False  # noqa: E501
             internal_investment_rationale (str): For IRN users only; select to include a summary, footnotes, or no IRN notes for the period.. [optional] if omitted the server will use the default value of "none"  # noqa: E501
             include_company_description (bool): Include or exclude the target company's business description.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            include_market_summary (bool): Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            include_market_summary (bool): Include or exclude market and sector news relating to the target company for additional context.. [optional] if omitted the server will use the default value of True  # noqa: E501
             include_internal_investment_rationale_recommendation (bool): For IRN users only; include or exclude your firm's rating in the summary or footnote.. [optional] if omitted the server will use the default value of True  # noqa: E501
             include_internal_investment_rationale_price_target (bool): For IRN users only; include or exclude your firm's price target in the summary or footnote.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            include_security_summary (bool): Include or exclude summary of a security's performance over the specified period.. [optional] if omitted the server will use the default value of True  # noqa: E501
             broker_research_summary (BrokerResearchSummary): [optional]  # noqa: E501
         """
 

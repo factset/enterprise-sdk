@@ -863,21 +863,22 @@ components:
     SecurityExplanationRequestParameters:
       description: Parameters for the security explanation request
       example:
-        enableLinks: false
-        includePerformance: false
-        includeInternalInvestmentRationaleRecommendation: true
-        explanationStyle: short
         endDate: 2024-01-15T00:00:00.000+0000
-        internalInvestmentRationale: none
-        includeMarketSummary: true
-        id: FDS-US
         brokerResearchSummary:
           brokerIds:
           - 6
           - 6
           style: none
-        startDate: 2024-01-01T00:00:00.000+0000
         includeCompanyDescription: false
+        enableLinks: false
+        includePerformance: false
+        includeInternalInvestmentRationaleRecommendation: true
+        explanationStyle: short
+        internalInvestmentRationale: none
+        includeMarketSummary: true
+        includeSecuritySummary: true
+        id: FDS-US
+        startDate: 2024-01-01T00:00:00.000+0000
         includeInternalInvestmentRationalePriceTarget: true
       properties:
         id:
@@ -931,8 +932,8 @@ components:
           type: boolean
         includeMarketSummary:
           default: true
-          description: Include or exclude a second paragraph in the explanation, offering
-            market and sector news relating to the target company for additional context.
+          description: Include or exclude market and sector news relating to the target
+            company for additional context.
           example: true
           type: boolean
         includeInternalInvestmentRationaleRecommendation:
@@ -947,6 +948,12 @@ components:
             in the summary or footnote.
           example: true
           type: boolean
+        includeSecuritySummary:
+          default: true
+          description: Include or exclude summary of a security's performance over
+            the specified period.
+          example: true
+          type: boolean
         brokerResearchSummary:
           $ref: '#/components/schemas/BrokerResearchSummary'
       required:
@@ -958,21 +965,22 @@ components:
       description: Top-level data container object.
       example:
         data:
-          enableLinks: false
-          includePerformance: false
-          includeInternalInvestmentRationaleRecommendation: true
-          explanationStyle: short
           endDate: 2024-01-15T00:00:00.000+0000
-          internalInvestmentRationale: none
-          includeMarketSummary: true
-          id: FDS-US
           brokerResearchSummary:
             brokerIds:
             - 6
             - 6
             style: none
-          startDate: 2024-01-01T00:00:00.000+0000
           includeCompanyDescription: false
+          enableLinks: false
+          includePerformance: false
+          includeInternalInvestmentRationaleRecommendation: true
+          explanationStyle: short
+          internalInvestmentRationale: none
+          includeMarketSummary: true
+          includeSecuritySummary: true
+          id: FDS-US
+          startDate: 2024-01-01T00:00:00.000+0000
           includeInternalInvestmentRationalePriceTarget: true
       properties:
         data:

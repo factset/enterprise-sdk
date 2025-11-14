@@ -25,7 +25,7 @@ info:
 
 
       
-  version: 1.0.0
+  version: 1.1.0
   contact:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
@@ -1602,6 +1602,16 @@ components:
           description: The URI associated with the headline.
           example: >-
             https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
+        htmlUrl:
+          type: string
+          description: >
+            The URL to view the story in HTML format.
+
+
+            **Note:** HTML version does not include footer or metadata details
+            that appear in the standard story view.
+          example: >-
+            https://api.factset.com/content/news/v1/report?type=news&key=U2FsdGVkX18zHsfB5OfTgHC2M1LFStDA0jaxo6Uh16SeFYkhvVEiBdc/6eS3kL6nuyUtKhurNVgkM6ucpKT9oA%3D%3D
         source:
           type: string
           example: 00000-bid

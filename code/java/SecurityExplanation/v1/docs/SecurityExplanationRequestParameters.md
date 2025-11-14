@@ -16,9 +16,10 @@ Name | Type | Description | Notes
 **includePerformance** | **Boolean** | Include or exclude the company&#39;s total return for the request period. |  [optional]
 **internalInvestmentRationale** | [**InternalInvestmentRationaleEnum**](#InternalInvestmentRationaleEnum) | For IRN users only; select to include a summary, footnotes, or no IRN notes for the period. |  [optional]
 **includeCompanyDescription** | **Boolean** | Include or exclude the target company&#39;s business description. |  [optional]
-**includeMarketSummary** | **Boolean** | Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context. |  [optional]
+**includeMarketSummary** | **Boolean** | Include or exclude market and sector news relating to the target company for additional context. |  [optional]
 **includeInternalInvestmentRationaleRecommendation** | **Boolean** | For IRN users only; include or exclude your firm&#39;s rating in the summary or footnote. |  [optional]
 **includeInternalInvestmentRationalePriceTarget** | **Boolean** | For IRN users only; include or exclude your firm&#39;s price target in the summary or footnote. |  [optional]
+**includeSecuritySummary** | **Boolean** | Include or exclude summary of a security&#39;s performance over the specified period. |  [optional]
 **brokerResearchSummary** | [**BrokerResearchSummary**](BrokerResearchSummary.md) |  |  [optional]
 
 

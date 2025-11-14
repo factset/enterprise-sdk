@@ -1,0 +1,2837 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: FactSet Partner Funds API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  description: >
+    Partner Funds API provides profile, allocations, performance and ranking
+    information for mutual funds. The data is sourced from different vendors. 
+    Currently the available partner is Fundata, a leading provider of Canadian
+    mutual fund data.
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/partner-funds-api
+servers:
+  - url: https://api.factset.com/content/partner-funds/v1
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Canadian Mutual Fund Data from Fundata
+    description: Endpoints related to data from Fundata
+paths:
+  /fundata/asset-allocations:
+    get:
+      operationId: getAssetAllocations
+      summary: Fund asset allocations
+      description: >-
+        This endpoint provides asset allocations for Canadian mutual fund
+        aggregated by asset. The result is default sorted in descending order of
+        asset weight of the fund.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/sort'
+      responses:
+        '200':
+          description: The asset allocation response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetAllocationsResponse'
+              examples:
+                Result of asset allocations for the given parameters:
+                  $ref: '#/components/examples/resultOfAssetAllocations'
+                Result of asset allocations for the given parameters including an invalid id:
+                  $ref: '#/components/examples/resultOfAssetAllocationsWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/distribution:
+    get:
+      operationId: getDistribution
+      summary: Fund distributions
+      description: This endpoint provides distribution data for Canadian mutual funds.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+      responses:
+        '200':
+          description: The distribution response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistributionsResponse'
+              examples:
+                Result of distributions endpoint:
+                  $ref: '#/components/examples/distributionResponse'
+                Result of distributions endpoint for funds including invalid id:
+                  $ref: '#/components/examples/distributionResponseWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/fees:
+    get:
+      operationId: getFees
+      summary: Fund fees
+      description: This endpoint provides fees data for Canadian mutual funds.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/language'
+      responses:
+        '200':
+          description: The fees response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeesResponse'
+              examples:
+                Result of fees endpoint:
+                  $ref: '#/components/examples/feesResponse'
+                Result of fees endpoint for funds including invalid id:
+                  $ref: '#/components/examples/feesResponseWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/geographic-allocations:
+    get:
+      operationId: getGeographicAllocations
+      summary: Fund geographic allocations
+      description: >-
+        This endpoint provides geographic allocations (which can be countries or
+        regions) of the holdings within Canadian mutual funds. The result is
+        default sorted in descending order of geographic weight of the fund.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/sort'
+      responses:
+        '200':
+          description: The geographic allocation response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoAllocationsResponse'
+              examples:
+                Result of geographic allocation for the given parameters:
+                  $ref: '#/components/examples/resultOfGeoAllocations'
+                Result of geographic allocations for the given parameters including an invalid id:
+                  $ref: '#/components/examples/resultOfGeoAllocationsWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/growth-of-10k:
+    get:
+      operationId: getGrowthOfTenK
+      summary: Fund growth of 10K
+      description: >-
+        This endpoint provides growth of 10K data for Canadian mutual funds. The
+        result is default sorted in descending order of asOfDate.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/timePeriod'
+        - $ref: '#/components/parameters/sort'
+      responses:
+        '200':
+          description: The growth of 10K response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrowthOfTenKResponse'
+              examples:
+                Result of growth of 10K for the given parameters:
+                  $ref: '#/components/examples/resultOfGrowthDetails'
+                Result of growth of 10K for the given paramters including an invalid id:
+                  $ref: '#/components/examples/resultOfGrowthWithInvalidIdDetails'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/holdings:
+    get:
+      operationId: getHoldings
+      summary: Fund holdings
+      description: >-
+        This endpoint provides top 10 holdings for Canadian mutual funds. The
+        result is default sorted in descending order of weight of the holdings.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+      responses:
+        '200':
+          description: The holdings response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HoldingsResponse'
+              examples:
+                Result of holdings for the given parameters:
+                  $ref: '#/components/examples/resultOfHoldings'
+                Result of holdings for the given parameters including an invalid id:
+                  $ref: '#/components/examples/resultOfHoldingsWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/profile:
+    get:
+      operationId: getProfile
+      summary: Fund profile
+      description: >-
+        This endpoint provides profile information for Canadian mutual funds
+        such as objective, manager, and basic returns.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/language'
+      responses:
+        '200':
+          description: The fund profile response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+              examples:
+                Profile response for given funds:
+                  $ref: '#/components/examples/profileResponse'
+                Profile response for funds with an invalid id:
+                  $ref: '#/components/examples/profileResponseWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/rankings:
+    get:
+      operationId: getRankings
+      summary: Fund rankings
+      description: >-
+        This endpoint provides rankings for Canadian mutual funds as compared to
+        benchmarks and peers.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+      responses:
+        '200':
+          description: The fund rankings response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerformanceRankingsResponse'
+              examples:
+                Result of ranking details for given funds:
+                  $ref: '#/components/examples/resultOfRankingDetails'
+                Result of ranking details for given funds including invalid id:
+                  $ref: '#/components/examples/resultOfRankingWithInvalidIdDetails'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/returns:
+    get:
+      operationId: getReturns
+      summary: Fund returns
+      description: >
+        This endpoint provides all the comparative performance values for
+        Canadian mutual funds and their respective benchmark indices. Please
+        note: all periods greater than one year are annualized.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+      responses:
+        '200':
+          description: The fund returns response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerformanceReturnsResponse'
+              examples:
+                Result of comparative performance returns for fund:
+                  $ref: '#/components/examples/resultOfReturnsDetails'
+                Result of comparative performance returns for funds including an invalid id:
+                  $ref: '#/components/examples/resultOfReturnsWithInvalidIdDetails'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/sector-allocations:
+    get:
+      operationId: getSectorAllocations
+      summary: Fund sector allocations
+      description: >-
+        This endpoint provides Canadian mutual fund data aggregated by sector.
+        The result is default sorted in descending order of sector weight of the
+        fund.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/sort'
+      responses:
+        '200':
+          description: The fund sector allocation response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SectorAllocationsResponse'
+              examples:
+                Result of sector allocations for given parameters:
+                  $ref: '#/components/examples/resultOfSectorAllocations'
+                Result of sector allocations including an invalid identifier:
+                  $ref: '#/components/examples/resultOfSectorAllocationsWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /fundata/risk:
+    get:
+      operationId: getRisk
+      summary: Fund risk
+      description: This endpoint provides risk data for Canadian mutual funds.
+      tags:
+        - Canadian Mutual Fund Data from Fundata
+      parameters:
+        - $ref: '#/components/parameters/identifiers'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/numYears'
+      responses:
+        '200':
+          description: The risk response object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskResponse'
+              examples:
+                Result of risk endpoint:
+                  $ref: '#/components/examples/resultOfRisk'
+                Result of risk endpoint for funds including invalid id:
+                  $ref: '#/components/examples/resultOfRiskWithInvalidId'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    identifiers:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          maxLength: 20
+        minItems: 1
+        maxItems: 10
+      required: true
+      explode: false
+      description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+      examples:
+        oneId:
+          summary: One Identifier
+          value:
+            - AGF10450
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+            - AGF10450
+            - AIM25591
+    timePeriod:
+      name: timePeriod
+      in: query
+      schema:
+        type: string
+        enum:
+          - 3M
+          - 6M
+          - 1Y
+          - 3Y
+          - 5Y
+          - 10Y
+          - 20Y
+        default: 1Y
+      required: false
+      description: Periodicity or frequency of the fiscal period.
+    sort:
+      name: _sort
+      in: query
+      style: form
+      explode: false
+      required: false
+      examples:
+        weight:
+          summary: weight
+          value:
+            - weight
+        '-weight':
+          summary: '-weight'
+          value:
+            - '-weight'
+      schema:
+        type: array
+        items:
+          type: string
+        maxItems: 1
+        default:
+          - '-weight'
+      description: >-
+        Enables sorting data in ascending or descending order based on weight of
+        the fund.
+
+        * `weight` - sorts results in ascending order.
+
+        *  `-weight` - sorts results in descending order.
+    language:
+      name: language
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - EN
+          - FR
+        default: EN
+      description: >-
+        Specifies the language of the response. Supported languages are English
+        (`EN`) and French (`FR`). Default is English.
+    numYears:
+      name: numYears
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 5
+      description: |
+        Number of years of risk data to return.
+      example: 5
+  schemas:
+    ProfileResponse:
+      type: object
+      title: Profile Response
+      description: Profile response object
+      properties:
+        data:
+          type: array
+          description: Profile data
+          items:
+            $ref: '#/components/schemas/Profile'
+    Profile:
+      type: object
+      description: Fund profile data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: AGF258
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        name:
+          description: The fund security's name in proper format.
+          type: string
+          example: AGF Emerging Markets Strategic Equity Fund Ser P
+        category:
+          description: Category of the fund.
+          type: string
+          example: Emerging Markets Equity
+        company:
+          description: Company name in proper format.
+          type: string
+          example: AGF Management Ltd. Series P
+        group:
+          description: Fund group name.
+          type: string
+          example: AGF Investments Inc.
+        objective:
+          description: Fund objective.
+          type: string
+          example: >-
+            The Fund's objective is to seek to provide superior risk-managed
+            capital growth.
+        strategy:
+          description: Fund strategy.
+          type: string
+          example: >-
+            To achieve these objectives, the portfolio manager generally
+            allocates the Fund’s portfolio assets among underlying equity funds
+            and ETFs managed by third parties or AGF (or an AGF affiliate). The
+            portfolio manager has set, and will review quarterly, target dynamic
+            allocations between emerging markets equity funds and ETFs for the
+            Fund, consistent with the Fund's investment objective.
+        benchmarkIndexName:
+          description: Name of the benchmark index.
+          type: string
+          example: Dow Jones Emerging Markets TR Index (C$)
+        managers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Manager'
+          description: List of managers managing the fund.
+        inceptionDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the fund was launched.
+        loadType:
+          type: string
+          description: Load type of the fund.
+        netExpenseRatio:
+          type: number
+          format: double
+          nullable: true
+          description: Net expense ratio of the fund as a percentage.
+        managementFee:
+          type: number
+          format: double
+          example: 0.08
+          nullable: true
+          description: Management fee of the fund as a percentage.
+        netAssets:
+          type: number
+          format: double
+          example: 312.565
+          nullable: true
+          description: Net assets of the fund in millions.
+        currency:
+          type: string
+          example: CAD
+          description: Currency of the fund.
+        address:
+          $ref: '#/components/schemas/Address'
+        rrspInitialInvestment:
+          type: number
+          description: Initial investment amounts for the RRSP accounts.
+          format: double
+          example: 500.001
+          nullable: true
+        rrspAdditionalInvestment:
+          type: number
+          description: Additional investment amounts for the RRSP accounts.
+          format: double
+          example: 50.001
+          nullable: true
+        respEligible:
+          description: Indicates whether the fund is eligible for RESP.
+          type: boolean
+        rrspEligible:
+          description: Indicates whether the fund is eligible for RRSP.
+          type: boolean
+        availableInProvinces:
+          description: List of provinces where the fund is available.
+          type: array
+          items:
+            type: string
+        minimumInvestment:
+          type: number
+          format: double
+          example: 500.001
+          nullable: true
+          description: Minimum investment amounts for the Non-RRSP accounts.
+        additionalInvestment:
+          type: number
+          description: Additional investment amounts for the Non-RRSP accounts.
+          format: double
+          example: 50.001
+          nullable: true
+        nav:
+          $ref: '#/components/schemas/Nav'
+        dividend:
+          $ref: '#/components/schemas/Dividend'
+        returns:
+          $ref: '#/components/schemas/Returns'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when fund profile data was reported by vendor.
+        fundGrade:
+          type: string
+          description: >-
+            The fund grade is a rating system for mutual funds based upon risk
+            adjusted performance. Funds are assigned grades from A to E.
+        fundSeries:
+          type: string
+          description: >-
+            Fund series is a letter code associated with a specific fund and its
+            share class
+        fundServ:
+          type: array
+          description: FundServ data
+          items:
+            $ref: '#/components/schemas/FundServ'
+    FundServ:
+      type: object
+      description: FundServ data object
+      properties:
+        fundServCode:
+          type: string
+          description: >-
+            Fundserv is the code registrar for the Canadian mutual fund
+            industry.
+        fundServName:
+          type: string
+          description: Fund name for the Canadian mutual fund industry
+        fundServLoadCode:
+          type: string
+          description: >-
+            The abbreviated code of the fund's Load value will help the user to
+            understand the type of load and the fees associated with the fund.
+        fundServLoadName:
+          type: string
+          description: >-
+            The Fund's load value will help the user to understand the type of
+            load and the fees associated with the fund.
+    Address:
+      type: object
+      description: Address object
+      properties:
+        address:
+          type: string
+          description: Address of the company.
+        phone:
+          type: string
+          description: Phone number of the company.
+        fax:
+          type: string
+          description: Fax number of the company.
+        tollFreeNumber:
+          type: string
+          description: Toll free number of the company.
+        website:
+          type: string
+          description: Website of the company.
+    Manager:
+      type: object
+      description: Fund manager data
+      properties:
+        company:
+          description: Fund advisor company.
+          type: string
+          example: AGF Investments Inc.
+        name:
+          type: string
+          description: Name of the fund manager.
+        biography:
+          type: string
+          description: Biography of the fund manager.
+        startDate:
+          type: string
+          format: date
+          description: Start date of the fund manager.
+        education:
+          type: string
+          description: Education of the fund manager.
+    Dividend:
+      type: object
+      description: Dividend data object
+      properties:
+        annualYield:
+          type: number
+          format: double
+          nullable: true
+          description: Annual yield percentage of the fund.
+        distributionFrequency:
+          type: string
+          description: >-
+            Dividend distribution frequency with values of blank, 'Monthly',
+            'Quarterly', 'Semiannually' or 'Annually'.
+    Nav:
+      type: object
+      description: NAV data object
+      properties:
+        nav:
+          type: number
+          format: double
+          example: 9.9391
+          nullable: true
+          description: Net asset value of the fund.
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the nav was reported.
+        highFiftyTwoWeeks:
+          type: number
+          format: double
+          example: 10.0878
+          nullable: true
+          description: High value of the net asset value in the last 52 weeks.
+        lowFiftyTwoWeeks:
+          type: number
+          format: double
+          example: 9.452
+          nullable: true
+          description: Low value of the net asset value in the last 52 weeks.
+        changeDollar:
+          type: number
+          format: double
+          example: 0.0274
+          nullable: true
+          description: Change in the net asset value in dollars.
+        changePercent:
+          type: number
+          format: double
+          example: 0.276441
+          nullable: true
+          description: Change in the net asset value in percentage.
+        previous:
+          type: number
+          format: double
+          example: 8.1118
+          nullable: true
+          description: Previous net asset value.
+    Returns:
+      type: object
+      description: Returns data object
+      properties:
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the returns were reported.
+        oneMonth:
+          type: number
+          format: double
+          example: 2.6401
+          nullable: true
+          description: Return percentage for the last one month.
+        threeMonths:
+          type: number
+          format: double
+          example: 10.09269
+          nullable: true
+          description: Return percentage for the last three months.
+        sixMonths:
+          type: number
+          format: double
+          example: 14.104036
+          nullable: true
+          description: Return percentage for the last six months.
+        yearToDate:
+          type: number
+          format: double
+          example: 30.745686
+          nullable: true
+          description: Return percentage for the year to date.
+        annualizedOneYear:
+          type: number
+          format: double
+          example: 43.30107
+          nullable: true
+          description: Annualized return percentage for the last one year.
+        annualizedThreeYears:
+          type: number
+          format: double
+          example: 0.875398
+          nullable: true
+          description: Annualized return percentage for the last three years.
+        annualizedFiveYears:
+          type: number
+          format: double
+          example: 9.689019
+          nullable: true
+          description: Annualized return percentage for the last five years.
+        annualizedTenYears:
+          type: number
+          format: double
+          example: 11.927918
+          nullable: true
+          description: Annualized return percentage for the last ten years.
+        annualizedSinceInception:
+          type: number
+          format: double
+          example: 9.879215
+          nullable: true
+          description: Annualized return percentage since inception.
+    DistributionsResponse:
+      type: object
+      title: Distributions Response
+      description: Distributions response object
+      properties:
+        data:
+          type: array
+          description: Distributions data
+          items:
+            $ref: '#/components/schemas/DistributionsData'
+    DistributionsData:
+      type: object
+      description: Distributions data
+      properties:
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        requestId:
+          type: string
+          description: The input identifier.
+          example: BMO95322
+        distributionOneMonth:
+          $ref: '#/components/schemas/Distribution'
+        distributionYearToDate:
+          $ref: '#/components/schemas/Distribution'
+        distributionOneYear:
+          $ref: '#/components/schemas/Distribution'
+    Distribution:
+      description: Distribution object
+      type: object
+      properties:
+        dividend:
+          type: number
+          format: double
+          example: 0.028
+          nullable: true
+          description: >-
+            Domestic distribution paid to the fund unit holders from all sources
+            of profit.
+        foreignDividend:
+          type: number
+          format: double
+          example: 0.2
+          nullable: true
+          description: >-
+            Foreign distribution paid to the fund unit holders from all sources
+            of profit.
+        interestIncome:
+          type: number
+          format: double
+          example: 0.2
+          nullable: true
+          description: >-
+            Interest income paid to the fund unit holders from all sources of
+            profit.
+        returnOnPrincipal:
+          type: number
+          format: double
+          example: 0.2
+          nullable: true
+          description: >-
+            Return on principal paid to the fund unit holders from all sources
+            of profit as a percentage.
+        capitalGains:
+          type: number
+          format: double
+          example: 0.2
+          nullable: true
+          description: >-
+            Capital gain paid to the fund unit holders from all sources of
+            profit.
+        totalDistribution:
+          type: number
+          format: double
+          example: 0.828
+          nullable: true
+          description: >-
+            Distribution paid to the fund unit holders from all sources of
+            profit.
+    FeesResponse:
+      type: object
+      title: Fees Response
+      description: Fees response object
+      properties:
+        data:
+          type: array
+          description: Fees data
+          items:
+            $ref: '#/components/schemas/Fees'
+    Fees:
+      type: object
+      description: Fees data
+      properties:
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        requestId:
+          type: string
+          description: The input identifier.
+          example: AGF247
+        isPreAuthorizedInvestmentPlan:
+          type: boolean
+          description: Indicator for the pre authorized contribution plan eligibility.
+        isSystematicWithdrawlPlan:
+          type: boolean
+          description: Indicator for the Systematic withdrawn plan eligibility.
+        backendFees:
+          type: string
+          description: >-
+            Lists the values showing how the backend fees apply during the
+            redemption.
+          example: Deferred - initial sum
+        rrspAnnualAdminFee:
+          type: number
+          format: double
+          example: 0.001
+          nullable: true
+          description: >-
+            An annual fee charged to unit holder’s account for the
+            administration of RRSP accounts.
+        rrifAnnualAdminFee:
+          type: number
+          format: double
+          example: 0.001
+          nullable: true
+          description: >-
+            An annual fee charged to unit holder’s account for the
+            administration of RRIF accounts.
+        switchFees:
+          type: string
+          description: >-
+            Lists the fees for switching investment among different funds,
+            within the same fund family.
+          example: >-
+            Your dealer may charge you up to 2% of the value you switch to
+            another AGF fund.
+        rrspWithdrawalFee:
+          type: number
+          format: double
+          example: 0.001
+          nullable: true
+          description: >-
+            A fee charged to unit holders who has used automatic withdrawal plan
+            to contribute to their RRSP account
+        rrifWithdrawalFee:
+          type: number
+          format: double
+          example: 0.001
+          nullable: true
+          description: >-
+            A fee charged to unit holders who has used automatic withdrawal plan
+            to contribute to their RRIF account.
+        trailerFees:
+          type: string
+          description: Lists the maximum trailer fees charged to each load.
+          example: >-
+            DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%, After:
+            up to 1%.
+        swpMinBalance:
+          type: number
+          format: double
+          example: 0.001
+          nullable: true
+          description: Minimum balance and withdrawal amounts for SWP's.
+        load:
+          type: string
+          description: Load type of the fund.
+          nullable: true
+        isNoLoad:
+          type: boolean
+          description: Indicator for the `No Load` fund type.
+        maxFrontEndPercent:
+          type: number
+          format: double
+          example: 6.001
+          nullable: true
+          description: >-
+            The Fund purchaser has the option to choose what the maximums are
+            for front end load type.
+        maxBackEndPercent:
+          type: number
+          format: double
+          example: 5.5
+          nullable: true
+          description: >-
+            The Fund purchaser has the option to choose what the maximums are
+            for back end load.
+        otherFees:
+          type: string
+          description: Lists any other fees associated with Fund.
+    PerformanceReturnsResponse:
+      type: object
+      description: Performance returns response object
+      properties:
+        data:
+          type: array
+          description: Performance returns data
+          items:
+            $ref: '#/components/schemas/PerformanceReturns'
+    PerformanceReturns:
+      type: object
+      description: Performance returns data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: AGF10450
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          example: '2024-10-31'
+          description: Date when the returns were reported.
+        returns:
+          $ref: '#/components/schemas/Returns'
+        benchmarkIndexReturns:
+          $ref: '#/components/schemas/Returns'
+        calendarYearReturns:
+          type: array
+          description: Calendar year returns data
+          items:
+            $ref: '#/components/schemas/YearlyReturns'
+    YearlyReturns:
+      type: object
+      description: Yearly returns data
+      properties:
+        fundSimpleReturn:
+          type: number
+          format: double
+          example: 16.970607
+          nullable: true
+          description: Simple return percentage for the fund.
+        fundSimpleReturnQuartile:
+          type: integer
+          format: int32
+          nullable: true
+          description: Quartile return ranking for the fund.
+        fundSimpleReturnCategoryRank:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank for the simple return.
+        fundSimpleReturnCategoryRankCount:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank count for the simple return.
+        fundCompoundReturn:
+          type: number
+          description: Compound return percentage for the fund.
+          format: double
+          example: 16.970606
+          nullable: true
+        indexSimpleReturn:
+          type: number
+          description: Simple return percentage for the index.
+          format: double
+          example: 27.533244
+          nullable: true
+        indexCompoundReturn:
+          type: number
+          description: Compound return percentage for the index.
+          format: double
+          example: 27.533244
+          nullable: true
+        categorySimpleReturn:
+          type: number
+          description: Simple return percentage for the category.
+          format: double
+          example: 27.533244
+          nullable: true
+        categoryCompoundReturn:
+          type: number
+          description: Compound return percentage for the category.
+          format: double
+          example: 27.533244
+          nullable: true
+        fundCompoundReturnQuartile:
+          type: integer
+          format: int32
+          nullable: true
+          description: Quartile return ranking for the fund.
+        fundCompoundReturnCategoryRank:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank for the compound return.
+        fundCompoundReturnCategoryRankCount:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank count for the compound return.
+        year:
+          type: integer
+          format: int32
+          nullable: true
+          description: Year for which the returns are reported.
+    PerformanceRankingsResponse:
+      type: object
+      description: Performance rankings response object
+      properties:
+        data:
+          type: array
+          description: Performance rankings data
+          items:
+            $ref: '#/components/schemas/PerformanceRankings'
+    PerformanceRankings:
+      type: object
+      description: Performance rankings data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: AGF10450
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          description: Date when the rankings were reported.
+          format: date
+          nullable: true
+          example: '2024-10-31'
+        quartileRankings:
+          $ref: '#/components/schemas/Rankings'
+        totalFunds:
+          $ref: '#/components/schemas/FundCounts'
+    Rankings:
+      type: object
+      description: Rankings object
+      properties:
+        rankOneMonth:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank for the last one month.
+        rankThreeMonths:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank for the last three months.
+        rankSixMonths:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank for the last six months.
+        rankYearToDate:
+          type: integer
+          format: int32
+          nullable: true
+          description: Rank for the year to date.
+    FundCounts:
+      type: object
+      description: Fund count data
+      properties:
+        countOneMonth:
+          type: integer
+          format: int32
+          nullable: true
+          description: Count for the last one month.
+        countThreeMonths:
+          type: integer
+          format: int32
+          nullable: true
+          description: Count for the last three months.
+        countSixMonths:
+          type: integer
+          format: int32
+          nullable: true
+          description: Count for the last six months.
+        countYearToDate:
+          type: integer
+          format: int32
+          nullable: true
+          description: Count for the year to date.
+    HoldingsResponse:
+      type: object
+      description: Holdings response object
+      properties:
+        data:
+          type: array
+          description: Holdings data
+          items:
+            $ref: '#/components/schemas/HoldingResponseData'
+    HoldingResponseData:
+      type: object
+      description: Holdings data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: BMO95322
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the holdings were reported.
+        top10Weight:
+          type: number
+          format: double
+          nullable: true
+          description: Returns the total weight of the top 10 holdings as a percentage
+          example: 30.93
+        holdings:
+          type: array
+          description: List of holdings
+          items:
+            $ref: '#/components/schemas/Holding'
+    Holding:
+      type: object
+      description: Holding object
+      properties:
+        name:
+          type: string
+          description: Name of the holding.
+        holdingId:
+          type: string
+          description: Identifier of the holding
+        weight:
+          type: number
+          format: double
+          nullable: true
+          description: Weight of the holding as a percentage.
+    RiskResponse:
+      type: object
+      description: Risk response object
+      properties:
+        data:
+          type: array
+          description: Risk data
+          items:
+            $ref: '#/components/schemas/RiskData'
+    RiskData:
+      type: object
+      description: Risk data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: BMO95322
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when fund risk data was reported by vendor.
+        riskRating:
+          type: string
+          nullable: true
+          description: >-
+            Rating that fund company assesses to their own funds via the
+            prospectus.
+          example: Medium Risk
+        riskProspectus:
+          type: string
+          nullable: true
+          description: >-
+            A summary highlighting the key risks and investor suitability for
+            the investment product.
+          example: >-
+            Investors who: Seek long-term growth potential; Own, or plan to own,
+            other types of investments to diversify their holdings; Are
+            comfortable with a Canadian equity fund that may have substantial
+            foreign holdings and that emphasizes companies with strong growth
+            potential; Are comfortable with medium risk. The Fund is not
+            appropriate if you have a short-term investment horizon.
+        riskResponseInfo:
+          type: array
+          description: Array of risk metrics by year.
+          items:
+            $ref: '#/components/schemas/RiskResponseInfo'
+    RiskResponseInfo:
+      type: object
+      description: Metrics for a particular year
+      properties:
+        year:
+          type: number
+          format: integer
+          nullable: true
+          description: Year
+          example: 3
+        benchmark:
+          type: string
+          nullable: true
+          description: Benchmark
+          example: Fundata Canadian Focused Equity Index
+        alpha:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            A measure of the difference between a fund's actual monthly excess
+            return and its expected monthly excess return, which in turn is
+            based on that fund's sensitivity (beta) to the excess return for the
+            benchmark index.
+          example: 0.002182
+        beta:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            A measure of a fund's sensitivity to the market movement. The
+            benchmark portfolio has the beta of one. A fund with beta greater
+            than one is riskier than the benchmark and a fund with beta smaller
+            than one is less risky than the benchmark.
+          example: 0.95925
+        sharpeRatio:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            A measure of risk adjusted performance with the assumption of a well
+            diversified portfolio, which only contains market risk. It is the
+            ratio of a fund's excess return to its beta or market risk.
+          example: 0.32881
+        treynorRatio:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            A measure of risk adjusted performance. It is the ratio of a fund's
+            excess return to its standard deviation. A higher Sharpe ratio
+            normally preferred. This indicates a higher return for the amount of
+            risk demonstrated by the fund.
+          example: 0.0122
+        rSquared:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            A statistic to measure the percentage of a fund's movements that are
+            explained by the movements of its benchmark. A R-square with 100
+            means the portfolio performance is 100 percent explained by its
+            benchmark. A high R-square also means the higher reliability of
+            beta.
+          example: 0.84458
+        sortino:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            The Sortino Ratio is similar to the Sharpe Ratio, except instead of
+            using standard deviation as the denominator, it uses downside
+            deviation.
+          example: 0.685896
+        standardDeviation:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            Standard deviation is a measure of risk which takes a fund monthly
+            return over a certain period, e.g. 36 months and it calculates the
+            average deviation from the mean. The higher the standard deviation,
+            the riskier the fund is.
+          example: 0.123251
+        volatility:
+          type: number
+          format: integer
+          nullable: true
+          description: >-
+            Volatility is a measure of risk using a ranking of Standard
+            Deviation in percentiles among its peer group. A scale from 1 to 10
+            is used to indicate in which decile the fund falls. A fund with 10
+            volatility is the highest and 1 is the lowest.
+          example: 6
+    AssetAllocationsResponse:
+      type: object
+      description: Asset allocations response object
+      properties:
+        data:
+          type: array
+          description: Asset allocations data
+          items:
+            $ref: '#/components/schemas/AssetResponseData'
+    AssetResponseData:
+      type: object
+      description: Asset allocations data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: AGF258
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the asset allocations were reported.
+        assetAllocations:
+          type: array
+          description: List of asset allocations
+          items:
+            $ref: '#/components/schemas/AssetBreakdown'
+    AssetBreakdown:
+      type: object
+      description: Asset breakdown object
+      properties:
+        asset:
+          type: string
+          description: Name of the asset.
+        weight:
+          type: number
+          format: double
+          nullable: true
+          description: Weight of the asset as a percentage.
+    GeoAllocationsResponse:
+      type: object
+      description: Geo allocations response object
+      properties:
+        data:
+          type: array
+          description: Geo allocations data
+          items:
+            $ref: '#/components/schemas/GeoResponseData'
+    GeoResponseData:
+      type: object
+      description: Geo allocations data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: IBM-US
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the geographic allocations were reported.
+        geoAllocations:
+          type: array
+          description: List of geo allocations
+          items:
+            $ref: '#/components/schemas/GeoBreakdown'
+    GeoBreakdown:
+      type: object
+      description: Geo breakdown object
+      properties:
+        region:
+          type: string
+          description: Name of the region.
+        weight:
+          type: number
+          format: double
+          nullable: true
+          description: Weight of the region as a percentage.
+    SectorAllocationsResponse:
+      type: object
+      description: Sector allocations response object
+      properties:
+        data:
+          type: array
+          description: Sector allocations data
+          items:
+            $ref: '#/components/schemas/SectorResponseData'
+    SectorResponseData:
+      type: object
+      description: Sector allocations data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: IBM-US
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date when the sector allocations were reported.
+        sectorAllocations:
+          type: array
+          description: List of sector allocations
+          items:
+            $ref: '#/components/schemas/SectorBreakdown'
+    SectorBreakdown:
+      type: object
+      description: Sector breakdown object
+      properties:
+        sector:
+          type: string
+          description: Name of the sector.
+        weight:
+          type: number
+          format: double
+          nullable: true
+          description: Weight of the sector as a percentage.
+    GrowthOfTenKResponse:
+      type: object
+      description: Growth of 10K response object
+      properties:
+        data:
+          type: array
+          description: Growth of 10K data
+          items:
+            $ref: '#/components/schemas/GrowthOf10Ks'
+    GrowthOf10Ks:
+      type: object
+      description: Growth of 10K data
+      properties:
+        requestId:
+          type: string
+          description: The input identifier.
+          example: AGF10450
+        startAvailableHistoryDate:
+          type: string
+          format: date
+          nullable: true
+          example: '2022-08-31'
+          description: Date when the fund growth data was first available.
+        asOfDate:
+          type: string
+          description: Date when fund growth data was reported by vendor.
+          format: date
+          nullable: true
+          example: '2024-11-26'
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        growthOf10K:
+          type: array
+          description: List of growth of 10K data
+          items:
+            $ref: '#/components/schemas/GrowthOf10K'
+    GrowthOf10K:
+      type: object
+      description: Growth of 10K object
+      properties:
+        endDate:
+          type: string
+          description: End date of the growth data.
+          format: date
+          nullable: true
+          example: '2024-09-30'
+        value:
+          type: number
+          description: Value of the growth data.
+          format: double
+          example: 11901.6273
+          nullable: true
+        percent:
+          description: Percentage of the growth data.
+          type: number
+          format: double
+          nullable: true
+          example: 7.96
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      description: Error object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+          format: uuid
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code:
+          description: status
+          type: string
+          example: Bad Request
+        detail:
+          description: Error details explanation
+          type: string
+          example: Validation Error
+        title:
+          description: The plain text error message
+          type: string
+          example: Bad Request
+    InvalidIdErrorObject:
+      type: object
+      description: Error object for invalid identifier
+      properties:
+        code:
+          description: status
+          type: string
+          example: Bad Request
+        title:
+          description: The plain text error message
+          type: string
+          example: Invalid Parameter
+        detail:
+          description: Error details explanation
+          type: string
+          example: The parameter 'ids' should be valid and may not be empty.
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond.
+        Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    resultOfGrowthDetails:
+      summary: Growth details for requested identifiers
+      description: >
+        Results include fund growth data on a quarterly basis with the
+        preliminary data values for funds AGF10450, AIM25591
+      value:
+        data:
+          - requestId: AGF10450
+            startAvailableHistoryDate: '2022-08-31'
+            asOfDate: '2024-11-26'
+            growthOf10K:
+              - endDate: '2024-10-31'
+                value: 11888.0951
+                percent: -0.11
+              - endDate: '2024-09-30'
+                value: 11901.6273
+                percent: 7.96
+              - endDate: '2024-08-31'
+                value: 11024.5372
+                percent: -1.71
+              - endDate: '2024-07-31'
+                value: 11216.0398
+                percent: 0.52
+          - requestId: AIM25591
+            startAvailableHistoryDate: '2007-09-30'
+            asOfDate: '2024-12-02'
+            growthOf10K:
+              - endDate: '2024-10-31'
+                value: 25784.9304
+                percent: -0.36
+              - endDate: '2024-09-30'
+                value: 25878.585
+                percent: 1.63
+              - endDate: '2024-08-31'
+                value: 25462.828
+                percent: -0.4
+    resultOfGrowthWithInvalidIdDetails:
+      summary: >-
+        Growth details for requested identifiers that include an invalid
+        identifier
+      description: >
+        Results include fund growth data on a quarterly basis with the
+        preliminary data values for funds AGF10450, AIM25591 and an example
+        error for an invalid fund.
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF10450
+            startAvailableHistoryDate: '2022-08-31'
+            asOfDate: '2024-11-26'
+            growthOf10K:
+              - endDate: '2024-10-31'
+                value: 11888.0951
+                percent: -0.11
+              - endDate: '2024-09-30'
+                value: 11901.6273
+                percent: 7.96
+              - endDate: '2024-08-31'
+                value: 11024.5372
+                percent: -1.71
+              - endDate: '2024-07-31'
+                value: 11216.0398
+                percent: 0.52
+          - requestId: AIM25591
+            startAvailableHistoryDate: '2007-09-30'
+            asOfDate: '2024-12-02'
+            growthOf10K:
+              - endDate: '2024-10-31'
+                value: 25784.9304
+                percent: -0.36
+              - endDate: '2024-09-30'
+                value: 25878.585
+                percent: 1.63
+              - endDate: '2024-08-31'
+                value: 25462.828
+                percent: -0.4
+    resultOfRankingDetails:
+      summary: Ranking details for requested identifiers
+      description: |
+        Results include fund ranking data for funds AGF10450, AIM25591.
+      value:
+        data:
+          - requestId: AGF10450
+            asOfDate: '2024-10-31'
+            quartileRankings:
+              rankOneMonth: 0
+              rankThreeMonths: 0
+              rankSixMonths: 0
+              rankYearToDate: 0
+            totalFunds:
+              countOneMonth: 0
+              countThreeMonths: 0
+              countSixMonths: 0
+              countYearToDate: 0
+          - requestId: AIM25591
+            asOfDate: '2024-10-31'
+            quartileRankings:
+              rankOneMonth: 0
+              rankThreeMonths: 0
+              rankSixMonths: 0
+              rankYearToDate: 0
+            totalFunds:
+              countOneMonth: 0
+              countThreeMonths: 0
+              countSixMonths: 0
+              countYearToDate: 0
+    resultOfRankingWithInvalidIdDetails:
+      summary: >-
+        Ranking details for requested identifiers that include an invalid
+        identifier
+      description: >
+        Results include fund ranking data for funds AGF10450, AIM25591 and an
+        example error for an invalid fund.
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF10450
+            asOfDate: '2024-10-31'
+            quartileRankings:
+              rankOneMonth: 0
+              rankThreeMonths: 0
+              rankSixMonths: 0
+              rankYearToDate: 0
+            totalFunds:
+              countOneMonth: 0
+              countThreeMonths: 0
+              countSixMonths: 0
+              countYearToDate: 0
+          - requestId: AIM25591
+            asOfDate: '2024-10-31'
+            quartileRankings:
+              rankOneMonth: 0
+              rankThreeMonths: 0
+              rankSixMonths: 0
+              rankYearToDate: 0
+            totalFunds:
+              countOneMonth: 0
+              countThreeMonths: 0
+              countSixMonths: 0
+              countYearToDate: 0
+    resultOfReturnsDetails:
+      summary: Performance returns details for requested identifiers
+      description: |
+        Results include fund performance data for funds AGF10450, AIM25591
+      value:
+        data:
+          - requestId: AGF10450
+            asOfDate: '2024-11-26'
+            benchmarkIndexReturns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 27.533244
+              annualizedSinceInception: 6.931104
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.8809
+              sixMonths: 11.901679
+              threeMonths: 6.593117
+              yearToDate: 20.804539
+              asOfDate: '2024-10-31'
+            returns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 16.970606
+              annualizedSinceInception: 7.104128
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.1137
+              sixMonths: 8.336801
+              threeMonths: 5.991913
+              yearToDate: 13.522147
+              asOfDate: '2024-10-31'
+            calendarYearReturns:
+              - fundSimpleReturn: 16.970607
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 16.970606
+                indexSimpleReturn: 27.533244
+                indexCompoundReturn: 27.533244
+                categorySimpleReturn: 27.533244
+                categoryCompoundReturn: 27.533244
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 279
+                fundCompoundReturnCategoryRankCount: 321
+                year: 2024
+              - fundSimpleReturn: 11.874
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 14.393923
+                indexSimpleReturn: 12.968844
+                indexCompoundReturn: 20.030343
+                categorySimpleReturn: 12.968844
+                categoryCompoundReturn: 20.030343
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 237
+                fundCompoundReturnCategoryRankCount: 304
+                year: 2023
+          - requestId: AIM25591
+            asOfDate: '2024-11-26'
+            benchmarkIndexReturns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 27.533244
+              annualizedSinceInception: 6.931104
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.8809
+              sixMonths: 11.901679
+              threeMonths: 6.593117
+              yearToDate: 20.804539
+              asOfDate: '2024-10-31'
+            returns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 16.970606
+              annualizedSinceInception: 7.104128
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.1137
+              sixMonths: 8.336801
+              threeMonths: 5.991913
+              yearToDate: 13.522147
+              asOfDate: '2024-10-31'
+            calendarYearReturns:
+              - fundSimpleReturn: 16.970607
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 16.970606
+                indexSimpleReturn: 27.533244
+                indexCompoundReturn: 27.533244
+                categorySimpleReturn: 27.533244
+                categoryCompoundReturn: 27.533244
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 279
+                fundCompoundReturnCategoryRankCount: 321
+                year: 2024
+              - fundSimpleReturn: 11.874
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 14.393923
+                indexSimpleReturn: 12.968844
+                indexCompoundReturn: 20.030343
+                categorySimpleReturn: 12.968844
+                categoryCompoundReturn: 20.030343
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 237
+                fundCompoundReturnCategoryRankCount: 304
+                year: 2023
+    resultOfReturnsWithInvalidIdDetails:
+      summary: >-
+        Performance returns details for requested identifiers including an
+        invalid identifier
+      description: >
+        Results include fund performance data for funds AGF10450, AIM25591 and
+        an example error for an invalid fund.
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF10450
+            asOfDate: '2024-11-26'
+            benchmarkIndexReturns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 27.533244
+              annualizedSinceInception: 6.931104
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.8809
+              sixMonths: 11.901679
+              threeMonths: 6.593117
+              yearToDate: 20.804539
+              asOfDate: '2024-10-31'
+            returns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 16.970606
+              annualizedSinceInception: 7.104128
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.1137
+              sixMonths: 8.336801
+              threeMonths: 5.991913
+              yearToDate: 13.522147
+              asOfDate: '2024-10-31'
+            calendarYearReturns:
+              - fundSimpleReturn: 16.970607
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 16.970606
+                indexSimpleReturn: 27.533244
+                indexCompoundReturn: 27.533244
+                categorySimpleReturn: 27.533244
+                categoryCompoundReturn: 27.533244
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 279
+                fundCompoundReturnCategoryRankCount: 321
+                year: 2024
+              - fundSimpleReturn: 11.874
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 14.393923
+                indexSimpleReturn: 12.968844
+                indexCompoundReturn: 20.030343
+                categorySimpleReturn: 12.968844
+                categoryCompoundReturn: 20.030343
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 237
+                fundCompoundReturnCategoryRankCount: 304
+                year: 2023
+          - requestId: AIM25591
+            asOfDate: '2024-11-26'
+            benchmarkIndexReturns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 27.533244
+              annualizedSinceInception: 6.931104
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.8809
+              sixMonths: 11.901679
+              threeMonths: 6.593117
+              yearToDate: 20.804539
+              asOfDate: '2024-10-31'
+            returns:
+              annualizedFiveYears: 6.221999
+              annualizedOneYear: 16.970606
+              annualizedSinceInception: 7.104128
+              annualizedTenYears: 6.479242
+              annualizedThreeYears: 4.317091
+              annualizedTwentyYears: null
+              oneMonth: -0.1137
+              sixMonths: 8.336801
+              threeMonths: 5.991913
+              yearToDate: 13.522147
+              asOfDate: '2024-10-31'
+            calendarYearReturns:
+              - fundSimpleReturn: 16.970607
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 16.970606
+                indexSimpleReturn: 27.533244
+                indexCompoundReturn: 27.533244
+                categorySimpleReturn: 27.533244
+                categoryCompoundReturn: 27.533244
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 279
+                fundCompoundReturnCategoryRankCount: 321
+                year: 2024
+              - fundSimpleReturn: 11.874
+                fundSimpleReturnQuartile: 4
+                fundSimpleReturnCategoryRank: 296
+                fundSimpleReturnCategoryRankCount: 306
+                fundCompoundReturn: 14.393923
+                indexSimpleReturn: 12.968844
+                indexCompoundReturn: 20.030343
+                categorySimpleReturn: 12.968844
+                categoryCompoundReturn: 20.030343
+                fundCompoundReturnQuartile: 4
+                fundCompoundReturnCategoryRank: 237
+                fundCompoundReturnCategoryRankCount: 304
+                year: 2023
+    profileResponse:
+      summary: Profile response for a requested identifier
+      description: Results include profile data for fund BMO95322.
+      value:
+        data:
+          - requestId: BMO95322
+            name: BMO Aggregate Bond ETF Fund Series F
+            category: Canadian Fixed Income
+            company: BMO Investment Inc. Series F
+            group: BMO Investments Inc.
+            objective: >-
+              This fund’s objective is to provide a return that is similar to
+              the return of one or more exchange traded funds that invest
+              primarily in Canadian bonds. The fund may invest all or a portion
+              of its assets in an exchange traded fund that invests in such
+              securities, invest directly in the underlying securities held by
+              the exchange traded fund and/or use derivatives to provide the
+              fund with a return determined by reference to the exchange traded
+              fund or its reference index.
+            strategy: >-
+              These are the strategies the portfolio manager uses to try to
+              achieve the fund’s objectives: • invests up to 100% of the fund’s
+              assets in securities of BMO Aggregate Bond Index ETF • BMO
+              Aggregate Bond Index ETF seeks to replicate, to the extent
+              possible, the performance of an aggregate bond index, net of
+              expenses, which is currently the FTSE Canada Universe Bond Index..
+            benchmarkIndexName: ICE BofA Canada Broad Market Index TR CAD
+            managers:
+              - company: BMO Investment Inc.
+                name: Matt Montemurro
+                biography: >-
+                  Matt is responsible for managing and trading on behalf of the
+                  fixed income portfolios, as well as, assisting with currency
+                  hedging and managing the equity portfolios for the BMO Global
+                  Structured Investments team. Matt joined BMO Financial Group
+                  in 2009, as a part of the Wealth Management Associate program.
+                  Upon completion of the two year rotational program, Matt
+                  worked as a fixed income trader for the fundamental fixed
+                  income team at BMO Asset Management Inc.
+                startDate: '2023-03-27'
+                education: ''
+            inceptionDate: '2023-03-27'
+            loadType: No Load
+            netExpenseRatio: 0.09
+            managementFee: 0.08
+            netAssets: 254.4
+            currency: CAD
+            address:
+              address: 77 King Street West, Suite 4200, , Toronto, ON
+              phone: ''
+              fax: ''
+              tollFreeNumber: ''
+              website: ''
+            rrspInitialInvestment: 500.01
+            rrspAdditionalInvestment: 50.01
+            respEligible: true
+            rrspEligible: true
+            availableInProvinces:
+              - AB
+              - BC
+              - MB
+              - NB
+            minimumInvestment: 500.01
+            additionalInvestment: 50.01
+            nav:
+              nav: 9.9391
+              asOfDate: '2024-11-27'
+              highFiftyTwoWeeks: 10.0878
+              lowFiftyTwoWeeks: 9.452
+              changeDollar: 0.0274
+              changePercent: 0.276441
+              previous: null
+            dividend:
+              annualYield: 0.028
+              distributionFrequency: Annual
+            returns:
+              asOfDate: '2024-10-31'
+              oneMonth: 2.6401
+              threeMonths: 10.09269
+              sixMonths: 14.104036
+              yearToDate: 30.745686
+              annualizedOneYear: 43.30107
+              annualizedThreeYears: 0.875398
+              annualizedFiveYears: 9.689019
+              annualizedTenYears: 11.927918
+              annualizedSinceInception: 9.879215
+            asOfDate: '2024-11-27'
+            fundGrade: ''
+            fundSeries: F
+            fundServ:
+              - fundServCode: BMO18322
+                fundServName: BMO Aggregate Bond ETF Fund Series F
+                fundServLoadCode: NL
+                fundServLoadName: No Load
+              - fundServCode: BMO68322
+                fundServName: BMO Aggregate Bond ETF Fund Series F
+                fundServLoadCode: NL
+                fundServLoadName: No Load
+    profileResponseWithInvalidId:
+      summary: >-
+        Profile response for requested identifiers including an invalid
+        identifier
+      description: >-
+        Results include profile data for fund BMO95322 and an example error for
+        an invalid fund.
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: BMO95322
+            name: BMO Aggregate Bond ETF Fund Series F
+            category: Canadian Fixed Income
+            company: BMO Investment Inc. Series F
+            group: BMO Investments Inc.
+            objective: >-
+              This fund’s objective is to provide a return that is similar to
+              the return of one or more exchange traded funds that invest
+              primarily in Canadian bonds. The fund may invest all or a portion
+              of its assets in an exchange traded fund that invests in such
+              securities, invest directly in the underlying securities held by
+              the exchange traded fund and/or use derivatives to provide the
+              fund with a return determined by reference to the exchange traded
+              fund or its reference index.
+            strategy: >-
+              These are the strategies the portfolio manager uses to try to
+              achieve the fund’s objectives: • invests up to 100% of the fund’s
+              assets in securities of BMO Aggregate Bond Index ETF • BMO
+              Aggregate Bond Index ETF seeks to replicate, to the extent
+              possible, the performance of an aggregate bond index, net of
+              expenses, which is currently the FTSE Canada Universe Bond Index..
+            benchmarkIndexName: ICE BofA Canada Broad Market Index TR CAD
+            managers:
+              - company: BMO Investment Inc.
+                name: Matt Montemurro
+                biography: >-
+                  Matt is responsible for managing and trading on behalf of the
+                  fixed income portfolios, as well as, assisting with currency
+                  hedging and managing the equity portfolios for the BMO Global
+                  Structured Investments team. Matt joined BMO Financial Group
+                  in 2009, as a part of the Wealth Management Associate program.
+                  Upon completion of the two year rotational program, Matt
+                  worked as a fixed income trader for the fundamental fixed
+                  income team at BMO Asset Management Inc.
+                startDate: '2023-03-27'
+                education: ''
+            inceptionDate: '2023-03-27'
+            loadType: No Load
+            netExpenseRatio: 0.09
+            managementFee: 0.08
+            netAssets: 254.4
+            currency: CAD
+            address:
+              address: 77 King Street West, Suite 4200, , Toronto, ON
+              phone: ''
+              fax: ''
+              tollFreeNumber: ''
+              website: ''
+            rrspInitialInvestment: 500.01
+            rrspAdditionalInvestment: 50.01
+            respEligible: true
+            rrspEligible: true
+            availableInProvinces:
+              - AB
+              - BC
+              - MB
+              - NB
+            minimumInvestment: 500.01
+            additionalInvestment: 50.01
+            nav:
+              nav: 9.9391
+              asOfDate: '2024-11-27'
+              highFiftyTwoWeeks: 10.0878
+              lowFiftyTwoWeeks: 9.452
+              changeDollar: 0.0274
+              changePercent: 0.276441
+              previous: null
+            dividend:
+              annualYield: 0.028
+              distributionFrequency: Annual
+            returns:
+              asOfDate: '2024-10-31'
+              oneMonth: 2.6401
+              threeMonths: 10.09269
+              sixMonths: 14.104036
+              yearToDate: 30.745686
+              annualizedOneYear: 43.30107
+              annualizedThreeYears: 0.875398
+              annualizedFiveYears: 9.689019
+              annualizedTenYears: 11.927918
+              annualizedSinceInception: 9.879215
+            asOfDate: '2024-11-27'
+            fundGrade: ''
+            fundSeries: F
+            fundServ:
+              - fundServCode: BMO18322
+                fundServName: BMO Aggregate Bond ETF Fund Series F
+                fundServLoadCode: NL
+                fundServLoadName: No Load
+              - fundServCode: BMO68322
+                fundServName: BMO Aggregate Bond ETF Fund Series F
+                fundServLoadCode: NL
+                fundServLoadName: No Load
+    feesResponse:
+      summary: Fees response for a requested identifier
+      description: Results include fee data for fund AGF247
+      value:
+        data:
+          - requestId: AGF247
+            isPreAuthorizedInvestmentPlan: true
+            isSystematicWithdrawlPlan: true
+            backendFees: Deferred - initial sum
+            rrspAnnualAdminFee: 0.1
+            rrifAnnualAdminFee: 0.1
+            switchFees: >-
+              Your dealer may charge you up to 2% of the value you switch to
+              another AGF fund.
+            rrspWithdrawalFee: 0.1
+            rrifWithdrawalFee: 0.1
+            trailerFees: >-
+              DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+              After: up to 1%.
+            swpMinBalance: 0.1
+            load: Choice of Front or No Load
+            isNoLoad: false
+            maxFrontEndPercent: 6.01
+            maxBackEndPercent: 5.5
+            otherFees: None
+    feesResponseWithInvalidId:
+      summary: Fees response for requested identifiers including an invalid identifier
+      description: >-
+        Results include fee data for fund AGF247 and an example error for an
+        invalid fund.
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF247
+            isPreAuthorizedInvestmentPlan: true
+            isSystematicWithdrawlPlan: true
+            backendFees: Deferred - initial sum
+            rrspAnnualAdminFee: 0.1
+            rrifAnnualAdminFee: 0.1
+            switchFees: >-
+              Your dealer may charge you up to 2% of the value you switch to
+              another AGF fund.
+            rrspWithdrawalFee: 0.1
+            rrifWithdrawalFee: 0.1
+            trailerFees: >-
+              DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+              After: up to 1%.
+            swpMinBalance: 0.1
+            load: Choice of Front or No Load
+            isNoLoad: false
+            maxFrontEndPercent: 6.01
+            maxBackEndPercent: 5.5
+            otherFees: None
+    distributionResponse:
+      summary: Distributions response for a requested identifier
+      description: Results include distribution data for fund BMO95322.
+      value:
+        data:
+          - requestId: BMO95322
+            distributionOneMonth:
+              capitalGains: 0.2
+              dividend: 0.028
+              foreignDividend: 0.2
+              interestIncome: 0.2
+              returnOnPrincipal: 0.2
+              totalDistribution: 0.828
+            distributionOneYear:
+              capitalGains: 0.1
+              dividend: 0.336
+              foreignDividend: 0.1
+              interestIncome: 0.1
+              returnOnPrincipal: 0.1
+              totalDistribution: 0.736
+            distributionYearToDate:
+              capitalGains: 0.1
+              dividend: 0.28
+              foreignDividend: 0.1
+              interestIncome: 0.1
+              returnOnPrincipal: 0.1
+              totalDistribution: 0.68
+    distributionResponseWithInvalidId:
+      summary: >-
+        Distributions response for requested identifiers including an invalid
+        identifier
+      description: >-
+        Results include distribution data for fund BMO95322 and an example error
+        for an invalid fund.
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: BMO95322
+            distributionOneMonth:
+              capitalGains: 0.2
+              dividend: 0.028
+              foreignDividend: 0.2
+              interestIncome: 0.2
+              returnOnPrincipal: 0.2
+              totalDistribution: 0.828
+            distributionOneYear:
+              capitalGains: 0.1
+              dividend: 0.336
+              foreignDividend: 0.1
+              interestIncome: 0.1
+              returnOnPrincipal: 0.1
+              totalDistribution: 0.736
+            distributionYearToDate:
+              capitalGains: 0.1
+              dividend: 0.28
+              foreignDividend: 0.1
+              interestIncome: 0.1
+              returnOnPrincipal: 0.1
+              totalDistribution: 0.68
+    resultOfAssetAllocations:
+      summary: Asset Allocations details for a requested identifier
+      description: |
+        Results include fund data for fund AGF258
+      value:
+        data:
+          - requestId: AGF258
+            asOfDate: '2024-11-27'
+            assetAllocations:
+              - asset: Cash
+                weight: 2.34
+              - asset: Equity
+                weight: 97.66
+    resultOfAssetAllocationsWithInvalidId:
+      summary: >-
+        Asset Allocations details for requested identifiers including an invalid
+        identifier
+      description: >
+        Results include fund data for fund AGF258 and an example error for an
+        invalid fund
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF258
+            asOfDate: '2024-11-27'
+            assetAllocations:
+              - asset: Cash
+                weight: 2.34
+              - asset: Equity
+                weight: 97.66
+    resultOfGeoAllocations:
+      summary: Geographic Allocations details for a requested identifier
+      description: |
+        Results include fund data for fund AGF258
+      value:
+        data:
+          - requestId: AGF258
+            asOfDate: '2024-11-27'
+            geoAllocations:
+              - region: Canada
+                weight: 9.21
+              - region: United States
+                weight: 87.46
+              - region: Philippines
+                weight: 3.33
+    resultOfGeoAllocationsWithInvalidId:
+      summary: >-
+        Geographic Allocations details for requested identifiers including
+        invalid identifier
+      description: >
+        Results include fund data for fund AGF258 and an example error for an
+        invalid fund
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF258
+            asOfDate: '2024-11-27'
+            geoAllocations:
+              - region: Canada
+                weight: 9.21
+              - region: United States
+                weight: 87.46
+              - region: Philippines
+                weight: 3.33
+    resultOfHoldings:
+      summary: Holding details for a requested identifier
+      description: |
+        Results include fund data for fund MMF4756 
+      value:
+        data:
+          - requestId: MMF4756
+            asOfDate: '2014-11-27'
+            top10Weight: 30.93
+            holdings:
+              - name: Microsoft Corp - Common
+                holdingId: MSFT
+                weight: 4.81
+              - name: Philip Morris International Inc - Common
+                holdingId: PM-US
+                weight: 3.95
+              - name: Apple Inc - Common
+                holdingId: AAPL
+                weight: 3.82
+              - name: Crh PLC - Common
+                holdingId: CRH
+                weight: 3.15
+              - name: ConocoPhillips - Common
+                holdingId: COP
+                weight: 2.77
+              - name: ING Groep NV - Common
+                holdingId: ING-US
+                weight: 2.64
+              - name: Alphabet Inc - Common Cl A
+                holdingId: GOOGL
+                weight: 2.62
+              - name: Samsung Electronics Co Ltd - Pfd
+                holdingId: 005935-KR
+                weight: 2.61
+              - name: TotalEnergies SE - Common
+                holdingId: TTE-FR
+                weight: 2.42
+              - name: Sumitomo Mitsui Trust Holdings Inc - Common
+                holdingId: 8309-JP
+                weight: 2.14
+    resultOfHoldingsWithInvalidId:
+      summary: >-
+        Holding details for requested identifiers including an invalid
+        identifier
+      description: >
+        Results include fund data for fund MMF4756 and an example error for an
+        invalid fund 
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: MMF4756
+            asOfDate: '2014-11-27'
+            top10Weight: 30.93
+            holdings:
+              - name: Microsoft Corp - Common
+                holdingId: MSFT
+                weight: 4.81
+              - name: Philip Morris International Inc - Common
+                holdingId: PM-US
+                weight: 3.95
+              - name: Apple Inc - Common
+                holdingId: AAPL
+                weight: 3.82
+              - name: Crh PLC - Common
+                holdingId: CRH
+                weight: 3.15
+              - name: ConocoPhillips - Common
+                holdingId: COP
+                weight: 2.77
+              - name: ING Groep NV - Common
+                holdingId: ING-US
+                weight: 2.64
+              - name: Alphabet Inc - Common Cl A
+                holdingId: GOOGL
+                weight: 2.62
+              - name: Samsung Electronics Co Ltd - Pfd
+                holdingId: 005935-KR
+                weight: 2.61
+              - name: TotalEnergies SE - Common
+                holdingId: TTE-FR
+                weight: 2.42
+              - name: Sumitomo Mitsui Trust Holdings Inc - Common
+                holdingId: 8309-JP
+                weight: 2.14
+    resultOfSectorAllocations:
+      summary: Sector Allocations details for a requested identifier
+      description: |
+        Results include fund data for fund AGF258
+      value:
+        data:
+          - requestId: AGF258
+            asOfDate: '2024-11-27'
+            sectorAllocations:
+              - sector: Technology
+                weight: 53.8
+              - sector: Consumer Services
+                weight: 13.13
+              - sector: Financial Services
+                weight: 12.35
+              - sector: Industrial Goods
+                weight: 11.53
+              - sector: Healthcare
+                weight: 9.19
+    resultOfSectorAllocationsWithInvalidId:
+      summary: >-
+        Sector Allocations details for requested identifiers including an
+        invalid identifier
+      description: >
+        Results include fund data for fund AGF258 and an example error for an
+        invalid fund
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AGF258
+            asOfDate: '2024-11-27'
+            sectorAllocations:
+              - sector: Technology
+                weight: 53.8
+              - sector: Consumer Services
+                weight: 13.13
+              - sector: Financial Services
+                weight: 12.35
+              - sector: Industrial Goods
+                weight: 11.53
+              - sector: Healthcare
+                weight: 9.19
+    resultOfRisk:
+      summary: Risk details for a requested identifier
+      description: |
+        Results include fund data for fund AIM729
+      value:
+        data:
+          - requestId: AIM729
+            asOfDate: '2025-08-25'
+            riskRating: Medium Risk
+            riskProspectus: >-
+              The Fund is suitable for investors who: Are seeking capital growth
+              over the long term; Are seeking exposure to U.S. equities; Are
+              willing to accept a medium level of investment risk; Are investing
+              for the long term
+            riskResponseInfo:
+              - year: 1
+                benchmark: S&P 500 Total Return Index C$
+                alpha: -0.001378
+                beta: 1.01345
+                sharpeRatio: 0.23413
+                treynorRatio: 0.00961
+                rSquared: 0.91144
+                sortino: 0.391302
+                standardDeviation: 0.144154
+                volatility: null
+          - requestId: AIM729
+            asOfDate: '2025-08-25'
+            riskRating: Medium Risk
+            riskProspectus: >-
+              The Fund is suitable for investors who: Are seeking capital growth
+              over the long term; Are seeking exposure to U.S. equities; Are
+              willing to accept a medium level of investment risk; Are investing
+              for the long term
+            riskResponseInfo:
+              - year: 2
+                benchmark: S&P 500 Total Return Index C$
+                alpha: -0.000208
+                beta: 0.93518
+                sharpeRatio: 0.3562
+                treynorRatio: 0.01366
+                rSquared: 0.88972
+                sortino: 0.655888
+                standardDeviation: 0.124229
+                volatility: null
+          - requestId: AIM729
+            asOfDate: '2025-08-25'
+            riskRating: Medium Risk
+            riskProspectus: >-
+              The Fund is suitable for investors who: Are seeking capital growth
+              over the long term; Are seeking exposure to U.S. equities; Are
+              willing to accept a medium level of investment risk; Are investing
+              for the long term
+            riskResponseInfo:
+              - year: 3
+                benchmark: S&P 500 Total Return Index C$
+                alpha: 0.000133
+                beta: 0.93203
+                sharpeRatio: 0.32631
+                treynorRatio: 0.01263
+                rSquared: 0.91178
+                sortino: 0.59582
+                standardDeviation: 0.12493
+                volatility: 7
+    resultOfRiskWithInvalidId:
+      summary: Risk details for requested identifiers including an invalid identifier
+      description: >
+        Results include fund data for fund AIM729 and an example error for an
+        invalid fund
+      value:
+        data:
+          - requestId: BADSYMBOL123
+            error:
+              code: Bad Request
+              title: Invalid Parameter
+              detail: The parameter 'ids' should be valid and may not be empty.
+          - requestId: AIM729
+            asOfDate: '2025-08-25'
+            riskRating: Medium Risk
+            riskProspectus: >-
+              The Fund is suitable for investors who: Are seeking capital growth
+              over the long term; Are seeking exposure to U.S. equities; Are
+              willing to accept a medium level of investment risk; Are investing
+              for the long term
+            riskResponseInfo:
+              - year: 1
+                benchmark: S&P 500 Total Return Index C$
+                alpha: -0.001378
+                beta: 1.01345
+                sharpeRatio: 0.23413
+                treynorRatio: 0.00961
+                rSquared: 0.91144
+                sortino: 0.391302
+                standardDeviation: 0.144154
+                volatility: null
+          - requestId: AIM729
+            asOfDate: '2025-08-25'
+            riskRating: Medium Risk
+            riskProspectus: >-
+              The Fund is suitable for investors who: Are seeking capital growth
+              over the long term; Are seeking exposure to U.S. equities; Are
+              willing to accept a medium level of investment risk; Are investing
+              for the long term
+            riskResponseInfo:
+              - year: 2
+                benchmark: S&P 500 Total Return Index C$
+                alpha: -0.000208
+                beta: 0.93518
+                sharpeRatio: 0.3562
+                treynorRatio: 0.01366
+                rSquared: 0.88972
+                sortino: 0.655888
+                standardDeviation: 0.124229
+                volatility: null
+          - requestId: AIM729
+            asOfDate: '2025-08-25'
+            riskRating: Medium Risk
+            riskProspectus: >-
+              The Fund is suitable for investors who: Are seeking capital growth
+              over the long term; Are seeking exposure to U.S. equities; Are
+              willing to accept a medium level of investment risk; Are investing
+              for the long term
+            riskResponseInfo:
+              - year: 3
+                benchmark: S&P 500 Total Return Index C$
+                alpha: 0.000133
+                beta: 0.93203
+                sharpeRatio: 0.32631
+                treynorRatio: 0.01263
+                rSquared: 0.91178
+                sortino: 0.59582
+                standardDeviation: 0.12493
+                volatility: 7
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisk symbol
+        in the specification file.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Bad Request
+            title: Missing/Invalid Parameters.
+            detail: The parameter 'ids' is required and may not be empty.
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Bad Request
+            title: Read Timeout
+            detail: The request took too long. Try again with a smaller request.
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double-check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report the Issue under 401 error for help with troubleshooting.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Unauthorized
+            title: User Authentication Failed.
+            detail: User Authentication Failed.
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
+        authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Forbidden
+            title: User Authorization Failed.
+            detail: >-
+              User is not authorized for the id requested, please reach out to
+              FactSet for support
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Unsupported Media Type
+            title: Unsupported Media Type
+            detail: >-
+              text/html media type is not supported. Supported media types are
+              application/json.
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Internal Server Error
+            title: Error writing JSON output
+            detail: >-
+              The server encountered an error writing the JSON response. Please
+              `Report Issue` to FactSet.
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Internal Server Error
+            title: Unexpected error
+            detail: An unexpected error occurred. Please `Report Issue` to FactSet.

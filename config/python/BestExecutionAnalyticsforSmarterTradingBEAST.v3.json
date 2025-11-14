@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.BestExecutionAnalyticsforSmarterTradingBEAST",
+  "projectName": "fds.sdk.BestExecutionAnalyticsforSmarterTradingBEAST",
+  "packageVersion": "0.3.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "Best Execution Analytics for Smarter Trading (BEAST) client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/BestExecutionAnalyticsforSmarterTradingBEAST/v3",
+  "httpUserAgent": "fds-sdk/python/BestExecutionAnalyticsforSmarterTradingBEAST/0.3.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

@@ -1,0 +1,46 @@
+# openoptimizer.ResultResponseDataStats
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**activeCoefficientOfDetermination** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**activeFactorRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**activePredictedBeta** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**activeRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**activeRiskWithAlphaFactor** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**activeSpecificRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**benchmarkRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**buyTurnover** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**buyTurnoverPercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**cashValue** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**cashValuePercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**coefficientOfDetermination** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**expectedReturnPercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**historicalBeta** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**longCount** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**longShortRatio** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**longValue** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**longValuePercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**netValue** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**predictedBeta** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**predictedInformationRatio** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**referenceValue** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**sellTurnover** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**sellTurnoverPercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**shortCount** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**shortValue** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**shortValuePercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**totalFactorRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**totalRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**totalRiskWithAlphaFactor** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**totalSpecificRisk** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**tradeCount** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**transactionCost** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**transactionCostPercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**transactionCostPercentOfTradedValue** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**transferCoefficient** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**turnover** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+**turnoverPercent** | [**StatResponseObject**](StatResponseObject.md) |  | [optional] 
+
+

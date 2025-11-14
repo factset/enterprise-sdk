@@ -110,11 +110,12 @@ namespace FactSet.SDK.SecurityExplanation.Model
         /// <param name="includePerformance">Include or exclude the company&#39;s total return for the request period. (default to false).</param>
         /// <param name="internalInvestmentRationale">For IRN users only; select to include a summary, footnotes, or no IRN notes for the period. (default to InternalInvestmentRationaleEnum.None).</param>
         /// <param name="includeCompanyDescription">Include or exclude the target company&#39;s business description. (default to false).</param>
-        /// <param name="includeMarketSummary">Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context. (default to true).</param>
+        /// <param name="includeMarketSummary">Include or exclude market and sector news relating to the target company for additional context. (default to true).</param>
         /// <param name="includeInternalInvestmentRationaleRecommendation">For IRN users only; include or exclude your firm&#39;s rating in the summary or footnote. (default to true).</param>
         /// <param name="includeInternalInvestmentRationalePriceTarget">For IRN users only; include or exclude your firm&#39;s price target in the summary or footnote. (default to true).</param>
+        /// <param name="includeSecuritySummary">Include or exclude summary of a security&#39;s performance over the specified period. (default to true).</param>
         /// <param name="brokerResearchSummary">brokerResearchSummary.</param>
-        public SecurityExplanationRequestParameters(string id, DateTime startDate, DateTime endDate,bool enableLinks = false, ExplanationStyleEnum? explanationStyle = ExplanationStyleEnum.Short, bool includePerformance = false, InternalInvestmentRationaleEnum? internalInvestmentRationale = InternalInvestmentRationaleEnum.None, bool includeCompanyDescription = false, bool includeMarketSummary = true, bool includeInternalInvestmentRationaleRecommendation = true, bool includeInternalInvestmentRationalePriceTarget = true, BrokerResearchSummary brokerResearchSummary = default(BrokerResearchSummary))
+        public SecurityExplanationRequestParameters(string id, DateTime startDate, DateTime endDate,bool enableLinks = false, ExplanationStyleEnum? explanationStyle = ExplanationStyleEnum.Short, bool includePerformance = false, InternalInvestmentRationaleEnum? internalInvestmentRationale = InternalInvestmentRationaleEnum.None, bool includeCompanyDescription = false, bool includeMarketSummary = true, bool includeInternalInvestmentRationaleRecommendation = true, bool includeInternalInvestmentRationalePriceTarget = true, bool includeSecuritySummary = true, BrokerResearchSummary brokerResearchSummary = default(BrokerResearchSummary))
         {
             // to ensure "id" is required (not null)
             if (id == null) {
@@ -131,6 +132,7 @@ namespace FactSet.SDK.SecurityExplanation.Model
             this.IncludeMarketSummary = includeMarketSummary;
             this.IncludeInternalInvestmentRationaleRecommendation = includeInternalInvestmentRationaleRecommendation;
             this.IncludeInternalInvestmentRationalePriceTarget = includeInternalInvestmentRationalePriceTarget;
+            this.IncludeSecuritySummary = includeSecuritySummary;
             this.BrokerResearchSummary = brokerResearchSummary;
         }
 
@@ -179,9 +181,9 @@ namespace FactSet.SDK.SecurityExplanation.Model
         public bool IncludeCompanyDescription { get; set; }
 
         /// <summary>
-        /// Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.
+        /// Include or exclude market and sector news relating to the target company for additional context.
         /// </summary>
-        /// <value>Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.</value>
+        /// <value>Include or exclude market and sector news relating to the target company for additional context.</value>
         [DataMember(Name = "includeMarketSummary", EmitDefaultValue = true)]
         public bool IncludeMarketSummary { get; set; }
 
@@ -198,6 +200,13 @@ namespace FactSet.SDK.SecurityExplanation.Model
         /// <value>For IRN users only; include or exclude your firm&#39;s price target in the summary or footnote.</value>
         [DataMember(Name = "includeInternalInvestmentRationalePriceTarget", EmitDefaultValue = true)]
         public bool IncludeInternalInvestmentRationalePriceTarget { get; set; }
+
+        /// <summary>
+        /// Include or exclude summary of a security&#39;s performance over the specified period.
+        /// </summary>
+        /// <value>Include or exclude summary of a security&#39;s performance over the specified period.</value>
+        [DataMember(Name = "includeSecuritySummary", EmitDefaultValue = true)]
+        public bool IncludeSecuritySummary { get; set; }
 
         /// <summary>
         /// Gets or Sets BrokerResearchSummary
@@ -224,6 +233,7 @@ namespace FactSet.SDK.SecurityExplanation.Model
             sb.Append("  IncludeMarketSummary: ").Append(IncludeMarketSummary).Append("\n");
             sb.Append("  IncludeInternalInvestmentRationaleRecommendation: ").Append(IncludeInternalInvestmentRationaleRecommendation).Append("\n");
             sb.Append("  IncludeInternalInvestmentRationalePriceTarget: ").Append(IncludeInternalInvestmentRationalePriceTarget).Append("\n");
+            sb.Append("  IncludeSecuritySummary: ").Append(IncludeSecuritySummary).Append("\n");
             sb.Append("  BrokerResearchSummary: ").Append(BrokerResearchSummary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -308,6 +318,10 @@ namespace FactSet.SDK.SecurityExplanation.Model
                     this.IncludeInternalInvestmentRationalePriceTarget.Equals(input.IncludeInternalInvestmentRationalePriceTarget)
                 ) && 
                 (
+                    this.IncludeSecuritySummary == input.IncludeSecuritySummary ||
+                    this.IncludeSecuritySummary.Equals(input.IncludeSecuritySummary)
+                ) && 
+                (
                     this.BrokerResearchSummary == input.BrokerResearchSummary ||
                     (this.BrokerResearchSummary != null &&
                     this.BrokerResearchSummary.Equals(input.BrokerResearchSummary))
@@ -343,6 +357,7 @@ namespace FactSet.SDK.SecurityExplanation.Model
                 hashCode = (hashCode * 59) + this.IncludeMarketSummary.GetHashCode();
                 hashCode = (hashCode * 59) + this.IncludeInternalInvestmentRationaleRecommendation.GetHashCode();
                 hashCode = (hashCode * 59) + this.IncludeInternalInvestmentRationalePriceTarget.GetHashCode();
+                hashCode = (hashCode * 59) + this.IncludeSecuritySummary.GetHashCode();
                 if (this.BrokerResearchSummary != null)
                 {
                     hashCode = (hashCode * 59) + this.BrokerResearchSummary.GetHashCode();

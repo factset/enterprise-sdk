@@ -1,0 +1,202 @@
+import java.time.LocalDate
+
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'eclipse'
+    id 'com.diffplug.spotless' version '5.17.0'
+    id 'maven-publish'
+    id 'signing'
+    id 'org.jreleaser' version '1.17.0'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+group = 'com.factset.sdk'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+task execute(type:JavaExec) {
+    main = System.getProperty('mainClass')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar) {
+    archiveClassifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+def artifactStagingDirectory = layout.buildDirectory.dir("staging-deploy")
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'openoptimizer'
+
+            from components.java
+
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = 'FactSet SDK for Java - openoptimizer'
+                description = 'FactSet SDK for Java - openoptimizer'
+                url = 'https://github.com/factset/enterprise-sdk'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'enterprisesdk'
+                        organization = 'FactSet'
+                        organizationUrl = 'https://developer.factset.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/factset/enterprise-sdk.git'
+                    developerConnection = 'scm:git:ssh://factset/enterprise-sdk.git'
+                    url = 'https://github.com/factset/enterprise-sdk/'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri(artifactStagingDirectory)
+        }
+    }
+}
+
+jreleaser {
+    gitRootSearch = true
+
+    project {
+        description = 'FactSet SDK for Java - openoptimizer'
+        authors = ['FactSet']
+        license = "APACHE-2.0"
+        inceptionYear = "2021"
+        vendor = "FactSet"
+        copyright = "Copyright (c) ${LocalDate.now().year} FactSet"
+        return // for the type checker
+    }
+
+    signing {
+        active = 'ALWAYS'
+        armored = true
+        return
+    }
+
+    release {
+        github {
+            skipTag = true
+            skipRelease = true
+            return
+        }
+    }
+
+    deploy {
+        maven {
+            mavenCentral {
+                'release-deploy' {
+                    url = "https://central.sonatype.com/api/v1/publisher"
+                    stagingRepository("build/staging-deploy")
+                    retryDelay = 30
+                    maxRetries = 100
+                }
+                return
+            }
+            artifactory {
+                sdk {
+                    stagingRepository("build/staging-deploy")
+                }
+            }
+        }
+    }
+}
+
+
+ext {
+    swagger_annotations_version = "1.6.3"
+    jackson_version = "2.15.0"
+    jackson_databind_version = "2.15.0"
+    jackson_databind_nullable_version = "0.2.2"
+    jakarta_annotation_version = "2.1.1"
+    jersey_version = "3.0.4"
+    junit_version = "4.13.2"
+    scribejava_apis_version = "8.3.1"
+    sdk_utils_version = "1.1.3"
+}
+
+dependencies {
+    implementation "io.swagger:swagger-annotations:$swagger_annotations_version"
+    implementation "com.google.code.findbugs:jsr305:3.0.2"
+    implementation "org.glassfish.jersey.core:jersey-client:$jersey_version"
+    implementation "org.glassfish.jersey.inject:jersey-hk2:$jersey_version"
+    implementation "org.glassfish.jersey.media:jersey-media-multipart:$jersey_version"
+    implementation "org.glassfish.jersey.media:jersey-media-json-jackson:$jersey_version"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_databind_version"
+
+    implementation "org.glassfish.jersey.connectors:jersey-apache-connector"
+    constraints {
+        implementation "org.glassfish.jersey.connectors:jersey-apache-connector:$jersey_version"
+        implementation('commons-codec:commons-codec:1.15') {
+            because "version 1.11 has a security finding https://ossindex.sonatype.org/vulnerability/sonatype-2012-0050"
+        }
+    }
+
+    implementation "org.openapitools:jackson-databind-nullable:$jackson_databind_nullable_version"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
+    implementation "com.github.scribejava:scribejava-apis:$scribejava_apis_version"
+    implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
+    implementation "com.factset.sdk:utils:$sdk_utils_version"
+    testImplementation "junit:junit:$junit_version"
+}
+
+javadoc {
+    options.tags = [ "http.response.details:a:Http Response Details" ]
+}
+
+// Use spotless plugin to automatically format code, remove unused import, etc
+// To apply changes directly to the file, run `gradlew spotlessApply`
+// Ref: https://github.com/diffplug/spotless/tree/main/plugin-gradle
+spotless {
+    // comment out below to run spotless as part of the `check` task
+    enforceCheck false
+
+    format 'misc', {
+        // define the files (e.g. '*.gradle', '*.md') to apply `misc` to
+        target '.gitignore'
+        // define the steps to apply to those files
+        trimTrailingWhitespace()
+        indentWithSpaces() // Takes an integer argument if you don't like 4
+        endWithNewline()
+    }
+    java {
+        // don't need to set target, it is inferred from java
+        // apply a specific flavor of google-java-format
+        googleJavaFormat('1.8').aosp().reflowLongStrings()
+        removeUnusedImports()
+        importOrder()
+    }
+}

@@ -47,6 +47,7 @@ import com.factset.sdk.SecurityExplanation.JSON;
   SecurityExplanationRequestParameters.JSON_PROPERTY_INCLUDE_MARKET_SUMMARY,
   SecurityExplanationRequestParameters.JSON_PROPERTY_INCLUDE_INTERNAL_INVESTMENT_RATIONALE_RECOMMENDATION,
   SecurityExplanationRequestParameters.JSON_PROPERTY_INCLUDE_INTERNAL_INVESTMENT_RATIONALE_PRICE_TARGET,
+  SecurityExplanationRequestParameters.JSON_PROPERTY_INCLUDE_SECURITY_SUMMARY,
   SecurityExplanationRequestParameters.JSON_PROPERTY_BROKER_RESEARCH_SUMMARY
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -158,6 +159,9 @@ public class SecurityExplanationRequestParameters implements Serializable {
 
   public static final String JSON_PROPERTY_INCLUDE_INTERNAL_INVESTMENT_RATIONALE_PRICE_TARGET = "includeInternalInvestmentRationalePriceTarget";
   private Boolean includeInternalInvestmentRationalePriceTarget = true;
+
+  public static final String JSON_PROPERTY_INCLUDE_SECURITY_SUMMARY = "includeSecuritySummary";
+  private Boolean includeSecuritySummary = true;
 
   public static final String JSON_PROPERTY_BROKER_RESEARCH_SUMMARY = "brokerResearchSummary";
   private BrokerResearchSummary brokerResearchSummary;
@@ -391,11 +395,11 @@ public class SecurityExplanationRequestParameters implements Serializable {
   }
 
    /**
-   * Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.
+   * Include or exclude market and sector news relating to the target company for additional context.
    * @return includeMarketSummary
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.")
+  @ApiModelProperty(example = "true", value = "Include or exclude market and sector news relating to the target company for additional context.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_MARKET_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -463,6 +467,32 @@ public class SecurityExplanationRequestParameters implements Serializable {
   }
 
 
+  public SecurityExplanationRequestParameters includeSecuritySummary(Boolean includeSecuritySummary) {
+    this.includeSecuritySummary = includeSecuritySummary;
+    return this;
+  }
+
+   /**
+   * Include or exclude summary of a security&#39;s performance over the specified period.
+   * @return includeSecuritySummary
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Include or exclude summary of a security's performance over the specified period.")
+  @JsonProperty(JSON_PROPERTY_INCLUDE_SECURITY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIncludeSecuritySummary() {
+    return includeSecuritySummary;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INCLUDE_SECURITY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIncludeSecuritySummary(Boolean includeSecuritySummary) {
+    this.includeSecuritySummary = includeSecuritySummary;
+  }
+
+
   public SecurityExplanationRequestParameters brokerResearchSummary(BrokerResearchSummary brokerResearchSummary) {
     this.brokerResearchSummary = brokerResearchSummary;
     return this;
@@ -512,12 +542,13 @@ public class SecurityExplanationRequestParameters implements Serializable {
         Objects.equals(this.includeMarketSummary, securityExplanationRequestParameters.includeMarketSummary) &&
         Objects.equals(this.includeInternalInvestmentRationaleRecommendation, securityExplanationRequestParameters.includeInternalInvestmentRationaleRecommendation) &&
         Objects.equals(this.includeInternalInvestmentRationalePriceTarget, securityExplanationRequestParameters.includeInternalInvestmentRationalePriceTarget) &&
+        Objects.equals(this.includeSecuritySummary, securityExplanationRequestParameters.includeSecuritySummary) &&
         Objects.equals(this.brokerResearchSummary, securityExplanationRequestParameters.brokerResearchSummary);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, startDate, endDate, enableLinks, explanationStyle, includePerformance, internalInvestmentRationale, includeCompanyDescription, includeMarketSummary, includeInternalInvestmentRationaleRecommendation, includeInternalInvestmentRationalePriceTarget, brokerResearchSummary);
+    return Objects.hash(id, startDate, endDate, enableLinks, explanationStyle, includePerformance, internalInvestmentRationale, includeCompanyDescription, includeMarketSummary, includeInternalInvestmentRationaleRecommendation, includeInternalInvestmentRationalePriceTarget, includeSecuritySummary, brokerResearchSummary);
   }
 
   @Override
@@ -535,6 +566,7 @@ public class SecurityExplanationRequestParameters implements Serializable {
     sb.append("    includeMarketSummary: ").append(toIndentedString(includeMarketSummary)).append("\n");
     sb.append("    includeInternalInvestmentRationaleRecommendation: ").append(toIndentedString(includeInternalInvestmentRationaleRecommendation)).append("\n");
     sb.append("    includeInternalInvestmentRationalePriceTarget: ").append(toIndentedString(includeInternalInvestmentRationalePriceTarget)).append("\n");
+    sb.append("    includeSecuritySummary: ").append(toIndentedString(includeSecuritySummary)).append("\n");
     sb.append("    brokerResearchSummary: ").append(toIndentedString(brokerResearchSummary)).append("\n");
     sb.append("}");
     return sb.toString();

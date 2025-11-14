@@ -1,0 +1,15 @@
+{
+  "packageName": "fds.sdk.OPENOPTIMIZER",
+  "projectName": "fds.sdk.OPENOPTIMIZER",
+  "packageVersion": "0.0.1",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "packageDescription": "OPEN:OPTIMIZER client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OPENOPTIMIZER/v1",
+  "httpUserAgent": "fds-sdk/python/OPENOPTIMIZER/0.0.1",
+  "files": {
+    "LICENSE": {}
+  }
+}

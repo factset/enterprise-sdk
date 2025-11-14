@@ -1,0 +1,26 @@
+{
+  "packageName": "FactSet.SDK.BestExecutionAnalyticsforSmarterTradingBEAST",
+  "packageVersion": "0.3.0",
+  "packageGuid": "{97ee1271-facc-5155-8c70-bedfc8c483b0}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/BestExecutionAnalyticsforSmarterTradingBEAST/v3",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Best Execution Analytics for Smarter Trading (BEAST) client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Best Execution Analytics for Smarter Trading (BEAST)",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/BestExecutionAnalyticsforSmarterTradingBEAST/0.3.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

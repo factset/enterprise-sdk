@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.FactSetSupplyChain",
   "projectName": "fds.sdk.FactSetSupplyChain",
-  "packageVersion": "2.0.0",
+  "packageVersion": "2.0.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "FactSet Supply Chain client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetSupplyChain/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetSupplyChain/2.0.0",
+  "httpUserAgent": "fds-sdk/python/FactSetSupplyChain/2.0.1",
   "files": {
     "LICENSE": {}
   }

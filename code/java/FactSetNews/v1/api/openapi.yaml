@@ -14,7 +14,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: News API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-news-api
@@ -2463,6 +2463,7 @@ components:
           subjects:
           - Class Action
           - Class Action
+          htmlUrl: https://api.factset.com/content/news/v1/report?type=news&key=U2FsdGVkX18zHsfB5OfTgHC2M1LFStDA0jaxo6Uh16SeFYkhvVEiBdc/6eS3kL6nuyUtKhurNVgkM6ucpKT9oA%3D%3D
           id: "1214441110"
           source: 00000-bid
           storyDateAndTime: 2022-09-15T06:48:19Z
@@ -2479,6 +2480,7 @@ components:
           subjects:
           - Class Action
           - Class Action
+          htmlUrl: https://api.factset.com/content/news/v1/report?type=news&key=U2FsdGVkX18zHsfB5OfTgHC2M1LFStDA0jaxo6Uh16SeFYkhvVEiBdc/6eS3kL6nuyUtKhurNVgkM6ucpKT9oA%3D%3D
           id: "1214441110"
           source: 00000-bid
           storyDateAndTime: 2022-09-15T06:48:19Z
@@ -2510,6 +2512,7 @@ components:
         subjects:
         - Class Action
         - Class Action
+        htmlUrl: https://api.factset.com/content/news/v1/report?type=news&key=U2FsdGVkX18zHsfB5OfTgHC2M1LFStDA0jaxo6Uh16SeFYkhvVEiBdc/6eS3kL6nuyUtKhurNVgkM6ucpKT9oA%3D%3D
         id: "1214441110"
         source: 00000-bid
         storyDateAndTime: 2022-09-15T06:48:19Z
@@ -2538,6 +2541,13 @@ components:
         url:
           description: The URI associated with the headline.
           example: https://my.apps.factset.com/viewer-fusion/?_doc_id=1234567&_doc_date=20220915&_doc_product=NEWS_SAMPLE
+          type: string
+        htmlUrl:
+          description: |
+            The URL to view the story in HTML format.
+
+            **Note:** HTML version does not include footer or metadata details that appear in the standard story view.
+          example: https://api.factset.com/content/news/v1/report?type=news&key=U2FsdGVkX18zHsfB5OfTgHC2M1LFStDA0jaxo6Uh16SeFYkhvVEiBdc/6eS3kL6nuyUtKhurNVgkM6ucpKT9oA%3D%3D
           type: string
         source:
           description: The source associated with the headline.

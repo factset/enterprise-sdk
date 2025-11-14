@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
+  version: 1.1.0
   title: FactSet Supply Chain API
   contact:
     name: FactSet Research Systems
@@ -281,6 +281,11 @@ components:
           type: string
           description: Identifier used in `ids`.
           example: AAPL-US
+        requestEntityId:
+          type: string
+          description: EntityId used in `ids`.
+          example: 000C7F-E
+          nullable: true
     relationshipsRequest:
       title: Relationships Request Body
       description: Relationships request body elements
@@ -487,132 +492,154 @@ components:
             overlapPercentage: 27
             relationshipDirection: Direct
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 001CJR-E
             companyName: Sony Group Corporation
             overlappingProductCount: 23 of 206
             overlapPercentage: 11
             relationshipDirection: Direct
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 05HWBQ-E
             companyName: Nintendo Co., Ltd.
             overlappingProductCount: 3 of 18
             overlapPercentage: 17
             relationshipDirection: Direct
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 000LNN-E
             companyName: HP Inc.
             overlappingProductCount: 17 of 86
             overlapPercentage: 20
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 001QBC-E
             companyName: Logitech International S.A.
             overlappingProductCount: 15 of 38
             overlapPercentage: 39
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 05X2J1-E
             companyName: Dreamus Company
             overlappingProductCount: 10 of 28
             overlapPercentage: 36
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0J5Z7W-E
             companyName: Shenzhen Aoni Electronic Co. Ltd. Class A
             overlappingProductCount: 6 of 11
             overlapPercentage: 55
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0HWCMK-E
             companyName: Zepp Health Corp. Sponsored ADR Class A
             overlappingProductCount: 6 of 11
             overlapPercentage: 55
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0D6K1F-E
             companyName: Fnac Darty SA
             overlappingProductCount: 6 of 16
             overlapPercentage: 38
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 064N0H-E
             companyName: Roku, Inc. Class A
             overlappingProductCount: 5 of 11
             overlapPercentage: 45
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 05JM7V-E
             companyName: Salora International Limited
             overlappingProductCount: 5 of 15
             overlapPercentage: 33
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 006TD7-E
             companyName: Sonos, Inc.
             overlappingProductCount: 5 of 16
             overlapPercentage: 31
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 05K015-E
             companyName: Archos SA
             overlappingProductCount: 5 of 24
             overlapPercentage: 21
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0GS3BP-E
             companyName: Wearable Devices Ltd.
             overlappingProductCount: 4 of 5
             overlapPercentage: 80
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0XBNKT-E
             companyName: Reeder Teknoloji Sanayi ve Ticaret A.S.
             overlappingProductCount: 4 of 10
             overlapPercentage: 40
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 00BJ65-E
             companyName: Spotify Technology SA
             overlappingProductCount: 4 of 11
             overlapPercentage: 36
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0JMZW0-E
             companyName: Simply Inc
             overlappingProductCount: 3 of 4
             overlapPercentage: 75
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0D029B-E
             companyName: Snap, Inc. Class A
             overlappingProductCount: 3 of 4
             overlapPercentage: 75
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0FLP6Y-E
             companyName: Beamr Imaging Ltd.
             overlappingProductCount: 3 of 5
             overlapPercentage: 60
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 0CNWCF-E
             companyName: Eastech Holding Limited
             overlappingProductCount: 3 of 7
             overlapPercentage: 43
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 078N6D-E
             companyName: Stingray Group, Inc.
             overlappingProductCount: 3 of 7
             overlapPercentage: 43
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
           - entityId: 005MWJ-E
             companyName: Sonim Technologies, Inc.
             overlappingProductCount: 3 of 9
             overlapPercentage: 33
             relationshipDirection: Reverse
             requestId: AAPL-US
+            requestEntityId: 000C7F-E
     postRelationships:
       summary: Relationships request body.
       description: Relationships request body.

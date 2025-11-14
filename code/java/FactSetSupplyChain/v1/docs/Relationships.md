@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **overlapPercentage** | **Integer** | Product Overlap Percentage is the percent value of the preceding overlapping product count data item. |  [optional]
 **relationshipDirection** | [**RelationshipDirectionEnum**](#RelationshipDirectionEnum) | Direction of Relationship indicates which company (target or source) determined the relationship. |  [optional]
 **requestId** | **String** | Identifier used in &#x60;ids&#x60;. |  [optional]
+**requestEntityId** | **String** | EntityId used in &#x60;ids&#x60;. |  [optional]
 
 
 

@@ -1134,7 +1134,7 @@
           },
           "includeMarketSummary": {
             "type": "boolean",
-            "description": "Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.",
+            "description": "Include or exclude market and sector news relating to the target company for additional context.",
             "default": true,
             "example": true
           },
@@ -1147,6 +1147,12 @@
           "includeInternalInvestmentRationalePriceTarget": {
             "type": "boolean",
             "description": "For IRN users only; include or exclude your firm's price target in the summary or footnote.",
+            "default": true,
+            "example": true
+          },
+          "includeSecuritySummary": {
+            "type": "boolean",
+            "description": "Include or exclude summary of a security's performance over the specified period.",
             "default": true,
             "example": true
           },

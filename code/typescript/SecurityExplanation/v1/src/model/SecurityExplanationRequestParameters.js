@@ -87,6 +87,9 @@ class SecurityExplanationRequestParameters {
             if (data.hasOwnProperty('includeInternalInvestmentRationalePriceTarget')) {
                 obj['includeInternalInvestmentRationalePriceTarget'] = ApiClient.convertToType(data['includeInternalInvestmentRationalePriceTarget'], 'Boolean');
             }
+            if (data.hasOwnProperty('includeSecuritySummary')) {
+                obj['includeSecuritySummary'] = ApiClient.convertToType(data['includeSecuritySummary'], 'Boolean');
+            }
             if (data.hasOwnProperty('brokerResearchSummary')) {
                 obj['brokerResearchSummary'] = BrokerResearchSummary.constructFromObject(data['brokerResearchSummary']);
             }
@@ -151,7 +154,7 @@ SecurityExplanationRequestParameters.prototype['internalInvestmentRationale'] = 
 SecurityExplanationRequestParameters.prototype['includeCompanyDescription'] = false;
 
 /**
- * Include or exclude a second paragraph in the explanation, offering market and sector news relating to the target company for additional context.
+ * Include or exclude market and sector news relating to the target company for additional context.
  * @member {Boolean} includeMarketSummary
  * @default true
  */
@@ -170,6 +173,13 @@ SecurityExplanationRequestParameters.prototype['includeInternalInvestmentRationa
  * @default true
  */
 SecurityExplanationRequestParameters.prototype['includeInternalInvestmentRationalePriceTarget'] = true;
+
+/**
+ * Include or exclude summary of a security's performance over the specified period.
+ * @member {Boolean} includeSecuritySummary
+ * @default true
+ */
+SecurityExplanationRequestParameters.prototype['includeSecuritySummary'] = true;
 
 /**
  * @member {module:model/BrokerResearchSummary} brokerResearchSummary

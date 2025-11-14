@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **overlap_percentage** | **int, none_type** | Product Overlap Percentage is the percent value of the preceding overlapping product count data item. | [optional] 
 **relationship_direction** | **str** | Direction of Relationship indicates which company (target or source) determined the relationship. | [optional] 
 **request_id** | **str** | Identifier used in &#x60;ids&#x60;. | [optional] 
+**request_entity_id** | **str, none_type** | EntityId used in &#x60;ids&#x60;. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

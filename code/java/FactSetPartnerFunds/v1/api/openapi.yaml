@@ -1,0 +1,4756 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    Partner Funds API provides profile, allocations, performance and ranking information for mutual funds. The data is sourced from different vendors.  Currently the available partner is Fundata, a leading provider of Canadian mutual fund data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Partner Funds API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/partner-funds-api
+servers:
+- description: Production
+  url: https://api.factset.com/content/partner-funds/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Endpoints related to data from Fundata
+  name: Canadian Mutual Fund Data from Fundata
+paths:
+  /fundata/asset-allocations:
+    get:
+      description: This endpoint provides asset allocations for Canadian mutual fund
+        aggregated by asset. The result is default sorted in descending order of asset
+        weight of the fund.
+      operationId: getAssetAllocations
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Specifies the language of the response. Supported languages are
+          English (`EN`) and French (`FR`). Default is English.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: EN
+          enum:
+          - EN
+          - FR
+          type: string
+        style: form
+      - description: |-
+          Enables sorting data in ascending or descending order based on weight of the fund.
+          * `weight` - sorts results in ascending order.
+          *  `-weight` - sorts results in descending order.
+        examples:
+          weight:
+            summary: weight
+            value:
+            - weight
+          "-weight":
+            summary: -weight
+            value:
+            - -weight
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -weight
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of asset allocations for the given parameters:
+                  $ref: '#/components/examples/resultOfAssetAllocations'
+                Result of asset allocations for the given parameters including an invalid id:
+                  $ref: '#/components/examples/resultOfAssetAllocationsWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/AssetAllocationsResponse'
+          description: The asset allocation response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund asset allocations
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/distribution:
+    get:
+      description: This endpoint provides distribution data for Canadian mutual funds.
+      operationId: getDistribution
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of distributions endpoint:
+                  $ref: '#/components/examples/distributionResponse'
+                Result of distributions endpoint for funds including invalid id:
+                  $ref: '#/components/examples/distributionResponseWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/DistributionsResponse'
+          description: The distribution response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund distributions
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/fees:
+    get:
+      description: This endpoint provides fees data for Canadian mutual funds.
+      operationId: getFees
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Specifies the language of the response. Supported languages are
+          English (`EN`) and French (`FR`). Default is English.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: EN
+          enum:
+          - EN
+          - FR
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of fees endpoint:
+                  $ref: '#/components/examples/feesResponse'
+                Result of fees endpoint for funds including invalid id:
+                  $ref: '#/components/examples/feesResponseWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/FeesResponse'
+          description: The fees response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund fees
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/geographic-allocations:
+    get:
+      description: This endpoint provides geographic allocations (which can be countries
+        or regions) of the holdings within Canadian mutual funds. The result is default
+        sorted in descending order of geographic weight of the fund.
+      operationId: getGeographicAllocations
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Specifies the language of the response. Supported languages are
+          English (`EN`) and French (`FR`). Default is English.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: EN
+          enum:
+          - EN
+          - FR
+          type: string
+        style: form
+      - description: |-
+          Enables sorting data in ascending or descending order based on weight of the fund.
+          * `weight` - sorts results in ascending order.
+          *  `-weight` - sorts results in descending order.
+        examples:
+          weight:
+            summary: weight
+            value:
+            - weight
+          "-weight":
+            summary: -weight
+            value:
+            - -weight
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -weight
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of geographic allocation for the given parameters:
+                  $ref: '#/components/examples/resultOfGeoAllocations'
+                Result of geographic allocations for the given parameters including an invalid id:
+                  $ref: '#/components/examples/resultOfGeoAllocationsWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/GeoAllocationsResponse'
+          description: The geographic allocation response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund geographic allocations
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/growth-of-10k:
+    get:
+      description: This endpoint provides growth of 10K data for Canadian mutual funds.
+        The result is default sorted in descending order of asOfDate.
+      operationId: getGrowthOfTenK
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Periodicity or frequency of the fiscal period.
+        explode: true
+        in: query
+        name: timePeriod
+        required: false
+        schema:
+          default: 1Y
+          enum:
+          - 3M
+          - 6M
+          - 1Y
+          - 3Y
+          - 5Y
+          - 10Y
+          - 20Y
+          type: string
+        style: form
+      - description: |-
+          Enables sorting data in ascending or descending order based on weight of the fund.
+          * `weight` - sorts results in ascending order.
+          *  `-weight` - sorts results in descending order.
+        examples:
+          weight:
+            summary: weight
+            value:
+            - weight
+          "-weight":
+            summary: -weight
+            value:
+            - -weight
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -weight
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of growth of 10K for the given parameters:
+                  $ref: '#/components/examples/resultOfGrowthDetails'
+                Result of growth of 10K for the given paramters including an invalid id:
+                  $ref: '#/components/examples/resultOfGrowthWithInvalidIdDetails'
+              schema:
+                $ref: '#/components/schemas/GrowthOfTenKResponse'
+          description: The growth of 10K response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund growth of 10K
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/holdings:
+    get:
+      description: This endpoint provides top 10 holdings for Canadian mutual funds.
+        The result is default sorted in descending order of weight of the holdings.
+      operationId: getHoldings
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of holdings for the given parameters:
+                  $ref: '#/components/examples/resultOfHoldings'
+                Result of holdings for the given parameters including an invalid id:
+                  $ref: '#/components/examples/resultOfHoldingsWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/HoldingsResponse'
+          description: The holdings response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund holdings
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/profile:
+    get:
+      description: This endpoint provides profile information for Canadian mutual
+        funds such as objective, manager, and basic returns.
+      operationId: getProfile
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Specifies the language of the response. Supported languages are
+          English (`EN`) and French (`FR`). Default is English.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: EN
+          enum:
+          - EN
+          - FR
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Profile response for given funds:
+                  $ref: '#/components/examples/profileResponse'
+                Profile response for funds with an invalid id:
+                  $ref: '#/components/examples/profileResponseWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+          description: The fund profile response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund profile
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/rankings:
+    get:
+      description: This endpoint provides rankings for Canadian mutual funds as compared
+        to benchmarks and peers.
+      operationId: getRankings
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of ranking details for given funds:
+                  $ref: '#/components/examples/resultOfRankingDetails'
+                Result of ranking details for given funds including invalid id:
+                  $ref: '#/components/examples/resultOfRankingWithInvalidIdDetails'
+              schema:
+                $ref: '#/components/schemas/PerformanceRankingsResponse'
+          description: The fund rankings response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund rankings
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/returns:
+    get:
+      description: |
+        This endpoint provides all the comparative performance values for Canadian mutual funds and their respective benchmark indices. Please note: all periods greater than one year are annualized.
+      operationId: getReturns
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of comparative performance returns for fund:
+                  $ref: '#/components/examples/resultOfReturnsDetails'
+                Result of comparative performance returns for funds including an invalid id:
+                  $ref: '#/components/examples/resultOfReturnsWithInvalidIdDetails'
+              schema:
+                $ref: '#/components/schemas/PerformanceReturnsResponse'
+          description: The fund returns response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund returns
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/sector-allocations:
+    get:
+      description: This endpoint provides Canadian mutual fund data aggregated by
+        sector. The result is default sorted in descending order of sector weight
+        of the fund.
+      operationId: getSectorAllocations
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Specifies the language of the response. Supported languages are
+          English (`EN`) and French (`FR`). Default is English.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: EN
+          enum:
+          - EN
+          - FR
+          type: string
+        style: form
+      - description: |-
+          Enables sorting data in ascending or descending order based on weight of the fund.
+          * `weight` - sorts results in ascending order.
+          *  `-weight` - sorts results in descending order.
+        examples:
+          weight:
+            summary: weight
+            value:
+            - weight
+          "-weight":
+            summary: -weight
+            value:
+            - -weight
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - -weight
+          items:
+            type: string
+          maxItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of sector allocations for given parameters:
+                  $ref: '#/components/examples/resultOfSectorAllocations'
+                Result of sector allocations including an invalid identifier:
+                  $ref: '#/components/examples/resultOfSectorAllocationsWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/SectorAllocationsResponse'
+          description: The fund sector allocation response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund sector allocations
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+  /fundata/risk:
+    get:
+      description: This endpoint provides risk data for Canadian mutual funds.
+      operationId: getRisk
+      parameters:
+      - description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+        examples:
+          oneId:
+            summary: One Identifier
+            value:
+            - AGF10450
+          multipleIds:
+            summary: Multiple Identifiers
+            value:
+            - AGF10450
+            - AIM25591
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            maxLength: 20
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: Specifies the language of the response. Supported languages are
+          English (`EN`) and French (`FR`). Default is English.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: EN
+          enum:
+          - EN
+          - FR
+          type: string
+        style: form
+      - description: |
+          Number of years of risk data to return.
+        example: 5
+        explode: true
+        in: query
+        name: numYears
+        required: false
+        schema:
+          default: 5
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of risk endpoint:
+                  $ref: '#/components/examples/resultOfRisk'
+                Result of risk endpoint for funds including invalid id:
+                  $ref: '#/components/examples/resultOfRiskWithInvalidId'
+              schema:
+                $ref: '#/components/schemas/RiskResponse'
+          description: The risk response object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Fund risk
+      tags:
+      - Canadian Mutual Fund Data from Fundata
+      x-accepts: application/json
+components:
+  examples:
+    resultOfGrowthDetails:
+      description: |
+        Results include fund growth data on a quarterly basis with the preliminary data values for funds AGF10450, AIM25591
+      summary: Growth details for requested identifiers
+      value:
+        data:
+        - requestId: AGF10450
+          startAvailableHistoryDate: 2022-08-31
+          asOfDate: 2024-11-26
+          growthOf10K:
+          - endDate: 2024-10-31
+            value: 11888.0951
+            percent: -0.11
+          - endDate: 2024-09-30
+            value: 11901.6273
+            percent: 7.96
+          - endDate: 2024-08-31
+            value: 11024.5372
+            percent: -1.71
+          - endDate: 2024-07-31
+            value: 11216.0398
+            percent: 0.52
+        - requestId: AIM25591
+          startAvailableHistoryDate: 2007-09-30
+          asOfDate: 2024-12-02
+          growthOf10K:
+          - endDate: 2024-10-31
+            value: 25784.9304
+            percent: -0.36
+          - endDate: 2024-09-30
+            value: 25878.585
+            percent: 1.63
+          - endDate: 2024-08-31
+            value: 25462.828
+            percent: -0.4
+    resultOfGrowthWithInvalidIdDetails:
+      description: |
+        Results include fund growth data on a quarterly basis with the preliminary data values for funds AGF10450, AIM25591 and an example error for an invalid fund.
+      summary: Growth details for requested identifiers that include an invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF10450
+          startAvailableHistoryDate: 2022-08-31
+          asOfDate: 2024-11-26
+          growthOf10K:
+          - endDate: 2024-10-31
+            value: 11888.0951
+            percent: -0.11
+          - endDate: 2024-09-30
+            value: 11901.6273
+            percent: 7.96
+          - endDate: 2024-08-31
+            value: 11024.5372
+            percent: -1.71
+          - endDate: 2024-07-31
+            value: 11216.0398
+            percent: 0.52
+        - requestId: AIM25591
+          startAvailableHistoryDate: 2007-09-30
+          asOfDate: 2024-12-02
+          growthOf10K:
+          - endDate: 2024-10-31
+            value: 25784.9304
+            percent: -0.36
+          - endDate: 2024-09-30
+            value: 25878.585
+            percent: 1.63
+          - endDate: 2024-08-31
+            value: 25462.828
+            percent: -0.4
+    resultOfRankingDetails:
+      description: |
+        Results include fund ranking data for funds AGF10450, AIM25591.
+      summary: Ranking details for requested identifiers
+      value:
+        data:
+        - requestId: AGF10450
+          asOfDate: 2024-10-31
+          quartileRankings:
+            rankOneMonth: 0
+            rankThreeMonths: 0
+            rankSixMonths: 0
+            rankYearToDate: 0
+          totalFunds:
+            countOneMonth: 0
+            countThreeMonths: 0
+            countSixMonths: 0
+            countYearToDate: 0
+        - requestId: AIM25591
+          asOfDate: 2024-10-31
+          quartileRankings:
+            rankOneMonth: 0
+            rankThreeMonths: 0
+            rankSixMonths: 0
+            rankYearToDate: 0
+          totalFunds:
+            countOneMonth: 0
+            countThreeMonths: 0
+            countSixMonths: 0
+            countYearToDate: 0
+    resultOfRankingWithInvalidIdDetails:
+      description: |
+        Results include fund ranking data for funds AGF10450, AIM25591 and an example error for an invalid fund.
+      summary: Ranking details for requested identifiers that include an invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF10450
+          asOfDate: 2024-10-31
+          quartileRankings:
+            rankOneMonth: 0
+            rankThreeMonths: 0
+            rankSixMonths: 0
+            rankYearToDate: 0
+          totalFunds:
+            countOneMonth: 0
+            countThreeMonths: 0
+            countSixMonths: 0
+            countYearToDate: 0
+        - requestId: AIM25591
+          asOfDate: 2024-10-31
+          quartileRankings:
+            rankOneMonth: 0
+            rankThreeMonths: 0
+            rankSixMonths: 0
+            rankYearToDate: 0
+          totalFunds:
+            countOneMonth: 0
+            countThreeMonths: 0
+            countSixMonths: 0
+            countYearToDate: 0
+    resultOfReturnsDetails:
+      description: |
+        Results include fund performance data for funds AGF10450, AIM25591
+      summary: Performance returns details for requested identifiers
+      value:
+        data:
+        - requestId: AGF10450
+          asOfDate: 2024-11-26
+          benchmarkIndexReturns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 27.533244
+            annualizedSinceInception: 6.931104
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.8809
+            sixMonths: 11.901679
+            threeMonths: 6.593117
+            yearToDate: 20.804539
+            asOfDate: 2024-10-31
+          returns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 16.970606
+            annualizedSinceInception: 7.104128
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.1137
+            sixMonths: 8.336801
+            threeMonths: 5.991913
+            yearToDate: 13.522147
+            asOfDate: 2024-10-31
+          calendarYearReturns:
+          - fundSimpleReturn: 16.970607
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 16.970606
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            categoryCompoundReturn: 27.533244
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 279
+            fundCompoundReturnCategoryRankCount: 321
+            year: 2024
+          - fundSimpleReturn: 11.874
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 14.393923
+            indexSimpleReturn: 12.968844
+            indexCompoundReturn: 20.030343
+            categorySimpleReturn: 12.968844
+            categoryCompoundReturn: 20.030343
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 237
+            fundCompoundReturnCategoryRankCount: 304
+            year: 2023
+        - requestId: AIM25591
+          asOfDate: 2024-11-26
+          benchmarkIndexReturns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 27.533244
+            annualizedSinceInception: 6.931104
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.8809
+            sixMonths: 11.901679
+            threeMonths: 6.593117
+            yearToDate: 20.804539
+            asOfDate: 2024-10-31
+          returns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 16.970606
+            annualizedSinceInception: 7.104128
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.1137
+            sixMonths: 8.336801
+            threeMonths: 5.991913
+            yearToDate: 13.522147
+            asOfDate: 2024-10-31
+          calendarYearReturns:
+          - fundSimpleReturn: 16.970607
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 16.970606
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            categoryCompoundReturn: 27.533244
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 279
+            fundCompoundReturnCategoryRankCount: 321
+            year: 2024
+          - fundSimpleReturn: 11.874
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 14.393923
+            indexSimpleReturn: 12.968844
+            indexCompoundReturn: 20.030343
+            categorySimpleReturn: 12.968844
+            categoryCompoundReturn: 20.030343
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 237
+            fundCompoundReturnCategoryRankCount: 304
+            year: 2023
+    resultOfReturnsWithInvalidIdDetails:
+      description: |
+        Results include fund performance data for funds AGF10450, AIM25591 and an example error for an invalid fund.
+      summary: Performance returns details for requested identifiers including an
+        invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF10450
+          asOfDate: 2024-11-26
+          benchmarkIndexReturns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 27.533244
+            annualizedSinceInception: 6.931104
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.8809
+            sixMonths: 11.901679
+            threeMonths: 6.593117
+            yearToDate: 20.804539
+            asOfDate: 2024-10-31
+          returns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 16.970606
+            annualizedSinceInception: 7.104128
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.1137
+            sixMonths: 8.336801
+            threeMonths: 5.991913
+            yearToDate: 13.522147
+            asOfDate: 2024-10-31
+          calendarYearReturns:
+          - fundSimpleReturn: 16.970607
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 16.970606
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            categoryCompoundReturn: 27.533244
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 279
+            fundCompoundReturnCategoryRankCount: 321
+            year: 2024
+          - fundSimpleReturn: 11.874
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 14.393923
+            indexSimpleReturn: 12.968844
+            indexCompoundReturn: 20.030343
+            categorySimpleReturn: 12.968844
+            categoryCompoundReturn: 20.030343
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 237
+            fundCompoundReturnCategoryRankCount: 304
+            year: 2023
+        - requestId: AIM25591
+          asOfDate: 2024-11-26
+          benchmarkIndexReturns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 27.533244
+            annualizedSinceInception: 6.931104
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.8809
+            sixMonths: 11.901679
+            threeMonths: 6.593117
+            yearToDate: 20.804539
+            asOfDate: 2024-10-31
+          returns:
+            annualizedFiveYears: 6.221999
+            annualizedOneYear: 16.970606
+            annualizedSinceInception: 7.104128
+            annualizedTenYears: 6.479242
+            annualizedThreeYears: 4.317091
+            annualizedTwentyYears: null
+            oneMonth: -0.1137
+            sixMonths: 8.336801
+            threeMonths: 5.991913
+            yearToDate: 13.522147
+            asOfDate: 2024-10-31
+          calendarYearReturns:
+          - fundSimpleReturn: 16.970607
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 16.970606
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            categoryCompoundReturn: 27.533244
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 279
+            fundCompoundReturnCategoryRankCount: 321
+            year: 2024
+          - fundSimpleReturn: 11.874
+            fundSimpleReturnQuartile: 4
+            fundSimpleReturnCategoryRank: 296
+            fundSimpleReturnCategoryRankCount: 306
+            fundCompoundReturn: 14.393923
+            indexSimpleReturn: 12.968844
+            indexCompoundReturn: 20.030343
+            categorySimpleReturn: 12.968844
+            categoryCompoundReturn: 20.030343
+            fundCompoundReturnQuartile: 4
+            fundCompoundReturnCategoryRank: 237
+            fundCompoundReturnCategoryRankCount: 304
+            year: 2023
+    profileResponse:
+      description: Results include profile data for fund BMO95322.
+      summary: Profile response for a requested identifier
+      value:
+        data:
+        - requestId: BMO95322
+          name: BMO Aggregate Bond ETF Fund Series F
+          category: Canadian Fixed Income
+          company: BMO Investment Inc. Series F
+          group: BMO Investments Inc.
+          objective: This fund’s objective is to provide a return that is similar
+            to the return of one or more exchange traded funds that invest primarily
+            in Canadian bonds. The fund may invest all or a portion of its assets
+            in an exchange traded fund that invests in such securities, invest directly
+            in the underlying securities held by the exchange traded fund and/or use
+            derivatives to provide the fund with a return determined by reference
+            to the exchange traded fund or its reference index.
+          strategy: 'These are the strategies the portfolio manager uses to try to
+            achieve the fund’s objectives: • invests up to 100% of the fund’s assets
+            in securities of BMO Aggregate Bond Index ETF • BMO Aggregate Bond Index
+            ETF seeks to replicate, to the extent possible, the performance of an
+            aggregate bond index, net of expenses, which is currently the FTSE Canada
+            Universe Bond Index..'
+          benchmarkIndexName: ICE BofA Canada Broad Market Index TR CAD
+          managers:
+          - company: BMO Investment Inc.
+            name: Matt Montemurro
+            biography: Matt is responsible for managing and trading on behalf of the
+              fixed income portfolios, as well as, assisting with currency hedging
+              and managing the equity portfolios for the BMO Global Structured Investments
+              team. Matt joined BMO Financial Group in 2009, as a part of the Wealth
+              Management Associate program. Upon completion of the two year rotational
+              program, Matt worked as a fixed income trader for the fundamental fixed
+              income team at BMO Asset Management Inc.
+            startDate: 2023-03-27
+            education: ""
+          inceptionDate: 2023-03-27
+          loadType: No Load
+          netExpenseRatio: 0.09
+          managementFee: 0.08
+          netAssets: 254.4
+          currency: CAD
+          address:
+            address: 77 King Street West, Suite 4200, , Toronto, ON
+            phone: ""
+            fax: ""
+            tollFreeNumber: ""
+            website: ""
+          rrspInitialInvestment: 500.01
+          rrspAdditionalInvestment: 50.01
+          respEligible: true
+          rrspEligible: true
+          availableInProvinces:
+          - AB
+          - BC
+          - MB
+          - NB
+          minimumInvestment: 500.01
+          additionalInvestment: 50.01
+          nav:
+            nav: 9.9391
+            asOfDate: 2024-11-27
+            highFiftyTwoWeeks: 10.0878
+            lowFiftyTwoWeeks: 9.452
+            changeDollar: 0.0274
+            changePercent: 0.276441
+            previous: null
+          dividend:
+            annualYield: 0.028
+            distributionFrequency: Annual
+          returns:
+            asOfDate: 2024-10-31
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            sixMonths: 14.104036
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            annualizedThreeYears: 0.875398
+            annualizedFiveYears: 9.689019
+            annualizedTenYears: 11.927918
+            annualizedSinceInception: 9.879215
+          asOfDate: 2024-11-27
+          fundGrade: ""
+          fundSeries: F
+          fundServ:
+          - fundServCode: BMO18322
+            fundServName: BMO Aggregate Bond ETF Fund Series F
+            fundServLoadCode: NL
+            fundServLoadName: No Load
+          - fundServCode: BMO68322
+            fundServName: BMO Aggregate Bond ETF Fund Series F
+            fundServLoadCode: NL
+            fundServLoadName: No Load
+    profileResponseWithInvalidId:
+      description: Results include profile data for fund BMO95322 and an example error
+        for an invalid fund.
+      summary: Profile response for requested identifiers including an invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: BMO95322
+          name: BMO Aggregate Bond ETF Fund Series F
+          category: Canadian Fixed Income
+          company: BMO Investment Inc. Series F
+          group: BMO Investments Inc.
+          objective: This fund’s objective is to provide a return that is similar
+            to the return of one or more exchange traded funds that invest primarily
+            in Canadian bonds. The fund may invest all or a portion of its assets
+            in an exchange traded fund that invests in such securities, invest directly
+            in the underlying securities held by the exchange traded fund and/or use
+            derivatives to provide the fund with a return determined by reference
+            to the exchange traded fund or its reference index.
+          strategy: 'These are the strategies the portfolio manager uses to try to
+            achieve the fund’s objectives: • invests up to 100% of the fund’s assets
+            in securities of BMO Aggregate Bond Index ETF • BMO Aggregate Bond Index
+            ETF seeks to replicate, to the extent possible, the performance of an
+            aggregate bond index, net of expenses, which is currently the FTSE Canada
+            Universe Bond Index..'
+          benchmarkIndexName: ICE BofA Canada Broad Market Index TR CAD
+          managers:
+          - company: BMO Investment Inc.
+            name: Matt Montemurro
+            biography: Matt is responsible for managing and trading on behalf of the
+              fixed income portfolios, as well as, assisting with currency hedging
+              and managing the equity portfolios for the BMO Global Structured Investments
+              team. Matt joined BMO Financial Group in 2009, as a part of the Wealth
+              Management Associate program. Upon completion of the two year rotational
+              program, Matt worked as a fixed income trader for the fundamental fixed
+              income team at BMO Asset Management Inc.
+            startDate: 2023-03-27
+            education: ""
+          inceptionDate: 2023-03-27
+          loadType: No Load
+          netExpenseRatio: 0.09
+          managementFee: 0.08
+          netAssets: 254.4
+          currency: CAD
+          address:
+            address: 77 King Street West, Suite 4200, , Toronto, ON
+            phone: ""
+            fax: ""
+            tollFreeNumber: ""
+            website: ""
+          rrspInitialInvestment: 500.01
+          rrspAdditionalInvestment: 50.01
+          respEligible: true
+          rrspEligible: true
+          availableInProvinces:
+          - AB
+          - BC
+          - MB
+          - NB
+          minimumInvestment: 500.01
+          additionalInvestment: 50.01
+          nav:
+            nav: 9.9391
+            asOfDate: 2024-11-27
+            highFiftyTwoWeeks: 10.0878
+            lowFiftyTwoWeeks: 9.452
+            changeDollar: 0.0274
+            changePercent: 0.276441
+            previous: null
+          dividend:
+            annualYield: 0.028
+            distributionFrequency: Annual
+          returns:
+            asOfDate: 2024-10-31
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            sixMonths: 14.104036
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            annualizedThreeYears: 0.875398
+            annualizedFiveYears: 9.689019
+            annualizedTenYears: 11.927918
+            annualizedSinceInception: 9.879215
+          asOfDate: 2024-11-27
+          fundGrade: ""
+          fundSeries: F
+          fundServ:
+          - fundServCode: BMO18322
+            fundServName: BMO Aggregate Bond ETF Fund Series F
+            fundServLoadCode: NL
+            fundServLoadName: No Load
+          - fundServCode: BMO68322
+            fundServName: BMO Aggregate Bond ETF Fund Series F
+            fundServLoadCode: NL
+            fundServLoadName: No Load
+    feesResponse:
+      description: Results include fee data for fund AGF247
+      summary: Fees response for a requested identifier
+      value:
+        data:
+        - requestId: AGF247
+          isPreAuthorizedInvestmentPlan: true
+          isSystematicWithdrawlPlan: true
+          backendFees: Deferred - initial sum
+          rrspAnnualAdminFee: 0.1
+          rrifAnnualAdminFee: 0.1
+          switchFees: Your dealer may charge you up to 2% of the value you switch
+            to another AGF fund.
+          rrspWithdrawalFee: 0.1
+          rrifWithdrawalFee: 0.1
+          trailerFees: 'DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+            After: up to 1%.'
+          swpMinBalance: 0.1
+          load: Choice of Front or No Load
+          isNoLoad: false
+          maxFrontEndPercent: 6.01
+          maxBackEndPercent: 5.5
+          otherFees: None
+    feesResponseWithInvalidId:
+      description: Results include fee data for fund AGF247 and an example error for
+        an invalid fund.
+      summary: Fees response for requested identifiers including an invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF247
+          isPreAuthorizedInvestmentPlan: true
+          isSystematicWithdrawlPlan: true
+          backendFees: Deferred - initial sum
+          rrspAnnualAdminFee: 0.1
+          rrifAnnualAdminFee: 0.1
+          switchFees: Your dealer may charge you up to 2% of the value you switch
+            to another AGF fund.
+          rrspWithdrawalFee: 0.1
+          rrifWithdrawalFee: 0.1
+          trailerFees: 'DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+            After: up to 1%.'
+          swpMinBalance: 0.1
+          load: Choice of Front or No Load
+          isNoLoad: false
+          maxFrontEndPercent: 6.01
+          maxBackEndPercent: 5.5
+          otherFees: None
+    distributionResponse:
+      description: Results include distribution data for fund BMO95322.
+      summary: Distributions response for a requested identifier
+      value:
+        data:
+        - requestId: BMO95322
+          distributionOneMonth:
+            capitalGains: 0.2
+            dividend: 0.028
+            foreignDividend: 0.2
+            interestIncome: 0.2
+            returnOnPrincipal: 0.2
+            totalDistribution: 0.828
+          distributionOneYear:
+            capitalGains: 0.1
+            dividend: 0.336
+            foreignDividend: 0.1
+            interestIncome: 0.1
+            returnOnPrincipal: 0.1
+            totalDistribution: 0.736
+          distributionYearToDate:
+            capitalGains: 0.1
+            dividend: 0.28
+            foreignDividend: 0.1
+            interestIncome: 0.1
+            returnOnPrincipal: 0.1
+            totalDistribution: 0.68
+    distributionResponseWithInvalidId:
+      description: Results include distribution data for fund BMO95322 and an example
+        error for an invalid fund.
+      summary: Distributions response for requested identifiers including an invalid
+        identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: BMO95322
+          distributionOneMonth:
+            capitalGains: 0.2
+            dividend: 0.028
+            foreignDividend: 0.2
+            interestIncome: 0.2
+            returnOnPrincipal: 0.2
+            totalDistribution: 0.828
+          distributionOneYear:
+            capitalGains: 0.1
+            dividend: 0.336
+            foreignDividend: 0.1
+            interestIncome: 0.1
+            returnOnPrincipal: 0.1
+            totalDistribution: 0.736
+          distributionYearToDate:
+            capitalGains: 0.1
+            dividend: 0.28
+            foreignDividend: 0.1
+            interestIncome: 0.1
+            returnOnPrincipal: 0.1
+            totalDistribution: 0.68
+    resultOfAssetAllocations:
+      description: |
+        Results include fund data for fund AGF258
+      summary: Asset Allocations details for a requested identifier
+      value:
+        data:
+        - requestId: AGF258
+          asOfDate: 2024-11-27
+          assetAllocations:
+          - asset: Cash
+            weight: 2.34
+          - asset: Equity
+            weight: 97.66
+    resultOfAssetAllocationsWithInvalidId:
+      description: |
+        Results include fund data for fund AGF258 and an example error for an invalid fund
+      summary: Asset Allocations details for requested identifiers including an invalid
+        identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF258
+          asOfDate: 2024-11-27
+          assetAllocations:
+          - asset: Cash
+            weight: 2.34
+          - asset: Equity
+            weight: 97.66
+    resultOfGeoAllocations:
+      description: |
+        Results include fund data for fund AGF258
+      summary: Geographic Allocations details for a requested identifier
+      value:
+        data:
+        - requestId: AGF258
+          asOfDate: 2024-11-27
+          geoAllocations:
+          - region: Canada
+            weight: 9.21
+          - region: United States
+            weight: 87.46
+          - region: Philippines
+            weight: 3.33
+    resultOfGeoAllocationsWithInvalidId:
+      description: |
+        Results include fund data for fund AGF258 and an example error for an invalid fund
+      summary: Geographic Allocations details for requested identifiers including
+        invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF258
+          asOfDate: 2024-11-27
+          geoAllocations:
+          - region: Canada
+            weight: 9.21
+          - region: United States
+            weight: 87.46
+          - region: Philippines
+            weight: 3.33
+    resultOfHoldings:
+      description: "Results include fund data for fund MMF4756 \n"
+      summary: Holding details for a requested identifier
+      value:
+        data:
+        - requestId: MMF4756
+          asOfDate: 2014-11-27
+          top10Weight: 30.93
+          holdings:
+          - name: Microsoft Corp - Common
+            holdingId: MSFT
+            weight: 4.81
+          - name: Philip Morris International Inc - Common
+            holdingId: PM-US
+            weight: 3.95
+          - name: Apple Inc - Common
+            holdingId: AAPL
+            weight: 3.82
+          - name: Crh PLC - Common
+            holdingId: CRH
+            weight: 3.15
+          - name: ConocoPhillips - Common
+            holdingId: COP
+            weight: 2.77
+          - name: ING Groep NV - Common
+            holdingId: ING-US
+            weight: 2.64
+          - name: Alphabet Inc - Common Cl A
+            holdingId: GOOGL
+            weight: 2.62
+          - name: Samsung Electronics Co Ltd - Pfd
+            holdingId: 005935-KR
+            weight: 2.61
+          - name: TotalEnergies SE - Common
+            holdingId: TTE-FR
+            weight: 2.42
+          - name: Sumitomo Mitsui Trust Holdings Inc - Common
+            holdingId: 8309-JP
+            weight: 2.14
+    resultOfHoldingsWithInvalidId:
+      description: "Results include fund data for fund MMF4756 and an example error\
+        \ for an invalid fund \n"
+      summary: Holding details for requested identifiers including an invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: MMF4756
+          asOfDate: 2014-11-27
+          top10Weight: 30.93
+          holdings:
+          - name: Microsoft Corp - Common
+            holdingId: MSFT
+            weight: 4.81
+          - name: Philip Morris International Inc - Common
+            holdingId: PM-US
+            weight: 3.95
+          - name: Apple Inc - Common
+            holdingId: AAPL
+            weight: 3.82
+          - name: Crh PLC - Common
+            holdingId: CRH
+            weight: 3.15
+          - name: ConocoPhillips - Common
+            holdingId: COP
+            weight: 2.77
+          - name: ING Groep NV - Common
+            holdingId: ING-US
+            weight: 2.64
+          - name: Alphabet Inc - Common Cl A
+            holdingId: GOOGL
+            weight: 2.62
+          - name: Samsung Electronics Co Ltd - Pfd
+            holdingId: 005935-KR
+            weight: 2.61
+          - name: TotalEnergies SE - Common
+            holdingId: TTE-FR
+            weight: 2.42
+          - name: Sumitomo Mitsui Trust Holdings Inc - Common
+            holdingId: 8309-JP
+            weight: 2.14
+    resultOfSectorAllocations:
+      description: |
+        Results include fund data for fund AGF258
+      summary: Sector Allocations details for a requested identifier
+      value:
+        data:
+        - requestId: AGF258
+          asOfDate: 2024-11-27
+          sectorAllocations:
+          - sector: Technology
+            weight: 53.8
+          - sector: Consumer Services
+            weight: 13.13
+          - sector: Financial Services
+            weight: 12.35
+          - sector: Industrial Goods
+            weight: 11.53
+          - sector: Healthcare
+            weight: 9.19
+    resultOfSectorAllocationsWithInvalidId:
+      description: |
+        Results include fund data for fund AGF258 and an example error for an invalid fund
+      summary: Sector Allocations details for requested identifiers including an invalid
+        identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AGF258
+          asOfDate: 2024-11-27
+          sectorAllocations:
+          - sector: Technology
+            weight: 53.8
+          - sector: Consumer Services
+            weight: 13.13
+          - sector: Financial Services
+            weight: 12.35
+          - sector: Industrial Goods
+            weight: 11.53
+          - sector: Healthcare
+            weight: 9.19
+    resultOfRisk:
+      description: |
+        Results include fund data for fund AIM729
+      summary: Risk details for a requested identifier
+      value:
+        data:
+        - requestId: AIM729
+          asOfDate: 2025-08-25
+          riskRating: Medium Risk
+          riskProspectus: 'The Fund is suitable for investors who: Are seeking capital
+            growth over the long term; Are seeking exposure to U.S. equities; Are
+            willing to accept a medium level of investment risk; Are investing for
+            the long term'
+          riskResponseInfo:
+          - year: 1
+            benchmark: S&P 500 Total Return Index C$
+            alpha: -0.001378
+            beta: 1.01345
+            sharpeRatio: 0.23413
+            treynorRatio: 0.00961
+            rSquared: 0.91144
+            sortino: 0.391302
+            standardDeviation: 0.144154
+            volatility: null
+        - requestId: AIM729
+          asOfDate: 2025-08-25
+          riskRating: Medium Risk
+          riskProspectus: 'The Fund is suitable for investors who: Are seeking capital
+            growth over the long term; Are seeking exposure to U.S. equities; Are
+            willing to accept a medium level of investment risk; Are investing for
+            the long term'
+          riskResponseInfo:
+          - year: 2
+            benchmark: S&P 500 Total Return Index C$
+            alpha: -2.08E-4
+            beta: 0.93518
+            sharpeRatio: 0.3562
+            treynorRatio: 0.01366
+            rSquared: 0.88972
+            sortino: 0.655888
+            standardDeviation: 0.124229
+            volatility: null
+        - requestId: AIM729
+          asOfDate: 2025-08-25
+          riskRating: Medium Risk
+          riskProspectus: 'The Fund is suitable for investors who: Are seeking capital
+            growth over the long term; Are seeking exposure to U.S. equities; Are
+            willing to accept a medium level of investment risk; Are investing for
+            the long term'
+          riskResponseInfo:
+          - year: 3
+            benchmark: S&P 500 Total Return Index C$
+            alpha: 1.33E-4
+            beta: 0.93203
+            sharpeRatio: 0.32631
+            treynorRatio: 0.01263
+            rSquared: 0.91178
+            sortino: 0.59582
+            standardDeviation: 0.12493
+            volatility: 7
+    resultOfRiskWithInvalidId:
+      description: |
+        Results include fund data for fund AIM729 and an example error for an invalid fund
+      summary: Risk details for requested identifiers including an invalid identifier
+      value:
+        data:
+        - requestId: BADSYMBOL123
+          error:
+            code: Bad Request
+            title: Invalid Parameter
+            detail: The parameter 'ids' should be valid and may not be empty.
+        - requestId: AIM729
+          asOfDate: 2025-08-25
+          riskRating: Medium Risk
+          riskProspectus: 'The Fund is suitable for investors who: Are seeking capital
+            growth over the long term; Are seeking exposure to U.S. equities; Are
+            willing to accept a medium level of investment risk; Are investing for
+            the long term'
+          riskResponseInfo:
+          - year: 1
+            benchmark: S&P 500 Total Return Index C$
+            alpha: -0.001378
+            beta: 1.01345
+            sharpeRatio: 0.23413
+            treynorRatio: 0.00961
+            rSquared: 0.91144
+            sortino: 0.391302
+            standardDeviation: 0.144154
+            volatility: null
+        - requestId: AIM729
+          asOfDate: 2025-08-25
+          riskRating: Medium Risk
+          riskProspectus: 'The Fund is suitable for investors who: Are seeking capital
+            growth over the long term; Are seeking exposure to U.S. equities; Are
+            willing to accept a medium level of investment risk; Are investing for
+            the long term'
+          riskResponseInfo:
+          - year: 2
+            benchmark: S&P 500 Total Return Index C$
+            alpha: -2.08E-4
+            beta: 0.93518
+            sharpeRatio: 0.3562
+            treynorRatio: 0.01366
+            rSquared: 0.88972
+            sortino: 0.655888
+            standardDeviation: 0.124229
+            volatility: null
+        - requestId: AIM729
+          asOfDate: 2025-08-25
+          riskRating: Medium Risk
+          riskProspectus: 'The Fund is suitable for investors who: Are seeking capital
+            growth over the long term; Are seeking exposure to U.S. equities; Are
+            willing to accept a medium level of investment risk; Are investing for
+            the long term'
+          riskResponseInfo:
+          - year: 3
+            benchmark: S&P 500 Total Return Index C$
+            alpha: 1.33E-4
+            beta: 0.93203
+            sharpeRatio: 0.32631
+            treynorRatio: 0.01263
+            rSquared: 0.91178
+            sortino: 0.59582
+            standardDeviation: 0.12493
+            volatility: 7
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisk
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Missing/Invalid Parameters.
+          detail: The parameter 'ids' is required and may not be empty.
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Read Timeout
+          detail: The request took too long. Try again with a smaller request.
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double-check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        the Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Unauthorized
+          title: User Authentication Failed.
+          detail: User Authentication Failed.
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint/ID which
+        is not authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Forbidden
+          title: User Authorization Failed.
+          detail: User is not authorized for the id requested, please reach out to
+            FactSet for support
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Unsupported Media Type
+          title: Unsupported Media Type
+          detail: text/html media type is not supported. Supported media types are
+            application/json.
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Internal Server Error
+          title: Error writing JSON output
+          detail: The server encountered an error writing the JSON response. Please
+            `Report Issue` to FactSet.
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Internal Server Error
+          title: Unexpected error
+          detail: An unexpected error occurred. Please `Report Issue` to FactSet.
+  parameters:
+    identifiers:
+      description: The fund identifiers. <p>***ids limit** = 10 per request*</p>
+      examples:
+        oneId:
+          summary: One Identifier
+          value:
+          - AGF10450
+        multipleIds:
+          summary: Multiple Identifiers
+          value:
+          - AGF10450
+          - AIM25591
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          maxLength: 20
+          type: string
+        maxItems: 10
+        minItems: 1
+        type: array
+      style: form
+    timePeriod:
+      description: Periodicity or frequency of the fiscal period.
+      explode: true
+      in: query
+      name: timePeriod
+      required: false
+      schema:
+        default: 1Y
+        enum:
+        - 3M
+        - 6M
+        - 1Y
+        - 3Y
+        - 5Y
+        - 10Y
+        - 20Y
+        type: string
+      style: form
+    sort:
+      description: |-
+        Enables sorting data in ascending or descending order based on weight of the fund.
+        * `weight` - sorts results in ascending order.
+        *  `-weight` - sorts results in descending order.
+      examples:
+        weight:
+          summary: weight
+          value:
+          - weight
+        "-weight":
+          summary: -weight
+          value:
+          - -weight
+      explode: false
+      in: query
+      name: _sort
+      required: false
+      schema:
+        default:
+        - -weight
+        items:
+          type: string
+        maxItems: 1
+        type: array
+      style: form
+    language:
+      description: Specifies the language of the response. Supported languages are
+        English (`EN`) and French (`FR`). Default is English.
+      explode: true
+      in: query
+      name: language
+      required: false
+      schema:
+        default: EN
+        enum:
+        - EN
+        - FR
+        type: string
+      style: form
+    numYears:
+      description: |
+        Number of years of risk data to return.
+      example: 5
+      explode: true
+      in: query
+      name: numYears
+      required: false
+      schema:
+        default: 5
+        maximum: 100
+        minimum: 1
+        type: integer
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond. Please
+        reach out to FactSet Account Team for assistance with authorization.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
+  schemas:
+    ProfileResponse:
+      description: Profile response object
+      example:
+        data:
+        - loadType: loadType
+          availableInProvinces:
+          - availableInProvinces
+          - availableInProvinces
+          netExpenseRatio: 0.8008281904610115
+          netAssets: 312.565
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          minimumInvestment: 500.001
+          objective: The Fund's objective is to seek to provide superior risk-managed
+            capital growth.
+          fundGrade: fundGrade
+          requestId: AGF258
+          inceptionDate: 2000-01-23
+          dividend:
+            annualYield: 6.027456183070403
+            distributionFrequency: distributionFrequency
+          company: AGF Management Ltd. Series P
+          currency: CAD
+          group: AGF Investments Inc.
+          nav:
+            nav: 9.9391
+            changeDollar: 0.0274
+            previous: 8.1118
+            lowFiftyTwoWeeks: 9.452
+            changePercent: 0.276441
+            highFiftyTwoWeeks: 10.0878
+            asOfDate: 2000-01-23
+          address:
+            website: website
+            address: address
+            tollFreeNumber: tollFreeNumber
+            phone: phone
+            fax: fax
+          rrspInitialInvestment: 500.001
+          respEligible: true
+          rrspEligible: true
+          rrspAdditionalInvestment: 50.001
+          benchmarkIndexName: Dow Jones Emerging Markets TR Index (C$)
+          additionalInvestment: 50.001
+          managementFee: 0.08
+          fundServ:
+          - fundServLoadName: fundServLoadName
+            fundServLoadCode: fundServLoadCode
+            fundServName: fundServName
+            fundServCode: fundServCode
+          - fundServLoadName: fundServLoadName
+            fundServLoadCode: fundServLoadCode
+            fundServName: fundServName
+            fundServCode: fundServCode
+          name: AGF Emerging Markets Strategic Equity Fund Ser P
+          returns:
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            annualizedSinceInception: 9.879215
+            annualizedThreeYears: 0.875398
+            annualizedTenYears: 11.927918
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            asOfDate: 2000-01-23
+            annualizedFiveYears: 9.689019
+            sixMonths: 14.104036
+          category: Emerging Markets Equity
+          strategy: To achieve these objectives, the portfolio manager generally allocates
+            the Fund’s portfolio assets among underlying equity funds and ETFs managed
+            by third parties or AGF (or an AGF affiliate). The portfolio manager has
+            set, and will review quarterly, target dynamic allocations between emerging
+            markets equity funds and ETFs for the Fund, consistent with the Fund's
+            investment objective.
+          asOfDate: 2000-01-23
+          fundSeries: fundSeries
+          managers:
+          - education: education
+            name: name
+            company: AGF Investments Inc.
+            biography: biography
+            startDate: 2000-01-23
+          - education: education
+            name: name
+            company: AGF Investments Inc.
+            biography: biography
+            startDate: 2000-01-23
+        - loadType: loadType
+          availableInProvinces:
+          - availableInProvinces
+          - availableInProvinces
+          netExpenseRatio: 0.8008281904610115
+          netAssets: 312.565
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          minimumInvestment: 500.001
+          objective: The Fund's objective is to seek to provide superior risk-managed
+            capital growth.
+          fundGrade: fundGrade
+          requestId: AGF258
+          inceptionDate: 2000-01-23
+          dividend:
+            annualYield: 6.027456183070403
+            distributionFrequency: distributionFrequency
+          company: AGF Management Ltd. Series P
+          currency: CAD
+          group: AGF Investments Inc.
+          nav:
+            nav: 9.9391
+            changeDollar: 0.0274
+            previous: 8.1118
+            lowFiftyTwoWeeks: 9.452
+            changePercent: 0.276441
+            highFiftyTwoWeeks: 10.0878
+            asOfDate: 2000-01-23
+          address:
+            website: website
+            address: address
+            tollFreeNumber: tollFreeNumber
+            phone: phone
+            fax: fax
+          rrspInitialInvestment: 500.001
+          respEligible: true
+          rrspEligible: true
+          rrspAdditionalInvestment: 50.001
+          benchmarkIndexName: Dow Jones Emerging Markets TR Index (C$)
+          additionalInvestment: 50.001
+          managementFee: 0.08
+          fundServ:
+          - fundServLoadName: fundServLoadName
+            fundServLoadCode: fundServLoadCode
+            fundServName: fundServName
+            fundServCode: fundServCode
+          - fundServLoadName: fundServLoadName
+            fundServLoadCode: fundServLoadCode
+            fundServName: fundServName
+            fundServCode: fundServCode
+          name: AGF Emerging Markets Strategic Equity Fund Ser P
+          returns:
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            annualizedSinceInception: 9.879215
+            annualizedThreeYears: 0.875398
+            annualizedTenYears: 11.927918
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            asOfDate: 2000-01-23
+            annualizedFiveYears: 9.689019
+            sixMonths: 14.104036
+          category: Emerging Markets Equity
+          strategy: To achieve these objectives, the portfolio manager generally allocates
+            the Fund’s portfolio assets among underlying equity funds and ETFs managed
+            by third parties or AGF (or an AGF affiliate). The portfolio manager has
+            set, and will review quarterly, target dynamic allocations between emerging
+            markets equity funds and ETFs for the Fund, consistent with the Fund's
+            investment objective.
+          asOfDate: 2000-01-23
+          fundSeries: fundSeries
+          managers:
+          - education: education
+            name: name
+            company: AGF Investments Inc.
+            biography: biography
+            startDate: 2000-01-23
+          - education: education
+            name: name
+            company: AGF Investments Inc.
+            biography: biography
+            startDate: 2000-01-23
+      properties:
+        data:
+          description: Profile data
+          items:
+            $ref: '#/components/schemas/Profile'
+          type: array
+      title: Profile Response
+      type: object
+    Profile:
+      description: Fund profile data
+      example:
+        loadType: loadType
+        availableInProvinces:
+        - availableInProvinces
+        - availableInProvinces
+        netExpenseRatio: 0.8008281904610115
+        netAssets: 312.565
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        minimumInvestment: 500.001
+        objective: The Fund's objective is to seek to provide superior risk-managed
+          capital growth.
+        fundGrade: fundGrade
+        requestId: AGF258
+        inceptionDate: 2000-01-23
+        dividend:
+          annualYield: 6.027456183070403
+          distributionFrequency: distributionFrequency
+        company: AGF Management Ltd. Series P
+        currency: CAD
+        group: AGF Investments Inc.
+        nav:
+          nav: 9.9391
+          changeDollar: 0.0274
+          previous: 8.1118
+          lowFiftyTwoWeeks: 9.452
+          changePercent: 0.276441
+          highFiftyTwoWeeks: 10.0878
+          asOfDate: 2000-01-23
+        address:
+          website: website
+          address: address
+          tollFreeNumber: tollFreeNumber
+          phone: phone
+          fax: fax
+        rrspInitialInvestment: 500.001
+        respEligible: true
+        rrspEligible: true
+        rrspAdditionalInvestment: 50.001
+        benchmarkIndexName: Dow Jones Emerging Markets TR Index (C$)
+        additionalInvestment: 50.001
+        managementFee: 0.08
+        fundServ:
+        - fundServLoadName: fundServLoadName
+          fundServLoadCode: fundServLoadCode
+          fundServName: fundServName
+          fundServCode: fundServCode
+        - fundServLoadName: fundServLoadName
+          fundServLoadCode: fundServLoadCode
+          fundServName: fundServName
+          fundServCode: fundServCode
+        name: AGF Emerging Markets Strategic Equity Fund Ser P
+        returns:
+          oneMonth: 2.6401
+          threeMonths: 10.09269
+          annualizedSinceInception: 9.879215
+          annualizedThreeYears: 0.875398
+          annualizedTenYears: 11.927918
+          yearToDate: 30.745686
+          annualizedOneYear: 43.30107
+          asOfDate: 2000-01-23
+          annualizedFiveYears: 9.689019
+          sixMonths: 14.104036
+        category: Emerging Markets Equity
+        strategy: To achieve these objectives, the portfolio manager generally allocates
+          the Fund’s portfolio assets among underlying equity funds and ETFs managed
+          by third parties or AGF (or an AGF affiliate). The portfolio manager has
+          set, and will review quarterly, target dynamic allocations between emerging
+          markets equity funds and ETFs for the Fund, consistent with the Fund's investment
+          objective.
+        asOfDate: 2000-01-23
+        fundSeries: fundSeries
+        managers:
+        - education: education
+          name: name
+          company: AGF Investments Inc.
+          biography: biography
+          startDate: 2000-01-23
+        - education: education
+          name: name
+          company: AGF Investments Inc.
+          biography: biography
+          startDate: 2000-01-23
+      properties:
+        requestId:
+          description: The input identifier.
+          example: AGF258
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        name:
+          description: The fund security's name in proper format.
+          example: AGF Emerging Markets Strategic Equity Fund Ser P
+          type: string
+        category:
+          description: Category of the fund.
+          example: Emerging Markets Equity
+          type: string
+        company:
+          description: Company name in proper format.
+          example: AGF Management Ltd. Series P
+          type: string
+        group:
+          description: Fund group name.
+          example: AGF Investments Inc.
+          type: string
+        objective:
+          description: Fund objective.
+          example: The Fund's objective is to seek to provide superior risk-managed
+            capital growth.
+          type: string
+        strategy:
+          description: Fund strategy.
+          example: To achieve these objectives, the portfolio manager generally allocates
+            the Fund’s portfolio assets among underlying equity funds and ETFs managed
+            by third parties or AGF (or an AGF affiliate). The portfolio manager has
+            set, and will review quarterly, target dynamic allocations between emerging
+            markets equity funds and ETFs for the Fund, consistent with the Fund's
+            investment objective.
+          type: string
+        benchmarkIndexName:
+          description: Name of the benchmark index.
+          example: Dow Jones Emerging Markets TR Index (C$)
+          type: string
+        managers:
+          description: List of managers managing the fund.
+          items:
+            $ref: '#/components/schemas/Manager'
+          type: array
+        inceptionDate:
+          description: Date when the fund was launched.
+          format: date
+          nullable: true
+          type: string
+        loadType:
+          description: Load type of the fund.
+          type: string
+        netExpenseRatio:
+          description: Net expense ratio of the fund as a percentage.
+          format: double
+          nullable: true
+          type: number
+        managementFee:
+          description: Management fee of the fund as a percentage.
+          example: 0.08
+          format: double
+          nullable: true
+          type: number
+        netAssets:
+          description: Net assets of the fund in millions.
+          example: 312.565
+          format: double
+          nullable: true
+          type: number
+        currency:
+          description: Currency of the fund.
+          example: CAD
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        rrspInitialInvestment:
+          description: Initial investment amounts for the RRSP accounts.
+          example: 500.001
+          format: double
+          nullable: true
+          type: number
+        rrspAdditionalInvestment:
+          description: Additional investment amounts for the RRSP accounts.
+          example: 50.001
+          format: double
+          nullable: true
+          type: number
+        respEligible:
+          description: Indicates whether the fund is eligible for RESP.
+          type: boolean
+        rrspEligible:
+          description: Indicates whether the fund is eligible for RRSP.
+          type: boolean
+        availableInProvinces:
+          description: List of provinces where the fund is available.
+          items:
+            type: string
+          type: array
+        minimumInvestment:
+          description: Minimum investment amounts for the Non-RRSP accounts.
+          example: 500.001
+          format: double
+          nullable: true
+          type: number
+        additionalInvestment:
+          description: Additional investment amounts for the Non-RRSP accounts.
+          example: 50.001
+          format: double
+          nullable: true
+          type: number
+        nav:
+          $ref: '#/components/schemas/Nav'
+        dividend:
+          $ref: '#/components/schemas/Dividend'
+        returns:
+          $ref: '#/components/schemas/Returns'
+        asOfDate:
+          description: Date when fund profile data was reported by vendor.
+          format: date
+          nullable: true
+          type: string
+        fundGrade:
+          description: The fund grade is a rating system for mutual funds based upon
+            risk adjusted performance. Funds are assigned grades from A to E.
+          type: string
+        fundSeries:
+          description: Fund series is a letter code associated with a specific fund
+            and its share class
+          type: string
+        fundServ:
+          description: FundServ data
+          items:
+            $ref: '#/components/schemas/FundServ'
+          type: array
+      type: object
+    FundServ:
+      description: FundServ data object
+      example:
+        fundServLoadName: fundServLoadName
+        fundServLoadCode: fundServLoadCode
+        fundServName: fundServName
+        fundServCode: fundServCode
+      properties:
+        fundServCode:
+          description: Fundserv is the code registrar for the Canadian mutual fund
+            industry.
+          type: string
+        fundServName:
+          description: Fund name for the Canadian mutual fund industry
+          type: string
+        fundServLoadCode:
+          description: The abbreviated code of the fund's Load value will help the
+            user to understand the type of load and the fees associated with the fund.
+          type: string
+        fundServLoadName:
+          description: The Fund's load value will help the user to understand the
+            type of load and the fees associated with the fund.
+          type: string
+      type: object
+    Address:
+      description: Address object
+      example:
+        website: website
+        address: address
+        tollFreeNumber: tollFreeNumber
+        phone: phone
+        fax: fax
+      properties:
+        address:
+          description: Address of the company.
+          type: string
+        phone:
+          description: Phone number of the company.
+          type: string
+        fax:
+          description: Fax number of the company.
+          type: string
+        tollFreeNumber:
+          description: Toll free number of the company.
+          type: string
+        website:
+          description: Website of the company.
+          type: string
+      type: object
+    Manager:
+      description: Fund manager data
+      example:
+        education: education
+        name: name
+        company: AGF Investments Inc.
+        biography: biography
+        startDate: 2000-01-23
+      properties:
+        company:
+          description: Fund advisor company.
+          example: AGF Investments Inc.
+          type: string
+        name:
+          description: Name of the fund manager.
+          type: string
+        biography:
+          description: Biography of the fund manager.
+          type: string
+        startDate:
+          description: Start date of the fund manager.
+          format: date
+          type: string
+        education:
+          description: Education of the fund manager.
+          type: string
+      type: object
+    Dividend:
+      description: Dividend data object
+      example:
+        annualYield: 6.027456183070403
+        distributionFrequency: distributionFrequency
+      properties:
+        annualYield:
+          description: Annual yield percentage of the fund.
+          format: double
+          nullable: true
+          type: number
+        distributionFrequency:
+          description: Dividend distribution frequency with values of blank, 'Monthly',
+            'Quarterly', 'Semiannually' or 'Annually'.
+          type: string
+      type: object
+    Nav:
+      description: NAV data object
+      example:
+        nav: 9.9391
+        changeDollar: 0.0274
+        previous: 8.1118
+        lowFiftyTwoWeeks: 9.452
+        changePercent: 0.276441
+        highFiftyTwoWeeks: 10.0878
+        asOfDate: 2000-01-23
+      properties:
+        nav:
+          description: Net asset value of the fund.
+          example: 9.9391
+          format: double
+          nullable: true
+          type: number
+        asOfDate:
+          description: Date when the nav was reported.
+          format: date
+          nullable: true
+          type: string
+        highFiftyTwoWeeks:
+          description: High value of the net asset value in the last 52 weeks.
+          example: 10.0878
+          format: double
+          nullable: true
+          type: number
+        lowFiftyTwoWeeks:
+          description: Low value of the net asset value in the last 52 weeks.
+          example: 9.452
+          format: double
+          nullable: true
+          type: number
+        changeDollar:
+          description: Change in the net asset value in dollars.
+          example: 0.0274
+          format: double
+          nullable: true
+          type: number
+        changePercent:
+          description: Change in the net asset value in percentage.
+          example: 0.276441
+          format: double
+          nullable: true
+          type: number
+        previous:
+          description: Previous net asset value.
+          example: 8.1118
+          format: double
+          nullable: true
+          type: number
+      type: object
+    Returns:
+      description: Returns data object
+      example:
+        oneMonth: 2.6401
+        threeMonths: 10.09269
+        annualizedSinceInception: 9.879215
+        annualizedThreeYears: 0.875398
+        annualizedTenYears: 11.927918
+        yearToDate: 30.745686
+        annualizedOneYear: 43.30107
+        asOfDate: 2000-01-23
+        annualizedFiveYears: 9.689019
+        sixMonths: 14.104036
+      properties:
+        asOfDate:
+          description: Date when the returns were reported.
+          format: date
+          nullable: true
+          type: string
+        oneMonth:
+          description: Return percentage for the last one month.
+          example: 2.6401
+          format: double
+          nullable: true
+          type: number
+        threeMonths:
+          description: Return percentage for the last three months.
+          example: 10.09269
+          format: double
+          nullable: true
+          type: number
+        sixMonths:
+          description: Return percentage for the last six months.
+          example: 14.104036
+          format: double
+          nullable: true
+          type: number
+        yearToDate:
+          description: Return percentage for the year to date.
+          example: 30.745686
+          format: double
+          nullable: true
+          type: number
+        annualizedOneYear:
+          description: Annualized return percentage for the last one year.
+          example: 43.30107
+          format: double
+          nullable: true
+          type: number
+        annualizedThreeYears:
+          description: Annualized return percentage for the last three years.
+          example: 0.875398
+          format: double
+          nullable: true
+          type: number
+        annualizedFiveYears:
+          description: Annualized return percentage for the last five years.
+          example: 9.689019
+          format: double
+          nullable: true
+          type: number
+        annualizedTenYears:
+          description: Annualized return percentage for the last ten years.
+          example: 11.927918
+          format: double
+          nullable: true
+          type: number
+        annualizedSinceInception:
+          description: Annualized return percentage since inception.
+          example: 9.879215
+          format: double
+          nullable: true
+          type: number
+      type: object
+    DistributionsResponse:
+      description: Distributions response object
+      example:
+        data:
+        - distributionYearToDate:
+            returnOnPrincipal: 0.2
+            capitalGains: 0.2
+            dividend: 0.028
+            interestIncome: 0.2
+            foreignDividend: 0.2
+            totalDistribution: 0.828
+          requestId: BMO95322
+          distributionOneMonth:
+            returnOnPrincipal: 0.2
+            capitalGains: 0.2
+            dividend: 0.028
+            interestIncome: 0.2
+            foreignDividend: 0.2
+            totalDistribution: 0.828
+          distributionOneYear:
+            returnOnPrincipal: 0.2
+            capitalGains: 0.2
+            dividend: 0.028
+            interestIncome: 0.2
+            foreignDividend: 0.2
+            totalDistribution: 0.828
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+        - distributionYearToDate:
+            returnOnPrincipal: 0.2
+            capitalGains: 0.2
+            dividend: 0.028
+            interestIncome: 0.2
+            foreignDividend: 0.2
+            totalDistribution: 0.828
+          requestId: BMO95322
+          distributionOneMonth:
+            returnOnPrincipal: 0.2
+            capitalGains: 0.2
+            dividend: 0.028
+            interestIncome: 0.2
+            foreignDividend: 0.2
+            totalDistribution: 0.828
+          distributionOneYear:
+            returnOnPrincipal: 0.2
+            capitalGains: 0.2
+            dividend: 0.028
+            interestIncome: 0.2
+            foreignDividend: 0.2
+            totalDistribution: 0.828
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+      properties:
+        data:
+          description: Distributions data
+          items:
+            $ref: '#/components/schemas/DistributionsData'
+          type: array
+      title: Distributions Response
+      type: object
+    DistributionsData:
+      description: Distributions data
+      example:
+        distributionYearToDate:
+          returnOnPrincipal: 0.2
+          capitalGains: 0.2
+          dividend: 0.028
+          interestIncome: 0.2
+          foreignDividend: 0.2
+          totalDistribution: 0.828
+        requestId: BMO95322
+        distributionOneMonth:
+          returnOnPrincipal: 0.2
+          capitalGains: 0.2
+          dividend: 0.028
+          interestIncome: 0.2
+          foreignDividend: 0.2
+          totalDistribution: 0.828
+        distributionOneYear:
+          returnOnPrincipal: 0.2
+          capitalGains: 0.2
+          dividend: 0.028
+          interestIncome: 0.2
+          foreignDividend: 0.2
+          totalDistribution: 0.828
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+      properties:
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        requestId:
+          description: The input identifier.
+          example: BMO95322
+          type: string
+        distributionOneMonth:
+          $ref: '#/components/schemas/Distribution'
+        distributionYearToDate:
+          $ref: '#/components/schemas/Distribution'
+        distributionOneYear:
+          $ref: '#/components/schemas/Distribution'
+      type: object
+    Distribution:
+      description: Distribution object
+      example:
+        returnOnPrincipal: 0.2
+        capitalGains: 0.2
+        dividend: 0.028
+        interestIncome: 0.2
+        foreignDividend: 0.2
+        totalDistribution: 0.828
+      properties:
+        dividend:
+          description: Domestic distribution paid to the fund unit holders from all
+            sources of profit.
+          example: 0.028
+          format: double
+          nullable: true
+          type: number
+        foreignDividend:
+          description: Foreign distribution paid to the fund unit holders from all
+            sources of profit.
+          example: 0.2
+          format: double
+          nullable: true
+          type: number
+        interestIncome:
+          description: Interest income paid to the fund unit holders from all sources
+            of profit.
+          example: 0.2
+          format: double
+          nullable: true
+          type: number
+        returnOnPrincipal:
+          description: Return on principal paid to the fund unit holders from all
+            sources of profit as a percentage.
+          example: 0.2
+          format: double
+          nullable: true
+          type: number
+        capitalGains:
+          description: Capital gain paid to the fund unit holders from all sources
+            of profit.
+          example: 0.2
+          format: double
+          nullable: true
+          type: number
+        totalDistribution:
+          description: Distribution paid to the fund unit holders from all sources
+            of profit.
+          example: 0.828
+          format: double
+          nullable: true
+          type: number
+      type: object
+    FeesResponse:
+      description: Fees response object
+      example:
+        data:
+        - backendFees: Deferred - initial sum
+          otherFees: otherFees
+          trailerFees: 'DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+            After: up to 1%.'
+          maxFrontEndPercent: 6.001
+          isPreAuthorizedInvestmentPlan: true
+          switchFees: Your dealer may charge you up to 2% of the value you switch
+            to another AGF fund.
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          maxBackEndPercent: 5.5
+          isSystematicWithdrawlPlan: true
+          rrifAnnualAdminFee: 0.001
+          rrspWithdrawalFee: 0.001
+          rrspAnnualAdminFee: 0.001
+          isNoLoad: true
+          load: load
+          requestId: AGF247
+          rrifWithdrawalFee: 0.001
+          swpMinBalance: 0.001
+        - backendFees: Deferred - initial sum
+          otherFees: otherFees
+          trailerFees: 'DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+            After: up to 1%.'
+          maxFrontEndPercent: 6.001
+          isPreAuthorizedInvestmentPlan: true
+          switchFees: Your dealer may charge you up to 2% of the value you switch
+            to another AGF fund.
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          maxBackEndPercent: 5.5
+          isSystematicWithdrawlPlan: true
+          rrifAnnualAdminFee: 0.001
+          rrspWithdrawalFee: 0.001
+          rrspAnnualAdminFee: 0.001
+          isNoLoad: true
+          load: load
+          requestId: AGF247
+          rrifWithdrawalFee: 0.001
+          swpMinBalance: 0.001
+      properties:
+        data:
+          description: Fees data
+          items:
+            $ref: '#/components/schemas/Fees'
+          type: array
+      title: Fees Response
+      type: object
+    Fees:
+      description: Fees data
+      example:
+        backendFees: Deferred - initial sum
+        otherFees: otherFees
+        trailerFees: 'DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+          After: up to 1%.'
+        maxFrontEndPercent: 6.001
+        isPreAuthorizedInvestmentPlan: true
+        switchFees: Your dealer may charge you up to 2% of the value you switch to
+          another AGF fund.
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        maxBackEndPercent: 5.5
+        isSystematicWithdrawlPlan: true
+        rrifAnnualAdminFee: 0.001
+        rrspWithdrawalFee: 0.001
+        rrspAnnualAdminFee: 0.001
+        isNoLoad: true
+        load: load
+        requestId: AGF247
+        rrifWithdrawalFee: 0.001
+        swpMinBalance: 0.001
+      properties:
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        requestId:
+          description: The input identifier.
+          example: AGF247
+          type: string
+        isPreAuthorizedInvestmentPlan:
+          description: Indicator for the pre authorized contribution plan eligibility.
+          type: boolean
+        isSystematicWithdrawlPlan:
+          description: Indicator for the Systematic withdrawn plan eligibility.
+          type: boolean
+        backendFees:
+          description: Lists the values showing how the backend fees apply during
+            the redemption.
+          example: Deferred - initial sum
+          type: string
+        rrspAnnualAdminFee:
+          description: An annual fee charged to unit holder’s account for the administration
+            of RRSP accounts.
+          example: 0.001
+          format: double
+          nullable: true
+          type: number
+        rrifAnnualAdminFee:
+          description: An annual fee charged to unit holder’s account for the administration
+            of RRIF accounts.
+          example: 0.001
+          format: double
+          nullable: true
+          type: number
+        switchFees:
+          description: Lists the fees for switching investment among different funds,
+            within the same fund family.
+          example: Your dealer may charge you up to 2% of the value you switch to
+            another AGF fund.
+          type: string
+        rrspWithdrawalFee:
+          description: A fee charged to unit holders who has used automatic withdrawal
+            plan to contribute to their RRSP account
+          example: 0.001
+          format: double
+          nullable: true
+          type: number
+        rrifWithdrawalFee:
+          description: A fee charged to unit holders who has used automatic withdrawal
+            plan to contribute to their RRIF account.
+          example: 0.001
+          format: double
+          nullable: true
+          type: number
+        trailerFees:
+          description: Lists the maximum trailer fees charged to each load.
+          example: 'DSC: Y1-7: up to 0.5%, After: up to 1%; LL: Y1-3: up to 0.5%,
+            After: up to 1%.'
+          type: string
+        swpMinBalance:
+          description: Minimum balance and withdrawal amounts for SWP's.
+          example: 0.001
+          format: double
+          nullable: true
+          type: number
+        load:
+          description: Load type of the fund.
+          nullable: true
+          type: string
+        isNoLoad:
+          description: Indicator for the `No Load` fund type.
+          type: boolean
+        maxFrontEndPercent:
+          description: The Fund purchaser has the option to choose what the maximums
+            are for front end load type.
+          example: 6.001
+          format: double
+          nullable: true
+          type: number
+        maxBackEndPercent:
+          description: The Fund purchaser has the option to choose what the maximums
+            are for back end load.
+          example: 5.5
+          format: double
+          nullable: true
+          type: number
+        otherFees:
+          description: Lists any other fees associated with Fund.
+          type: string
+      type: object
+    PerformanceReturnsResponse:
+      description: Performance returns response object
+      example:
+        data:
+        - benchmarkIndexReturns:
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            annualizedSinceInception: 9.879215
+            annualizedThreeYears: 0.875398
+            annualizedTenYears: 11.927918
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            asOfDate: 2000-01-23
+            annualizedFiveYears: 9.689019
+            sixMonths: 14.104036
+          requestId: AGF10450
+          calendarYearReturns:
+          - fundSimpleReturn: 16.970607
+            year: 7
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            fundSimpleReturnQuartile: 0
+            fundCompoundReturnCategoryRank: 5
+            fundCompoundReturn: 16.970606
+            categoryCompoundReturn: 27.533244
+            fundSimpleReturnCategoryRankCount: 1
+            fundSimpleReturnCategoryRank: 6
+            fundCompoundReturnQuartile: 5
+            fundCompoundReturnCategoryRankCount: 2
+          - fundSimpleReturn: 16.970607
+            year: 7
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            fundSimpleReturnQuartile: 0
+            fundCompoundReturnCategoryRank: 5
+            fundCompoundReturn: 16.970606
+            categoryCompoundReturn: 27.533244
+            fundSimpleReturnCategoryRankCount: 1
+            fundSimpleReturnCategoryRank: 6
+            fundCompoundReturnQuartile: 5
+            fundCompoundReturnCategoryRankCount: 2
+          returns:
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            annualizedSinceInception: 9.879215
+            annualizedThreeYears: 0.875398
+            annualizedTenYears: 11.927918
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            asOfDate: 2000-01-23
+            annualizedFiveYears: 9.689019
+            sixMonths: 14.104036
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2024-10-31T00:00:00.000+0000
+        - benchmarkIndexReturns:
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            annualizedSinceInception: 9.879215
+            annualizedThreeYears: 0.875398
+            annualizedTenYears: 11.927918
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            asOfDate: 2000-01-23
+            annualizedFiveYears: 9.689019
+            sixMonths: 14.104036
+          requestId: AGF10450
+          calendarYearReturns:
+          - fundSimpleReturn: 16.970607
+            year: 7
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            fundSimpleReturnQuartile: 0
+            fundCompoundReturnCategoryRank: 5
+            fundCompoundReturn: 16.970606
+            categoryCompoundReturn: 27.533244
+            fundSimpleReturnCategoryRankCount: 1
+            fundSimpleReturnCategoryRank: 6
+            fundCompoundReturnQuartile: 5
+            fundCompoundReturnCategoryRankCount: 2
+          - fundSimpleReturn: 16.970607
+            year: 7
+            indexSimpleReturn: 27.533244
+            indexCompoundReturn: 27.533244
+            categorySimpleReturn: 27.533244
+            fundSimpleReturnQuartile: 0
+            fundCompoundReturnCategoryRank: 5
+            fundCompoundReturn: 16.970606
+            categoryCompoundReturn: 27.533244
+            fundSimpleReturnCategoryRankCount: 1
+            fundSimpleReturnCategoryRank: 6
+            fundCompoundReturnQuartile: 5
+            fundCompoundReturnCategoryRankCount: 2
+          returns:
+            oneMonth: 2.6401
+            threeMonths: 10.09269
+            annualizedSinceInception: 9.879215
+            annualizedThreeYears: 0.875398
+            annualizedTenYears: 11.927918
+            yearToDate: 30.745686
+            annualizedOneYear: 43.30107
+            asOfDate: 2000-01-23
+            annualizedFiveYears: 9.689019
+            sixMonths: 14.104036
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2024-10-31T00:00:00.000+0000
+      properties:
+        data:
+          description: Performance returns data
+          items:
+            $ref: '#/components/schemas/PerformanceReturns'
+          type: array
+      type: object
+    PerformanceReturns:
+      description: Performance returns data
+      example:
+        benchmarkIndexReturns:
+          oneMonth: 2.6401
+          threeMonths: 10.09269
+          annualizedSinceInception: 9.879215
+          annualizedThreeYears: 0.875398
+          annualizedTenYears: 11.927918
+          yearToDate: 30.745686
+          annualizedOneYear: 43.30107
+          asOfDate: 2000-01-23
+          annualizedFiveYears: 9.689019
+          sixMonths: 14.104036
+        requestId: AGF10450
+        calendarYearReturns:
+        - fundSimpleReturn: 16.970607
+          year: 7
+          indexSimpleReturn: 27.533244
+          indexCompoundReturn: 27.533244
+          categorySimpleReturn: 27.533244
+          fundSimpleReturnQuartile: 0
+          fundCompoundReturnCategoryRank: 5
+          fundCompoundReturn: 16.970606
+          categoryCompoundReturn: 27.533244
+          fundSimpleReturnCategoryRankCount: 1
+          fundSimpleReturnCategoryRank: 6
+          fundCompoundReturnQuartile: 5
+          fundCompoundReturnCategoryRankCount: 2
+        - fundSimpleReturn: 16.970607
+          year: 7
+          indexSimpleReturn: 27.533244
+          indexCompoundReturn: 27.533244
+          categorySimpleReturn: 27.533244
+          fundSimpleReturnQuartile: 0
+          fundCompoundReturnCategoryRank: 5
+          fundCompoundReturn: 16.970606
+          categoryCompoundReturn: 27.533244
+          fundSimpleReturnCategoryRankCount: 1
+          fundSimpleReturnCategoryRank: 6
+          fundCompoundReturnQuartile: 5
+          fundCompoundReturnCategoryRankCount: 2
+        returns:
+          oneMonth: 2.6401
+          threeMonths: 10.09269
+          annualizedSinceInception: 9.879215
+          annualizedThreeYears: 0.875398
+          annualizedTenYears: 11.927918
+          yearToDate: 30.745686
+          annualizedOneYear: 43.30107
+          asOfDate: 2000-01-23
+          annualizedFiveYears: 9.689019
+          sixMonths: 14.104036
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2024-10-31T00:00:00.000+0000
+      properties:
+        requestId:
+          description: The input identifier.
+          example: AGF10450
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when the returns were reported.
+          example: 2024-10-31
+          format: date
+          nullable: true
+          type: string
+        returns:
+          $ref: '#/components/schemas/Returns'
+        benchmarkIndexReturns:
+          $ref: '#/components/schemas/Returns'
+        calendarYearReturns:
+          description: Calendar year returns data
+          items:
+            $ref: '#/components/schemas/YearlyReturns'
+          type: array
+      type: object
+    YearlyReturns:
+      description: Yearly returns data
+      example:
+        fundSimpleReturn: 16.970607
+        year: 7
+        indexSimpleReturn: 27.533244
+        indexCompoundReturn: 27.533244
+        categorySimpleReturn: 27.533244
+        fundSimpleReturnQuartile: 0
+        fundCompoundReturnCategoryRank: 5
+        fundCompoundReturn: 16.970606
+        categoryCompoundReturn: 27.533244
+        fundSimpleReturnCategoryRankCount: 1
+        fundSimpleReturnCategoryRank: 6
+        fundCompoundReturnQuartile: 5
+        fundCompoundReturnCategoryRankCount: 2
+      properties:
+        fundSimpleReturn:
+          description: Simple return percentage for the fund.
+          example: 16.970607
+          format: double
+          nullable: true
+          type: number
+        fundSimpleReturnQuartile:
+          description: Quartile return ranking for the fund.
+          format: int32
+          nullable: true
+          type: integer
+        fundSimpleReturnCategoryRank:
+          description: Rank for the simple return.
+          format: int32
+          nullable: true
+          type: integer
+        fundSimpleReturnCategoryRankCount:
+          description: Rank count for the simple return.
+          format: int32
+          nullable: true
+          type: integer
+        fundCompoundReturn:
+          description: Compound return percentage for the fund.
+          example: 16.970606
+          format: double
+          nullable: true
+          type: number
+        indexSimpleReturn:
+          description: Simple return percentage for the index.
+          example: 27.533244
+          format: double
+          nullable: true
+          type: number
+        indexCompoundReturn:
+          description: Compound return percentage for the index.
+          example: 27.533244
+          format: double
+          nullable: true
+          type: number
+        categorySimpleReturn:
+          description: Simple return percentage for the category.
+          example: 27.533244
+          format: double
+          nullable: true
+          type: number
+        categoryCompoundReturn:
+          description: Compound return percentage for the category.
+          example: 27.533244
+          format: double
+          nullable: true
+          type: number
+        fundCompoundReturnQuartile:
+          description: Quartile return ranking for the fund.
+          format: int32
+          nullable: true
+          type: integer
+        fundCompoundReturnCategoryRank:
+          description: Rank for the compound return.
+          format: int32
+          nullable: true
+          type: integer
+        fundCompoundReturnCategoryRankCount:
+          description: Rank count for the compound return.
+          format: int32
+          nullable: true
+          type: integer
+        year:
+          description: Year for which the returns are reported.
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    PerformanceRankingsResponse:
+      description: Performance rankings response object
+      example:
+        data:
+        - requestId: AGF10450
+          quartileRankings:
+            rankSixMonths: 1
+            rankThreeMonths: 6
+            rankOneMonth: 0
+            rankYearToDate: 5
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2024-10-31T00:00:00.000+0000
+          totalFunds:
+            countOneMonth: 5
+            countYearToDate: 9
+            countSixMonths: 7
+            countThreeMonths: 2
+        - requestId: AGF10450
+          quartileRankings:
+            rankSixMonths: 1
+            rankThreeMonths: 6
+            rankOneMonth: 0
+            rankYearToDate: 5
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2024-10-31T00:00:00.000+0000
+          totalFunds:
+            countOneMonth: 5
+            countYearToDate: 9
+            countSixMonths: 7
+            countThreeMonths: 2
+      properties:
+        data:
+          description: Performance rankings data
+          items:
+            $ref: '#/components/schemas/PerformanceRankings'
+          type: array
+      type: object
+    PerformanceRankings:
+      description: Performance rankings data
+      example:
+        requestId: AGF10450
+        quartileRankings:
+          rankSixMonths: 1
+          rankThreeMonths: 6
+          rankOneMonth: 0
+          rankYearToDate: 5
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2024-10-31T00:00:00.000+0000
+        totalFunds:
+          countOneMonth: 5
+          countYearToDate: 9
+          countSixMonths: 7
+          countThreeMonths: 2
+      properties:
+        requestId:
+          description: The input identifier.
+          example: AGF10450
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when the rankings were reported.
+          example: 2024-10-31
+          format: date
+          nullable: true
+          type: string
+        quartileRankings:
+          $ref: '#/components/schemas/Rankings'
+        totalFunds:
+          $ref: '#/components/schemas/FundCounts'
+      type: object
+    Rankings:
+      description: Rankings object
+      example:
+        rankSixMonths: 1
+        rankThreeMonths: 6
+        rankOneMonth: 0
+        rankYearToDate: 5
+      properties:
+        rankOneMonth:
+          description: Rank for the last one month.
+          format: int32
+          nullable: true
+          type: integer
+        rankThreeMonths:
+          description: Rank for the last three months.
+          format: int32
+          nullable: true
+          type: integer
+        rankSixMonths:
+          description: Rank for the last six months.
+          format: int32
+          nullable: true
+          type: integer
+        rankYearToDate:
+          description: Rank for the year to date.
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    FundCounts:
+      description: Fund count data
+      example:
+        countOneMonth: 5
+        countYearToDate: 9
+        countSixMonths: 7
+        countThreeMonths: 2
+      properties:
+        countOneMonth:
+          description: Count for the last one month.
+          format: int32
+          nullable: true
+          type: integer
+        countThreeMonths:
+          description: Count for the last three months.
+          format: int32
+          nullable: true
+          type: integer
+        countSixMonths:
+          description: Count for the last six months.
+          format: int32
+          nullable: true
+          type: integer
+        countYearToDate:
+          description: Count for the year to date.
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    HoldingsResponse:
+      description: Holdings response object
+      example:
+        data:
+        - requestId: BMO95322
+          top10Weight: 30.93
+          holdings:
+          - name: name
+            weight: 0.8008281904610115
+            holdingId: holdingId
+          - name: name
+            weight: 0.8008281904610115
+            holdingId: holdingId
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+        - requestId: BMO95322
+          top10Weight: 30.93
+          holdings:
+          - name: name
+            weight: 0.8008281904610115
+            holdingId: holdingId
+          - name: name
+            weight: 0.8008281904610115
+            holdingId: holdingId
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+      properties:
+        data:
+          description: Holdings data
+          items:
+            $ref: '#/components/schemas/HoldingResponseData'
+          type: array
+      type: object
+    HoldingResponseData:
+      description: Holdings data
+      example:
+        requestId: BMO95322
+        top10Weight: 30.93
+        holdings:
+        - name: name
+          weight: 0.8008281904610115
+          holdingId: holdingId
+        - name: name
+          weight: 0.8008281904610115
+          holdingId: holdingId
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2000-01-23
+      properties:
+        requestId:
+          description: The input identifier.
+          example: BMO95322
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when the holdings were reported.
+          format: date
+          nullable: true
+          type: string
+        top10Weight:
+          description: Returns the total weight of the top 10 holdings as a percentage
+          example: 30.93
+          format: double
+          nullable: true
+          type: number
+        holdings:
+          description: List of holdings
+          items:
+            $ref: '#/components/schemas/Holding'
+          type: array
+      type: object
+    Holding:
+      description: Holding object
+      example:
+        name: name
+        weight: 0.8008281904610115
+        holdingId: holdingId
+      properties:
+        name:
+          description: Name of the holding.
+          type: string
+        holdingId:
+          description: Identifier of the holding
+          type: string
+        weight:
+          description: Weight of the holding as a percentage.
+          format: double
+          nullable: true
+          type: number
+      type: object
+    RiskResponse:
+      description: Risk response object
+      example:
+        data:
+        - requestId: BMO95322
+          riskProspectus: 'Investors who: Seek long-term growth potential; Own, or
+            plan to own, other types of investments to diversify their holdings; Are
+            comfortable with a Canadian equity fund that may have substantial foreign
+            holdings and that emphasizes companies with strong growth potential; Are
+            comfortable with medium risk. The Fund is not appropriate if you have
+            a short-term investment horizon.'
+          riskResponseInfo:
+          - year: 3
+            alpha: 0.002182
+            rSquared: 0.84458
+            sharpeRatio: 0.32881
+            treynorRatio: 0.0122
+            volatility: 6
+            benchmark: Fundata Canadian Focused Equity Index
+            beta: 0.95925
+            standardDeviation: 0.123251
+            sortino: 0.685896
+          - year: 3
+            alpha: 0.002182
+            rSquared: 0.84458
+            sharpeRatio: 0.32881
+            treynorRatio: 0.0122
+            volatility: 6
+            benchmark: Fundata Canadian Focused Equity Index
+            beta: 0.95925
+            standardDeviation: 0.123251
+            sortino: 0.685896
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+          riskRating: Medium Risk
+        - requestId: BMO95322
+          riskProspectus: 'Investors who: Seek long-term growth potential; Own, or
+            plan to own, other types of investments to diversify their holdings; Are
+            comfortable with a Canadian equity fund that may have substantial foreign
+            holdings and that emphasizes companies with strong growth potential; Are
+            comfortable with medium risk. The Fund is not appropriate if you have
+            a short-term investment horizon.'
+          riskResponseInfo:
+          - year: 3
+            alpha: 0.002182
+            rSquared: 0.84458
+            sharpeRatio: 0.32881
+            treynorRatio: 0.0122
+            volatility: 6
+            benchmark: Fundata Canadian Focused Equity Index
+            beta: 0.95925
+            standardDeviation: 0.123251
+            sortino: 0.685896
+          - year: 3
+            alpha: 0.002182
+            rSquared: 0.84458
+            sharpeRatio: 0.32881
+            treynorRatio: 0.0122
+            volatility: 6
+            benchmark: Fundata Canadian Focused Equity Index
+            beta: 0.95925
+            standardDeviation: 0.123251
+            sortino: 0.685896
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+          riskRating: Medium Risk
+      properties:
+        data:
+          description: Risk data
+          items:
+            $ref: '#/components/schemas/RiskData'
+          type: array
+      type: object
+    RiskData:
+      description: Risk data
+      example:
+        requestId: BMO95322
+        riskProspectus: 'Investors who: Seek long-term growth potential; Own, or plan
+          to own, other types of investments to diversify their holdings; Are comfortable
+          with a Canadian equity fund that may have substantial foreign holdings and
+          that emphasizes companies with strong growth potential; Are comfortable
+          with medium risk. The Fund is not appropriate if you have a short-term investment
+          horizon.'
+        riskResponseInfo:
+        - year: 3
+          alpha: 0.002182
+          rSquared: 0.84458
+          sharpeRatio: 0.32881
+          treynorRatio: 0.0122
+          volatility: 6
+          benchmark: Fundata Canadian Focused Equity Index
+          beta: 0.95925
+          standardDeviation: 0.123251
+          sortino: 0.685896
+        - year: 3
+          alpha: 0.002182
+          rSquared: 0.84458
+          sharpeRatio: 0.32881
+          treynorRatio: 0.0122
+          volatility: 6
+          benchmark: Fundata Canadian Focused Equity Index
+          beta: 0.95925
+          standardDeviation: 0.123251
+          sortino: 0.685896
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2000-01-23
+        riskRating: Medium Risk
+      properties:
+        requestId:
+          description: The input identifier.
+          example: BMO95322
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when fund risk data was reported by vendor.
+          format: date
+          nullable: true
+          type: string
+        riskRating:
+          description: Rating that fund company assesses to their own funds via the
+            prospectus.
+          example: Medium Risk
+          nullable: true
+          type: string
+        riskProspectus:
+          description: A summary highlighting the key risks and investor suitability
+            for the investment product.
+          example: 'Investors who: Seek long-term growth potential; Own, or plan to
+            own, other types of investments to diversify their holdings; Are comfortable
+            with a Canadian equity fund that may have substantial foreign holdings
+            and that emphasizes companies with strong growth potential; Are comfortable
+            with medium risk. The Fund is not appropriate if you have a short-term
+            investment horizon.'
+          nullable: true
+          type: string
+        riskResponseInfo:
+          description: Array of risk metrics by year.
+          items:
+            $ref: '#/components/schemas/RiskResponseInfo'
+          type: array
+      type: object
+    RiskResponseInfo:
+      description: Metrics for a particular year
+      example:
+        year: 3
+        alpha: 0.002182
+        rSquared: 0.84458
+        sharpeRatio: 0.32881
+        treynorRatio: 0.0122
+        volatility: 6
+        benchmark: Fundata Canadian Focused Equity Index
+        beta: 0.95925
+        standardDeviation: 0.123251
+        sortino: 0.685896
+      properties:
+        year:
+          description: Year
+          example: 3
+          format: integer
+          nullable: true
+          type: number
+        benchmark:
+          description: Benchmark
+          example: Fundata Canadian Focused Equity Index
+          nullable: true
+          type: string
+        alpha:
+          description: A measure of the difference between a fund's actual monthly
+            excess return and its expected monthly excess return, which in turn is
+            based on that fund's sensitivity (beta) to the excess return for the benchmark
+            index.
+          example: 0.002182
+          format: double
+          nullable: true
+          type: number
+        beta:
+          description: A measure of a fund's sensitivity to the market movement. The
+            benchmark portfolio has the beta of one. A fund with beta greater than
+            one is riskier than the benchmark and a fund with beta smaller than one
+            is less risky than the benchmark.
+          example: 0.95925
+          format: double
+          nullable: true
+          type: number
+        sharpeRatio:
+          description: A measure of risk adjusted performance with the assumption
+            of a well diversified portfolio, which only contains market risk. It is
+            the ratio of a fund's excess return to its beta or market risk.
+          example: 0.32881
+          format: double
+          nullable: true
+          type: number
+        treynorRatio:
+          description: A measure of risk adjusted performance. It is the ratio of
+            a fund's excess return to its standard deviation. A higher Sharpe ratio
+            normally preferred. This indicates a higher return for the amount of risk
+            demonstrated by the fund.
+          example: 0.0122
+          format: double
+          nullable: true
+          type: number
+        rSquared:
+          description: A statistic to measure the percentage of a fund's movements
+            that are explained by the movements of its benchmark. A R-square with
+            100 means the portfolio performance is 100 percent explained by its benchmark.
+            A high R-square also means the higher reliability of beta.
+          example: 0.84458
+          format: double
+          nullable: true
+          type: number
+        sortino:
+          description: The Sortino Ratio is similar to the Sharpe Ratio, except instead
+            of using standard deviation as the denominator, it uses downside deviation.
+          example: 0.685896
+          format: double
+          nullable: true
+          type: number
+        standardDeviation:
+          description: Standard deviation is a measure of risk which takes a fund
+            monthly return over a certain period, e.g. 36 months and it calculates
+            the average deviation from the mean. The higher the standard deviation,
+            the riskier the fund is.
+          example: 0.123251
+          format: double
+          nullable: true
+          type: number
+        volatility:
+          description: Volatility is a measure of risk using a ranking of Standard
+            Deviation in percentiles among its peer group. A scale from 1 to 10 is
+            used to indicate in which decile the fund falls. A fund with 10 volatility
+            is the highest and 1 is the lowest.
+          example: 6
+          format: integer
+          nullable: true
+          type: number
+      type: object
+    AssetAllocationsResponse:
+      description: Asset allocations response object
+      example:
+        data:
+        - requestId: AGF258
+          assetAllocations:
+          - weight: 0.8008281904610115
+            asset: asset
+          - weight: 0.8008281904610115
+            asset: asset
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+        - requestId: AGF258
+          assetAllocations:
+          - weight: 0.8008281904610115
+            asset: asset
+          - weight: 0.8008281904610115
+            asset: asset
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+      properties:
+        data:
+          description: Asset allocations data
+          items:
+            $ref: '#/components/schemas/AssetResponseData'
+          type: array
+      type: object
+    AssetResponseData:
+      description: Asset allocations data
+      example:
+        requestId: AGF258
+        assetAllocations:
+        - weight: 0.8008281904610115
+          asset: asset
+        - weight: 0.8008281904610115
+          asset: asset
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2000-01-23
+      properties:
+        requestId:
+          description: The input identifier.
+          example: AGF258
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when the asset allocations were reported.
+          format: date
+          nullable: true
+          type: string
+        assetAllocations:
+          description: List of asset allocations
+          items:
+            $ref: '#/components/schemas/AssetBreakdown'
+          type: array
+      type: object
+    AssetBreakdown:
+      description: Asset breakdown object
+      example:
+        weight: 0.8008281904610115
+        asset: asset
+      properties:
+        asset:
+          description: Name of the asset.
+          type: string
+        weight:
+          description: Weight of the asset as a percentage.
+          format: double
+          nullable: true
+          type: number
+      type: object
+    GeoAllocationsResponse:
+      description: Geo allocations response object
+      example:
+        data:
+        - requestId: IBM-US
+          geoAllocations:
+          - weight: 0.8008281904610115
+            region: region
+          - weight: 0.8008281904610115
+            region: region
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+        - requestId: IBM-US
+          geoAllocations:
+          - weight: 0.8008281904610115
+            region: region
+          - weight: 0.8008281904610115
+            region: region
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+      properties:
+        data:
+          description: Geo allocations data
+          items:
+            $ref: '#/components/schemas/GeoResponseData'
+          type: array
+      type: object
+    GeoResponseData:
+      description: Geo allocations data
+      example:
+        requestId: IBM-US
+        geoAllocations:
+        - weight: 0.8008281904610115
+          region: region
+        - weight: 0.8008281904610115
+          region: region
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2000-01-23
+      properties:
+        requestId:
+          description: The input identifier.
+          example: IBM-US
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when the geographic allocations were reported.
+          format: date
+          nullable: true
+          type: string
+        geoAllocations:
+          description: List of geo allocations
+          items:
+            $ref: '#/components/schemas/GeoBreakdown'
+          type: array
+      type: object
+    GeoBreakdown:
+      description: Geo breakdown object
+      example:
+        weight: 0.8008281904610115
+        region: region
+      properties:
+        region:
+          description: Name of the region.
+          type: string
+        weight:
+          description: Weight of the region as a percentage.
+          format: double
+          nullable: true
+          type: number
+      type: object
+    SectorAllocationsResponse:
+      description: Sector allocations response object
+      example:
+        data:
+        - requestId: IBM-US
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+          sectorAllocations:
+          - weight: 0.8008281904610115
+            sector: sector
+          - weight: 0.8008281904610115
+            sector: sector
+        - requestId: IBM-US
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          asOfDate: 2000-01-23
+          sectorAllocations:
+          - weight: 0.8008281904610115
+            sector: sector
+          - weight: 0.8008281904610115
+            sector: sector
+      properties:
+        data:
+          description: Sector allocations data
+          items:
+            $ref: '#/components/schemas/SectorResponseData'
+          type: array
+      type: object
+    SectorResponseData:
+      description: Sector allocations data
+      example:
+        requestId: IBM-US
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        asOfDate: 2000-01-23
+        sectorAllocations:
+        - weight: 0.8008281904610115
+          sector: sector
+        - weight: 0.8008281904610115
+          sector: sector
+      properties:
+        requestId:
+          description: The input identifier.
+          example: IBM-US
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        asOfDate:
+          description: Date when the sector allocations were reported.
+          format: date
+          nullable: true
+          type: string
+        sectorAllocations:
+          description: List of sector allocations
+          items:
+            $ref: '#/components/schemas/SectorBreakdown'
+          type: array
+      type: object
+    SectorBreakdown:
+      description: Sector breakdown object
+      example:
+        weight: 0.8008281904610115
+        sector: sector
+      properties:
+        sector:
+          description: Name of the sector.
+          type: string
+        weight:
+          description: Weight of the sector as a percentage.
+          format: double
+          nullable: true
+          type: number
+      type: object
+    GrowthOfTenKResponse:
+      description: Growth of 10K response object
+      example:
+        data:
+        - requestId: AGF10450
+          startAvailableHistoryDate: 2022-08-31T00:00:00.000+0000
+          asOfDate: 2024-11-26T00:00:00.000+0000
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          growthOf10K:
+          - endDate: 2024-09-30T00:00:00.000+0000
+            value: 11901.6273
+            percent: 7.96
+          - endDate: 2024-09-30T00:00:00.000+0000
+            value: 11901.6273
+            percent: 7.96
+        - requestId: AGF10450
+          startAvailableHistoryDate: 2022-08-31T00:00:00.000+0000
+          asOfDate: 2024-11-26T00:00:00.000+0000
+          error:
+            code: Bad Request
+            detail: The parameter 'ids' should be valid and may not be empty.
+            title: Invalid Parameter
+          growthOf10K:
+          - endDate: 2024-09-30T00:00:00.000+0000
+            value: 11901.6273
+            percent: 7.96
+          - endDate: 2024-09-30T00:00:00.000+0000
+            value: 11901.6273
+            percent: 7.96
+      properties:
+        data:
+          description: Growth of 10K data
+          items:
+            $ref: '#/components/schemas/GrowthOf10Ks'
+          type: array
+      type: object
+    GrowthOf10Ks:
+      description: Growth of 10K data
+      example:
+        requestId: AGF10450
+        startAvailableHistoryDate: 2022-08-31T00:00:00.000+0000
+        asOfDate: 2024-11-26T00:00:00.000+0000
+        error:
+          code: Bad Request
+          detail: The parameter 'ids' should be valid and may not be empty.
+          title: Invalid Parameter
+        growthOf10K:
+        - endDate: 2024-09-30T00:00:00.000+0000
+          value: 11901.6273
+          percent: 7.96
+        - endDate: 2024-09-30T00:00:00.000+0000
+          value: 11901.6273
+          percent: 7.96
+      properties:
+        requestId:
+          description: The input identifier.
+          example: AGF10450
+          type: string
+        startAvailableHistoryDate:
+          description: Date when the fund growth data was first available.
+          example: 2022-08-31
+          format: date
+          nullable: true
+          type: string
+        asOfDate:
+          description: Date when fund growth data was reported by vendor.
+          example: 2024-11-26
+          format: date
+          nullable: true
+          type: string
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+        growthOf10K:
+          description: List of growth of 10K data
+          items:
+            $ref: '#/components/schemas/GrowthOf10K'
+          type: array
+      type: object
+    GrowthOf10K:
+      description: Growth of 10K object
+      example:
+        endDate: 2024-09-30T00:00:00.000+0000
+        value: 11901.6273
+        percent: 7.96
+      properties:
+        endDate:
+          description: End date of the growth data.
+          example: 2024-09-30
+          format: date
+          nullable: true
+          type: string
+        value:
+          description: Value of the growth data.
+          example: 11901.6273
+          format: double
+          nullable: true
+          type: number
+        percent:
+          description: Percentage of the growth data.
+          example: 7.96
+          format: double
+          nullable: true
+          type: number
+      type: object
+    ErrorResponse:
+      description: Error Default Response
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      title: Error Response
+      type: object
+    ErrorObject:
+      description: Error object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        detail:
+          description: Error details explanation
+          example: Validation Error
+          type: string
+        title:
+          description: The plain text error message
+          example: Bad Request
+          type: string
+      type: object
+    InvalidIdErrorObject:
+      description: Error object for invalid identifier
+      example:
+        code: Bad Request
+        detail: The parameter 'ids' should be valid and may not be empty.
+        title: Invalid Parameter
+      properties:
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        title:
+          description: The plain text error message
+          example: Invalid Parameter
+          type: string
+        detail:
+          description: Error details explanation
+          example: The parameter 'ids' should be valid and may not be empty.
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+
