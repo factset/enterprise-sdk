@@ -229,7 +229,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// Refers to the lowest value or estimate in a financial guidance range provided in a previous period.
         /// </summary>
         /// <value>Refers to the lowest value or estimate in a financial guidance range provided in a previous period.</value>
-        [DataMember(Name = "prevLow", EmitDefaultValue = false)]
+        [DataMember(Name = "prevLow", EmitDefaultValue = true)]
         public double? PrevLow { get; set; }
 
         /// <summary>
