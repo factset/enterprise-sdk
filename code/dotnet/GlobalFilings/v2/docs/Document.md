@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **PrimaryIds** | **List&lt;string&gt;** | Refers to the main company a particular document refers to. | [optional] 
 **AllIds** | **List&lt;string&gt;** | Refers to all companies mentioned in the document. This could also include the primary company id as well.   **Note:** For the \&quot;allIds\&quot; and \&quot;primaryIds\&quot; fields:   - These identifiers can be either SEDOLs or CUSIPs, depending on the search criteria and the type of identifiers specified in your request.   - The API will return the corresponding identifiers based on the search parameters provided. | [optional] 
 **FilingsDateTime** | **string** | Publish date and time of the latest version (in ISO 8601 format, UTC). | [optional] 
+**FiscalPeriodEndDate** | **DateTime** | Represents the period-end report date for the document. This field is available only for EDG and FFR sources. | [optional] 
 **Categories** | **List&lt;string&gt;** | Categories are Country, Industry, and Subject codes. This is a comma-separated list retrieved from &#x60;/meta/categories&#x60; | [optional] 
 **FilingsLink** | **string** | A secure HTTPS link for downloading the associated document. | [optional] 
 **DocumentId** | **string** | Unique identifier for a document. | [optional] 

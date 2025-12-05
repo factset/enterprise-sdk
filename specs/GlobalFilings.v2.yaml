@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Global Filings API
-  version: 2.1.1
+  version: 2.2.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -68,6 +68,7 @@ paths:
                             primaryIds:
                               - IBM-US
                             filingsDateTime: '2023-03-07T19:40:26Z'
+                            fiscalPeriodEndDate: '2023-03-07'
                             categories:
                               - CN:US
                               - DT:AN-FILNS
@@ -86,6 +87,7 @@ paths:
                             primaryIds:
                               - IBM-US
                             filingsDateTime: '2025-03-07T17:14:51Z'
+                            fiscalPeriodEndDate: '2025-03-07'
                             categories:
                               - CN:US
                               - DT:AN-FILNS
@@ -275,7 +277,7 @@ paths:
                       - source: FBLK
                         description: Factset Blackline Report
                       - source: FFR
-                        description: Factset Annuals & Interims
+                        description: Factset Filings and Reports
                       - source: HNX
                         description: Hanoi Stock Exchange - HNX News
                       - source: SDR
@@ -302,6 +304,12 @@ paths:
                         description: NSE India Company Announcements
                       - source: BSE
                         description: BSE India Company Announcements
+                      - source: SGX
+                        description: Singapore Exchange Real-Time
+                      - source: RNS
+                        description: LSE Regulatory News Service - Real-Time
+                      - source: RNSD
+                        description: LSE Regulatory News Service - Delayed
         '400':
           description: Bad request.
           content:
@@ -660,6 +668,13 @@ components:
           description: >-
             Publish date and time of the latest version (in ISO 8601 format,
             UTC).
+        fiscalPeriodEndDate:
+          type: string
+          format: date
+          description: >-
+            Represents the period-end report date for the document. This field
+            is available only for EDG and FFR sources.
+          example: '2025-01-01'
         categories:
           type: array
           items:

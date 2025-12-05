@@ -17,7 +17,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Global Filings API
-  version: 2.1.1
+  version: 2.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/global-filings-api
@@ -321,6 +321,7 @@ paths:
                         primaryIds:
                         - IBM-US
                         filingsDateTime: 2023-03-07T19:40:26Z
+                        fiscalPeriodEndDate: 2023-03-07
                         categories:
                         - CN:US
                         - DT:AN-FILNS
@@ -338,6 +339,7 @@ paths:
                         primaryIds:
                         - IBM-US
                         filingsDateTime: 2025-03-07T17:14:51Z
+                        fiscalPeriodEndDate: 2025-03-07
                         categories:
                         - CN:US
                         - DT:AN-FILNS
@@ -686,7 +688,7 @@ paths:
                     - source: FBLK
                       description: Factset Blackline Report
                     - source: FFR
-                      description: Factset Annuals & Interims
+                      description: Factset Filings and Reports
                     - source: HNX
                       description: Hanoi Stock Exchange - HNX News
                     - source: SDR
@@ -713,6 +715,12 @@ paths:
                       description: NSE India Company Announcements
                     - source: BSE
                       description: BSE India Company Announcements
+                    - source: SGX
+                      description: Singapore Exchange Real-Time
+                    - source: RNS
+                      description: LSE Regulatory News Service - Real-Time
+                    - source: RNSD
+                      description: LSE Regulatory News Service - Delayed
               schema:
                 $ref: '#/components/schemas/SourceResponse'
           description: Success
@@ -1419,7 +1427,8 @@ components:
       example:
         data:
         - documents:
-          - formTypes:
+          - fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
+            formTypes:
             - formTypes
             - formTypes
             filingSize: filingSize
@@ -1438,7 +1447,8 @@ components:
             allIds:
             - allIds
             - allIds
-          - formTypes:
+          - fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
+            formTypes:
             - formTypes
             - formTypes
             filingSize: filingSize
@@ -1463,7 +1473,8 @@ components:
             detail: Validation Error
             title: Validation Error
         - documents:
-          - formTypes:
+          - fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
+            formTypes:
             - formTypes
             - formTypes
             filingSize: filingSize
@@ -1482,7 +1493,8 @@ components:
             allIds:
             - allIds
             - allIds
-          - formTypes:
+          - fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
+            formTypes:
             - formTypes
             - formTypes
             filingSize: filingSize
@@ -1525,7 +1537,8 @@ components:
         The data being returned in the search response are search results, and under each search result, the documents are organized by requested identifiers.
       example:
         documents:
-        - formTypes:
+        - fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
+          formTypes:
           - formTypes
           - formTypes
           filingSize: filingSize
@@ -1544,7 +1557,8 @@ components:
           allIds:
           - allIds
           - allIds
-        - formTypes:
+        - fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
+          formTypes:
           - formTypes
           - formTypes
           filingSize: filingSize
@@ -1583,6 +1597,7 @@ components:
     Document:
       description: Array of data objects
       example:
+        fiscalPeriodEndDate: 2025-01-01T00:00:00.000+0000
         formTypes:
         - formTypes
         - formTypes
@@ -1629,6 +1644,12 @@ components:
         filingsDateTime:
           description: Publish date and time of the latest version (in ISO 8601 format,
             UTC).
+          type: string
+        fiscalPeriodEndDate:
+          description: Represents the period-end report date for the document. This
+            field is available only for EDG and FFR sources.
+          example: 2025-01-01
+          format: date
           type: string
         categories:
           description: Categories are Country, Industry, and Subject codes. This is

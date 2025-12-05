@@ -5,7 +5,6 @@ LICENSE
 README.md
 api/openapi.yaml
 build.gradle
-build.sbt
 docs/Address.md
 docs/AssetAllocationsResponse.md
 docs/AssetBreakdown.md
@@ -54,7 +53,6 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
-pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/com/factset/sdk/FactSetPartnerFunds/ApiClient.java

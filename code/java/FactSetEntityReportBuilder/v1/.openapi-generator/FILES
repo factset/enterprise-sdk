@@ -5,7 +5,6 @@ LICENSE
 README.md
 api/openapi.yaml
 build.gradle
-build.sbt
 docs/EntityStructureApi.md
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
@@ -18,7 +17,6 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
-pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/com/factset/sdk/FactSetEntityReportBuilder/ApiClient.java

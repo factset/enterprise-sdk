@@ -5,7 +5,6 @@ LICENSE
 README.md
 api/openapi.yaml
 build.gradle
-build.sbt
 docs/AboutApi.md
 docs/AdditionalCalculationInputs.md
 docs/AdditionalCalculationInputsMarketExcess.md
@@ -77,7 +76,6 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
-pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/com/factset/sdk/OpenRisk/ApiClient.java
