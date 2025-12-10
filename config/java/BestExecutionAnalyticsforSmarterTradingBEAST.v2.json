@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "bestexecutionanalyticsforsmartertradingbeast",
-  "artifactVersion": "0.2.0",
+  "artifactVersion": "0.2.1",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Best Execution Analytics for Smarter Trading (BEAST) client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/BestExecutionAnalyticsforSmarterTradingBEAST/0.2.0",
+  "httpUserAgent": "fds-sdk/java/BestExecutionAnalyticsforSmarterTradingBEAST/0.2.1",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

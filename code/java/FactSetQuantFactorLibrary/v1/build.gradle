@@ -14,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.factset.sdk'
-version = '2.1.0'
+version = '2.1.1'
 
 repositories {
     mavenCentral()
@@ -121,6 +121,7 @@ jreleaser {
                     stagingRepository("build/staging-deploy")
                     retryDelay = 30
                     maxRetries = 100
+                    verifyUrl = System.getenv("JRELEASER_VERIFY_URL")
                 }
                 return
             }
@@ -140,7 +141,7 @@ ext {
     jackson_databind_version = "2.15.0"
     jackson_databind_nullable_version = "0.2.2"
     jakarta_annotation_version = "2.1.1"
-    jersey_version = "3.0.4"
+    jersey_version = "3.0.18"
     junit_version = "4.13.2"
     scribejava_apis_version = "8.3.1"
     sdk_utils_version = "1.1.3"
