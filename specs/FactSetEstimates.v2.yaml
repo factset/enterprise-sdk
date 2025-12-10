@@ -4428,6 +4428,7 @@ components:
           type: number
           format: double
           example: 6420.267
+          nullable: true
         prevHigh:
           description: >-
             Refers to the highest value or estimate in a financial guidance
