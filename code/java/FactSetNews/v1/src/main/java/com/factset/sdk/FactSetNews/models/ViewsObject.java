@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetNews.JSON;
   ViewsObject.JSON_PROPERTY_SOURCES,
   ViewsObject.JSON_PROPERTY_REGIONS,
   ViewsObject.JSON_PROPERTY_COUNTRIES,
-  ViewsObject.JSON_PROPERTY_QUICK_ALERT
+  ViewsObject.JSON_PROPERTY_QUICK_ALERT,
+  ViewsObject.JSON_PROPERTY_SEARCH_TEXT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -75,6 +76,9 @@ public class ViewsObject implements Serializable {
 
   public static final String JSON_PROPERTY_QUICK_ALERT = "quickAlert";
   private Boolean quickAlert;
+
+  public static final String JSON_PROPERTY_SEARCH_TEXT = "searchText";
+  private String searchText;
 
   public ViewsObject() { 
   }
@@ -361,6 +365,32 @@ public class ViewsObject implements Serializable {
   }
 
 
+  public ViewsObject searchText(String searchText) {
+    this.searchText = searchText;
+    return this;
+  }
+
+   /**
+   * Restricts to include only document stories that include the searched text. 
+   * @return searchText
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Officer", value = "Restricts to include only document stories that include the searched text. ")
+  @JsonProperty(JSON_PROPERTY_SEARCH_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSearchText() {
+    return searchText;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchText(String searchText) {
+    this.searchText = searchText;
+  }
+
+
   /**
    * Return true if this ViewsObject object is equal to o.
    */
@@ -381,12 +411,13 @@ public class ViewsObject implements Serializable {
         Objects.equals(this.sources, viewsObject.sources) &&
         Objects.equals(this.regions, viewsObject.regions) &&
         Objects.equals(this.countries, viewsObject.countries) &&
-        Objects.equals(this.quickAlert, viewsObject.quickAlert);
+        Objects.equals(this.quickAlert, viewsObject.quickAlert) &&
+        Objects.equals(this.searchText, viewsObject.searchText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tickers, isPrimary, categories, topics, sources, regions, countries, quickAlert);
+    return Objects.hash(name, tickers, isPrimary, categories, topics, sources, regions, countries, quickAlert, searchText);
   }
 
   @Override
@@ -402,6 +433,7 @@ public class ViewsObject implements Serializable {
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    quickAlert: ").append(toIndentedString(quickAlert)).append("\n");
+    sb.append("    searchText: ").append(toIndentedString(searchText)).append("\n");
     sb.append("}");
     return sb.toString();
   }

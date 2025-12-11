@@ -45,7 +45,8 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <param name="benchmark">benchmark.</param>
         /// <param name="dates">dates.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
-        public SPARCalculationParameters(string componentid,List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters), string currencyisocode = default(string))
+        /// <param name="universeid">Universe ID code for calculation..</param>
+        public SPARCalculationParameters(string componentid,List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters), string currencyisocode = default(string), string universeid = default(string))
         {
             // to ensure "componentid" is required (not null)
             if (componentid == null) {
@@ -56,6 +57,7 @@ namespace FactSet.SDK.SPAREngine.Model
             this.Benchmark = benchmark;
             this.Dates = dates;
             this.Currencyisocode = currencyisocode;
+            this.Universeid = universeid;
         }
 
         /// <summary>
@@ -92,6 +94,13 @@ namespace FactSet.SDK.SPAREngine.Model
         public string Currencyisocode { get; set; }
 
         /// <summary>
+        /// Universe ID code for calculation.
+        /// </summary>
+        /// <value>Universe ID code for calculation.</value>
+        [DataMember(Name = "universeid", EmitDefaultValue = true)]
+        public string Universeid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +113,7 @@ namespace FactSet.SDK.SPAREngine.Model
             sb.Append("  Benchmark: ").Append(Benchmark).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
+            sb.Append("  Universeid: ").Append(Universeid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +174,11 @@ namespace FactSet.SDK.SPAREngine.Model
                     this.Currencyisocode == input.Currencyisocode ||
                     (this.Currencyisocode != null &&
                     this.Currencyisocode.Equals(input.Currencyisocode))
+                ) && 
+                (
+                    this.Universeid == input.Universeid ||
+                    (this.Universeid != null &&
+                    this.Universeid.Equals(input.Universeid))
                 );
         }
 
@@ -195,6 +210,10 @@ namespace FactSet.SDK.SPAREngine.Model
                 if (this.Currencyisocode != null)
                 {
                     hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
+                if (this.Universeid != null)
+                {
+                    hashCode = (hashCode * 59) + this.Universeid.GetHashCode();
                 }
                 return hashCode;
             }

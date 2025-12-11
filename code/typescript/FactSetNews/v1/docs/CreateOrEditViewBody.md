@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CreateOrEditViewBodyData**](CreateOrEditViewBodyData.md) |  | [optional] 
+**data** | [**CreateOrEditViewBodyData**](CreateOrEditViewBodyData.md) |  | 
 
 

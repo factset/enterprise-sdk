@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 
 * `Hold` (value: `"Hold"`)
 
-* `overWeight` (value: `"overWeight"`)
+* `Overweight` (value: `"Overweight"`)
 
-* `underWeight` (value: `"underWeight"`)
+* `Underweight` (value: `"Underweight"`)
 
 
 

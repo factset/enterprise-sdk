@@ -47,6 +47,14 @@ public class QuickAlertsBody implements Serializable {
   public QuickAlertsBody() { 
   }
 
+  @JsonCreator
+  public QuickAlertsBody(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) QuickAlertsBodyData data
+  ) {
+    this();
+    this.data = data;
+  }
+
   public QuickAlertsBody data(QuickAlertsBodyData data) {
     this.data = data;
     return this;
@@ -56,10 +64,10 @@ public class QuickAlertsBody implements Serializable {
    * Get data
    * @return data
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public QuickAlertsBodyData getData() {
     return data;
@@ -67,7 +75,7 @@ public class QuickAlertsBody implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(QuickAlertsBodyData data) {
     this.data = data;
   }

@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -52,6 +53,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   Guidance.JSON_PROPERTY_GUIDANCE_DATE,
   Guidance.JSON_PROPERTY_INPUT_DATE_HIGH,
   Guidance.JSON_PROPERTY_INPUT_DATE_LOW,
+  Guidance.JSON_PROPERTY_INPUT_DATE_HIGH_TIME,
+  Guidance.JSON_PROPERTY_INPUT_DATE_LOW_TIME,
   Guidance.JSON_PROPERTY_GUIDANCE_MIDPOINT,
   Guidance.JSON_PROPERTY_GUIDANCE_LOW,
   Guidance.JSON_PROPERTY_GUIDANCE_HIGH,
@@ -110,6 +113,12 @@ public class Guidance implements Serializable {
   public static final String JSON_PROPERTY_INPUT_DATE_LOW = "inputDateLow";
   private JsonNullable<LocalDate> inputDateLow = JsonNullable.<LocalDate>undefined();
 
+  public static final String JSON_PROPERTY_INPUT_DATE_HIGH_TIME = "inputDateHighTime";
+  private JsonNullable<OffsetDateTime> inputDateHighTime = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_INPUT_DATE_LOW_TIME = "inputDateLowTime";
+  private JsonNullable<OffsetDateTime> inputDateLowTime = JsonNullable.<OffsetDateTime>undefined();
+
   public static final String JSON_PROPERTY_GUIDANCE_MIDPOINT = "guidanceMidpoint";
   private JsonNullable<Double> guidanceMidpoint = JsonNullable.<Double>undefined();
 
@@ -126,7 +135,7 @@ public class Guidance implements Serializable {
   private JsonNullable<Double> prevMidpoint = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PREV_LOW = "prevLow";
-  private Double prevLow;
+  private JsonNullable<Double> prevLow = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PREV_HIGH = "prevHigh";
   private JsonNullable<Double> prevHigh = JsonNullable.<Double>undefined();
@@ -611,6 +620,74 @@ public class Guidance implements Serializable {
   }
 
 
+  public Guidance inputDateHighTime(OffsetDateTime inputDateHighTime) {
+    this.inputDateHighTime = JsonNullable.<OffsetDateTime>of(inputDateHighTime);
+    return this;
+  }
+
+   /**
+   * Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.
+   * @return inputDateHighTime
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "2022-10-25T22:40:09Z", value = "Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.")
+  @JsonIgnore
+
+  public OffsetDateTime getInputDateHighTime() {
+        return inputDateHighTime.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INPUT_DATE_HIGH_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getInputDateHighTime_JsonNullable() {
+    return inputDateHighTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INPUT_DATE_HIGH_TIME)
+  public void setInputDateHighTime_JsonNullable(JsonNullable<OffsetDateTime> inputDateHighTime) {
+    this.inputDateHighTime = inputDateHighTime;
+  }
+
+  public void setInputDateHighTime(OffsetDateTime inputDateHighTime) {
+    this.inputDateHighTime = JsonNullable.<OffsetDateTime>of(inputDateHighTime);
+  }
+
+
+  public Guidance inputDateLowTime(OffsetDateTime inputDateLowTime) {
+    this.inputDateLowTime = JsonNullable.<OffsetDateTime>of(inputDateLowTime);
+    return this;
+  }
+
+   /**
+   * Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.
+   * @return inputDateLowTime
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "2022-10-25T22:40:09Z", value = "Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.")
+  @JsonIgnore
+
+  public OffsetDateTime getInputDateLowTime() {
+        return inputDateLowTime.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INPUT_DATE_LOW_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getInputDateLowTime_JsonNullable() {
+    return inputDateLowTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INPUT_DATE_LOW_TIME)
+  public void setInputDateLowTime_JsonNullable(JsonNullable<OffsetDateTime> inputDateLowTime) {
+    this.inputDateLowTime = inputDateLowTime;
+  }
+
+  public void setInputDateLowTime(OffsetDateTime inputDateLowTime) {
+    this.inputDateLowTime = JsonNullable.<OffsetDateTime>of(inputDateLowTime);
+  }
+
+
   public Guidance guidanceMidpoint(Double guidanceMidpoint) {
     this.guidanceMidpoint = JsonNullable.<Double>of(guidanceMidpoint);
     return this;
@@ -782,7 +859,7 @@ public class Guidance implements Serializable {
 
 
   public Guidance prevLow(Double prevLow) {
-    this.prevLow = prevLow;
+    this.prevLow = JsonNullable.<Double>of(prevLow);
     return this;
   }
 
@@ -792,18 +869,26 @@ public class Guidance implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "6420.267", value = "Refers to the lowest value or estimate in a financial guidance range provided in a previous period.")
-  @JsonProperty(JSON_PROPERTY_PREV_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPrevLow() {
-    return prevLow;
+        return prevLow.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PREV_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrevLow(Double prevLow) {
+
+  public JsonNullable<Double> getPrevLow_JsonNullable() {
+    return prevLow;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PREV_LOW)
+  public void setPrevLow_JsonNullable(JsonNullable<Double> prevLow) {
     this.prevLow = prevLow;
+  }
+
+  public void setPrevLow(Double prevLow) {
+    this.prevLow = JsonNullable.<Double>of(prevLow);
   }
 
 
@@ -969,12 +1054,14 @@ public class Guidance implements Serializable {
         equalsNullable(this.guidanceDate, guidance.guidanceDate) &&
         equalsNullable(this.inputDateHigh, guidance.inputDateHigh) &&
         equalsNullable(this.inputDateLow, guidance.inputDateLow) &&
+        equalsNullable(this.inputDateHighTime, guidance.inputDateHighTime) &&
+        equalsNullable(this.inputDateLowTime, guidance.inputDateLowTime) &&
         equalsNullable(this.guidanceMidpoint, guidance.guidanceMidpoint) &&
         equalsNullable(this.guidanceLow, guidance.guidanceLow) &&
         equalsNullable(this.guidanceHigh, guidance.guidanceHigh) &&
         equalsNullable(this.guidanceRange, guidance.guidanceRange) &&
         equalsNullable(this.prevMidpoint, guidance.prevMidpoint) &&
-        Objects.equals(this.prevLow, guidance.prevLow) &&
+        equalsNullable(this.prevLow, guidance.prevLow) &&
         equalsNullable(this.prevHigh, guidance.prevHigh) &&
         equalsNullable(this.meanBefore, guidance.meanBefore) &&
         equalsNullable(this.meanSurpriseAmt, guidance.meanSurpriseAmt) &&
@@ -987,7 +1074,7 @@ public class Guidance implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), hashCodeNullable(currency), hashCodeNullable(estimateCurrency), hashCodeNullable(periodicity), hashCodeNullable(consensusDate), hashCodeNullable(fiscalYear), hashCodeNullable(fiscalEndDate), hashCodeNullable(relativePeriod), hashCodeNullable(fiscalPeriod), hashCodeNullable(guidanceDate), hashCodeNullable(inputDateHigh), hashCodeNullable(inputDateLow), hashCodeNullable(guidanceMidpoint), hashCodeNullable(guidanceLow), hashCodeNullable(guidanceHigh), hashCodeNullable(guidanceRange), hashCodeNullable(prevMidpoint), prevLow, hashCodeNullable(prevHigh), hashCodeNullable(meanBefore), hashCodeNullable(meanSurpriseAmt), hashCodeNullable(meanSurpriseAmtPercent));
+    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), hashCodeNullable(currency), hashCodeNullable(estimateCurrency), hashCodeNullable(periodicity), hashCodeNullable(consensusDate), hashCodeNullable(fiscalYear), hashCodeNullable(fiscalEndDate), hashCodeNullable(relativePeriod), hashCodeNullable(fiscalPeriod), hashCodeNullable(guidanceDate), hashCodeNullable(inputDateHigh), hashCodeNullable(inputDateLow), hashCodeNullable(inputDateHighTime), hashCodeNullable(inputDateLowTime), hashCodeNullable(guidanceMidpoint), hashCodeNullable(guidanceLow), hashCodeNullable(guidanceHigh), hashCodeNullable(guidanceRange), hashCodeNullable(prevMidpoint), hashCodeNullable(prevLow), hashCodeNullable(prevHigh), hashCodeNullable(meanBefore), hashCodeNullable(meanSurpriseAmt), hashCodeNullable(meanSurpriseAmtPercent));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1015,6 +1102,8 @@ public class Guidance implements Serializable {
     sb.append("    guidanceDate: ").append(toIndentedString(guidanceDate)).append("\n");
     sb.append("    inputDateHigh: ").append(toIndentedString(inputDateHigh)).append("\n");
     sb.append("    inputDateLow: ").append(toIndentedString(inputDateLow)).append("\n");
+    sb.append("    inputDateHighTime: ").append(toIndentedString(inputDateHighTime)).append("\n");
+    sb.append("    inputDateLowTime: ").append(toIndentedString(inputDateLowTime)).append("\n");
     sb.append("    guidanceMidpoint: ").append(toIndentedString(guidanceMidpoint)).append("\n");
     sb.append("    guidanceLow: ").append(toIndentedString(guidanceLow)).append("\n");
     sb.append("    guidanceHigh: ").append(toIndentedString(guidanceHigh)).append("\n");

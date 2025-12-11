@@ -83,11 +83,11 @@ public class FilesOne implements Serializable {
   }
 
    /**
-   * Download link for the TickHistory minute bars file with requested parameters.  For &lt;b&gt;trades&lt;/b&gt;, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP  For &lt;b&gt;quotes&lt;/b&gt;, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread  This download link will expire after 12 hours. 
+   * Download link for the TickHistory minute bars file with requested parameters.  For &lt;b&gt;trades&lt;/b&gt;, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP - dateUtc - timeUtc  For &lt;b&gt;quotes&lt;/b&gt;, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread - dateUtc - timeUtc  This download link will expire after 12 hours. 
    * @return url
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Download link for the TickHistory minute bars file with requested parameters.  For <b>trades</b>, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP  For <b>quotes</b>, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread  This download link will expire after 12 hours. ")
+  @ApiModelProperty(value = "Download link for the TickHistory minute bars file with requested parameters.  For <b>trades</b>, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP - dateUtc - timeUtc  For <b>quotes</b>, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread - dateUtc - timeUtc  This download link will expire after 12 hours. ")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -114,6 +114,7 @@ class HeadlinesRequestData(ModelNormal):
             'topics': ([str],),  # noqa: E501
             'predefined_range': (str,),  # noqa: E501
             'search_time': (HeadlinesRequestDataSearchTime,),  # noqa: E501
+            'search_text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +132,7 @@ class HeadlinesRequestData(ModelNormal):
         'topics': 'topics',  # noqa: E501
         'predefined_range': 'predefinedRange',  # noqa: E501
         'search_time': 'searchTime',  # noqa: E501
+        'search_text': 'searchText',  # noqa: E501
     }
 
     read_only_vars = {
@@ -183,6 +185,7 @@ class HeadlinesRequestData(ModelNormal):
             topics ([str]): A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as \"Market Summaries\".. [optional]  # noqa: E501
             predefined_range (str): See list of valid date ranges. Date range is mutually exclusive to start/end time. [optional]  # noqa: E501
             search_time (HeadlinesRequestDataSearchTime): [optional]  # noqa: E501
+            search_text (str): Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,6 +276,7 @@ class HeadlinesRequestData(ModelNormal):
             topics ([str]): A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as \"Market Summaries\".. [optional]  # noqa: E501
             predefined_range (str): See list of valid date ranges. Date range is mutually exclusive to start/end time. [optional]  # noqa: E501
             search_time (HeadlinesRequestDataSearchTime): [optional]  # noqa: E501
+            search_text (str): Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

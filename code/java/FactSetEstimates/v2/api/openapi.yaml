@@ -5268,6 +5268,8 @@ components:
           guidanceDate: 2024-08-22
           inputDateLow: 2024-08-21
           inputDateHigh: 2024-08-21
+          inputDateLowTime: 2024-08-21T21:24:14Z
+          inputDateHighTime: 2024-08-21T21:24:14Z
           guidanceMidpoint: 6475
           guidanceLow: 6450
           guidanceHigh: 6500
@@ -5292,6 +5294,8 @@ components:
           guidanceDate: 2024-08-22
           inputDateLow: 2024-08-21
           inputDateHigh: 2024-08-21
+          inputDateLowTime: 2024-08-21T21:24:14Z
+          inputDateHighTime: 2024-08-21T21:24:14Z
           guidanceMidpoint: 6475
           guidanceLow: 6450
           guidanceHigh: 6500
@@ -5316,6 +5320,8 @@ components:
           guidanceDate: 2024-08-22
           inputDateLow: 2024-08-21
           inputDateHigh: 2024-08-21
+          inputDateLowTime: 2024-08-21T21:24:14Z
+          inputDateHighTime: 2024-08-21T21:24:14Z
           guidanceMidpoint: 6475
           guidanceLow: 6450
           guidanceHigh: 6500
@@ -8774,8 +8780,8 @@ components:
           - Buy
           - Sell
           - Hold
-          - overWeight
-          - underWeight
+          - Overweight
+          - Underweight
           example: Hold
           type: string
         meanRecommendationScale:
@@ -9491,53 +9497,57 @@ components:
     guidanceResponse:
       example:
         data:
-        - guidanceHigh: 6500.126
-          guidanceMidpoint: 6475.926
+        - guidanceMidpoint: 6475.926
           meanSurpriseAmtPercent: 0.08993923
           fsymId: FWHC5K-R
           meanBefore: 6823.863
-          prevLow: 6420.267
           estimateCurrency: USD
           meanSurpriseAmt: 6.13733
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           inputDateLow: 2024-08-21T00:00:00.000+0000
+          requestId: A-US
+          currency: USD
+          fiscalPeriod: 1
+          prevMidpoint: 6460.345
+          inputDateHighTime: 2022-10-25T22:40:09Z
+          guidanceDate: 2024-08-22T00:00:00.000+0000
+          inputDateLowTime: 2022-10-25T22:40:09Z
+          guidanceHigh: 6500.126
+          prevLow: 6420.267
           guidanceRange: 6450.00-6500.00
           prevHigh: 6500.12
           guidanceLow: 6450.683
           metric: SALES
-          requestId: A-US
           periodicity: ANN
-          currency: USD
-          fiscalPeriod: 1
           consensusDate: 2024-12-01T00:00:00.000+0000
-          prevMidpoint: 6460.345
           fiscalYear: 2018
           relativePeriod: 2
-          guidanceDate: 2024-08-22T00:00:00.000+0000
           inputDateHigh: 2024-08-21T00:00:00.000+0000
-        - guidanceHigh: 6500.126
-          guidanceMidpoint: 6475.926
+        - guidanceMidpoint: 6475.926
           meanSurpriseAmtPercent: 0.08993923
           fsymId: FWHC5K-R
           meanBefore: 6823.863
-          prevLow: 6420.267
           estimateCurrency: USD
           meanSurpriseAmt: 6.13733
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
           inputDateLow: 2024-08-21T00:00:00.000+0000
+          requestId: A-US
+          currency: USD
+          fiscalPeriod: 1
+          prevMidpoint: 6460.345
+          inputDateHighTime: 2022-10-25T22:40:09Z
+          guidanceDate: 2024-08-22T00:00:00.000+0000
+          inputDateLowTime: 2022-10-25T22:40:09Z
+          guidanceHigh: 6500.126
+          prevLow: 6420.267
           guidanceRange: 6450.00-6500.00
           prevHigh: 6500.12
           guidanceLow: 6450.683
           metric: SALES
-          requestId: A-US
           periodicity: ANN
-          currency: USD
-          fiscalPeriod: 1
           consensusDate: 2024-12-01T00:00:00.000+0000
-          prevMidpoint: 6460.345
           fiscalYear: 2018
           relativePeriod: 2
-          guidanceDate: 2024-08-22T00:00:00.000+0000
           inputDateHigh: 2024-08-21T00:00:00.000+0000
       properties:
         data:
@@ -9550,29 +9560,31 @@ components:
       type: object
     guidance:
       example:
-        guidanceHigh: 6500.126
         guidanceMidpoint: 6475.926
         meanSurpriseAmtPercent: 0.08993923
         fsymId: FWHC5K-R
         meanBefore: 6823.863
-        prevLow: 6420.267
         estimateCurrency: USD
         meanSurpriseAmt: 6.13733
         fiscalEndDate: 2017-12-31T00:00:00.000+0000
         inputDateLow: 2024-08-21T00:00:00.000+0000
+        requestId: A-US
+        currency: USD
+        fiscalPeriod: 1
+        prevMidpoint: 6460.345
+        inputDateHighTime: 2022-10-25T22:40:09Z
+        guidanceDate: 2024-08-22T00:00:00.000+0000
+        inputDateLowTime: 2022-10-25T22:40:09Z
+        guidanceHigh: 6500.126
+        prevLow: 6420.267
         guidanceRange: 6450.00-6500.00
         prevHigh: 6500.12
         guidanceLow: 6450.683
         metric: SALES
-        requestId: A-US
         periodicity: ANN
-        currency: USD
-        fiscalPeriod: 1
         consensusDate: 2024-12-01T00:00:00.000+0000
-        prevMidpoint: 6460.345
         fiscalYear: 2018
         relativePeriod: 2
-        guidanceDate: 2024-08-22T00:00:00.000+0000
         inputDateHigh: 2024-08-21T00:00:00.000+0000
       properties:
         requestId:
@@ -9669,6 +9681,20 @@ components:
           format: date
           nullable: true
           type: string
+        inputDateHighTime:
+          description: Represents the date and timestamp FactSet collected the data
+            in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.
+          example: 2022-10-25T22:40:09Z
+          format: date-time
+          nullable: true
+          type: string
+        inputDateLowTime:
+          description: Represents the date and timestamp FactSet collected the data
+            in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.
+          example: 2022-10-25T22:40:09Z
+          format: date-time
+          nullable: true
+          type: string
         guidanceMidpoint:
           description: ' Represents the central value in a range of projected financial
             guidance.'
@@ -9708,6 +9734,7 @@ components:
             range provided in a previous period.
           example: 6420.267
           format: double
+          nullable: true
           type: number
         prevHigh:
           description: Refers to the highest value or estimate in a financial guidance

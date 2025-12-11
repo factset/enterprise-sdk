@@ -47,6 +47,14 @@ public class CreateOrEditViewBody implements Serializable {
   public CreateOrEditViewBody() { 
   }
 
+  @JsonCreator
+  public CreateOrEditViewBody(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) CreateOrEditViewBodyData data
+  ) {
+    this();
+    this.data = data;
+  }
+
   public CreateOrEditViewBody data(CreateOrEditViewBodyData data) {
     this.data = data;
     return this;
@@ -56,10 +64,10 @@ public class CreateOrEditViewBody implements Serializable {
    * Get data
    * @return data
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public CreateOrEditViewBodyData getData() {
     return data;
@@ -67,7 +75,7 @@ public class CreateOrEditViewBody implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(CreateOrEditViewBodyData data) {
     this.data = data;
   }

@@ -67,7 +67,9 @@ public class HeadlinesRequestMeta implements Serializable {
     
     SUBJECTS("subjects"),
     
-    FDSSUBJECT("fdsSubject");
+    FDSSUBJECT("fdsSubject"),
+    
+    HTMLURL("htmlUrl");
 
     private String value;
 

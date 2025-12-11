@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the view to return headlines for. |  [optional]
+**name** | **String** | Name of the view to return headlines for. | 
 **predefinedRange** | [**PredefinedRangeEnum**](#PredefinedRangeEnum) | See list of valid date ranges. Date range is mutually exlusive to start/end time. |  [optional]
 **searchTime** | [**HeadlinesRequestByViewDataSearchTime**](HeadlinesRequestByViewDataSearchTime.md) |  |  [optional]
 

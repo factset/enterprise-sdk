@@ -1210,7 +1210,7 @@ components:
       value:
         data:
           tickers:
-          - value: MAR-US
+          - value: AAPL-US
             type: Equity
           - value: JE00BJYJFG60
             type: Equity
@@ -1226,10 +1226,11 @@ components:
           regions:
           - Americas
           countries:
-          - India
+          - United States of America
           sources:
-          - Business Wire
-          predefinedRange: oneMonth
+          - MTN Live Briefs PRO North America
+          predefinedRange: fiveYears
+          searchText: Officer
         meta:
           pagination:
             limit: 50
@@ -1239,7 +1240,7 @@ components:
       value:
         data:
           tickers:
-          - value: MAR-US
+          - value: AAPL-US
             type: Equity
           - value: JE00BJYJFG60
             type: Equity
@@ -1255,12 +1256,13 @@ components:
           regions:
           - Americas
           countries:
-          - India
+          - United States of America
           sources:
-          - Business Wire
+          - MTN Live Briefs PRO North America
           searchTime:
             start: 2023-12-01T12:35:45Z
             end: 2042-01-24T08:10:30Z
+          searchText: Officer
         meta:
           pagination:
             limit: 50
@@ -2296,6 +2298,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/QuickAlertsBody_data'
+      required:
+      - data
       type: object
     DeleteViewBody:
       example:
@@ -2304,10 +2308,13 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/DeleteViewBody_data'
+      required:
+      - data
       type: object
     CreateOrEditViewBody:
       example:
         data:
+          searchText: Officer
           regions:
           - Americas
           - Americas
@@ -2342,6 +2349,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CreateOrEditViewBody_data'
+      required:
+      - data
       type: object
     CreateOrEditViewTickers:
       properties:
@@ -2390,6 +2399,8 @@ components:
           $ref: '#/components/schemas/HeadlinesRequestByView_data'
         meta:
           $ref: '#/components/schemas/HeadlinesRequestByView_meta'
+      required:
+      - data
       type: object
     HeadlinesRequest:
       example:
@@ -2397,6 +2408,7 @@ components:
           searchTime:
             start: 2022-08-21T12:35:45Z
             end: 2022-08-29T08:10:30Z
+          searchText: Officer
           regions:
           - North America
           - North America
@@ -3801,7 +3813,8 @@ components:
       description: FactSet News views
       example:
         data:
-        - regions:
+        - searchText: Officer
+          regions:
           - Asia
           - Asia
           sources:
@@ -3832,7 +3845,8 @@ components:
           - name: Fidelity National Information Services, Inc.
             value: "2769796"
             type: Equity
-        - regions:
+        - searchText: Officer
+          regions:
           - Asia
           - Asia
           sources:
@@ -3871,6 +3885,7 @@ components:
       type: object
     ViewsObject:
       example:
+        searchText: Officer
         regions:
         - Asia
         - Asia
@@ -3966,6 +3981,11 @@ components:
             are not.
           example: false
           type: boolean
+        searchText:
+          description: 'Restricts to include only document stories that include the
+            searched text. '
+          example: Officer
+          type: string
       type: object
     Error:
       properties:
@@ -4374,6 +4394,8 @@ components:
           description: The name of the view associated with quick alerts.
           example: FactSet News View
           type: string
+      required:
+      - name
       type: object
     DeleteViewBody_data:
       example:
@@ -4383,9 +4405,12 @@ components:
           description: The name of the view to be deleted.
           example: FactSet News View
           type: string
+      required:
+      - name
       type: object
     CreateOrEditViewBody_data:
       example:
+        searchText: Officer
         regions:
         - Americas
         - Americas
@@ -4482,6 +4507,14 @@ components:
             are not.
           example: false
           type: boolean
+        searchText:
+          description: Restricts the view to include only document stories that include
+            the searched text. It supports boolean operators that we have in this
+            [OA page](https://my.apps.factset.com/oa/pages/12708)
+          example: Officer
+          type: string
+      required:
+      - name
       type: object
     CreateViewResponse_data:
       example:
@@ -4543,6 +4576,8 @@ components:
           type: string
         searchTime:
           $ref: '#/components/schemas/HeadlinesRequestByView_data_searchTime'
+      required:
+      - name
       type: object
     HeadlinesRequestByView_meta_pagination:
       description: Object defining pagination for the results pageable attribute.
@@ -4596,6 +4631,7 @@ components:
         searchTime:
           start: 2022-08-21T12:35:45Z
           end: 2022-08-29T08:10:30Z
+        searchText: Officer
         regions:
         - North America
         - North America
@@ -4686,6 +4722,12 @@ components:
           type: string
         searchTime:
           $ref: '#/components/schemas/HeadlinesRequest_data_searchTime'
+        searchText:
+          description: 'Restricts the search to include only document stories that
+            include the searched text. It supports boolean operators that we have
+            in this [OA page](https://my.apps.factset.com/oa/pages/12708) '
+          example: Officer
+          type: string
       type: object
     HeadlinesRequest_meta:
       example:
@@ -4714,6 +4756,7 @@ components:
             - symbols
             - subjects
             - fdsSubject
+            - htmlUrl
             type: string
           type: array
       type: object

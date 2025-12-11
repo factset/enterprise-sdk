@@ -20,7 +20,7 @@ import ApiClient from '../ApiClient';
 class DateTimePeriodMin {
     /**
      * Constructs a new <code>DateTimePeriodMin</code>.
-     *  NOTE:       - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.    
+     *  NOTE:       - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.    
      * @alias module:model/DateTimePeriodMin
      * @param start {Date} The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  
      * @param end {Date} The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format.  

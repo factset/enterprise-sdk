@@ -24,8 +24,8 @@ Name | Value
 BUY | &quot;Buy&quot;
 SELL | &quot;Sell&quot;
 HOLD | &quot;Hold&quot;
-OVERWEIGHT | &quot;overWeight&quot;
-UNDERWEIGHT | &quot;underWeight&quot;
+OVERWEIGHT | &quot;Overweight&quot;
+UNDERWEIGHT | &quot;Underweight&quot;
 
 
 ## Implemented Interfaces

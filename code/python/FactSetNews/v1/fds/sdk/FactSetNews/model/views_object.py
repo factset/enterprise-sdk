@@ -97,6 +97,7 @@ class ViewsObject(ModelNormal):
             'regions': ([str],),  # noqa: E501
             'countries': ([str],),  # noqa: E501
             'quick_alert': (bool,),  # noqa: E501
+            'search_text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class ViewsObject(ModelNormal):
         'regions': 'regions',  # noqa: E501
         'countries': 'countries',  # noqa: E501
         'quick_alert': 'quickAlert',  # noqa: E501
+        'search_text': 'searchText',  # noqa: E501
     }
 
     read_only_vars = {
@@ -166,6 +168,7 @@ class ViewsObject(ModelNormal):
             regions ([str]): [optional]  # noqa: E501
             countries ([str]): [optional]  # noqa: E501
             quick_alert (bool): Indicates whether quick alerts are enabled for the view. A value of 'true' means quick alerts are enabled, while 'false' means they are not.. [optional]  # noqa: E501
+            search_text (str): Restricts to include only document stories that include the searched text. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +259,7 @@ class ViewsObject(ModelNormal):
             regions ([str]): [optional]  # noqa: E501
             countries ([str]): [optional]  # noqa: E501
             quick_alert (bool): Indicates whether quick alerts are enabled for the view. A value of 'true' means quick alerts are enabled, while 'false' means they are not.. [optional]  # noqa: E501
+            search_text (str): Restricts to include only document stories that include the searched text. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

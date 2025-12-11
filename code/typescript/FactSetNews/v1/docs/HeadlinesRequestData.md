@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **topics** | **[String]** | A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as \&quot;Market Summaries\&quot;. | [optional] 
 **predefinedRange** | **String** | See list of valid date ranges. Date range is mutually exclusive to start/end time | [optional] 
 **searchTime** | [**HeadlinesRequestDataSearchTime**](HeadlinesRequestDataSearchTime.md) |  | [optional] 
+**searchText** | **String** | Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)  | [optional] 
 
 
 

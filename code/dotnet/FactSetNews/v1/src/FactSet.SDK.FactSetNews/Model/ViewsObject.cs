@@ -44,7 +44,8 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <param name="regions">regions.</param>
         /// <param name="countries">countries.</param>
         /// <param name="quickAlert">Indicates whether quick alerts are enabled for the view. A value of &#39;true&#39; means quick alerts are enabled, while &#39;false&#39; means they are not..</param>
-        public ViewsObject(string name = default(string), List<CreateOrEditViewTickers> tickers = default(List<CreateOrEditViewTickers>), bool isPrimary = default(bool), List<string> categories = default(List<string>), List<string> topics = default(List<string>), List<string> sources = default(List<string>), List<string> regions = default(List<string>), List<string> countries = default(List<string>), bool quickAlert = default(bool))
+        /// <param name="searchText">Restricts to include only document stories that include the searched text. .</param>
+        public ViewsObject(string name = default(string), List<CreateOrEditViewTickers> tickers = default(List<CreateOrEditViewTickers>), bool isPrimary = default(bool), List<string> categories = default(List<string>), List<string> topics = default(List<string>), List<string> sources = default(List<string>), List<string> regions = default(List<string>), List<string> countries = default(List<string>), bool quickAlert = default(bool), string searchText = default(string))
         {
             this.Name = name;
             this.Tickers = tickers;
@@ -55,6 +56,7 @@ namespace FactSet.SDK.FactSetNews.Model
             this.Regions = regions;
             this.Countries = countries;
             this.QuickAlert = quickAlert;
+            this.SearchText = searchText;
         }
 
         /// <summary>
@@ -115,6 +117,13 @@ namespace FactSet.SDK.FactSetNews.Model
         public bool QuickAlert { get; set; }
 
         /// <summary>
+        /// Restricts to include only document stories that include the searched text. 
+        /// </summary>
+        /// <value>Restricts to include only document stories that include the searched text. </value>
+        [DataMember(Name = "searchText", EmitDefaultValue = false)]
+        public string SearchText { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +140,7 @@ namespace FactSet.SDK.FactSetNews.Model
             sb.Append("  Regions: ").Append(Regions).Append("\n");
             sb.Append("  Countries: ").Append(Countries).Append("\n");
             sb.Append("  QuickAlert: ").Append(QuickAlert).Append("\n");
+            sb.Append("  SearchText: ").Append(SearchText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -214,6 +224,11 @@ namespace FactSet.SDK.FactSetNews.Model
                 (
                     this.QuickAlert == input.QuickAlert ||
                     this.QuickAlert.Equals(input.QuickAlert)
+                ) && 
+                (
+                    this.SearchText == input.SearchText ||
+                    (this.SearchText != null &&
+                    this.SearchText.Equals(input.SearchText))
                 );
         }
 
@@ -256,6 +271,10 @@ namespace FactSet.SDK.FactSetNews.Model
                     hashCode = (hashCode * 59) + this.Countries.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.QuickAlert.GetHashCode();
+                if (this.SearchText != null)
+                {
+                    hashCode = (hashCode * 59) + this.SearchText.GetHashCode();
+                }
                 return hashCode;
             }
         }

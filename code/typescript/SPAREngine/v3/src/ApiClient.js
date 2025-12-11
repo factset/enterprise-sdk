@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/SPAREngine/3.0.2 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/SPAREngine/3.1.0 (${process.platform}; node ${process.version})`
         };
 
         /**

@@ -1,14 +1,21 @@
 openapi: 3.0.0
 info:
-  version: 1.9.0
+  version: 1.10.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
     email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   description: >
     The FactSet Global Prices API provides end of day market pricing content
     using cloud and microservices technology, encompassing both pricing as well
     as corporate actions and events data.</p>
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-global-prices-api
 servers:
   - url: https://api.factset.com/content
     description: Production
@@ -18,10 +25,28 @@ security:
 tags:
   - name: Prices
     description: >-
-      Get Security Open, High, Low, Close, Volume for a list of ids and date
+      Get Security Open, High, Low, Close, Volume for a list of IDs and date
       range
   - name: Returns
-    description: Gets the returns data for the list of ids, date range and currency
+    description: Gets the returns data for the list of IDs, date range and currency
+  - name: Corporate Actions
+    description: >-
+      Gets the corporate actions data for the list of IDs, date range and
+      currency
+  - name: Shares Outstanding
+    description: >-
+      Gets the shares outstanding data for the list of IDs, date range and
+      currency
+  - name: Market Value
+    description: Gets the market value data for the list of IDs, date range and currency
+  - name: Batch Processing
+    description: >-
+      Gets the batch processing data for the list of IDs, date range and
+      currency
+  - name: Corporate Actions For Calendar
+    description: >-
+      Gets the corporate actions for calendar data for the list of IDs, date
+      range and currency
 paths:
   /factset-global-prices/v1/prices:
     get:
@@ -34,22 +59,23 @@ paths:
         Count, and Turn Over for a specified list of securities, date range,
         currency, and adjustment factors.
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax2000'
+        - $ref: '#/components/parameters/IdsBatchMax2000'
         - $ref: '#/components/parameters/fieldsPrices'
-        - $ref: '#/components/parameters/startDate'
-        - $ref: '#/components/parameters/endDate'
-        - $ref: '#/components/parameters/frequency'
-        - $ref: '#/components/parameters/calendar'
+        - $ref: '#/components/parameters/StartDate'
+        - $ref: '#/components/parameters/EndDate'
+        - $ref: '#/components/parameters/Frequency'
+        - $ref: '#/components/parameters/Calendar'
         - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/adjust'
-        - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/Adjust'
+        - $ref: '#/components/parameters/Precision'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: Array of Price Objects
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/globalPricesResponse'
+                $ref: '#/components/schemas/GlobalPricesResponse'
               examples:
                 Prices over 1 week period for FDS-US and TSLA-US:
                   $ref: '#/components/examples/GlobalPricesResponseAll'
@@ -98,7 +124,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/globalPricesRequest'
+              $ref: '#/components/schemas/GlobalPricesRequest'
             examples:
               One Security(FDS-US) over one year:
                 $ref: '#/components/examples/postPrices'
@@ -108,7 +134,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/globalPricesResponse'
+                $ref: '#/components/schemas/GlobalPricesResponse'
               examples:
                 One Week Prices for Two Securities:
                   $ref: '#/components/examples/GlobalPricesResponseAll'
@@ -173,13 +199,13 @@ paths:
           * **EXOS** - Exchange of Securities
       parameters:
         - $ref: '#/components/parameters/idsBatchMax50'
-        - $ref: '#/components/parameters/eventCategory'
-        - $ref: '#/components/parameters/fieldsCorporateActions'
-        - $ref: '#/components/parameters/startDateCA'
-        - $ref: '#/components/parameters/endDateCA'
+        - $ref: '#/components/parameters/EventCategory'
+        - $ref: '#/components/parameters/FieldsCorporateActions'
+        - $ref: '#/components/parameters/StartDateCA'
+        - $ref: '#/components/parameters/EndDateCA'
         - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/cancelledDividend'
-        - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/CancelledDividend'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: >-
@@ -188,7 +214,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/corporateActionsResponse'
+                $ref: '#/components/schemas/CorporateActionsResponse'
               examples:
                 Ordinary Dividends:
                   $ref: '#/components/examples/OrdinaryDividends'
@@ -247,7 +273,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/corporateActionsRequest'
+              $ref: '#/components/schemas/CorporateActionsRequest'
             examples:
               One Security(FDS-US) over one year:
                 $ref: '#/components/examples/postCorporateActions'
@@ -257,7 +283,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/corporateActionsResponse'
+                $ref: '#/components/schemas/CorporateActionsResponse'
               examples:
                 Ordinary Dividends:
                   $ref: '#/components/examples/OrdinaryDividends'
@@ -313,14 +339,14 @@ paths:
       parameters:
         - $ref: '#/components/parameters/idsBatchMax50'
         - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: Array of annualized dividend information.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/annualizedDividendResponse'
+                $ref: '#/components/schemas/AnnualizedDividendResponse'
               examples:
                 Annualized Dividends Response of Apple (AAPL-US):
                   $ref: '#/components/examples/annualizedDividendsResponse'
@@ -364,7 +390,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/annualizedDividendsRequest'
+              $ref: '#/components/schemas/AnnualizedDividendsRequest'
             examples:
               Annualized Dividends Request for one security - FactSet (FDS-US):
                 $ref: '#/components/examples/postAnnualizedDividends'
@@ -374,7 +400,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/annualizedDividendResponse'
+                $ref: '#/components/schemas/AnnualizedDividendResponse'
               examples:
                 Annualized Dividends Response of Apple (AAPL-US):
                   $ref: '#/components/examples/annualizedDividendsResponse'
@@ -411,23 +437,23 @@ paths:
       summary: Gets Returns for a list of `ids` as of given date range.
       operationId: getReturns
       description: >
-        Returns for the requested ids and currency for the given dates.
+        Returns for the requested IDs and currency for the given dates.
         Depending on the input parameters the return data is provided. 
       parameters:
         - $ref: '#/components/parameters/idsBatchMax50'
-        - $ref: '#/components/parameters/startDate'
-        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/StartDate'
+        - $ref: '#/components/parameters/EndDate'
         - $ref: '#/components/parameters/currency'
-        - $ref: '#/components/parameters/frequency'
-        - $ref: '#/components/parameters/dividendAdjust'
-        - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/Frequency'
+        - $ref: '#/components/parameters/DividendAdjust'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: Array of Returns Objects
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/returnsResponse'
+                $ref: '#/components/schemas/ReturnsResponse'
               examples:
                 Returns:
                   $ref: '#/components/examples/returnsResponseAll'
@@ -462,7 +488,7 @@ paths:
         - Returns
       summary: Gets Returns for a list of `ids` as of given date range.
       description: >-
-        Returns for the requested ids and currency for the given dates.
+        Returns for the requested IDs and currency for the given dates.
         Depending on the input parameters the return data is provided.
       operationId: getReturnsForList
       requestBody:
@@ -471,7 +497,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/returnsRequest'
+              $ref: '#/components/schemas/ReturnsRequest'
             examples:
               Returns Request over 1 year period for one security - FactSet (FDS-US):
                 $ref: '#/components/examples/postReturns'
@@ -481,7 +507,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/returnsResponse'
+                $ref: '#/components/schemas/ReturnsResponse'
               examples:
                 Returns:
                   $ref: '#/components/examples/returnsResponseAll'
@@ -518,15 +544,15 @@ paths:
       summary: Gets Shares Outstanding information for securities.
       operationId: getSharesOutstanding
       description: >-
-        Returns security level shares outstanding data for the given ids and
+        Returns security level shares outstanding data for the given IDs and
         dates. At this time, all values returned are split adjusted.
       parameters:
         - $ref: '#/components/parameters/idsBatchMax50'
         - $ref: '#/components/parameters/startDateSS'
-        - $ref: '#/components/parameters/endDate'
-        - $ref: '#/components/parameters/frequency'
-        - $ref: '#/components/parameters/calendar'
-        - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/EndDate'
+        - $ref: '#/components/parameters/Frequency'
+        - $ref: '#/components/parameters/Calendar'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: >-
@@ -535,7 +561,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sharesOutstandingResponse'
+                $ref: '#/components/schemas/SharesOutstandingResponse'
               examples:
                 Shares Outstanding:
                   $ref: '#/components/examples/sharesOutstanding'
@@ -570,7 +596,7 @@ paths:
         - Shares Outstanding
       summary: Gets Shares Outstanding information for securities.
       description: >-
-        Returns security level shares outstanding data for the given ids and
+        Returns security level shares outstanding data for the given IDs and
         dates. At this time, all values returned are split adjusted.
       operationId: postSharesOutstanding
       requestBody:
@@ -579,7 +605,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sharesOutstandingRequest'
+              $ref: '#/components/schemas/SharesOutstandingRequest'
             examples:
               Security Shares Request over 1 year period for one security - FactSet (FDS-US):
                 $ref: '#/components/examples/postSecurityShares'
@@ -589,7 +615,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sharesOutstandingResponse'
+                $ref: '#/components/schemas/SharesOutstandingResponse'
               examples:
                 Shares Outstanding:
                   $ref: '#/components/examples/sharesOutstanding'
@@ -630,7 +656,7 @@ paths:
         specified securities. 
       parameters:
         - $ref: '#/components/parameters/idsBatchMax50'
-        - $ref: '#/components/parameters/batch'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: Array of Price Objects
@@ -792,7 +818,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/batchResultResponse'
+                $ref: '#/components/schemas/BatchResultResponse'
               examples:
                 One Week Prices for Two Securities Filtered Fields:
                   $ref: '#/components/examples/GlobalPricesResponsePricesOnly'
@@ -821,6 +847,361 @@ paths:
           $ref: '#/components/responses/batch404'
       deprecated: false
       x-factset-different-success-responses: true
+  /factset-global-prices/v1/calendar/event-count:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve daily event count for a given date range
+      operationId: getEventCount
+      description: >
+        Returns the overall count of various events for each day within the
+        specified date range.
+      parameters:
+        - $ref: '#/components/parameters/eventCountIds'
+        - $ref: '#/components/parameters/eventCountStartDateCalendar'
+        - $ref: '#/components/parameters/eventCountEndDateCalendar'
+        - $ref: '#/components/parameters/eventCountExchanges'
+        - $ref: '#/components/parameters/sortEventDate'
+      responses:
+        '200':
+          description: Event Count data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventCountResponse'
+              examples:
+                Result for a given time period:
+                  $ref: '#/components/examples/eventCountResponse'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/corporate-actions:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve Event Calendar information for Corporate Actions
+      operationId: getCorporateActions
+      description: >
+        Gives an overview of all available Corporate Actions over a specified
+        date range.
+      parameters:
+        - $ref: '#/components/parameters/corporateActionsIds'
+        - $ref: '#/components/parameters/corporateActionsStartDateCalendar'
+        - $ref: '#/components/parameters/corporateActionsEndDateCalendar'
+        - $ref: '#/components/parameters/corporateActionsEventCategories'
+        - $ref: '#/components/parameters/corporateActionsExchanges'
+        - $ref: '#/components/parameters/sortEventDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Corporate Actions data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CorporateActionsResponseCalendar'
+              examples:
+                Result for a Single Identifier for the given time period:
+                  $ref: '#/components/examples/corporateActionsResponse'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/dividends:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve Dividend information
+      operationId: getDividends
+      description: >
+        Retrieves detailed dividend information including amounts, relevant
+        dates, and other specifics for Dividends,
+
+        Dividends with DRP Option, and Dividend Reinvestment events within the
+        specified date range. 
+
+
+        To retrieve details of a given event for a company on a specific
+        exchange, please pass both the eventId and the company identifier.  Note
+        that passing eventId or (`eventId` + `ids`) will cause the end point to
+        ignore the other parameters.  Passing values for any other combination
+        of the parameters (`ids`, `startDate`, `endDate` and `exchanges`) will
+        lead to an AND operation for all the parameters passed.
+      parameters:
+        - $ref: '#/components/parameters/dividendsEventIds'
+        - $ref: '#/components/parameters/dividendsIds'
+        - $ref: '#/components/parameters/dividendsStartDateCalendar'
+        - $ref: '#/components/parameters/dividendsEndDateCalendar'
+        - $ref: '#/components/parameters/dividendsExchanges'
+        - $ref: '#/components/parameters/sortEffectiveDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Dividend data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DividendsResponse'
+              examples:
+                Result for a Single Identifier for the given time period:
+                  $ref: '#/components/examples/dividendsResponse'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/stock-distributions:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve Stock Distribution information
+      operationId: getStockDistributions
+      description: >
+        Retrieves detailed stock distribution information including price
+        adjustment factors, relevant dates, and other 
+
+        specifics for Stock Dividends, Stock Dividends(Special), Bonus Issues,
+        and Bonus Issues(Special) events within 
+
+        the specified date range.
+
+
+        To retrieve details of a given event for a company on a specific
+        exchange, please pass both the eventId and the company identifier.  Note
+        that passing eventId or (`eventId` + `ids`) will cause the end point to
+        ignore the other parameters.  Passing values for any other combination
+        of the parameters (`ids`, `startDate`, `endDate` and `exchanges`) will
+        lead to an AND operation for all the parameters passed.
+      parameters:
+        - $ref: '#/components/parameters/stockDistributionsEventIds'
+        - $ref: '#/components/parameters/stockDistributionsIds'
+        - $ref: '#/components/parameters/stockDistributionsStartDateCalendar'
+        - $ref: '#/components/parameters/stockDistributionsEndDateCalendar'
+        - $ref: '#/components/parameters/stockDistributionsExchanges'
+        - $ref: '#/components/parameters/sortEffectiveDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Stock Distribution data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockDistributionsResponseCalendar'
+              examples:
+                Result for a Single Identifier for the given time period:
+                  $ref: '#/components/examples/stockDistributionsResponseCalendar'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/rights-issues:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve Rights Issue information
+      operationId: getRightsIssues
+      description: >
+        Retrieves the prices, relevant dates, and other specifics over a
+        specified date range for Rights Issue events.
+
+
+        To retrieve details of a given event for a company on a specific
+        exchange, please pass both the eventId and the company identifier.  Note
+        that passing eventId or (`eventId` + `ids`) will cause the end point to
+        ignore the other parameters.  Passing values for any other combination
+        of the parameters (`ids`, `startDate`, `endDate` and `exchanges`) will
+        lead to an AND operation for all the parameters passed.
+      parameters:
+        - $ref: '#/components/parameters/rightsIssuesEventIds'
+        - $ref: '#/components/parameters/rightsIssuesIds'
+        - $ref: '#/components/parameters/rightsIssuesStartDateCalendar'
+        - $ref: '#/components/parameters/rightsIssuesEndDateCalendar'
+        - $ref: '#/components/parameters/rightsIssuesExchanges'
+        - $ref: '#/components/parameters/sortEffectiveDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Rights Issue data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RightsIssuesResponse'
+              examples:
+                Result for a Single Identifier for the given time period:
+                  $ref: '#/components/examples/rightsIssuesResponse'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/spin-offs:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve Spin Off information
+      operationId: getSpinOffs
+      description: >
+        Retrieves the price adjustment factors, dates, and other specifics over
+        a specified date range for Spin Off events.
+
+
+        To retrieve details of a given event for a company on a specific
+        exchange, please pass both the eventId and the company identifier.  Note
+        that passing eventId or (`eventId` + `ids`) will cause the end point to
+        ignore the other parameters.  Passing values for any other combination
+        of the parameters (`ids`, `startDate`, `endDate` and `exchanges`) will
+        lead to an AND operation for all the parameters passed.
+      parameters:
+        - $ref: '#/components/parameters/spinOffsEventIds'
+        - $ref: '#/components/parameters/spinOffsIds'
+        - $ref: '#/components/parameters/spinOffsStartDateCalendar'
+        - $ref: '#/components/parameters/spinOffsEndDateCalendar'
+        - $ref: '#/components/parameters/spinOffsExchanges'
+        - $ref: '#/components/parameters/sortEffectiveDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Spin Off data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpinOffsResponse'
+              examples:
+                Result for a Single Identifier for the given time period:
+                  $ref: '#/components/examples/spinOffsResponse'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/splits:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Retrieve Split information
+      operationId: getSplits
+      description: >
+        Retrieves the split factors, dates, and other specifics over a specified
+        date range for Forward Split, 
+
+        Reverse Split, Split and Exchange of Securities event types.
+
+
+        To retrieve details of a given event for a company on a specific
+        exchange, please pass both the eventId and the company identifier.  Note
+        that passing eventId or (`eventId` + `ids`) will cause the end point to
+        ignore the other parameters.  Passing values for any other combination
+        of the parameters (`ids`, `startDate`, `endDate` and `exchanges`) will
+        lead to an AND operation for all the parameters passed.
+      parameters:
+        - $ref: '#/components/parameters/splitsEventIds'
+        - $ref: '#/components/parameters/splitsIds'
+        - $ref: '#/components/parameters/splitsStartDateCalendar'
+        - $ref: '#/components/parameters/splitsEndDateCalendar'
+        - $ref: '#/components/parameters/splitsExchanges'
+        - $ref: '#/components/parameters/sortEffectiveDate'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: Split data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SplitsResponseCalendar'
+              examples:
+                Result for a Single Identifier for the given time period:
+                  $ref: '#/components/examples/splitsResponse'
+        '400':
+          $ref: '#/components/responses/400Calendar'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
+  /factset-global-prices/v1/calendar/meta/exchanges:
+    get:
+      tags:
+        - Corporate Actions For Calendar
+      summary: Returns a list of exchanges for which event/action data is available.
+      operationId: getExchanges
+      description: |
+        Returns a list of available values for the exchanges parameter.
+      responses:
+        '200':
+          description: Exchange details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangesResponse'
+              examples:
+                Result of action types:
+                  $ref: '#/components/examples/exchangesResponse'
+        '401':
+          $ref: '#/components/responses/401Calendar'
+        '403':
+          $ref: '#/components/responses/403Calendar'
+        '404':
+          $ref: '#/components/responses/404Calendar'
+        '415':
+          $ref: '#/components/responses/415Calendar'
+        '500':
+          $ref: '#/components/responses/500Calendar'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -833,88 +1214,681 @@ components:
       type: http
       scheme: basic
   parameters:
-    idsMax100:
+    eventCountIds:
       name: ids
       in: query
+      required: false
       schema:
         type: array
         items:
           type: string
-        minItems: 1
-        maxItems: 100
-      required: true
+          minItems: 0
+          maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
-        <p>***ids limit** =  100 per request*</p> *<p>Make note, GET Method URL
-        request lines are also limited to a total length of 8192 bytes (8KB). In
-        cases where the service allows for thousands of ids, which may lead to
-        exceeding this request line limit of 8KB, its advised for any requests
-        with large request lines to be requested through the respective "POST"
-        method.</p>*
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
           value:
-            - AAPL-USA
+            - IBM-US
         multipleEquityIds:
           summary: Multiple Equity Market Identifiers
           value:
             - FDS-US
             - AAPL-US
             - MSFT-US
-    idsMax50:
-      name: ids
+    eventCountStartDateCalendar:
+      name: startDate
       in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    eventCountEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    eventCountExchanges:
+      name: exchanges
+      in: query
+      required: false
       schema:
         type: array
         items:
           type: string
-        minItems: 1
-        maxItems: 50
-      required: true
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
       explode: false
       description: >-
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
-        <p>***ids limit** =  50 per request*</p> *<p>Make note, GET Method URL
-        request lines are also limited to a total length of 8192 bytes (8KB). In
-        cases where the service allows for thousands of ids, which may lead to
-        exceeding this request line limit of 8KB, its advised for any requests
-        with large request lines to be requested through the respective "POST"
-        method.</p>*
-      examples:
-        oneEquityId:
-          summary: One Equity Market Identifier
-          value:
-            - AAPL-USA
-    idsMax1000:
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    corporateActionsIds:
       name: ids
       in: query
+      required: false
       schema:
         type: array
         items:
           type: string
-        minItems: 1
-        maxItems: 1000
-      required: true
+          minItems: 0
+          maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
-        <p>***ids limit** =  50 per multi-day request or 1000 for single day
-        requests*</p> *<p>Make note, GET Method URL request lines are also
-        limited to a total length of 8192 bytes (8KB). In cases where the
-        service allows for thousands of ids, which may lead to exceeding this
-        request line limit of 8KB, its advised for any requests with large
-        request lines to be requested through the respective "POST" method.</p>*
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
           value:
-            - AAPL-USA
-    batch:
+            - IBM-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+    corporateActionsExchanges:
+      name: exchanges
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
+      explode: false
+      description: >-
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    corporateActionsStartDateCalendar:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    corporateActionsEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    corporateActionsEventCategories:
+      name: eventCategories
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - CASH_DIVS
+            - STOCK_DIST
+            - SPINOFFS
+            - RIGHTS
+            - SPLITS
+      explode: false
+      description: |
+        Select one or more Event Categories from the dropdown:
+          - **CASH_DIVS:** Includes Dividends(DVC), Dividend with DRP Option(DVCD), Dividend Reinvestment(DRP)
+          - **STOCK_DIST:** Includes Stock Dividend(DVS), Stock Dividend - Special(DVSS), Bonus(BNS), Bonus - Special(BNSS)
+          - **SPINOFFS:** Includes Spin Off(SPO)
+          - **RIGHTS:** Includes Rights Issue(DSR)
+          - **SPLITS:** Includes Forward Split(FSP), Reverse Split(RSP), Split(SPL), Exchange Of Securities(EXOS)
+
+        If omitted, the data is returned for all the available eventCategories.
+    dividendsEventIds:
+      name: eventIds
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      examples:
+        oneEventId:
+          summary: One Event Identifier
+          value:
+            - WF7WM3-A
+        multipleEventIds:
+          summary: Multiple Event Identifiers
+          value:
+            - WF7WM3-A
+            - RHGQC1-A
+      description: >-
+        FactSet Event Identifier - a unique identifier for an event across
+        multiple exchanges. If provided, the API will return data for the
+        specified event.
+    dividendsIds:
+      name: ids
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - XSLCX-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - AHH.PRA-US
+            - XSLCX-US
+    dividendsExchanges:
+      name: exchanges
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
+      explode: false
+      description: >-
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    dividendsStartDateCalendar:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    dividendsEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    stockDistributionsEventIds:
+      name: eventIds
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      examples:
+        oneEventId:
+          summary: One Event Identifier
+          value:
+            - WGLQ32-A
+        multipleEventIds:
+          summary: Multiple Event Identifiers
+          value:
+            - WGLQ32-A
+            - B3JVZK-A
+      description: >-
+        FactSet Event Identifier - a unique identifier for an event across
+        multiple exchanges. If provided, the API will return data for the
+        specified event.
+    stockDistributionsIds:
+      name: ids
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - FGBI-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - FGBI-US
+            - CBSH-US
+    stockDistributionsExchanges:
+      name: exchanges
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
+      explode: false
+      description: >-
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    stockDistributionsStartDateCalendar:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    stockDistributionsEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    rightsIssuesEventIds:
+      name: eventIds
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      examples:
+        oneEventId:
+          summary: One Event Identifier
+          value:
+            - JZ6938-A
+        multipleEventIds:
+          summary: Multiple Event Identifiers
+          value:
+            - JZ6938-A
+            - N52H4X-A
+      description: >-
+        FactSet Event Identifier - a unique identifier for an event across
+        multiple exchanges. If provided, the API will return data for the
+        specified event.
+    rightsIssuesIds:
+      name: ids
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - XOMA-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - XOMA-US
+            - AXIA-US
+    rightsIssuesExchanges:
+      name: exchanges
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
+      explode: false
+      description: >-
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    rightsIssuesStartDateCalendar:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    rightsIssuesEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    spinOffsEventIds:
+      name: eventIds
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      examples:
+        oneEventId:
+          summary: One Event Identifier
+          value:
+            - DB9782-A
+        multipleEventIds:
+          summary: Multiple Event Identifiers
+          value:
+            - DB9782-A
+            - MGPRKB-A
+      description: >-
+        FactSet Event Identifier - a unique identifier for an event across
+        multiple exchanges. If provided, the API will return data for the
+        specified event.
+    spinOffsIds:
+      name: ids
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - STNG-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - STNG-US
+            - IRS-US
+    spinOffsExchanges:
+      name: exchanges
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
+      explode: false
+      description: >-
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    spinOffsStartDateCalendar:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    spinOffsEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    splitsEventIds:
+      name: eventIds
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      examples:
+        oneEventId:
+          summary: One Event Identifier
+          value:
+            - B5QRB4-A
+        multipleEventIds:
+          summary: Multiple Event Identifiers
+          value:
+            - ST0LHL-A
+            - B5QRB4-A
+      description: >-
+        FactSet Event Identifier - a unique identifier for an event across
+        multiple exchanges. If provided, the API will return data for the
+        specified event.
+    splitsIds:
+      name: ids
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. If not
+        specified, the data related to all the IDs is returned.
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - MTVA-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - MTVA-US
+            - RCON-US
+    splitsExchanges:
+      name: exchanges
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          minItems: 0
+          maxItems: 2000
+        example:
+          - NYS
+          - NAS
+      explode: false
+      description: >-
+        One or more exchange codes for which data is to be requested. When
+        omitted, the data from all the supported exchanges is returned. See
+        `/meta/exchanges` for available values.
+    splitsStartDateCalendar:
+      name: startDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2018-12-31'
+      description: >-
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If both start and end dates are omitted, the API will return
+        data for the current week starting from Monday.
+    splitsEndDateCalendar:
+      name: endDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2019-12-31'
+      description: >-
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The max date range is 1 year for up to 100 identifiers. If IDs are more
+        than 100 or omitted, the max range is restricted to 90 days.
+    paginationLimit:
+      name: _paginationLimit
+      in: query
+      description: >-
+        Specifies the number of results to return per page. The maximum limit is
+        500.
+      required: false
+      schema:
+        type: integer
+        default: 50
+    paginationOffset:
+      name: _paginationOffset
+      in: query
+      description: >-
+        Specifies the starting point for pagination. This parameter is used to
+        identify the beginning of next set of results.
+      required: false
+      schema:
+        type: integer
+        default: 0
+    sortEffectiveDate:
+      name: _sort
+      in: query
+      description: Sorts the field in ascending or descending order of `effectiveDate`.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        default:
+          - '-effectiveDate'
+        items:
+          type: string
+          enum:
+            - effectiveDate
+            - '-effectiveDate'
+        maxItems: 1
+    sortEventDate:
+      name: _sort
+      in: query
+      description: Sorts the field in ascending or descending order of `eventDate`.
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        default:
+          - '-eventDate'
+        items:
+          type: string
+          enum:
+            - eventDate
+            - '-eventDate'
+        maxItems: 1
+    Batch:
       name: batch
       in: query
       description: >
@@ -926,15 +1900,15 @@ components:
         has been completed. Once completed, retrieve the results of the request
         via batch-result. 
 
-        For single-day requests, the ids limit is 500 for non-batch and 2000 for
-        batch. For multi-day requests, the limit is 50 ids for both batch and
+        For single-day requests, the IDs limit is 500 for non-batch and 2000 for
+        batch. For multi-day requests, the limit is 50 IDs for both batch and
         non-batch. 
 
         Limits on query string via GET method still apply. It's advised to
-        submit large lists of ids via POST method.
+        submit large lists of IDs via POST method.
 
         <B>Please note that the number of unique currencies present in the
-        requested ids is limited to 50 per request.</B>
+        requested IDs is limited to 50 per request.</B>
       schema:
         type: string
         enum:
@@ -950,7 +1924,19 @@ components:
         format: uuid
       required: true
       allowEmptyValue: false
-    eventCategory:
+    Precision:
+      name: precision
+      in: query
+      description: |
+        Specifies the number of decimal places for price fields in the response.
+      required: false
+      schema:
+        type: integer
+        default: 2
+        minimum: 1
+        maximum: 16
+      example: 1
+    EventCategory:
       name: eventCategory
       description: |
         Selects the Event Category to include in the response.
@@ -959,7 +1945,7 @@ components:
           * **SPINOFFS** = Spin Offs
           * **RIGHTS** = Rights Issue
           * **SPLITS** = Splits
-          * **ALL** = Returns all Event Types. If left blank the service will default to ALL.
+          * **ALL** = Returns all Event Types. If omitted, the service will default to ALL.
       in: query
       schema:
         type: string
@@ -971,7 +1957,7 @@ components:
           - SPLITS
           - ALL
         default: ALL
-    startDate:
+    StartDate:
       name: startDate
       in: query
       required: true
@@ -982,7 +1968,7 @@ components:
         format. The input start date must be before the input end date. Future
         dates (T+1) are not accepted in this endpoint.
       example: '2021-08-27'
-    endDate:
+    EndDate:
       name: endDate
       in: query
       required: false
@@ -1005,7 +1991,7 @@ components:
         format. The input start date must be before the input end date. Future
         dates (T+1) are not accepted in this endpoint.
       example: '2021-08-27'
-    startDateCA:
+    StartDateCA:
       name: startDate
       in: query
       required: false
@@ -1017,10 +2003,10 @@ components:
         to only include events within the date range. The frequency between the
         startDate and endDate is always set to the "event" frequency- meaning
         the service will return only events within those inclusive boundaries.
-        Leaving both startDate and endDate blank will pull "all" events for each
-        requested ids.
+        Omitting startDate and endDate will pull "all" events for each requested
+        IDs.
       example: '2019-01-01'
-    endDateCA:
+    EndDateCA:
       name: endDate
       in: query
       required: false
@@ -1032,21 +2018,10 @@ components:
         include events within the date range. The frequency between the
         startDate and endDate is always set to the "event" frequency- meaning
         the service will return only events within those inclusive boundaries.
-        Leaving both startDate and endDate blank will pull "all" events for each
-        requested ids.
+        Omitting  startDate and endDate will pull "all" events for each
+        requested IDs.
       example: '2019-12-31'
-    date:
-      name: date
-      in: query
-      required: false
-      schema:
-        type: string
-      description: >
-        The as of date in **YYYY-MM-DD** format. This controls the perspective
-        date in which the period parameter will be computed. Future dates (T+1)
-        are not accepted in this endpoint.
-      example: '2019-07-07'
-    cancelledDividend:
+    CancelledDividend:
       name: cancelledDividend
       in: query
       required: false
@@ -1060,7 +2035,7 @@ components:
         The cancelled dividend returns the dividend details whether they are
         cancelled or active.
       example: exclude
-    frequency:
+    Frequency:
       name: frequency
       in: query
       schema:
@@ -1092,7 +2067,7 @@ components:
           * **AY** = Actual Annual, based on the start date.
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
           
-    dividendAdjust:
+    DividendAdjust:
       name: dividendAdjust
       in: query
       schema:
@@ -1113,7 +2088,7 @@ components:
           * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.
 
           
-    calendar:
+    Calendar:
       name: calendar
       in: query
       schema:
@@ -1136,7 +2111,7 @@ components:
         currency ISO codes, visit [Online Assistant Page
         1470](https://oa.apps.factset.com/pages/1470).
       example: USD
-    adjust:
+    Adjust:
       name: adjust
       in: query
       schema:
@@ -1150,7 +2125,7 @@ components:
       description: |
         Controls the split and spinoff adjustments for the prices.
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
-          * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **SPLIT_SPINOFF** = Splits and Spinoff Adjusted.
           * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.
           * **UNSPLIT** = No Adjustments.
           
@@ -1165,79 +2140,51 @@ components:
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
         limit** =  50 per both non-batch request and batch request*</p> *<p>Make
         note, GET Method URL request lines are also limited to a total length of
         8192 bytes (8KB). In cases where the service allows for thousands of
-        ids, which may lead to exceeding this request line limit of 8KB, it's
+        IDs, which may lead to exceeding this request line limit of 8KB, it's
         advised for any requests with large request lines to be requested
         through the respective "POST" method.</p>*
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
           value:
-            - AAPL-USA
+            - IBM-US
         multipleEquityIds:
           summary: Multiple Equity Market Identifiers
           value:
             - FDS-US
             - AAPL-US
             - MSFT-US
-    idsBatchMax2000:
+    IdsBatchMax2000:
       name: ids
       in: query
       schema:
         type: array
         items:
           type: string
+          minItems: 0
+          maxItems: 2000
       required: true
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. **ids
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. **IDs
         limit** = 500 per non-batch request / 2000 per batch request for a
         single day and 50 per multi-day request for both batch and non-batch.
-        The number of unique currencies present in the requested ids is limited
+        The number of unique currencies present in the requested IDs is limited
         to 50 per request. Make note, GET Method URL request lines are also
         limited to a total length of 8192 bytes (8KB). In cases where the
-        service allows for thousands of ids, which may lead to exceeding this
+        service allows for thousands of IDs, which may lead to exceeding this
         request line limit of 8KB, it's advised for any requests with large
         request lines to be requested through the respective "POST" method.
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
           value:
-            - AAPL-USA
-        multipleEquityIds:
-          summary: Multiple Equity Market Identifiers
-          value:
-            - FDS-US
-            - AAPL-US
-            - MSFT-US
-    idsBatchMax1000:
-      name: ids
-      in: query
-      schema:
-        type: array
-        items:
-          type: string
-      required: true
-      explode: false
-      description: >-
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-        limit** =  500 per non-batch request / 1000 per batch request for a
-        single day and 50 per multi-day request*</p> *<p>Make note, GET Method
-        URL request lines are also limited to a total length of 8192 bytes
-        (8KB). In cases where the service allows for thousands of ids, which may
-        lead to exceeding this request line limit of 8KB, it's advised for any
-        requests with large request lines to be requested through the respective
-        "POST" method.</p>*
-      examples:
-        oneEquityId:
-          summary: One Equity Market Identifier
-          value:
-            - AAPL-USA
+            - IBM-US
         multipleEquityIds:
           summary: Multiple Equity Market Identifiers
           value:
@@ -1283,7 +2230,7 @@ components:
         - priceHigh
         - priceLow
         - volume
-    fieldsCorporateActions:
+    FieldsCorporateActions:
       name: fields
       in: query
       description: >
@@ -1327,15 +2274,15 @@ components:
           |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
           |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
           |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
-          |dividendStatus|Identifies the cancelled dividends status( Active, Cancelled, Postponed, Partial Information) and helps to evaluate their price and portfolio performance.Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
-          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
+          |dividendStatus|Identifies the cancelled dividends status( Active, Cancelled, Postponed, Partial Information) and helps to evaluate their price and portfolio performance. Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
+          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0). Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
           |dividendFrequencyDesc|Dividend Frequency for different event types in the form of a text as per the descriptions found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
           |dividendFrequencyCode|Dividend Frequency for different event types in the form of a code as per the details found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
           |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
           |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
-          |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
-          |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in. Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in. Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
           |frankPct|Percent of total dividend that is franked (subject to tax credit). **Only applicable for Australian Securities**.|
           |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
         <h3>Distribution Fields</h3>
@@ -1375,33 +2322,708 @@ components:
         Splits Fields:
           $ref: '#/components/examples/SplitsFields'
   schemas:
-    globalPricesRequest:
+    EventCountResponse:
+      type: object
+      title: Event Count Response
+      description: Array of Event Count details for a given date range.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventCount'
+    EventCount:
+      type: object
+      properties:
+        eventDate:
+          type: string
+          format: date
+          description: The date of the event in **YYYY-MM-DD** format.
+          example: '2022-12-01'
+          nullable: true
+        dividends:
+          type: integer
+          description: The number of dividend events for the given date.
+          example: 2
+          nullable: true
+        stockDistributions:
+          type: integer
+          description: The number of stock distribution events for the given date.
+          example: 1
+          nullable: true
+        rightsIssues:
+          type: integer
+          description: The number of rights issue events for the given date.
+          example: 0
+          nullable: true
+        spinOffs:
+          type: integer
+          description: The number of spin-off events for the given date.
+          example: 0
+          nullable: true
+        splits:
+          type: integer
+          description: The number of split events for the given date.
+          example: 0
+          nullable: true
+    CorporateActionsResponseCalendar:
+      type: object
+      title: Corporate Actions Response
+      description: Array of Corporate Action event details for a given date range.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CorporateActionCalendar'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    DividendsResponse:
+      type: object
+      title: Cash Dividends Response
+      description: Array of Cash Dividend details objects for a given date range.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DividendCalendar'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    DividendCalendar:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: >-
+            FactSet Event Identifier. This is a unique identifier for each
+            event.
+          example: SFMH16-A
+        fsymId:
+          type: string
+          description: >-
+            FactSet Permanent Identifier for the company/security associated
+            with the event.
+          example: MH33D6-R
+        requestId:
+          description: >-
+            The identifier for the company or security will only be returned
+            when IDs are included in the request. Acceptable identifiers include
+            Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent IDs.
+          type: string
+          example: IBM-US
+          nullable: true
+        identifier:
+          description: >-
+            The ticker-region of the company or security. This field is returned
+            regardless of any of the IDs provided.
+          type: string
+          example: IBM-US
+          nullable: true
+        companyName:
+          description: Name of the company/security that declared the dividend.
+          type: string
+          example: International Business Machines Corporation
+          nullable: true
+        exchangeCode:
+          type: string
+          description: >-
+            The exchange code where the event occurred. For a list of valid
+            exchange codes, refer to the `/meta/exchanges` endpoint.
+          example: NYS
+          nullable: true
+        exchangeName:
+          type: string
+          description: >-
+            Exchange where the security/company associated with the event is
+            traded.
+          example: New York Stock Exchange
+          nullable: true
+        country:
+          type: string
+          description: The ISO Alpha-2 code of the country where the event occurred.
+          example: US
+          nullable: true
+        eventType:
+          description: A brief description of the corporate action type.
+          type: string
+          example: Dividend
+          nullable: true
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        dividendType:
+          description: >-
+            Dividend Type Description. For available values, visit [Online
+            Assistant Page #8764](https://oa.apps.factset.com/pages/8764).
+          type: string
+          example: Ordinary
+          nullable: true
+        dividendStatus:
+          description: >-
+            Identifies the dividend status( Active, Cancelled, Postponed,
+            Partial Information).
+          type: string
+          example: Active
+          nullable: true
+        dividendPerShare:
+          type: number
+          format: double
+          description: >-
+            The amount to be paid as per the dividend event in the declared
+            currency.
+          example: 0.5
+          nullable: true
+        declaredCurrency:
+          description: Currency ISO code in which the distribution amount is declared.
+          type: string
+          example: USD
+          nullable: true
+        eventDescription:
+          description: >-
+            Textual description identifying the event. Example- Split
+            (Mandatory): 3 for 1.
+          type: string
+          example: Dividend USD 0.500
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    StockDistributionsResponseCalendar:
+      type: object
+      title: Stock Distributions Response
+      description: Array of Stock Distribution details objects for a given date range.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StockDistribution'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    StockDistribution:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: >-
+            FactSet Event Identifier. This is a unique identifier for each
+            event.
+          example: SFMH16-A
+        fsymId:
+          type: string
+          description: >-
+            FactSet Permanent Identifier for the company/security associated
+            with the event.
+          example: MH33D6-R
+        requestId:
+          description: >-
+            The identifier for the company or security will only be returned
+            when IDs are included in the request. Acceptable identifiers include
+            Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent IDs.
+          type: string
+          example: IBM-US
+          nullable: true
+        identifier:
+          description: >-
+            The ticker-region of the company or security. This field is returned
+            regardless of any of the IDs provided.
+          type: string
+          example: IBM-US
+          nullable: true
+        companyName:
+          description: Name of the company/security that declared the distribution.
+          type: string
+          example: International Business Machines Corporation
+          nullable: true
+        exchangeCode:
+          type: string
+          description: >-
+            The exchange code where the event occurred. For a list of valid
+            exchange codes, refer to the `/meta/exchanges` endpoint.
+          example: NYS
+          nullable: true
+        exchangeName:
+          type: string
+          description: >-
+            Exchange where the security/company associated with the event is
+            traded.
+          example: New York Stock Exchange
+          nullable: true
+        country:
+          type: string
+          description: The ISO Alpha-2 code of the country where the event occurred.
+          example: US
+          nullable: true
+        eventType:
+          description: A brief description of the corporate action type.
+          type: string
+          example: Stock Dividend
+          nullable: true
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        priceAdjFactor:
+          type: number
+          format: double
+          description: >-
+            The price adjustment factor associated with the bonus or stock
+            dividend event.
+          example: 0.9975
+          nullable: true
+        eventDescription:
+          description: Textual description identifying the event.
+          type: string
+          example: 5% Stock Dividend
+          nullable: true
+        distIdentifier:
+          description: The identifier of the distributed company associated with the event.
+          type: string
+          example: FDS-US
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    RightsIssuesResponse:
+      type: object
+      title: Rights Issues Response
+      description: Array of Rights Issue details objects for a given date range.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RightsIssue'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    RightsIssue:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: >-
+            FactSet Event Identifier. This is a unique identifier for each
+            event.
+          example: SFMH16-A
+        fsymId:
+          type: string
+          description: >-
+            FactSet Permanent Identifier for the company/security associated
+            with the event.
+          example: MH33D6-R
+        requestId:
+          description: >-
+            The identifier for the company or security will only be returned
+            when IDs are included in the request. Acceptable identifiers include
+            Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent IDs.
+          type: string
+          example: IBM-US
+          nullable: true
+        identifier:
+          description: >-
+            The ticker-region of the company or security. This field is returned
+            regardless of any of the IDs provided.
+          type: string
+          example: IBM-US
+          nullable: true
+        companyName:
+          description: Name of the company/security that declared the rights issue.
+          type: string
+          example: International Business Machines Corporation
+          nullable: true
+        exchangeCode:
+          type: string
+          description: >-
+            The exchange code where the event occurred. For a list of valid
+            exchange codes, refer to the `/meta/exchanges` endpoint.
+          example: NYS
+          nullable: true
+        exchangeName:
+          type: string
+          description: >-
+            Exchange where the security/company associated with the event is
+            traded.
+          example: New York Stock Exchange
+          nullable: true
+        country:
+          type: string
+          description: The ISO Alpha-2 code of the country where the event occurred.
+          example: US
+          nullable: true
+        eventType:
+          description: A brief description of the corporate action type.
+          type: string
+          example: Rights Issue
+          nullable: true
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        rightsIssuePrice:
+          description: Price at which the rights are issued.
+          type: number
+          format: double
+          example: 10.25
+          nullable: true
+        rightsIssueCurrency:
+          description: Currency ISO code in which the rights are issued.
+          type: string
+          example: USD
+          nullable: true
+        priceAdjFactor:
+          type: number
+          format: double
+          description: The price adjustment factor associated with the rights issue.
+          example: 0.9975
+          nullable: true
+        eventDescription:
+          description: Textual description identifying the event.
+          type: string
+          example: 'Rights Issue: 1 new share at 0.56 USD for 7 existing shares'
+          nullable: true
+        distIdentifier:
+          description: The identifier of the distributed company associated with the event.
+          type: string
+          example: FDS-US
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    SpinOffsResponse:
+      type: object
+      title: Spin Offs Response
+      description: Array of Spin Off details objects for a given date range.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpinOff'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    SpinOff:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: >-
+            FactSet Event Identifier. This is a unique identifier for each
+            event.
+          example: SFMH16-A
+        fsymId:
+          type: string
+          description: >-
+            FactSet Permanent Identifier for the company/security associated
+            with the event.
+          example: MH33D6-R
+        requestId:
+          description: >-
+            The identifier for the company or security will only be returned
+            when IDs are included in the request. Acceptable identifiers include
+            Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent IDs.
+          type: string
+          example: IBM-US
+          nullable: true
+        identifier:
+          description: >-
+            The ticker-region of the company or security. This field is returned
+            regardless of any of the IDs provided.
+          type: string
+          example: IBM-US
+          nullable: true
+        companyName:
+          description: Name of the company/security that declared the spin-off.
+          type: string
+          example: International Business Machines Corporation
+          nullable: true
+        exchangeCode:
+          type: string
+          description: >-
+            The exchange code where the event occurred. For a list of valid
+            exchange codes, refer to the `/meta/exchanges` endpoint.
+          example: NYS
+          nullable: true
+        exchangeName:
+          type: string
+          description: >-
+            Exchange where the security/company associated with the event is
+            traded.
+          example: New York Stock Exchange
+          nullable: true
+        country:
+          type: string
+          description: The ISO Alpha-2 code of the country where the event occurred.
+          example: US
+          nullable: true
+        eventType:
+          description: A brief description of the corporate action type.
+          type: string
+          example: Spin Off
+          nullable: true
+        announcementDate:
+          description: Date Event was announced in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        recordDate:
+          description: Date of Record for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        payDate:
+          description: Date of Payment for distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        effectiveDate:
+          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '2022-12-01'
+          nullable: true
+        priceAdjFactor:
+          type: number
+          format: double
+          description: >-
+            The price adjustment factor associated with the rights, spin-off,
+            split, bonus or stock dividend event.
+          example: 0.9975
+          nullable: true
+        eventDescription:
+          description: Textual description identifying the event.
+          type: string
+          example: >-
+            Spin off: For every 4 shares held of ABC Inc, receive 1 share of XYZ
+            Ltd.
+          nullable: true
+        distIdentifier:
+          description: The identifier of the distributed company associated with the event.
+          type: string
+          example: FDS-US
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    Meta:
+      title: Meta
+      description: Array of metadata objects.
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      title: Pagination
+      description: List of pagination objects
+      type: object
+      properties:
+        total:
+          description: Total number of records the API returns for a particular query.
+          type: integer
+        isEstimatedTotal:
+          description: >-
+            Boolean value that represents whether the total count of records
+            returned is exact or an estimate. This is defaulted to False as the
+            API should always return the exact count.
+          type: boolean
+    CorporateActionCalendar:
+      type: object
+      properties:
+        eventId:
+          type: string
+          description: >-
+            FactSet Event Identifier. This is a unique identifier for each
+            event.
+          example: SFMH16-A
+        fsymId:
+          type: string
+          description: >-
+            FactSet Permanent Identifier for the company/security associated
+            with the event.
+          example: MH33D6-R
+        requestId:
+          type: string
+          description: >-
+            The identifier for the company or security will only be returned
+            when IDs are included in the request. Acceptable identifiers include
+            Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent IDs.
+          example: IBM-US
+          nullable: true
+        identifier:
+          type: string
+          description: >-
+            The ticker-region of the company or security. This field is returned
+            regardless of any of the IDs provided.
+          example: IBM-US
+          nullable: true
+        companyName:
+          type: string
+          description: The name of the company/security associated with the event.
+          example: International Business Machines Corporation.
+          nullable: true
+        exchangeCode:
+          type: string
+          description: >-
+            The exchange code where the event occurred. For a list of valid
+            exchange codes, refer to the `/meta/exchanges` endpoint.
+          example: NYS
+          nullable: true
+        exchangeName:
+          type: string
+          description: >-
+            Exchange where the security/company associated with the event is
+            traded.
+          example: New York Stock Exchange
+          nullable: true
+        country:
+          type: string
+          description: The ISO Alpha-2 code of the country where the event occurred.
+          example: US
+          nullable: true
+        eventType:
+          type: string
+          description: The type of event.
+          example: Dividend
+          nullable: true
+        eventDate:
+          type: string
+          format: date
+          description: The date of the event in **YYYY-MM-DD** format.
+          example: '2022-12-01'
+          nullable: true
+        eventDescription:
+          type: string
+          description: A brief description of the event.
+          example: Dividend USD 0.500
+          nullable: true
+        detailsRelativePath:
+          type: string
+          description: The relative path to retrieve detailed information about the event.
+          example: >-
+            /content/corporate-actions/v1/dividends?eventIds=AQRFSY-R&ids=MH33D6-R
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    ErrorObjectResponse:
+      type: object
+      nullable: true
+      description: error
+      properties:
+        code:
+          description: status
+          type: string
+          example: GenericError
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        detail:
+          description: Error details explanation
+          type: string
+          example: Validation Error
+    ExchangesResponse:
+      type: object
+      title: Exchanges Response
+      description: Array of Exchange objects
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Exchange'
+    Exchange:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Exchange code.
+          example: NYS
+        description:
+          type: string
+          description: Exchange name.
+          example: New York Stock Exchange
+    GlobalPricesRequest:
       title: Prices Request Body
       description: Prices Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsBatchMax2000'
+          $ref: '#/components/schemas/IdsBatchMax2000'
         fields:
-          $ref: '#/components/schemas/pricesFields'
+          $ref: '#/components/schemas/PricesFields'
         startDate:
-          $ref: '#/components/schemas/startDate'
+          $ref: '#/components/schemas/StartDate'
         endDate:
-          $ref: '#/components/schemas/endDate'
+          $ref: '#/components/schemas/EndDate'
         frequency:
-          $ref: '#/components/schemas/frequency'
+          $ref: '#/components/schemas/Frequency'
         currency:
-          $ref: '#/components/schemas/requestCurrency'
+          $ref: '#/components/schemas/RequestCurrency'
         calendar:
-          $ref: '#/components/schemas/calendar'
+          $ref: '#/components/schemas/Calendar'
         adjust:
-          $ref: '#/components/schemas/adjust'
+          $ref: '#/components/schemas/Adjust'
+        precision:
+          $ref: '#/components/schemas/Precision'
         batch:
-          $ref: '#/components/schemas/batch'
+          $ref: '#/components/schemas/Batch'
       required:
         - ids
         - startDate
-    globalPricesResponse:
+    GlobalPricesResponse:
       type: object
       title: Prices Response
       properties:
@@ -1409,8 +3031,8 @@ components:
           description: Array of Price Objects
           type: array
           items:
-            $ref: '#/components/schemas/price'
-    price:
+            $ref: '#/components/schemas/Price'
+    Price:
       title: Price Object
       type: object
       properties:
@@ -1440,43 +3062,7 @@ components:
           type: string
           example: DDD-USA
       additionalProperties: true
-    CashDividendsResponse:
-      type: object
-      title: Cash Dividends Response
-      properties:
-        data:
-          description: Array of Diviends Objects
-          type: array
-          items:
-            $ref: '#/components/schemas/Dividend'
-    StockDistributionsResponse:
-      type: object
-      title: Stock Distributions Response
-      properties:
-        data:
-          description: Array of Distribution Objects
-          type: array
-          items:
-            $ref: '#/components/schemas/Distribution'
-    SpinoffsResponse:
-      type: object
-      title: Spinoffs Response
-      properties:
-        data:
-          description: Array of Distribution Objects
-          type: array
-          items:
-            $ref: '#/components/schemas/Distribution'
-    RightsIssueResponse:
-      type: object
-      title: Rights Issue Response
-      properties:
-        data:
-          description: Array of Distribution Objects
-          type: array
-          items:
-            $ref: '#/components/schemas/Distribution'
-    SplitsResponse:
+    SplitsResponseCalendar:
       type: object
       title: Splits Response
       properties:
@@ -1484,8 +3070,10 @@ components:
           description: Array of Split Objects
           type: array
           items:
-            $ref: '#/components/schemas/Split'
-    corporateActionsResponse:
+            $ref: '#/components/schemas/SplitCalendar'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    CorporateActionsResponse:
       type: object
       title: Corporate Actions Response
       properties:
@@ -1493,8 +3081,8 @@ components:
           description: Array of Corporate Action Objects
           type: array
           items:
-            $ref: '#/components/schemas/corporateAction'
-    corporateAction:
+            $ref: '#/components/schemas/CorporateAction'
+    CorporateAction:
       title: Corporate Action Object
       type: object
       properties:
@@ -1553,43 +3141,43 @@ components:
           type: string
           example: AAPL-US
       additionalProperties: true
-    corporateActionsRequest:
+    CorporateActionsRequest:
       title: Corporate Actions Request Body
       description: Corporate Actions Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/IdsMax50'
         eventCategory:
-          $ref: '#/components/schemas/eventCategory'
+          $ref: '#/components/schemas/EventCategory'
         fields:
-          $ref: '#/components/schemas/fieldsCorporateActions'
+          $ref: '#/components/schemas/FieldsCorporateActions'
         startDate:
-          $ref: '#/components/schemas/startDateCA'
+          $ref: '#/components/schemas/StartDateCA'
         endDate:
-          $ref: '#/components/schemas/endDateCA'
+          $ref: '#/components/schemas/EndDateCA'
         currency:
-          $ref: '#/components/schemas/requestCurrency'
+          $ref: '#/components/schemas/RequestCurrency'
         cancelledDividend:
-          $ref: '#/components/schemas/cancelledDividend'
+          $ref: '#/components/schemas/CancelledDividend'
         batch:
-          $ref: '#/components/schemas/batch'
+          $ref: '#/components/schemas/Batch'
       required:
         - ids
-    annualizedDividendsRequest:
+    AnnualizedDividendsRequest:
       title: Annualized Dividends Request Body
       description: Annualized Dividends Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/IdsMax50'
         currency:
-          $ref: '#/components/schemas/requestCurrency'
+          $ref: '#/components/schemas/RequestCurrency'
         batch:
-          $ref: '#/components/schemas/batch'
+          $ref: '#/components/schemas/Batch'
       required:
         - ids
-    annualizedDividendResponse:
+    AnnualizedDividendResponse:
       type: object
       title: Annualized Dividends Response
       properties:
@@ -1597,8 +3185,8 @@ components:
           description: Array of Annualized Dividends Objects
           type: array
           items:
-            $ref: '#/components/schemas/annualizedDividendsObject'
-    annualizedDividendsObject:
+            $ref: '#/components/schemas/AnnualizedDividendsObject'
+    AnnualizedDividendsObject:
       title: Annualized Dividends Object
       type: object
       properties:
@@ -1637,7 +3225,7 @@ components:
           nullable: true
         currency:
           description: >-
-            Currency ISO code associated with the annualized dividends.For more
+            Currency ISO code associated with the annualized dividends. For more
             details, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
@@ -1647,20 +3235,7 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: AAPL-US
-    idsMax100:
-      title: ids
-      type: array
-      items:
-        type: string
-      minItems: 1
-      maxItems: 100
-      description: >
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
-      example:
-        - TSLA-US
-        - AAPL-US
-    idsMax50:
+    IdsMax50:
       title: ids
       type: array
       items:
@@ -1669,53 +3244,39 @@ components:
       maxItems: 50
       description: >
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests
         are limited to 50 IDs.
       example:
         - AAPL-US
-    idsMax1000:
-      title: ids
-      type: array
-      items:
-        type: string
-      minItems: 1
-      maxItems: 1000
-      description: >
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests
-        are limited to 50 IDs for multi-day requests and 1000 IDs for single day
-        requests.
-      example:
-        - TSLA-US
-    sharesOutstandingRequest:
+    SharesOutstandingRequest:
       title: Shares Outstanding Request Body
       description: Shares Outstanding Request Body
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/sharesOutstandingRequestBody'
+          $ref: '#/components/schemas/SharesOutstandingRequestBody'
       required:
         - data
-    sharesOutstandingRequestBody:
+    SharesOutstandingRequestBody:
       title: Shares Outstanding Request Body
       description: Shares Outstanding Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/IdsMax50'
         startDate:
-          $ref: '#/components/schemas/startDate'
+          $ref: '#/components/schemas/StartDate'
         endDate:
-          $ref: '#/components/schemas/endDate'
+          $ref: '#/components/schemas/EndDate'
         frequency:
-          $ref: '#/components/schemas/frequency'
+          $ref: '#/components/schemas/Frequency'
         calendar:
-          $ref: '#/components/schemas/calendar'
+          $ref: '#/components/schemas/Calendar'
         batch:
-          $ref: '#/components/schemas/batch'
+          $ref: '#/components/schemas/Batch'
       required:
         - ids
-    sharesOutstandingResponse:
+    SharesOutstandingResponse:
       type: object
       title: Shares Outstanding Response
       properties:
@@ -1723,8 +3284,8 @@ components:
           description: Array of Shares Outstanding Objects
           type: array
           items:
-            $ref: '#/components/schemas/sharesOutstandingResponseObject'
-    sharesOutstandingResponseObject:
+            $ref: '#/components/schemas/SharesOutstandingResponseObject'
+    SharesOutstandingResponseObject:
       type: object
       title: Shares Outstanding Object
       properties:
@@ -1846,9 +3407,9 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/IdsMax50'
         batch:
-          $ref: '#/components/schemas/batch'
+          $ref: '#/components/schemas/Batch'
       required:
         - ids
     MarketValueResponse:
@@ -1888,32 +3449,29 @@ components:
           format: date
           example: '2024-11-26'
           nullable: true
-    idsBatchMax10000:
+    IdsBatchMax2000:
       type: array
       items:
         type: string
+        minItems: 0
+        maxItems: 2000
       description: >
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
 
-        <p>ids limit =  1000 per non-batch request / 10000 per batch request for
-        a single day and 50 per multi-day request</p>
-      example:
-        - FDS-US
-    idsBatchMax2000:
-      type: array
-      items:
-        type: string
-      description: >
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. 
-
-        <p>ids limit =  500 per non-batch request / 2000 per batch request for a
+        <p>IDs limit =  500 per non-batch request / 2000 per batch request for a
         single day and 50 per multi-day request for both batch and non-batch.
         </p>
       example:
         - FDS-US
-    batch:
+    Precision:
+      type: integer
+      description: Specifies the number of decimal places for price fields in the response.
+      default: 2
+      minimum: 1
+      maximum: 16
+      example: 2
+    Batch:
       description: >
         Enables asynchronous "batch" processing for long-running requests,
         supporting durations up to 20 minutes. When batch=Y is specified, the
@@ -1977,8 +3535,8 @@ components:
             - created
             - failed
         error:
-          $ref: '#/components/schemas/batchErrorObject'
-    batchResultResponse:
+          $ref: '#/components/schemas/BatchErrorObject'
+    BatchResultResponse:
       title: Batch Data Response
       type: object
       required:
@@ -1987,17 +3545,17 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/batchResult'
-    batchResult:
+            $ref: '#/components/schemas/BatchResult'
+    BatchResult:
       title: Batch Data
       anyOf:
-        - $ref: '#/components/schemas/price'
-        - $ref: '#/components/schemas/returns'
-        - $ref: '#/components/schemas/corporateAction'
-        - $ref: '#/components/schemas/annualizedDividendsObject'
-        - $ref: '#/components/schemas/sharesOutstandingResponseObject'
+        - $ref: '#/components/schemas/Price'
+        - $ref: '#/components/schemas/Returns'
+        - $ref: '#/components/schemas/CorporateAction'
+        - $ref: '#/components/schemas/AnnualizedDividendsObject'
+        - $ref: '#/components/schemas/SharesOutstandingResponseObject'
         - $ref: '#/components/schemas/MarketValueResponseObject'
-    eventCategory:
+    EventCategory:
       title: eventCategory
       type: string
       enum:
@@ -2015,9 +3573,9 @@ components:
           * **SPINOFFS** = Spin Offs
           * **RIGHTS** = Rights Issue
           * **SPLITS** = Splits
-          * **ALL** = Returns all Event Types. If left blank the service will default to ALL.
+          * **ALL** = Returns all Event Types. If omitted, the service will default to ALL.
       example: CASH_DIVS
-    fieldsCorporateActions:
+    FieldsCorporateActions:
       title: fields
       type: array
       items:
@@ -2066,12 +3624,12 @@ components:
           |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
           |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
           |dividendStatus|Identifies the cancelled dividents and helps to evaluate their price and portfolio performance.|
-          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
+          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0). Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
           |dividendFrequencyDesc|Dividend Frequency for different event types in the form of a text as per the descriptions found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
           |dividendFrequencyCode|Dividend Frequency for different event types in the form of a code as per the details found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
-          |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
-          |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
           |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.**Only applicable for Australian Securities**.|
           |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.**Only applicable for Australian Securities**.|
           |frankPct|Percent of total dividend that is franked (subject to tax credit). **Only applicable for Australian Securities**.|          
@@ -2105,7 +3663,7 @@ components:
         - recordDate
         - payDate
         - currency
-    pricesFields:
+    PricesFields:
       title: Prices Fields
       type: array
       items:
@@ -2135,21 +3693,21 @@ components:
         - vwap
         - tradeCount
         - turnover
-    startDate:
+    StartDate:
       title: Start Date
       type: string
       description: >
         The start date requested for a given date range in **YYYY-MM-DD**
         format. Future dates (T+1) are not accepted in this endpoint.
       example: '2020-06-30'
-    endDate:
+    EndDate:
       title: End Date
       type: string
       description: >
         The end date requested for a given date range in **YYYY-MM-DD** format.
         Future dates (T+1) are not accepted in this endpoint.
       example: '2021-06-30'
-    startDateCA:
+    StartDateCA:
       title: Start Date
       type: string
       description: >
@@ -2158,10 +3716,10 @@ components:
         to only include events within the date range. The frequency between the
         startDate and endDate is always set to the "event" frequency- meaning
         the service will return only events within those inclusive boundaries.
-        Leaving both startDate and endDate blank will pull "all" events for each
-        requested ids.
+        Omitting startDate and endDate will pull "all" events for each requested
+        IDs.
       example: '2020-06-30'
-    endDateCA:
+    EndDateCA:
       title: End Date
       type: string
       description: >
@@ -2170,10 +3728,10 @@ components:
         include events within the date range. The frequency between the
         startDate and endDate is always set to the "event" frequency- meaning
         the service will return only events within those inclusive boundaries.
-        Leaving both startDate and endDate blank will pull "all" events for each
-        requested ids.
+        Omitting startDate and endDate will pull "all" events for each requested
+        IDs.
       example: '2021-06-30'
-    frequency:
+    Frequency:
       title: Frequency
       type: string
       enum:
@@ -2203,7 +3761,7 @@ components:
           * **AY** = Actual Annual, based on the start date.
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
       example: M
-    dividendAdjust:
+    DividendAdjust:
       title: dividendAdjust
       type: string
       enum:
@@ -2221,7 +3779,7 @@ components:
           * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
           * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.
       example: EXDATE_C
-    calendar:
+    Calendar:
       title: Calendar
       type: string
       enum:
@@ -2231,7 +3789,7 @@ components:
       default: FIVEDAY
       description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
-    cancelledDividend:
+    CancelledDividend:
       title: cancelledDividend
       type: string
       enum:
@@ -2242,7 +3800,7 @@ components:
         The cancelled dividend returns the dividend details whether they are
         cancelled or active.
       example: exclude
-    requestCurrency:
+    RequestCurrency:
       title: Request Currency
       type: string
       default: LOCAL
@@ -2251,15 +3809,7 @@ components:
         currency ISO codes, visit [Online Assistant Page
         1470](https://oa.apps.factset.com/pages/1470).
       example: USD
-    idsBatchMax50:
-      title: ids
-      type: string
-      description: >-
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-        limit** =  50 per both non-batch request and batch request*</p>
-      example: AAPL-US
-    adjust:
+    Adjust:
       title: Adjust
       type: string
       enum:
@@ -2271,295 +3821,11 @@ components:
       description: |
         Controls the split and spinoff adjustments for the prices.
           * **SPLIT** = Split ONLY Adjusted. This is used by default.
-          * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.
+          * **SPLIT_SPINOFF** = Splits and Spinoff Adjusted.
           * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.
           * **UNSPLIT** = No Adjustments.
       example: SPLIT
-    Dividend:
-      title: Dividend Object
-      type: object
-      properties:
-        fsymId:
-          description: >-
-            Factset Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: SJY281-R
-        eventId:
-          description: FactSet identifier that uniquely identifies the Event.
-          type: string
-          example: JTHPFN-A
-        eventTypeCode:
-          description: Corporate Actions Event type code.
-          type: string
-          enum:
-            - DVC
-            - DVCD
-            - DRP
-        eventTypeDesc:
-          description: Corporate Actions Event type description.
-          type: string
-        divTypeCode:
-          description: >
-            Dividend Type Code. For code descriptions, visit [Online Assistant
-            Page #8764] (https://oa.apps.factset.com/pages/8764).
-          type: string
-        announcementDate:
-          description: Date Event was announced in YYYY-MM-DD format.
-          type: string
-        recordDate:
-          description: Date of Record for distribution in YYYY-MM-DD format.
-          type: string
-        payDate:
-          description: Date of Payment for distribution in YYYY-MM-DD format.
-          type: string
-        effectiveDate:
-          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
-          type: string
-        currency:
-          description: >-
-            Currency ISO code. For more details, visit [Online Assistant Page
-            #1470](https://oa.apps.factset.com/pages/1470).
-          type: string
-          example: USD
-        amtDefNetGrossIndicator:
-          description: >-
-            Net/Gross Marker Code. For details describing Net vs. Gross
-            dividends, visit [Online Assistant Page
-            #11512](https://oa.apps.factset.com/pages/11512).
-          type: string
-          enum:
-            - 'N'
-            - G
-        amtDefTradingAdj:
-          description: Default Amount - Trading Currency, Split Adjusted
-          type: number
-          format: double
-          example: null
-        amtDefTradingUnadj:
-          description: Default Amount - Trading Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        amtGrossTradingAdj:
-          description: 'Gross Amount - Trading Currency, Split Adjusted '
-          type: number
-          format: double
-          example: null
-        amtGrossTradingUnadj:
-          description: 'Gross Amount - Trading Currency, Unadjusted '
-          type: number
-          format: double
-          example: null
-        amtNetTradingAdj:
-          description: Net Amount - Trading Currency, Split Adjusted
-          type: number
-          format: double
-          example: null
-        amtNetTradingUnadj:
-          description: Net Amount - Trading Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        declaredCurrency:
-          description: Currency code for declared dividend.
-          type: string
-          example: USD
-        amtDefDecAdj:
-          description: Default Amount - Declared Currency, Split Adjusted
-          type: number
-          format: double
-          example: null
-        amtDefDecUnadj:
-          description: Default Amount - Declared Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        amtGrossDecAdj:
-          description: 'Gross Amount - Declared Currency, Split Adjusted '
-          type: number
-          format: double
-          example: null
-        amtGrossDecUnadj:
-          description: 'Gross Amount - Declared Currency, Unadjusted '
-          type: number
-          format: double
-          example: null
-        amtNetDecAdj:
-          description: 'Net Amount - Declared Currency, Split Adjusted '
-          type: number
-          format: double
-          example: null
-        amtNetDecUnadj:
-          description: 'Net Amount - Declared Currency, Unadjusted '
-          type: number
-          format: double
-          example: null
-        dividendStatus:
-          description: Dividend Status Flag - 1=Yes, 0=No
-          type: integer
-          example: 0
-        dividendActiveFlag:
-          description: Dividend active Flag - 1=Yes, 0=No
-          type: integer
-          example: 1
-        dividendsSpecFlag:
-          description: Special Dividend Flag - 1=Yes, 0=No
-          type: integer
-          example: 0
-        frankDefTradingAdj:
-          description: Default Frank - Trading Currency, Split Adjusted
-          type: number
-          format: double
-          example: null
-        frankDefTradingUnadj:
-          description: Default Frank - Trading Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        frankDefDecAdj:
-          description: Default Frank - Declared Currency, Split Adjusted
-          type: number
-          format: double
-          example: null
-        frankDefDecUnadj:
-          description: Default Frank - Declared Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        frankPct:
-          description: Default Amount - Declared Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        taxRate:
-          description: Tax Rate for on gross dividend for net dividend.
-          type: number
-          format: double
-        requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: AAPL-US
-    Distribution:
-      title: Distribution Object
-      type: object
-      properties:
-        fsymId:
-          description: >-
-            Factset Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: SJY281-R
-        eventId:
-          description: FactSet identifier that uniquely identifies the Event.
-          type: string
-          example: JTHPFN-A
-        eventTypeCode:
-          description: Corporate Actions Event type code.
-          type: string
-          enum:
-            - DVS
-            - DVSS
-            - BNS
-            - BNSS
-            - SPO
-            - DSR
-        eventTypeDesc:
-          description: Corporate Actions Event type description.
-          type: string
-          example: Stock Dividend, Special
-        announcementDate:
-          description: Date Event was announced in YYYY-MM-DD format.
-          type: string
-        recordDate:
-          description: Date of Record for distribution in YYYY-MM-DD format.
-          type: string
-        payDate:
-          description: Date of Payment for distribution in YYYY-MM-DD format.
-          type: string
-        effectiveDate:
-          description: Effective Date or Ex-Date of distribution in YYYY-MM-DD format.
-          type: string
-        adjFactor:
-          description: >
-            Factor for adjusting price and shares.
-
-            A 2-for-1 split returns .50, the number you would multiply the stock
-            price by to adjust for the split.
-          type: number
-          format: double
-          example: 0.997262
-        adjFactorCombined:
-          description: Combined adjustment factor for all distribution events on that day.
-          type: number
-          format: double
-          example: 0.997262
-        amtDefTradingAdj:
-          description: Default Amount - Trading Currency, Split Adjusted
-          type: number
-          format: double
-          example: null
-        amtDefTradingUnadj:
-          description: Default Amount - Trading Currency, Unadjusted
-          type: number
-          format: double
-          example: null
-        currency:
-          description: >-
-            Currency ISO code. For more details, visit [Online Assistant Page
-            #1470](https://oa.apps.factset.com/pages/1470).
-          type: string
-          example: USD
-        distPct:
-          description: >-
-            Distribution percentage of the event  (i.e. 10%). Typical for stock
-            distributions.
-          type: number
-          format: double
-          example: 0.27455
-        distOldTerm:
-          description: Component of distribution ratio -  Number of shares held.
-          type: number
-          format: double
-          example: 1
-        distNewTerm:
-          description: Component of distribution ratio -  Number of shares received.
-          type: number
-          format: double
-          example: 0.05
-        rightsIssuePrice:
-          description: Description
-          type: number
-          format: double
-          example: null
-        rightsIssueCurrency:
-          type: string
-          description: Description
-          example: USD
-        shortDesc:
-          description: Textual description identifying the event.
-          type: string
-          example: >
-            Spin off (Company)- For every 1 share held of General Electric Co.
-            (CUSIP- 369604103; SEDOL- 2380498), receive 0.005371 share of Wabtec
-            Rg (CUSIP- 929740108; SEDOL- 2955733)"
-        requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: GOOG-US
-    Split:
+    SplitCalendar:
       title: Split Object
       type: object
       properties:
@@ -2620,11 +3886,13 @@ components:
           description: Component of distribution ratio -  Number of shares held.
           type: number
           format: double
-          example: 1
+          nullable: true
+          example: 0.01
         distNewTerm:
           description: Component of distribution ratio -  Number of shares received.
           type: number
           format: double
+          nullable: true
           example: 0.05
         distInstFsymId:
           description: Parent Spin-Off for a company
@@ -2635,32 +3903,43 @@ components:
           type: string
           example: 'Split (Mandatory): 3 for 1.'
         requestId:
-          description: Identifier that was used for the request.
+          description: >-
+            The identifier for the company or security will only be returned
+            when IDs are included in the request. Acceptable identifiers include
+            Tickers, SEDOLs, ISINs, CUSIPs, or FactSet Permanent IDs.
           type: string
           example: IBM-US
-    returnsRequest:
+        identifier:
+          description: >-
+            The ticker-region of the company or security. This field is returned
+            regardless of any of the IDs provided.
+          type: string
+          example: IBM-US
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    ReturnsRequest:
       title: Returns Request Body
       description: Returns Request Body
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/IdsMax50'
         startDate:
-          $ref: '#/components/schemas/startDate'
+          $ref: '#/components/schemas/StartDate'
         endDate:
-          $ref: '#/components/schemas/endDate'
+          $ref: '#/components/schemas/EndDate'
         currency:
-          $ref: '#/components/schemas/requestCurrency'
+          $ref: '#/components/schemas/RequestCurrency'
         frequency:
-          $ref: '#/components/schemas/frequency'
+          $ref: '#/components/schemas/Frequency'
         dividendAdjust:
-          $ref: '#/components/schemas/dividendAdjust'
+          $ref: '#/components/schemas/DividendAdjust'
         batch:
-          $ref: '#/components/schemas/batch'
+          $ref: '#/components/schemas/Batch'
       required:
         - ids
         - startDate
-    returnsResponse:
+    ReturnsResponse:
       type: object
       title: Returns Response
       properties:
@@ -2668,8 +3947,8 @@ components:
           description: Array of Returns Objects
           type: array
           items:
-            $ref: '#/components/schemas/returns'
-    returns:
+            $ref: '#/components/schemas/Returns'
+    Returns:
       title: Returns Object
       type: object
       properties:
@@ -2707,7 +3986,7 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: DDD-USA
-    errorResponse:
+    ErrorResponse:
       type: object
       title: Error Response
       properties:
@@ -2718,7 +3997,7 @@ components:
         timestamp:
           description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
           type: string
-          example: '2019-11-01 11:09:41.918'
+          example: '2019-11-01T11:09:41.918Z'
           format: date-time
         path:
           description: The Endpoint path {package}/version/{endpoint}
@@ -2731,6 +4010,7 @@ components:
         subErrors:
           description: subErrors related to the error message. Null if not applicable.
           type: object
+          nullable: true
           properties:
             object:
               description: the operation ID
@@ -2746,7 +4026,7 @@ components:
               type: array
               items:
                 type: string
-    soErrorResponse:
+    ErrorResponseCalendar:
       type: object
       title: Error Response
       description: Error Default Response
@@ -2755,8 +4035,38 @@ components:
           type: array
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/soErrorObject'
-    soErrorObject:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: uuid
+          format: uuid
+          example: e8d9a8a7-bcf6-4d9d-9630-40a23fb6fc4d
+        code:
+          type: string
+          description: Common Error code
+          example: Bad Request
+        title:
+          type: string
+          description: Short error description
+          example: Invalid Parameter Format
+        detail:
+          type: string
+          description: Error details explanation
+          example: 'The date parameter must be in the following date format: YYYY-MM-DD'
+    SoErrorResponse:
+      type: object
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/SoErrorObject'
+    SoErrorObject:
       type: object
       properties:
         id:
@@ -2779,7 +4089,7 @@ components:
           description: The plain text error message
           type: string
           example: Validation Error
-    batchErrorResponse:
+    BatchErrorResponse:
       type: object
       nullable: true
       title: Error Response
@@ -2790,8 +4100,8 @@ components:
           nullable: true
           description: An array containing errors
           items:
-            $ref: '#/components/schemas/batchErrorObject'
-    batchErrorObject:
+            $ref: '#/components/schemas/BatchErrorObject'
+    BatchErrorObject:
       type: object
       nullable: true
       properties:
@@ -2826,7 +4136,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/badRequestDateFormat'
@@ -2850,7 +4160,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
@@ -2863,7 +4173,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/forbidden'
@@ -2876,7 +4186,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/unsupportedMediaType'
@@ -2885,7 +4195,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
           examples:
             Internal Server Error - Not Writable:
               $ref: '#/components/examples/notWritable'
@@ -2896,7 +4206,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/batchErrorResponse'
+            $ref: '#/components/schemas/BatchErrorResponse'
           examples:
             Batch Request Not Found:
               $ref: '#/components/examples/batchNotFound'
@@ -2907,7 +4217,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/soErrorResponse'
+            $ref: '#/components/schemas/SoErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/sobadRequestDateFormat'
@@ -2931,7 +4241,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/soErrorResponse'
+            $ref: '#/components/schemas/SoErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/sounauthenticated'
@@ -2944,7 +4254,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/soErrorResponse'
+            $ref: '#/components/schemas/SoErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/soforbidden'
@@ -2957,7 +4267,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/soErrorResponse'
+            $ref: '#/components/schemas/SoErrorResponse'
           examples:
             Bad Request - Date Format:
               $ref: '#/components/examples/sounsupportedMediaType'
@@ -2966,13 +4276,316 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/soErrorResponse'
+            $ref: '#/components/schemas/SoErrorResponse'
           examples:
             Internal Server Error - Not Writable:
               $ref: '#/components/examples/sonotWritable'
             Internal Server Error - General Exception:
               $ref: '#/components/examples/sogeneralException'
+    400Calendar:
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponseCalendar'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormatCalendar'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParametersCalendar'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeoutCalendar'
+    401Calendar:
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponseCalendar'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticatedCalendar'
+    403Calendar:
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond.
+        Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponseCalendar'
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbiddenCalendar'
+    404Calendar:
+      description: The requested endpoint could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponseCalendar'
+          examples:
+            Not Found - No Endpoint Found:
+              $ref: '#/components/examples/endpointNotFoundCalendar'
+    415Calendar:
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponseCalendar'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaTypeCalendar'
+    500Calendar:
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponseCalendar'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritableCalendar'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalExceptionCalendar'
   examples:
+    exchangesResponse:
+      summary: Exchanges Response
+      value:
+        data:
+          - code: NYS
+            description: New York Stock Exchange
+          - code: NAS
+            description: NASDAQ
+    eventCountResponse:
+      summary: Event Count Response
+      value:
+        data:
+          - eventDate: '2022-12-01'
+            dividends: 2
+            stockDistributions: 1
+            rightsIssues: 0
+            spinOffs: 0
+            splits: 0
+    corporateActionsResponse:
+      summary: Corporate Actions Response
+      value:
+        data:
+          - eventId: SFMH16-A
+            fsymId: MH33D6-R
+            requestId: IBM-US
+            identifier: IBM-US
+            companyName: International Business Machines Corporation
+            exchangeCode: NYS
+            exchangeName: New York Stock Exchange
+            country: US
+            eventType: Dividend
+            eventDate: '2022-12-01'
+            eventDescription: Dividend USD 0.500
+            detailsRelativePath: >-
+              /content/corporate-actions/v1/dividends?eventIds=SFMH16-A&ids=MH33D6-R
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    dividendsResponse:
+      summary: Cash Dividends Response
+      value:
+        data:
+          - eventId: SFMH16-A
+            fsymId: MH33D6-R
+            requestId: IBM-US
+            identifier: IBM-US
+            companyName: International Business Machines Corporation
+            exchangeCode: NYS
+            exchangeName: New York Stock Exchange
+            country: US
+            eventType: Dividend
+            announcementDate: '2022-12-01'
+            recordDate: '2022-12-01'
+            payDate: '2022-12-01'
+            effectiveDate: '2022-12-01'
+            dividendType: Ordinary
+            dividendStatus: Active
+            dividendPerShare: 0.5
+            declaredCurrency: USD
+            eventDescription: Dividend USD 0.500
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    stockDistributionsResponseCalendar:
+      summary: Stock Distributions Response
+      value:
+        data:
+          - eventId: SFMH16-A
+            fsymId: MH33D6-R
+            requestId: IBM-US
+            identifier: IBM-US
+            companyName: International Business Machines Corporation
+            exchangeCode: NYS
+            exchangeName: New York Stock Exchange
+            country: US
+            eventType: Stock Dividend
+            announcementDate: '2022-12-01'
+            recordDate: '2022-12-01'
+            payDate: '2022-12-01'
+            effectiveDate: '2022-12-01'
+            priceAdjFactor: 0.9975
+            eventDescription: 5% Stock Dividend
+            distIdentifier: FDS-US
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    rightsIssuesResponse:
+      summary: Rights Issues Response
+      value:
+        data:
+          - eventId: SFMH16-A
+            fsymId: MH33D6-R
+            requestId: IBM-US
+            identifier: IBM-US
+            companyName: International Business Machines Corporation
+            exchangeCode: NYS
+            exchangeName: New York Stock Exchange
+            country: US
+            eventType: Rights Issue
+            announcementDate: '2022-12-01'
+            recordDate: '2022-12-01'
+            payDate: '2022-12-01'
+            effectiveDate: '2022-12-01'
+            rightsIssuePrice: 10.25
+            rightsIssueCurrency: USD
+            priceAdjFactor: 0.9975
+            eventDescription: 'Rights Issue: 1 new share at 0.56 USD for 7 existing shares'
+            distIdentifier: FDS-US
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    spinOffsResponse:
+      summary: Spin Offs Response
+      value:
+        data:
+          - eventId: SFMH16-A
+            fsymId: MH33D6-R
+            requestId: IBM-US
+            identifier: IBM-US
+            companyName: International Business Machines Corporation
+            exchangeCode: NYS
+            exchangeName: New York Stock Exchange
+            country: US
+            eventType: Spin Off
+            announcementDate: '2022-12-01'
+            recordDate: '2022-12-01'
+            payDate: '2022-12-01'
+            effectiveDate: '2022-12-01'
+            priceAdjFactor: 0.9975
+            eventDescription: >-
+              Spin off: For every 4 shares held of ABC Inc, receive 1 share of
+              XYZ Ltd
+            distIdentifier: FDS-US
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+    splitsResponse:
+      summary: Splits Response
+      value:
+        data:
+          - eventId: SFMH16-A
+            fsymId: MH33D6-R
+            requestId: IBM-US
+            identifier: IBM-US
+            companyName: International Business Machines Corporation
+            exchangeCode: NYS
+            exchangeName: New York Stock Exchange
+            country: US
+            eventType: Split
+            announcementDate: '2022-12-01'
+            recordDate: '2022-12-01'
+            payDate: '2022-12-01'
+            effectiveDate: '2022-12-01'
+            priceAdjFactor: 0.25
+            eventDescription: 'Forward Split(Mandatory): 4 for 1'
+            distOldTerm: 4.12
+            distNewTerm: 5.12
+            distIdentifier: FDS-US
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
     postSecurityShares:
       summary: Security Shares Request over 1 year period for FDS-US
       value:
@@ -3461,6 +5074,7 @@ components:
         currency: USD
         calendar: FIVEDAY
         adjust: SPLIT
+        precision: 2
         batch: 'N'
     postReturns:
       summary: Returns Request over 1 year period FDS-US
@@ -3543,6 +5157,42 @@ components:
             id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
             code: GenericError
             title: the date parameter must be in YYYY-MM-DD format
+    badRequestDateFormatCalendar:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve this, convert your date to YYYY-MM-DD.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09222
+            code: Bad Request
+            title: Invalid Parameter Format
+            detail: >-
+              The date parameter must be in the following date format:
+              YYYY-MM-DD
+    badRequestInvalidParametersCalendar:
+      summary: Bad Request - Passing invalid Event Category
+      description: >-
+        This error message occurs when the user is passing invalid event
+        categories. Please use the helper endpoint */meta/categories* to find
+        valid event categories.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09223
+            code: Bad Request
+            title: Invalid Parameter Value
+            detail: 'Given input is not a valid value for parameter: `eventCategories`'
+    badRequestReadTimeoutCalendar:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes too long to get response from the
+        backend service.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09225
+            code: Bad Request
+            title: Request Timed Out
+            detail: The request took too long. Try again with a smaller request.
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-
@@ -3550,7 +5200,7 @@ components:
         date parameters. To resolve, convert your date to YYYY-MM-DD.
       value:
         status: Bad Request
-        timestamp: '2019-10-31 16:08:07.945'
+        timestamp: '2019-10-31T16:08:07.945Z'
         path: /factset-global-prices/v1/{endpoint}
         message: >-
           The date parameter 'startDate' must be in the following date format:
@@ -3564,7 +5214,7 @@ components:
         symbol in the specification file.
       value:
         status: Bad Request
-        timestamp: '2020-06-12 15:48:42.016'
+        timestamp: '2020-06-12T15:48:42.016Z'
         path: /factset-global-prices/v1/{endpoint}
         message: The parameter 'ids' is required and may not be empty.
         subErrors: null
@@ -3576,7 +5226,7 @@ components:
         dates as of today's current date or any prior historical date.
       value:
         status: Bad Request
-        timestamp: '2020-06-12 15:52:48.091'
+        timestamp: '2020-06-12T15:52:48.091Z'
         path: /factset-global-prices/v1/{endpoint}
         message: >-
           The use of future dates is not applicable in this endpoint. Please
@@ -3591,7 +5241,7 @@ components:
         spelling mistakes and use of improper casing.
       value:
         status: Bad Request
-        timestamp: '2020-06-12 15:58:54.068'
+        timestamp: '2020-06-12T15:58:54.068Z'
         path: /factset-global-prices/v1/{endpoint}
         message: >-
           Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
@@ -3605,7 +5255,7 @@ components:
         but is not in proper JSON format.
       value:
         status: Bad Request
-        timestamp: '2019-11-05 09:48:29.18'
+        timestamp: '2019-11-05T09:48:29.18Z'
         path: /factset-global-prices/v1/{endpoint}
         message: Malformed JSON Request
         subErrors: null
@@ -3616,7 +5266,7 @@ components:
         from the data fetch service.
       value:
         status: Bad Request
-        timestamp: '2019-11-04 16:18:38.949'
+        timestamp: '2019-11-04T16:18:38.949Z'
         path: /factset-global-prices/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
@@ -3703,6 +5353,43 @@ components:
             links:
               about: /factset-global-prices/v1/{endpoint}
             title: The request took too long. Try again with a smaller request.
+    unauthenticatedCalendar:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double-check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report the Issue under 401 error for help with troubleshooting.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09226
+            code: Unauthorized
+            title: Failed to authenticate user
+            detail: The credentials are missing, invalid, or expired.
+    forbiddenCalendar:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
+        authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09227
+            code: Forbidden
+            title: User Not Authorized
+            detail: >-
+              User is not authorized for the id/endpoint requested, please reach
+              out to FactSet for support
+    endpointNotFoundCalendar:
+      summary: Not Found
+      description: The requested endpoint could not be found.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09226
+            code: Not Found
+            title: No endpoint found
+            detail: The requested endpoint does not exist.
     unauthenticated:
       summary: User Authentication Failed
       description: >-
@@ -3712,7 +5399,7 @@ components:
         Report Issue under 401 error for help with troubleshooting.
       value:
         status: User Authentication Failed
-        timestamp: '2019-10-31 16:08:07.945'
+        timestamp: '2019-10-31T16:08:07.945Z'
         path: /factset-global-prices/v1/{endpoint}
         message: User Authentication Failed.
         subErrors: null
@@ -3739,7 +5426,7 @@ components:
         authorization.
       value:
         status: Forbidden
-        timestamp: '2020-06-12 16:08:51.731'
+        timestamp: '2020-06-12T16:08:51.731Z'
         path: /factset-global-prices/v1/{endpoint}
         message: >-
           USERNAME-SERIAL does not have permission to use
@@ -3778,7 +5465,7 @@ components:
         supported. Currently the APIs only support 'application/json'.
       value:
         status: Unsupported Media Type
-        timestamp: '2019-11-05 09:42:27.237'
+        timestamp: '2019-11-05T09:42:27.237Z'
         path: /factset-global-prices/v1/{endpoint}
         message: >-
           text/html media type is not supported. Supported media types are
@@ -3798,6 +5485,19 @@ components:
             title: >-
               text/html media type is not supported. Supported media types are
               application/json.
+    unsupportedMediaTypeCalendar:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09226
+            code: Unsupported Media Type
+            title: Unsupported Media Type
+            detail: >-
+              text/html media type is not supported. Supported media types are
+              application/json.
     notWritable:
       summary: Internal Server Error - Not Writable
       description: >-
@@ -3805,10 +5505,23 @@ components:
         the JSON response.
       value:
         status: Internal Server Error
-        timestamp: '2019-11-05 09:48:29.18'
+        timestamp: '2019-11-05T09:48:29.18Z'
         path: /factset-global-prices/v1/{endpoint}
         message: Error writing JSON output
         subErrors: null
+    notWritableCalendar:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09228
+            code: Internal Server Error
+            title: Error writing JSON output
+            detail: >-
+              The server encountered an error writing the JSON output. Please
+              `Report Issue` to FactSet.
     generalException:
       summary: Internal Server Error - General Exception
       description: >-
@@ -3816,10 +5529,23 @@ components:
         Please `Report Issue` to FactSet.
       value:
         status: Internal Server Error
-        timestamp: '2019-11-01 10:36:01.944'
+        timestamp: '2019-11-01T10:36:01.944Z'
         path: /factset-global-prices/v1/{endpoint}
         message: Unexpected error
         subErrors: null
+    generalExceptionCalendar:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        errors:
+          - id: f4ab56e5-9d54-4f0d-92d7-99ffa7b09229
+            code: Internal Server Error
+            title: Unexpected error occured
+            detail: >-
+              An unexpected error occurred while processing request. Please
+              `Report Issue` to FactSet.
     sonotWritable:
       summary: Internal Server Error - Not Writable
       description: >-

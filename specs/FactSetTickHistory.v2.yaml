@@ -874,9 +874,7 @@ components:
 
         NOTE: 
           
-          - Using start and end parameters within dateTimeRange will fetch the data on particular days in between the timestamps given.
-          
-          - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
+          - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
           
           - Supports milliseconds, YYYY-MM-DDTHH:MM:SS.SSSZ where .SSS represents the milliseconds which is optional.
       properties:
@@ -937,8 +935,6 @@ components:
           - CCVOL
           - VWAP
           - YIELD_PRICE
-          - BENCHMARK_YIELD
-          - BENCHMARK_SPREAD
           - CURRENT_YIELD
           - TRADE_CONDITION
           - REPORTING_SIDE
@@ -949,16 +945,14 @@ components:
           - MID_YIELD
           - ORDER_CODE
           - SELL_ID
-          - TRADED_PRICE
-          - TRADED_VOL
-          - TRADED_CONDITION
-          - TRADED_YIELD
           - ORIG_SEQUENCE
           - SECURITY_TYPE
           - SECURITY_STATUS
           - MSG_BITMASK
           - ORDER_NUM
           - ISO
+          - DATE_UTC
+          - TIME_UTC
       description: |
         Fields for which data is requested
       example:
@@ -1018,7 +1012,7 @@ components:
 
         NOTE: 
           
-          - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
+          - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
           
       required:
         - start
@@ -1292,6 +1286,10 @@ components:
 
             - tradeVWAP
 
+            - dateUtc
+
+            - timeUtc
+
 
             For <b>quotes</b>, the downloaded file contains the following
             fields:
@@ -1319,6 +1317,10 @@ components:
             - count
 
             - medianSpread
+
+            - dateUtc
+
+            - timeUtc
 
 
             This download link will expire after 12 hours.

@@ -74,9 +74,9 @@ public class AnalystRating implements Serializable {
     
     HOLD("Hold"),
     
-    OVERWEIGHT("overWeight"),
+    OVERWEIGHT("Overweight"),
     
-    UNDERWEIGHT("underWeight");
+    UNDERWEIGHT("Underweight");
 
     private String value;
 

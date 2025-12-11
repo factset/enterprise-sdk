@@ -44,6 +44,7 @@ import SPARBenchmarkRoot from './model/SPARBenchmarkRoot';
 import SPARCalculationParameters from './model/SPARCalculationParameters';
 import SPARCalculationParametersRoot from './model/SPARCalculationParametersRoot';
 import SPARComponent from './model/SPARComponent';
+import SPARComponentIdentifier from './model/SPARComponentIdentifier';
 import SPARComponentRoot from './model/SPARComponentRoot';
 import SPARDateParameters from './model/SPARDateParameters';
 import SPARIdentifier from './model/SPARIdentifier';
@@ -287,6 +288,12 @@ export {
      * @property {module:model/SPARComponent}
      */
     SPARComponent,
+
+    /**
+     * The SPARComponentIdentifier model constructor.
+     * @property {module:model/SPARComponentIdentifier}
+     */
+    SPARComponentIdentifier,
 
     /**
      * The SPARComponentRoot model constructor.

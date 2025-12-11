@@ -22,10 +22,11 @@ class HeadlinesRequestByViewData {
     /**
      * Constructs a new <code>HeadlinesRequestByViewData</code>.
      * @alias module:model/HeadlinesRequestByViewData
+     * @param name {String} Name of the view to return headlines for.
      */
-    constructor() { 
+    constructor(name) { 
         
-        HeadlinesRequestByViewData.initialize(this);
+        HeadlinesRequestByViewData.initialize(this, name);
     }
 
     /**
@@ -33,7 +34,8 @@ class HeadlinesRequestByViewData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**

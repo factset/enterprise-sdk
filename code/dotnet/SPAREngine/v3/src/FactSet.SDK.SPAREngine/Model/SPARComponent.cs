@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <param name="path">The path to the document.</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
-        public SPARComponent(string id = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmarks = default(SPARIdentifier), string currencyIsoCode = default(string), string path = default(string), string name = default(string), string category = default(string))
+        public SPARComponent(string id = default(string), List<SPARComponentIdentifier> accounts = default(List<SPARComponentIdentifier>), SPARComponentIdentifier benchmarks = default(SPARComponentIdentifier), string currencyIsoCode = default(string), string path = default(string), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Accounts = accounts;
@@ -65,13 +65,13 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <value>List of accounts in SPAR document.</value>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
-        public List<SPARIdentifier> Accounts { get; set; }
+        public List<SPARComponentIdentifier> Accounts { get; set; }
 
         /// <summary>
         /// Gets or Sets Benchmarks
         /// </summary>
         [DataMember(Name = "benchmarks", EmitDefaultValue = false)]
-        public SPARIdentifier Benchmarks { get; set; }
+        public SPARComponentIdentifier Benchmarks { get; set; }
 
         /// <summary>
         /// CurrencyCode in SPAR document.

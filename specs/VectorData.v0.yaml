@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vector Data API
-  version: 0.2.0
+  version: 0.3.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -125,8 +125,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ChunkTextResponse'
               examples:
-                default200Response:
-                  $ref: '#/components/examples/SampleChunkTextResponse'
+                sa200response:
+                  $ref: '#/components/examples/SampleChunkTextResponseSA'
+                fcst200Response:
+                  $ref: '#/components/examples/SampleChunkTextResponseFCST'
+                edg200Response:
+                  $ref: '#/components/examples/SampleChunkTextResponseEDG'
         '400':
           description: Bad request.
           content:
@@ -555,7 +559,11 @@ components:
               uniqueItems: true
               items:
                 type: string
-              description: The search to include any sentiment of given sources.
+              description: >-
+                It is the measure of expressed attitude or opinion of the
+                document, such as "Negative" or "Very Positive". Use the
+                `/meta/themes` endpoint to get a list of all available sentiment
+                values.
               example:
                 - Neutral
                 - Negative
@@ -728,7 +736,9 @@ components:
           example: Tariff
         sentiment:
           type: string
-          description: theme of the source.
+          description: >-
+            Sentiment is the measure of expressed attitude or opinion of the
+            document, such as "Negative" or "Very Positive" etc.
           example: Negative
         description:
           type: string
@@ -754,7 +764,7 @@ components:
             numberOfResults:
               type: integer
               format: int32
-              description: Number of results to return.
+              description: Number of results returned.
     VectorDataResult:
       type: object
       description: Returns vector information.
@@ -766,7 +776,7 @@ components:
           description: Chuncked emedding vector.
         vectorId:
           type: string
-          description: Unique identifier for a document
+          description: Unique vector identifier associated with the document.
         similarityScore:
           type: number
           description: Score indicating the similarity.
@@ -809,6 +819,12 @@ components:
             Trimmed attribute indicates whether the vectors are trimmed or not. 
             - If **true**, the vectors has been trimmed.  
             - If **false**, the vectors are been returned.
+        sentiment:
+          type: string
+          description: >-
+            Sentiment is the measure of expressed attitude or opinion of the
+            document, such as "Negative" or "Very Positive". The `/meta/themes`
+            endpoint gives list of all available sentiment values.
     ChunkTextResponse:
       type: object
       description: Response format for chunk text endpoint.
@@ -841,6 +857,9 @@ components:
       type: object
       description: Contains content and link for a single vector ID.
       properties:
+        vectorId:
+          type: string
+          description: Unique vector identifier associated with the document.
         content:
           type: string
           description: Unique identifier for a document.
@@ -872,6 +891,86 @@ components:
           items:
             type: string
           description: List of related IDs.
+        textLength:
+          type: integer
+          format: int32
+          description: Length of the text.
+          example: 1242
+        tokenCount:
+          type: integer
+          format: int32
+          description: Number of tokens.
+          example: 257
+        speakerId:
+          type: integer
+          format: int32
+          description: Unique identifier of the speaker.
+          example: 2
+        speakerName:
+          type: string
+          description: Name of the speaker.
+          example: Luca Maestri
+        speakerType:
+          type: string
+          description: Type of the speaker.
+          example: corprep
+        speakerTitle:
+          type: string
+          description: Actual title of the speaker.
+          example: Chief Financial Officer & Senior Vice President
+        speakerCompanyName:
+          type: string
+          description: Name of the company the speaker belongs to.
+          example: Apple, Inc.
+        speakerCompanyEntityId:
+          type: string
+          description: Entity id of the company the speaker belongs to.
+          example: 000C7F-E
+        speakerEntity:
+          type: string
+          description: Entity id of the speaker.
+          example: 07F5D0-E
+        docType:
+          type: string
+          description: Type(s) of document chunk
+          example: discussion
+        docNum:
+          type: string
+          description: Alphanumeric id for the chunk.
+          example: md_2
+        financialYear:
+          type: string
+          description: Financial year of the earnings call.
+          example: '2024'
+        financialQuarter:
+          type: string
+          description: Financial quarter(s) of the earnings call
+          example: Q3
+        sectionName:
+          type: string
+          description: Name of the filing section.
+          example: legal proceedings
+        sectionNumber:
+          type: string
+          description: Bullet numeric representing the filing section.
+          example: 1A
+        tableText:
+          type: string
+          description: >-
+            Full table text for the chunk. Can contain multiple lines and
+            repeated entries.
+          example: |
+            June 29, 2024 June 29, 2024 June 29, 2024 ...
+            Adjusted[break-line]Cost Adjusted[break-line]Cost ...
+            Cash $ 22,866 $  $  $ 22,866 $ 22,866 $  $ 
+            Level 1:
+            Money market funds 1
+        sentiment:
+          type: string
+          description: >-
+            Sentiment is the measure of expressed attitude or opinion of the
+            document, such as "Negative" or "Very Positive". The `/meta/themes`
+            endpoint gives list of all available sentiment values.
   examples:
     ErrorDetails:
       summary: Sample Error Response
@@ -926,6 +1025,7 @@ components:
               - GEDC
               - RSRTD
             trimmed: false
+            sentiment: Positive
         meta:
           numberOfResults: 10
     SampleVectorDataResponseTrimmed:
@@ -946,13 +1046,74 @@ components:
               - GEDC
               - RSRTD
             trimmed: true
+            sentiment: Positive
         meta:
           numberOfResults: 10
-    SampleChunkTextResponse:
-      summary: Sample Chunk Text Response.
+    SampleChunkTextResponseSA:
+      summary: Sample Chunk Text Response for SA source.
       value:
         data:
-          - content: Item 2. Managements Discussion...
+          - vectorId: 0001593152-24-046748-1_0001493152-24-046748-1_text_236_0
+            content: Item 2. Managements Discussion...
+            storyLink: >-
+              https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
+            storyDate: '2024-11-19'
+            themes: NA
+            documentType: News
+            source: SA
+            documentID: 0001493152-24-046748-1
+            ids:
+              - GEDC-US
+              - GEDC
+              - RSRTD
+            textLength: 1242
+            tokenCount: 257
+            sentiment: Positive
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 1
+    SampleChunkTextResponseFCST:
+      summary: Sample Chunk Text Response for FCST source.
+      value:
+        data:
+          - vectorId: 0001693152-24-046748-1_0001493152-24-046748-1_text_236_0
+            content: Management commentary from the earnings call...
+            storyLink: >-
+              https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
+            storyDate: '2024-11-19'
+            themes: NA
+            documentType: 10-Q
+            source: FCST
+            documentID: 0001493152-24-046748-1
+            ids:
+              - GEDC-US
+              - GEDC
+              - RSRTD
+            speakerId: 2
+            speakerName: Luca Maestri
+            speakerType: corprep
+            speakerTitle: Chief Financial Officer & Senior Vice President
+            speakerCompanyName: Apple, Inc.
+            speakerCompanyEntityId: 000C7F-E
+            speakerEntity: 07F5D0-E
+            docType: discussion
+            docNum: md_2
+            textLength: 1242
+            tokenCount: 257
+            financialYear: '2024'
+            financialQuarter: Q3
+            sentiment: Positive
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 1
+    SampleChunkTextResponseEDG:
+      summary: Sample Chunk Text Response for EDG source.
+      value:
+        data:
+          - vectorId: 0001793152-24-046748-1_0001493152-24-046748-1_text_236_0
+            content: Table data and summary from filing...
             storyLink: >-
               https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
             storyDate: '2024-11-19'
@@ -964,6 +1125,37 @@ components:
               - GEDC-US
               - GEDC
               - RSRTD
+            sectionName: legal proceedings
+            sectionNumber: 1A
+            docType: table
+            textLength: 1242
+            tokenCount: 257
+            sentiment: Positive
+            tableText: >
+              June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29,
+              2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June
+              29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024
+              June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29,
+              2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June
+              29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024
+              June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29,
+              2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June
+              29, 2024 June 29, 2024\nAdjusted[break-line]Cost
+              Adjusted[break-line]Cost Adjusted[break-line]Cost
+              Unrealized[break-line]Gains Unrealized[break-line]Gains
+              Unrealized[break-line]Gains Unrealized[break-line]Losses
+              Unrealized[break-line]Losses Unrealized[break-line]Losses
+              Fair[break-line]Value Fair[break-line]Value Fair[break-line]Value
+              Cash and[break-line]Cash[break-line]Equivalents Cash
+              and[break-line]Cash[break-line]Equivalents Cash
+              and[break-line]Cash[break-line]Equivalents
+              Current[break-line]Marketable[break-line]Securities
+              Current[break-line]Marketable[break-line]Securities
+              Current[break-line]Marketable[break-line]Securities Non-Current
+              [break-line] Marketable[break-line]Securities Non-Current
+              [break-line] Marketable[break-line]Securities Non-Current
+              [break-line] Marketable[break-line]Securities\nCash $ 22,866 $  $ 
+              $ 22,866 $ 22,866 $  $ \nLevel 1:\nMoney market funds 1
         meta:
           pagination:
             isEstimatedTotal: false

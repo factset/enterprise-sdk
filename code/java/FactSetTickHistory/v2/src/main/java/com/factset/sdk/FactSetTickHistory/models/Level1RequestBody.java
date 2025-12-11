@@ -111,10 +111,6 @@ public class Level1RequestBody implements Serializable {
     
     YIELD_PRICE("YIELD_PRICE"),
     
-    BENCHMARK_YIELD("BENCHMARK_YIELD"),
-    
-    BENCHMARK_SPREAD("BENCHMARK_SPREAD"),
-    
     CURRENT_YIELD("CURRENT_YIELD"),
     
     TRADE_CONDITION("TRADE_CONDITION"),
@@ -135,14 +131,6 @@ public class Level1RequestBody implements Serializable {
     
     SELL_ID("SELL_ID"),
     
-    TRADED_PRICE("TRADED_PRICE"),
-    
-    TRADED_VOL("TRADED_VOL"),
-    
-    TRADED_CONDITION("TRADED_CONDITION"),
-    
-    TRADED_YIELD("TRADED_YIELD"),
-    
     ORIG_SEQUENCE("ORIG_SEQUENCE"),
     
     SECURITY_TYPE("SECURITY_TYPE"),
@@ -153,7 +141,11 @@ public class Level1RequestBody implements Serializable {
     
     ORDER_NUM("ORDER_NUM"),
     
-    ISO("ISO");
+    ISO("ISO"),
+    
+    DATE_UTC("DATE_UTC"),
+    
+    TIME_UTC("TIME_UTC");
 
     private String value;
 

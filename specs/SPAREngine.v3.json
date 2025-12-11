@@ -2684,7 +2684,8 @@
                           "startdate": "-3M",
                           "enddate": "0",
                           "frequency": "Monthly"
-                        }
+                        },
+                        "universeid": "FS US FUNDS\\\\Morningstar US"
                       }
                     },
                     "meta": {
@@ -2720,7 +2721,8 @@
                           "startdate": "-3M",
                           "enddate": "0",
                           "frequency": "Monthly"
-                        }
+                        },
+                        "universeid": "FS US FUNDS\\\\Morningstar US"
                       },
                       "2": {
                         "componentid": "E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02",
@@ -2745,7 +2747,8 @@
                           "startdate": "-2M",
                           "enddate": "0",
                           "frequency": "Monthly"
-                        }
+                        },
+                        "universeid": "FS US FUNDS\\\\Morningstar US"
                       }
                     },
                     "meta": {
@@ -5498,6 +5501,11 @@
                                   "value": [
                                     "R.1000, R.2000"
                                   ]
+                                },
+                                "Universe Name": {
+                                  "value": [
+                                    "Morningstar US"
+                                  ]
                                 }
                               }
                             }
@@ -5875,6 +5883,27 @@
         },
         "description": "The account/benchmark parameter for SPAR calculation."
       },
+      "SPARComponentIdentifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's FactSet account OR benchmark id.",
+            "nullable": true
+          },
+          "returntype": {
+            "type": "string",
+            "description": "Account or benchmark return type.",
+            "nullable": true
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Account or benchmark prefix.",
+            "nullable": true
+          }
+        },
+        "description": "The account/benchmark parameter for SPAR component identifier. "
+      },
       "SPARBenchmark": {
         "type": "object",
         "properties": {
@@ -5957,13 +5986,13 @@
           "accounts": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SPARIdentifier"
+              "$ref": "#/components/schemas/SPARComponentIdentifier"
             },
             "description": "List of accounts in SPAR document.",
             "nullable": true
           },
           "benchmarks": {
-            "$ref": "#/components/schemas/SPARIdentifier"
+            "$ref": "#/components/schemas/SPARComponentIdentifier"
           },
           "currencyIsoCode": {
             "type": "string",
@@ -6141,6 +6170,11 @@
           "currencyisocode": {
             "type": "string",
             "description": "Currency ISO code for calculation.",
+            "nullable": true
+          },
+          "universeid": {
+            "type": "string",
+            "description": "Universe ID code for calculation.",
             "nullable": true
           }
         }
@@ -6527,6 +6561,11 @@
                       "value": [
                         "R.1000, R.2000"
                       ]
+                    },
+                    "Universe Name": {
+                      "value": [
+                        "Morningstar US"
+                      ]
                     }
                   }
                 }
@@ -6551,10 +6590,7 @@
                       "name": "B5A7ADDE1AF5C87D7FD797B6245C2A39",
                       "description": "Dates",
                       "type": "string",
-                      "isDimension": true,
-                      "format": {
-                        "format": "{0:0.00;-0.00;--}"
-                      }
+                      "isDimension": true
                     },
                     {
                       "id": "b85dbbf6-4bf1-4480-b37b-8babe7f6bc2e",
@@ -6678,6 +6714,11 @@
                         "value": [
                           "R.1000, R.2000"
                         ]
+                      },
+                      "Universe Name": {
+                        "value": [
+                          "Morningstar US"
+                        ]
                       }
                     },
                     "locations": {
@@ -6691,7 +6732,8 @@
                         "Document Name",
                         "Calendar",
                         "Component Name",
-                        "Accounts"
+                        "Accounts",
+                        "Universe Name"
                       ]
                     }
                   }
@@ -6755,10 +6797,7 @@
                       "name": "B5A7ADDE1AF5C87D7FD797B6245C2A39",
                       "description": "Dates",
                       "type": "string",
-                      "isDimension": true,
-                      "format": {
-                        "format": "{0:0.00;-0.00;--}"
-                      }
+                      "isDimension": true
                     },
                     {
                       "id": "74b3772d-3726-42b9-a30b-f7e120744cb8",
@@ -6903,6 +6942,11 @@
                     "Accounts": {
                       "value": [
                         "R.1000, R.2000"
+                      ]
+                    },
+                    "Universe Name": {
+                      "value": [
+                        "Morningstar US"
                       ]
                     }
                   }

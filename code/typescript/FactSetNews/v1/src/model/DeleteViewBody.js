@@ -22,10 +22,11 @@ class DeleteViewBody {
     /**
      * Constructs a new <code>DeleteViewBody</code>.
      * @alias module:model/DeleteViewBody
+     * @param data {module:model/DeleteViewBodyData} 
      */
-    constructor() { 
+    constructor(data) { 
         
-        DeleteViewBody.initialize(this);
+        DeleteViewBody.initialize(this, data);
     }
 
     /**
@@ -33,7 +34,8 @@ class DeleteViewBody {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, data) { 
+        obj['data'] = data;
     }
 
     /**

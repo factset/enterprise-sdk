@@ -67,10 +67,6 @@ Name | Type | Description | Notes
 
 * `YIELD_PRICE` (value: `"YIELD_PRICE"`)
 
-* `BENCHMARK_YIELD` (value: `"BENCHMARK_YIELD"`)
-
-* `BENCHMARK_SPREAD` (value: `"BENCHMARK_SPREAD"`)
-
 * `CURRENT_YIELD` (value: `"CURRENT_YIELD"`)
 
 * `TRADE_CONDITION` (value: `"TRADE_CONDITION"`)
@@ -91,14 +87,6 @@ Name | Type | Description | Notes
 
 * `SELL_ID` (value: `"SELL_ID"`)
 
-* `TRADED_PRICE` (value: `"TRADED_PRICE"`)
-
-* `TRADED_VOL` (value: `"TRADED_VOL"`)
-
-* `TRADED_CONDITION` (value: `"TRADED_CONDITION"`)
-
-* `TRADED_YIELD` (value: `"TRADED_YIELD"`)
-
 * `ORIG_SEQUENCE` (value: `"ORIG_SEQUENCE"`)
 
 * `SECURITY_TYPE` (value: `"SECURITY_TYPE"`)
@@ -110,6 +98,10 @@ Name | Type | Description | Notes
 * `ORDER_NUM` (value: `"ORDER_NUM"`)
 
 * `ISO` (value: `"ISO"`)
+
+* `DATE_UTC` (value: `"DATE_UTC"`)
+
+* `TIME_UTC` (value: `"TIME_UTC"`)
 
 
 

@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Vector Data API
-  version: 0.2.0
+  version: 0.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/vector-data-api
@@ -159,8 +159,12 @@ paths:
           content:
             application/json:
               examples:
-                default200Response:
-                  $ref: '#/components/examples/SampleChunkTextResponse'
+                sa200response:
+                  $ref: '#/components/examples/SampleChunkTextResponseSA'
+                fcst200Response:
+                  $ref: '#/components/examples/SampleChunkTextResponseFCST'
+                edg200Response:
+                  $ref: '#/components/examples/SampleChunkTextResponseEDG'
               schema:
                 $ref: '#/components/schemas/ChunkTextResponse'
           description: Success
@@ -577,6 +581,7 @@ components:
           - GEDC
           - RSRTD
           trimmed: false
+          sentiment: Positive
         meta:
           numberOfResults: 10
     SampleVectorDataResponseTrimmed:
@@ -597,13 +602,72 @@ components:
           - GEDC
           - RSRTD
           trimmed: true
+          sentiment: Positive
         meta:
           numberOfResults: 10
-    SampleChunkTextResponse:
-      summary: Sample Chunk Text Response.
+    SampleChunkTextResponseSA:
+      summary: Sample Chunk Text Response for SA source.
       value:
         data:
-        - content: Item 2. Managements Discussion...
+        - vectorId: 0001593152-24-046748-1_0001493152-24-046748-1_text_236_0
+          content: Item 2. Managements Discussion...
+          storyLink: https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
+          storyDate: 2024-11-19
+          themes: NA
+          documentType: News
+          source: SA
+          documentID: 0001493152-24-046748-1
+          ids:
+          - GEDC-US
+          - GEDC
+          - RSRTD
+          textLength: 1242
+          tokenCount: 257
+          sentiment: Positive
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 1
+    SampleChunkTextResponseFCST:
+      summary: Sample Chunk Text Response for FCST source.
+      value:
+        data:
+        - vectorId: 0001693152-24-046748-1_0001493152-24-046748-1_text_236_0
+          content: Management commentary from the earnings call...
+          storyLink: https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
+          storyDate: 2024-11-19
+          themes: NA
+          documentType: 10-Q
+          source: FCST
+          documentID: 0001493152-24-046748-1
+          ids:
+          - GEDC-US
+          - GEDC
+          - RSRTD
+          speakerId: 2
+          speakerName: Luca Maestri
+          speakerType: corprep
+          speakerTitle: Chief Financial Officer & Senior Vice President
+          speakerCompanyName: Apple, Inc.
+          speakerCompanyEntityId: 000C7F-E
+          speakerEntity: 07F5D0-E
+          docType: discussion
+          docNum: md_2
+          textLength: 1242
+          tokenCount: 257
+          financialYear: "2024"
+          financialQuarter: Q3
+          sentiment: Positive
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 1
+    SampleChunkTextResponseEDG:
+      summary: Sample Chunk Text Response for EDG source.
+      value:
+        data:
+        - vectorId: 0001793152-24-046748-1_0001493152-24-046748-1_text_236_0
+          content: Table data and summary from filing...
           storyLink: https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York
           storyDate: 2024-11-19
           themes: NA
@@ -614,6 +678,14 @@ components:
           - GEDC-US
           - GEDC
           - RSRTD
+          sectionName: legal proceedings
+          sectionNumber: 1A
+          docType: table
+          textLength: 1242
+          tokenCount: 257
+          sentiment: Positive
+          tableText: |
+            June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024 June 29, 2024\nAdjusted[break-line]Cost Adjusted[break-line]Cost Adjusted[break-line]Cost Unrealized[break-line]Gains Unrealized[break-line]Gains Unrealized[break-line]Gains Unrealized[break-line]Losses Unrealized[break-line]Losses Unrealized[break-line]Losses Fair[break-line]Value Fair[break-line]Value Fair[break-line]Value Cash and[break-line]Cash[break-line]Equivalents Cash and[break-line]Cash[break-line]Equivalents Cash and[break-line]Cash[break-line]Equivalents Current[break-line]Marketable[break-line]Securities Current[break-line]Marketable[break-line]Securities Current[break-line]Marketable[break-line]Securities Non-Current [break-line] Marketable[break-line]Securities Non-Current [break-line] Marketable[break-line]Securities Non-Current [break-line] Marketable[break-line]Securities\nCash $ 22,866 $  $  $ 22,866 $ 22,866 $  $ \nLevel 1:\nMoney market funds 1
         meta:
           pagination:
             isEstimatedTotal: false
@@ -979,7 +1051,8 @@ components:
           example: Tariff
           type: string
         sentiment:
-          description: theme of the source.
+          description: Sentiment is the measure of expressed attitude or opinion of
+            the document, such as "Negative" or "Very Positive" etc.
           example: Negative
           type: string
         description:
@@ -993,10 +1066,14 @@ components:
       description: Response format for vector data endpoint.
       example:
         data:
-        - themes: doc
+        - sentiment: sentiment
           documentType: documentType
-          vectorId: vectorId
           storyDate: 2020-10-01T00:00:00.000+0000
+          source: EDG
+          type: text
+          similarityScore: 0.8008281904610115
+          themes: doc
+          vectorId: vectorId
           property: content
           ids:
           - ids
@@ -1005,14 +1082,15 @@ components:
           - vector
           - vector
           documentID: 20230307-5b36f2cf
+          trimmed: true
+        - sentiment: sentiment
+          documentType: documentType
+          storyDate: 2020-10-01T00:00:00.000+0000
           source: EDG
           type: text
-          trimmed: true
           similarityScore: 0.8008281904610115
-        - themes: doc
-          documentType: documentType
+          themes: doc
           vectorId: vectorId
-          storyDate: 2020-10-01T00:00:00.000+0000
           property: content
           ids:
           - ids
@@ -1021,10 +1099,7 @@ components:
           - vector
           - vector
           documentID: 20230307-5b36f2cf
-          source: EDG
-          type: text
           trimmed: true
-          similarityScore: 0.8008281904610115
         meta:
           numberOfResults: 6
       properties:
@@ -1039,10 +1114,14 @@ components:
     VectorDataResult:
       description: Returns vector information.
       example:
-        themes: doc
+        sentiment: sentiment
         documentType: documentType
-        vectorId: vectorId
         storyDate: 2020-10-01T00:00:00.000+0000
+        source: EDG
+        type: text
+        similarityScore: 0.8008281904610115
+        themes: doc
+        vectorId: vectorId
         property: content
         ids:
         - ids
@@ -1051,10 +1130,7 @@ components:
         - vector
         - vector
         documentID: 20230307-5b36f2cf
-        source: EDG
-        type: text
         trimmed: true
-        similarityScore: 0.8008281904610115
       properties:
         vector:
           description: Chuncked emedding vector.
@@ -1062,7 +1138,7 @@ components:
             type: string
           type: array
         vectorId:
-          description: Unique identifier for a document
+          description: Unique vector identifier associated with the document.
           type: string
         similarityScore:
           description: Score indicating the similarity.
@@ -1105,31 +1181,76 @@ components:
             \ or not. \n- If **true**, the vectors has been trimmed.  \n- If **false**,\
             \ the vectors are been returned.\n"
           type: boolean
+        sentiment:
+          description: Sentiment is the measure of expressed attitude or opinion of
+            the document, such as "Negative" or "Very Positive". The `/meta/themes`
+            endpoint gives list of all available sentiment values.
+          type: string
       type: object
     ChunkTextResponse:
       description: Response format for chunk text endpoint.
       example:
         data:
-        - storyLink: storyLink
-          themes: doc
+        - docNum: md_2
+          sentiment: sentiment
           documentType: documentType
+          speakerName: Luca Maestri
+          sectionNumber: 1A
+          speakerId: 2
+          speakerCompanyName: Apple, Inc.
+          source: EDG
+          content: content
+          financialQuarter: Q3
+          financialYear: "2024"
+          sectionName: legal proceedings
+          themes: doc
+          speakerTitle: Chief Financial Officer & Senior Vice President
+          vectorId: vectorId
+          documentID: 20230307-5b36f2cf
+          speakerEntity: 07F5D0-E
+          storyLink: storyLink
+          tableText: "June 29, 2024 June 29, 2024 June 29, 2024 ...\nAdjusted[break-line]Cost\
+            \ Adjusted[break-line]Cost ...\nCash $ 22,866 $  $  $ 22,866 $ 22,866\
+            \ $  $ \nLevel 1:\nMoney market funds 1\n"
+          docType: discussion
           storyDate: 2020-10-01T00:00:00.000+0000
+          textLength: 1242
+          tokenCount: 257
+          speakerType: corprep
+          speakerCompanyEntityId: 000C7F-E
           ids:
           - ids
           - ids
-          documentID: 20230307-5b36f2cf
+        - docNum: md_2
+          sentiment: sentiment
+          documentType: documentType
+          speakerName: Luca Maestri
+          sectionNumber: 1A
+          speakerId: 2
+          speakerCompanyName: Apple, Inc.
           source: EDG
           content: content
-        - storyLink: storyLink
+          financialQuarter: Q3
+          financialYear: "2024"
+          sectionName: legal proceedings
           themes: doc
-          documentType: documentType
+          speakerTitle: Chief Financial Officer & Senior Vice President
+          vectorId: vectorId
+          documentID: 20230307-5b36f2cf
+          speakerEntity: 07F5D0-E
+          storyLink: storyLink
+          tableText: "June 29, 2024 June 29, 2024 June 29, 2024 ...\nAdjusted[break-line]Cost\
+            \ Adjusted[break-line]Cost ...\nCash $ 22,866 $  $  $ 22,866 $ 22,866\
+            \ $  $ \nLevel 1:\nMoney market funds 1\n"
+          docType: discussion
           storyDate: 2020-10-01T00:00:00.000+0000
+          textLength: 1242
+          tokenCount: 257
+          speakerType: corprep
+          speakerCompanyEntityId: 000C7F-E
           ids:
           - ids
           - ids
-          documentID: 20230307-5b36f2cf
-          source: EDG
-          content: content
         meta:
           pagination:
             total: 0
@@ -1146,17 +1267,40 @@ components:
     ChunkTextResult:
       description: Contains content and link for a single vector ID.
       example:
-        storyLink: storyLink
-        themes: doc
+        docNum: md_2
+        sentiment: sentiment
         documentType: documentType
+        speakerName: Luca Maestri
+        sectionNumber: 1A
+        speakerId: 2
+        speakerCompanyName: Apple, Inc.
+        source: EDG
+        content: content
+        financialQuarter: Q3
+        financialYear: "2024"
+        sectionName: legal proceedings
+        themes: doc
+        speakerTitle: Chief Financial Officer & Senior Vice President
+        vectorId: vectorId
+        documentID: 20230307-5b36f2cf
+        speakerEntity: 07F5D0-E
+        storyLink: storyLink
+        tableText: "June 29, 2024 June 29, 2024 June 29, 2024 ...\nAdjusted[break-line]Cost\
+          \ Adjusted[break-line]Cost ...\nCash $ 22,866 $  $  $ 22,866 $ 22,866 $\
+          \  $ \nLevel 1:\nMoney market funds 1\n"
+        docType: discussion
         storyDate: 2020-10-01T00:00:00.000+0000
+        textLength: 1242
+        tokenCount: 257
+        speakerType: corprep
+        speakerCompanyEntityId: 000C7F-E
         ids:
         - ids
         - ids
-        documentID: 20230307-5b36f2cf
-        source: EDG
-        content: content
       properties:
+        vectorId:
+          description: Unique vector identifier associated with the document.
+          type: string
         content:
           description: Unique identifier for a document.
           type: string
@@ -1188,6 +1332,81 @@ components:
           items:
             type: string
           type: array
+        textLength:
+          description: Length of the text.
+          example: 1242
+          format: int32
+          type: integer
+        tokenCount:
+          description: Number of tokens.
+          example: 257
+          format: int32
+          type: integer
+        speakerId:
+          description: Unique identifier of the speaker.
+          example: 2
+          format: int32
+          type: integer
+        speakerName:
+          description: Name of the speaker.
+          example: Luca Maestri
+          type: string
+        speakerType:
+          description: Type of the speaker.
+          example: corprep
+          type: string
+        speakerTitle:
+          description: Actual title of the speaker.
+          example: Chief Financial Officer & Senior Vice President
+          type: string
+        speakerCompanyName:
+          description: Name of the company the speaker belongs to.
+          example: Apple, Inc.
+          type: string
+        speakerCompanyEntityId:
+          description: Entity id of the company the speaker belongs to.
+          example: 000C7F-E
+          type: string
+        speakerEntity:
+          description: Entity id of the speaker.
+          example: 07F5D0-E
+          type: string
+        docType:
+          description: Type(s) of document chunk
+          example: discussion
+          type: string
+        docNum:
+          description: Alphanumeric id for the chunk.
+          example: md_2
+          type: string
+        financialYear:
+          description: Financial year of the earnings call.
+          example: "2024"
+          type: string
+        financialQuarter:
+          description: Financial quarter(s) of the earnings call
+          example: Q3
+          type: string
+        sectionName:
+          description: Name of the filing section.
+          example: legal proceedings
+          type: string
+        sectionNumber:
+          description: Bullet numeric representing the filing section.
+          example: 1A
+          type: string
+        tableText:
+          description: Full table text for the chunk. Can contain multiple lines and
+            repeated entries.
+          example: "June 29, 2024 June 29, 2024 June 29, 2024 ...\nAdjusted[break-line]Cost\
+            \ Adjusted[break-line]Cost ...\nCash $ 22,866 $  $  $ 22,866 $ 22,866\
+            \ $  $ \nLevel 1:\nMoney market funds 1\n"
+          type: string
+        sentiment:
+          description: Sentiment is the measure of expressed attitude or opinion of
+            the document, such as "Negative" or "Very Positive". The `/meta/themes`
+            endpoint gives list of all available sentiment values.
+          type: string
       type: object
     VectorDataRequest_data:
       description: Elements of vetctor data request.
@@ -1257,7 +1476,9 @@ components:
           type: array
           uniqueItems: true
         sentiment:
-          description: The search to include any sentiment of given sources.
+          description: It is the measure of expressed attitude or opinion of the document,
+            such as "Negative" or "Very Positive". Use the `/meta/themes` endpoint
+            to get a list of all available sentiment values.
           example:
           - Neutral
           - Negative
@@ -1321,7 +1542,7 @@ components:
         numberOfResults: 6
       properties:
         numberOfResults:
-          description: Number of results to return.
+          description: Number of results returned.
           format: int32
           type: integer
       type: object

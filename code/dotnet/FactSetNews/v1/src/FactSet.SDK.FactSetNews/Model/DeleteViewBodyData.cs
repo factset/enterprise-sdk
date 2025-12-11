@@ -35,9 +35,18 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteViewBodyData" /> class.
         /// </summary>
-        /// <param name="name">The name of the view to be deleted..</param>
-        public DeleteViewBodyData(string name = default(string))
+        [JsonConstructorAttribute]
+        protected DeleteViewBodyData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteViewBodyData" /> class.
+        /// </summary>
+        /// <param name="name">The name of the view to be deleted. (required).</param>
+        public DeleteViewBodyData(string name)
         {
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for DeleteViewBodyData and cannot be null");
+            }
             this.Name = name;
         }
 
@@ -45,7 +54,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// The name of the view to be deleted.
         /// </summary>
         /// <value>The name of the view to be deleted.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

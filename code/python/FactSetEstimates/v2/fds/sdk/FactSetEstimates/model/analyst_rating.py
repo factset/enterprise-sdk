@@ -66,8 +66,8 @@ class AnalystRating(ModelNormal):
             'BUY': "Buy",
             'SELL': "Sell",
             'HOLD': "Hold",
-            'OVERWEIGHT': "overWeight",
-            'UNDERWEIGHT': "underWeight",
+            'OVERWEIGHT': "Overweight",
+            'UNDERWEIGHT': "Underweight",
 
 
         },

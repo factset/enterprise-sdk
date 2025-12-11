@@ -2826,6 +2826,7 @@ paths:
                         startdate: -3M
                         enddate: "0"
                         frequency: Monthly
+                      universeid: FS US FUNDS\\Morningstar US
                   meta:
                     stachContentOrganization: SimplifiedRow
                     format: JsonStach
@@ -2852,6 +2853,7 @@ paths:
                         startdate: -3M
                         enddate: "0"
                         frequency: Monthly
+                      universeid: FS US FUNDS\\Morningstar US
                     "2":
                       componentid: E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02
                       accounts:
@@ -2869,6 +2871,7 @@ paths:
                         startdate: -2M
                         enddate: "0"
                         frequency: Monthly
+                      universeid: FS US FUNDS\\Morningstar US
                   meta:
                     stachContentOrganization: SimplifiedRow
                     format: JsonStach
@@ -4981,6 +4984,9 @@ paths:
                               Accounts:
                                 value:
                                 - R.1000, R.2000
+                              Universe Name:
+                                value:
+                                - Morningstar US
               schema:
                 $ref: '#/components/schemas/ObjectRoot'
             application/x-protobuf:
@@ -5310,6 +5316,9 @@ components:
                   Accounts:
                     value:
                     - R.1000, R.2000
+                  Universe Name:
+                    value:
+                    - Morningstar US
     ExpectedResponseInColumnOrganizedFormat:
       value:
         data:
@@ -5325,8 +5334,6 @@ components:
                   description: Dates
                   type: string
                   isDimension: true
-                  format:
-                    format: '{0:0.00;-0.00;--}'
                 - id: b85dbbf6-4bf1-4480-b37b-8babe7f6bc2e
                   name: C800F9107FFC85ED9F2A681B12A4A509
                   type: int32
@@ -5404,6 +5411,9 @@ components:
                     Accounts:
                       value:
                       - R.1000, R.2000
+                    Universe Name:
+                      value:
+                      - Morningstar US
                   locations:
                     table:
                     - Currency ISO Code
@@ -5416,6 +5426,7 @@ components:
                     - Calendar
                     - Component Name
                     - Accounts
+                    - Universe Name
             d22f38aa-6014-496f-aa41-8955c174fa02:
               definition:
                 columns:
@@ -5452,8 +5463,6 @@ components:
                   description: Dates
                   type: string
                   isDimension: true
-                  format:
-                    format: '{0:0.00;-0.00;--}'
                 - id: 74b3772d-3726-42b9-a30b-f7e120744cb8
                   name: 9A3A02D463A587BD513E4E7CEC188078
                   description: Russell 1000 - Total Return
@@ -5543,6 +5552,9 @@ components:
                   Accounts:
                     value:
                     - R.1000, R.2000
+                  Universe Name:
+                    value:
+                    - Morningstar US
   schemas:
     ReturnType:
       example:
@@ -5696,6 +5708,26 @@ components:
       required:
       - id
       type: object
+    SPARComponentIdentifier:
+      description: 'The account/benchmark parameter for SPAR component identifier. '
+      example:
+        prefix: prefix
+        returntype: returntype
+        id: id
+      properties:
+        id:
+          description: User's FactSet account OR benchmark id.
+          nullable: true
+          type: string
+        returntype:
+          description: Account or benchmark return type.
+          nullable: true
+          type: string
+        prefix:
+          description: Account or benchmark prefix.
+          nullable: true
+          type: string
+      type: object
     SPARBenchmark:
       example:
         identifiers:
@@ -5803,11 +5835,11 @@ components:
         accounts:
           description: List of accounts in SPAR document.
           items:
-            $ref: '#/components/schemas/SPARIdentifier'
+            $ref: '#/components/schemas/SPARComponentIdentifier'
           nullable: true
           type: array
         benchmarks:
-          $ref: '#/components/schemas/SPARIdentifier'
+          $ref: '#/components/schemas/SPARComponentIdentifier'
         currencyIsoCode:
           description: CurrencyCode in SPAR document.
           nullable: true
@@ -5970,6 +6002,7 @@ components:
       example:
         currencyisocode: currencyisocode
         componentid: componentid
+        universeid: universeid
         dates:
           enddate: enddate
           startdate: startdate
@@ -6002,6 +6035,10 @@ components:
           $ref: '#/components/schemas/SPARDateParameters'
         currencyisocode:
           description: Currency ISO code for calculation.
+          nullable: true
+          type: string
+        universeid:
+          description: Universe ID code for calculation.
           nullable: true
           type: string
       required:
@@ -6058,6 +6095,7 @@ components:
           key:
             currencyisocode: currencyisocode
             componentid: componentid
+            universeid: universeid
             dates:
               enddate: enddate
               startdate: startdate

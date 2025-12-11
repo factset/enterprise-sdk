@@ -1215,6 +1215,10 @@ components:
               type: string
               description: The name of the view associated with quick alerts.
               example: FactSet News View
+          required:
+            - name
+      required:
+        - data
     DeleteViewBody:
       type: object
       properties:
@@ -1225,6 +1229,10 @@ components:
               type: string
               description: The name of the view to be deleted.
               example: FactSet News View
+          required:
+            - name
+      required:
+        - data
     CreateOrEditViewBody:
       type: object
       properties:
@@ -1297,6 +1305,17 @@ components:
                 Indicates whether quick alerts are enabled for the view. A value
                 of 'true' means quick alerts are enabled, while 'false' means
                 they are not.
+            searchText:
+              type: string
+              description: >-
+                Restricts the view to include only document stories that include
+                the searched text. It supports boolean operators that we have in
+                this [OA page](https://my.apps.factset.com/oa/pages/12708)
+              example: Officer
+          required:
+            - name
+      required:
+        - data
     CreateOrEditViewTickers:
       type: object
       properties:
@@ -1377,6 +1396,8 @@ components:
                     YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
                     ±[hh]:[mm].
                   example: '2022-08-29T08:10:30Z'
+          required:
+            - name
         meta:
           type: object
           properties:
@@ -1396,6 +1417,8 @@ components:
                   example: 0
                   default: 0
                   description: Non-negative number of entries to skip.
+      required:
+        - data
     HeadlinesRequest:
       type: object
       properties:
@@ -1494,6 +1517,14 @@ components:
                     YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
                     ±[hh]:[mm].
                   example: '2022-08-29T08:10:30Z'
+            searchText:
+              type: string
+              description: >-
+                Restricts the search to include only document stories that
+                include the searched text. It supports boolean operators that we
+                have in this [OA
+                page](https://my.apps.factset.com/oa/pages/12708) 
+              example: Officer
         meta:
           type: object
           properties:
@@ -1528,6 +1559,7 @@ components:
                   - symbols
                   - subjects
                   - fdsSubject
+                  - htmlUrl
               description: >-
                 A specific set of attributes to return in the response. If empty
                 or not specified, the response does not omit attributes.
@@ -2146,6 +2178,12 @@ components:
             Indicates whether quick alerts are enabled for the view. A value of
             'true' means quick alerts are enabled, while 'false' means they are
             not.
+        searchText:
+          type: string
+          description: >-
+            Restricts to include only document stories that include the searched
+            text. 
+          example: Officer
     Error:
       type: object
       properties:
@@ -2217,7 +2255,7 @@ components:
       value:
         data:
           tickers:
-            - value: MAR-US
+            - value: AAPL-US
               type: Equity
             - value: JE00BJYJFG60
               type: Equity
@@ -2233,10 +2271,11 @@ components:
           regions:
             - Americas
           countries:
-            - India
+            - United States of America
           sources:
-            - Business Wire
-          predefinedRange: oneMonth
+            - MTN Live Briefs PRO North America
+          predefinedRange: fiveYears
+          searchText: Officer
         meta:
           pagination:
             limit: 50
@@ -2246,7 +2285,7 @@ components:
       value:
         data:
           tickers:
-            - value: MAR-US
+            - value: AAPL-US
               type: Equity
             - value: JE00BJYJFG60
               type: Equity
@@ -2262,12 +2301,13 @@ components:
           regions:
             - Americas
           countries:
-            - India
+            - United States of America
           sources:
-            - Business Wire
+            - MTN Live Briefs PRO North America
           searchTime:
             start: '2023-12-01T12:35:45Z'
             end: '2042-01-24T08:10:30Z'
+          searchText: Officer
         meta:
           pagination:
             limit: 50

@@ -108,6 +108,14 @@ public class HeadlinesRequestByViewData implements Serializable {
   public HeadlinesRequestByViewData() { 
   }
 
+  @JsonCreator
+  public HeadlinesRequestByViewData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.name = name;
+  }
+
   public HeadlinesRequestByViewData name(String name) {
     this.name = name;
     return this;
@@ -117,10 +125,10 @@ public class HeadlinesRequestByViewData implements Serializable {
    * Name of the view to return headlines for.
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "FactSet News View", value = "Name of the view to return headlines for.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "FactSet News View", required = true, value = "Name of the view to return headlines for.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -128,7 +136,7 @@ public class HeadlinesRequestByViewData implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }

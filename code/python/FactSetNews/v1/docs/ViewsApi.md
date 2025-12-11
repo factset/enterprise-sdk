@@ -92,6 +92,7 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
                 "Market Summaries",
             ],
             quick_alert=False,
+            search_text="Officer",
         ),
     ) # CreateOrEditViewBody | Create or Edit View Body which needs to be sent with request. (optional)
 
@@ -526,6 +527,7 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
                 "Market Summaries",
             ],
             quick_alert=False,
+            search_text="Officer",
         ),
     ) # CreateOrEditViewBody | Create or Edit View Body which needs to be sent with request. (optional)
 

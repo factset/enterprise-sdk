@@ -31,8 +31,8 @@ from fds.sdk.SPAREngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.SPAREngine.model.spar_identifier import SPARIdentifier
-    globals()['SPARIdentifier'] = SPARIdentifier
+    from fds.sdk.SPAREngine.model.spar_component_identifier import SPARComponentIdentifier
+    globals()['SPARComponentIdentifier'] = SPARComponentIdentifier
 
 
 class SPARComponent(ModelNormal):
@@ -89,8 +89,8 @@ class SPARComponent(ModelNormal):
         lazy_import()
         return {
             'id': (str, none_type,),  # noqa: E501
-            'accounts': ([SPARIdentifier], none_type,),  # noqa: E501
-            'benchmarks': (SPARIdentifier,),  # noqa: E501
+            'accounts': ([SPARComponentIdentifier], none_type,),  # noqa: E501
+            'benchmarks': (SPARComponentIdentifier,),  # noqa: E501
             'currency_iso_code': (str, none_type,),  # noqa: E501
             'path': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
@@ -154,8 +154,8 @@ class SPARComponent(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): Component identifier.. [optional]  # noqa: E501
-            accounts ([SPARIdentifier], none_type): List of accounts in SPAR document.. [optional]  # noqa: E501
-            benchmarks (SPARIdentifier): [optional]  # noqa: E501
+            accounts ([SPARComponentIdentifier], none_type): List of accounts in SPAR document.. [optional]  # noqa: E501
+            benchmarks (SPARComponentIdentifier): [optional]  # noqa: E501
             currency_iso_code (str, none_type): CurrencyCode in SPAR document.. [optional]  # noqa: E501
             path (str, none_type): The path to the document. [optional]  # noqa: E501
             name (str, none_type): Component name.. [optional]  # noqa: E501
@@ -242,8 +242,8 @@ class SPARComponent(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): Component identifier.. [optional]  # noqa: E501
-            accounts ([SPARIdentifier], none_type): List of accounts in SPAR document.. [optional]  # noqa: E501
-            benchmarks (SPARIdentifier): [optional]  # noqa: E501
+            accounts ([SPARComponentIdentifier], none_type): List of accounts in SPAR document.. [optional]  # noqa: E501
+            benchmarks (SPARComponentIdentifier): [optional]  # noqa: E501
             currency_iso_code (str, none_type): CurrencyCode in SPAR document.. [optional]  # noqa: E501
             path (str, none_type): The path to the document. [optional]  # noqa: E501
             name (str, none_type): Component name.. [optional]  # noqa: E501

@@ -35,7 +35,12 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateOrEditViewBodyData" /> class.
         /// </summary>
-        /// <param name="name">The name of the view..</param>
+        [JsonConstructorAttribute]
+        protected CreateOrEditViewBodyData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateOrEditViewBodyData" /> class.
+        /// </summary>
+        /// <param name="name">The name of the view. (required).</param>
         /// <param name="tickers">tickers.</param>
         /// <param name="isPrimary">If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  .</param>
         /// <param name="categories">categories.</param>
@@ -44,8 +49,13 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <param name="sources">sources.</param>
         /// <param name="topics">An array of topics associated with the view..</param>
         /// <param name="quickAlert">Indicates whether quick alerts are enabled for the view. A value of &#39;true&#39; means quick alerts are enabled, while &#39;false&#39; means they are not..</param>
-        public CreateOrEditViewBodyData(string name = default(string), List<CreateOrEditViewTickers> tickers = default(List<CreateOrEditViewTickers>), bool isPrimary = default(bool), List<string> categories = default(List<string>), List<string> countries = default(List<string>), List<string> regions = default(List<string>), List<string> sources = default(List<string>), List<string> topics = default(List<string>), bool quickAlert = default(bool))
+        /// <param name="searchText">Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708).</param>
+        public CreateOrEditViewBodyData(string name,List<CreateOrEditViewTickers> tickers = default(List<CreateOrEditViewTickers>), bool isPrimary = default(bool), List<string> categories = default(List<string>), List<string> countries = default(List<string>), List<string> regions = default(List<string>), List<string> sources = default(List<string>), List<string> topics = default(List<string>), bool quickAlert = default(bool), string searchText = default(string))
         {
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for CreateOrEditViewBodyData and cannot be null");
+            }
             this.Name = name;
             this.Tickers = tickers;
             this.IsPrimary = isPrimary;
@@ -55,13 +65,14 @@ namespace FactSet.SDK.FactSetNews.Model
             this.Sources = sources;
             this.Topics = topics;
             this.QuickAlert = quickAlert;
+            this.SearchText = searchText;
         }
 
         /// <summary>
         /// The name of the view.
         /// </summary>
         /// <value>The name of the view.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -116,6 +127,13 @@ namespace FactSet.SDK.FactSetNews.Model
         public bool QuickAlert { get; set; }
 
         /// <summary>
+        /// Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)
+        /// </summary>
+        /// <value>Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)</value>
+        [DataMember(Name = "searchText", EmitDefaultValue = false)]
+        public string SearchText { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +150,7 @@ namespace FactSet.SDK.FactSetNews.Model
             sb.Append("  Sources: ").Append(Sources).Append("\n");
             sb.Append("  Topics: ").Append(Topics).Append("\n");
             sb.Append("  QuickAlert: ").Append(QuickAlert).Append("\n");
+            sb.Append("  SearchText: ").Append(SearchText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +234,11 @@ namespace FactSet.SDK.FactSetNews.Model
                 (
                     this.QuickAlert == input.QuickAlert ||
                     this.QuickAlert.Equals(input.QuickAlert)
+                ) && 
+                (
+                    this.SearchText == input.SearchText ||
+                    (this.SearchText != null &&
+                    this.SearchText.Equals(input.SearchText))
                 );
         }
 
@@ -257,6 +281,10 @@ namespace FactSet.SDK.FactSetNews.Model
                     hashCode = (hashCode * 59) + this.Topics.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.QuickAlert.GetHashCode();
+                if (this.SearchText != null)
+                {
+                    hashCode = (hashCode * 59) + this.SearchText.GetHashCode();
+                }
                 return hashCode;
             }
         }

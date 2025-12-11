@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Topics** | **List&lt;string&gt;** | A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as \&quot;Market Summaries\&quot;. | [optional] 
 **PredefinedRange** | **string** | See list of valid date ranges. Date range is mutually exclusive to start/end time | [optional] 
 **SearchTime** | [**HeadlinesRequestDataSearchTime**](HeadlinesRequestDataSearchTime.md) |  | [optional] 
+**SearchText** | **string** | Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

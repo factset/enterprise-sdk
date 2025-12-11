@@ -22,10 +22,11 @@ class QuickAlertsBody {
     /**
      * Constructs a new <code>QuickAlertsBody</code>.
      * @alias module:model/QuickAlertsBody
+     * @param data {module:model/QuickAlertsBodyData} 
      */
-    constructor() { 
+    constructor(data) { 
         
-        QuickAlertsBody.initialize(this);
+        QuickAlertsBody.initialize(this, data);
     }
 
     /**
@@ -33,7 +34,8 @@ class QuickAlertsBody {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, data) { 
+        obj['data'] = data;
     }
 
     /**

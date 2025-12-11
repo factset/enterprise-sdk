@@ -46,8 +46,6 @@ CVOL | &quot;CVOL&quot;
 CCVOL | &quot;CCVOL&quot;
 VWAP | &quot;VWAP&quot;
 YIELD_PRICE | &quot;YIELD_PRICE&quot;
-BENCHMARK_YIELD | &quot;BENCHMARK_YIELD&quot;
-BENCHMARK_SPREAD | &quot;BENCHMARK_SPREAD&quot;
 CURRENT_YIELD | &quot;CURRENT_YIELD&quot;
 TRADE_CONDITION | &quot;TRADE_CONDITION&quot;
 REPORTING_SIDE | &quot;REPORTING_SIDE&quot;
@@ -58,16 +56,14 @@ BUY_ID | &quot;BUY_ID&quot;
 MID_YIELD | &quot;MID_YIELD&quot;
 ORDER_CODE | &quot;ORDER_CODE&quot;
 SELL_ID | &quot;SELL_ID&quot;
-TRADED_PRICE | &quot;TRADED_PRICE&quot;
-TRADED_VOL | &quot;TRADED_VOL&quot;
-TRADED_CONDITION | &quot;TRADED_CONDITION&quot;
-TRADED_YIELD | &quot;TRADED_YIELD&quot;
 ORIG_SEQUENCE | &quot;ORIG_SEQUENCE&quot;
 SECURITY_TYPE | &quot;SECURITY_TYPE&quot;
 SECURITY_STATUS | &quot;SECURITY_STATUS&quot;
 MSG_BITMASK | &quot;MSG_BITMASK&quot;
 ORDER_NUM | &quot;ORDER_NUM&quot;
 ISO | &quot;ISO&quot;
+DATE_UTC | &quot;DATE_UTC&quot;
+TIME_UTC | &quot;TIME_UTC&quot;
 
 
 ## Implemented Interfaces

@@ -75,6 +75,9 @@ class HeadlinesRequestData {
             if (data.hasOwnProperty('searchTime')) {
                 obj['searchTime'] = HeadlinesRequestDataSearchTime.constructFromObject(data['searchTime']);
             }
+            if (data.hasOwnProperty('searchText')) {
+                obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
+            }
         }
         return obj;
     }
@@ -134,6 +137,12 @@ HeadlinesRequestData.prototype['predefinedRange'] = undefined;
  * @member {module:model/HeadlinesRequestDataSearchTime} searchTime
  */
 HeadlinesRequestData.prototype['searchTime'] = undefined;
+
+/**
+ * Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) 
+ * @member {String} searchText
+ */
+HeadlinesRequestData.prototype['searchText'] = undefined;
 
 
 

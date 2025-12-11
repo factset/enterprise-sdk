@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**QuickAlertsBodyData**](QuickAlertsBodyData.md) |  |  [optional]
+**data** | [**QuickAlertsBodyData**](QuickAlertsBodyData.md) |  | 
 
 
 ## Implemented Interfaces

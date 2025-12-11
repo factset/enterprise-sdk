@@ -90,6 +90,7 @@ with fds.sdk.FactSetNews.ApiClient(configuration) as api_client:
                 start=dateutil_parser('2022-08-21T12:35:45Z'),
                 end="2022-08-29T08:10:30Z",
             ),
+            search_text="Officer",
         ),
         meta=HeadlinesRequestMeta(
             pagination=HeadlinesRequestByViewMetaPagination(

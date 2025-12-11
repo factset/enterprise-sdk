@@ -8969,6 +8969,7 @@ components:
           items:
             type: string
           maxItems: 5
+          nullable: true
           type: array
         hasResult:
           description: Flag denoting the taskId has a result.

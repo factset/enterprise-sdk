@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **currency** | **str** | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional]  if omitted the server will use the default value of "LOCAL"
 **calendar** | [**Calendar**](Calendar.md) |  | [optional] 
 **adjust** | [**Adjust**](Adjust.md) |  | [optional] 
+**precision** | [**Precision**](Precision.md) |  | [optional] 
 **batch** | [**Batch**](Batch.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -467,7 +467,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
         /// </summary>
         /// <value>Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. </value>
-        [DataMember(Name = "additionalContextColumns", EmitDefaultValue = false)]
+        [DataMember(Name = "additionalContextColumns", EmitDefaultValue = true)]
         public List<string> AdditionalContextColumns { get; set; }
 
         /// <summary>

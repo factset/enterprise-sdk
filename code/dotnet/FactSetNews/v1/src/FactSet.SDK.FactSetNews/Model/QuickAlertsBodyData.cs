@@ -35,9 +35,18 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuickAlertsBodyData" /> class.
         /// </summary>
-        /// <param name="name">The name of the view associated with quick alerts..</param>
-        public QuickAlertsBodyData(string name = default(string))
+        [JsonConstructorAttribute]
+        protected QuickAlertsBodyData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuickAlertsBodyData" /> class.
+        /// </summary>
+        /// <param name="name">The name of the view associated with quick alerts. (required).</param>
+        public QuickAlertsBodyData(string name)
         {
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for QuickAlertsBodyData and cannot be null");
+            }
             this.Name = name;
         }
 
@@ -45,7 +54,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// The name of the view associated with quick alerts.
         /// </summary>
         /// <value>The name of the view associated with quick alerts.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

@@ -195,136 +195,112 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             YIELDPRICE = 26,
 
             /// <summary>
-            /// Enum BENCHMARKYIELD for value: BENCHMARK_YIELD
-            /// </summary>
-            [EnumMember(Value = "BENCHMARK_YIELD")]
-            BENCHMARKYIELD = 27,
-
-            /// <summary>
-            /// Enum BENCHMARKSPREAD for value: BENCHMARK_SPREAD
-            /// </summary>
-            [EnumMember(Value = "BENCHMARK_SPREAD")]
-            BENCHMARKSPREAD = 28,
-
-            /// <summary>
             /// Enum CURRENTYIELD for value: CURRENT_YIELD
             /// </summary>
             [EnumMember(Value = "CURRENT_YIELD")]
-            CURRENTYIELD = 29,
+            CURRENTYIELD = 27,
 
             /// <summary>
             /// Enum TRADECONDITION for value: TRADE_CONDITION
             /// </summary>
             [EnumMember(Value = "TRADE_CONDITION")]
-            TRADECONDITION = 30,
+            TRADECONDITION = 28,
 
             /// <summary>
             /// Enum REPORTINGSIDE for value: REPORTING_SIDE
             /// </summary>
             [EnumMember(Value = "REPORTING_SIDE")]
-            REPORTINGSIDE = 31,
+            REPORTINGSIDE = 29,
 
             /// <summary>
             /// Enum ASKYIELD for value: ASK_YIELD
             /// </summary>
             [EnumMember(Value = "ASK_YIELD")]
-            ASKYIELD = 32,
+            ASKYIELD = 30,
 
             /// <summary>
             /// Enum BIDYIELD for value: BID_YIELD
             /// </summary>
             [EnumMember(Value = "BID_YIELD")]
-            BIDYIELD = 33,
+            BIDYIELD = 31,
 
             /// <summary>
             /// Enum VENUE for value: VENUE
             /// </summary>
             [EnumMember(Value = "VENUE")]
-            VENUE = 34,
+            VENUE = 32,
 
             /// <summary>
             /// Enum BUYID for value: BUY_ID
             /// </summary>
             [EnumMember(Value = "BUY_ID")]
-            BUYID = 35,
+            BUYID = 33,
 
             /// <summary>
             /// Enum MIDYIELD for value: MID_YIELD
             /// </summary>
             [EnumMember(Value = "MID_YIELD")]
-            MIDYIELD = 36,
+            MIDYIELD = 34,
 
             /// <summary>
             /// Enum ORDERCODE for value: ORDER_CODE
             /// </summary>
             [EnumMember(Value = "ORDER_CODE")]
-            ORDERCODE = 37,
+            ORDERCODE = 35,
 
             /// <summary>
             /// Enum SELLID for value: SELL_ID
             /// </summary>
             [EnumMember(Value = "SELL_ID")]
-            SELLID = 38,
-
-            /// <summary>
-            /// Enum TRADEDPRICE for value: TRADED_PRICE
-            /// </summary>
-            [EnumMember(Value = "TRADED_PRICE")]
-            TRADEDPRICE = 39,
-
-            /// <summary>
-            /// Enum TRADEDVOL for value: TRADED_VOL
-            /// </summary>
-            [EnumMember(Value = "TRADED_VOL")]
-            TRADEDVOL = 40,
-
-            /// <summary>
-            /// Enum TRADEDCONDITION for value: TRADED_CONDITION
-            /// </summary>
-            [EnumMember(Value = "TRADED_CONDITION")]
-            TRADEDCONDITION = 41,
-
-            /// <summary>
-            /// Enum TRADEDYIELD for value: TRADED_YIELD
-            /// </summary>
-            [EnumMember(Value = "TRADED_YIELD")]
-            TRADEDYIELD = 42,
+            SELLID = 36,
 
             /// <summary>
             /// Enum ORIGSEQUENCE for value: ORIG_SEQUENCE
             /// </summary>
             [EnumMember(Value = "ORIG_SEQUENCE")]
-            ORIGSEQUENCE = 43,
+            ORIGSEQUENCE = 37,
 
             /// <summary>
             /// Enum SECURITYTYPE for value: SECURITY_TYPE
             /// </summary>
             [EnumMember(Value = "SECURITY_TYPE")]
-            SECURITYTYPE = 44,
+            SECURITYTYPE = 38,
 
             /// <summary>
             /// Enum SECURITYSTATUS for value: SECURITY_STATUS
             /// </summary>
             [EnumMember(Value = "SECURITY_STATUS")]
-            SECURITYSTATUS = 45,
+            SECURITYSTATUS = 39,
 
             /// <summary>
             /// Enum MSGBITMASK for value: MSG_BITMASK
             /// </summary>
             [EnumMember(Value = "MSG_BITMASK")]
-            MSGBITMASK = 46,
+            MSGBITMASK = 40,
 
             /// <summary>
             /// Enum ORDERNUM for value: ORDER_NUM
             /// </summary>
             [EnumMember(Value = "ORDER_NUM")]
-            ORDERNUM = 47,
+            ORDERNUM = 41,
 
             /// <summary>
             /// Enum ISO for value: ISO
             /// </summary>
             [EnumMember(Value = "ISO")]
-            ISO = 48
+            ISO = 42,
+
+            /// <summary>
+            /// Enum DATEUTC for value: DATE_UTC
+            /// </summary>
+            [EnumMember(Value = "DATE_UTC")]
+            DATEUTC = 43,
+
+            /// <summary>
+            /// Enum TIMEUTC for value: TIME_UTC
+            /// </summary>
+            [EnumMember(Value = "TIME_UTC")]
+            TIMEUTC = 44
 
         }
 

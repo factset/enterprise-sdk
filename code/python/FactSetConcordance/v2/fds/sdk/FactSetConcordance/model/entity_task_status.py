@@ -133,7 +133,7 @@ class EntityTaskStatus(ModelNormal):
             'country_column': (str, none_type,),  # noqa: E501
             'state_column': (str, none_type,),  # noqa: E501
             'url_column': (str, none_type,),  # noqa: E501
-            'additional_context_columns': ([str],),  # noqa: E501
+            'additional_context_columns': ([str], none_type,),  # noqa: E501
             'has_result': (bool, none_type,),  # noqa: E501
             'task_submit_time': (datetime, none_type,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
@@ -304,7 +304,7 @@ class EntityTaskStatus(ModelNormal):
             country_column (str, none_type): Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. . [optional]  # noqa: E501
             state_column (str, none_type): Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. . [optional]  # noqa: E501
             url_column (str, none_type): Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            additional_context_columns ([str]): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]  # noqa: E501
+            additional_context_columns ([str], none_type): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]  # noqa: E501
             has_result (bool, none_type): Flag denoting the taskId has a result.. [optional]  # noqa: E501
             task_submit_time (datetime, none_type): Time the Task was submitted in UTC.. [optional]  # noqa: E501
             message (str, none_type): Textual message for the status.. [optional]  # noqa: E501
@@ -445,7 +445,7 @@ class EntityTaskStatus(ModelNormal):
             country_column (str, none_type): Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. . [optional]  # noqa: E501
             state_column (str, none_type): Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. . [optional]  # noqa: E501
             url_column (str, none_type): Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            additional_context_columns ([str]): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]  # noqa: E501
+            additional_context_columns ([str], none_type): Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. . [optional]  # noqa: E501
             has_result (bool, none_type): Flag denoting the taskId has a result.. [optional]  # noqa: E501
             task_submit_time (datetime, none_type): Time the Task was submitted in UTC.. [optional]  # noqa: E501
             message (str, none_type): Textual message for the status.. [optional]  # noqa: E501

@@ -146,16 +146,16 @@ AnalystRating['MeanRecommendationEnum'] = {
     "Hold": "Hold",
 
     /**
-     * value: "overWeight"
+     * value: "Overweight"
      * @const
      */
-    "overWeight": "overWeight",
+    "Overweight": "Overweight",
 
     /**
-     * value: "underWeight"
+     * value: "Underweight"
      * @const
      */
-    "underWeight": "underWeight"
+    "Underweight": "Underweight"
 };
 
 

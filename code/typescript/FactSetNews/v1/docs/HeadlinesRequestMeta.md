@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 
 * `fdsSubject` (value: `"fdsSubject"`)
 
+* `htmlUrl` (value: `"htmlUrl"`)
+
 
 
 

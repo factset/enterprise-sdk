@@ -140,7 +140,13 @@ HeadlinesRequestMeta['AttributesEnum'] = {
      * value: "fdsSubject"
      * @const
      */
-    "fdsSubject": "fdsSubject"
+    "fdsSubject": "fdsSubject",
+
+    /**
+     * value: "htmlUrl"
+     * @const
+     */
+    "htmlUrl": "htmlUrl"
 };
 
 

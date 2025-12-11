@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**numberOfResults** | **Number** | Number of results to return. | [optional] 
+**numberOfResults** | **Number** | Number of results returned. | [optional] 
 
 

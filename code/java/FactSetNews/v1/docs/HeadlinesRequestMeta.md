@@ -26,6 +26,7 @@ PRIMARYSYMBOLS | &quot;primarySymbols&quot;
 SYMBOLS | &quot;symbols&quot;
 SUBJECTS | &quot;subjects&quot;
 FDSSUBJECT | &quot;fdsSubject&quot;
+HTMLURL | &quot;htmlUrl&quot;
 
 
 ## Implemented Interfaces

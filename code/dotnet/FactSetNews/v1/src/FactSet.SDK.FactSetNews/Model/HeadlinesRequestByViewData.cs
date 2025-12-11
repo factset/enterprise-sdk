@@ -117,11 +117,20 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeadlinesRequestByViewData" /> class.
         /// </summary>
-        /// <param name="name">Name of the view to return headlines for..</param>
+        [JsonConstructorAttribute]
+        protected HeadlinesRequestByViewData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeadlinesRequestByViewData" /> class.
+        /// </summary>
+        /// <param name="name">Name of the view to return headlines for. (required).</param>
         /// <param name="predefinedRange">See list of valid date ranges. Date range is mutually exlusive to start/end time..</param>
         /// <param name="searchTime">searchTime.</param>
-        public HeadlinesRequestByViewData(string name = default(string), PredefinedRangeEnum? predefinedRange = default(PredefinedRangeEnum?), HeadlinesRequestByViewDataSearchTime searchTime = default(HeadlinesRequestByViewDataSearchTime))
+        public HeadlinesRequestByViewData(string name,PredefinedRangeEnum? predefinedRange = default(PredefinedRangeEnum?), HeadlinesRequestByViewDataSearchTime searchTime = default(HeadlinesRequestByViewDataSearchTime))
         {
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for HeadlinesRequestByViewData and cannot be null");
+            }
             this.Name = name;
             this.PredefinedRange = predefinedRange;
             this.SearchTime = searchTime;
@@ -131,7 +140,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// Name of the view to return headlines for.
         /// </summary>
         /// <value>Name of the view to return headlines for.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>

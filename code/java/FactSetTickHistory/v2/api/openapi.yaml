@@ -1365,8 +1365,6 @@ components:
             - CCVOL
             - VWAP
             - YIELD_PRICE
-            - BENCHMARK_YIELD
-            - BENCHMARK_SPREAD
             - CURRENT_YIELD
             - TRADE_CONDITION
             - REPORTING_SIDE
@@ -1377,16 +1375,14 @@ components:
             - MID_YIELD
             - ORDER_CODE
             - SELL_ID
-            - TRADED_PRICE
-            - TRADED_VOL
-            - TRADED_CONDITION
-            - TRADED_YIELD
             - ORIG_SEQUENCE
             - SECURITY_TYPE
             - SECURITY_STATUS
             - MSG_BITMASK
             - ORDER_NUM
             - ISO
+            - DATE_UTC
+            - TIME_UTC
             type: string
           type: array
         single:
@@ -1424,12 +1420,11 @@ components:
     DateTimeRange:
       $ref: '#/components/schemas/DateTimePeriod'
     DateTimePeriod:
-      description: "\nNOTE: \n  \n  - Using start and end parameters within dateTimeRange\
-        \ will fetch the data on particular days in between the timestamps given.\n\
-        \  \n  - The start and end times are processed as the local time of the factsetExchangeCode\
-        \ provided. Please refer to the **Data Model User Guide** for time zone to\
-        \ exchange mappings.\n  \n  - Supports milliseconds, YYYY-MM-DDTHH:MM:SS.SSSZ\
-        \ where .SSS represents the milliseconds which is optional.\n"
+      description: "\nNOTE: \n  \n  - The start and end times are processed as UTC\
+        \ time of the factsetExchangeCode provided. Please refer to the **Data Model\
+        \ User Guide** for time zone to exchange mappings.\n  \n  - Supports milliseconds,\
+        \ YYYY-MM-DDTHH:MM:SS.SSSZ where .SSS represents the milliseconds which is\
+        \ optional.\n"
       example:
         start: 2012-01-01T11:00:00Z
         end: 2012-01-30T11:20:30Z
@@ -1487,8 +1482,6 @@ components:
         - CCVOL
         - VWAP
         - YIELD_PRICE
-        - BENCHMARK_YIELD
-        - BENCHMARK_SPREAD
         - CURRENT_YIELD
         - TRADE_CONDITION
         - REPORTING_SIDE
@@ -1499,16 +1492,14 @@ components:
         - MID_YIELD
         - ORDER_CODE
         - SELL_ID
-        - TRADED_PRICE
-        - TRADED_VOL
-        - TRADED_CONDITION
-        - TRADED_YIELD
         - ORIG_SEQUENCE
         - SECURITY_TYPE
         - SECURITY_STATUS
         - MSG_BITMASK
         - ORDER_NUM
         - ISO
+        - DATE_UTC
+        - TIME_UTC
         type: string
       type: array
     MinRequest:
@@ -1588,9 +1579,9 @@ components:
       title: type
       type: string
     DateTimePeriodMin:
-      description: "\nNOTE: \n  \n  - The start and end times are processed as the\
-        \ local time of the factsetExchangeCode provided. Please refer to the **Data\
-        \ Model User Guide** for time zone to exchange mappings.\n  \n"
+      description: "\nNOTE: \n  \n  - The start and end times are processed as UTC\
+        \ time of the factsetExchangeCode provided. Please refer to the **Data Model\
+        \ User Guide** for time zone to exchange mappings.\n  \n"
       example:
         start: 2012-01-01T11:00:00Z
         end: 2012-01-30T11:20:30Z
@@ -1973,6 +1964,8 @@ components:
             - securityType
             - tradeNumber
             - tradeVWAP
+            - dateUtc
+            - timeUtc
 
             For <b>quotes</b>, the downloaded file contains the following fields:
             - ticker
@@ -1987,6 +1980,8 @@ components:
             - askSumVol
             - count
             - medianSpread
+            - dateUtc
+            - timeUtc
 
             This download link will expire after 12 hours.
           type: string

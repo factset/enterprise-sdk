@@ -43,6 +43,7 @@ docs/SPARCalculationParameters.md
 docs/SPARCalculationParametersRoot.md
 docs/SPARCalculationsApi.md
 docs/SPARComponent.md
+docs/SPARComponentIdentifier.md
 docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
@@ -93,6 +94,7 @@ fds/sdk/SPAREngine/model/spar_benchmark_root.py
 fds/sdk/SPAREngine/model/spar_calculation_parameters.py
 fds/sdk/SPAREngine/model/spar_calculation_parameters_root.py
 fds/sdk/SPAREngine/model/spar_component.py
+fds/sdk/SPAREngine/model/spar_component_identifier.py
 fds/sdk/SPAREngine/model/spar_component_root.py
 fds/sdk/SPAREngine/model/spar_date_parameters.py
 fds/sdk/SPAREngine/model/spar_identifier.py

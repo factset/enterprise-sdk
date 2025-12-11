@@ -14,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.factset.sdk'
-version = '1.0.4'
+version = '1.1.0'
 
 repositories {
     mavenCentral()
@@ -139,7 +139,7 @@ ext {
     swagger_annotations_version = "1.6.3"
     jackson_version = "2.15.0"
     jackson_databind_version = "2.15.0"
-    jackson_databind_nullable_version = "0.2.2"
+    jackson_databind_nullable_version = "0.2.7"
     jakarta_annotation_version = "2.1.1"
     jersey_version = "3.0.18"
     junit_version = "4.13.2"

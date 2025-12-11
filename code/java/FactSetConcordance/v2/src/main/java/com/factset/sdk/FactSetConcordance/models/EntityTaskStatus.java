@@ -260,7 +260,7 @@ public class EntityTaskStatus implements Serializable {
   private JsonNullable<String> urlColumn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ADDITIONAL_CONTEXT_COLUMNS = "additionalContextColumns";
-  private java.util.List<String> additionalContextColumns = null;
+  private JsonNullable<java.util.List<String>> additionalContextColumns = JsonNullable.<java.util.List<String>>undefined();
 
   public static final String JSON_PROPERTY_HAS_RESULT = "hasResult";
   private JsonNullable<Boolean> hasResult = JsonNullable.<Boolean>undefined();
@@ -1590,15 +1590,19 @@ public class EntityTaskStatus implements Serializable {
 
 
   public EntityTaskStatus additionalContextColumns(java.util.List<String> additionalContextColumns) {
-    this.additionalContextColumns = additionalContextColumns;
+    this.additionalContextColumns = JsonNullable.<java.util.List<String>>of(additionalContextColumns);
     return this;
   }
 
   public EntityTaskStatus addAdditionalContextColumnsItem(String additionalContextColumnsItem) {
-    if (this.additionalContextColumns == null) {
-      this.additionalContextColumns = new java.util.ArrayList<>();
+    if (this.additionalContextColumns == null || !this.additionalContextColumns.isPresent()) {
+      this.additionalContextColumns = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
     }
-    this.additionalContextColumns.add(additionalContextColumnsItem);
+    try {
+      this.additionalContextColumns.get().add(additionalContextColumnsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -1608,18 +1612,26 @@ public class EntityTaskStatus implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "[\"Address\",\"Phone\",\"City\"]", value = "Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. ")
-  @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT_COLUMNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public java.util.List<String> getAdditionalContextColumns() {
-    return additionalContextColumns;
+        return additionalContextColumns.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdditionalContextColumns(java.util.List<String> additionalContextColumns) {
+
+  public JsonNullable<java.util.List<String>> getAdditionalContextColumns_JsonNullable() {
+    return additionalContextColumns;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_CONTEXT_COLUMNS)
+  public void setAdditionalContextColumns_JsonNullable(JsonNullable<java.util.List<String>> additionalContextColumns) {
     this.additionalContextColumns = additionalContextColumns;
+  }
+
+  public void setAdditionalContextColumns(java.util.List<String> additionalContextColumns) {
+    this.additionalContextColumns = JsonNullable.<java.util.List<String>>of(additionalContextColumns);
   }
 
 
@@ -2412,7 +2424,7 @@ public class EntityTaskStatus implements Serializable {
         equalsNullable(this.countryColumn, entityTaskStatus.countryColumn) &&
         equalsNullable(this.stateColumn, entityTaskStatus.stateColumn) &&
         equalsNullable(this.urlColumn, entityTaskStatus.urlColumn) &&
-        Objects.equals(this.additionalContextColumns, entityTaskStatus.additionalContextColumns) &&
+        equalsNullable(this.additionalContextColumns, entityTaskStatus.additionalContextColumns) &&
         equalsNullable(this.hasResult, entityTaskStatus.hasResult) &&
         equalsNullable(this.taskSubmitTime, entityTaskStatus.taskSubmitTime) &&
         equalsNullable(this.message, entityTaskStatus.message) &&
@@ -2443,7 +2455,7 @@ public class EntityTaskStatus implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(taskId), hashCodeNullable(taskName), hashCodeNullable(taskAction), hashCodeNullable(status), hashCodeNullable(inputFile), hashCodeNullable(clientIdColumn), hashCodeNullable(priorityColumn), hashCodeNullable(bbgFigiColumn), hashCodeNullable(bbgTickerColumn), hashCodeNullable(bicColumn), hashCodeNullable(cikColumn), hashCodeNullable(crdColumn), hashCodeNullable(cusipColumn), hashCodeNullable(einColumn), hashCodeNullable(factsetIdColumn), hashCodeNullable(fitchColumn), hashCodeNullable(gvkeyColumn), hashCodeNullable(gvkeyIidColumn), hashCodeNullable(isinColumn), hashCodeNullable(jcnColumn), hashCodeNullable(leiColumn), hashCodeNullable(lxidColumn), hashCodeNullable(mdColumn), hashCodeNullable(redCodeColumn), hashCodeNullable(rssdColumn), hashCodeNullable(sedolColumn), hashCodeNullable(sprColumn), hashCodeNullable(tickerColumn), hashCodeNullable(tickerExchangeColumn), hashCodeNullable(tickerRegionColumn), hashCodeNullable(ukchColumn), hashCodeNullable(valorenColumn), hashCodeNullable(wknColumn), hashCodeNullable(nameColumn), hashCodeNullable(countryColumn), hashCodeNullable(stateColumn), hashCodeNullable(urlColumn), additionalContextColumns, hashCodeNullable(hasResult), hashCodeNullable(taskSubmitTime), hashCodeNullable(message), hashCodeNullable(inputCount), hashCodeNullable(mappedCount), hashCodeNullable(unmappedCount), hashCodeNullable(indeterminateCount), hashCodeNullable(processStartTime), hashCodeNullable(processDuration), hashCodeNullable(tryCount), hashCodeNullable(decisionRate), hashCodeNullable(error), hashCodeNullable(errorTitle), includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, hashCodeNullable(userSerial), hashCodeNullable(userFullName), hashCodeNullable(universeId), hashCodeNullable(universeName), autoRemap);
+    return Objects.hash(hashCodeNullable(taskId), hashCodeNullable(taskName), hashCodeNullable(taskAction), hashCodeNullable(status), hashCodeNullable(inputFile), hashCodeNullable(clientIdColumn), hashCodeNullable(priorityColumn), hashCodeNullable(bbgFigiColumn), hashCodeNullable(bbgTickerColumn), hashCodeNullable(bicColumn), hashCodeNullable(cikColumn), hashCodeNullable(crdColumn), hashCodeNullable(cusipColumn), hashCodeNullable(einColumn), hashCodeNullable(factsetIdColumn), hashCodeNullable(fitchColumn), hashCodeNullable(gvkeyColumn), hashCodeNullable(gvkeyIidColumn), hashCodeNullable(isinColumn), hashCodeNullable(jcnColumn), hashCodeNullable(leiColumn), hashCodeNullable(lxidColumn), hashCodeNullable(mdColumn), hashCodeNullable(redCodeColumn), hashCodeNullable(rssdColumn), hashCodeNullable(sedolColumn), hashCodeNullable(sprColumn), hashCodeNullable(tickerColumn), hashCodeNullable(tickerExchangeColumn), hashCodeNullable(tickerRegionColumn), hashCodeNullable(ukchColumn), hashCodeNullable(valorenColumn), hashCodeNullable(wknColumn), hashCodeNullable(nameColumn), hashCodeNullable(countryColumn), hashCodeNullable(stateColumn), hashCodeNullable(urlColumn), hashCodeNullable(additionalContextColumns), hashCodeNullable(hasResult), hashCodeNullable(taskSubmitTime), hashCodeNullable(message), hashCodeNullable(inputCount), hashCodeNullable(mappedCount), hashCodeNullable(unmappedCount), hashCodeNullable(indeterminateCount), hashCodeNullable(processStartTime), hashCodeNullable(processDuration), hashCodeNullable(tryCount), hashCodeNullable(decisionRate), hashCodeNullable(error), hashCodeNullable(errorTitle), includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, hashCodeNullable(userSerial), hashCodeNullable(userFullName), hashCodeNullable(universeId), hashCodeNullable(universeName), autoRemap);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

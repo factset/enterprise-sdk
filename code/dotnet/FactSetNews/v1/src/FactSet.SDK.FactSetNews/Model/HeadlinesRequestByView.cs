@@ -35,10 +35,19 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeadlinesRequestByView" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected HeadlinesRequestByView() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeadlinesRequestByView" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public HeadlinesRequestByView(HeadlinesRequestByViewData data = default(HeadlinesRequestByViewData), HeadlinesRequestByViewMeta meta = default(HeadlinesRequestByViewMeta))
+        public HeadlinesRequestByView(HeadlinesRequestByViewData data,HeadlinesRequestByViewMeta meta = default(HeadlinesRequestByViewMeta))
         {
+            // to ensure "data" is required (not null)
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for HeadlinesRequestByView and cannot be null");
+            }
             this.Data = data;
             this.Meta = meta;
         }
@@ -46,7 +55,7 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public HeadlinesRequestByViewData Data { get; set; }
 
         /// <summary>

@@ -274,18 +274,6 @@ Level1RequestBody['FieldsEnum'] = {
     "YIELD_PRICE": "YIELD_PRICE",
 
     /**
-     * value: "BENCHMARK_YIELD"
-     * @const
-     */
-    "BENCHMARK_YIELD": "BENCHMARK_YIELD",
-
-    /**
-     * value: "BENCHMARK_SPREAD"
-     * @const
-     */
-    "BENCHMARK_SPREAD": "BENCHMARK_SPREAD",
-
-    /**
      * value: "CURRENT_YIELD"
      * @const
      */
@@ -346,30 +334,6 @@ Level1RequestBody['FieldsEnum'] = {
     "SELL_ID": "SELL_ID",
 
     /**
-     * value: "TRADED_PRICE"
-     * @const
-     */
-    "TRADED_PRICE": "TRADED_PRICE",
-
-    /**
-     * value: "TRADED_VOL"
-     * @const
-     */
-    "TRADED_VOL": "TRADED_VOL",
-
-    /**
-     * value: "TRADED_CONDITION"
-     * @const
-     */
-    "TRADED_CONDITION": "TRADED_CONDITION",
-
-    /**
-     * value: "TRADED_YIELD"
-     * @const
-     */
-    "TRADED_YIELD": "TRADED_YIELD",
-
-    /**
      * value: "ORIG_SEQUENCE"
      * @const
      */
@@ -403,7 +367,19 @@ Level1RequestBody['FieldsEnum'] = {
      * value: "ISO"
      * @const
      */
-    "ISO": "ISO"
+    "ISO": "ISO",
+
+    /**
+     * value: "DATE_UTC"
+     * @const
+     */
+    "DATE_UTC": "DATE_UTC",
+
+    /**
+     * value: "TIME_UTC"
+     * @const
+     */
+    "TIME_UTC": "TIME_UTC"
 };
 
 

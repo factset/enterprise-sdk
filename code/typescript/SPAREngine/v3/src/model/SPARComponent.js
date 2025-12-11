@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SPARIdentifier from './SPARIdentifier';
+import SPARComponentIdentifier from './SPARComponentIdentifier';
 
 /**
  * The SPARComponent model module.
@@ -51,10 +51,10 @@ class SPARComponent {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('accounts')) {
-                obj['accounts'] = ApiClient.convertToType(data['accounts'], [SPARIdentifier]);
+                obj['accounts'] = ApiClient.convertToType(data['accounts'], [SPARComponentIdentifier]);
             }
             if (data.hasOwnProperty('benchmarks')) {
-                obj['benchmarks'] = SPARIdentifier.constructFromObject(data['benchmarks']);
+                obj['benchmarks'] = SPARComponentIdentifier.constructFromObject(data['benchmarks']);
             }
             if (data.hasOwnProperty('currencyIsoCode')) {
                 obj['currencyIsoCode'] = ApiClient.convertToType(data['currencyIsoCode'], 'String');
@@ -83,12 +83,12 @@ SPARComponent.prototype['id'] = undefined;
 
 /**
  * List of accounts in SPAR document.
- * @member {Array.<module:model/SPARIdentifier>} accounts
+ * @member {Array.<module:model/SPARComponentIdentifier>} accounts
  */
 SPARComponent.prototype['accounts'] = undefined;
 
 /**
- * @member {module:model/SPARIdentifier} benchmarks
+ * @member {module:model/SPARComponentIdentifier} benchmarks
  */
 SPARComponent.prototype['benchmarks'] = undefined;
 

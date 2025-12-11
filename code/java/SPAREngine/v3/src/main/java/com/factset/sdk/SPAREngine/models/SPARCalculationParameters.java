@@ -43,7 +43,8 @@ import com.factset.sdk.SPAREngine.JSON;
   SPARCalculationParameters.JSON_PROPERTY_ACCOUNTS,
   SPARCalculationParameters.JSON_PROPERTY_BENCHMARK,
   SPARCalculationParameters.JSON_PROPERTY_DATES,
-  SPARCalculationParameters.JSON_PROPERTY_CURRENCYISOCODE
+  SPARCalculationParameters.JSON_PROPERTY_CURRENCYISOCODE,
+  SPARCalculationParameters.JSON_PROPERTY_UNIVERSEID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -64,6 +65,9 @@ public class SPARCalculationParameters implements Serializable {
 
   public static final String JSON_PROPERTY_CURRENCYISOCODE = "currencyisocode";
   private JsonNullable<String> currencyisocode = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_UNIVERSEID = "universeid";
+  private JsonNullable<String> universeid = JsonNullable.<String>undefined();
 
   public SPARCalculationParameters() { 
   }
@@ -234,6 +238,40 @@ public class SPARCalculationParameters implements Serializable {
   }
 
 
+  public SPARCalculationParameters universeid(String universeid) {
+    this.universeid = JsonNullable.<String>of(universeid);
+    return this;
+  }
+
+   /**
+   * Universe ID code for calculation.
+   * @return universeid
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Universe ID code for calculation.")
+  @JsonIgnore
+
+  public String getUniverseid() {
+        return universeid.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNIVERSEID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getUniverseid_JsonNullable() {
+    return universeid;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSEID)
+  public void setUniverseid_JsonNullable(JsonNullable<String> universeid) {
+    this.universeid = universeid;
+  }
+
+  public void setUniverseid(String universeid) {
+    this.universeid = JsonNullable.<String>of(universeid);
+  }
+
+
   /**
    * Return true if this SPARCalculationParameters object is equal to o.
    */
@@ -250,7 +288,8 @@ public class SPARCalculationParameters implements Serializable {
         equalsNullable(this.accounts, spARCalculationParameters.accounts) &&
         Objects.equals(this.benchmark, spARCalculationParameters.benchmark) &&
         Objects.equals(this.dates, spARCalculationParameters.dates) &&
-        equalsNullable(this.currencyisocode, spARCalculationParameters.currencyisocode);
+        equalsNullable(this.currencyisocode, spARCalculationParameters.currencyisocode) &&
+        equalsNullable(this.universeid, spARCalculationParameters.universeid);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -259,7 +298,7 @@ public class SPARCalculationParameters implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentid, hashCodeNullable(accounts), benchmark, dates, hashCodeNullable(currencyisocode));
+    return Objects.hash(componentid, hashCodeNullable(accounts), benchmark, dates, hashCodeNullable(currencyisocode), hashCodeNullable(universeid));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -278,6 +317,7 @@ public class SPARCalculationParameters implements Serializable {
     sb.append("    benchmark: ").append(toIndentedString(benchmark)).append("\n");
     sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
     sb.append("    currencyisocode: ").append(toIndentedString(currencyisocode)).append("\n");
+    sb.append("    universeid: ").append(toIndentedString(universeid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

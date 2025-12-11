@@ -52,6 +52,14 @@ public class HeadlinesRequestByView implements Serializable {
   public HeadlinesRequestByView() { 
   }
 
+  @JsonCreator
+  public HeadlinesRequestByView(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) HeadlinesRequestByViewData data
+  ) {
+    this();
+    this.data = data;
+  }
+
   public HeadlinesRequestByView data(HeadlinesRequestByViewData data) {
     this.data = data;
     return this;
@@ -61,10 +69,10 @@ public class HeadlinesRequestByView implements Serializable {
    * Get data
    * @return data
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public HeadlinesRequestByViewData getData() {
     return data;
@@ -72,7 +80,7 @@ public class HeadlinesRequestByView implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(HeadlinesRequestByViewData data) {
     this.data = data;
   }

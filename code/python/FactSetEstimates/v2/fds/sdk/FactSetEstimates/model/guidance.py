@@ -96,12 +96,14 @@ class Guidance(ModelNormal):
             'guidance_date': (date, none_type,),  # noqa: E501
             'input_date_high': (date, none_type,),  # noqa: E501
             'input_date_low': (date, none_type,),  # noqa: E501
+            'input_date_high_time': (datetime, none_type,),  # noqa: E501
+            'input_date_low_time': (datetime, none_type,),  # noqa: E501
             'guidance_midpoint': (float, none_type,),  # noqa: E501
             'guidance_low': (float, none_type,),  # noqa: E501
             'guidance_high': (float, none_type,),  # noqa: E501
             'guidance_range': (str, none_type,),  # noqa: E501
             'prev_midpoint': (float, none_type,),  # noqa: E501
-            'prev_low': (float,),  # noqa: E501
+            'prev_low': (float, none_type,),  # noqa: E501
             'prev_high': (float, none_type,),  # noqa: E501
             'mean_before': (float, none_type,),  # noqa: E501
             'mean_surprise_amt': (float, none_type,),  # noqa: E501
@@ -128,6 +130,8 @@ class Guidance(ModelNormal):
         'guidance_date': 'guidanceDate',  # noqa: E501
         'input_date_high': 'inputDateHigh',  # noqa: E501
         'input_date_low': 'inputDateLow',  # noqa: E501
+        'input_date_high_time': 'inputDateHighTime',  # noqa: E501
+        'input_date_low_time': 'inputDateLowTime',  # noqa: E501
         'guidance_midpoint': 'guidanceMidpoint',  # noqa: E501
         'guidance_low': 'guidanceLow',  # noqa: E501
         'guidance_high': 'guidanceHigh',  # noqa: E501
@@ -195,12 +199,14 @@ class Guidance(ModelNormal):
             guidance_date (date, none_type): Date guidance was issued expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
             input_date_high (date, none_type): Represents the date FactSet collected the data in YYYY-MM-DD format for guidance high.. [optional]  # noqa: E501
             input_date_low (date, none_type): Represents the date FactSet collected the data in YYYY-MM-DD format for guidance low.. [optional]  # noqa: E501
+            input_date_high_time (datetime, none_type): Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.. [optional]  # noqa: E501
+            input_date_low_time (datetime, none_type): Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.. [optional]  # noqa: E501
             guidance_midpoint (float, none_type):  Represents the central value in a range of projected financial guidance.. [optional]  # noqa: E501
             guidance_low (float, none_type): Represents the lower end of the projected financial guidance range.. [optional]  # noqa: E501
             guidance_high (float, none_type): Represents the upper end of the projected financial guidance range.. [optional]  # noqa: E501
             guidance_range (str, none_type): Represents the span between the lowest and highest values in the projected financial guidance.. [optional]  # noqa: E501
             prev_midpoint (float, none_type): This refers to the average or central point of the financial guidance range given in a prior period.. [optional]  # noqa: E501
-            prev_low (float): Refers to the lowest value or estimate in a financial guidance range provided in a previous period.. [optional]  # noqa: E501
+            prev_low (float, none_type): Refers to the lowest value or estimate in a financial guidance range provided in a previous period.. [optional]  # noqa: E501
             prev_high (float, none_type): Refers to the highest value or estimate in a financial guidance range provided in a previous period.. [optional]  # noqa: E501
             mean_before (float, none_type): This is the consensus value the day before the guidance was issued. If guidance was previously issued for the period in question, this consensus will only include estimates that have been updated since the previous update.. [optional]  # noqa: E501
             mean_surprise_amt (float, none_type):  This is the difference between the before value and the guidance.. [optional]  # noqa: E501
@@ -300,12 +306,14 @@ class Guidance(ModelNormal):
             guidance_date (date, none_type): Date guidance was issued expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
             input_date_high (date, none_type): Represents the date FactSet collected the data in YYYY-MM-DD format for guidance high.. [optional]  # noqa: E501
             input_date_low (date, none_type): Represents the date FactSet collected the data in YYYY-MM-DD format for guidance low.. [optional]  # noqa: E501
+            input_date_high_time (datetime, none_type): Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.. [optional]  # noqa: E501
+            input_date_low_time (datetime, none_type): Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.. [optional]  # noqa: E501
             guidance_midpoint (float, none_type):  Represents the central value in a range of projected financial guidance.. [optional]  # noqa: E501
             guidance_low (float, none_type): Represents the lower end of the projected financial guidance range.. [optional]  # noqa: E501
             guidance_high (float, none_type): Represents the upper end of the projected financial guidance range.. [optional]  # noqa: E501
             guidance_range (str, none_type): Represents the span between the lowest and highest values in the projected financial guidance.. [optional]  # noqa: E501
             prev_midpoint (float, none_type): This refers to the average or central point of the financial guidance range given in a prior period.. [optional]  # noqa: E501
-            prev_low (float): Refers to the lowest value or estimate in a financial guidance range provided in a previous period.. [optional]  # noqa: E501
+            prev_low (float, none_type): Refers to the lowest value or estimate in a financial guidance range provided in a previous period.. [optional]  # noqa: E501
             prev_high (float, none_type): Refers to the highest value or estimate in a financial guidance range provided in a previous period.. [optional]  # noqa: E501
             mean_before (float, none_type): This is the consensus value the day before the guidance was issued. If guidance was previously issued for the period in question, this consensus will only include estimates that have been updated since the previous update.. [optional]  # noqa: E501
             mean_surprise_amt (float, none_type):  This is the difference between the before value and the guidance.. [optional]  # noqa: E501

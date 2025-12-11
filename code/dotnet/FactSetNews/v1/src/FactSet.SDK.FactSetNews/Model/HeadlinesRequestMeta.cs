@@ -96,7 +96,13 @@ namespace FactSet.SDK.FactSetNews.Model
             /// Enum FdsSubject for value: fdsSubject
             /// </summary>
             [EnumMember(Value = "fdsSubject")]
-            FdsSubject = 10
+            FdsSubject = 10,
+
+            /// <summary>
+            /// Enum HtmlUrl for value: htmlUrl
+            /// </summary>
+            [EnumMember(Value = "htmlUrl")]
+            HtmlUrl = 11
 
         }
 

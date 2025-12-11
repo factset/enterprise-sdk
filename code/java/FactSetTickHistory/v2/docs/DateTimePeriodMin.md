@@ -2,7 +2,7 @@
 
 # DateTimePeriodMin
 
- NOTE:       - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.    
+ NOTE:       - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.    
 
 ## Properties
 

@@ -49,6 +49,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="guidanceDate">Date guidance was issued expressed in YYYY-MM-DD format..</param>
         /// <param name="inputDateHigh">Represents the date FactSet collected the data in YYYY-MM-DD format for guidance high..</param>
         /// <param name="inputDateLow">Represents the date FactSet collected the data in YYYY-MM-DD format for guidance low..</param>
+        /// <param name="inputDateHighTime">Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high..</param>
+        /// <param name="inputDateLowTime">Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low..</param>
         /// <param name="guidanceMidpoint"> Represents the central value in a range of projected financial guidance..</param>
         /// <param name="guidanceLow">Represents the lower end of the projected financial guidance range..</param>
         /// <param name="guidanceHigh">Represents the upper end of the projected financial guidance range..</param>
@@ -59,7 +61,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="meanBefore">This is the consensus value the day before the guidance was issued. If guidance was previously issued for the period in question, this consensus will only include estimates that have been updated since the previous update..</param>
         /// <param name="meanSurpriseAmt"> This is the difference between the before value and the guidance..</param>
         /// <param name="meanSurpriseAmtPercent">This represents the percentage difference between the before value and the guidance actual..</param>
-        public Guidance(string requestId = default(string), string fsymId = default(string), string metric = default(string), string currency = default(string), string estimateCurrency = default(string), string periodicity = default(string), DateTime? consensusDate = default(DateTime?), int? fiscalYear = default(int?), DateTime? fiscalEndDate = default(DateTime?), int? relativePeriod = default(int?), int? fiscalPeriod = default(int?), DateTime? guidanceDate = default(DateTime?), DateTime? inputDateHigh = default(DateTime?), DateTime? inputDateLow = default(DateTime?), double? guidanceMidpoint = default(double?), double? guidanceLow = default(double?), double? guidanceHigh = default(double?), string guidanceRange = default(string), double? prevMidpoint = default(double?), double prevLow = default(double), double? prevHigh = default(double?), double? meanBefore = default(double?), double? meanSurpriseAmt = default(double?), double? meanSurpriseAmtPercent = default(double?))
+        public Guidance(string requestId = default(string), string fsymId = default(string), string metric = default(string), string currency = default(string), string estimateCurrency = default(string), string periodicity = default(string), DateTime? consensusDate = default(DateTime?), int? fiscalYear = default(int?), DateTime? fiscalEndDate = default(DateTime?), int? relativePeriod = default(int?), int? fiscalPeriod = default(int?), DateTime? guidanceDate = default(DateTime?), DateTime? inputDateHigh = default(DateTime?), DateTime? inputDateLow = default(DateTime?), DateTime? inputDateHighTime = default(DateTime?), DateTime? inputDateLowTime = default(DateTime?), double? guidanceMidpoint = default(double?), double? guidanceLow = default(double?), double? guidanceHigh = default(double?), string guidanceRange = default(string), double? prevMidpoint = default(double?), double? prevLow = default(double?), double? prevHigh = default(double?), double? meanBefore = default(double?), double? meanSurpriseAmt = default(double?), double? meanSurpriseAmtPercent = default(double?))
         {
             this.RequestId = requestId;
             this.FsymId = fsymId;
@@ -75,6 +77,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
             this.GuidanceDate = guidanceDate;
             this.InputDateHigh = inputDateHigh;
             this.InputDateLow = inputDateLow;
+            this.InputDateHighTime = inputDateHighTime;
+            this.InputDateLowTime = inputDateLowTime;
             this.GuidanceMidpoint = guidanceMidpoint;
             this.GuidanceLow = guidanceLow;
             this.GuidanceHigh = guidanceHigh;
@@ -191,6 +195,20 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public DateTime? InputDateLow { get; set; }
 
         /// <summary>
+        /// Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.
+        /// </summary>
+        /// <value>Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.</value>
+        [DataMember(Name = "inputDateHighTime", EmitDefaultValue = true)]
+        public DateTime? InputDateHighTime { get; set; }
+
+        /// <summary>
+        /// Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.
+        /// </summary>
+        /// <value>Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.</value>
+        [DataMember(Name = "inputDateLowTime", EmitDefaultValue = true)]
+        public DateTime? InputDateLowTime { get; set; }
+
+        /// <summary>
         ///  Represents the central value in a range of projected financial guidance.
         /// </summary>
         /// <value> Represents the central value in a range of projected financial guidance.</value>
@@ -229,8 +247,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// Refers to the lowest value or estimate in a financial guidance range provided in a previous period.
         /// </summary>
         /// <value>Refers to the lowest value or estimate in a financial guidance range provided in a previous period.</value>
-        [DataMember(Name = "prevLow", EmitDefaultValue = false)]
-        public double PrevLow { get; set; }
+        [DataMember(Name = "prevLow", EmitDefaultValue = true)]
+        public double? PrevLow { get; set; }
 
         /// <summary>
         /// Refers to the highest value or estimate in a financial guidance range provided in a previous period.
@@ -282,6 +300,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  GuidanceDate: ").Append(GuidanceDate).Append("\n");
             sb.Append("  InputDateHigh: ").Append(InputDateHigh).Append("\n");
             sb.Append("  InputDateLow: ").Append(InputDateLow).Append("\n");
+            sb.Append("  InputDateHighTime: ").Append(InputDateHighTime).Append("\n");
+            sb.Append("  InputDateLowTime: ").Append(InputDateLowTime).Append("\n");
             sb.Append("  GuidanceMidpoint: ").Append(GuidanceMidpoint).Append("\n");
             sb.Append("  GuidanceLow: ").Append(GuidanceLow).Append("\n");
             sb.Append("  GuidanceHigh: ").Append(GuidanceHigh).Append("\n");
@@ -398,6 +418,16 @@ namespace FactSet.SDK.FactSetEstimates.Model
                     this.InputDateLow.Equals(input.InputDateLow))
                 ) && 
                 (
+                    this.InputDateHighTime == input.InputDateHighTime ||
+                    (this.InputDateHighTime != null &&
+                    this.InputDateHighTime.Equals(input.InputDateHighTime))
+                ) && 
+                (
+                    this.InputDateLowTime == input.InputDateLowTime ||
+                    (this.InputDateLowTime != null &&
+                    this.InputDateLowTime.Equals(input.InputDateLowTime))
+                ) && 
+                (
                     this.GuidanceMidpoint == input.GuidanceMidpoint ||
                     (this.GuidanceMidpoint != null &&
                     this.GuidanceMidpoint.Equals(input.GuidanceMidpoint))
@@ -424,7 +454,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 ) && 
                 (
                     this.PrevLow == input.PrevLow ||
-                    this.PrevLow.Equals(input.PrevLow)
+                    (this.PrevLow != null &&
+                    this.PrevLow.Equals(input.PrevLow))
                 ) && 
                 (
                     this.PrevHigh == input.PrevHigh ||
@@ -513,6 +544,14 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 {
                     hashCode = (hashCode * 59) + this.InputDateLow.GetHashCode();
                 }
+                if (this.InputDateHighTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.InputDateHighTime.GetHashCode();
+                }
+                if (this.InputDateLowTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.InputDateLowTime.GetHashCode();
+                }
                 if (this.GuidanceMidpoint != null)
                 {
                     hashCode = (hashCode * 59) + this.GuidanceMidpoint.GetHashCode();
@@ -533,7 +572,10 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 {
                     hashCode = (hashCode * 59) + this.PrevMidpoint.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PrevLow.GetHashCode();
+                if (this.PrevLow != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrevLow.GetHashCode();
+                }
                 if (this.PrevHigh != null)
                 {
                     hashCode = (hashCode * 59) + this.PrevHigh.GetHashCode();

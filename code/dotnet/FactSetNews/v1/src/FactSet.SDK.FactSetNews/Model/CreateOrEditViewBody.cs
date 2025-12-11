@@ -35,16 +35,25 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateOrEditViewBody" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        public CreateOrEditViewBody(CreateOrEditViewBodyData data = default(CreateOrEditViewBodyData))
+        [JsonConstructorAttribute]
+        protected CreateOrEditViewBody() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateOrEditViewBody" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
+        public CreateOrEditViewBody(CreateOrEditViewBodyData data)
         {
+            // to ensure "data" is required (not null)
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for CreateOrEditViewBody and cannot be null");
+            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public CreateOrEditViewBodyData Data { get; set; }
 
         /// <summary>

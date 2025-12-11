@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.SPAREngine.models.SPARIdentifier;
+import com.factset.sdk.SPAREngine.models.SPARComponentIdentifier;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -55,10 +55,10 @@ public class SPARComponent implements Serializable {
   private JsonNullable<String> id = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private JsonNullable<java.util.List<SPARIdentifier>> accounts = JsonNullable.<java.util.List<SPARIdentifier>>undefined();
+  private JsonNullable<java.util.List<SPARComponentIdentifier>> accounts = JsonNullable.<java.util.List<SPARComponentIdentifier>>undefined();
 
   public static final String JSON_PROPERTY_BENCHMARKS = "benchmarks";
-  private SPARIdentifier benchmarks;
+  private SPARComponentIdentifier benchmarks;
 
   public static final String JSON_PROPERTY_CURRENCY_ISO_CODE = "currencyIsoCode";
   private JsonNullable<String> currencyIsoCode = JsonNullable.<String>undefined();
@@ -109,14 +109,14 @@ public class SPARComponent implements Serializable {
   }
 
 
-  public SPARComponent accounts(java.util.List<SPARIdentifier> accounts) {
-    this.accounts = JsonNullable.<java.util.List<SPARIdentifier>>of(accounts);
+  public SPARComponent accounts(java.util.List<SPARComponentIdentifier> accounts) {
+    this.accounts = JsonNullable.<java.util.List<SPARComponentIdentifier>>of(accounts);
     return this;
   }
 
-  public SPARComponent addAccountsItem(SPARIdentifier accountsItem) {
+  public SPARComponent addAccountsItem(SPARComponentIdentifier accountsItem) {
     if (this.accounts == null || !this.accounts.isPresent()) {
-      this.accounts = JsonNullable.<java.util.List<SPARIdentifier>>of(new java.util.ArrayList<>());
+      this.accounts = JsonNullable.<java.util.List<SPARComponentIdentifier>>of(new java.util.ArrayList<>());
     }
     try {
       this.accounts.get().add(accountsItem);
@@ -134,28 +134,28 @@ public class SPARComponent implements Serializable {
   @ApiModelProperty(value = "List of accounts in SPAR document.")
   @JsonIgnore
 
-  public java.util.List<SPARIdentifier> getAccounts() {
+  public java.util.List<SPARComponentIdentifier> getAccounts() {
         return accounts.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<java.util.List<SPARIdentifier>> getAccounts_JsonNullable() {
+  public JsonNullable<java.util.List<SPARComponentIdentifier>> getAccounts_JsonNullable() {
     return accounts;
   }
   
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-  public void setAccounts_JsonNullable(JsonNullable<java.util.List<SPARIdentifier>> accounts) {
+  public void setAccounts_JsonNullable(JsonNullable<java.util.List<SPARComponentIdentifier>> accounts) {
     this.accounts = accounts;
   }
 
-  public void setAccounts(java.util.List<SPARIdentifier> accounts) {
-    this.accounts = JsonNullable.<java.util.List<SPARIdentifier>>of(accounts);
+  public void setAccounts(java.util.List<SPARComponentIdentifier> accounts) {
+    this.accounts = JsonNullable.<java.util.List<SPARComponentIdentifier>>of(accounts);
   }
 
 
-  public SPARComponent benchmarks(SPARIdentifier benchmarks) {
+  public SPARComponent benchmarks(SPARComponentIdentifier benchmarks) {
     this.benchmarks = benchmarks;
     return this;
   }
@@ -169,14 +169,14 @@ public class SPARComponent implements Serializable {
   @JsonProperty(JSON_PROPERTY_BENCHMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SPARIdentifier getBenchmarks() {
+  public SPARComponentIdentifier getBenchmarks() {
     return benchmarks;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BENCHMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBenchmarks(SPARIdentifier benchmarks) {
+  public void setBenchmarks(SPARComponentIdentifier benchmarks) {
     this.benchmarks = benchmarks;
   }
 

@@ -23,10 +23,11 @@ class HeadlinesRequestByView {
     /**
      * Constructs a new <code>HeadlinesRequestByView</code>.
      * @alias module:model/HeadlinesRequestByView
+     * @param data {module:model/HeadlinesRequestByViewData} 
      */
-    constructor() { 
+    constructor(data) { 
         
-        HeadlinesRequestByView.initialize(this);
+        HeadlinesRequestByView.initialize(this, data);
     }
 
     /**
@@ -34,7 +35,8 @@ class HeadlinesRequestByView {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, data) { 
+        obj['data'] = data;
     }
 
     /**

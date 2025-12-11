@@ -596,6 +596,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
                     useeachportfolioinception=True,
                 ),
                 currencyisocode="currencyisocode_example",
+                universeid="universeid_example",
             ),
         },
         meta=CalculationMeta(
@@ -750,6 +751,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
                     useeachportfolioinception=True,
                 ),
                 currencyisocode="currencyisocode_example",
+                universeid="universeid_example",
             ),
         },
         meta=CalculationMeta(

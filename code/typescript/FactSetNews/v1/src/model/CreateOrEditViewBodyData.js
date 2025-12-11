@@ -22,10 +22,11 @@ class CreateOrEditViewBodyData {
     /**
      * Constructs a new <code>CreateOrEditViewBodyData</code>.
      * @alias module:model/CreateOrEditViewBodyData
+     * @param name {String} The name of the view.
      */
-    constructor() { 
+    constructor(name) { 
         
-        CreateOrEditViewBodyData.initialize(this);
+        CreateOrEditViewBodyData.initialize(this, name);
     }
 
     /**
@@ -33,7 +34,8 @@ class CreateOrEditViewBodyData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
@@ -73,6 +75,9 @@ class CreateOrEditViewBodyData {
             }
             if (data.hasOwnProperty('quickAlert')) {
                 obj['quickAlert'] = ApiClient.convertToType(data['quickAlert'], 'Boolean');
+            }
+            if (data.hasOwnProperty('searchText')) {
+                obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
             }
         }
         return obj;
@@ -129,6 +134,12 @@ CreateOrEditViewBodyData.prototype['topics'] = undefined;
  * @member {Boolean} quickAlert
  */
 CreateOrEditViewBodyData.prototype['quickAlert'] = undefined;
+
+/**
+ * Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)
+ * @member {String} searchText
+ */
+CreateOrEditViewBodyData.prototype['searchText'] = undefined;
 
 
 

@@ -138,7 +138,7 @@ class FilesOne(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             file_name (str): Name of the file(s) generated for the query requested. [optional]  # noqa: E501
-            url (str): Download link for the TickHistory minute bars file with requested parameters.  For <b>trades</b>, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP  For <b>quotes</b>, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread  This download link will expire after 12 hours. . [optional]  # noqa: E501
+            url (str): Download link for the TickHistory minute bars file with requested parameters.  For <b>trades</b>, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP - dateUtc - timeUtc  For <b>quotes</b>, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread - dateUtc - timeUtc  This download link will expire after 12 hours. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class FilesOne(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             file_name (str): Name of the file(s) generated for the query requested. [optional]  # noqa: E501
-            url (str): Download link for the TickHistory minute bars file with requested parameters.  For <b>trades</b>, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP  For <b>quotes</b>, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread  This download link will expire after 12 hours. . [optional]  # noqa: E501
+            url (str): Download link for the TickHistory minute bars file with requested parameters.  For <b>trades</b>, the downloaded file contains the following fields: - isoCode - ticker - date - time - tradeOpen - tradeHigh - tradeLow - tradeClose - tradeVolume - securityType - tradeNumber - tradeVWAP - dateUtc - timeUtc  For <b>quotes</b>, the downloaded file contains the following fields: - ticker - isoCode - date - time - bidOpenPrc - bidClosePrc - bidSumVol - askOpenPrc - askClosePrc - askSumVol - count - medianSpread - dateUtc - timeUtc  This download link will expire after 12 hours. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

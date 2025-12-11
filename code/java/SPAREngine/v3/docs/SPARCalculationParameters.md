@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **benchmark** | [**SPARIdentifier**](SPARIdentifier.md) |  |  [optional]
 **dates** | [**SPARDateParameters**](SPARDateParameters.md) |  |  [optional]
 **currencyisocode** | **String** | Currency ISO code for calculation. |  [optional]
+**universeid** | **String** | Universe ID code for calculation. |  [optional]
 
 
 ## Implemented Interfaces

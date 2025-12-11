@@ -47,6 +47,14 @@ public class DeleteViewBody implements Serializable {
   public DeleteViewBody() { 
   }
 
+  @JsonCreator
+  public DeleteViewBody(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) DeleteViewBodyData data
+  ) {
+    this();
+    this.data = data;
+  }
+
   public DeleteViewBody data(DeleteViewBodyData data) {
     this.data = data;
     return this;
@@ -56,10 +64,10 @@ public class DeleteViewBody implements Serializable {
    * Get data
    * @return data
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DeleteViewBodyData getData() {
     return data;
@@ -67,7 +75,7 @@ public class DeleteViewBody implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(DeleteViewBodyData data) {
     this.data = data;
   }

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetTickHistory.Client.OpenAPIDateCo
 namespace FactSet.SDK.FactSetTickHistory.Model
 {
     /// <summary>
-    ///  NOTE:       - The start and end times are processed as the local time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.    
+    ///  NOTE:       - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.    
     /// </summary>
     [DataContract(Name = "DateTimePeriodMin")]
     public partial class DateTimePeriodMin : IEquatable<DateTimePeriodMin>, IValidatableObject

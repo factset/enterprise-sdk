@@ -126,7 +126,8 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <param name="topics">A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as \&quot;Market Summaries\&quot;..</param>
         /// <param name="predefinedRange">See list of valid date ranges. Date range is mutually exclusive to start/end time.</param>
         /// <param name="searchTime">searchTime.</param>
-        public HeadlinesRequestData(List<HeadlinesRequestTickersObject> tickers = default(List<HeadlinesRequestTickersObject>), bool isPrimary = default(bool), List<string> categories = default(List<string>), List<string> countries = default(List<string>), List<string> regions = default(List<string>), List<string> sources = default(List<string>), List<string> topics = default(List<string>), PredefinedRangeEnum? predefinedRange = default(PredefinedRangeEnum?), HeadlinesRequestDataSearchTime searchTime = default(HeadlinesRequestDataSearchTime))
+        /// <param name="searchText">Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) .</param>
+        public HeadlinesRequestData(List<HeadlinesRequestTickersObject> tickers = default(List<HeadlinesRequestTickersObject>), bool isPrimary = default(bool), List<string> categories = default(List<string>), List<string> countries = default(List<string>), List<string> regions = default(List<string>), List<string> sources = default(List<string>), List<string> topics = default(List<string>), PredefinedRangeEnum? predefinedRange = default(PredefinedRangeEnum?), HeadlinesRequestDataSearchTime searchTime = default(HeadlinesRequestDataSearchTime), string searchText = default(string))
         {
             this.Tickers = tickers;
             this.IsPrimary = isPrimary;
@@ -137,6 +138,7 @@ namespace FactSet.SDK.FactSetNews.Model
             this.Topics = topics;
             this.PredefinedRange = predefinedRange;
             this.SearchTime = searchTime;
+            this.SearchText = searchText;
         }
 
         /// <summary>
@@ -195,6 +197,13 @@ namespace FactSet.SDK.FactSetNews.Model
         public HeadlinesRequestDataSearchTime SearchTime { get; set; }
 
         /// <summary>
+        /// Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) 
+        /// </summary>
+        /// <value>Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) </value>
+        [DataMember(Name = "searchText", EmitDefaultValue = false)]
+        public string SearchText { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -211,6 +220,7 @@ namespace FactSet.SDK.FactSetNews.Model
             sb.Append("  Topics: ").Append(Topics).Append("\n");
             sb.Append("  PredefinedRange: ").Append(PredefinedRange).Append("\n");
             sb.Append("  SearchTime: ").Append(SearchTime).Append("\n");
+            sb.Append("  SearchText: ").Append(SearchText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -294,6 +304,11 @@ namespace FactSet.SDK.FactSetNews.Model
                     this.SearchTime == input.SearchTime ||
                     (this.SearchTime != null &&
                     this.SearchTime.Equals(input.SearchTime))
+                ) && 
+                (
+                    this.SearchText == input.SearchText ||
+                    (this.SearchText != null &&
+                    this.SearchText.Equals(input.SearchText))
                 );
         }
 
@@ -335,6 +350,10 @@ namespace FactSet.SDK.FactSetNews.Model
                 if (this.SearchTime != null)
                 {
                     hashCode = (hashCode * 59) + this.SearchTime.GetHashCode();
+                }
+                if (this.SearchText != null)
+                {
+                    hashCode = (hashCode * 59) + this.SearchText.GetHashCode();
                 }
                 return hashCode;
             }

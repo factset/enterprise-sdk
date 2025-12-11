@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fsymId** | **String** | Security-level FactSet Permanent Identifier associated with the identifier. | [optional] 
 **date** | **Date** | Current Market Value Date | [optional] 
-**currency** | **String** | Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**currency** | **String** | Currency ISO code associated with the annualized dividends. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **requestId** | **String** | FactSet Security Permanent Identifier that was used for the request. | [optional] 
 **totalReturn** | **Number** | Returns the data for the given input parameters. | [optional] 
 **eventId** | **String** | FactSet identifier that uniquely identifies the Event. | [optional] 

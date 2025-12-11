@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **guidanceDate** | **LocalDate** | Date guidance was issued expressed in YYYY-MM-DD format. |  [optional]
 **inputDateHigh** | **LocalDate** | Represents the date FactSet collected the data in YYYY-MM-DD format for guidance high. |  [optional]
 **inputDateLow** | **LocalDate** | Represents the date FactSet collected the data in YYYY-MM-DD format for guidance low. |  [optional]
+**inputDateHighTime** | **OffsetDateTime** | Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high. |  [optional]
+**inputDateLowTime** | **OffsetDateTime** | Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low. |  [optional]
 **guidanceMidpoint** | **Double** |  Represents the central value in a range of projected financial guidance. |  [optional]
 **guidanceLow** | **Double** | Represents the lower end of the projected financial guidance range. |  [optional]
 **guidanceHigh** | **Double** | Represents the upper end of the projected financial guidance range. |  [optional]

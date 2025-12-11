@@ -3835,8 +3835,8 @@ components:
             - Buy
             - Sell
             - Hold
-            - overWeight
-            - underWeight
+            - Overweight
+            - Underweight
           example: Hold
         meanRecommendationScale:
           description: >-
@@ -4388,6 +4388,22 @@ components:
           format: date
           example: '2024-08-21'
           nullable: true
+        inputDateHighTime:
+          description: >-
+            Represents the date and timestamp FactSet collected the data in
+            YYYY-MM-DD HH:MM:SS.SSS format for guidance high.
+          type: string
+          format: date-time
+          example: '2022-10-25T22:40:09Z'
+          nullable: true
+        inputDateLowTime:
+          description: >-
+            Represents the date and timestamp FactSet collected the data in
+            YYYY-MM-DD HH:MM:SS.SSS format for guidance low.
+          type: string
+          format: date-time
+          example: '2022-10-25T22:40:09Z'
+          nullable: true
         guidanceMidpoint:
           description: ' Represents the central value in a range of projected financial guidance.'
           type: number
@@ -4428,6 +4444,7 @@ components:
           type: number
           format: double
           example: 6420.267
+          nullable: true
         prevHigh:
           description: >-
             Refers to the highest value or estimate in a financial guidance
@@ -5423,6 +5440,8 @@ components:
             guidanceDate: '2024-08-22'
             inputDateLow: '2024-08-21'
             inputDateHigh: '2024-08-21'
+            inputDateLowTime: '2024-08-21T21:24:14Z'
+            inputDateHighTime: '2024-08-21T21:24:14Z'
             guidanceMidpoint: 6475
             guidanceLow: 6450
             guidanceHigh: 6500
@@ -5447,6 +5466,8 @@ components:
             guidanceDate: '2024-08-22'
             inputDateLow: '2024-08-21'
             inputDateHigh: '2024-08-21'
+            inputDateLowTime: '2024-08-21T21:24:14Z'
+            inputDateHighTime: '2024-08-21T21:24:14Z'
             guidanceMidpoint: 6475
             guidanceLow: 6450
             guidanceHigh: 6500
@@ -5471,6 +5492,8 @@ components:
             guidanceDate: '2024-08-22'
             inputDateLow: '2024-08-21'
             inputDateHigh: '2024-08-21'
+            inputDateLowTime: '2024-08-21T21:24:14Z'
+            inputDateHighTime: '2024-08-21T21:24:14Z'
             guidanceMidpoint: 6475
             guidanceLow: 6450
             guidanceHigh: 6500

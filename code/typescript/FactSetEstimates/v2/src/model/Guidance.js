@@ -88,6 +88,12 @@ class Guidance {
             if (data.hasOwnProperty('inputDateLow')) {
                 obj['inputDateLow'] = ApiClient.convertToType(data['inputDateLow'], 'Date');
             }
+            if (data.hasOwnProperty('inputDateHighTime')) {
+                obj['inputDateHighTime'] = ApiClient.convertToType(data['inputDateHighTime'], 'Date');
+            }
+            if (data.hasOwnProperty('inputDateLowTime')) {
+                obj['inputDateLowTime'] = ApiClient.convertToType(data['inputDateLowTime'], 'Date');
+            }
             if (data.hasOwnProperty('guidanceMidpoint')) {
                 obj['guidanceMidpoint'] = ApiClient.convertToType(data['guidanceMidpoint'], 'Number');
             }
@@ -208,6 +214,18 @@ Guidance.prototype['inputDateHigh'] = undefined;
  * @member {Date} inputDateLow
  */
 Guidance.prototype['inputDateLow'] = undefined;
+
+/**
+ * Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance high.
+ * @member {Date} inputDateHighTime
+ */
+Guidance.prototype['inputDateHighTime'] = undefined;
+
+/**
+ * Represents the date and timestamp FactSet collected the data in YYYY-MM-DD HH:MM:SS.SSS format for guidance low.
+ * @member {Date} inputDateLowTime
+ */
+Guidance.prototype['inputDateLowTime'] = undefined;
 
 /**
  *  Represents the central value in a range of projected financial guidance.

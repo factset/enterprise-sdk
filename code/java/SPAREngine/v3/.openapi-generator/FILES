@@ -43,6 +43,7 @@ docs/SPARBenchmarkRoot.md
 docs/SPARCalculationParameters.md
 docs/SPARCalculationParametersRoot.md
 docs/SPARComponent.md
+docs/SPARComponentIdentifier.md
 docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
@@ -113,6 +114,7 @@ src/main/java/com/factset/sdk/SPAREngine/models/SPARBenchmarkRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARCalculationParameters.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARCalculationParametersRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARComponent.java
+src/main/java/com/factset/sdk/SPAREngine/models/SPARComponentIdentifier.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARComponentRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARDateParameters.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARIdentifier.java

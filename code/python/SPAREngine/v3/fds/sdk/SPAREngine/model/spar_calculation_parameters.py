@@ -95,6 +95,7 @@ class SPARCalculationParameters(ModelNormal):
             'benchmark': (SPARIdentifier,),  # noqa: E501
             'dates': (SPARDateParameters,),  # noqa: E501
             'currencyisocode': (str, none_type,),  # noqa: E501
+            'universeid': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +109,7 @@ class SPARCalculationParameters(ModelNormal):
         'benchmark': 'benchmark',  # noqa: E501
         'dates': 'dates',  # noqa: E501
         'currencyisocode': 'currencyisocode',  # noqa: E501
+        'universeid': 'universeid',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,6 +160,7 @@ class SPARCalculationParameters(ModelNormal):
             benchmark (SPARIdentifier): [optional]  # noqa: E501
             dates (SPARDateParameters): [optional]  # noqa: E501
             currencyisocode (str, none_type): Currency ISO code for calculation.. [optional]  # noqa: E501
+            universeid (str, none_type): Universe ID code for calculation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,6 +250,7 @@ class SPARCalculationParameters(ModelNormal):
             benchmark (SPARIdentifier): [optional]  # noqa: E501
             dates (SPARDateParameters): [optional]  # noqa: E501
             currencyisocode (str, none_type): Currency ISO code for calculation.. [optional]  # noqa: E501
+            universeid (str, none_type): Universe ID code for calculation.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

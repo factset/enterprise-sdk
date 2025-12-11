@@ -74,6 +74,9 @@ class ViewsObject {
             if (data.hasOwnProperty('quickAlert')) {
                 obj['quickAlert'] = ApiClient.convertToType(data['quickAlert'], 'Boolean');
             }
+            if (data.hasOwnProperty('searchText')) {
+                obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
+            }
         }
         return obj;
     }
@@ -128,6 +131,12 @@ ViewsObject.prototype['countries'] = undefined;
  * @member {Boolean} quickAlert
  */
 ViewsObject.prototype['quickAlert'] = undefined;
+
+/**
+ * Restricts to include only document stories that include the searched text. 
+ * @member {String} searchText
+ */
+ViewsObject.prototype['searchText'] = undefined;
 
 
 

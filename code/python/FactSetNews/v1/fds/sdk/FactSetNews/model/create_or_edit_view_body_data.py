@@ -97,6 +97,7 @@ class CreateOrEditViewBodyData(ModelNormal):
             'sources': ([str],),  # noqa: E501
             'topics': ([str],),  # noqa: E501
             'quick_alert': (bool,),  # noqa: E501
+            'search_text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class CreateOrEditViewBodyData(ModelNormal):
         'sources': 'sources',  # noqa: E501
         'topics': 'topics',  # noqa: E501
         'quick_alert': 'quickAlert',  # noqa: E501
+        'search_text': 'searchText',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,8 +125,11 @@ class CreateOrEditViewBodyData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
         """CreateOrEditViewBodyData - a model defined in OpenAPI
+
+        Args:
+            name (str): The name of the view.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -157,7 +162,6 @@ class CreateOrEditViewBodyData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the view.. [optional]  # noqa: E501
             tickers ([CreateOrEditViewTickers]): [optional]  # noqa: E501
             is_primary (bool): If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  . [optional]  # noqa: E501
             categories ([str]): [optional]  # noqa: E501
@@ -166,6 +170,7 @@ class CreateOrEditViewBodyData(ModelNormal):
             sources ([str]): [optional]  # noqa: E501
             topics ([str]): An array of topics associated with the view.. [optional]  # noqa: E501
             quick_alert (bool): Indicates whether quick alerts are enabled for the view. A value of 'true' means quick alerts are enabled, while 'false' means they are not.. [optional]  # noqa: E501
+            search_text (str): Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -193,6 +198,7 @@ class CreateOrEditViewBodyData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -213,8 +219,11 @@ class CreateOrEditViewBodyData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, *args, **kwargs):  # noqa: E501
         """CreateOrEditViewBodyData - a model defined in OpenAPI
+
+        Args:
+            name (str): The name of the view.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,7 +256,6 @@ class CreateOrEditViewBodyData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the view.. [optional]  # noqa: E501
             tickers ([CreateOrEditViewTickers]): [optional]  # noqa: E501
             is_primary (bool): If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned.  . [optional]  # noqa: E501
             categories ([str]): [optional]  # noqa: E501
@@ -256,6 +264,7 @@ class CreateOrEditViewBodyData(ModelNormal):
             sources ([str]): [optional]  # noqa: E501
             topics ([str]): An array of topics associated with the view.. [optional]  # noqa: E501
             quick_alert (bool): Indicates whether quick alerts are enabled for the view. A value of 'true' means quick alerts are enabled, while 'false' means they are not.. [optional]  # noqa: E501
+            search_text (str): Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,6 +290,7 @@ class CreateOrEditViewBodyData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -35,16 +35,25 @@ namespace FactSet.SDK.FactSetNews.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuickAlertsBody" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        public QuickAlertsBody(QuickAlertsBodyData data = default(QuickAlertsBodyData))
+        [JsonConstructorAttribute]
+        protected QuickAlertsBody() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuickAlertsBody" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
+        public QuickAlertsBody(QuickAlertsBodyData data)
         {
+            // to ensure "data" is required (not null)
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for QuickAlertsBody and cannot be null");
+            }
             this.Data = data;
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public QuickAlertsBodyData Data { get; set; }
 
         /// <summary>

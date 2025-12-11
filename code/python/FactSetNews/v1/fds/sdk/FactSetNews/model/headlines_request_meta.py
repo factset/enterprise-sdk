@@ -71,6 +71,7 @@ class HeadlinesRequestMeta(ModelNormal):
             'SYMBOLS': "symbols",
             'SUBJECTS': "subjects",
             'FDSSUBJECT': "fdsSubject",
+            'HTMLURL': "htmlUrl",
 
 
         },

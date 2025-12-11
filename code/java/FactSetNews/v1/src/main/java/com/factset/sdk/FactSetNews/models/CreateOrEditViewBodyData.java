@@ -42,7 +42,8 @@ import com.factset.sdk.FactSetNews.JSON;
   CreateOrEditViewBodyData.JSON_PROPERTY_REGIONS,
   CreateOrEditViewBodyData.JSON_PROPERTY_SOURCES,
   CreateOrEditViewBodyData.JSON_PROPERTY_TOPICS,
-  CreateOrEditViewBodyData.JSON_PROPERTY_QUICK_ALERT
+  CreateOrEditViewBodyData.JSON_PROPERTY_QUICK_ALERT,
+  CreateOrEditViewBodyData.JSON_PROPERTY_SEARCH_TEXT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -76,7 +77,18 @@ public class CreateOrEditViewBodyData implements Serializable {
   public static final String JSON_PROPERTY_QUICK_ALERT = "quickAlert";
   private Boolean quickAlert;
 
+  public static final String JSON_PROPERTY_SEARCH_TEXT = "searchText";
+  private String searchText;
+
   public CreateOrEditViewBodyData() { 
+  }
+
+  @JsonCreator
+  public CreateOrEditViewBodyData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.name = name;
   }
 
   public CreateOrEditViewBodyData name(String name) {
@@ -88,10 +100,10 @@ public class CreateOrEditViewBodyData implements Serializable {
    * The name of the view.
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "FactSet News View", value = "The name of the view.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "FactSet News View", required = true, value = "The name of the view.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -99,7 +111,7 @@ public class CreateOrEditViewBodyData implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -361,6 +373,32 @@ public class CreateOrEditViewBodyData implements Serializable {
   }
 
 
+  public CreateOrEditViewBodyData searchText(String searchText) {
+    this.searchText = searchText;
+    return this;
+  }
+
+   /**
+   * Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)
+   * @return searchText
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Officer", value = "Restricts the view to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708)")
+  @JsonProperty(JSON_PROPERTY_SEARCH_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSearchText() {
+    return searchText;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchText(String searchText) {
+    this.searchText = searchText;
+  }
+
+
   /**
    * Return true if this CreateOrEditViewBody_data object is equal to o.
    */
@@ -381,12 +419,13 @@ public class CreateOrEditViewBodyData implements Serializable {
         Objects.equals(this.regions, createOrEditViewBodyData.regions) &&
         Objects.equals(this.sources, createOrEditViewBodyData.sources) &&
         Objects.equals(this.topics, createOrEditViewBodyData.topics) &&
-        Objects.equals(this.quickAlert, createOrEditViewBodyData.quickAlert);
+        Objects.equals(this.quickAlert, createOrEditViewBodyData.quickAlert) &&
+        Objects.equals(this.searchText, createOrEditViewBodyData.searchText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tickers, isPrimary, categories, countries, regions, sources, topics, quickAlert);
+    return Objects.hash(name, tickers, isPrimary, categories, countries, regions, sources, topics, quickAlert, searchText);
   }
 
   @Override
@@ -402,6 +441,7 @@ public class CreateOrEditViewBodyData implements Serializable {
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    topics: ").append(toIndentedString(topics)).append("\n");
     sb.append("    quickAlert: ").append(toIndentedString(quickAlert)).append("\n");
+    sb.append("    searchText: ").append(toIndentedString(searchText)).append("\n");
     sb.append("}");
     return sb.toString();
   }

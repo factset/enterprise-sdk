@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **EventId** | **string** | FactSet identifier that uniquely identifies the Event. | [optional] 
 **EffectiveDate** | **string** | Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD format. | [optional] 
 **IadDefTradingAdj** | **float?** | Annualized Dividend value in the trading currency. The value is adjusted for splits | [optional] 
-**Currency** | **string** | Currency ISO code associated with the annualized dividends.For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**Currency** | **string** | Currency ISO code associated with the annualized dividends. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **RequestId** | **string** | Identifier that was used for the request. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

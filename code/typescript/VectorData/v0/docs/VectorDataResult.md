@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **vector** | **[String]** | Chuncked emedding vector. | [optional] 
-**vectorId** | **String** | Unique identifier for a document | [optional] 
+**vectorId** | **String** | Unique vector identifier associated with the document. | [optional] 
 **similarityScore** | **Number** | Score indicating the similarity. | [optional] 
 **storyDate** | **Date** | Date associated with the story. | [optional] 
 **themes** | **String** | Theme of the document. | [optional] 
@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **type** | **String** | The type of the schema. | [optional] 
 **ids** | **[String]** | List of related IDs. | [optional] 
 **trimmed** | **Boolean** | Trimmed attribute indicates whether the vectors are trimmed or not.  - If **true**, the vectors has been trimmed.   - If **false**, the vectors are been returned.  | [optional] 
+**sentiment** | **String** | Sentiment is the measure of expressed attitude or opinion of the document, such as \&quot;Negative\&quot; or \&quot;Very Positive\&quot;. The &#x60;/meta/themes&#x60; endpoint gives list of all available sentiment values. | [optional] 
 
 

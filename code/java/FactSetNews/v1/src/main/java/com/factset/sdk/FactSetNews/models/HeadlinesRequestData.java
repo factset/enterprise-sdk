@@ -43,7 +43,8 @@ import com.factset.sdk.FactSetNews.JSON;
   HeadlinesRequestData.JSON_PROPERTY_SOURCES,
   HeadlinesRequestData.JSON_PROPERTY_TOPICS,
   HeadlinesRequestData.JSON_PROPERTY_PREDEFINED_RANGE,
-  HeadlinesRequestData.JSON_PROPERTY_SEARCH_TIME
+  HeadlinesRequestData.JSON_PROPERTY_SEARCH_TIME,
+  HeadlinesRequestData.JSON_PROPERTY_SEARCH_TEXT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -129,6 +130,9 @@ public class HeadlinesRequestData implements Serializable {
 
   public static final String JSON_PROPERTY_SEARCH_TIME = "searchTime";
   private HeadlinesRequestDataSearchTime searchTime;
+
+  public static final String JSON_PROPERTY_SEARCH_TEXT = "searchText";
+  private String searchText;
 
   public HeadlinesRequestData() { 
   }
@@ -415,6 +419,32 @@ public class HeadlinesRequestData implements Serializable {
   }
 
 
+  public HeadlinesRequestData searchText(String searchText) {
+    this.searchText = searchText;
+    return this;
+  }
+
+   /**
+   * Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) 
+   * @return searchText
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Officer", value = "Restricts the search to include only document stories that include the searched text. It supports boolean operators that we have in this [OA page](https://my.apps.factset.com/oa/pages/12708) ")
+  @JsonProperty(JSON_PROPERTY_SEARCH_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSearchText() {
+    return searchText;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchText(String searchText) {
+    this.searchText = searchText;
+  }
+
+
   /**
    * Return true if this HeadlinesRequest_data object is equal to o.
    */
@@ -435,12 +465,13 @@ public class HeadlinesRequestData implements Serializable {
         Objects.equals(this.sources, headlinesRequestData.sources) &&
         Objects.equals(this.topics, headlinesRequestData.topics) &&
         Objects.equals(this.predefinedRange, headlinesRequestData.predefinedRange) &&
-        Objects.equals(this.searchTime, headlinesRequestData.searchTime);
+        Objects.equals(this.searchTime, headlinesRequestData.searchTime) &&
+        Objects.equals(this.searchText, headlinesRequestData.searchText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tickers, isPrimary, categories, countries, regions, sources, topics, predefinedRange, searchTime);
+    return Objects.hash(tickers, isPrimary, categories, countries, regions, sources, topics, predefinedRange, searchTime, searchText);
   }
 
   @Override
@@ -456,6 +487,7 @@ public class HeadlinesRequestData implements Serializable {
     sb.append("    topics: ").append(toIndentedString(topics)).append("\n");
     sb.append("    predefinedRange: ").append(toIndentedString(predefinedRange)).append("\n");
     sb.append("    searchTime: ").append(toIndentedString(searchTime)).append("\n");
+    sb.append("    searchText: ").append(toIndentedString(searchText)).append("\n");
     sb.append("}");
     return sb.toString();
   }

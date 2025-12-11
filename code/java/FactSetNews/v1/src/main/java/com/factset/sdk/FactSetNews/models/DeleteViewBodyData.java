@@ -46,6 +46,14 @@ public class DeleteViewBodyData implements Serializable {
   public DeleteViewBodyData() { 
   }
 
+  @JsonCreator
+  public DeleteViewBodyData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.name = name;
+  }
+
   public DeleteViewBodyData name(String name) {
     this.name = name;
     return this;
@@ -55,10 +63,10 @@ public class DeleteViewBodyData implements Serializable {
    * The name of the view to be deleted.
    * @return name
   **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "FactSet News View", value = "The name of the view to be deleted.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(example = "FactSet News View", required = true, value = "The name of the view to be deleted.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -66,7 +74,7 @@ public class DeleteViewBodyData implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }

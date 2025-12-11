@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Component identifier. | [optional] 
-**Accounts** | [**List&lt;SPARIdentifier&gt;**](SPARIdentifier.md) | List of accounts in SPAR document. | [optional] 
-**Benchmarks** | [**SPARIdentifier**](SPARIdentifier.md) |  | [optional] 
+**Accounts** | [**List&lt;SPARComponentIdentifier&gt;**](SPARComponentIdentifier.md) | List of accounts in SPAR document. | [optional] 
+**Benchmarks** | [**SPARComponentIdentifier**](SPARComponentIdentifier.md) |  | [optional] 
 **CurrencyIsoCode** | **string** | CurrencyCode in SPAR document. | [optional] 
 **Path** | **string** | The path to the document | [optional] 
 **Name** | **string** | Component name. | [optional] 

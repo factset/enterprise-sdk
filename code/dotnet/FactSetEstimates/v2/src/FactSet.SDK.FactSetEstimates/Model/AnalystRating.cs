@@ -58,16 +58,16 @@ namespace FactSet.SDK.FactSetEstimates.Model
             Hold = 3,
 
             /// <summary>
-            /// Enum OverWeight for value: overWeight
+            /// Enum Overweight for value: Overweight
             /// </summary>
-            [EnumMember(Value = "overWeight")]
-            OverWeight = 4,
+            [EnumMember(Value = "Overweight")]
+            Overweight = 4,
 
             /// <summary>
-            /// Enum UnderWeight for value: underWeight
+            /// Enum Underweight for value: Underweight
             /// </summary>
-            [EnumMember(Value = "underWeight")]
-            UnderWeight = 5
+            [EnumMember(Value = "Underweight")]
+            Underweight = 5
 
         }
 

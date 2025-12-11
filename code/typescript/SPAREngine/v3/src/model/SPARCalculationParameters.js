@@ -65,6 +65,9 @@ class SPARCalculationParameters {
             if (data.hasOwnProperty('currencyisocode')) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
+            if (data.hasOwnProperty('universeid')) {
+                obj['universeid'] = ApiClient.convertToType(data['universeid'], 'String');
+            }
         }
         return obj;
     }
@@ -99,6 +102,12 @@ SPARCalculationParameters.prototype['dates'] = undefined;
  * @member {String} currencyisocode
  */
 SPARCalculationParameters.prototype['currencyisocode'] = undefined;
+
+/**
+ * Universe ID code for calculation.
+ * @member {String} universeid
+ */
+SPARCalculationParameters.prototype['universeid'] = undefined;
 
 
 

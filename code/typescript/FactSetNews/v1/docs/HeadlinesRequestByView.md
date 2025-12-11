@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**HeadlinesRequestByViewData**](HeadlinesRequestByViewData.md) |  | [optional] 
+**data** | [**HeadlinesRequestByViewData**](HeadlinesRequestByViewData.md) |  | 
 **meta** | [**HeadlinesRequestByViewMeta**](HeadlinesRequestByViewMeta.md) |  | [optional] 
 
 

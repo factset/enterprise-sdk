@@ -4326,6 +4326,7 @@ components:
             - Address
             - Phone
             - City
+          nullable: true
         hasResult:
           description: Flag denoting the taskId has a result.
           type: boolean
