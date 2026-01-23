@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CalculateMetadata from './CalculateMetadata';
 import ScreenCalcParametersData from './ScreenCalcParametersData';
 
 /**
@@ -50,6 +51,9 @@ class ScreenCalcParameters {
         if (data) {
             obj = obj || new ScreenCalcParameters();
 
+            if (data.hasOwnProperty('meta')) {
+                obj['meta'] = CalculateMetadata.constructFromObject(data['meta']);
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ScreenCalcParametersData.constructFromObject(data['data']);
             }
@@ -59,6 +63,11 @@ class ScreenCalcParameters {
 
 
 }
+
+/**
+ * @member {module:model/CalculateMetadata} meta
+ */
+ScreenCalcParameters.prototype['meta'] = undefined;
 
 /**
  * @member {module:model/ScreenCalcParametersData} data

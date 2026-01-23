@@ -17,6 +17,8 @@ docs/CreateBatchJob.md
 docs/CreateBatchJobRoot.md
 docs/CreateNewDocument.md
 docs/CreateNewDocumentRoot.md
+docs/DocumentResponse.md
+docs/DocumentResponseRoot.md
 docs/DocumentsApi.md
 docs/ErrorSource.md
 docs/Errors.md
@@ -66,6 +68,8 @@ src/main/java/com/factset/sdk/AssetCashFlowProjections/models/CreateBatchJob.jav
 src/main/java/com/factset/sdk/AssetCashFlowProjections/models/CreateBatchJobRoot.java
 src/main/java/com/factset/sdk/AssetCashFlowProjections/models/CreateNewDocument.java
 src/main/java/com/factset/sdk/AssetCashFlowProjections/models/CreateNewDocumentRoot.java
+src/main/java/com/factset/sdk/AssetCashFlowProjections/models/DocumentResponse.java
+src/main/java/com/factset/sdk/AssetCashFlowProjections/models/DocumentResponseRoot.java
 src/main/java/com/factset/sdk/AssetCashFlowProjections/models/ErrorSource.java
 src/main/java/com/factset/sdk/AssetCashFlowProjections/models/Errors.java
 src/main/java/com/factset/sdk/AssetCashFlowProjections/models/UpdateNewDocument.java

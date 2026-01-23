@@ -45,3 +45,6 @@ from fds.sdk.SPAREngine.model.spar_component_identifier import SPARComponentIden
 from fds.sdk.SPAREngine.model.spar_component_root import SPARComponentRoot
 from fds.sdk.SPAREngine.model.spar_date_parameters import SPARDateParameters
 from fds.sdk.SPAREngine.model.spar_identifier import SPARIdentifier
+from fds.sdk.SPAREngine.model.spar_peer_universe_list_response import SPARPeerUniverseListResponse
+from fds.sdk.SPAREngine.model.spar_peer_universe_response_item import SPARPeerUniverseResponseItem
+from fds.sdk.SPAREngine.model.spar_peer_universe_root import SPARPeerUniverseRoot

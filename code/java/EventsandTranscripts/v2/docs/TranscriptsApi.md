@@ -65,10 +65,10 @@ public class Example {
 
         TranscriptsApi apiInstance = new TranscriptsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-        LocalDate startDate = LocalDate.parse("2025-05-01"); // LocalDate | Start Date (YYYY-MM-DD). 
-        LocalDate endDate = LocalDate.parse("2025-07-24"); // LocalDate | End Date (YYYY-MM-DD). 
-        Integer startDateRelative = 56; // Integer | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* 
-        Integer endDateRelative = 56; // Integer | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* 
+        LocalDate startDate = LocalDate.parse("2025-05-01"); // LocalDate | Start Date (YYYY-MM-DD). If dates are not provided, default will return all files. 
+        LocalDate endDate = LocalDate.parse("2025-07-24"); // LocalDate | End Date (YYYY-MM-DD). If dates are not provided, default will return all files. 
+        Integer startDateRelative = 56; // Integer | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* - If dates are not provided, default will return all files. 
+        Integer endDateRelative = 56; // Integer | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* - If dates are not provided, default will return all files. 
         java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
         String timeZone = "America/New_York"; // String | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on eventDate. 
@@ -95,10 +95,10 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
- **startDate** | **LocalDate**| Start Date (YYYY-MM-DD).  | [optional]
- **endDate** | **LocalDate**| End Date (YYYY-MM-DD).  | [optional]
- **startDateRelative** | **Integer**| The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.*  | [optional]
- **endDateRelative** | **Integer**| The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.*  | [optional]
+ **startDate** | **LocalDate**| Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional]
+ **endDate** | **LocalDate**| End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional]
+ **startDateRelative** | **Integer**| The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional]
+ **endDateRelative** | **Integer**| The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional]
  **categories** | **List&lt;String&gt;**| Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   | [optional]
  **timeZone** | **String**| Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. | [optional] [default to America/New_York]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] [enum: storyDateTime, -storyDateTime]

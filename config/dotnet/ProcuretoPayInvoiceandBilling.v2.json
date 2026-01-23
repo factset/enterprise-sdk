@@ -1,0 +1,26 @@
+{
+  "packageName": "FactSet.SDK.ProcuretoPayInvoiceandBilling",
+  "packageVersion": "0.2.0",
+  "packageGuid": "{15186021-1f6a-5092-818a-e0f94bb34003}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/ProcuretoPayInvoiceandBilling/v2",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Procure to Pay: Invoice and Billing client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Procure to Pay: Invoice and Billing",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/ProcuretoPayInvoiceandBilling/0.2.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

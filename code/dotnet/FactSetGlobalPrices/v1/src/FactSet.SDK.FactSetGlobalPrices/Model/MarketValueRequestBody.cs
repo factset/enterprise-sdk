@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketValueRequestBody" /> class.
         /// </summary>
-        /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.  (required).</param>
+        /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.  (required).</param>
         /// <param name="batch">batch.</param>
         public MarketValueRequestBody(List<string> ids,Batch batch = default(Batch))
         {
@@ -59,9 +59,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         }
 
         /// <summary>
-        /// The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs. 
+        /// The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
         /// </summary>
-        /// <value>The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs. </value>
+        /// <value>The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. </value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 

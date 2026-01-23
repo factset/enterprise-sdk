@@ -30,6 +30,7 @@ Name | Value
 ---- | -----
 SHORT | &quot;short&quot;
 LONG | &quot;long&quot;
+ULTRASHORT | &quot;ultraShort&quot;
 
 
 

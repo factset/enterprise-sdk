@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Style Performance and Risk Analysis (SPAR) Engine API
-  version: 3.14.0
+  version: 3.16.2
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/spar-engine-api
@@ -26,6 +26,7 @@ tags:
 - name: Documents
 - name: Frequencies
 - name: SPARCalculations
+- name: SPARPeerUniverse
 paths:
   /analytics/engines/spar/v3/accounts/{accountPath}/returns-type:
     get:
@@ -2217,6 +2218,389 @@ paths:
       summary: Gets SPAR3 documents and sub-directories in a directory
       tags:
       - Documents
+      x-accepts: application/json
+  /analytics/engines/spar/v3/peer-universe:
+    get:
+      description: "Retrieves peer universe information that can be used when specifying\
+        \ universeId for SPAR calculations. This endpoint returns a list of available\
+        \ universes for different categories.\r\n\r\n Parameters: Category is mandatory.\r\
+        \n\r\nUsage:\r\n* Category parameter: Fetches all peer universe details available\
+        \ for specified category.\r\n* Use parameters to narrow down your lookup based\
+        \ on peer universe name, category, and/or directory.\r\n\r\nRemarks:\r\n*\
+        \ Category Values: Allowed values include category name like 'US Funds', 'Asia\
+        \ Funds', 'Intl Funds','Institutions', 'Hedge Funds', 'Database', 'Domicile',\
+        \ 'Manager', 'Rating', 'OFDBs', 'Screens' etc.\r\n* Access to specific categories\
+        \ may vary depending on your permissions.\r\n* Directory parameter is mandatory\
+        \ when category is 'OFDBs' or 'Screens'. Eg: CLIENT:/FOLDER1.\r\n* Note: Category\
+        \ 'Client funds' is not supported yet."
+      operationId: getListOfPeerUniverse
+      parameters:
+      - description: Peer universe name
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          description: Peer universe name
+          example: Morningstar US
+          type: string
+        style: form
+      - description: Peer universe category
+        explode: true
+        in: query
+        name: category
+        required: true
+        schema:
+          description: Peer universe category
+          example: US Funds
+          type: string
+        style: form
+      - description: The directory to get the peer universe
+        explode: true
+        in: query
+        name: directory
+        required: false
+        schema:
+          description: The directory to get the peer universe
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      peerUniverseList:
+                      - categoryname: US Funds
+                        categoryid: FS US FUNDS
+                        universename: SampleUniverseName
+                        universeid: SampleUniverseId
+                      - categoryname: US Funds
+                        categoryid: FS US FUNDS
+                        universename: AnotherUniverseName
+                        universeid: AnotherUniverseId
+              schema:
+                $ref: '#/components/schemas/SPARPeerUniverseRoot'
+          description: Expected response, returns a list of Peer universes.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Invalid Category":
+                  value:
+                    errors:
+                    - id: 667D3552F1864D31
+                      code: BadRequest
+                      title: Invalid category
+                      detail: Invalid category parameter provided.
+                      source:
+                        parameter: category
+                "400 - Missing Category":
+                  value:
+                    errors:
+                    - id: 6638AF325EB9FB53
+                      code: BadRequest
+                      title: Missing category
+                      detail: Please provide the category parameter.
+                      source:
+                        parameter: category
+                "400 - Missing Directory":
+                  value:
+                    errors:
+                    - id: 6638AF325EB9FB53
+                      code: BadRequest
+                      title: Missing directory
+                      detail: The directory parameter is required when category is
+                        Screens or Ofdbs
+                      source:
+                        parameter: directory
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid data provided. Please check the request parameters
+            before attempting again.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Not Found":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: No universe details found matching the given criterion.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: "Rate limit reached. Wait till the time specified in Retry-After\
+            \ header value to make further\r\nrequests."
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get List of Peer Universe
+      tags:
+      - SPARPeerUniverse
       x-accepts: application/json
   /analytics/engines/spar/v3/frequencies:
     get:
@@ -6038,7 +6422,8 @@ components:
           nullable: true
           type: string
         universeid:
-          description: Universe ID code for calculation.
+          description: Universe ID code for calculation. Can be fetched from peer
+            universe endpoint(/analytics/engines/spar/v3/peer-universe)
           nullable: true
           type: string
       required:
@@ -6405,6 +6790,66 @@ components:
           $ref: '#/components/schemas/PaginationMeta'
       required:
       - data
+      type: object
+    SPARPeerUniverseListResponse:
+      example:
+        peerUniverseList:
+        - universeid: universeid
+          categoryname: categoryname
+          universename: universename
+          categoryid: categoryid
+        - universeid: universeid
+          categoryname: categoryname
+          universename: universename
+          categoryid: categoryid
+      properties:
+        peerUniverseList:
+          items:
+            $ref: '#/components/schemas/SPARPeerUniverseResponseItem'
+          type: array
+      type: object
+    SPARPeerUniverseRoot:
+      example:
+        data:
+          peerUniverseList:
+          - universeid: universeid
+            categoryname: categoryname
+            universename: universename
+            categoryid: categoryid
+          - universeid: universeid
+            categoryname: categoryname
+            universename: universename
+            categoryid: categoryid
+      properties:
+        data:
+          $ref: '#/components/schemas/SPARPeerUniverseListResponse'
+      required:
+      - data
+      type: object
+    SPARPeerUniverseResponseItem:
+      example:
+        universeid: universeid
+        categoryname: categoryname
+        universename: universename
+        categoryid: categoryid
+      properties:
+        categoryname:
+          description: Category name of universe
+          nullable: true
+          type: string
+        categoryid:
+          description: Category Id of universe
+          type: string
+        universename:
+          description: Universe name
+          nullable: true
+          type: string
+        universeid:
+          description: Universe Id
+          type: string
+      required:
+      - categoryid
+      - universeid
       type: object
   securitySchemes:
     FactSetOAuth2:

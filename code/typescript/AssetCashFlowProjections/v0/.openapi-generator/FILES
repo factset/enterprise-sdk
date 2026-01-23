@@ -16,6 +16,8 @@ docs/CreateBatchJob.md
 docs/CreateBatchJobRoot.md
 docs/CreateNewDocument.md
 docs/CreateNewDocumentRoot.md
+docs/DocumentResponse.md
+docs/DocumentResponseRoot.md
 docs/DocumentsApi.md
 docs/ErrorSource.md
 docs/Errors.md
@@ -43,6 +45,8 @@ src/model/CreateBatchJob.js
 src/model/CreateBatchJobRoot.js
 src/model/CreateNewDocument.js
 src/model/CreateNewDocumentRoot.js
+src/model/DocumentResponse.js
+src/model/DocumentResponseRoot.js
 src/model/ErrorSource.js
 src/model/Errors.js
 src/model/UpdateNewDocument.js

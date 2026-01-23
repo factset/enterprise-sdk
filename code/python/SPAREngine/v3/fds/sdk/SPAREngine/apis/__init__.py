@@ -21,3 +21,4 @@ from fds.sdk.SPAREngine.api.currencies_api import CurrenciesApi
 from fds.sdk.SPAREngine.api.documents_api import DocumentsApi
 from fds.sdk.SPAREngine.api.frequencies_api import FrequenciesApi
 from fds.sdk.SPAREngine.api.spar_calculations_api import SPARCalculationsApi
+from fds.sdk.SPAREngine.api.spar_peer_universe_api import SPARPeerUniverseApi

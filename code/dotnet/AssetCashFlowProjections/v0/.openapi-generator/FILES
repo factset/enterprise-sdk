@@ -16,6 +16,8 @@ docs/CreateBatchJob.md
 docs/CreateBatchJobRoot.md
 docs/CreateNewDocument.md
 docs/CreateNewDocumentRoot.md
+docs/DocumentResponse.md
+docs/DocumentResponseRoot.md
 docs/DocumentsApi.md
 docs/ErrorSource.md
 docs/Errors.md
@@ -57,6 +59,8 @@ src/FactSet.SDK.AssetCashFlowProjections/Model/CreateBatchJob.cs
 src/FactSet.SDK.AssetCashFlowProjections/Model/CreateBatchJobRoot.cs
 src/FactSet.SDK.AssetCashFlowProjections/Model/CreateNewDocument.cs
 src/FactSet.SDK.AssetCashFlowProjections/Model/CreateNewDocumentRoot.cs
+src/FactSet.SDK.AssetCashFlowProjections/Model/DocumentResponse.cs
+src/FactSet.SDK.AssetCashFlowProjections/Model/DocumentResponseRoot.cs
 src/FactSet.SDK.AssetCashFlowProjections/Model/ErrorSource.cs
 src/FactSet.SDK.AssetCashFlowProjections/Model/Errors.cs
 src/FactSet.SDK.AssetCashFlowProjections/Model/UpdateNewDocument.cs

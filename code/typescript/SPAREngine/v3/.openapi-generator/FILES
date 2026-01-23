@@ -47,6 +47,10 @@ docs/SPARComponentIdentifier.md
 docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
+docs/SPARPeerUniverseApi.md
+docs/SPARPeerUniverseListResponse.md
+docs/SPARPeerUniverseResponseItem.md
+docs/SPARPeerUniverseRoot.md
 git_push.sh
 mocha.opts
 package.json
@@ -58,6 +62,7 @@ src/api/CurrenciesApi.js
 src/api/DocumentsApi.js
 src/api/FrequenciesApi.js
 src/api/SPARCalculationsApi.js
+src/api/SPARPeerUniverseApi.js
 src/index.js
 src/model/AccountDirectories.js
 src/model/AccountDirectoriesRoot.js
@@ -95,3 +100,6 @@ src/model/SPARComponentIdentifier.js
 src/model/SPARComponentRoot.js
 src/model/SPARDateParameters.js
 src/model/SPARIdentifier.js
+src/model/SPARPeerUniverseListResponse.js
+src/model/SPARPeerUniverseResponseItem.js
+src/model/SPARPeerUniverseRoot.js

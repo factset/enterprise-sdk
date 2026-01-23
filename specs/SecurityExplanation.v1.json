@@ -17,7 +17,7 @@
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
     "title": "Security Explanation API",
-    "version": "1.4.0"
+    "version": "1.6.0"
   },
   "externalDocs": {
     "description": "API Documentation",
@@ -1103,7 +1103,8 @@
             "type": "string",
             "enum": [
               "short",
-              "long"
+              "long",
+              "ultraShort"
             ],
             "description": "Determines the style of the Explanation",
             "default": "short",

@@ -14,12 +14,14 @@
 import ApiClient from './ApiClient';
 import ActiveJobIDs from './model/ActiveJobIDs';
 import ActiveJobsData from './model/ActiveJobsData';
+import CalculateMetadata from './model/CalculateMetadata';
 import DelimitedOptions from './model/DelimitedOptions';
 import ErrorArray from './model/ErrorArray';
 import ErrorCode from './model/ErrorCode';
 import ErrorObject from './model/ErrorObject';
 import ErrorObjectSource from './model/ErrorObjectSource';
 import ExcelOptions from './model/ExcelOptions';
+import GroupingInfo from './model/GroupingInfo';
 import PaginatedCalculationResponse from './model/PaginatedCalculationResponse';
 import PaginationResponse from './model/PaginationResponse';
 import PdfOptions from './model/PdfOptions';
@@ -90,6 +92,12 @@ export {
     ActiveJobsData,
 
     /**
+     * The CalculateMetadata model constructor.
+     * @property {module:model/CalculateMetadata}
+     */
+    CalculateMetadata,
+
+    /**
      * The DelimitedOptions model constructor.
      * @property {module:model/DelimitedOptions}
      */
@@ -124,6 +132,12 @@ export {
      * @property {module:model/ExcelOptions}
      */
     ExcelOptions,
+
+    /**
+     * The GroupingInfo model constructor.
+     * @property {module:model/GroupingInfo}
+     */
+    GroupingInfo,
 
     /**
      * The PaginatedCalculationResponse model constructor.

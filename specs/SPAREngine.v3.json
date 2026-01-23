@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.14.0"
+    "version": "3.16.2"
   },
   "servers": [
     {
@@ -2367,6 +2367,421 @@
           },
           "503": {
             "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/spar/v3/peer-universe": {
+      "get": {
+        "tags": [
+          "SPARPeerUniverse"
+        ],
+        "summary": "Get List of Peer Universe",
+        "description": "Retrieves peer universe information that can be used when specifying universeId for SPAR calculations. This endpoint returns a list of available universes for different categories.\r\n\r\n Parameters: Category is mandatory.\r\n\r\nUsage:\r\n* Category parameter: Fetches all peer universe details available for specified category.\r\n* Use parameters to narrow down your lookup based on peer universe name, category, and/or directory.\r\n\r\nRemarks:\r\n* Category Values: Allowed values include category name like 'US Funds', 'Asia Funds', 'Intl Funds','Institutions', 'Hedge Funds', 'Database', 'Domicile', 'Manager', 'Rating', 'OFDBs', 'Screens' etc.\r\n* Access to specific categories may vary depending on your permissions.\r\n* Directory parameter is mandatory when category is 'OFDBs' or 'Screens'. Eg: CLIENT:/FOLDER1.\r\n* Note: Category 'Client funds' is not supported yet.",
+        "operationId": "getListOfPeerUniverse",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Peer universe name",
+            "schema": {
+              "type": "string",
+              "description": "Peer universe name",
+              "example": "Morningstar US"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Peer universe category",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Peer universe category",
+              "example": "US Funds"
+            }
+          },
+          {
+            "name": "directory",
+            "in": "query",
+            "description": "The directory to get the peer universe",
+            "schema": {
+              "type": "string",
+              "description": "The directory to get the peer universe"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of Peer universes.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SPARPeerUniverseRoot"
+                },
+                "examples": {
+                  "200 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "peerUniverseList": [
+                          {
+                            "categoryname": "US Funds",
+                            "categoryid": "FS US FUNDS",
+                            "universename": "SampleUniverseName",
+                            "universeid": "SampleUniverseId"
+                          },
+                          {
+                            "categoryname": "US Funds",
+                            "categoryid": "FS US FUNDS",
+                            "universename": "AnotherUniverseName",
+                            "universeid": "AnotherUniverseId"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data provided. Please check the request parameters before attempting again.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Invalid Category": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667D3552F1864D31",
+                          "code": "BadRequest",
+                          "title": "Invalid category",
+                          "detail": "Invalid category parameter provided.",
+                          "source": {
+                            "parameter": "category"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "400 - Missing Category": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6638AF325EB9FB53",
+                          "code": "BadRequest",
+                          "title": "Missing category",
+                          "detail": "Please provide the category parameter.",
+                          "source": {
+                            "parameter": "category"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "400 - Missing Directory": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "6638AF325EB9FB53",
+                          "code": "BadRequest",
+                          "title": "Missing directory",
+                          "detail": "The directory parameter is required when category is Screens or Ofdbs",
+                          "source": {
+                            "parameter": "directory"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No universe details found matching the given criterion.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Not Found": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "NotFound",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further\r\nrequests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
@@ -6174,7 +6589,7 @@
           },
           "universeid": {
             "type": "string",
-            "description": "Universe ID code for calculation.",
+            "description": "Universe ID code for calculation. Can be fetched from peer universe endpoint(/analytics/engines/spar/v3/peer-universe)",
             "nullable": true
           }
         }
@@ -6454,6 +6869,55 @@
           },
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
+      "SPARPeerUniverseListResponse": {
+        "type": "object",
+        "properties": {
+          "peerUniverseList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SPARPeerUniverseResponseItem"
+            }
+          }
+        }
+      },
+      "SPARPeerUniverseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SPARPeerUniverseListResponse"
+          }
+        }
+      },
+      "SPARPeerUniverseResponseItem": {
+        "required": [
+          "categoryid",
+          "universeid"
+        ],
+        "type": "object",
+        "properties": {
+          "categoryname": {
+            "type": "string",
+            "nullable": true,
+            "description": "Category name of universe"
+          },
+          "categoryid": {
+            "description": "Category Id of universe",
+            "type": "string"
+          },
+          "universename": {
+            "description": "Universe name",
+            "type": "string",
+            "nullable": true
+          },
+          "universeid": {
+            "description": "Universe Id",
+            "type": "string"
           }
         }
       }
@@ -7002,6 +7466,9 @@
     },
     {
       "name": "SPARCalculations"
+    },
+    {
+      "name": "SPARPeerUniverse"
     }
   ],
   "externalDocs": {

@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **apply_alternate_row_shading** | **bool, none_type** | Specifies whether every other row shading should be applied to the output. By default, this option is set to false, which means that every other row shading will not be included in the download. | [optional]  if omitted the server will use the default value of False
 **apply_excel_outlining** | **bool, none_type** | Specifies that the Download Outline feature will be used when putting the screen&#39;s groupings into an Excel spreadsheet. By default, this option is set to false. | [optional]  if omitted the server will use the default value of False
 **condense_tabs_to_one_sheet** | **bool, none_type** | Specifies whether the report will be downloaded into a single spreadsheet, or into separate sheets following the tabs in the report. By default, this option is set to false. | [optional]  if omitted the server will use the default value of False
+**custom_title** | **str, none_type** | Sets a custom title for the download. | [optional] 
+**custom_subtitle** | **str, none_type** | Sets a custom subtitle for the download. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

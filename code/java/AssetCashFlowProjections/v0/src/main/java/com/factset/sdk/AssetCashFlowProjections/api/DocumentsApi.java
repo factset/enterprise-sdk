@@ -13,6 +13,7 @@ import java.util.Objects;
 
 import com.factset.sdk.AssetCashFlowProjections.models.ClientErrorResponse;
 import com.factset.sdk.AssetCashFlowProjections.models.CreateNewDocument;
+import com.factset.sdk.AssetCashFlowProjections.models.DocumentResponse;
 import com.factset.sdk.AssetCashFlowProjections.models.UpdateNewDocument;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -33,6 +34,13 @@ public class DocumentsApi {
     getDocumentDetailsResponseTypeMap.put(200, new GenericType<UpdateNewDocument>(){});
     getDocumentDetailsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getDocumentDetailsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDocumentsResponseTypeMap.put(200, new GenericType<DocumentResponse>(){});
+    getDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> postDocumentResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -144,6 +152,94 @@ public class DocumentsApi {
     > apiResponse = apiClient.invokeAPI("DocumentsApi.getDocumentDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getDocumentDetailsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Gives all the ACFP documents in the given directory.
+   * Provides the list of all documents in a specified directory
+   * @param directoryPath The directory path to retrieve documents from. (required)
+   * @return DocumentResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Expected response, returns a list of all the documents and the directories. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 404 </td><td> 404 - Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
+       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
+     </table>
+   */
+  public DocumentResponse getDocuments(String directoryPath) throws ApiException {
+    return getDocumentsWithHttpInfo(directoryPath).getData();
+  }
+
+  /**
+   * Gives all the ACFP documents in the given directory.
+   * Provides the list of all documents in a specified directory
+   * @param directoryPath The directory path to retrieve documents from. (required)
+   * @return ApiResponse&lt;DocumentResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Expected response, returns a list of all the documents and the directories. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 404 </td><td> 404 - Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
+       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<DocumentResponse> getDocumentsWithHttpInfo(String directoryPath) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'directoryPath' is set
+    if (directoryPath == null) {
+      throw new ApiException(400, "Missing the required parameter 'directoryPath' when calling getDocuments");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/documents";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "directoryPath", directoryPath));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        DocumentResponse
+      
+    > apiResponse = apiClient.invokeAPI("DocumentsApi.getDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getDocumentsResponseTypeMap, false);
 
     return apiResponse;
 

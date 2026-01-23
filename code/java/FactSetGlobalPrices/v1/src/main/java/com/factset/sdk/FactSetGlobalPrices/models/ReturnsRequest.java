@@ -95,11 +95,11 @@ public class ReturnsRequest implements Serializable {
   }
 
    /**
-   * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs. 
+   * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
    * @return ids
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "[\"AAPL-US\"]", required = true, value = "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs. ")
+  @ApiModelProperty(example = "[\"AAPL-US\"]", required = true, value = "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. ")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

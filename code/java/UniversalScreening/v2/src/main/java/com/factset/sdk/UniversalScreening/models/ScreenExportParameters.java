@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.UniversalScreening.models.CalculateMetadata;
 import com.factset.sdk.UniversalScreening.models.ScreenExportParametersData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,12 +36,16 @@ import com.factset.sdk.UniversalScreening.JSON;
  */
 @ApiModel(description = "Request body to calculate and then export a screen to a specified file format.")
 @JsonPropertyOrder({
+  ScreenExportParameters.JSON_PROPERTY_META,
   ScreenExportParameters.JSON_PROPERTY_DATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class ScreenExportParameters implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private CalculateMetadata meta;
 
   public static final String JSON_PROPERTY_DATA = "data";
   private ScreenExportParametersData data;
@@ -55,6 +60,32 @@ public class ScreenExportParameters implements Serializable {
     this();
     this.data = data;
   }
+
+  public ScreenExportParameters meta(CalculateMetadata meta) {
+    this.meta = meta;
+    return this;
+  }
+
+   /**
+   * Get meta
+   * @return meta
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CalculateMetadata getMeta() {
+    return meta;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMeta(CalculateMetadata meta) {
+    this.meta = meta;
+  }
+
 
   public ScreenExportParameters data(ScreenExportParametersData data) {
     this.data = data;
@@ -94,18 +125,20 @@ public class ScreenExportParameters implements Serializable {
       return false;
     }
     ScreenExportParameters screenExportParameters = (ScreenExportParameters) o;
-    return Objects.equals(this.data, screenExportParameters.data);
+    return Objects.equals(this.meta, screenExportParameters.meta) &&
+        Objects.equals(this.data, screenExportParameters.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(meta, data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScreenExportParameters {\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

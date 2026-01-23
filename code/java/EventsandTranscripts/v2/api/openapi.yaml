@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Events and Transcripts API
-  version: 2.1.0
+  version: 2.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -859,7 +859,7 @@ paths:
       operationId: getTranscriptsIntelligence
       parameters:
       - description: |
-          Start Date (YYYY-MM-DD).
+          Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.
         example: 2025-05-01
         explode: true
         in: query
@@ -870,7 +870,7 @@ paths:
           type: string
         style: form
       - description: |
-          End Date (YYYY-MM-DD).
+          End Date (YYYY-MM-DD). If dates are not provided, default will return all files.
         example: 2025-07-24
         explode: true
         in: query
@@ -884,6 +884,7 @@ paths:
           The earliest date of the feed file the API should fetch based on the file timestamp, relative to today.
           - Format: Integer (`0` for today, `-1` for yesterday, etc.).
           - *Either `startDate` or `startDateRelative` should be used, but not both.*
+          - If dates are not provided, default will return all files.
         explode: true
         in: query
         name: startDateRelative
@@ -897,6 +898,7 @@ paths:
           The latest date of the feed file the API should fetch based on the file timestamp, relative to today.
           - Format: Integer (`0` for today, `-1` for yesterday, etc.).
           - *Either `endDate` or `endDateRelative` should be used, but not both.*
+          - If dates are not provided, default will return all files.
         explode: true
         in: query
         name: endDateRelative
@@ -2026,6 +2028,7 @@ components:
           - CN:CA
           startDate: 2025-07-01
           endDate: 2025-07-10
+          dateType: upload
           searchText: Welcome
         meta:
           pagination:
@@ -2130,7 +2133,7 @@ components:
       style: form
     startDate:
       description: |
-        Start Date (YYYY-MM-DD).
+        Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.
       example: 2025-05-01
       explode: true
       in: query
@@ -2142,7 +2145,7 @@ components:
       style: form
     endDate:
       description: |
-        End Date (YYYY-MM-DD).
+        End Date (YYYY-MM-DD). If dates are not provided, default will return all files.
       example: 2025-07-24
       explode: true
       in: query
@@ -2157,6 +2160,7 @@ components:
         The earliest date of the feed file the API should fetch based on the file timestamp, relative to today.
         - Format: Integer (`0` for today, `-1` for yesterday, etc.).
         - *Either `startDate` or `startDateRelative` should be used, but not both.*
+        - If dates are not provided, default will return all files.
       explode: true
       in: query
       name: startDateRelative
@@ -2171,6 +2175,7 @@ components:
         The latest date of the feed file the API should fetch based on the file timestamp, relative to today.
         - Format: Integer (`0` for today, `-1` for yesterday, etc.).
         - *Either `endDate` or `endDateRelative` should be used, but not both.*
+        - If dates are not provided, default will return all files.
       explode: true
       in: query
       name: endDateRelative
@@ -3284,6 +3289,7 @@ components:
             - Format: Should be absolute (YYYY-MM-DD).
             - *Either `startDate` or `startDateRelative` should be used, but not both.*
             - Data available from 10th May 2011 onwards.
+            - If dates are not provided, default will return all files.
           example: 2022-01-01
           format: date
           type: string
@@ -3292,6 +3298,7 @@ components:
             The latest date of the audio file the API should fetch for.
             - Format: Should be absolute (YYYY-MM-DD).
             - *Either `endDate` or `endDateRelative` should be used, but not both.*
+            - If dates are not provided, default will return all files.
           example: 2022-06-01
           format: date
           type: string
@@ -3300,6 +3307,7 @@ components:
             The earliest date of the feed file the API should fetch based on the file timestamp, relative to today.
             - Format: Integer ('0' for today, '-1' for yesterday, etc.).
             - *Either `startDate` or `startDateRelative` should be used, but not both.*
+            - If dates are not provided, default will return all files.
           example: -3
           format: int32
           maximum: 0
@@ -3309,6 +3317,7 @@ components:
             The latest date of the feed file the API should fetch based on the file timestamp, relative to today.
             - Format: Integer ('0' for today, '-1' for yesterday, etc.).
             - *Either `endDate` or `endDateRelative` should be used, but not both.*
+            - If dates are not provided, default will return all files.
           example: -1
           format: int32
           maximum: 0
@@ -3455,31 +3464,34 @@ components:
       description: Search criteria for transcripts based on date range and timeZone.
       properties:
         startDate:
-          description: |
-            Start Date (YYYY-MM-DD). Data available from April 21st, 1999 onwards.
-            *Either `startDate` or `startDateRelative` should be used.*
+          description: "-  Start Date (YYYY-MM-DD). Data available from April 21st,\
+            \ 1999 onwards.\n- *Either `startDate` or `startDateRelative` should be\
+            \ used.*\n- If dates are not provided, default will return all files.\n\
+            \ \n"
           example: 2023-12-22
           format: date
           type: string
         endDate:
           description: |
-            End Date (YYYY-MM-DD).
-            *Either `endDate` or `endDateRelative` should be used.*
+            - End Date (YYYY-MM-DD).
+            - *Either `endDate` or `endDateRelative` should be used.*
+            - If dates are not provided, default will return all files.
           example: 2023-12-23
           format: date
           type: string
         startDateRelative:
           description: |
-            Start date relative to today (0=today, -1=yesterday).
-            *Either `startDate` or `startDateRelative` should be used.*
+            - Start date relative to today (0=today, -1=yesterday).
+            - *Either `startDate` or `startDateRelative` should be used.*
+            - If dates are not provided, default will return all files.
           example: -3
           format: int32
           maximum: 0
           type: integer
         endDateRelative:
-          description: |
-            End date relative to today (0=today, -1=yesterday).
-            *Either `endDate` or `endDateRelative` should be used.*
+          description: "-  End date relative to today (0=today, -1=yesterday).\n-\
+            \  *Either `endDate` or `endDateRelative` should be used.*\n-  If dates\
+            \ are not provided, default will return all files.  \n"
           example: 0
           format: int32
           maximum: 0
@@ -3540,15 +3552,20 @@ components:
           type: array
         startDate:
           description: |
-            Start Date (YYYY-MM-DD).
+            Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.
           example: 2023-12-22
           format: date
           type: string
         endDate:
           description: |
-            End Date (YYYY-MM-DD).
+            End Date (YYYY-MM-DD). If dates are not provided, default will return all files.
           example: 2023-12-23
           format: date
+          type: string
+        dateType:
+          description: |
+            Enables filtering of transcripts based on their uploadDateTime.
+          example: upload
           type: string
         searchText:
           description: Text to search for within the transcript document stories.
@@ -3562,13 +3579,13 @@ components:
       properties:
         startDateTime:
           description: |
-            The date from which data is required
+            The date from which data is required. If dates are not provided, default will return all files.
           example: 2020-10-01T00:00:00Z
           format: date-time
           type: string
         endDateTime:
           description: |
-            The date to which data is required
+            The date to which data is required. If dates are not provided, default will return all files.
           example: 2020-10-26T10:00:00Z
           format: date-time
           type: string
@@ -4570,7 +4587,8 @@ components:
           example: investor.apple.com/investor-relations/default.aspx
           type: string
         fiscalYear:
-          description: The fiscal year of the company to which the event pertains.
+          description: The normalized fiscal year of the company to which the event
+            pertains.
           example: "2023"
           type: string
         fiscalPeriod:
@@ -4726,7 +4744,7 @@ components:
       type: object
     CompanyEventRequest_data_dateTime:
       description: |
-        - Data is available from November 1st, 2022.
+        - Data is available from 2002.
         - If users provide future dates in requests, the API will return data between `start` and `end` up to 90 days.
       example:
         start: 2022-12-01T00:00:00Z
@@ -4767,6 +4785,8 @@ components:
           type: array
         type:
           description: |-
+            * SEDOLs and ISINs are supported with the type Tickers.
+
             * Tickers: Represents individual stock symbols, unique identifiers for company shares.
 
             * Index: Refers to market indices, tracking stock group performance as benchmarks.

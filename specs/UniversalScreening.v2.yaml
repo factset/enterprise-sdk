@@ -577,6 +577,30 @@ components:
         Additional access required for this format.
       type: string
       format: binary
+    CalculateMetadata:
+      description: Generic options that can be applied to endpoint output.
+      type: object
+      properties:
+        sort:
+          description: >-
+            An array of parameter references to sort by to override the sort set
+            in the screen document.
+
+            Format is "#P.<parameter_name>" for ascending sort,
+            "-#P.<parameter_name>" for descending.
+
+            Will sort by references in order of appearance in the provided list,
+            i.e. will sort first by
+
+            the 0th reference, then the 1st reference and so on. Limit of 7
+            references.
+          example:
+            - '#P.P1'
+            - '-#P.P2'
+          type: array
+          maxItems: 7
+          items:
+            type: string
     ScreenArchiveOFDBParameters:
       description: Request body for screen archive request
       properties:
@@ -740,6 +764,8 @@ components:
         Request body to calculate and then export a screen to a specified file
         format.
       properties:
+        meta:
+          $ref: '#/components/schemas/CalculateMetadata'
         data:
           description: Object containing screen and export data
           properties:
@@ -811,6 +837,8 @@ components:
               default: equity
               nullable: true
               example: equity
+            groupingInfo:
+              $ref: '#/components/schemas/GroupingInfo'
           required:
             - screenName
             - file
@@ -821,6 +849,8 @@ components:
     ScreenCalcParameters:
       description: Request body to calculate a screen.
       properties:
+        meta:
+          $ref: '#/components/schemas/CalculateMetadata'
         data:
           description: Object containing screen data
           properties:
@@ -1027,6 +1057,16 @@ components:
           default: false
           example: false
           nullable: true
+        customTitle:
+          description: Sets a custom title for the download.
+          type: string
+          example: Custom Title
+          nullable: true
+        customSubtitle:
+          description: Sets a custom subtitle for the download.
+          type: string
+          example: Custom Subtitle
+          nullable: true
     PdfOptions:
       description: Options applied to PDF output.
       type: object
@@ -1079,6 +1119,55 @@ components:
           default: false
           example: true
           nullable: true
+        customTitle:
+          description: Sets a custom title for the download.
+          type: string
+          example: Custom Title
+          nullable: true
+        customSubtitle:
+          description: Sets a custom subtitle for the download.
+          type: string
+          example: Custom Subtitle
+          nullable: true
+    GroupingInfo:
+      description: Options for setting and displaying groups
+      type: object
+      nullable: true
+      properties:
+        groupingState:
+          description: >-
+            Controls whether security data will be displayed or suppressed in
+            the report output. The argument option specified will overwrite any
+            group state saved in the screen.
+
+            SHOW_ALL_GROUPS - No security data is displayed. Only group titles,
+            group statistics, and overall statistics are visible.
+
+            COLLAPSE_ALL - Only the highest-level group and overall statistics
+            are visible.
+
+            EXPAND_ALL - Security data is displayed, along with all group
+            titles, group statistics, and overall statistics.
+          type: string
+          enum:
+            - SHOW_ALL_GROUPS
+            - COLLAPSE_ALL
+            - EXPAND_ALL
+          nullable: true
+          example: EXPAND_ALL
+        customGrouping:
+          description: >-
+            Specifies parameters to be used as the grouping for the securities
+            in your screen. The grouping specified will replace all groupings
+            saved in the screen. Limit of 7 parameters.
+          items:
+            type: string
+            example: MY_SECTOR
+          maxItems: 7
+          type: array
+          example:
+            - MY_SECTOR
+            - MY_INDUSTRY
   headers:
     StatusLocation:
       description: Relative location to poll for job status

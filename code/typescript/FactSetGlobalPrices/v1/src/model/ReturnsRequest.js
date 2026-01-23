@@ -25,7 +25,7 @@ class ReturnsRequest {
      * Constructs a new <code>ReturnsRequest</code>.
      * Returns Request Body
      * @alias module:model/ReturnsRequest
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs. 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
      * @param startDate {String} The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
      */
     constructor(ids, startDate) { 
@@ -83,7 +83,7 @@ class ReturnsRequest {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs. 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
  * @member {Array.<String>} ids
  */
 ReturnsRequest.prototype['ids'] = undefined;

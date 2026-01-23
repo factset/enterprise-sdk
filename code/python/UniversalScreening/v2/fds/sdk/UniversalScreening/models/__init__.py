@@ -11,12 +11,14 @@
 
 from fds.sdk.UniversalScreening.model.active_job_ids import ActiveJobIDs
 from fds.sdk.UniversalScreening.model.active_jobs_data import ActiveJobsData
+from fds.sdk.UniversalScreening.model.calculate_metadata import CalculateMetadata
 from fds.sdk.UniversalScreening.model.delimited_options import DelimitedOptions
 from fds.sdk.UniversalScreening.model.error_array import ErrorArray
 from fds.sdk.UniversalScreening.model.error_code import ErrorCode
 from fds.sdk.UniversalScreening.model.error_object import ErrorObject
 from fds.sdk.UniversalScreening.model.error_object_source import ErrorObjectSource
 from fds.sdk.UniversalScreening.model.excel_options import ExcelOptions
+from fds.sdk.UniversalScreening.model.grouping_info import GroupingInfo
 from fds.sdk.UniversalScreening.model.paginated_calculation_response import PaginatedCalculationResponse
 from fds.sdk.UniversalScreening.model.pagination_response import PaginationResponse
 from fds.sdk.UniversalScreening.model.pdf_options import PdfOptions

@@ -16,6 +16,8 @@ docs/CreateBatchJob.md
 docs/CreateBatchJobRoot.md
 docs/CreateNewDocument.md
 docs/CreateNewDocumentRoot.md
+docs/DocumentResponse.md
+docs/DocumentResponseRoot.md
 docs/DocumentsApi.md
 docs/ErrorSource.md
 docs/Errors.md
@@ -46,6 +48,8 @@ fds/sdk/AssetCashFlowProjections/model/create_batch_job.py
 fds/sdk/AssetCashFlowProjections/model/create_batch_job_root.py
 fds/sdk/AssetCashFlowProjections/model/create_new_document.py
 fds/sdk/AssetCashFlowProjections/model/create_new_document_root.py
+fds/sdk/AssetCashFlowProjections/model/document_response.py
+fds/sdk/AssetCashFlowProjections/model/document_response_root.py
 fds/sdk/AssetCashFlowProjections/model/error_source.py
 fds/sdk/AssetCashFlowProjections/model/errors.py
 fds/sdk/AssetCashFlowProjections/model/update_new_document.py

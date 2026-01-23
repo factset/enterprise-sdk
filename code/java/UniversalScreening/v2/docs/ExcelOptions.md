@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **applyAlternateRowShading** | **Boolean** | Specifies whether every other row shading should be applied to the output. By default, this option is set to false, which means that every other row shading will not be included in the download. |  [optional]
 **applyExcelOutlining** | **Boolean** | Specifies that the Download Outline feature will be used when putting the screen&#39;s groupings into an Excel spreadsheet. By default, this option is set to false. |  [optional]
 **condenseTabsToOneSheet** | **Boolean** | Specifies whether the report will be downloaded into a single spreadsheet, or into separate sheets following the tabs in the report. By default, this option is set to false. |  [optional]
+**customTitle** | **String** | Sets a custom title for the download. |  [optional]
+**customSubtitle** | **String** | Sets a custom subtitle for the download. |  [optional]
 
 
 ## Implemented Interfaces

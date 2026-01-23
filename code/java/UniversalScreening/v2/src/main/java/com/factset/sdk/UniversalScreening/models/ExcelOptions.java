@@ -43,7 +43,9 @@ import com.factset.sdk.UniversalScreening.JSON;
   ExcelOptions.JSON_PROPERTY_APPLY_FILTERS,
   ExcelOptions.JSON_PROPERTY_APPLY_ALTERNATE_ROW_SHADING,
   ExcelOptions.JSON_PROPERTY_APPLY_EXCEL_OUTLINING,
-  ExcelOptions.JSON_PROPERTY_CONDENSE_TABS_TO_ONE_SHEET
+  ExcelOptions.JSON_PROPERTY_CONDENSE_TABS_TO_ONE_SHEET,
+  ExcelOptions.JSON_PROPERTY_CUSTOM_TITLE,
+  ExcelOptions.JSON_PROPERTY_CUSTOM_SUBTITLE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -67,6 +69,12 @@ public class ExcelOptions implements Serializable {
 
   public static final String JSON_PROPERTY_CONDENSE_TABS_TO_ONE_SHEET = "condenseTabsToOneSheet";
   private JsonNullable<Boolean> condenseTabsToOneSheet = JsonNullable.<Boolean>of(false);
+
+  public static final String JSON_PROPERTY_CUSTOM_TITLE = "customTitle";
+  private JsonNullable<String> customTitle = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CUSTOM_SUBTITLE = "customSubtitle";
+  private JsonNullable<String> customSubtitle = JsonNullable.<String>undefined();
 
   public ExcelOptions() { 
   }
@@ -275,6 +283,74 @@ public class ExcelOptions implements Serializable {
   }
 
 
+  public ExcelOptions customTitle(String customTitle) {
+    this.customTitle = JsonNullable.<String>of(customTitle);
+    return this;
+  }
+
+   /**
+   * Sets a custom title for the download.
+   * @return customTitle
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Custom Title", value = "Sets a custom title for the download.")
+  @JsonIgnore
+
+  public String getCustomTitle() {
+        return customTitle.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCustomTitle_JsonNullable() {
+    return customTitle;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TITLE)
+  public void setCustomTitle_JsonNullable(JsonNullable<String> customTitle) {
+    this.customTitle = customTitle;
+  }
+
+  public void setCustomTitle(String customTitle) {
+    this.customTitle = JsonNullable.<String>of(customTitle);
+  }
+
+
+  public ExcelOptions customSubtitle(String customSubtitle) {
+    this.customSubtitle = JsonNullable.<String>of(customSubtitle);
+    return this;
+  }
+
+   /**
+   * Sets a custom subtitle for the download.
+   * @return customSubtitle
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Custom Subtitle", value = "Sets a custom subtitle for the download.")
+  @JsonIgnore
+
+  public String getCustomSubtitle() {
+        return customSubtitle.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_SUBTITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCustomSubtitle_JsonNullable() {
+    return customSubtitle;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_SUBTITLE)
+  public void setCustomSubtitle_JsonNullable(JsonNullable<String> customSubtitle) {
+    this.customSubtitle = customSubtitle;
+  }
+
+  public void setCustomSubtitle(String customSubtitle) {
+    this.customSubtitle = JsonNullable.<String>of(customSubtitle);
+  }
+
+
   /**
    * Return true if this ExcelOptions object is equal to o.
    */
@@ -292,7 +368,9 @@ public class ExcelOptions implements Serializable {
         equalsNullable(this.applyFilters, excelOptions.applyFilters) &&
         equalsNullable(this.applyAlternateRowShading, excelOptions.applyAlternateRowShading) &&
         equalsNullable(this.applyExcelOutlining, excelOptions.applyExcelOutlining) &&
-        equalsNullable(this.condenseTabsToOneSheet, excelOptions.condenseTabsToOneSheet);
+        equalsNullable(this.condenseTabsToOneSheet, excelOptions.condenseTabsToOneSheet) &&
+        equalsNullable(this.customTitle, excelOptions.customTitle) &&
+        equalsNullable(this.customSubtitle, excelOptions.customSubtitle);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -301,7 +379,7 @@ public class ExcelOptions implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(isSummary), hashCodeNullable(applySavedNAFormatting), hashCodeNullable(applyFilters), hashCodeNullable(applyAlternateRowShading), hashCodeNullable(applyExcelOutlining), hashCodeNullable(condenseTabsToOneSheet));
+    return Objects.hash(hashCodeNullable(isSummary), hashCodeNullable(applySavedNAFormatting), hashCodeNullable(applyFilters), hashCodeNullable(applyAlternateRowShading), hashCodeNullable(applyExcelOutlining), hashCodeNullable(condenseTabsToOneSheet), hashCodeNullable(customTitle), hashCodeNullable(customSubtitle));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -321,6 +399,8 @@ public class ExcelOptions implements Serializable {
     sb.append("    applyAlternateRowShading: ").append(toIndentedString(applyAlternateRowShading)).append("\n");
     sb.append("    applyExcelOutlining: ").append(toIndentedString(applyExcelOutlining)).append("\n");
     sb.append("    condenseTabsToOneSheet: ").append(toIndentedString(condenseTabsToOneSheet)).append("\n");
+    sb.append("    customTitle: ").append(toIndentedString(customTitle)).append("\n");
+    sb.append("    customSubtitle: ").append(toIndentedString(customSubtitle)).append("\n");
     sb.append("}");
     return sb.toString();
   }

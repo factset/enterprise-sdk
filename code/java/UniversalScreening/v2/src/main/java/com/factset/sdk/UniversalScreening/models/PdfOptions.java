@@ -41,7 +41,9 @@ import com.factset.sdk.UniversalScreening.JSON;
   PdfOptions.JSON_PROPERTY_APPLY_ALTERNATE_ROW_SHADING,
   PdfOptions.JSON_PROPERTY_APPLY_FILTERS,
   PdfOptions.JSON_PROPERTY_APPLY_TEXT_WRAPPING,
-  PdfOptions.JSON_PROPERTY_ORIENTATION_LANDSCAPE
+  PdfOptions.JSON_PROPERTY_ORIENTATION_LANDSCAPE,
+  PdfOptions.JSON_PROPERTY_CUSTOM_TITLE,
+  PdfOptions.JSON_PROPERTY_CUSTOM_SUBTITLE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -59,6 +61,12 @@ public class PdfOptions implements Serializable {
 
   public static final String JSON_PROPERTY_ORIENTATION_LANDSCAPE = "orientationLandscape";
   private JsonNullable<Boolean> orientationLandscape = JsonNullable.<Boolean>of(false);
+
+  public static final String JSON_PROPERTY_CUSTOM_TITLE = "customTitle";
+  private JsonNullable<String> customTitle = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CUSTOM_SUBTITLE = "customSubtitle";
+  private JsonNullable<String> customSubtitle = JsonNullable.<String>undefined();
 
   public PdfOptions() { 
   }
@@ -199,6 +207,74 @@ public class PdfOptions implements Serializable {
   }
 
 
+  public PdfOptions customTitle(String customTitle) {
+    this.customTitle = JsonNullable.<String>of(customTitle);
+    return this;
+  }
+
+   /**
+   * Sets a custom title for the download.
+   * @return customTitle
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Custom Title", value = "Sets a custom title for the download.")
+  @JsonIgnore
+
+  public String getCustomTitle() {
+        return customTitle.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCustomTitle_JsonNullable() {
+    return customTitle;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TITLE)
+  public void setCustomTitle_JsonNullable(JsonNullable<String> customTitle) {
+    this.customTitle = customTitle;
+  }
+
+  public void setCustomTitle(String customTitle) {
+    this.customTitle = JsonNullable.<String>of(customTitle);
+  }
+
+
+  public PdfOptions customSubtitle(String customSubtitle) {
+    this.customSubtitle = JsonNullable.<String>of(customSubtitle);
+    return this;
+  }
+
+   /**
+   * Sets a custom subtitle for the download.
+   * @return customSubtitle
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "Custom Subtitle", value = "Sets a custom subtitle for the download.")
+  @JsonIgnore
+
+  public String getCustomSubtitle() {
+        return customSubtitle.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_SUBTITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCustomSubtitle_JsonNullable() {
+    return customSubtitle;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_SUBTITLE)
+  public void setCustomSubtitle_JsonNullable(JsonNullable<String> customSubtitle) {
+    this.customSubtitle = customSubtitle;
+  }
+
+  public void setCustomSubtitle(String customSubtitle) {
+    this.customSubtitle = JsonNullable.<String>of(customSubtitle);
+  }
+
+
   /**
    * Return true if this PdfOptions object is equal to o.
    */
@@ -214,7 +290,9 @@ public class PdfOptions implements Serializable {
     return equalsNullable(this.applyAlternateRowShading, pdfOptions.applyAlternateRowShading) &&
         equalsNullable(this.applyFilters, pdfOptions.applyFilters) &&
         equalsNullable(this.applyTextWrapping, pdfOptions.applyTextWrapping) &&
-        equalsNullable(this.orientationLandscape, pdfOptions.orientationLandscape);
+        equalsNullable(this.orientationLandscape, pdfOptions.orientationLandscape) &&
+        equalsNullable(this.customTitle, pdfOptions.customTitle) &&
+        equalsNullable(this.customSubtitle, pdfOptions.customSubtitle);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -223,7 +301,7 @@ public class PdfOptions implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(applyAlternateRowShading), hashCodeNullable(applyFilters), hashCodeNullable(applyTextWrapping), hashCodeNullable(orientationLandscape));
+    return Objects.hash(hashCodeNullable(applyAlternateRowShading), hashCodeNullable(applyFilters), hashCodeNullable(applyTextWrapping), hashCodeNullable(orientationLandscape), hashCodeNullable(customTitle), hashCodeNullable(customSubtitle));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -241,6 +319,8 @@ public class PdfOptions implements Serializable {
     sb.append("    applyFilters: ").append(toIndentedString(applyFilters)).append("\n");
     sb.append("    applyTextWrapping: ").append(toIndentedString(applyTextWrapping)).append("\n");
     sb.append("    orientationLandscape: ").append(toIndentedString(orientationLandscape)).append("\n");
+    sb.append("    customTitle: ").append(toIndentedString(customTitle)).append("\n");
+    sb.append("    customSubtitle: ").append(toIndentedString(customSubtitle)).append("\n");
     sb.append("}");
     return sb.toString();
   }

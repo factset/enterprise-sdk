@@ -8,8 +8,8 @@ Search criteria for transcripts based on date-time
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**startDateTime** | **OffsetDateTime** | The date from which data is required  |  [optional]
-**endDateTime** | **OffsetDateTime** | The date to which data is required  |  [optional]
+**startDateTime** | **OffsetDateTime** | The date from which data is required. If dates are not provided, default will return all files.  |  [optional]
+**endDateTime** | **OffsetDateTime** | The date to which data is required. If dates are not provided, default will return all files.  |  [optional]
 
 
 ## Implemented Interfaces

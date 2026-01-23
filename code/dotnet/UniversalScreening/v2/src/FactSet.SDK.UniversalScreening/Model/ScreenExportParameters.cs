@@ -40,15 +40,23 @@ namespace FactSet.SDK.UniversalScreening.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenExportParameters" /> class.
         /// </summary>
+        /// <param name="meta">meta.</param>
         /// <param name="data">data (required).</param>
-        public ScreenExportParameters(ScreenExportParametersData data)
+        public ScreenExportParameters(ScreenExportParametersData data,CalculateMetadata meta = default(CalculateMetadata))
         {
             // to ensure "data" is required (not null)
             if (data == null) {
                 throw new ArgumentNullException("data is a required property for ScreenExportParameters and cannot be null");
             }
             this.Data = data;
+            this.Meta = meta;
         }
+
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public CalculateMetadata Meta { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
@@ -64,6 +72,7 @@ namespace FactSet.SDK.UniversalScreening.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ScreenExportParameters {\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -101,6 +110,11 @@ namespace FactSet.SDK.UniversalScreening.Model
             }
             return 
                 (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
+                ) && 
+                (
                     this.Data == input.Data ||
                     (this.Data != null &&
                     this.Data.Equals(input.Data))
@@ -116,6 +130,10 @@ namespace FactSet.SDK.UniversalScreening.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();

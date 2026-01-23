@@ -39,7 +39,9 @@ namespace FactSet.SDK.UniversalScreening.Model
         /// <param name="applyFilters">Specifies whether the filters present in the screen should be applied to the output. By default, this option is set to false, which means that filters will not be applied and all securities passing the screen will be included in the output. (default to false).</param>
         /// <param name="applyTextWrapping">Specifies that the text in cells be wrapped if there are more characters than can fit in the space available. By default, this option is set to true. (default to true).</param>
         /// <param name="orientationLandscape">Specifies the page orientation of the downloaded file. Value true for Landscape, false for Portrait. By default this is set to false. (default to false).</param>
-        public PdfOptions(bool? applyAlternateRowShading = false, bool? applyFilters = false, bool? applyTextWrapping = true, bool? orientationLandscape = false)
+        /// <param name="customTitle">Sets a custom title for the download..</param>
+        /// <param name="customSubtitle">Sets a custom subtitle for the download..</param>
+        public PdfOptions(bool? applyAlternateRowShading = false, bool? applyFilters = false, bool? applyTextWrapping = true, bool? orientationLandscape = false, string customTitle = default(string), string customSubtitle = default(string))
         {
             // use default value if no "applyAlternateRowShading" provided
             this.ApplyAlternateRowShading = applyAlternateRowShading ?? false;
@@ -49,6 +51,8 @@ namespace FactSet.SDK.UniversalScreening.Model
             this.ApplyTextWrapping = applyTextWrapping ?? true;
             // use default value if no "orientationLandscape" provided
             this.OrientationLandscape = orientationLandscape ?? false;
+            this.CustomTitle = customTitle;
+            this.CustomSubtitle = customSubtitle;
         }
 
         /// <summary>
@@ -80,6 +84,20 @@ namespace FactSet.SDK.UniversalScreening.Model
         public bool? OrientationLandscape { get; set; }
 
         /// <summary>
+        /// Sets a custom title for the download.
+        /// </summary>
+        /// <value>Sets a custom title for the download.</value>
+        [DataMember(Name = "customTitle", EmitDefaultValue = true)]
+        public string CustomTitle { get; set; }
+
+        /// <summary>
+        /// Sets a custom subtitle for the download.
+        /// </summary>
+        /// <value>Sets a custom subtitle for the download.</value>
+        [DataMember(Name = "customSubtitle", EmitDefaultValue = true)]
+        public string CustomSubtitle { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +109,8 @@ namespace FactSet.SDK.UniversalScreening.Model
             sb.Append("  ApplyFilters: ").Append(ApplyFilters).Append("\n");
             sb.Append("  ApplyTextWrapping: ").Append(ApplyTextWrapping).Append("\n");
             sb.Append("  OrientationLandscape: ").Append(OrientationLandscape).Append("\n");
+            sb.Append("  CustomTitle: ").Append(CustomTitle).Append("\n");
+            sb.Append("  CustomSubtitle: ").Append(CustomSubtitle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +165,16 @@ namespace FactSet.SDK.UniversalScreening.Model
                     this.OrientationLandscape == input.OrientationLandscape ||
                     (this.OrientationLandscape != null &&
                     this.OrientationLandscape.Equals(input.OrientationLandscape))
+                ) && 
+                (
+                    this.CustomTitle == input.CustomTitle ||
+                    (this.CustomTitle != null &&
+                    this.CustomTitle.Equals(input.CustomTitle))
+                ) && 
+                (
+                    this.CustomSubtitle == input.CustomSubtitle ||
+                    (this.CustomSubtitle != null &&
+                    this.CustomSubtitle.Equals(input.CustomSubtitle))
                 );
         }
 
@@ -172,6 +202,14 @@ namespace FactSet.SDK.UniversalScreening.Model
                 if (this.OrientationLandscape != null)
                 {
                     hashCode = (hashCode * 59) + this.OrientationLandscape.GetHashCode();
+                }
+                if (this.CustomTitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomTitle.GetHashCode();
+                }
+                if (this.CustomSubtitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomSubtitle.GetHashCode();
                 }
                 return hashCode;
             }

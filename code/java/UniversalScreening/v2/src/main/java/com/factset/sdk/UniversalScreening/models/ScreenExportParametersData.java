@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.UniversalScreening.models.GroupingInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,7 +43,8 @@ import com.factset.sdk.UniversalScreening.JSON;
   ScreenExportParametersData.JSON_PROPERTY_FILE,
   ScreenExportParametersData.JSON_PROPERTY_BACKTEST_DATE,
   ScreenExportParametersData.JSON_PROPERTY_GLOBAL_VARIABLES_MAP,
-  ScreenExportParametersData.JSON_PROPERTY_LEGACY_UNIVERSE_TYPE
+  ScreenExportParametersData.JSON_PROPERTY_LEGACY_UNIVERSE_TYPE,
+  ScreenExportParametersData.JSON_PROPERTY_GROUPING_INFO
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -100,6 +102,9 @@ public class ScreenExportParametersData implements Serializable {
 
   public static final String JSON_PROPERTY_LEGACY_UNIVERSE_TYPE = "legacyUniverseType";
   private JsonNullable<LegacyUniverseTypeEnum> legacyUniverseType = JsonNullable.<LegacyUniverseTypeEnum>of(LegacyUniverseTypeEnum.EQUITY);
+
+  public static final String JSON_PROPERTY_GROUPING_INFO = "groupingInfo";
+  private JsonNullable<GroupingInfo> groupingInfo = JsonNullable.<GroupingInfo>undefined();
 
   public ScreenExportParametersData() { 
   }
@@ -268,6 +273,40 @@ public class ScreenExportParametersData implements Serializable {
   }
 
 
+  public ScreenExportParametersData groupingInfo(GroupingInfo groupingInfo) {
+    this.groupingInfo = JsonNullable.<GroupingInfo>of(groupingInfo);
+    return this;
+  }
+
+   /**
+   * Get groupingInfo
+   * @return groupingInfo
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public GroupingInfo getGroupingInfo() {
+        return groupingInfo.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GROUPING_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<GroupingInfo> getGroupingInfo_JsonNullable() {
+    return groupingInfo;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GROUPING_INFO)
+  public void setGroupingInfo_JsonNullable(JsonNullable<GroupingInfo> groupingInfo) {
+    this.groupingInfo = groupingInfo;
+  }
+
+  public void setGroupingInfo(GroupingInfo groupingInfo) {
+    this.groupingInfo = JsonNullable.<GroupingInfo>of(groupingInfo);
+  }
+
+
   /**
    * Return true if this ScreenExportParameters_data object is equal to o.
    */
@@ -284,7 +323,8 @@ public class ScreenExportParametersData implements Serializable {
         Objects.equals(this._file, screenExportParametersData._file) &&
         equalsNullable(this.backtestDate, screenExportParametersData.backtestDate) &&
         Objects.equals(this.globalVariablesMap, screenExportParametersData.globalVariablesMap) &&
-        equalsNullable(this.legacyUniverseType, screenExportParametersData.legacyUniverseType);
+        equalsNullable(this.legacyUniverseType, screenExportParametersData.legacyUniverseType) &&
+        equalsNullable(this.groupingInfo, screenExportParametersData.groupingInfo);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -293,7 +333,7 @@ public class ScreenExportParametersData implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(screenName, _file, hashCodeNullable(backtestDate), globalVariablesMap, hashCodeNullable(legacyUniverseType));
+    return Objects.hash(screenName, _file, hashCodeNullable(backtestDate), globalVariablesMap, hashCodeNullable(legacyUniverseType), hashCodeNullable(groupingInfo));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -312,6 +352,7 @@ public class ScreenExportParametersData implements Serializable {
     sb.append("    backtestDate: ").append(toIndentedString(backtestDate)).append("\n");
     sb.append("    globalVariablesMap: ").append(toIndentedString(globalVariablesMap)).append("\n");
     sb.append("    legacyUniverseType: ").append(toIndentedString(legacyUniverseType)).append("\n");
+    sb.append("    groupingInfo: ").append(toIndentedString(groupingInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

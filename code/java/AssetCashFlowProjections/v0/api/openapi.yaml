@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Asset Cash Flow Projections API
-  version: 0.2.0
+  version: 0.3.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/asset-cash-flow-projections-api
@@ -391,6 +391,137 @@ paths:
       - Scenarios
       x-accepts: application/json
   /documents:
+    get:
+      description: Provides the list of all documents in a specified directory
+      operationId: getDocuments
+      parameters:
+      - description: The directory path to retrieve documents from.
+        example: Client:/ACFP
+        explode: true
+        in: query
+        name: directoryPath
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - successful response":
+                  value:
+                    data:
+                      documents:
+                      - ACFP_TestDocument1
+                      - ACFP_TestDocument2
+                      directories:
+                      - $$acfp_holdings
+                      - notes
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+          description: Expected response, returns a list of all the documents and
+            the directories.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  $ref: '#/components/examples/400BadRequest'
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path not found":
+                  $ref: '#/components/examples/404PathNotFound'
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: 404 - Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Gives all the ACFP documents in the given directory.
+      tags:
+      - Documents
+      x-accepts: application/json
     post:
       description: This will create a new document based on existing one.
       operationId: postDocument
@@ -1190,6 +1321,39 @@ components:
       - existingDocumentName
       - newDocumentName
       title: CreateNewDocumentRoot
+      type: object
+    DocumentResponse:
+      example:
+        data:
+          documents:
+          - documents
+          - documents
+          directories:
+          - directories
+          - directories
+      properties:
+        data:
+          $ref: '#/components/schemas/DocumentResponseRoot'
+      title: DocumentResponse
+      type: object
+    DocumentResponseRoot:
+      example:
+        documents:
+        - documents
+        - documents
+        directories:
+        - directories
+        - directories
+      properties:
+        directories:
+          items:
+            type: string
+          type: array
+        documents:
+          items:
+            type: string
+          type: array
+      title: DocumentResponseRoot
       type: object
     ErrorSource:
       properties:

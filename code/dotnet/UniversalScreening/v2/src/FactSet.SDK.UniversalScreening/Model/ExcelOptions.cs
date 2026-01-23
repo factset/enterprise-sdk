@@ -41,7 +41,9 @@ namespace FactSet.SDK.UniversalScreening.Model
         /// <param name="applyAlternateRowShading">Specifies whether every other row shading should be applied to the output. By default, this option is set to false, which means that every other row shading will not be included in the download. (default to false).</param>
         /// <param name="applyExcelOutlining">Specifies that the Download Outline feature will be used when putting the screen&#39;s groupings into an Excel spreadsheet. By default, this option is set to false. (default to false).</param>
         /// <param name="condenseTabsToOneSheet">Specifies whether the report will be downloaded into a single spreadsheet, or into separate sheets following the tabs in the report. By default, this option is set to false. (default to false).</param>
-        public ExcelOptions(bool? isSummary = false, bool? applySavedNAFormatting = false, bool? applyFilters = false, bool? applyAlternateRowShading = false, bool? applyExcelOutlining = false, bool? condenseTabsToOneSheet = false)
+        /// <param name="customTitle">Sets a custom title for the download..</param>
+        /// <param name="customSubtitle">Sets a custom subtitle for the download..</param>
+        public ExcelOptions(bool? isSummary = false, bool? applySavedNAFormatting = false, bool? applyFilters = false, bool? applyAlternateRowShading = false, bool? applyExcelOutlining = false, bool? condenseTabsToOneSheet = false, string customTitle = default(string), string customSubtitle = default(string))
         {
             // use default value if no "isSummary" provided
             this.IsSummary = isSummary ?? false;
@@ -55,6 +57,8 @@ namespace FactSet.SDK.UniversalScreening.Model
             this.ApplyExcelOutlining = applyExcelOutlining ?? false;
             // use default value if no "condenseTabsToOneSheet" provided
             this.CondenseTabsToOneSheet = condenseTabsToOneSheet ?? false;
+            this.CustomTitle = customTitle;
+            this.CustomSubtitle = customSubtitle;
         }
 
         /// <summary>
@@ -100,6 +104,20 @@ namespace FactSet.SDK.UniversalScreening.Model
         public bool? CondenseTabsToOneSheet { get; set; }
 
         /// <summary>
+        /// Sets a custom title for the download.
+        /// </summary>
+        /// <value>Sets a custom title for the download.</value>
+        [DataMember(Name = "customTitle", EmitDefaultValue = true)]
+        public string CustomTitle { get; set; }
+
+        /// <summary>
+        /// Sets a custom subtitle for the download.
+        /// </summary>
+        /// <value>Sets a custom subtitle for the download.</value>
+        [DataMember(Name = "customSubtitle", EmitDefaultValue = true)]
+        public string CustomSubtitle { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +131,8 @@ namespace FactSet.SDK.UniversalScreening.Model
             sb.Append("  ApplyAlternateRowShading: ").Append(ApplyAlternateRowShading).Append("\n");
             sb.Append("  ApplyExcelOutlining: ").Append(ApplyExcelOutlining).Append("\n");
             sb.Append("  CondenseTabsToOneSheet: ").Append(CondenseTabsToOneSheet).Append("\n");
+            sb.Append("  CustomTitle: ").Append(CustomTitle).Append("\n");
+            sb.Append("  CustomSubtitle: ").Append(CustomSubtitle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +197,16 @@ namespace FactSet.SDK.UniversalScreening.Model
                     this.CondenseTabsToOneSheet == input.CondenseTabsToOneSheet ||
                     (this.CondenseTabsToOneSheet != null &&
                     this.CondenseTabsToOneSheet.Equals(input.CondenseTabsToOneSheet))
+                ) && 
+                (
+                    this.CustomTitle == input.CustomTitle ||
+                    (this.CustomTitle != null &&
+                    this.CustomTitle.Equals(input.CustomTitle))
+                ) && 
+                (
+                    this.CustomSubtitle == input.CustomSubtitle ||
+                    (this.CustomSubtitle != null &&
+                    this.CustomSubtitle.Equals(input.CustomSubtitle))
                 );
         }
 
@@ -212,6 +242,14 @@ namespace FactSet.SDK.UniversalScreening.Model
                 if (this.CondenseTabsToOneSheet != null)
                 {
                     hashCode = (hashCode * 59) + this.CondenseTabsToOneSheet.GetHashCode();
+                }
+                if (this.CustomTitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomTitle.GetHashCode();
+                }
+                if (this.CustomSubtitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomSubtitle.GetHashCode();
                 }
                 return hashCode;
             }

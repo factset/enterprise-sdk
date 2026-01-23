@@ -79,7 +79,8 @@ namespace FactSet.SDK.UniversalScreening.Model
         /// <param name="backtestDate">Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use..</param>
         /// <param name="globalVariablesMap">Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty..</param>
         /// <param name="legacyUniverseType">Universe type to open a Screen 1.0 document (.usscreen) with\\ &#x60;equity&#x60;: Uses the equity universe from the Screen 1.0 document.\\ &#x60;debt&#x60;: Uses the debt universe from the Screen 1.0 document.\\ &#x60;fund&#x60;: Uses the fund universe from the Screen 1.0 document. (default to LegacyUniverseTypeEnum.Equity).</param>
-        public ScreenExportParametersData(string screenName, Object file,string backtestDate = default(string), Dictionary<string, string> globalVariablesMap = default(Dictionary<string, string>), LegacyUniverseTypeEnum? legacyUniverseType = LegacyUniverseTypeEnum.Equity)
+        /// <param name="groupingInfo">groupingInfo.</param>
+        public ScreenExportParametersData(string screenName, Object file,string backtestDate = default(string), Dictionary<string, string> globalVariablesMap = default(Dictionary<string, string>), LegacyUniverseTypeEnum? legacyUniverseType = LegacyUniverseTypeEnum.Equity, GroupingInfo groupingInfo = default(GroupingInfo))
         {
             // to ensure "screenName" is required (not null)
             if (screenName == null) {
@@ -94,6 +95,7 @@ namespace FactSet.SDK.UniversalScreening.Model
             this.BacktestDate = backtestDate;
             this.GlobalVariablesMap = globalVariablesMap;
             this.LegacyUniverseType = legacyUniverseType;
+            this.GroupingInfo = groupingInfo;
         }
 
         /// <summary>
@@ -125,6 +127,12 @@ namespace FactSet.SDK.UniversalScreening.Model
         public Dictionary<string, string> GlobalVariablesMap { get; set; }
 
         /// <summary>
+        /// Gets or Sets GroupingInfo
+        /// </summary>
+        [DataMember(Name = "groupingInfo", EmitDefaultValue = true)]
+        public GroupingInfo GroupingInfo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,6 +145,7 @@ namespace FactSet.SDK.UniversalScreening.Model
             sb.Append("  BacktestDate: ").Append(BacktestDate).Append("\n");
             sb.Append("  GlobalVariablesMap: ").Append(GlobalVariablesMap).Append("\n");
             sb.Append("  LegacyUniverseType: ").Append(LegacyUniverseType).Append("\n");
+            sb.Append("  GroupingInfo: ").Append(GroupingInfo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +205,11 @@ namespace FactSet.SDK.UniversalScreening.Model
                 (
                     this.LegacyUniverseType == input.LegacyUniverseType ||
                     this.LegacyUniverseType.Equals(input.LegacyUniverseType)
+                ) && 
+                (
+                    this.GroupingInfo == input.GroupingInfo ||
+                    (this.GroupingInfo != null &&
+                    this.GroupingInfo.Equals(input.GroupingInfo))
                 );
         }
 
@@ -225,6 +239,10 @@ namespace FactSet.SDK.UniversalScreening.Model
                     hashCode = (hashCode * 59) + this.GlobalVariablesMap.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.LegacyUniverseType.GetHashCode();
+                if (this.GroupingInfo != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupingInfo.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com/analytics/asset-cash-flow-proj
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDocumentDetails**](DocumentsApi.md#getDocumentDetails) | **GET** /documents/{documentPath} | Retrieve a document
+[**getDocuments**](DocumentsApi.md#getDocuments) | **GET** /documents | Gives all the ACFP documents in the given directory.
 [**postDocument**](DocumentsApi.md#postDocument) | **POST** /documents | Create new document based on existing document - Save as
 [**putDocument**](DocumentsApi.md#putDocument) | **PUT** /documents/{documentPath} | Update existing document - Save
 
@@ -100,6 +101,104 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Expected response, returns a list of all the documents and the directories. |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
 | **400** | Invalid path parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
+| **401** | Missing or invalid authentication |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  |
+| **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
+| **404** | 404 - Path not found |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
+| **429** | Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * Retry-After -  <br>  |
+| **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  |
+| **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  |
+
+
+## getDocuments
+
+> DocumentResponse getDocuments(directoryPath)
+
+Gives all the ACFP documents in the given directory.
+
+Provides the list of all documents in a specified directory
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.AssetCashFlowProjections.ApiClient;
+import com.factset.sdk.AssetCashFlowProjections.ApiException;
+import com.factset.sdk.AssetCashFlowProjections.Configuration;
+import com.factset.sdk.AssetCashFlowProjections.auth.*;
+import com.factset.sdk.AssetCashFlowProjections.models.*;
+import com.factset.sdk.AssetCashFlowProjections.api.DocumentsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        DocumentsApi apiInstance = new DocumentsApi(defaultClient);
+        String directoryPath = "Client:/ACFP"; // String | The directory path to retrieve documents from.
+        try {
+            DocumentResponse result = apiInstance.getDocuments(directoryPath);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DocumentsApi#getDocuments");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **directoryPath** | **String**| The directory path to retrieve documents from. |
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Expected response, returns a list of all the documents and the directories. |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
+| **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
 | **401** | Missing or invalid authentication |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |
 | **404** | 404 - Path not found |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-FactSet-Api-RateLimit-Limit -  <br>  * X-FactSet-Api-RateLimit-Remaining -  <br>  * X-FactSet-Api-RateLimit-Reset -  <br>  |

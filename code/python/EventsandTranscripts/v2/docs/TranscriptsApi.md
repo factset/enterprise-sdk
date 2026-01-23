@@ -64,10 +64,10 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["ADT-US"] # [str] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-    start_date = dateutil_parser('2025-05-01').date() # date | Start Date (YYYY-MM-DD).  (optional)
-    end_date = dateutil_parser('2025-07-24').date() # date | End Date (YYYY-MM-DD).  (optional)
-    start_date_relative = 1 # int | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.*  (optional)
-    end_date_relative = 1 # int | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.*  (optional)
+    start_date = dateutil_parser('2025-05-01').date() # date | Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional)
+    end_date = dateutil_parser('2025-07-24').date() # date | End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional)
+    start_date_relative = 1 # int | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* - If dates are not provided, default will return all files.  (optional)
+    end_date_relative = 1 # int | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* - If dates are not provided, default will return all files.  (optional)
     categories = ["CN:US"] # [str] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional)
     time_zone = "America/New_York" # str | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones. (optional) if omitted the server will use the default value of "America/New_York"
     sort = ["-storyDateTime"] # [str] | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) if omitted the server will use the default value of ["-storyDateTime"]
@@ -92,10 +92,10 @@ with fds.sdk.EventsandTranscripts.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
- **start_date** | **date**| Start Date (YYYY-MM-DD).  | [optional]
- **end_date** | **date**| End Date (YYYY-MM-DD).  | [optional]
- **start_date_relative** | **int**| The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.*  | [optional]
- **end_date_relative** | **int**| The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.*  | [optional]
+ **start_date** | **date**| Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional]
+ **end_date** | **date**| End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional]
+ **start_date_relative** | **int**| The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional]
+ **end_date_relative** | **int**| The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional]
  **categories** | **[str]**| Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   | [optional]
  **time_zone** | **str**| Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. | [optional] if omitted the server will use the default value of "America/New_York"
  **sort** | **[str]**| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] if omitted the server will use the default value of ["-storyDateTime"]

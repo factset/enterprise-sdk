@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Security Explanation API
-  version: 1.4.0
+  version: 1.6.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/security-explanation-api
@@ -907,6 +907,7 @@ components:
           enum:
           - short
           - long
+          - ultraShort
           example: short
           type: string
         includePerformance:

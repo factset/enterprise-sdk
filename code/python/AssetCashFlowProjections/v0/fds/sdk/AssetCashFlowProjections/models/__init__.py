@@ -20,6 +20,8 @@ from fds.sdk.AssetCashFlowProjections.model.create_batch_job import CreateBatchJ
 from fds.sdk.AssetCashFlowProjections.model.create_batch_job_root import CreateBatchJobRoot
 from fds.sdk.AssetCashFlowProjections.model.create_new_document import CreateNewDocument
 from fds.sdk.AssetCashFlowProjections.model.create_new_document_root import CreateNewDocumentRoot
+from fds.sdk.AssetCashFlowProjections.model.document_response import DocumentResponse
+from fds.sdk.AssetCashFlowProjections.model.document_response_root import DocumentResponseRoot
 from fds.sdk.AssetCashFlowProjections.model.error_source import ErrorSource
 from fds.sdk.AssetCashFlowProjections.model.errors import Errors
 from fds.sdk.AssetCashFlowProjections.model.update_new_document import UpdateNewDocument

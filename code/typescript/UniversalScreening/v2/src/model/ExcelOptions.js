@@ -65,6 +65,12 @@ class ExcelOptions {
             if (data.hasOwnProperty('condenseTabsToOneSheet')) {
                 obj['condenseTabsToOneSheet'] = ApiClient.convertToType(data['condenseTabsToOneSheet'], 'Boolean');
             }
+            if (data.hasOwnProperty('customTitle')) {
+                obj['customTitle'] = ApiClient.convertToType(data['customTitle'], 'String');
+            }
+            if (data.hasOwnProperty('customSubtitle')) {
+                obj['customSubtitle'] = ApiClient.convertToType(data['customSubtitle'], 'String');
+            }
         }
         return obj;
     }
@@ -113,6 +119,18 @@ ExcelOptions.prototype['applyExcelOutlining'] = false;
  * @default false
  */
 ExcelOptions.prototype['condenseTabsToOneSheet'] = false;
+
+/**
+ * Sets a custom title for the download.
+ * @member {String} customTitle
+ */
+ExcelOptions.prototype['customTitle'] = undefined;
+
+/**
+ * Sets a custom subtitle for the download.
+ * @member {String} customSubtitle
+ */
+ExcelOptions.prototype['customSubtitle'] = undefined;
 
 
 

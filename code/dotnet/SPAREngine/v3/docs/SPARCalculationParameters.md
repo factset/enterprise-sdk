@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Benchmark** | [**SPARIdentifier**](SPARIdentifier.md) |  | [optional] 
 **Dates** | [**SPARDateParameters**](SPARDateParameters.md) |  | [optional] 
 **Currencyisocode** | **string** | Currency ISO code for calculation. | [optional] 
-**Universeid** | **string** | Universe ID code for calculation. | [optional] 
+**Universeid** | **string** | Universe ID code for calculation. Can be fetched from peer universe endpoint(/analytics/engines/spar/v3/peer-universe) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

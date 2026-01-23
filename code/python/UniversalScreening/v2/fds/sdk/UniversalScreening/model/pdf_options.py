@@ -86,6 +86,8 @@ class PdfOptions(ModelNormal):
             'apply_filters': (bool, none_type,),  # noqa: E501
             'apply_text_wrapping': (bool, none_type,),  # noqa: E501
             'orientation_landscape': (bool, none_type,),  # noqa: E501
+            'custom_title': (str, none_type,),  # noqa: E501
+            'custom_subtitle': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +100,8 @@ class PdfOptions(ModelNormal):
         'apply_filters': 'applyFilters',  # noqa: E501
         'apply_text_wrapping': 'applyTextWrapping',  # noqa: E501
         'orientation_landscape': 'orientationLandscape',  # noqa: E501
+        'custom_title': 'customTitle',  # noqa: E501
+        'custom_subtitle': 'customSubtitle',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +149,8 @@ class PdfOptions(ModelNormal):
             apply_filters (bool, none_type): Specifies whether the filters present in the screen should be applied to the output. By default, this option is set to false, which means that filters will not be applied and all securities passing the screen will be included in the output.. [optional] if omitted the server will use the default value of False  # noqa: E501
             apply_text_wrapping (bool, none_type): Specifies that the text in cells be wrapped if there are more characters than can fit in the space available. By default, this option is set to true.. [optional] if omitted the server will use the default value of True  # noqa: E501
             orientation_landscape (bool, none_type): Specifies the page orientation of the downloaded file. Value true for Landscape, false for Portrait. By default this is set to false.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            custom_title (str, none_type): Sets a custom title for the download.. [optional]  # noqa: E501
+            custom_subtitle (str, none_type): Sets a custom subtitle for the download.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,6 +236,8 @@ class PdfOptions(ModelNormal):
             apply_filters (bool, none_type): Specifies whether the filters present in the screen should be applied to the output. By default, this option is set to false, which means that filters will not be applied and all securities passing the screen will be included in the output.. [optional] if omitted the server will use the default value of False  # noqa: E501
             apply_text_wrapping (bool, none_type): Specifies that the text in cells be wrapped if there are more characters than can fit in the space available. By default, this option is set to true.. [optional] if omitted the server will use the default value of True  # noqa: E501
             orientation_landscape (bool, none_type): Specifies the page orientation of the downloaded file. Value true for Landscape, false for Portrait. By default this is set to false.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            custom_title (str, none_type): Sets a custom title for the download.. [optional]  # noqa: E501
+            custom_subtitle (str, none_type): Sets a custom subtitle for the download.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

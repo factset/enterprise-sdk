@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import GroupingInfo from './GroupingInfo';
 
 /**
  * The ScreenExportParametersData model module.
@@ -66,6 +67,9 @@ class ScreenExportParametersData {
             if (data.hasOwnProperty('legacyUniverseType')) {
                 obj['legacyUniverseType'] = ApiClient.convertToType(data['legacyUniverseType'], 'String');
             }
+            if (data.hasOwnProperty('groupingInfo')) {
+                obj['groupingInfo'] = GroupingInfo.constructFromObject(data['groupingInfo']);
+            }
         }
         return obj;
     }
@@ -103,6 +107,11 @@ ScreenExportParametersData.prototype['globalVariablesMap'] = undefined;
  * @default 'equity'
  */
 ScreenExportParametersData.prototype['legacyUniverseType'] = 'equity';
+
+/**
+ * @member {module:model/GroupingInfo} groupingInfo
+ */
+ScreenExportParametersData.prototype['groupingInfo'] = undefined;
 
 
 

@@ -491,7 +491,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -946,7 +946,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -1228,7 +1228,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -1582,7 +1582,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -1920,7 +1920,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** =  50 per both non-batch request and batch request*</p> *<p>Make
+          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -5972,8 +5972,8 @@ components:
     idsBatchMax50:
       description: The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs limit**
-        =  50 per both non-batch request and batch request*</p> *<p>Make note, GET
-        Method URL request lines are also limited to a total length of 8192 bytes
+        = 50 per non-batch request and 1000 per batch request*</p> *<p>Make note,
+        GET Method URL request lines are also limited to a total length of 8192 bytes
         (8KB). In cases where the service allows for thousands of IDs, which may lead
         to exceeding this request line limit of 8KB, it's advised for any requests
         with large request lines to be requested through the respective "POST" method.</p>*
@@ -7715,7 +7715,7 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
           example:
           - AAPL-US
           items:
@@ -7876,7 +7876,7 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
           example:
           - AAPL-US
           items:
@@ -7973,7 +7973,7 @@ components:
       type: object
     IdsMax50:
       description: |
-        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
       example:
       - AAPL-US
       items:
@@ -8011,7 +8011,7 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
           example:
           - AAPL-US
           items:
@@ -8216,7 +8216,7 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
           example:
           - AAPL-US
           items:
@@ -8798,7 +8798,7 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
           example:
           - AAPL-US
           items:

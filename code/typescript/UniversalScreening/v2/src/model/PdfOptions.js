@@ -59,6 +59,12 @@ class PdfOptions {
             if (data.hasOwnProperty('orientationLandscape')) {
                 obj['orientationLandscape'] = ApiClient.convertToType(data['orientationLandscape'], 'Boolean');
             }
+            if (data.hasOwnProperty('customTitle')) {
+                obj['customTitle'] = ApiClient.convertToType(data['customTitle'], 'String');
+            }
+            if (data.hasOwnProperty('customSubtitle')) {
+                obj['customSubtitle'] = ApiClient.convertToType(data['customSubtitle'], 'String');
+            }
         }
         return obj;
     }
@@ -93,6 +99,18 @@ PdfOptions.prototype['applyTextWrapping'] = true;
  * @default false
  */
 PdfOptions.prototype['orientationLandscape'] = false;
+
+/**
+ * Sets a custom title for the download.
+ * @member {String} customTitle
+ */
+PdfOptions.prototype['customTitle'] = undefined;
+
+/**
+ * Sets a custom subtitle for the download.
+ * @member {String} customSubtitle
+ */
+PdfOptions.prototype['customSubtitle'] = undefined;
 
 
 

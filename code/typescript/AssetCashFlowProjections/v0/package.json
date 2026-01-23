@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-assetcashflowprojections",
-  "version": "0.11.2",
+  "version": "0.12.0",
   "description": "Asset Cash Flow Projections client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

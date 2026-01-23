@@ -493,6 +493,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     screen_calc_parameters = ScreenCalcParameters(
+        meta=CalculateMetadata(
+            sort=["#P.P1","-#P.P2"],
+        ),
         data=ScreenCalcParametersData(
             backtest_date="20040412",
             global_variables_map={
@@ -600,6 +603,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     screen_export_parameters = ScreenExportParameters(
+        meta=CalculateMetadata(
+            sort=["#P.P1","-#P.P2"],
+        ),
         data=ScreenExportParametersData(
             screen_name="SAMPLE_SCREENS:KPI_AIR.USWEB",
             file=None,
@@ -608,6 +614,10 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
                 "key": "key_example",
             },
             legacy_universe_type="equity",
+            grouping_info=GroupingInfo(
+                grouping_state="EXPAND_ALL",
+                custom_grouping=["MY_SECTOR","MY_INDUSTRY"],
+            ),
         ),
     ) # ScreenExportParameters | Data required for an export request (optional)
 

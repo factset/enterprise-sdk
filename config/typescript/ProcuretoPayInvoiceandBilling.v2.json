@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-procuretopayinvoiceandbilling",
+  "projectVersion": "0.2.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Procure to Pay: Invoice and Billing client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "procuretopayinvoiceandbilling",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/ProcuretoPayInvoiceandBilling/0.2.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

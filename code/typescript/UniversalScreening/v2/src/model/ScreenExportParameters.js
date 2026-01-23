@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CalculateMetadata from './CalculateMetadata';
 import ScreenExportParametersData from './ScreenExportParametersData';
 
 /**
@@ -50,6 +51,9 @@ class ScreenExportParameters {
         if (data) {
             obj = obj || new ScreenExportParameters();
 
+            if (data.hasOwnProperty('meta')) {
+                obj['meta'] = CalculateMetadata.constructFromObject(data['meta']);
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ScreenExportParametersData.constructFromObject(data['data']);
             }
@@ -59,6 +63,11 @@ class ScreenExportParameters {
 
 
 }
+
+/**
+ * @member {module:model/CalculateMetadata} meta
+ */
+ScreenExportParameters.prototype['meta'] = undefined;
 
 /**
  * @member {module:model/ScreenExportParametersData} data

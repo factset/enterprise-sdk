@@ -88,6 +88,8 @@ class ExcelOptions(ModelNormal):
             'apply_alternate_row_shading': (bool, none_type,),  # noqa: E501
             'apply_excel_outlining': (bool, none_type,),  # noqa: E501
             'condense_tabs_to_one_sheet': (bool, none_type,),  # noqa: E501
+            'custom_title': (str, none_type,),  # noqa: E501
+            'custom_subtitle': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +104,8 @@ class ExcelOptions(ModelNormal):
         'apply_alternate_row_shading': 'applyAlternateRowShading',  # noqa: E501
         'apply_excel_outlining': 'applyExcelOutlining',  # noqa: E501
         'condense_tabs_to_one_sheet': 'condenseTabsToOneSheet',  # noqa: E501
+        'custom_title': 'customTitle',  # noqa: E501
+        'custom_subtitle': 'customSubtitle',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +155,8 @@ class ExcelOptions(ModelNormal):
             apply_alternate_row_shading (bool, none_type): Specifies whether every other row shading should be applied to the output. By default, this option is set to false, which means that every other row shading will not be included in the download.. [optional] if omitted the server will use the default value of False  # noqa: E501
             apply_excel_outlining (bool, none_type): Specifies that the Download Outline feature will be used when putting the screen's groupings into an Excel spreadsheet. By default, this option is set to false.. [optional] if omitted the server will use the default value of False  # noqa: E501
             condense_tabs_to_one_sheet (bool, none_type): Specifies whether the report will be downloaded into a single spreadsheet, or into separate sheets following the tabs in the report. By default, this option is set to false.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            custom_title (str, none_type): Sets a custom title for the download.. [optional]  # noqa: E501
+            custom_subtitle (str, none_type): Sets a custom subtitle for the download.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,6 +244,8 @@ class ExcelOptions(ModelNormal):
             apply_alternate_row_shading (bool, none_type): Specifies whether every other row shading should be applied to the output. By default, this option is set to false, which means that every other row shading will not be included in the download.. [optional] if omitted the server will use the default value of False  # noqa: E501
             apply_excel_outlining (bool, none_type): Specifies that the Download Outline feature will be used when putting the screen's groupings into an Excel spreadsheet. By default, this option is set to false.. [optional] if omitted the server will use the default value of False  # noqa: E501
             condense_tabs_to_one_sheet (bool, none_type): Specifies whether the report will be downloaded into a single spreadsheet, or into separate sheets following the tabs in the report. By default, this option is set to false.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            custom_title (str, none_type): Sets a custom title for the download.. [optional]  # noqa: E501
+            custom_subtitle (str, none_type): Sets a custom subtitle for the download.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

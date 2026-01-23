@@ -1,0 +1,938 @@
+openapi: 3.0.0
+info:
+  title: Procure to Pay - Invoicing & Billing
+  version: 2.0.0
+  description: API for retrieving invoice details
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://api.factset.com/procure-to-pay/invoice-and-billing/v2
+    description: Production Environment
+  - url: https://api.uat.factset.com/procure-to-pay/invoice-and-billing/v2
+    description: UAT environment
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/invoice-and-billing
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Invoice and Billing
+    description: FactSet's Invoice and Billing API
+paths:
+  /accounts:
+    get:
+      operationId: listAccounts
+      tags:
+        - Invoice and Billing
+      summary: Returns a list of available accounts
+      description: >-
+        Returns a list of accounts containing information such as AccountName
+        and AccountId.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accounts'
+              example:
+                data:
+                  - accountName: Acme Co. LLC
+                    accountId: AB2C
+        '401':
+          description: Unauthorized - Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Unauthorized access
+                    title: FactSet credentials are missing or invalid.
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Forbidden
+                    title: Insufficient permissions.
+        '404':
+          description: Not Found - Accounts does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Not Found
+                    title: No accounts found.
+        '500':
+          description: Internal Server Error - An unexpected error occurred on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Internal Server Error
+                    title: An unexpected error occurred on the server.
+  /invoices/{id}/download:
+    get:
+      operationId: downloadInvoice
+      tags:
+        - Invoice and Billing
+      summary: Get a PDF of the provided invoiceId
+      description: >-
+        Returns and downloads .PDF invoice by provided invoiceId.
+        <b>InvoiceId</b> is determined by concatenating the AccountId and
+        2-Digit date, representing year and 2-Digit month. E.G. For the December
+        2023 Invoice the invoiceId would be: AB2C2312
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Concatenation of AccountID and Date as YYMM
+          schema:
+            type: string
+          example: AB2C2503
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+                example: attachment; filename="report.pdf"
+            Content-Type:
+              schema:
+                type: string
+                example: application/pdf
+        '401':
+          description: Unauthorized - Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Unauthorized access
+                    title: FactSet credentials are missing or invalid.
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Forbidden
+                    title: Insufficient permissions.
+        '404':
+          description: Not Found - Invoice ID does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Not Found
+                    title: No accounts found.
+        '500':
+          description: Internal Server Error - An unexpected error occurred on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Internal Server Error
+                    title: An unexpected error occurred on the server.
+  /invoices/{id}:
+    get:
+      operationId: invoiceDetails
+      tags:
+        - Invoice and Billing
+      summary: Get invoice details
+      description: >-
+        Returns a machine readable invoice report by provided invoiceId.
+        <b>InvoiceId</b> is determined by concatenating the AccountId and 
+        2-Digit date, representing year and 2-Digit month. E.G. For the December
+        2023 Invoice the invoiceId would be: AB2C2312
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Concatenation of AccountID and Date as YYMM
+          example: AB2C2503
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+              example:
+                data:
+                  invoiceTitle: Invoice Of Services
+                  invoiceId: '00000000'
+                  invoiceDate: '2021-06-15T14:30:00Z'
+                  accountId: '0000'
+                  companyName: FIDELITY INVESTMENTS
+                  servicesRenderedCompanyName: ''
+                  startPeriod: '2022-03-01T00:00:00Z'
+                  endPeriod: '2022-03-31T00:00:00Z'
+                  currencyId: USD
+                  currencySymbol: $
+                  openingBalance: 31.6
+                  billingAdjustmentsTotal: 12.05
+                  tax: 12.42
+                  closingBalance: 11.62
+                  serviceDetails:
+                    serviceDetail:
+                      - accountId: '0000'
+                        invoiceId: '00000000'
+                        productId: 0
+                        quantity: 1
+                        displayName: Supply Chain Enhanced with Audit Trail
+                        unitPrice: 11.67
+                        discount: 0
+                        lastMonthAdd: false
+                  nonRecurringDetails:
+                    nonRecurringDetail:
+                      - accountId: '0000'
+                        invoiceId: '00000000'
+                        productId: 0
+                        quantity: 1
+                        displayName: Supply Chain Enhanced with Audit Trail
+                        unitPrice: 11.67
+                        discount: 0
+                        lastMonthAdd: false
+                  taxDetails:
+                    - services: 123.18
+                      tax: 12.42
+                      allocationPercent: 100
+                      taxRate: 0.0625
+                      taxZone: MA
+                      currencySymbol: $
+                      conversionRatio: 1
+                      ukExchangeRate: 0.44
+                      taxid: ''
+                  billingAddressDetails:
+                    - invoiceContactId: 0
+                      invoiceId: XXXX
+                      contactId: 0
+                      firstName: Admin Team
+                      middleName: ''
+                      lastName: ''
+                      suffix: ''
+                      address1: Mailzone
+                      address2: ''
+                      address3: ''
+                      city: Boston
+                      regionCode: MA
+                      countryCode: US
+                      postCode: '55555'
+                      companyName: Management
+                      emailAddress: USER@email.com
+                  statementOfAccountDetails:
+                    - date: '2021-12-31T00:00:00Z'
+                      agingDate: '2021-12-31T00:00:00Z'
+                      documentTypeId: SB
+                      amount: 34.11
+                      description: Starting Balance (December 31 2021)
+                  subscriptionChanges:
+                    subscriptionChange:
+                      - orderDate: null
+                        orderId: null
+                        orderType: ''
+                        productId: -1
+                        productName: February 2022 Billed Services
+                        serial: ''
+                        individual: ''
+                        quantity: 1
+                        amount: 22.81
+                        discountAmount: -21.5
+                        subTotalAmount: 14.31
+                        lastMonthAdd: false
+                  notes:
+                    - Product is taxable in the State of Massachusetts
+                  billingAdjustments:
+                    - description: Credit for February 2022
+                      date: '2022-03-01T00:00:00Z'
+                      services: -10
+                      taxes: -8.13
+                      fees: 0
+                      currencySymbol: $
+                      conversionRatio: 0
+        '401':
+          description: Unauthorized - Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Unauthorized access
+                    title: FactSet credentials are missing or invalid.
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Forbidden
+                    title: Insufficient permissions.
+        '404':
+          description: Not Found - Invoice ID does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Not Found
+                    title: No accounts found.
+        '500':
+          description: Internal Server Error - An unexpected error occurred on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Internal Server Error
+                    title: An unexpected error occurred on the server.
+  /invoices/{id}/fits-report:
+    get:
+      operationId: fitsReport
+      tags:
+        - Invoice and Billing
+      summary: Get FITS report
+      description: >-
+        Returns machine readable FITS report by provided fitsId. <b>fitsId</b>
+        is determined by concatenating the AccountId and 2-Digit date,
+        representing year and 2-Digit month. E.G. For the December 2023 Invoice
+        the fitsId would be: AB2C2312.         All prices in the report are
+        provided without currency information. For currency details, please
+        refer to the '/invoices/{id}' endpoint.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Concatenation of AccountID and Date as YYMM
+          example: AB2C2503
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductGroups'
+              example:
+                data:
+                  - productGroup: Base
+                    products:
+                      - productId: 132
+                        productName: Company Explorer
+                        productSubGroup: Base
+                        quantity: '0'
+                        priceTotal: '0'
+                        discountTotal: '0'
+                        recurring: true
+                      - productId: 132
+                        productName: Company Explorer
+                        productSubGroup: Base2
+                        quantity: '0'
+                        priceTotal: '0'
+                        discountTotal: '0'
+                        recurring: true
+                        products:
+                          - username: FO
+                            serial: ''
+                            user: ''
+                            averageCost: '0.00'
+                            location: ''
+                            position: ''
+                            division: ''
+                            recurring: true
+                            trial: 'No'
+                            email: validuser@email.com
+                          - username: F1
+                            serial: ''
+                            user: ''
+                            averageCost: '0.00'
+                            location: ''
+                            position: ''
+                            division: ''
+                            recurring: true
+                            trial: 'No'
+                            email: validuser2@email.com
+                  - productGroup: Constituents
+                    products:
+                      - productId: 132
+                        productName: Company Explorer
+                        productSubGroup: Constituents
+                        quantity: '0'
+                        priceTotal: '0'
+                        discountTotal: '0'
+                        recurring: true
+                      - productId: 132
+                        productName: Company Explorer
+                        productSubGroup: Constituents2
+                        quantity: '0'
+                        priceTotal: '0'
+                        discountTotal: '0'
+                        recurring: true
+                        products:
+                          - username: FO
+                            serial: ''
+                            user: ''
+                            averageCost: '0.00'
+                            location: ''
+                            position: ''
+                            division: ''
+                            recurring: true
+                            trial: 'No'
+                            email: validuser3@email.com
+                          - username: F1
+                            serial: ''
+                            user: ''
+                            averageCost: '0.00'
+                            location: ''
+                            position: ''
+                            division: ''
+                            recurring: true
+                            trial: 'No'
+                            email: validuser4@email.com
+        '401':
+          description: Unauthorized - Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Unauthorized access
+                    title: FactSet credentials are missing or invalid.
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Forbidden
+                    title: Insufficient permissions.
+        '404':
+          description: Not Found - fits ID does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Not Found
+                    title: No accounts found.
+        '500':
+          description: Internal Server Error - An unexpected error occurred on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - id: 123e4567-e89b-12d3-a456-426614174000
+                    code: Internal Server Error
+                    title: An unexpected error occurred on the server.
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    Invoice:
+      type: object
+      description: Machine Readable version of invoice
+      properties:
+        data:
+          type: object
+          description: Contains invoice details
+          properties:
+            invoiceTitle:
+              type: string
+              description: Invoice Title
+            invoiceId:
+              type: string
+              description: Concatenation of AccountID and Date as YYMM
+            invoiceDate:
+              type: string
+              format: date-time
+              description: Invoice issue date
+            accountId:
+              type: string
+              description: Unique Invoice Reference
+            companyName:
+              type: string
+              description: Business Name
+            servicesRenderedCompanyName:
+              type: string
+              description: TBD
+            startPeriod:
+              type: string
+              format: date-time
+              description: Billing period start date
+            endPeriod:
+              type: string
+              format: date-time
+              description: Billing period end date
+            currencyId:
+              type: string
+              description: Invoice currency type
+            currencySymbol:
+              type: string
+              description: Invoice currency symbol
+            openingBalance:
+              type: number
+              description: I
+            billingAdjustmentsTotal:
+              type: number
+              description: Credits applied to invoice
+            tax:
+              type: number
+              description: Taxes applied to invoice
+            closingBalance:
+              type: number
+              description: TBD
+            serviceDetails:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceDetail'
+              description: Billable line items
+            nonRecurringDetails:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceDetail'
+              description: Non Recurring billable line items
+            taxDetails:
+              type: array
+              items:
+                $ref: '#/components/schemas/TaxDetail'
+              description: TBD
+            billingAddressDetails:
+              type: array
+              items:
+                $ref: '#/components/schemas/BillingAddress'
+              description: Mailing address for invoice
+            statementOfAccountDetails:
+              type: array
+              items:
+                $ref: '#/components/schemas/StatementOfAccount'
+              description: TBD
+            subscriptionChanges:
+              description: Contains subscription change details.
+              type: object
+              maxProperties: 10
+              additionalProperties:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubscriptionChange'
+            notes:
+              type: array
+              items:
+                type: string
+              description: Account notes
+            billingAdjustments:
+              type: array
+              items:
+                $ref: '#/components/schemas/BillingAdjustment'
+              description: TBD
+    Accounts:
+      description: Lists available accounts
+      type: object
+      properties:
+        data:
+          type: array
+          description: A collection of AccountDetail objects.
+          items:
+            $ref: '#/components/schemas/AccountDetail'
+          example:
+            - accountName: Acme Co. LLC
+              accountId: AB2C
+    AccountDetail:
+      description: Details of Accounts
+      type: object
+      properties:
+        accountName:
+          type: string
+          description: Line of business
+        accountId:
+          type: string
+          description: Unique Account Id
+    ServiceDetail:
+      description: Details of services
+      type: object
+      properties:
+        accountId:
+          type: string
+          description: Unique Invoice Reference
+        invoiceId:
+          type: string
+          description: Concatenation of AccountID and Date as YYMM
+        productId:
+          type: integer
+          format: int32
+          description: FactSet product identifier
+        quantity:
+          type: integer
+          format: int32
+          description: Quantity of entitlement
+        displayName:
+          type: string
+          description: ProductId name
+        unitPrice:
+          type: number
+          description: Cost per unit of product
+        discount:
+          type: number
+          description: Discount on item
+        lastMonthAdd:
+          type: boolean
+          description: True/false if the product it new to invoice as of this invoice
+    TaxDetail:
+      description: Details of the Tax
+      type: object
+      properties:
+        taxDetail:
+          type: string
+          description: TBD
+        services:
+          type: number
+          description: TBD
+        tax:
+          type: number
+          description: TBD
+        allocationPercent:
+          type: number
+          description: TBD
+        taxRate:
+          type: number
+          description: TBD
+        taxZone:
+          type: string
+          description: TBD
+        currencySymbol:
+          type: string
+          description: TBD
+        conversionRatio:
+          type: number
+          description: TBD
+        ukExchangeRate:
+          type: number
+          description: TBD
+        taxid:
+          type: string
+          description: TBD
+    BillingAdjustment:
+      description: TBD
+      type: object
+      properties:
+        description:
+          type: string
+          description: TBD
+        date:
+          type: string
+          format: date-time
+          description: TBD
+        services:
+          type: number
+          description: TBD
+        taxes:
+          type: number
+          description: TBD
+        fees:
+          type: number
+          description: TBD
+        currencySymbol:
+          type: string
+          description: TBD
+        conversionRatio:
+          type: number
+          description: TBD
+    BillingAddress:
+      description: Billing address details and contact details
+      type: object
+      properties:
+        invoiceContactId:
+          description: TBD
+          type: integer
+        invoiceId:
+          type: string
+          description: Concatenation of AccountID and Date as YYMM
+        contactId:
+          type: integer
+          format: int32
+          description: TBD
+        firstName:
+          type: string
+          description: Contact's first name
+        middleName:
+          type: string
+          description: Contact's middle name
+        lastName:
+          type: string
+          description: Contact's last name
+        suffix:
+          type: string
+          description: Contact's suffix
+        address1:
+          type: string
+          description: Contact's mailing street address
+        address2:
+          type: string
+          description: Contact's mailing street address cont.
+        address3:
+          type: string
+          description: Contact's mailing street address cont.
+        city:
+          type: string
+          description: Contact's city
+        regionCode:
+          type: string
+          description: Contact's state/region
+        countryCode:
+          type: string
+          description: Contact's Country
+        postCode:
+          type: string
+          description: Contact's postal code
+        companyName:
+          type: string
+          description: Company Name associated with the invoice
+        emailAddress:
+          type: string
+          description: Contact's email address
+    StatementOfAccount:
+      type: object
+      description: Account summary and details
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: TBD
+        agingDate:
+          type: string
+          format: date-time
+          description: TBD
+        documentTypeId:
+          type: string
+          description: TBD
+        amount:
+          type: number
+          description: Total amount due for services rendered
+        description:
+          type: string
+          description: Invoice details, including AccountID and dates of service
+    SubscriptionChange:
+      type: object
+      description: List of new services, costs and details
+      properties:
+        orderDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: Day and time the new service was applied
+        orderId:
+          type: string
+          nullable: true
+          description: FactSet Order identifier
+        orderType:
+          type: string
+          description: TBD
+        productId:
+          type: integer
+          description: FactSet product identifier
+        productName:
+          type: string
+          description: Product's Name
+        serial:
+          type: string
+          description: Individul's serial number allocated product
+        individual:
+          type: string
+          description: TBD
+        quantity:
+          type: integer
+          description: Quantity of entitlement
+          format: int32
+        amount:
+          type: number
+          description: Total cost
+        discountAmount:
+          type: number
+          description: Any discount applied
+        subTotalAmount:
+          type: number
+          description: Subtotal
+        lastMonthAdd:
+          type: boolean
+          description: TBD
+    ProductGroups:
+      description: Lists available product groups by fitsId
+      type: object
+      properties:
+        data:
+          type: array
+          description: A list of product groups associated with the specified fitsId.
+          items:
+            $ref: '#/components/schemas/ProductGroup'
+    ProductGroup:
+      type: object
+      description: Product details
+      properties:
+        productGroup:
+          type: string
+          description: FactSet group the product is a member of
+        products:
+          type: array
+          description: FactSet product identifiers
+          items:
+            $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      description: Product details
+      properties:
+        productId:
+          type: integer
+          description: FactSet product identifier
+        productName:
+          type: string
+          description: Product's Name
+        productSubGroup:
+          type: string
+          description: FactSet sub-group the product is a member of
+        quantity:
+          type: string
+          description: Quantity of product
+        priceTotal:
+          type: string
+          description: Total cost
+        discountTotal:
+          type: string
+          description: Any discounts applied
+        recurring:
+          type: boolean
+          description: Flag detailing if the item is billed monthly
+        products:
+          description: list of FactSet product identifiers
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductDetail'
+    ProductDetail:
+      description: Product details
+      type: object
+      properties:
+        username:
+          type: string
+          description: FactSet Username
+        serial:
+          type: string
+          description: FactSet account's serial number
+        user:
+          type: string
+          description: TBD
+        averageCost:
+          type: string
+          description: TBD
+        location:
+          type: string
+          description: FactSet location identifier
+        position:
+          type: string
+          description: User's Position
+        division:
+          type: string
+          description: User's division
+        recurring:
+          type: boolean
+          description: Flag detailing if the item is billed monthly
+        trial:
+          type: string
+          description: Trial end date
+        email:
+          type: string
+          description: email address
+    ErrorResponse:
+      type: object
+      description: Standard error response structure.
+      properties:
+        errors:
+          type: array
+          description: An array containing error details.
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      description: Detailed information about an individual error.
+      required:
+        - id
+        - code
+        - title
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the error instance.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        code:
+          type: string
+          description: Standardized error code.
+          example: INVALID_REQUEST
+        title:
+          type: string
+          description: A short, human-readable summary of the error.
+          example: Invalid request

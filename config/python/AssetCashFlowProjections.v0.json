@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.AssetCashFlowProjections",
   "projectName": "fds.sdk.AssetCashFlowProjections",
-  "packageVersion": "0.10.3",
+  "packageVersion": "0.11.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Asset Cash Flow Projections client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/AssetCashFlowProjections/v0",
-  "httpUserAgent": "fds-sdk/python/AssetCashFlowProjections/0.10.3",
+  "httpUserAgent": "fds-sdk/python/AssetCashFlowProjections/0.11.0",
   "files": {
     "LICENSE": {}
   }

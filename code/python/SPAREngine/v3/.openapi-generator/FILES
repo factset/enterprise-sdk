@@ -47,6 +47,10 @@ docs/SPARComponentIdentifier.md
 docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
+docs/SPARPeerUniverseApi.md
+docs/SPARPeerUniverseListResponse.md
+docs/SPARPeerUniverseResponseItem.md
+docs/SPARPeerUniverseRoot.md
 fds/__init__.py
 fds/sdk/SPAREngine/__init__.py
 fds/sdk/SPAREngine/api/__init__.py
@@ -57,6 +61,7 @@ fds/sdk/SPAREngine/api/currencies_api.py
 fds/sdk/SPAREngine/api/documents_api.py
 fds/sdk/SPAREngine/api/frequencies_api.py
 fds/sdk/SPAREngine/api/spar_calculations_api.py
+fds/sdk/SPAREngine/api/spar_peer_universe_api.py
 fds/sdk/SPAREngine/api_client.py
 fds/sdk/SPAREngine/apis/__init__.py
 fds/sdk/SPAREngine/configuration.py
@@ -98,6 +103,9 @@ fds/sdk/SPAREngine/model/spar_component_identifier.py
 fds/sdk/SPAREngine/model/spar_component_root.py
 fds/sdk/SPAREngine/model/spar_date_parameters.py
 fds/sdk/SPAREngine/model/spar_identifier.py
+fds/sdk/SPAREngine/model/spar_peer_universe_list_response.py
+fds/sdk/SPAREngine/model/spar_peer_universe_response_item.py
+fds/sdk/SPAREngine/model/spar_peer_universe_root.py
 fds/sdk/SPAREngine/model_utils.py
 fds/sdk/SPAREngine/models/__init__.py
 fds/sdk/SPAREngine/rest.py

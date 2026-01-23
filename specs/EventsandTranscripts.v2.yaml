@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Events and Transcripts API
-  version: 2.1.0
+  version: 2.2.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -1728,6 +1728,7 @@ components:
             - CN:CA
           startDate: '2025-07-01'
           endDate: '2025-07-10'
+          dateType: upload
           searchText: Welcome
         meta:
           pagination:
@@ -2488,6 +2489,8 @@ components:
             both.*
 
             - Data available from 10th May 2011 onwards.
+
+            - If dates are not provided, default will return all files.
           example: '2022-01-01'
         endDate:
           type: string
@@ -2499,6 +2502,8 @@ components:
 
             - *Either `endDate` or `endDateRelative` should be used, but not
             both.*
+
+            - If dates are not provided, default will return all files.
           example: '2022-06-01'
         startDateRelative:
           type: integer
@@ -2512,6 +2517,8 @@ components:
 
             - *Either `startDate` or `startDateRelative` should be used, but not
             both.*
+
+            - If dates are not provided, default will return all files.
           example: -3
         endDateRelative:
           type: integer
@@ -2525,6 +2532,8 @@ components:
 
             - *Either `endDate` or `endDateRelative` should be used, but not
             both.*
+
+            - If dates are not provided, default will return all files.
           example: -1
         audioSource:
           type: string
@@ -2697,33 +2706,39 @@ components:
           type: string
           format: date
           description: >
-            Start Date (YYYY-MM-DD). Data available from April 21st, 1999
+            -  Start Date (YYYY-MM-DD). Data available from April 21st, 1999
             onwards.
 
-            *Either `startDate` or `startDateRelative` should be used.*
+            - *Either `startDate` or `startDateRelative` should be used.*
+
+            - If dates are not provided, default will return all files.
+             
           example: '2023-12-22'
         endDate:
           type: string
           format: date
           description: |
-            End Date (YYYY-MM-DD).
-            *Either `endDate` or `endDateRelative` should be used.*
+            - End Date (YYYY-MM-DD).
+            - *Either `endDate` or `endDateRelative` should be used.*
+            - If dates are not provided, default will return all files.
           example: '2023-12-23'
         startDateRelative:
           type: integer
           format: int32
           maximum: 0
           description: |
-            Start date relative to today (0=today, -1=yesterday).
-            *Either `startDate` or `startDateRelative` should be used.*
+            - Start date relative to today (0=today, -1=yesterday).
+            - *Either `startDate` or `startDateRelative` should be used.*
+            - If dates are not provided, default will return all files.
           example: -3
         endDateRelative:
           type: integer
           format: int32
           maximum: 0
           description: |
-            End date relative to today (0=today, -1=yesterday).
-            *Either `endDate` or `endDateRelative` should be used.*
+            -  End date relative to today (0=today, -1=yesterday).
+            -  *Either `endDate` or `endDateRelative` should be used.*
+            -  If dates are not provided, default will return all files.  
           example: 0
         timeZone:
           type: string
@@ -2786,15 +2801,22 @@ components:
         startDate:
           type: string
           format: date
-          description: |
-            Start Date (YYYY-MM-DD).
+          description: >
+            Start Date (YYYY-MM-DD). If dates are not provided, default will
+            return all files.
           example: '2023-12-22'
         endDate:
           type: string
           format: date
-          description: |
-            End Date (YYYY-MM-DD).
+          description: >
+            End Date (YYYY-MM-DD). If dates are not provided, default will
+            return all files.
           example: '2023-12-23'
+        dateType:
+          type: string
+          description: |
+            Enables filtering of transcripts based on their uploadDateTime.
+          example: upload
         searchText:
           type: string
           description: Text to search for within the transcript document stories.
@@ -2808,14 +2830,16 @@ components:
         startDateTime:
           type: string
           format: date-time
-          description: |
-            The date from which data is required
+          description: >
+            The date from which data is required. If dates are not provided,
+            default will return all files.
           example: '2020-10-01T00:00:00Z'
         endDateTime:
           type: string
           format: date-time
-          description: |
-            The date to which data is required
+          description: >
+            The date to which data is required. If dates are not provided,
+            default will return all files.
           example: '2020-10-26T10:00:00Z'
     TranscriptsByEventsRequest:
       type: object
@@ -3654,7 +3678,7 @@ components:
                 - start
                 - end
               description: >
-                - Data is available from November 1st, 2022.
+                - Data is available from 2002.
 
                 - If users provide future dates in requests, the API will return
                 data between `start` and `end` up to 90 days.
@@ -3691,6 +3715,9 @@ components:
                 type:
                   type: string
                   description: >-
+                    * SEDOLs and ISINs are supported with the type Tickers.
+
+
                     * Tickers: Represents individual stock symbols, unique
                     identifiers for company shares.
 
@@ -3898,7 +3925,9 @@ components:
         fiscalYear:
           type: string
           example: '2023'
-          description: The fiscal year of the company to which the event pertains.
+          description: >-
+            The normalized fiscal year of the company to which the event
+            pertains.
         fiscalPeriod:
           type: string
           example: '1'
@@ -3955,8 +3984,9 @@ components:
       in: query
       name: startDate
       example: '2025-05-01'
-      description: |
-        Start Date (YYYY-MM-DD).
+      description: >
+        Start Date (YYYY-MM-DD). If dates are not provided, default will return
+        all files.
     endDate:
       schema:
         type: string
@@ -3964,8 +3994,9 @@ components:
       in: query
       name: endDate
       example: '2025-07-24'
-      description: |
-        End Date (YYYY-MM-DD).
+      description: >
+        End Date (YYYY-MM-DD). If dates are not provided, default will return
+        all files.
     startDateRelative:
       schema:
         type: integer
@@ -3981,6 +4012,8 @@ components:
 
         - *Either `startDate` or `startDateRelative` should be used, but not
         both.*
+
+        - If dates are not provided, default will return all files.
     endDateRelative:
       schema:
         type: integer
@@ -3995,6 +4028,8 @@ components:
         - Format: Integer (`0` for today, `-1` for yesterday, etc.).
 
         - *Either `endDate` or `endDateRelative` should be used, but not both.*
+
+        - If dates are not provided, default will return all files.
     ReportIds:
       schema:
         type: array

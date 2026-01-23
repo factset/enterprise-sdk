@@ -47,6 +47,10 @@ docs/SPARComponentIdentifier.md
 docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
+docs/SPARPeerUniverseApi.md
+docs/SPARPeerUniverseListResponse.md
+docs/SPARPeerUniverseResponseItem.md
+docs/SPARPeerUniverseRoot.md
 git_push.sh
 src/FactSet.SDK.SPAREngine/Api/AccountsApi.cs
 src/FactSet.SDK.SPAREngine/Api/BenchmarksApi.cs
@@ -55,6 +59,7 @@ src/FactSet.SDK.SPAREngine/Api/CurrenciesApi.cs
 src/FactSet.SDK.SPAREngine/Api/DocumentsApi.cs
 src/FactSet.SDK.SPAREngine/Api/FrequenciesApi.cs
 src/FactSet.SDK.SPAREngine/Api/SPARCalculationsApi.cs
+src/FactSet.SDK.SPAREngine/Api/SPARPeerUniverseApi.cs
 src/FactSet.SDK.SPAREngine/Client/ApiClient.cs
 src/FactSet.SDK.SPAREngine/Client/ApiException.cs
 src/FactSet.SDK.SPAREngine/Client/ApiResponse.cs
@@ -109,3 +114,6 @@ src/FactSet.SDK.SPAREngine/Model/SPARComponentIdentifier.cs
 src/FactSet.SDK.SPAREngine/Model/SPARComponentRoot.cs
 src/FactSet.SDK.SPAREngine/Model/SPARDateParameters.cs
 src/FactSet.SDK.SPAREngine/Model/SPARIdentifier.cs
+src/FactSet.SDK.SPAREngine/Model/SPARPeerUniverseListResponse.cs
+src/FactSet.SDK.SPAREngine/Model/SPARPeerUniverseResponseItem.cs
+src/FactSet.SDK.SPAREngine/Model/SPARPeerUniverseRoot.cs

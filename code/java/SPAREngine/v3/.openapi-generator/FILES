@@ -47,7 +47,11 @@ docs/SPARComponentIdentifier.md
 docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
+docs/SPARPeerUniverseListResponse.md
+docs/SPARPeerUniverseResponseItem.md
+docs/SPARPeerUniverseRoot.md
 docs/SparCalculationsApi.md
+docs/SparPeerUniverseApi.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -74,6 +78,7 @@ src/main/java/com/factset/sdk/SPAREngine/api/CurrenciesApi.java
 src/main/java/com/factset/sdk/SPAREngine/api/DocumentsApi.java
 src/main/java/com/factset/sdk/SPAREngine/api/FrequenciesApi.java
 src/main/java/com/factset/sdk/SPAREngine/api/SparCalculationsApi.java
+src/main/java/com/factset/sdk/SPAREngine/api/SparPeerUniverseApi.java
 src/main/java/com/factset/sdk/SPAREngine/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/SPAREngine/auth/Authentication.java
 src/main/java/com/factset/sdk/SPAREngine/auth/FactSetOAuth2ClientAuth.java
@@ -118,3 +123,6 @@ src/main/java/com/factset/sdk/SPAREngine/models/SPARComponentIdentifier.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARComponentRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARDateParameters.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARIdentifier.java
+src/main/java/com/factset/sdk/SPAREngine/models/SPARPeerUniverseListResponse.java
+src/main/java/com/factset/sdk/SPAREngine/models/SPARPeerUniverseResponseItem.java
+src/main/java/com/factset/sdk/SPAREngine/models/SPARPeerUniverseRoot.java

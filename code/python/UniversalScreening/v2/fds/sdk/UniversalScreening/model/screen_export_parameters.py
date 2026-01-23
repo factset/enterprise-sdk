@@ -31,7 +31,9 @@ from fds.sdk.UniversalScreening.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.UniversalScreening.model.calculate_metadata import CalculateMetadata
     from fds.sdk.UniversalScreening.model.screen_export_parameters_data import ScreenExportParametersData
+    globals()['CalculateMetadata'] = CalculateMetadata
     globals()['ScreenExportParametersData'] = ScreenExportParametersData
 
 
@@ -89,6 +91,7 @@ class ScreenExportParameters(ModelNormal):
         lazy_import()
         return {
             'data': (ScreenExportParametersData,),  # noqa: E501
+            'meta': (CalculateMetadata,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +101,7 @@ class ScreenExportParameters(ModelNormal):
 
     attribute_map = {
         'data': 'data',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +148,7 @@ class ScreenExportParameters(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            meta (CalculateMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,6 +234,7 @@ class ScreenExportParameters(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            meta (CalculateMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

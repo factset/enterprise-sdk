@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **EventId** | **string** | Unique identifier for the event. | [optional] 
 **WebcastLink** | **string** | Link to the webcast of the event. | [optional] 
 **IrLink** | **string** | Link to the ir page of the company. | [optional] 
-**FiscalYear** | **string** | The fiscal year of the company to which the event pertains. | [optional] 
+**FiscalYear** | **string** | The normalized fiscal year of the company to which the event pertains. | [optional] 
 **FiscalPeriod** | **string** | The fiscal period of the company to which the event pertains. | [optional] 
 **ContactEmail** | **string** | Contact email for inquiries related to the event. | [optional] 
 **ContactPhone** | **string** | Contact phone number for inquiries related to the event. | [optional] 

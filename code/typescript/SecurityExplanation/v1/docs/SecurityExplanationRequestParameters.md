@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 
 * `long` (value: `"long"`)
 
+* `ultraShort` (value: `"ultraShort"`)
+
 
 
 

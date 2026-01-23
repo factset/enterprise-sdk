@@ -1648,6 +1648,27 @@ components:
         Additional access required for this format.
       format: binary
       type: string
+    CalculateMetadata:
+      description: Generic options that can be applied to endpoint output.
+      example:
+        sort:
+        - '#P.P1'
+        - -#P.P2
+      properties:
+        sort:
+          description: |-
+            An array of parameter references to sort by to override the sort set in the screen document.
+            Format is "#P.<parameter_name>" for ascending sort, "-#P.<parameter_name>" for descending.
+            Will sort by references in order of appearance in the provided list, i.e. will sort first by
+            the 0th reference, then the 1st reference and so on. Limit of 7 references.
+          example:
+          - '#P.P1'
+          - -#P.P2
+          items:
+            type: string
+          maxItems: 7
+          type: array
+      type: object
     ScreenArchiveOFDBParameters:
       description: Request body for screen archive request
       example:
@@ -1683,10 +1704,21 @@ components:
           globalVariablesMap:
             key: globalVariablesMap
           file: '{}'
+          groupingInfo:
+            customGrouping:
+            - MY_SECTOR
+            - MY_INDUSTRY
+            groupingState: EXPAND_ALL
           screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
           legacyUniverseType: equity
           backtestDate: "20040412"
+        meta:
+          sort:
+          - '#P.P1'
+          - -#P.P2
       properties:
+        meta:
+          $ref: '#/components/schemas/CalculateMetadata'
         data:
           $ref: '#/components/schemas/ScreenExportParameters_data'
       required:
@@ -1701,7 +1733,13 @@ components:
           legacyUniverseType: equity
           screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
           backtestDate: "20040412"
+        meta:
+          sort:
+          - '#P.P1'
+          - -#P.P2
       properties:
+        meta:
+          $ref: '#/components/schemas/CalculateMetadata'
         data:
           $ref: '#/components/schemas/ScreenCalcParameters_data'
       required:
@@ -1819,6 +1857,16 @@ components:
           example: false
           nullable: true
           type: boolean
+        customTitle:
+          description: Sets a custom title for the download.
+          example: Custom Title
+          nullable: true
+          type: string
+        customSubtitle:
+          description: Sets a custom subtitle for the download.
+          example: Custom Subtitle
+          nullable: true
+          type: string
       type: object
     PdfOptions:
       description: Options applied to PDF output.
@@ -1858,6 +1906,51 @@ components:
           example: true
           nullable: true
           type: boolean
+        customTitle:
+          description: Sets a custom title for the download.
+          example: Custom Title
+          nullable: true
+          type: string
+        customSubtitle:
+          description: Sets a custom subtitle for the download.
+          example: Custom Subtitle
+          nullable: true
+          type: string
+      type: object
+    GroupingInfo:
+      description: Options for setting and displaying groups
+      example:
+        customGrouping:
+        - MY_SECTOR
+        - MY_INDUSTRY
+        groupingState: EXPAND_ALL
+      nullable: true
+      properties:
+        groupingState:
+          description: |-
+            Controls whether security data will be displayed or suppressed in the report output. The argument option specified will overwrite any group state saved in the screen.
+            SHOW_ALL_GROUPS - No security data is displayed. Only group titles, group statistics, and overall statistics are visible.
+            COLLAPSE_ALL - Only the highest-level group and overall statistics are visible.
+            EXPAND_ALL - Security data is displayed, along with all group titles, group statistics, and overall statistics.
+          enum:
+          - SHOW_ALL_GROUPS
+          - COLLAPSE_ALL
+          - EXPAND_ALL
+          example: EXPAND_ALL
+          nullable: true
+          type: string
+        customGrouping:
+          description: Specifies parameters to be used as the grouping for the securities
+            in your screen. The grouping specified will replace all groupings saved
+            in the screen. Limit of 7 parameters.
+          example:
+          - MY_SECTOR
+          - MY_INDUSTRY
+          items:
+            example: MY_SECTOR
+            type: string
+          maxItems: 7
+          type: array
       type: object
     ResourceStatusResponse_data:
       description: Information about the status of the long-running job.
@@ -2074,6 +2167,11 @@ components:
         globalVariablesMap:
           key: globalVariablesMap
         file: '{}'
+        groupingInfo:
+          customGrouping:
+          - MY_SECTOR
+          - MY_INDUSTRY
+          groupingState: EXPAND_ALL
         screenName: SAMPLE_SCREENS:KPI_AIR.USWEB
         legacyUniverseType: equity
         backtestDate: "20040412"
@@ -2132,6 +2230,8 @@ components:
           example: equity
           nullable: true
           type: string
+        groupingInfo:
+          $ref: '#/components/schemas/GroupingInfo'
       required:
       - file
       - screenName

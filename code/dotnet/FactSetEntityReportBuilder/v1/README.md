@@ -155,7 +155,7 @@ Please refer to the [contributing guide](../../../../CONTRIBUTING.md).
 
 ## Copyright
 
-Copyright 2025 FactSet Research Systems Inc
+Copyright 2026 FactSet Research Systems Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

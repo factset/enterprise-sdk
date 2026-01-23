@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **benchmark** | [**SPARIdentifier**](SPARIdentifier.md) |  | [optional] 
 **dates** | [**SPARDateParameters**](SPARDateParameters.md) |  | [optional] 
 **currencyisocode** | **String** | Currency ISO code for calculation. | [optional] 
-**universeid** | **String** | Universe ID code for calculation. | [optional] 
+**universeid** | **String** | Universe ID code for calculation. Can be fetched from peer universe endpoint(/analytics/engines/spar/v3/peer-universe) | [optional] 
 
 

@@ -2,7 +2,7 @@
 
 # CompanyEventRequestDataDateTime
 
-- Data is available from November 1st, 2022. - If users provide future dates in requests, the API will return data between `start` and `end` up to 90 days. 
+- Data is available from 2002. - If users provide future dates in requests, the API will return data between `start` and `end` up to 90 days. 
 
 ## Properties
 
