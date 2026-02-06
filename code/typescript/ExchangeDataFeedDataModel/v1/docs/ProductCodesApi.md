@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Request the enumeration table for FactSet product codes.
 
-Data can be returned in CSV, JSON or XML format, use the &#x60;format&#x60; parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for &#39;&#39;Try it Out&#39;&#39; to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
+Data can be returned in CSV, JSON or XML format, use the &#x60;format&#x60; parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API key](https://developer.factset.com/factset/api-key-listing)** for &#39;&#39;Try it Out&#39;&#39; to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
 
 ### Example
 
@@ -51,7 +51,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new ProductCodesApi();
 const opts = {
   'productCode': [9001,10001,10010], // [Number] | Allows filtering of specific product codes in the response.
-  'format': json // String | The format of the output file.
+  'format': json, // String | The format of the output file.
+  'accessFilter': "accessFilter_example" // String | Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list.
 };
 
 // Call api endpoint
@@ -76,6 +77,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productCode** | [**[Number]**](Number.md)| Allows filtering of specific product codes in the response. | [optional] 
  **format** | **String**| The format of the output file. | [optional] 
+ **accessFilter** | **String**| Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list. | [optional] 
 
 ### Return type
 

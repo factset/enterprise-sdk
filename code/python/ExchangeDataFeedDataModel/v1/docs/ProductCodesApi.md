@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Request the enumeration table for FactSet product codes.
 
-Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
+Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
 
 ### Example
 
@@ -62,12 +62,13 @@ with fds.sdk.ExchangeDataFeedDataModel.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     product_code = [9001,10001,10010] # [int] | Allows filtering of specific product codes in the response. (optional)
     format = "json" # str | The format of the output file. (optional)
+    access_filter = "anyAccess" # str | Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list. (optional)
 
     try:
         # Request the enumeration table for FactSet product codes.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_products(product_code=product_code, format=format)
+        api_response = api_instance.get_products(product_code=product_code, format=format, access_filter=access_filter)
 
         pprint(api_response)
 
@@ -82,6 +83,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product_code** | **[int]**| Allows filtering of specific product codes in the response. | [optional]
  **format** | **str**| The format of the output file. | [optional]
+ **access_filter** | **str**| Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list. | [optional]
 
 ### Return type
 
@@ -102,7 +104,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response for the FactSet product codes table |  -  |
-**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API key for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **402** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request length (currently set at 5000 bytes). The description field will indicate the exact reason. |  -  |
 **404** | The provided endpoint is not valid. |  -  |
 **500** | Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request. |  -  |

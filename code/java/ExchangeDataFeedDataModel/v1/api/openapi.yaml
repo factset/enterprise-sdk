@@ -4,23 +4,23 @@ info:
     email: api@factset.com
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
-  description: FactSet’s Real-time market data products provide access to consolidated
-    real-time and delayed global exchange data. Proprietary technology normalizes
+  description: FactSet’s Real-Time market data products provide access to consolidated
+    Real-Time and delayed global exchange data. Proprietary technology normalizes
     over 250 global venues, 18+ million instruments, and 150+ data fields. Asset types
     integrated include equities, futures, options, warrants, fixed income, mutual
     funds, ETFs, indices, commodities, and FX rates. Innovative technology ensures
     reliability and provides scalability that allows clients to make requests based
     on a symbol list or an exchange. Reduce development time by powering proprietary
     and third-party applications with exchange data from a unified data model. <p>The
-    Real-time Data Model API provides mappings for enumerations used in our Real-Time
+    Real-Time Data Model API provides mappings for enumerations used in our Real-Time
     DataFeed products and should be used in conjunction with the DataFeed Data Model
     documentation available for each product. <p>The initial version of this API is
-    limited to include mapping tables for the product codes and exchanges only.
+    limited to mapping tables for the product codes and exchanges only.
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Real-Time Data Model API
-  version: 1.1.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/exchange-datafeed-data-model-api
@@ -30,7 +30,7 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- description: Endpoints related to FactSet real-time market data venue product codes
+- description: Endpoints related to FactSet Real-Time market data venue product codes
   name: Product Codes
 - description: Endpoints containing metadata for the venues covered by FactSet
   name: Exchange Information
@@ -38,7 +38,7 @@ paths:
   /products:
     get:
       description: |
-        Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.
+        Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.
          Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.*
       operationId: getProducts
       parameters:
@@ -67,6 +67,19 @@ paths:
           - json
           - xml
           - csv
+          type: string
+        style: form
+      - description: Allows filtering based on Real-Time, delayed, or both access
+          types. **Omit** this parameter for the complete list.
+        explode: true
+        in: query
+        name: access_filter
+        required: false
+        schema:
+          enum:
+          - anyAccess
+          - realTime
+          - delayed
           type: string
         style: form
       responses:
@@ -99,7 +112,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
-            have successfully generated an API KEY for the IP range you are connecting
+            have successfully generated an API key for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
             this Developer Portal specification card and choose Connectivity 401 or
             403 Responses.
@@ -243,7 +256,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
-            have successfully generated an API KEY for the IP range you are connecting
+            have successfully generated an API key for the IP range you are connecting
             from. For more help, select the Report Issue in the top right corner of
             this Developer Portal specification card and choose Connectivity 401 or
             403 Responses.
@@ -304,10 +317,16 @@ components:
           products:
           - product_code: 9001
             description: New York Stock Exchange Level 1
+            realtime_access: false
+            delayed_access: true
           - product_code: 10001
             description: London Stock Exchange UK Domestic Level 1
+            realtime_access: false
+            delayed_access: true
           - product_code: 10010
             description: Euronext Paris Level 1 (Continental Equities)
+            realtime_access: false
+            delayed_access: true
     ExchangesSampleResponse:
       value:
         data:
@@ -367,6 +386,20 @@ components:
           type: integer
         type: array
       style: form
+    access_filter:
+      description: Allows filtering based on Real-Time, delayed, or both access types.
+        **Omit** this parameter for the complete list.
+      explode: true
+      in: query
+      name: access_filter
+      required: false
+      schema:
+        enum:
+        - anyAccess
+        - realTime
+        - delayed
+        type: string
+      style: form
     exchange_code:
       description: Allows filtering of specific exchange codes in the response.
       example:
@@ -412,7 +445,7 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
       description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting from.
+        successfully generated an API key for the IP range you are connecting from.
         For more help, select the Report Issue in the top right corner of this Developer
         Portal specification card and choose Connectivity 401 or 403 Responses.
     "402":
@@ -466,10 +499,14 @@ components:
       example:
         data:
           products:
-          - productCode: 9880
+          - delayed_access: true
+            realtime_access: true
             description: description
-          - productCode: 9880
+            product_code: 9880
+          - delayed_access: true
+            realtime_access: true
             description: description
+            product_code: 9880
       properties:
         data:
           $ref: '#/components/schemas/ProductsResponse_data'
@@ -479,10 +516,12 @@ components:
     ProductItem:
       description: Object representing a single FactSet product.
       example:
-        productCode: 9880
+        delayed_access: true
+        realtime_access: true
         description: description
+        product_code: 9880
       properties:
-        productCode:
+        product_code:
           description: FactSet product code, a unique identifier for a product.
           format: int32
           maximum: 20000
@@ -491,6 +530,16 @@ components:
         description:
           description: A descriptive name of the product.
           type: string
+        realtime_access:
+          description: Indicates whether the requester has real-time (live) access.
+            A value of 1 signifies that real-time (live) access is granted, while
+            0 denotes that it is not available.
+          type: boolean
+        delayed_access:
+          description: Indicates whether the requester has delayed access. A value
+            of 1 signifies that delayed access is granted, while 0 denotes that it
+            is not available.
+          type: boolean
       type: object
     ExchangesResponse:
       example:
@@ -597,10 +646,14 @@ components:
       description: Wrapper object containing products data.
       example:
         products:
-        - productCode: 9880
+        - delayed_access: true
+          realtime_access: true
           description: description
-        - productCode: 9880
+          product_code: 9880
+        - delayed_access: true
+          realtime_access: true
           description: description
+          product_code: 9880
       properties:
         products:
           description: Array of product items, each representing a FactSet product.

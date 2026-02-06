@@ -70,7 +70,7 @@ public class ExchangeInformationApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful response with a list of exchanges </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API key for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 402 </td><td> Invalid HTTP method. Either the method is not GET or exceeds the maximum request length (currently set at 5000 bytes). The description field will indicate the exact reason. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The provided endpoint is not valid. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request. </td><td>  -  </td></tr>
@@ -93,7 +93,7 @@ public class ExchangeInformationApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful response with a list of exchanges </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API key for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 402 </td><td> Invalid HTTP method. Either the method is not GET or exceeds the maximum request length (currently set at 5000 bytes). The description field will indicate the exact reason. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The provided endpoint is not valid. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request. </td><td>  -  </td></tr>

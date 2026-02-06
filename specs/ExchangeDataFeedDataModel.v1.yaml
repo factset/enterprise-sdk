@@ -1,22 +1,21 @@
 openapi: 3.0.3
 info:
-  version: 1.1.0
+  version: 1.2.0
   title: FactSet Real-Time Data Model API
   description: >-
-    FactSet’s Real-time market data products provide access to consolidated
-    real-time and delayed global exchange data. Proprietary technology
+    FactSet’s Real-Time market data products provide access to consolidated
+    Real-Time and delayed global exchange data. Proprietary technology
     normalizes over 250 global venues, 18+ million instruments, and 150+ data
     fields. Asset types integrated include equities, futures, options, warrants,
     fixed income, mutual funds, ETFs, indices, commodities, and FX rates.
     Innovative technology ensures reliability and provides scalability that
     allows clients to make requests based on a symbol list or an exchange.
     Reduce development time by powering proprietary and third-party applications
-    with exchange data from a unified data model. <p>The Real-time Data Model
+    with exchange data from a unified data model. <p>The Real-Time Data Model
     API provides mappings for enumerations used in our Real-Time DataFeed
     products and should be used in conjunction with the DataFeed Data Model
     documentation available for each product. <p>The initial version of this API
-    is limited to include mapping tables for the product codes and exchanges
-    only.
+    is limited to mapping tables for the product codes and exchanges only.
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -34,7 +33,7 @@ security:
   - FactSetOAuth2: []
 tags:
   - name: Product Codes
-    description: Endpoints related to FactSet real-time market data venue product codes
+    description: Endpoints related to FactSet Real-Time market data venue product codes
   - name: Exchange Information
     description: Endpoints containing metadata for the venues covered by FactSet
 paths:
@@ -48,12 +47,13 @@ paths:
         Data can be returned in CSV, JSON or XML format, use the `format`
         parameter to change from the default JSON format. *You must be logged
         into the Developer Portal and obtain an **[API
-        Key](https://developer.factset.com/factset/api-key-listing)** for ''Try
+        key](https://developer.factset.com/factset/api-key-listing)** for ''Try
         it Out'' to receive a successful server response.
          Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.*
       parameters:
         - $ref: '#/components/parameters/product_code'
         - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/access_filter'
       responses:
         '200':
           description: Successful response for the FactSet product codes table
@@ -147,7 +147,7 @@ components:
       type: object
       description: Object representing a single FactSet product.
       properties:
-        productCode:
+        product_code:
           type: integer
           format: int32
           minimum: 9000
@@ -156,6 +156,18 @@ components:
         description:
           type: string
           description: A descriptive name of the product.
+        realtime_access:
+          type: boolean
+          description: >-
+            Indicates whether the requester has real-time (live) access. A value
+            of 1 signifies that real-time (live) access is granted, while 0
+            denotes that it is not available.
+        delayed_access:
+          type: boolean
+          description: >-
+            Indicates whether the requester has delayed access. A value of 1
+            signifies that delayed access is granted, while 0 denotes that it is
+            not available.
     ExchangesResponse:
       type: object
       properties:
@@ -260,6 +272,18 @@ components:
         - 9001
         - 10001
         - 10010
+    access_filter:
+      description: >-
+        Allows filtering based on Real-Time, delayed, or both access types.
+        **Omit** this parameter for the complete list.
+      name: access_filter
+      in: query
+      schema:
+        type: string
+        enum:
+          - anyAccess
+          - realTime
+          - delayed
     exchange_code:
       description: Allows filtering of specific exchange codes in the response.
       name: exchange_code
@@ -290,7 +314,7 @@ components:
     '401':
       description: >-
         Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
+        successfully generated an API key for the IP range you are connecting
         from. For more help, select the Report Issue in the top right corner of
         this Developer Portal specification card and choose Connectivity 401 or
         403 Responses.
@@ -360,10 +384,16 @@ components:
           products:
             - product_code: 9001
               description: New York Stock Exchange Level 1
+              realtime_access: false
+              delayed_access: true
             - product_code: 10001
               description: London Stock Exchange UK Domestic Level 1
+              realtime_access: false
+              delayed_access: true
             - product_code: 10010
               description: Euronext Paris Level 1 (Continental Equities)
+              realtime_access: false
+              delayed_access: true
     ExchangesSampleResponse:
       value:
         data:

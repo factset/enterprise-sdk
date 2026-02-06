@@ -59,43 +59,45 @@ public class ProductCodesApi {
 
   /**
    * Request the enumeration table for FactSet product codes.
-   * Data can be returned in CSV, JSON or XML format, use the &#x60;format&#x60; parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for &#39;&#39;Try it Out&#39;&#39; to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
+   * Data can be returned in CSV, JSON or XML format, use the &#x60;format&#x60; parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API key](https://developer.factset.com/factset/api-key-listing)** for &#39;&#39;Try it Out&#39;&#39; to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
    * @param productCode Allows filtering of specific product codes in the response. (optional)
    * @param format The format of the output file. (optional)
+   * @param accessFilter Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list. (optional)
    * @return ProductsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful response for the FactSet product codes table </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API key for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 402 </td><td> Invalid HTTP method. Either the method is not GET or exceeds the maximum request length (currently set at 5000 bytes). The description field will indicate the exact reason. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The provided endpoint is not valid. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request. </td><td>  -  </td></tr>
      </table>
    */
-  public ProductsResponse getProducts(java.util.List<Integer> productCode, String format) throws ApiException {
-    return getProductsWithHttpInfo(productCode, format).getData();
+  public ProductsResponse getProducts(java.util.List<Integer> productCode, String format, String accessFilter) throws ApiException {
+    return getProductsWithHttpInfo(productCode, format, accessFilter).getData();
   }
 
   /**
    * Request the enumeration table for FactSet product codes.
-   * Data can be returned in CSV, JSON or XML format, use the &#x60;format&#x60; parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for &#39;&#39;Try it Out&#39;&#39; to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
+   * Data can be returned in CSV, JSON or XML format, use the &#x60;format&#x60; parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API key](https://developer.factset.com/factset/api-key-listing)** for &#39;&#39;Try it Out&#39;&#39; to receive a successful server response.  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.* 
    * @param productCode Allows filtering of specific product codes in the response. (optional)
    * @param format The format of the output file. (optional)
+   * @param accessFilter Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list. (optional)
    * @return ApiResponse&lt;ProductsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful response for the FactSet product codes table </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API key for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 402 </td><td> Invalid HTTP method. Either the method is not GET or exceeds the maximum request length (currently set at 5000 bytes). The description field will indicate the exact reason. </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> The provided endpoint is not valid. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProductsResponse> getProductsWithHttpInfo(java.util.List<Integer> productCode, String format) throws ApiException {
+  public ApiResponse<ProductsResponse> getProductsWithHttpInfo(java.util.List<Integer> productCode, String format, String accessFilter) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -109,6 +111,7 @@ public class ProductCodesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "product_code", productCode));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "format", format));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "access_filter", accessFilter));
 
     
     

@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 ## getProducts
 
-> ProductsResponse getProducts(productCode, format)
+> ProductsResponse getProducts(productCode, format, accessFilter)
 
 Request the enumeration table for FactSet product codes.
 
-Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API Key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.
+Data can be returned in CSV, JSON or XML format, use the `format` parameter to change from the default JSON format. *You must be logged into the Developer Portal and obtain an **[API key](https://developer.factset.com/factset/api-key-listing)** for ''Try it Out'' to receive a successful server response.
  Select **Authorize** button or visit **[Authentication Support](https://developer.factset.com/authentication)** for more details.*
 
 
@@ -61,8 +61,9 @@ public class Example {
         ProductCodesApi apiInstance = new ProductCodesApi(defaultClient);
         java.util.List<Integer> productCode = Arrays.asList(); // java.util.List<Integer> | Allows filtering of specific product codes in the response.
         String format = "json"; // String | The format of the output file.
+        String accessFilter = "anyAccess"; // String | Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list.
         try {
-            ProductsResponse result = apiInstance.getProducts(productCode, format);
+            ProductsResponse result = apiInstance.getProducts(productCode, format, accessFilter);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -83,6 +84,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productCode** | **List&lt;Integer&gt;**| Allows filtering of specific product codes in the response. | [optional]
  **format** | **String**| The format of the output file. | [optional] [enum: json, xml, csv]
+ **accessFilter** | **String**| Allows filtering based on Real-Time, delayed, or both access types. **Omit** this parameter for the complete list. | [optional] [enum: anyAccess, realTime, delayed]
 
 ### Return type
 
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful response for the FactSet product codes table |  -  |
-| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API key for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **402** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request length (currently set at 5000 bytes). The description field will indicate the exact reason. |  -  |
 | **404** | The provided endpoint is not valid. |  -  |
 | **500** | Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request. |  -  |
