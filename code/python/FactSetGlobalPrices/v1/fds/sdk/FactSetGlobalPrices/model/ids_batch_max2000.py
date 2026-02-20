@@ -55,6 +55,10 @@ class IdsBatchMax2000(ModelSimple):
     }
 
     validations = {
+        ('value',): {
+            'max_items': 2000,
+            'min_items': 1,
+        },
     }
 
     additional_properties_type = None

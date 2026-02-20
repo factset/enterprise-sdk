@@ -42,6 +42,7 @@ import com.factset.sdk.FactSetEstimates.JSON;
   AnalystRating.JSON_PROPERTY_FSYM_ID,
   AnalystRating.JSON_PROPERTY_REQUEST_ID,
   AnalystRating.JSON_PROPERTY_AS_OF_MONTH,
+  AnalystRating.JSON_PROPERTY_CURRENCY,
   AnalystRating.JSON_PROPERTY_RATINGS_COUNT,
   AnalystRating.JSON_PROPERTY_MEAN_RECOMMENDATION,
   AnalystRating.JSON_PROPERTY_MEAN_RECOMMENDATION_SCALE,
@@ -60,6 +61,9 @@ public class AnalystRating implements Serializable {
 
   public static final String JSON_PROPERTY_AS_OF_MONTH = "asOfMonth";
   private String asOfMonth;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
 
   public static final String JSON_PROPERTY_RATINGS_COUNT = "ratingsCount";
   private RatingsCount ratingsCount;
@@ -203,6 +207,32 @@ public class AnalystRating implements Serializable {
   }
 
 
+  public AnalystRating currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The 3 digit ISO code for the currency. ​For a list of currency ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470).
+   * @return currency
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "The 3 digit ISO code for the currency. ​For a list of currency ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470).")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
   public AnalystRating ratingsCount(RatingsCount ratingsCount) {
     this.ratingsCount = ratingsCount;
     return this;
@@ -322,6 +352,7 @@ public class AnalystRating implements Serializable {
     return equalsNullable(this.fsymId, analystRating.fsymId) &&
         Objects.equals(this.requestId, analystRating.requestId) &&
         Objects.equals(this.asOfMonth, analystRating.asOfMonth) &&
+        Objects.equals(this.currency, analystRating.currency) &&
         Objects.equals(this.ratingsCount, analystRating.ratingsCount) &&
         Objects.equals(this.meanRecommendation, analystRating.meanRecommendation) &&
         Objects.equals(this.meanRecommendationScale, analystRating.meanRecommendationScale) &&
@@ -334,7 +365,7 @@ public class AnalystRating implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(fsymId), requestId, asOfMonth, ratingsCount, meanRecommendation, meanRecommendationScale, targetPrice);
+    return Objects.hash(hashCodeNullable(fsymId), requestId, asOfMonth, currency, ratingsCount, meanRecommendation, meanRecommendationScale, targetPrice);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -351,6 +382,7 @@ public class AnalystRating implements Serializable {
     sb.append("    fsymId: ").append(toIndentedString(fsymId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    asOfMonth: ").append(toIndentedString(asOfMonth)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    ratingsCount: ").append(toIndentedString(ratingsCount)).append("\n");
     sb.append("    meanRecommendation: ").append(toIndentedString(meanRecommendation)).append("\n");
     sb.append("    meanRecommendationScale: ").append(toIndentedString(meanRecommendationScale)).append("\n");

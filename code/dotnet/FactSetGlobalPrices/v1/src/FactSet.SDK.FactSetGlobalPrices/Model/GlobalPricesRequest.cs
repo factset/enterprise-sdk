@@ -72,9 +72,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (default to &quot;LOCAL&quot;).</param>
         /// <param name="calendar">calendar.</param>
         /// <param name="adjust">adjust.</param>
-        /// <param name="precision">Specifies the number of decimal places for price fields in the response. (default to 2).</param>
+        /// <param name="precision">Specifies the number of decimal places for price fields in the response. (default to 16).</param>
         /// <param name="batch">batch.</param>
-        public GlobalPricesRequest(List<string> ids, string startDate,List<string> fields = default(List<string>), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL", Calendar calendar = default(Calendar), Adjust adjust = default(Adjust), int precision = 2, Batch batch = default(Batch))
+        public GlobalPricesRequest(List<string> ids, string startDate,List<string> fields = default(List<string>), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL", Calendar calendar = default(Calendar), Adjust adjust = default(Adjust), int precision = 16, Batch batch = default(Batch))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

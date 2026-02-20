@@ -198,7 +198,7 @@ paths:
           * **SPL** - Split
           * **EXOS** - Exchange of Securities
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax50'
+        - $ref: '#/components/parameters/idsBatchMax1000'
         - $ref: '#/components/parameters/EventCategory'
         - $ref: '#/components/parameters/FieldsCorporateActions'
         - $ref: '#/components/parameters/StartDateCA'
@@ -337,7 +337,7 @@ paths:
         The annualized dividend calculations does not involve cancelled
         dividends.
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax50'
+        - $ref: '#/components/parameters/idsBatchMax1000'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/Batch'
       responses:
@@ -440,7 +440,7 @@ paths:
         Returns for the requested IDs and currency for the given dates.
         Depending on the input parameters the return data is provided. 
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax50'
+        - $ref: '#/components/parameters/idsBatchMax1000'
         - $ref: '#/components/parameters/StartDate'
         - $ref: '#/components/parameters/EndDate'
         - $ref: '#/components/parameters/currency'
@@ -547,7 +547,7 @@ paths:
         Returns security level shares outstanding data for the given IDs and
         dates. At this time, all values returned are split adjusted.
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax50'
+        - $ref: '#/components/parameters/idsBatchMax1000'
         - $ref: '#/components/parameters/startDateSS'
         - $ref: '#/components/parameters/EndDate'
         - $ref: '#/components/parameters/Frequency'
@@ -655,7 +655,7 @@ paths:
         Provides the current market value (in USD millions) for a list of
         specified securities. 
       parameters:
-        - $ref: '#/components/parameters/idsBatchMax50'
+        - $ref: '#/components/parameters/idsBatchMax400'
         - $ref: '#/components/parameters/Batch'
       responses:
         '200':
@@ -1222,8 +1222,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1272,8 +1272,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1290,8 +1290,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1316,8 +1316,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1382,8 +1382,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       examples:
         oneEventId:
@@ -1407,8 +1407,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1432,8 +1432,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1474,8 +1474,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       examples:
         oneEventId:
@@ -1499,8 +1499,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1524,8 +1524,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1566,8 +1566,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       examples:
         oneEventId:
@@ -1591,8 +1591,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1616,8 +1616,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1658,8 +1658,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       examples:
         oneEventId:
@@ -1683,8 +1683,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1708,8 +1708,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1750,8 +1750,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       examples:
         oneEventId:
@@ -1775,8 +1775,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
@@ -1800,8 +1800,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 0
+        maxItems: 2000
         example:
           - NYS
           - NAS
@@ -1932,7 +1932,7 @@ components:
       required: false
       schema:
         type: integer
-        default: 2
+        default: 16
         minimum: 1
         maximum: 16
       example: 1
@@ -2129,19 +2129,52 @@ components:
           * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.
           * **UNSPLIT** = No Adjustments.
           
-    idsBatchMax50:
+    idsBatchMax400:
       name: ids
       in: query
       schema:
         type: array
         items:
           type: string
+        minItems: 1
+        maxItems: 400
       required: true
       explode: false
       description: >-
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-        limit** = 50 per non-batch request and 1000 per batch request*</p>
+        limit** =  50 per non-batch request and 400 per batch request*</p>
+        *<p>Make note, GET Method URL request lines are also limited to a total
+        length of 8192 bytes (8KB). In cases where the service allows for
+        thousands of IDs, which may lead to exceeding this request line limit of
+        8KB, it's advised for any requests with large request lines to be
+        requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - IBM-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+            - FDS-US
+            - AAPL-US
+            - MSFT-US
+    idsBatchMax1000:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
+      required: true
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
+        limit** =  50 per non-batch request and 1000 per batch request*</p>
         *<p>Make note, GET Method URL request lines are also limited to a total
         length of 8192 bytes (8KB). In cases where the service allows for
         thousands of IDs, which may lead to exceeding this request line limit of
@@ -2165,8 +2198,8 @@ components:
         type: array
         items:
           type: string
-          minItems: 0
-          maxItems: 2000
+        minItems: 1
+        maxItems: 2000
       required: true
       explode: false
       description: >-
@@ -3147,7 +3180,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/IdsMax50'
+          $ref: '#/components/schemas/IdsMax5000'
         eventCategory:
           $ref: '#/components/schemas/EventCategory'
         fields:
@@ -3170,7 +3203,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/IdsMax50'
+          $ref: '#/components/schemas/IdsMax5000'
         currency:
           $ref: '#/components/schemas/RequestCurrency'
         batch:
@@ -3235,17 +3268,44 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: AAPL-US
-    IdsMax50:
+    IdsMax400:
       title: ids
       type: array
       items:
         type: string
       minItems: 1
-      maxItems: 50
+      maxItems: 400
       description: >
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests
-        are limited to 50 IDs for non-batch requests and 2000 for batch
+        are limited to 50 IDs for non-batch requests and 400 for batch requests.
+      example:
+        - AAPL-US
+    IdsMax1000:
+      title: ids
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests
+        are limited to 50 IDs for non-batch requests and 1000 for batch
+        requests.
+      example:
+        - AAPL-US
+    IdsMax5000:
+      title: ids
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 5000
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests
+        are limited to 50 IDs for non-batch requests and 5000 for batch
         requests.
       example:
         - AAPL-US
@@ -3264,7 +3324,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/IdsMax50'
+          $ref: '#/components/schemas/IdsMax1000'
         startDate:
           $ref: '#/components/schemas/StartDate'
         endDate:
@@ -3408,7 +3468,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/IdsMax50'
+          $ref: '#/components/schemas/IdsMax400'
         batch:
           $ref: '#/components/schemas/Batch'
       required:
@@ -3454,8 +3514,8 @@ components:
       type: array
       items:
         type: string
-        minItems: 0
-        maxItems: 2000
+      minItems: 1
+      maxItems: 2000
       description: >
         The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. 
@@ -3468,7 +3528,7 @@ components:
     Precision:
       type: integer
       description: Specifies the number of decimal places for price fields in the response.
-      default: 2
+      default: 16
       minimum: 1
       maximum: 16
       example: 2
@@ -3924,7 +3984,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/IdsMax50'
+          $ref: '#/components/schemas/IdsMax1000'
         startDate:
           $ref: '#/components/schemas/StartDate'
         endDate:

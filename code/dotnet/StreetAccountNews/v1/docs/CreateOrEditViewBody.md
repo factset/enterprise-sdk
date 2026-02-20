@@ -5,7 +5,7 @@ Elements of create or edit view body object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**CreateOrEditViewBodyData**](CreateOrEditViewBodyData.md) |  | [optional] 
+**Data** | [**CreateOrEditViewBodyData**](CreateOrEditViewBodyData.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -314,6 +314,8 @@ paths:
         - $ref: '#/components/parameters/relativeFiscalStart'
         - $ref: '#/components/parameters/relativeFiscalEnd'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/brokerNames'
+        - $ref: '#/components/parameters/updatesOnly'
       responses:
         '200':
           description: Estimate data items
@@ -396,6 +398,8 @@ paths:
         - $ref: '#/components/parameters/fiscalPeriodStart'
         - $ref: '#/components/parameters/fiscalPeriodEnd'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/brokerNames'
+        - $ref: '#/components/parameters/updatesOnly'
       responses:
         '200':
           description: Estimate data items
@@ -512,7 +516,7 @@ paths:
             schema:
               $ref: '#/components/schemas/consensusRatingsRequest'
             examples:
-              Consensus Ratings response of FDS-US for frequency 'AM':
+              Consensus Ratings response of FDS-US for frequency 'D':
                 $ref: '#/components/examples/postConsensusRatings'
       responses:
         '200':
@@ -556,6 +560,8 @@ paths:
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/includeAll'
+        - $ref: '#/components/parameters/brokerNames'
+        - $ref: '#/components/parameters/updatesOnly'
       responses:
         '200':
           description: Estimate Ratings data items
@@ -1572,17 +1578,17 @@ components:
           - AM
           - AQ
           - AY
-        default: AM
+        default: D
       description: |
         Controls the frequency of the data returned.
           * **D** = Daily
           * **W** = Weekly, based on the last day of the week of the start date.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).      
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
           * **AQ** = Quarterly, based on the start date.
-          * **AY** = Actual Annual, based on the start date. 
+          * **AY** = Actual Annual, based on the start date.
       examples:
         Daily:
-          summary: D - Daily frequency display based on trading calendar
+          summary: D - Daily (Default) - frequency display based on trading calendar
           value: D
         Weekly:
           summary: W - Weekly - based on the last day of the week of the start date
@@ -1697,7 +1703,38 @@ components:
           By default the service would return only the brokers included in the consensus-
           * **TRUE** = Returns all the brokers included and excluded in the consensus
           * **FALSE** = Returns only the broker details included in the consensus
-          
+    brokerNames:
+      name: brokerNames
+      in: query
+      required: false
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+      example:
+        - Morningstar Equity Research
+      description: >-
+        Filter to return estimate data from specific brokers only. Accepts
+        broker names as input.  The endpoint returns data from all available
+        brokers if this parameter is not specified. For a list of available
+        brokers, visit [Online Assistant Page
+        #14706](https://oa.apps.factset.com/pages/14706).
+    updatesOnly:
+      name: updatesOnly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      required: false
+      example: false
+      description: >-
+        When set to 'true', the endpoint returns the first reported estimates
+        during this period and any subsequent changes reported by the brokers.
+        When set to 'false', data is returned for all dates in the requested
+        date range based on the selected frequency. If unspecified, it is
+        treated as 'false' by default.
     segmentType:
       name: segmentType
       in: query
@@ -2609,6 +2646,10 @@ components:
           $ref: '#/components/schemas/metrics'
         currency:
           $ref: '#/components/schemas/currency'
+        brokerNames:
+          $ref: '#/components/schemas/brokerNames'
+        updatesOnly:
+          $ref: '#/components/schemas/updatesOnly'
       required:
         - ids
         - metrics
@@ -2806,6 +2847,10 @@ components:
           $ref: '#/components/schemas/fiscalPeriodStart'
         currency:
           $ref: '#/components/schemas/currency'
+        brokerNames:
+          $ref: '#/components/schemas/brokerNames'
+        updatesOnly:
+          $ref: '#/components/schemas/updatesOnly'
       required:
         - ids
         - metrics
@@ -2959,6 +3004,10 @@ components:
           $ref: '#/components/schemas/endDate'
         includeAll:
           $ref: '#/components/schemas/includeAll'
+        brokerNames:
+          $ref: '#/components/schemas/brokerNames'
+        updatesOnly:
+          $ref: '#/components/schemas/updatesOnly'
       required:
         - ids
     detailRatingsResponse:
@@ -3420,7 +3469,7 @@ components:
         - AM
         - AQ
         - AY
-      default: D
+      default: AM
       description: |
         Controls the display frequency of the data returned.
           * **D** = Daily
@@ -3788,6 +3837,29 @@ components:
           * **BUS** = Business
           * **GEO** = Geographic
       example: BUS
+    brokerNames:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      example:
+        - Morningstar Equity Research
+      description: >-
+        Filter to return estimate data from specific brokers only. Accepts
+        broker names as input.  The endpoint returns data from all available
+        brokers if this parameter is not specified. For a list of available
+        brokers, visit [Online Assistant Page
+        #14706](https://oa.apps.factset.com/pages/14706).
+    updatesOnly:
+      type: boolean
+      default: false
+      example: false
+      description: >-
+        When set to 'true', the endpoint returns the first reported estimates
+        during this period and any subsequent changes reported by the brokers.
+        When set to 'false', data is returned for all dates in the requested
+        date range based on the selected frequency. If unspecified, it is
+        treated as 'false' by default.
     AnalystRatingResponse:
       type: object
       title: Analyst Rating Response
@@ -3822,6 +3894,13 @@ components:
           description: Ending date for the period requested expressed in YYYY-MM format.
           type: string
           example: 2024-03
+        currency:
+          description: >-
+            The 3 digit ISO code for the currency. ​For a list of currency ISO
+            codes, visit [Online Assistant
+            Page#1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
         ratingsCount:
           $ref: '#/components/schemas/RatingsCount'
         meanRecommendation:
@@ -4711,6 +4790,7 @@ components:
           - requestId: FDS-US,
             fsymId: SQFMK3-R,
             asOfMonth: 2024-03,
+            currency: USD
             ratingsCount:
               buy: 5
               overWeight: 1
@@ -4730,7 +4810,7 @@ components:
       summary: Rolling Consensus response of FDS-US for SALES metrics
       description: >-
         Rolling Consensus response of FDS-US for SALES metrics with frequency
-        set to 'AM' and periodicity to 'ANN'
+        set to 'D' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4738,7 +4818,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: AM
+        frequency: D
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
         periodicity: ANN
@@ -4747,7 +4827,7 @@ components:
       summary: Fixed Consensus response of FDS-US for SALES metrics
       description: >-
         Fixed Consensus response of FDS-US for SALES metrics with frequency set
-        to 'AM' and periodicity to 'ANN'
+        to 'D' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4755,7 +4835,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: AM
+        frequency: D
         fiscalPeriodStart: '2019'
         fiscalPeriodEnd: '2020'
         periodicity: ANN
@@ -4764,13 +4844,13 @@ components:
       summary: Rolling Detail response of FDS-US for SALES metrics
       description: >-
         Rolling Detail response of FDS-US for SALES metrics with frequency set
-        to 'AM' and periodicity to 'ANN'
+        to 'D' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: AM
+        frequency: D
         includeAll: false
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
@@ -4778,11 +4858,14 @@ components:
         metrics:
           - SALES
         currency: USD
+        brokerNames:
+          - Morningstar Equity Research
+        updatesOnly: false
     postFixedDetail:
       summary: Fixed Detail response of FDS-US for SALES metrics
       description: >-
         Fixed Detail response of FDS-US for SALES metrics with frequency set to
-        'AM' and periodicity to 'ANN'
+        'D' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4790,23 +4873,26 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: AM
+        frequency: D
         includeAll: false
         periodicity: ANN
         fiscalPeriodStart: '2019'
         fiscalPeriodEnd: '2019'
         currency: USD
+        brokerNames:
+          - Morningstar Equity Research
+        updatesOnly: false
     postConsensusRatings:
-      summary: Consensus Ratings response of FDS-US for frequency 'AM'
+      summary: Consensus Ratings response of FDS-US for frequency 'D'
       description: >-
         Consensus Ratings response of FDS-US for SALES metrics with frequency
-        set to 'AM'.
+        set to 'D'.
       value:
         ids:
           - FDS-US
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: AM
+        frequency: D
     postDetailRating:
       summary: Detail Ratings response of FDS-US
       description: Detail Ratings response of FDS-US with includeAll set to 'false'
@@ -4816,11 +4902,14 @@ components:
         startDate: '2019-01-01'
         endDate: '2019-12-31'
         includeAll: false
+        brokerNames:
+          - Morningstar Equity Research
+        updatesOnly: false
     postSurpriseExample:
       summary: Surprise response of FDS-US for SALES metrics
       description: >-
-        Surprise response of FDS-US for SALES metrics with frequency set to
-        'AM', periodicity to 'ANN' and statistic to 'MEDIAN'
+        Surprise response of FDS-US for SALES metrics with frequency set to 'D',
+        periodicity to 'ANN' and statistic to 'MEDIAN'
       value:
         ids:
           - FDS-US
@@ -4828,7 +4917,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: AM
+        frequency: D
         periodicity: ANN
         currency: USD
         statistic: MEDIAN
@@ -4836,7 +4925,7 @@ components:
       summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
       description: >-
         Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
-        with frequency set to 'AM' and periodicity to 'ANN'
+        with frequency set to 'D' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4845,7 +4934,7 @@ components:
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
         periodicity: ANN
-        frequency: AM
+        frequency: D
         segmentType: BUS
         metrics:
           - SALES
@@ -5175,10 +5264,10 @@ components:
             brokerEstimateCurrency: USD
             estimateCurrency: USD
     consensusRatings:
-      summary: Consensus Ratings response of AAPL-USA for frequency 'AM'
+      summary: Consensus Ratings response of AAPL-USA for frequency 'D'
       description: >-
         Consensus Ratings response of AAPL-USA for SALES metrics with frequency
-        set to 'AM'.
+        set to 'D'.
       value:
         data:
           - fsymId: MH33D6-R
@@ -5196,7 +5285,7 @@ components:
       summary: Detail Ratings response of AAPL-USA for SALES metrics
       description: >-
         Detail Ratings response of AAPL-USA for SALES metrics with frequency set
-        to 'AM' and periodicity to 'ANN'
+        to 'D' and periodicity to 'ANN'
       value:
         data:
           - fsymId: MH33D6-R
@@ -5213,7 +5302,7 @@ components:
       summary: Surprise response of AAPL-USA for SALES metrics
       description: >-
         Surprise response of AAPL-USA for SALES metrics with frequency set to
-        'AM', periodicity to 'ANN' and statistic to 'MEAN'
+        'D', periodicity to 'ANN' and statistic to 'MEAN'
       value:
         data:
           - fsymId: MH33D6-R
@@ -5238,7 +5327,7 @@ components:
       summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
       description: >-
         Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
-        with frequency set to 'AM' and periodicity to 'ANN'
+        with frequency set to 'D' and periodicity to 'ANN'
       value:
         data:
           - requestId: AAPL-USA

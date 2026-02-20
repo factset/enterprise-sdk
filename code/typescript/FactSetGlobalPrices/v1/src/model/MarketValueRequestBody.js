@@ -23,7 +23,7 @@ class MarketValueRequestBody {
      * Constructs a new <code>MarketValueRequestBody</code>.
      * Market Value Request Body
      * @alias module:model/MarketValueRequestBody
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 400 for batch requests. 
      */
     constructor(ids) { 
         
@@ -64,7 +64,7 @@ class MarketValueRequestBody {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 400 for batch requests. 
  * @member {Array.<String>} ids
  */
 MarketValueRequestBody.prototype['ids'] = undefined;

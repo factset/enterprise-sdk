@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **transactionType** | [**TransactionType**](TransactionType.md) |  | [optional] 
 **rowExclusion** | [**RowExclusion**](RowExclusion.md) |  | [optional] 
 **currency** | **String** | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**batch** | [**Batch**](Batch.md) |  | [optional] 
 
 

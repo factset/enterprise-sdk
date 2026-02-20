@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identifier** | **string** | Ticker-region identifier of the entity hosting the event. | [optional] 
+**RequestId** | **string** | Identifier provided in the request. | [optional] 
 **EntityName** | **string** | The official name of the entity. | [optional] 
 **Description** | **string** | Brief description of the event. | [optional] 
 **EventDateTime** | **DateTime** | Event start time as date/time string according to ISO 8601. | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **ContactEmail** | **string** | Contact email for inquiries related to the event. | [optional] 
 **ContactPhone** | **string** | Contact phone number for inquiries related to the event. | [optional] 
 **ContactName** | **string** | Name of the contact person for queries related to the event. | [optional] 
-**ReportId** | **string** | Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types.  | [optional] 
+**ReportId** | **string** | Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types.  | [optional] 
 **LastModifiedDate** | **DateTime** | The date and time when the event was last modified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

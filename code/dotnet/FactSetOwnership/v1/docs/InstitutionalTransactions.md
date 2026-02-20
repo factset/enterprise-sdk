@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **PctChange** | **double?** | Returns change in position held as a percentage of total outstanding data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
 **PosChange** | **double?** | Returns position change data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
 **MarketVal** | **double?** | Returns market value data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
-**ReportDate** | **string** | Returns the report date for the transactions that occurred between the specified start and end dates. | [optional] 
+**PeriodOfMeasure** | **string** | Returns the range over which the code calculates change for Percent Ownership and Position Change. | [optional] 
+**ReportDate** | **DateTime?** | Returns the report date for the transactions that occurred between the specified start and end dates. | [optional] 
+**AsOfDate** | **DateTime?** | Date on which the specified data or information is accurate or relevant. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

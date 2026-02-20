@@ -111,10 +111,10 @@ class Frequency(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "D", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
+            args[0] (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "AM", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "D", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
+            value (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "AM", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -155,7 +155,7 @@ class Frequency(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = "D"
+            value = "AM"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -197,10 +197,10 @@ class Frequency(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "D", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
+            args[0] (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "AM", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "D", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
+            value (str): Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . if omitted defaults to "AM", must be one of ["D", "W", "AM", "AQ", "AY", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -243,7 +243,7 @@ class Frequency(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = "D"
+            value = "AM"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)

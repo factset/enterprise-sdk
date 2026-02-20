@@ -55,6 +55,7 @@ docs/HeadlinesResponseMetaPagination.md
 docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
+docs/QuickAlertsResponseData.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -154,6 +155,7 @@ src/main/java/com/factset/sdk/StreetAccountNews/models/HeadlinesResponseMetaPagi
 src/main/java/com/factset/sdk/StreetAccountNews/models/QuickAlertsBody.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/QuickAlertsBodyData.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/QuickAlertsResponse.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/QuickAlertsResponseData.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/SearchResponseArrayObject.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/StructuredFilters.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/StructuredFiltersCategories.java

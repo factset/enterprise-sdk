@@ -8,7 +8,7 @@ Elements of delete view body object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**DeleteViewBodyData**](DeleteViewBodyData.md) |  |  [optional]
+**data** | [**DeleteViewBodyData**](DeleteViewBodyData.md) |  | 
 
 
 ## Implemented Interfaces

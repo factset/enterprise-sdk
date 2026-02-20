@@ -1,0 +1,46 @@
+# factsetownership.BatchResult
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**requestId** | **String** | Identifier that was used in the request. | [optional] 
+**fsymId** | **String** | FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier. | [optional] 
+**date** | **Date** | Date of the reported holding in YYYY-MM-DD format. For more details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262). | [optional] 
+**currency** | **String** | Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**adjHolding** | **Number** | Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262). | [optional] 
+**adjMarketValue** | **Number** | Adjusted market values of shares held. Market Value. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262). | [optional] 
+**weightClose** | **Number** | \&quot;Closing weight of the security for the holders of the requested security (percent). To learn more about how ownership weight is calculated please visit [Online Assistant Page #11247](https://my.apps.factset.com/oa/pages/11247).\&quot;  | [optional] 
+**issueType** | **String** | Issue type of held security. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262). | [optional] 
+**fsymSecurityId** | **String** | Represents the security id for the underlying holding, not the parent holding. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier. | [optional] 
+**fsymRegionalId** | **String** | FactSet Regional Security identifier of the security held in the fund. | [optional] 
+**securityName** | **String** | Name of held security. | [optional] 
+**securityTicker** | **String** | Ticker of held security. | [optional] 
+**holderId** | **String** | Returns the holder IDs for the insiders involved in the transactions that occurred between the specified start and end dates. | [optional] 
+**holderEntityId** | **String** | FactSet Entity ID that corresponds to the specified holder ID. | [optional] 
+**holderName** | **String** | Returns the names of the institutions involved in the transactions that occurred between the specified start and end dates. | [optional] 
+**investorType** | **String** | FactSet Ownership Institution, Mutual Fund, and Insider/Stakeholder investor types. To learn more about the different investor types, visit [Online Assistant Page #11656](https://my.apps.factset.com/oa/pages/11656). | [optional] 
+**holderType** | **String** | Holder Type name of the respective holder object. The name will align to the holderType requested.  | [optional] 
+**percentOutstanding** | **Number** | The percent of the outstanding common shares held by a particular filing institution. To learn more, visit [Online Assistant Page #11041](https://my.apps.factset.com/oa/pages/11041). | [optional] 
+**source** | **String** | Either the 13F Form or ND-30D report filed where the security holdings data was sourced from. To learn more about source, please visit https://my.apps.factset.com/oa/pages/11260 | [optional] 
+**holderTitle** | **String** | Returns the titles of the insiders involved in the transactions that occurred between the specified start and end dates. | [optional] 
+**shares** | **Number** | Returns the transaction shares for the transactions that occurred between the specified start and end dates. | [optional] 
+**price** | **Number** | Returns the transaction prices for the transactions that occurred between the specified start and end dates. | [optional] 
+**netValueChange** | **Number** | Returns the transaction values for the transactions that occurred between the specified start and end dates. | [optional] 
+**filingDate** | **String** | Returns the dates on which the transactions that occurred between the specified start and end dates were processed. | [optional] 
+**isDerivative** | **Boolean** | Returns a Derivative/Non-Derivative flag for the transactions that occurred between the specified start and end dates. Returns true for Derivative and false for Non-Derivative. | [optional] 
+**isDirect** | **Boolean** | Returns a direct/indirect flag for the transactions that occurred between the specified start and end dates. | [optional] 
+**tradeType** | **String** | Returns an acquisition/disposition flag for the transactions that occurred between the specified start and end dates. | [optional] 
+**formType** | **String** | Returns the form types for the transactions that occurred between the specified start and end dates. | [optional] 
+**transactionDate** | **String** | Returns the transaction dates for the transactions that occurred between the specified start and end dates. | [optional] 
+**sharesOwned** | **Number** | Returns the shares owned data for the transactions that occurred between the specified start and end dates. | [optional] 
+**secRule10b51** | **Boolean** | Returns rule 10b5-1 flags for the insiders involved in the transactions that occurred between the specified start and end dates. | [optional] 
+**pctOS** | **Number** | Returns position held as a percentage of total outstanding data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
+**pctChange** | **Number** | Returns change in position held as a percentage of total outstanding data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
+**posChange** | **Number** | Returns position change data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
+**marketVal** | **Number** | Returns market value data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
+**periodOfMeasure** | **String** | Returns the range over which the code calculates change for Percent Ownership and Position Change. | [optional] 
+**reportDate** | **Date** | Returns the report date for the transactions that occurred between the specified start and end dates. | [optional] 
+**asOfDate** | **Date** | Date on which the specified data or information is accurate or relevant. | [optional] 
+
+

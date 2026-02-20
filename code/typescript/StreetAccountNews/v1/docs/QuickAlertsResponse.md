@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**QuickAlertsBodyData**](QuickAlertsBodyData.md) |  | [optional] 
+**data** | [**QuickAlertsResponseData**](QuickAlertsResponseData.md) |  | [optional] 
 
 

@@ -5,6 +5,13 @@
 LICENSE
 README.md
 docs/AssetType.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -36,6 +43,7 @@ docs/TransactionsApi.md
 fds/__init__.py
 fds/sdk/FactSetOwnership/__init__.py
 fds/sdk/FactSetOwnership/api/__init__.py
+fds/sdk/FactSetOwnership/api/batch_processing_api.py
 fds/sdk/FactSetOwnership/api/fund_holdings_api.py
 fds/sdk/FactSetOwnership/api/security_holders_api.py
 fds/sdk/FactSetOwnership/api/transactions_api.py
@@ -45,6 +53,12 @@ fds/sdk/FactSetOwnership/configuration.py
 fds/sdk/FactSetOwnership/exceptions.py
 fds/sdk/FactSetOwnership/model/__init__.py
 fds/sdk/FactSetOwnership/model/asset_type.py
+fds/sdk/FactSetOwnership/model/batch.py
+fds/sdk/FactSetOwnership/model/batch_error_object.py
+fds/sdk/FactSetOwnership/model/batch_result.py
+fds/sdk/FactSetOwnership/model/batch_result_response.py
+fds/sdk/FactSetOwnership/model/batch_status.py
+fds/sdk/FactSetOwnership/model/batch_status_response.py
 fds/sdk/FactSetOwnership/model/error_response.py
 fds/sdk/FactSetOwnership/model/error_response_sub_errors.py
 fds/sdk/FactSetOwnership/model/frequency.py

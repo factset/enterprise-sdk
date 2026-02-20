@@ -84,15 +84,17 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="fsymId">FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
         /// <param name="asOfMonth">Ending date for the period requested expressed in YYYY-MM format..</param>
+        /// <param name="currency">The 3 digit ISO code for the currency. ​For a list of currency ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="ratingsCount">ratingsCount.</param>
         /// <param name="meanRecommendation">Specifies the average recommendation for a given security identifier for the period requested by the client. It represents the consensus of various analyst ratings. The corresponding date of validity for this data is detailed in the &#x60;asOfMonth&#x60; field..</param>
         /// <param name="meanRecommendationScale">Mean recommendation scale for the period requested, calculated as an average of all recommendations converted into numeric values (e.g., Buy&#x3D;1, Sell&#x3D;3, Hold&#x3D;2, overWeight&#x3D;1.5, underWeight&#x3D;2.5) from various analysts for the period..</param>
         /// <param name="targetPrice">targetPrice.</param>
-        public AnalystRating(string fsymId = default(string), string requestId = default(string), string asOfMonth = default(string), RatingsCount ratingsCount = default(RatingsCount), MeanRecommendationEnum? meanRecommendation = default(MeanRecommendationEnum?), double meanRecommendationScale = default(double), TargetPrice targetPrice = default(TargetPrice))
+        public AnalystRating(string fsymId = default(string), string requestId = default(string), string asOfMonth = default(string), string currency = default(string), RatingsCount ratingsCount = default(RatingsCount), MeanRecommendationEnum? meanRecommendation = default(MeanRecommendationEnum?), double meanRecommendationScale = default(double), TargetPrice targetPrice = default(TargetPrice))
         {
             this.FsymId = fsymId;
             this.RequestId = requestId;
             this.AsOfMonth = asOfMonth;
+            this.Currency = currency;
             this.RatingsCount = ratingsCount;
             this.MeanRecommendation = meanRecommendation;
             this.MeanRecommendationScale = meanRecommendationScale;
@@ -119,6 +121,13 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <value>Ending date for the period requested expressed in YYYY-MM format.</value>
         [DataMember(Name = "asOfMonth", EmitDefaultValue = false)]
         public string AsOfMonth { get; set; }
+
+        /// <summary>
+        /// The 3 digit ISO code for the currency. ​For a list of currency ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470).
+        /// </summary>
+        /// <value>The 3 digit ISO code for the currency. ​For a list of currency ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470).</value>
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public string Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets RatingsCount
@@ -150,6 +159,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  AsOfMonth: ").Append(AsOfMonth).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  RatingsCount: ").Append(RatingsCount).Append("\n");
             sb.Append("  MeanRecommendation: ").Append(MeanRecommendation).Append("\n");
             sb.Append("  MeanRecommendationScale: ").Append(MeanRecommendationScale).Append("\n");
@@ -205,6 +215,11 @@ namespace FactSet.SDK.FactSetEstimates.Model
                     this.AsOfMonth.Equals(input.AsOfMonth))
                 ) && 
                 (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
                     this.RatingsCount == input.RatingsCount ||
                     (this.RatingsCount != null &&
                     this.RatingsCount.Equals(input.RatingsCount))
@@ -244,6 +259,10 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 if (this.AsOfMonth != null)
                 {
                     hashCode = (hashCode * 59) + this.AsOfMonth.GetHashCode();
+                }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
                 if (this.RatingsCount != null)
                 {

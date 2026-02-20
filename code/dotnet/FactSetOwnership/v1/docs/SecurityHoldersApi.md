@@ -1,17 +1,17 @@
 # FactSet.SDK.FactSetOwnership.Api.SecurityHoldersApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSecurityHolders**](SecurityHoldersApi.md#getsecurityholders) | **GET** /factset-ownership/v1/security-holders | Get security ownership data for requested security identifers.
-[**PostSecurityHolders**](SecurityHoldersApi.md#postsecurityholders) | **POST** /factset-ownership/v1/security-holders | Get security ownership data for a list of requested securities.
+[**GetSecurityHolders**](SecurityHoldersApi.md#getsecurityholders) | **GET** /security-holders | Get security ownership data for requested security identifers.
+[**PostSecurityHolders**](SecurityHoldersApi.md#postsecurityholders) | **POST** /security-holders | Get security ownership data for a list of requested securities.
 
 
 
 <a name="getsecurityholders"></a>
 # **GetSecurityHolders**
-> SecurityHoldersResponse GetSecurityHolders (List<string> ids, string holderType = null, string topn = null, string date = null, string currency = null)
+> SecurityHoldersResponse GetSecurityHolders (List<string> ids, string holderType = null, string topn = null, string date = null, string currency = null, string batch = null)
 
 Get security ownership data for requested security identifers.
 
@@ -61,16 +61,17 @@ namespace Example
 
             var apiInstance = new SecurityHoldersApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
+            var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>.
             var holderType = "F";  // string | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional)  (default to F)
             var topn = "\"ALL\"";  // string | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional)  (default to "ALL")
             var date = "2019-12-31";  // string | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional) 
             var currency = "\"LOCAL\"";  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)  (default to "LOCAL")
+            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
 
             try
             {
                 // Get security ownership data for requested security identifers.
-                SecurityHoldersResponse result = apiInstance.GetSecurityHolders(ids, holderType, topn, date, currency);
+                SecurityHoldersResponse result = apiInstance.GetSecurityHolders(ids, holderType, topn, date, currency, batch);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -88,11 +89,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt;. | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt;. | 
  **holderType** | **string**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] [default to F]
  **topn** | **string**| Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. | [optional] [default to &quot;ALL&quot;]
  **date** | **string**| Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. | [optional] 
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to &quot;LOCAL&quot;]
+ **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
 [**SecurityHoldersResponse**](SecurityHoldersResponse.md)

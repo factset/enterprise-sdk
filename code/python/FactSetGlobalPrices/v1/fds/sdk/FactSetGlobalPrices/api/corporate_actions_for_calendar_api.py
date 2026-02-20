@@ -85,11 +85,23 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,
@@ -197,11 +209,29 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'event_ids',
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('event_ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,
@@ -298,11 +328,23 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,
@@ -438,11 +480,29 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'event_ids',
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('event_ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,
@@ -542,11 +602,29 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'event_ids',
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('event_ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,
@@ -646,11 +724,29 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'event_ids',
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('event_ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,
@@ -750,11 +846,29 @@ class CorporateActionsForCalendarApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'event_ids',
+                    'ids',
+                    'exchanges',
                     'sort',
                 ]
             },
             root_map={
                 'validations': {
+                    ('event_ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
+                    ('exchanges',): {
+
+                        'max_items': 2000,
+                        'min_items': 0,
+                    },
                     ('sort',): {
 
                         'max_items': 1,

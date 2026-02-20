@@ -5,7 +5,7 @@ Elements of headlines request by view.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**HeadlinesRequestByViewData**](HeadlinesRequestByViewData.md) |  | [optional] 
+**data** | [**HeadlinesRequestByViewData**](HeadlinesRequestByViewData.md) |  | 
 **meta** | [**HeadlinesRequestByViewMeta**](HeadlinesRequestByViewMeta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

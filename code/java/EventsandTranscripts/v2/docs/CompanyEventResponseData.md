@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identifier** | **String** | Ticker-region identifier of the entity hosting the event. |  [optional]
+**requestId** | **String** | Identifier provided in the request. |  [optional]
 **entityName** | **String** | The official name of the entity. |  [optional]
 **description** | **String** | Brief description of the event. |  [optional]
 **eventDateTime** | **OffsetDateTime** | Event start time as date/time string according to ISO 8601. |  [optional]
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 **contactEmail** | **String** | Contact email for inquiries related to the event. |  [optional]
 **contactPhone** | **String** | Contact phone number for inquiries related to the event. |  [optional]
 **contactName** | **String** | Name of the contact person for queries related to the event. |  [optional]
-**reportId** | **String** | Unique identifier for the report.    **Note:** We do not have a reportId for split and dividend event types.  |  [optional]
+**reportId** | **String** | Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types.  |  [optional]
 **lastModifiedDate** | **OffsetDateTime** | The date and time when the event was last modified. |  [optional]
 
 

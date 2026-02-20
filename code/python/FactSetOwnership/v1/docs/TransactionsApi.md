@@ -1,13 +1,13 @@
 # fds.sdk.FactSetOwnership.TransactionsApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_ownership_insider_transactions**](TransactionsApi.md#get_ownership_insider_transactions) | **GET** /factset-ownership/v1/transactions/insider | Get insider transactions details for a list of requested identifiers.
-[**get_ownership_institutional_transactions**](TransactionsApi.md#get_ownership_institutional_transactions) | **GET** /factset-ownership/v1/transactions/institutional | Get institutional transaction details for a list of requested identifiers.
-[**post_ownership_insider_transactions**](TransactionsApi.md#post_ownership_insider_transactions) | **POST** /factset-ownership/v1/transactions/insider | Get insider transactions details for a list of requested identifiers.
-[**post_ownership_instituional_transactions**](TransactionsApi.md#post_ownership_instituional_transactions) | **POST** /factset-ownership/v1/transactions/institutional | Gets institutional transaction details for a list of requested identifiers.
+[**get_ownership_insider_transactions**](TransactionsApi.md#get_ownership_insider_transactions) | **GET** /transactions/insider | Get insider transactions details for a list of requested identifiers.
+[**get_ownership_institutional_transactions**](TransactionsApi.md#get_ownership_institutional_transactions) | **GET** /transactions/institutional | Get institutional transaction details for a list of requested identifiers.
+[**post_ownership_insider_transactions**](TransactionsApi.md#post_ownership_insider_transactions) | **POST** /transactions/insider | Get insider transactions details for a list of requested identifiers.
+[**post_ownership_institutional_transactions**](TransactionsApi.md#post_ownership_institutional_transactions) | **POST** /transactions/institutional | Gets institutional transaction details for a list of requested identifiers.
 
 
 
@@ -63,18 +63,19 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     api_instance = transactions_api.TransactionsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["TSLA-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  >.
+    ids = ["TSLA-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
     start_date = dateutil_parser('2020-06-30').date() # date | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
     end_date = dateutil_parser('2021-06-30').date() # date | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
     transaction_type = "A" # str | Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** = All Transaction Types - returns all available transaction types.   * **P** = Open Market Purchases - shares on the open market.   * **S** =  Open Market Sales - selling shares on the open market.   * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.   * **O** = Options Exercised - executing stock options to acquire shares.   * **M** = Other Transactions - any other types of equity-related actions not covered above.  (optional) if omitted the server will use the default value of "A"
     row_exclusion = "DB" # str | Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** = Blank Transaction Types - excludes only blank transaction types.   * **N** =   None - includes all transaction types without exclusion.  (optional) if omitted the server will use the default value of "DB"
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) if omitted the server will use the default value of "LOCAL"
+    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method.  (optional) if omitted the server will use the default value of "N"
 
     try:
         # Get insider transactions details for a list of requested identifiers.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_ownership_insider_transactions(ids, start_date, end_date, transaction_type=transaction_type, row_exclusion=row_exclusion, currency=currency)
+        api_response = api_instance.get_ownership_insider_transactions(ids, start_date, end_date, transaction_type=transaction_type, row_exclusion=row_exclusion, currency=currency, batch=batch)
 
         pprint(api_response)
 
@@ -87,12 +88,13 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. |
+ **ids** | **[str]**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. |
  **start_date** | **date**| The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **end_date** | **date**| The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **transaction_type** | **str**| Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** &#x3D; All Transaction Types - returns all available transaction types.   * **P** &#x3D; Open Market Purchases - shares on the open market.   * **S** &#x3D;  Open Market Sales - selling shares on the open market.   * **PS** &#x3D; Open Market Purchases &amp; Sales - buying and selling shares on the open market.   * **O** &#x3D; Options Exercised - executing stock options to acquire shares.   * **M** &#x3D; Other Transactions - any other types of equity-related actions not covered above.  | [optional] if omitted the server will use the default value of "A"
  **row_exclusion** | **str**| Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  | [optional] if omitted the server will use the default value of "DB"
  **currency** | **str**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] if omitted the server will use the default value of "LOCAL"
+ **batch** | **str**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
 
@@ -173,7 +175,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     api_instance = transactions_api.TransactionsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["TSLA-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  >.
+    ids = ["TSLA-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
     start_date = dateutil_parser('2020-06-30').date() # date | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
     end_date = dateutil_parser('2021-06-30').date() # date | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) if omitted the server will use the default value of "LOCAL"
@@ -181,12 +183,13 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     top_n_holders = "25" # str | Specifies the number of top holders whose data is returned.   * **ALL** = All holders   * **5** = Top 5 Institutional Holders   * **10** = Top 10 Institutional Holders   * **25** = Top 25 Institutional Holders   * **50** = Top 50 Institutional Holders   * **100** = Top 100 Institutional Holders  (optional) if omitted the server will use the default value of "25"
     holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) if omitted the server will use the default value of "F"
     period_of_measure = "6M" # str | Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** = 1 Month (last 30 days)   * **3M** = 3 Months (last 90 days)   * **6M** = 6 Months (last 180 days)   * **12M** = 12 Months (last 365 days)  (optional) if omitted the server will use the default value of "6M"
+    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method.  (optional) if omitted the server will use the default value of "N"
 
     try:
         # Get institutional transaction details for a list of requested identifiers.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_ownership_institutional_transactions(ids, start_date, end_date, currency=currency, frequency=frequency, top_n_holders=top_n_holders, holder_type=holder_type, period_of_measure=period_of_measure)
+        api_response = api_instance.get_ownership_institutional_transactions(ids, start_date, end_date, currency=currency, frequency=frequency, top_n_holders=top_n_holders, holder_type=holder_type, period_of_measure=period_of_measure, batch=batch)
 
         pprint(api_response)
 
@@ -199,7 +202,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. |
+ **ids** | **[str]**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. |
  **start_date** | **date**| The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **end_date** | **date**| The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **currency** | **str**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] if omitted the server will use the default value of "LOCAL"
@@ -207,6 +210,7 @@ Name | Type | Description  | Notes
  **top_n_holders** | **str**| Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  | [optional] if omitted the server will use the default value of "25"
  **holder_type** | **str**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] if omitted the server will use the default value of "F"
  **period_of_measure** | **str**| Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  | [optional] if omitted the server will use the default value of "6M"
+ **batch** | **str**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
 
@@ -295,6 +299,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
             transaction_type=TransactionType("A"),
             row_exclusion=RowExclusion("DB"),
             currency="USD",
+            batch=Batch("N"),
         ),
     ) # InsiderTransactionsRequest | Requesting Insider Transaction Details
 
@@ -343,8 +348,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_ownership_instituional_transactions**
-> InstitutionalTransactionsResponse post_ownership_instituional_transactions(institutional_transactions_request)
+# **post_ownership_institutional_transactions**
+> InstitutionalTransactionsResponse post_ownership_institutional_transactions(institutional_transactions_request)
 
 Gets institutional transaction details for a list of requested identifiers.
 
@@ -402,21 +407,22 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
             end_date=dateutil_parser('Wed Jun 30 00:00:00 UTC 2021').date(),
             top_n_holders=TopNHolders("25"),
             holder_type=HolderType("F"),
-            period_of_measure=PeriodOfMeasure("6M"),
             currency="USD",
             frequency=Frequency("M"),
+            period_of_measure=PeriodOfMeasure("6M"),
+            batch=Batch("N"),
         ),
     ) # InstitutionalTransactionsRequest | Requesting Institutional Transaction Details
 
     try:
         # Gets institutional transaction details for a list of requested identifiers.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_ownership_instituional_transactions(institutional_transactions_request)
+        api_response = api_instance.post_ownership_institutional_transactions(institutional_transactions_request)
 
         pprint(api_response)
 
     except fds.sdk.FactSetOwnership.ApiException as e:
-        print("Exception when calling TransactionsApi->post_ownership_instituional_transactions: %s\n" % e)
+        print("Exception when calling TransactionsApi->post_ownership_institutional_transactions: %s\n" % e)
 ```
 
 

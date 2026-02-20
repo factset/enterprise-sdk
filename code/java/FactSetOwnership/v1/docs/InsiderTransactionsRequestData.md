@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **transactionType** | **TransactionType** |  |  [optional]
 **rowExclusion** | **RowExclusion** |  |  [optional]
 **currency** | **String** | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). |  [optional]
+**batch** | **Batch** |  |  [optional]
 
 
 ## Implemented Interfaces

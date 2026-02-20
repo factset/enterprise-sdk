@@ -17,7 +17,7 @@ info:
     as Watchlists/Indices/Tickers, Categories (the equivalent of 'Subjects'
     within the Workstation), Market Topics, Regions, and Sectors.  Headlines can
     also be retrieved based on saved views within the Workstation.
-  version: 1.2.0
+  version: 1.2.1
   contact:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
@@ -587,7 +587,7 @@ paths:
                           - name: S&P 500
                             type: Index
                             value: SP50
-                      flattered:
+                      flattened:
                         categories:
                           - name: Dividends
                             value:
@@ -676,7 +676,7 @@ paths:
                               - name: Mergers & Acquisitions
                                 value:
                                   - SA_FILTERED_MNA
-                      flattered:
+                      flattened:
                         categories:
                           - name: Dividends
                             value:
@@ -749,7 +749,7 @@ paths:
                               - name: Business Model & Innovation
                                 value:
                                   - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-                      flattered:
+                      flattened:
                         topics:
                           - name: 13F Summary
                             value:
@@ -822,7 +822,7 @@ paths:
                               - name: South Africa
                                 value:
                                   - '28'
-                      flattered:
+                      flattened:
                         regions:
                           - name: Canada
                             value:
@@ -894,7 +894,7 @@ paths:
                               - name: Alternative Energy"
                                 value:
                                   - 108
-                      flattered:
+                      flattened:
                         sectors:
                           - name: Chemical Manufacturing
                             value:
@@ -963,7 +963,7 @@ paths:
                           - name: S&P 500
                             type: Index
                             value: SP50
-                      flattered:
+                      flattened:
                         watchlists:
                           - name: S&P 500
                             type: Index
@@ -1454,6 +1454,8 @@ components:
                     YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
                     ±[hh]:[mm]
                   example: '2022-08-29T08:10:30Z'
+          required:
+            - name
         meta:
           type: object
           description: Elements of meta object.
@@ -1474,6 +1476,8 @@ components:
                   example: 0
                   default: 0
                   description: Non-negative number of entries to skip.
+      required:
+        - data
     QuickAlertsBody:
       type: object
       description: Elements of quick alerts body object.
@@ -1485,6 +1489,10 @@ components:
               type: string
               description: The name of the view associated with quick alerts.
               example: StreetAccount News
+          required:
+            - name
+      required:
+        - data
     QuickAlertsResponse:
       type: object
       description: Elements of quick alerts response object.
@@ -1650,6 +1658,10 @@ components:
                 A value of 'true' means quick alerts are enabled, while 'false'
                 means they are not.
               example: false
+          required:
+            - name
+      required:
+        - data
     DeleteViewBody:
       type: object
       description: Elements of delete view body object.
@@ -1661,6 +1673,10 @@ components:
               type: string
               description: The name of the view to be deleted.
               example: SA News View
+          required:
+            - name
+      required:
+        - data
     CreateOrEditViewTickers:
       type: object
       description: Elements of create or edit view tickers object.

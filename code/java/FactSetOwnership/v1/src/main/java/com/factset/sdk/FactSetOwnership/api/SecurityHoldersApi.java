@@ -72,11 +72,12 @@ public class SecurityHoldersApi {
   /**
    * Get security ownership data for requested security identifers.
    * Gets security ownership details and activity for the requested security identifiers. The services allows filtering by \&quot;Topn\&quot; holders and by holder \&quot;type\&quot;, such as Institutions, Insiders, and Stakeholders. 
-   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt;. (required)
+   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt;. (required)
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param topn Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional, default to ALL)
    * @param date Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return SecurityHoldersResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -90,18 +91,19 @@ public class SecurityHoldersApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public SecurityHoldersResponse getSecurityHolders(java.util.List<String> ids, String holderType, String topn, String date, String currency) throws ApiException {
-    return getSecurityHoldersWithHttpInfo(ids, holderType, topn, date, currency).getData();
+  public SecurityHoldersResponse getSecurityHolders(java.util.List<String> ids, String holderType, String topn, String date, String currency, String batch) throws ApiException {
+    return getSecurityHoldersWithHttpInfo(ids, holderType, topn, date, currency, batch).getData();
   }
 
   /**
    * Get security ownership data for requested security identifers.
    * Gets security ownership details and activity for the requested security identifiers. The services allows filtering by \&quot;Topn\&quot; holders and by holder \&quot;type\&quot;, such as Institutions, Insiders, and Stakeholders. 
-   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt;. (required)
+   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt;. (required)
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param topn Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional, default to ALL)
    * @param date Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return ApiResponse&lt;SecurityHoldersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -115,7 +117,7 @@ public class SecurityHoldersApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SecurityHoldersResponse> getSecurityHoldersWithHttpInfo(java.util.List<String> ids, String holderType, String topn, String date, String currency) throws ApiException {
+  public ApiResponse<SecurityHoldersResponse> getSecurityHoldersWithHttpInfo(java.util.List<String> ids, String holderType, String topn, String date, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -124,7 +126,7 @@ public class SecurityHoldersApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/security-holders";
+    String localVarPath = "/security-holders";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -137,6 +139,7 @@ public class SecurityHoldersApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "topn", topn));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
 
     
     
@@ -212,7 +215,7 @@ public class SecurityHoldersApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/security-holders";
+    String localVarPath = "/security-holders";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **entityName** | **String** | Full name corresponding to the matched entity. |  [optional]
 **countryCode** | **String** | ISO2 country code corresponding to the location of the matched entity. |  [optional]
 **entityTypeCode** | **String** | Code representing the entity type of the matched entity. For more details, view Online Assistant page [OA16823](https://my.apps.factset.com/oa/pages/16823) |  [optional]
+**matchFlag** | **Boolean** | Flag denoting if the row is a match. |  [optional]
 
 
 ## Implemented Interfaces

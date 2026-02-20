@@ -68,7 +68,7 @@ public class GuidanceRequestBody implements Serializable {
   private Periodicity periodicity = Periodicity.ANN;
 
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
-  private Frequency frequency = Frequency.D;
+  private Frequency frequency = Frequency.AM;
 
   public static final String JSON_PROPERTY_RELATIVE_FISCAL_START = "relativeFiscalStart";
   private Integer relativeFiscalStart;

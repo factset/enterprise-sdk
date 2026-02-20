@@ -1,19 +1,19 @@
 # FactSet.SDK.FactSetOwnership.Api.TransactionsApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetOwnershipInsiderTransactions**](TransactionsApi.md#getownershipinsidertransactions) | **GET** /factset-ownership/v1/transactions/insider | Get insider transactions details for a list of requested identifiers.
-[**GetOwnershipInstitutionalTransactions**](TransactionsApi.md#getownershipinstitutionaltransactions) | **GET** /factset-ownership/v1/transactions/institutional | Get institutional transaction details for a list of requested identifiers.
-[**PostOwnershipInsiderTransactions**](TransactionsApi.md#postownershipinsidertransactions) | **POST** /factset-ownership/v1/transactions/insider | Get insider transactions details for a list of requested identifiers.
-[**PostOwnershipInstituionalTransactions**](TransactionsApi.md#postownershipinstituionaltransactions) | **POST** /factset-ownership/v1/transactions/institutional | Gets institutional transaction details for a list of requested identifiers.
+[**GetOwnershipInsiderTransactions**](TransactionsApi.md#getownershipinsidertransactions) | **GET** /transactions/insider | Get insider transactions details for a list of requested identifiers.
+[**GetOwnershipInstitutionalTransactions**](TransactionsApi.md#getownershipinstitutionaltransactions) | **GET** /transactions/institutional | Get institutional transaction details for a list of requested identifiers.
+[**PostOwnershipInsiderTransactions**](TransactionsApi.md#postownershipinsidertransactions) | **POST** /transactions/insider | Get insider transactions details for a list of requested identifiers.
+[**PostOwnershipInstitutionalTransactions**](TransactionsApi.md#postownershipinstitutionaltransactions) | **POST** /transactions/institutional | Gets institutional transaction details for a list of requested identifiers.
 
 
 
 <a name="getownershipinsidertransactions"></a>
 # **GetOwnershipInsiderTransactions**
-> InsiderTransactionsResponse GetOwnershipInsiderTransactions (List<string> ids, DateTime startDate, DateTime endDate, string transactionType = null, string rowExclusion = null, string currency = null)
+> InsiderTransactionsResponse GetOwnershipInsiderTransactions (List<string> ids, DateTime startDate, DateTime endDate, string transactionType = null, string rowExclusion = null, string currency = null, string batch = null)
 
 Get insider transactions details for a list of requested identifiers.
 
@@ -63,17 +63,18 @@ namespace Example
 
             var apiInstance = new TransactionsApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  >.
+            var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
             var startDate = DateTime.Parse("2020-06-30");  // DateTime | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
             var endDate = DateTime.Parse("2021-06-30");  // DateTime | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
             var transactionType = "A";  // string | Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** = All Transaction Types - returns all available transaction types.   * **P** = Open Market Purchases - shares on the open market.   * **S** =  Open Market Sales - selling shares on the open market.   * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.   * **O** = Options Exercised - executing stock options to acquire shares.   * **M** = Other Transactions - any other types of equity-related actions not covered above.  (optional)  (default to A)
             var rowExclusion = "DB";  // string | Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** = Blank Transaction Types - excludes only blank transaction types.   * **N** =   None - includes all transaction types without exclusion.  (optional)  (default to DB)
             var currency = "\"LOCAL\"";  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)  (default to "LOCAL")
+            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
 
             try
             {
                 // Get insider transactions details for a list of requested identifiers.
-                InsiderTransactionsResponse result = apiInstance.GetOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency);
+                InsiderTransactionsResponse result = apiInstance.GetOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -91,12 +92,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. | 
  **startDate** | **DateTime**| The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | 
  **endDate** | **DateTime**| The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | 
  **transactionType** | **string**| Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** &#x3D; All Transaction Types - returns all available transaction types.   * **P** &#x3D; Open Market Purchases - shares on the open market.   * **S** &#x3D;  Open Market Sales - selling shares on the open market.   * **PS** &#x3D; Open Market Purchases &amp; Sales - buying and selling shares on the open market.   * **O** &#x3D; Options Exercised - executing stock options to acquire shares.   * **M** &#x3D; Other Transactions - any other types of equity-related actions not covered above.  | [optional] [default to A]
  **rowExclusion** | **string**| Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  | [optional] [default to DB]
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to &quot;LOCAL&quot;]
+ **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
 [**InsiderTransactionsResponse**](InsiderTransactionsResponse.md)
@@ -126,7 +128,7 @@ Name | Type | Description  | Notes
 
 <a name="getownershipinstitutionaltransactions"></a>
 # **GetOwnershipInstitutionalTransactions**
-> InstitutionalTransactionsResponse GetOwnershipInstitutionalTransactions (List<string> ids, DateTime startDate, DateTime endDate, string currency = null, string frequency = null, string topNHolders = null, string holderType = null, string periodOfMeasure = null)
+> InstitutionalTransactionsResponse GetOwnershipInstitutionalTransactions (List<string> ids, DateTime startDate, DateTime endDate, string currency = null, string frequency = null, string topNHolders = null, string holderType = null, string periodOfMeasure = null, string batch = null)
 
 Get institutional transaction details for a list of requested identifiers.
 
@@ -176,7 +178,7 @@ namespace Example
 
             var apiInstance = new TransactionsApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  >.
+            var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
             var startDate = DateTime.Parse("2020-06-30");  // DateTime | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
             var endDate = DateTime.Parse("2021-06-30");  // DateTime | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
             var currency = "\"LOCAL\"";  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)  (default to "LOCAL")
@@ -184,11 +186,12 @@ namespace Example
             var topNHolders = "ALL";  // string | Specifies the number of top holders whose data is returned.   * **ALL** = All holders   * **5** = Top 5 Institutional Holders   * **10** = Top 10 Institutional Holders   * **25** = Top 25 Institutional Holders   * **50** = Top 50 Institutional Holders   * **100** = Top 100 Institutional Holders  (optional)  (default to 25)
             var holderType = "F";  // string | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional)  (default to F)
             var periodOfMeasure = "1M";  // string | Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** = 1 Month (last 30 days)   * **3M** = 3 Months (last 90 days)   * **6M** = 6 Months (last 180 days)   * **12M** = 12 Months (last 365 days)  (optional)  (default to 6M)
+            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
 
             try
             {
                 // Get institutional transaction details for a list of requested identifiers.
-                InstitutionalTransactionsResponse result = apiInstance.GetOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure);
+                InstitutionalTransactionsResponse result = apiInstance.GetOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -206,7 +209,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. | 
  **startDate** | **DateTime**| The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | 
  **endDate** | **DateTime**| The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  | 
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to &quot;LOCAL&quot;]
@@ -214,6 +217,7 @@ Name | Type | Description  | Notes
  **topNHolders** | **string**| Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  | [optional] [default to 25]
  **holderType** | **string**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] [default to F]
  **periodOfMeasure** | **string**| Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  | [optional] [default to 6M]
+ **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
 [**InstitutionalTransactionsResponse**](InstitutionalTransactionsResponse.md)
@@ -344,9 +348,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-<a name="postownershipinstituionaltransactions"></a>
-# **PostOwnershipInstituionalTransactions**
-> InstitutionalTransactionsResponse PostOwnershipInstituionalTransactions (InstitutionalTransactionsRequest institutionalTransactionsRequest)
+<a name="postownershipinstitutionaltransactions"></a>
+# **PostOwnershipInstitutionalTransactions**
+> InstitutionalTransactionsResponse PostOwnershipInstitutionalTransactions (InstitutionalTransactionsRequest institutionalTransactionsRequest)
 
 Gets institutional transaction details for a list of requested identifiers.
 
@@ -369,7 +373,7 @@ using FactSet.SDK.FactSetOwnership.Model;
 
 namespace Example
 {
-    public class PostOwnershipInstituionalTransactionsExample
+    public class PostOwnershipInstitutionalTransactionsExample
     {
         public static async Task Main()
         {
@@ -401,12 +405,12 @@ namespace Example
             try
             {
                 // Gets institutional transaction details for a list of requested identifiers.
-                InstitutionalTransactionsResponse result = apiInstance.PostOwnershipInstituionalTransactions(institutionalTransactionsRequest);
+                InstitutionalTransactionsResponse result = apiInstance.PostOwnershipInstitutionalTransactions(institutionalTransactionsRequest);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling TransactionsApi.PostOwnershipInstituionalTransactions: " + e.Message );
+                Console.WriteLine("Exception when calling TransactionsApi.PostOwnershipInstitutionalTransactions: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

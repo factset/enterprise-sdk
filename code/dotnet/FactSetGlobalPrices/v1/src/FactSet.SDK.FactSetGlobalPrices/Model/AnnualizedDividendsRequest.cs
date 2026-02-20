@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnnualizedDividendsRequest" /> class.
         /// </summary>
-        /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.  (required).</param>
+        /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 5000 for batch requests.  (required).</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (default to &quot;LOCAL&quot;).</param>
         /// <param name="batch">batch.</param>
         public AnnualizedDividendsRequest(List<string> ids,string currency = "LOCAL", Batch batch = default(Batch))
@@ -62,9 +62,9 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         }
 
         /// <summary>
-        /// The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. 
+        /// The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 5000 for batch requests. 
         /// </summary>
-        /// <value>The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests. </value>
+        /// <value>The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 5000 for batch requests. </value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 

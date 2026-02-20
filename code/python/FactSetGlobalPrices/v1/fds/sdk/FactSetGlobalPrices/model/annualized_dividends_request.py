@@ -32,9 +32,9 @@ from fds.sdk.FactSetGlobalPrices.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.FactSetGlobalPrices.model.batch import Batch
-    from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
+    from fds.sdk.FactSetGlobalPrices.model.ids_max5000 import IdsMax5000
     globals()['Batch'] = Batch
-    globals()['IdsMax50'] = IdsMax50
+    globals()['IdsMax5000'] = IdsMax5000
 
 
 class AnnualizedDividendsRequest(ModelNormal):
@@ -90,7 +90,7 @@ class AnnualizedDividendsRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (IdsMax50,),  # noqa: E501
+            'ids': (IdsMax5000,),  # noqa: E501
             'currency': (str,),  # noqa: E501
             'batch': (Batch,),  # noqa: E501
         }
@@ -117,7 +117,7 @@ class AnnualizedDividendsRequest(ModelNormal):
         """AnnualizedDividendsRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax5000):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -204,7 +204,7 @@ class AnnualizedDividendsRequest(ModelNormal):
         """AnnualizedDividendsRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax5000):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

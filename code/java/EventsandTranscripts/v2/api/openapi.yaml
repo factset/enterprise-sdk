@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Events and Transcripts API
-  version: 2.2.0
+  version: 2.2.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -1474,7 +1474,7 @@ components:
           fileName: 2021_trimmed.tar.gz
           fileSize: 191173623046875
           fileCount: 68974
-          url: https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+          url: https://...
     EventsAudioDaily:
       value:
         data:
@@ -1579,7 +1579,7 @@ components:
           - RN:NA
           - SB:EVTS
           - SB:EV_ME
-          transcriptsUrl: https://api.factset.com/v2/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+          transcriptsUrl: https://...
         meta:
           pagination:
             total: 191
@@ -1612,7 +1612,7 @@ components:
             - DT:EVTS
             - DT:EV_ME
             - DT:FILNS
-            transcriptsUrl: https://api.factset.com/v2/transcripts?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+            transcriptsUrl: https://...
         - requestId: MSFT-US
           documents: []
         - requestId: M
@@ -1777,7 +1777,7 @@ components:
             - CN:US
             - SB:ERNS
             - SB:ER_GEN
-            transcriptIntelligenceUrl: https://api.factset.com/v2/transcripts/intelligence?report=story&key=U2FsdGVkX1%2fnmLtyjqVXou2DhAkQ9Ir03Gk23odWnH4Hqf9cr6p5au3h80oqjH1nTcoQRKHzEoIre8hsdTZmX%2fi23zDK1DMIDSBv1VuqFmY%3d&timeZone=America/New_York
+            transcriptIntelligenceUrl: https://...
         - requestId: MSFT-US
           documents: []
         - requestId: M
@@ -1807,7 +1807,7 @@ components:
             - DT:EVTS
             - DT:EV_ME
             - DT:FILNS
-            slidesUrl: https://api.factset.com/v2/transcripts/investor-slides?report=story&key=U2FsdGVkX18b15tR%2bV9L1xvjo6Vnz7C7PhIbUvoMrgF%2f43aEWomYlhVruC6G6874fEX
+            slidesUrl: https://...
             eventId: "1203335253"
         - requestId: MSFT-US
           documents: []
@@ -1997,6 +1997,7 @@ components:
           startDate: 2020-10-01
           endDate: 2023-12-26
           timeZone: America/New_York
+          dateType: uploadDateTime
         meta:
           pagination:
             limit: 20
@@ -2028,7 +2029,7 @@ components:
           - CN:CA
           startDate: 2025-07-01
           endDate: 2025-07-10
-          dateType: upload
+          dateType: uploadDateTime
           searchText: Welcome
         meta:
           pagination:
@@ -2052,7 +2053,8 @@ components:
       value:
         data:
           startDateTime: 2020-10-01T00:00:00Z
-          endDateTime: '2020-10-26T10:00:00Z '
+          endDateTime: 2020-10-26T10:00:00Z
+          dateType: uploadDateTime
         meta:
           pagination:
             limit: 50
@@ -3464,10 +3466,10 @@ components:
       description: Search criteria for transcripts based on date range and timeZone.
       properties:
         startDate:
-          description: "-  Start Date (YYYY-MM-DD). Data available from April 21st,\
-            \ 1999 onwards.\n- *Either `startDate` or `startDateRelative` should be\
-            \ used.*\n- If dates are not provided, default will return all files.\n\
-            \ \n"
+          description: |
+            -  Start Date (YYYY-MM-DD). Data available from April 21st, 1999 onwards.
+            - *Either `startDate` or `startDateRelative` should be used.*
+            - If dates are not provided, default will return all files.
           example: 2023-12-22
           format: date
           type: string
@@ -3502,6 +3504,15 @@ components:
             registry).  Use the `/meta/time-zones` endpoint to get the list of available
             time zones.
           example: Europe/London
+          type: string
+        dateType:
+          description: "<p>'dateType=storyDateTime' Enables filtering of transcripts\
+            \ based on their storyDateTime</p>\n<p>'dateType=uploadDateTime' Enables\
+            \ filtering of transcripts based on their uploadDateTime</p> \n<p>Default\
+            \ value is set to storyDateTime.</p>\n"
+          enum:
+          - storyDateTime
+          - uploadDateTime
           type: string
       type: object
     TranscriptsBySearchRequest:
@@ -3563,9 +3574,13 @@ components:
           format: date
           type: string
         dateType:
-          description: |
-            Enables filtering of transcripts based on their uploadDateTime.
-          example: upload
+          description: "<p>'dateType=storyDateTime' Enables filtering of transcripts\
+            \ based on their storyDateTime</p>\n<p>'dateType=uploadDateTime' Enables\
+            \ filtering of transcripts based on their uploadDateTime</p> \n<p>Default\
+            \ value is set to storyDateTime.</p>\n"
+          enum:
+          - storyDateTime
+          - uploadDateTime
           type: string
         searchText:
           description: Text to search for within the transcript document stories.
@@ -3588,6 +3603,15 @@ components:
             The date to which data is required. If dates are not provided, default will return all files.
           example: 2020-10-26T10:00:00Z
           format: date-time
+          type: string
+        dateType:
+          description: "<p>'dateType=storyDateTime' Enables filtering of transcripts\
+            \ based on their storyDateTime</p>\n<p>'dateType=uploadDateTime' Enables\
+            \ filtering of transcripts based on their uploadDateTime</p> \n<p>Default\
+            \ value is set to storyDateTime.</p>\n"
+          enum:
+          - storyDateTime
+          - uploadDateTime
           type: string
       type: object
     TranscriptsByEventsRequest:
@@ -4465,6 +4489,7 @@ components:
           eventType: Earnings
           irLink: investor.apple.com/investor-relations/default.aspx
           marketTimeCode: Unspecified
+          requestId: AAPL-US
           entityName: Apple, Inc.
           fiscalPeriod: "1"
           contactPhone: 1(888)227.0303
@@ -4481,6 +4506,7 @@ components:
           eventType: Earnings
           irLink: investor.apple.com/investor-relations/default.aspx
           marketTimeCode: Unspecified
+          requestId: AAPL-US
           entityName: Apple, Inc.
           fiscalPeriod: "1"
           contactPhone: 1(888)227.0303
@@ -4505,6 +4531,7 @@ components:
         eventType: Earnings
         irLink: investor.apple.com/investor-relations/default.aspx
         marketTimeCode: Unspecified
+        requestId: AAPL-US
         entityName: Apple, Inc.
         fiscalPeriod: "1"
         contactPhone: 1(888)227.0303
@@ -4513,6 +4540,10 @@ components:
       properties:
         identifier:
           description: Ticker-region identifier of the entity hosting the event.
+          example: AAPL-US
+          type: string
+        requestId:
+          description: Identifier provided in the request.
           example: AAPL-US
           type: string
         entityName:
@@ -4608,7 +4639,7 @@ components:
           example: John Doe
           type: string
         reportId:
-          description: "Unique identifier for the report. \n\n\n**Note:** We do not\
+          description: "Unique identifier for the report. \n\n**Note:** We do not\
             \ have a reportId for split and dividend event types.\n"
           example: "2750388"
           type: string
@@ -4744,21 +4775,25 @@ components:
       type: object
     CompanyEventRequest_data_dateTime:
       description: |
-        - Data is available from 2002.
-        - If users provide future dates in requests, the API will return data between `start` and `end` up to 90 days.
+        Data is available from 2002.
+
+        If users provide future dates in requests, the API returns data between the
+        specified start and end dates, subject to the maximum allowed date range.
+
+        Date range limits by universe type:
+        - Tickers, Index, and Etf: Maximum of 365 days between start and end.
+        - AllCompanies: Maximum of 90 days between start and end.
       example:
         start: 2022-12-01T00:00:00Z
         end: 2022-12-31T22:59:02Z
       properties:
         start:
-          description: Start time of the event in ISO 8601 format. The maximum `dateTime`
-            limit between start and end is up to 90 days.
+          description: Start time of the event in ISO 8601 format.
           example: 2022-12-01T00:00:00Z
           format: date-time
           type: string
         end:
-          description: End time of the event in ISO 8601 format. The maximum `dateTime`
-            limit between start and end is up to 90 days.
+          description: End time of the event in ISO 8601 format.
           example: 2022-12-31T22:59:02Z
           format: date-time
           type: string

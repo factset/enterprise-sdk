@@ -34,11 +34,11 @@ def lazy_import():
     from fds.sdk.FactSetGlobalPrices.model.batch import Batch
     from fds.sdk.FactSetGlobalPrices.model.dividend_adjust import DividendAdjust
     from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
-    from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
+    from fds.sdk.FactSetGlobalPrices.model.ids_max1000 import IdsMax1000
     globals()['Batch'] = Batch
     globals()['DividendAdjust'] = DividendAdjust
     globals()['Frequency'] = Frequency
-    globals()['IdsMax50'] = IdsMax50
+    globals()['IdsMax1000'] = IdsMax1000
 
 
 class ReturnsRequest(ModelNormal):
@@ -94,7 +94,7 @@ class ReturnsRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (IdsMax50,),  # noqa: E501
+            'ids': (IdsMax1000,),  # noqa: E501
             'start_date': (str,),  # noqa: E501
             'end_date': (str,),  # noqa: E501
             'currency': (str,),  # noqa: E501
@@ -129,7 +129,7 @@ class ReturnsRequest(ModelNormal):
         """ReturnsRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax1000):
             start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
 
         Keyword Args:
@@ -221,7 +221,7 @@ class ReturnsRequest(ModelNormal):
         """ReturnsRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax1000):
             start_date (str): The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
 
         Keyword Args:

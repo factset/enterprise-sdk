@@ -31,12 +31,14 @@ from fds.sdk.FactSetEstimates.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.FactSetEstimates.model.broker_names import BrokerNames
     from fds.sdk.FactSetEstimates.model.frequency import Frequency
     from fds.sdk.FactSetEstimates.model.ids import Ids
     from fds.sdk.FactSetEstimates.model.metrics import Metrics
     from fds.sdk.FactSetEstimates.model.periodicity_detail import PeriodicityDetail
     from fds.sdk.FactSetEstimates.model.relative_fiscal_end import RelativeFiscalEnd
     from fds.sdk.FactSetEstimates.model.relative_fiscal_start import RelativeFiscalStart
+    globals()['BrokerNames'] = BrokerNames
     globals()['Frequency'] = Frequency
     globals()['Ids'] = Ids
     globals()['Metrics'] = Metrics
@@ -108,6 +110,8 @@ class RollingDetailRequest(ModelNormal):
             'relative_fiscal_end': (RelativeFiscalEnd,),  # noqa: E501
             'periodicity': (PeriodicityDetail,),  # noqa: E501
             'currency': (str,),  # noqa: E501
+            'broker_names': (BrokerNames,),  # noqa: E501
+            'updates_only': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -126,6 +130,8 @@ class RollingDetailRequest(ModelNormal):
         'relative_fiscal_end': 'relativeFiscalEnd',  # noqa: E501
         'periodicity': 'periodicity',  # noqa: E501
         'currency': 'currency',  # noqa: E501
+        'broker_names': 'brokerNames',  # noqa: E501
+        'updates_only': 'updatesOnly',  # noqa: E501
     }
 
     read_only_vars = {
@@ -181,6 +187,8 @@ class RollingDetailRequest(ModelNormal):
             relative_fiscal_end (RelativeFiscalEnd): [optional]  # noqa: E501
             periodicity (PeriodicityDetail): [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. Use input as 'ESTIMATE' for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            broker_names (BrokerNames): [optional]  # noqa: E501
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,6 +284,8 @@ class RollingDetailRequest(ModelNormal):
             relative_fiscal_end (RelativeFiscalEnd): [optional]  # noqa: E501
             periodicity (PeriodicityDetail): [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. Use input as 'ESTIMATE' for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            broker_names (BrokerNames): [optional]  # noqa: E501
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -10,7 +10,18 @@ Name | Type | Description | Notes
 **categories** | **[String]** | List of category codes (country, industry, subject). Use &#x60;/meta/categories&#x60; endpoint. Default is all. | [optional] 
 **startDate** | **Date** | Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
 **endDate** | **Date** | End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
-**dateType** | **String** | Enables filtering of transcripts based on their uploadDateTime.  | [optional] 
+**dateType** | **String** | &lt;p&gt;&#39;dateType&#x3D;storyDateTime&#39; Enables filtering of transcripts based on their storyDateTime&lt;/p&gt; &lt;p&gt;&#39;dateType&#x3D;uploadDateTime&#39; Enables filtering of transcripts based on their uploadDateTime&lt;/p&gt;  &lt;p&gt;Default value is set to storyDateTime.&lt;/p&gt;  | [optional] 
 **searchText** | **String** | Text to search for within the transcript document stories. | [optional] 
+
+
+
+## Enum: DateTypeEnum
+
+
+* `storyDateTime` (value: `"storyDateTime"`)
+
+* `uploadDateTime` (value: `"uploadDateTime"`)
+
+
 
 

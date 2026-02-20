@@ -1,11 +1,11 @@
 # fds.sdk.FactSetOwnership.SecurityHoldersApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_security_holders**](SecurityHoldersApi.md#get_security_holders) | **GET** /factset-ownership/v1/security-holders | Get security ownership data for requested security identifers.
-[**post_security_holders**](SecurityHoldersApi.md#post_security_holders) | **POST** /factset-ownership/v1/security-holders | Get security ownership data for a list of requested securities.
+[**get_security_holders**](SecurityHoldersApi.md#get_security_holders) | **GET** /security-holders | Get security ownership data for requested security identifers.
+[**post_security_holders**](SecurityHoldersApi.md#post_security_holders) | **POST** /security-holders | Get security ownership data for a list of requested securities.
 
 
 
@@ -61,17 +61,18 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     api_instance = security_holders_api.SecurityHoldersApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["FDS-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
+    ids = ["FDS-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>.
     holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) if omitted the server will use the default value of "F"
     topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) if omitted the server will use the default value of "ALL"
     date = "2019-12-31" # str | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) if omitted the server will use the default value of "LOCAL"
+    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method.  (optional) if omitted the server will use the default value of "N"
 
     try:
         # Get security ownership data for requested security identifers.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency)
+        api_response = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency, batch=batch)
 
         pprint(api_response)
 
@@ -84,11 +85,12 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt;. |
+ **ids** | **[str]**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt;. |
  **holder_type** | **str**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] if omitted the server will use the default value of "F"
  **topn** | **str**| Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. | [optional] if omitted the server will use the default value of "ALL"
  **date** | **str**| Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. | [optional]
  **currency** | **str**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] if omitted the server will use the default value of "LOCAL"
+ **batch** | **str**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
 
@@ -175,6 +177,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         date="2019-09-30",
         topn="5",
         currency="USD",
+        batch=Batch("N"),
     ) # SecurityHoldersRequest | Requesting Security Holders for a list of Fund Identifiers.
 
     try:

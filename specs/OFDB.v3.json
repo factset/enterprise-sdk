@@ -1,0 +1,2605 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "description": "OFDB API",
+    "version": "3.0.0",
+    "title": "OFDB API",
+    "termsOfService": "TOS",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "tags": [
+    {
+      "name": "Audit",
+      "description": "Interact with a database's modification records"
+    },
+    {
+      "name": "Bulk Delete",
+      "description": "Delete data from a database, with a large amount of flexibility"
+    },
+    {
+      "name": "Data",
+      "description": "Interact with a database's data"
+    },
+    {
+      "name": "Dates",
+      "description": "Interact with a database's dates"
+    },
+    {
+      "name": "Schema",
+      "description": "Interact with a database itself or its fields schema"
+    },
+    {
+      "name": "Stats",
+      "description": "Interact with a database's various meta statistics and properties"
+    },
+    {
+      "name": "Symbols",
+      "description": "Interact with a database's symbols/identifiers"
+    },
+    {
+      "name": "Job Status",
+      "description": "Shared helper route for retrieving the current status of a request"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.factset.com/analytics/ofdb/v3"
+    }
+  ],
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "paths": {
+    "/database/job/status/get": {
+      "get": {
+        "operationId": "getDatabaseStatusById",
+        "tags": [
+          "Job Status"
+        ],
+        "description": "Returns the current status of a long running request. The full URL is normally provided for you in the Location header of a long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the database endpoints.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/201LongRunningResponse"
+          },
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/audit/get": {
+      "post": {
+        "operationId": "getAudit",
+        "tags": [
+          "Audit"
+        ],
+        "description": "Returns a list of the most recent \"modificationTimes\" in long datetime format",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabasePathRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "The databasePath to be fetched"
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/audit/get": {
+      "get": {
+        "operationId": "getResourceGetAudit",
+        "tags": [
+          "Audit"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetAudit"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/stats/get": {
+      "post": {
+        "operationId": "getStats",
+        "tags": [
+          "Stats"
+        ],
+        "description": "Returns a summary of database metadata and data points",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabasePathRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "The databasePath to be fetched"
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/stats/get": {
+      "get": {
+        "operationId": "getResourceGetStats",
+        "tags": [
+          "Stats"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetStats"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/schema/add": {
+      "post": {
+        "operationId": "addFields",
+        "tags": [
+          "Schema"
+        ],
+        "description": "Allows users to add fields to existing databases",
+        "parameters": [],
+        "requestBody": {
+          "description": "Data for creating fields in the database.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddFieldsRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "description": "The field schemas to be added",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "description": "string",
+                          "iteration": "2d",
+                          "name": "string",
+                          "size": 0,
+                          "splitDirection": "none",
+                          "type": "int",
+                          "codePageFlag": "ASCII"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/schema/create": {
+      "post": {
+        "operationId": "createDatabase",
+        "tags": [
+          "Schema"
+        ],
+        "description": "Creates a 2d or 3d database. Users will note that not every field requires all the parameters listed in the schema. Please review FactSet data types on the OA for further guidance.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDatabaseRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/schema/get": {
+      "post": {
+        "operationId": "getFields",
+        "tags": [
+          "Schema"
+        ],
+        "description": "Returns all the fields in the database",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabasePathRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "The databasePath to be fetched"
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/schema/get": {
+      "get": {
+        "operationId": "getResourceGetFields",
+        "tags": [
+          "Schema"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetFields"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/bulk-delete": {
+      "post": {
+        "operationId": "deleteBulkItems",
+        "tags": [
+          "Bulk Delete"
+        ],
+        "description": "Allows users to delete various combinations of symbols, dates, and fields from the desired database",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkDeleteRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "description": "The combinations to be deleted",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "symbol": "FDS"
+                        },
+                        {
+                          "date": "2022-02-02"
+                        },
+                        {
+                          "date": "2022-03-03"
+                        },
+                        {
+                          "field": "PRICE"
+                        },
+                        {
+                          "symbol": "AAPL",
+                          "date": "2023-04-04"
+                        },
+                        {
+                          "symbol": "AAPL",
+                          "field": "SHARES"
+                        },
+                        {
+                          "date": "2023-05-05",
+                          "field": "SHARES"
+                        },
+                        {
+                          "symbol": "TSLA",
+                          "date": "2023-06-06",
+                          "field": "SHARES"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/bulk-delete/get": {
+      "get": {
+        "operationId": "getResourceDeleteBulkItems",
+        "tags": [
+          "Bulk Delete"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200BulkDelete"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/symbols/get": {
+      "post": {
+        "operationId": "getSymbols",
+        "tags": [
+          "Symbols"
+        ],
+        "description": "Returns all the symbols in the database",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabasePathRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "The databasePath to be fetched"
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/symbols/replace": {
+      "post": {
+        "operationId": "replaceSymbols",
+        "tags": [
+          "Symbols"
+        ],
+        "description": "Overwrites one or more symbols with new data. This will destroy existing data on those symbols.",
+        "parameters": [],
+        "requestBody": {
+          "description": "Data for creating symbol in the database",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSymbolsRoot"
+              },
+              "examples": {
+                "3dOFDB": {
+                  "description": "Symbol content is required and must contain date with at least one iterative field",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "symbol": "FDS",
+                          "content": [
+                            {
+                              "date": "2022-01-06",
+                              "price": "333"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "2dOFDB": {
+                  "description": "Symbol content is optional and should contain fields of the database",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "symbol": "FDS",
+                          "content": [
+                            {
+                              "name": "FactSet Research Systems"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "413": {
+            "$ref": "#/components/responses/413Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/symbols/update": {
+      "post": {
+        "operationId": "updateSymbols",
+        "tags": [
+          "Symbols"
+        ],
+        "description": "Updates existing symbols for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database. Updates an existing symbol field value or adds a new symbol if not present in the 2d database",
+        "parameters": [],
+        "requestBody": {
+          "description": "Data for updating symbol in the database",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSymbolsRoot"
+              },
+              "examples": {
+                "3dOFDB": {
+                  "description": "Symbol content is required and must contain date and at least one iterative field",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "symbol": "FDS",
+                          "content": [
+                            {
+                              "date": "2020-02-02",
+                              "price": "999"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "2dOFDB": {
+                  "description": "Symbol content is optional and should contain fields already existing within your database",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "symbol": "FDS",
+                          "content": [
+                            {
+                              "name": "FactSet Research Systems"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "413": {
+            "$ref": "#/components/responses/413Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/symbols/get": {
+      "get": {
+        "operationId": "getResourceGetSymbols",
+        "tags": [
+          "Symbols"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetSymbols"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/dates/get": {
+      "post": {
+        "operationId": "getDates",
+        "tags": [
+          "Dates"
+        ],
+        "description": "Returns all the dates in the database",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabasePathRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "The databasePath to be fetched"
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/dates/replace": {
+      "post": {
+        "operationId": "replaceDates",
+        "tags": [
+          "Dates"
+        ],
+        "description": "Overwrites one or more dates with new data. This will destroy existing data on those dates",
+        "parameters": [],
+        "requestBody": {
+          "description": "Date content is required and must contain symbol and at least one iterative field",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddDatesRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "description": "Date content is required and must contain symbol and at least one iterative field",
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB",
+                      "content": [
+                        {
+                          "date": "2022-01-07",
+                          "content": [
+                            {
+                              "symbol": "FDS",
+                              "price": 444
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "413": {
+            "$ref": "#/components/responses/413Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/dates/update": {
+      "post": {
+        "operationId": "updateDates",
+        "tags": [
+          "Dates"
+        ],
+        "description": "Updates existing dates for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database.",
+        "parameters": [],
+        "requestBody": {
+          "description": "Required data for updating date in the database",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDatesRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "413": {
+            "$ref": "#/components/responses/413Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/dates/get": {
+      "get": {
+        "operationId": "getResourceGetDates",
+        "tags": [
+          "Dates"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetDates"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/data/get": {
+      "post": {
+        "operationId": "getData",
+        "tags": [
+          "Data"
+        ],
+        "description": "Returns the data in the database for the mentioned Symbol or Date. At least one parameter (Symbol/Date) is required. For a range of dates symbol parameter is mandatory. Optional 'filter' parameters are combined (ANDed) together if provided.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "description": "Returns data for the symbol mentioned. e.g:sym1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Return data for the specific date or range of dates mentioned.e.g:[date1,date2]",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterFields",
+            "in": "query",
+            "description": "Can specify the fields on which you want to perform field filter operations e.g: [\"PRICE\",\"SECTOR\"]\n\nNote:\n\nThe request will respond with 400\n1. If fields which are not present on database are given.\n2. If filterOps or filterValues query parameters are missing\n   when filterFields is present.\n3. If number of values given for filterOps, \n    filterFields, filterValues are different\n4. If exactly one of symbol or date query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterOps",
+            "in": "query",
+            "description": "Can specify the field filter operations which you want to perform e.g: [\"LT\", \"GTEQ\", \"CT\"]\nin respective order of values in filterFields query parameter.\n\nThe available field filter operations are :\n\nFor CHAR type fields:\n\n\"CT\" : contains\n\n\"SW\" : starts-with\n\n\"EW\" : ends-with \n\n\"EQ\" : equals\n\nFor NUMERIC type fields:\n\n\"GT\" : greater than\n\n\"GTEQ\" : greater than or equals\n\n\"LT\" : lesser than\n\n\"LTEQ\" : lesser than or equals\n\n\"EQ\" : equals\n\nNote:\n\nThe request will respond with 400 \n1. If operations other than the above mentioned are provided.\n2. If numeric operations are given to char type fields instead of char operations.\n3. If char operations are given to numeric type fields instead of numeric operations.\n4. If filterFields or filterValues query parameters are missing\n   when filterOps is present.\n5. If number of values given for filterOps, \n    filterFields, filterValues are different\n6. If exactly one of symbol or date query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterValues",
+            "in": "query",
+            "description": "Can specify the field filter values of the field filter operations e.g: [100, 20, \"AB\"]\nin respective order of values in filterFields and filterOps query parameters .\n\nNote: \n\nThe request will respond with 400\n1. If char values are given to numeric type fields.\n2. If filterFields or filterOps query parameters are missing\n   when filterValues is present.\n3. If number of values given for filterOps, \n    filterFields, filterValues are different\n4. If exactly one of symbol or date query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterDatesOps",
+            "in": "query",
+            "description": "Can specify the date filter operations which you want to perform e.g: [\"LT\", \"GTEQ\"].\n\nThe available date filter operations are :\n\n\"GT\" : after\n\n\"GTEQ\" : after or equals\n\n\"LT\" : before\n\n\"LTEQ\" : before or equals\n\n\"EQ\" : equals\"\n\nNote:\n\nThe request will respond with 400 \n1. If operations other than the above mentioned are given.\n2. If filterDatesValues query parameter is missing when filterDatesOps is present.\n3. If number of values given for filterDatesOps and filterDatesValues differ.\n4. If symbol query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterDatesValues",
+            "in": "query",
+            "description": "Can specify the date filter values of the date filter operations e.g: [20200505, 20200303]\nin respective order of values in filterDatesOps query parameter.\n\nNote:\n\nThe request will respond with 400\n1. If invalid date values are given\n2. If filterDatesOps query parameter is missing when filterDatesValues is present.\n3. If number of values given for filterDatesOps and filterDatesValues differ.\n4. If symbol query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterSymbolsOps",
+            "in": "query",
+            "description": "Can specify the symbol filter operations which you want to perform e.g: [\"CT\", \"SW\"].\n\nThe available symbol filter operations are:\n\n\"SW\" : starts-with\n\n\"EW\" : ends-with\n\n\"CT\" : contains\n\n\"EQ\" : equals\n\nNote:\n\nThe request will respond with 400\n1. If operations other than the above mentioned are given.\n2. If filterSymbolsValues query parameter is missing when filterSymbolsOps is present.\n3. If number of values given for filterSymbolsOps and filterSymbolsValues differ.\n4. If date query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterSymbolsValues",
+            "in": "query",
+            "description": "Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"]\nin respective order of values in filterSymbolsOps query parameter.\n\nNote:\nThe request will respond with 400\n1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present.\n2. If number of values given for filterSymbolsOps and filterSymbolsValues differ.\n3. If date query parameter is not provided.\n",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortFieldName",
+            "in": "query",
+            "description": "Can specify the name of field with respect to which user wants to sort data \n\nNote:\nThe request will respond with 400, If a field which doesn't exist in the database is requested",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortFieldOrder",
+            "in": "query",
+            "description": "Can specify the order in which user wants to sort data with respect to sortFieldName query parameter \n\nNote:\nThe request will respond with 400, If value other than asc or desc is requested",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabasePathRoot"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "data": {
+                      "databasePath": "Client:/Folder1/Database.OFDB"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "The databasePath to be fetched"
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/202LongRunningResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    },
+    "/database/job/result/data/get": {
+      "get": {
+        "operationId": "getResourceGetData",
+        "tags": [
+          "Data"
+        ],
+        "description": "Returns the end results of a long running request. The full URL is normally provided for you in the Location header of a finished long running response.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "jobId",
+            "description": "jobId generated from the audit endpoint.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200GetData"
+          },
+          "400": {
+            "$ref": "#/components/responses/400Response"
+          },
+          "403": {
+            "$ref": "#/components/responses/403Response"
+          },
+          "404": {
+            "$ref": "#/components/responses/404Response"
+          },
+          "406": {
+            "$ref": "#/components/responses/406Response"
+          },
+          "429": {
+            "$ref": "#/components/responses/429Response"
+          },
+          "500": {
+            "$ref": "#/components/responses/500Response"
+          },
+          "503": {
+            "$ref": "#/components/responses/503Response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "DatabasePathRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              }
+            }
+          }
+        }
+      },
+      "DatabasePath": {
+        "type": "string",
+        "description": "Path of the Database.",
+        "example": "Client:/Folder1/Database.OFDB"
+      },
+      "AddFieldsRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "content": {
+                "$ref": "#/components/schemas/FieldsArray"
+              }
+            }
+          }
+        }
+      },
+      "FieldsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/FieldObject"
+        }
+      },
+      "FieldObject": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "iteration": {
+            "type": "string",
+            "enum": [
+              "2d",
+              "3d"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "splitDirection": {
+            "type": "string",
+            "enum": [
+              "none",
+              "normal",
+              "reverse"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "int",
+              "float",
+              "double",
+              "char",
+              "long_char",
+              "string",
+              "date"
+            ]
+          },
+          "codePageFlag": {
+            "type": "string"
+          }
+        }
+      },
+      "AddSymbolsRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "content": {
+                "$ref": "#/components/schemas/SymbolAndContentArray"
+              }
+            }
+          }
+        }
+      },
+      "SymbolAndContentArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SymbolAndContentObject"
+        }
+      },
+      "SymbolAndContentObject": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "$ref": "#/components/schemas/SymbolString"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DateAndFieldsObject"
+            },
+            "description": "date must be provided in the case of a 3d database with at least one iterative field"
+          }
+        }
+      },
+      "SymbolString": {
+        "type": "string",
+        "example": "FDS",
+        "description": "A symbol is an unique indentifier. They cannot be blank, all spaces, or start with certain characters such as '[' or '!'. Some downstream applications might have additional criteria."
+      },
+      "DateAndFieldsObject": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "#/components/schemas/DateString"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DataValue"
+        }
+      },
+      "DateString": {
+        "type": "string",
+        "example": "2022-02-02"
+      },
+      "DataValue": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "AddDatesRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "content": {
+                "$ref": "#/components/schemas/DateAndContentArray"
+              }
+            }
+          }
+        }
+      },
+      "DateAndContentArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DateAndContentObject"
+        }
+      },
+      "DateAndContentObject": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "$ref": "#/components/schemas/DateString"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SymbolAndFieldsObject"
+            }
+          }
+        }
+      },
+      "SymbolAndFieldsObject": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "$ref": "#/components/schemas/SymbolString"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/DataValue"
+        }
+      },
+      "CreateDatabaseRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "description": {
+                "type": "string",
+                "example": "A user would fill this with relevant information"
+              },
+              "content": {
+                "$ref": "#/components/schemas/FieldsArray"
+              }
+            }
+          }
+        }
+      },
+      "BulkDeleteRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "content": {
+                "$ref": "#/components/schemas/BulkDeleteItemArray"
+              }
+            }
+          }
+        }
+      },
+      "BulkDeleteItemArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BulkDeleteItemObject"
+        }
+      },
+      "BulkDeleteItemObject": {
+        "description": "Users may provide any combination of a symbol, date, and/or field to perform a bulk delete operation. For example, if a user provides both a symbol and a date within the same data point {} then the endpoint will delete the symbol for just that date. If they provide a symbol, date, and field then the endpoint will delete just that singular field entry point for that date for the given symbol. Providing singular entities within a {} will delete the complete data for that given value.",
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "$ref": "#/components/schemas/SymbolString"
+          },
+          "date": {
+            "$ref": "#/components/schemas/DateString"
+          },
+          "field": {
+            "type": "string"
+          }
+        }
+      },
+      "SymbolsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SymbolString"
+        }
+      },
+      "DatesArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/DateString"
+        }
+      },
+      "UpdateSymbolsRoot": {
+        "type": "object",
+        "description": "Any arbitrary set of fields that are provided while creating the database and their values.",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "content": {
+                "$ref": "#/components/schemas/SymbolAndContentArray"
+              }
+            }
+          }
+        }
+      },
+      "UpdateDatesRoot": {
+        "type": "object",
+        "description": "Set of fields along with symbol is mandatory to update the date.",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "databasePath": {
+                "$ref": "#/components/schemas/DatabasePath"
+              },
+              "content": {
+                "$ref": "#/components/schemas/DateAndContentArray"
+              }
+            }
+          }
+        }
+      },
+      "BulkDeleteRespRoot": {
+        "type": "array",
+        "description": "A list of the various backend responses needed for the bulk delete. These typically contain data points that failed to be deleted, and are in the order of: <br>Delete values by symbol, date, and field + delete values by symbol and field <br>Delete dates by field + delete dates <br>Delete dates by symbol <br>Delete fields <br>Delete symbols",
+        "items": {
+          "$ref": "#/components/schemas/BulkDeleteRespItem"
+        }
+      },
+      "BulkDeleteRespItem": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BulkDeleteRespItemObject"
+          },
+          {
+            "$ref": "#/components/schemas/BulkDeleteRespItemArray"
+          }
+        ]
+      },
+      "BulkDeleteRespItemObject": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/BulkDeleteRespItemNested"
+        }
+      },
+      "BulkDeleteRespItemArray": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "BulkDeleteRespItemNested": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BulkDeleteRespItemNestedObject"
+          },
+          {
+            "$ref": "#/components/schemas/BulkDeleteRespItemNestedArray"
+          }
+        ]
+      },
+      "BulkDeleteRespItemNestedObject": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "BulkDeleteRespItemNestedArray": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "example": "parameterError",
+            "default": "parameterError"
+          }
+        }
+      },
+      "ErrorObjectWithSource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "example": "parameterError",
+            "default": "parameterError"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string"
+              },
+              "param": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {},
+    "headers": {
+      "Long-Running-Location": {
+        "description": "location to poll for the status of the job.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-DataDirect-Request-Key": {
+        "description": "FactSet's request key header.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-FactSet-Api-Request-Key": {
+        "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-RateLimit-Limit": {
+        "description": "Number of allowed requests for the time window.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-RateLimit-Remaining": {
+        "description": "Number of requests left for the time window.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "X-RateLimit-Reset": {
+        "description": "Number of seconds remaining till rate limit resets.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Retry-After": {
+        "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "responses": {
+      "400Response": {
+        "description": "Invalid query parameter or value provided",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "An array containing errors",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorObjectWithSource"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "200GetStats": {
+        "description": "Returns an object with key database stats",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "symbols": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "iteratedFields": {
+                      "type": "integer",
+                      "example": 2
+                    },
+                    "nonIteratedFields": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "totalFields": {
+                      "type": "integer",
+                      "example": 3
+                    },
+                    "dates": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "200GetAudit": {
+        "description": "Returns a list of the most recent \"modificationTimes\" in long datetime format",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "modificationTimes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "20-Oct-2022  14:25:33 (EDT)"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "200GetFields": {
+        "description": "List of fields within the database",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/FieldsArray"
+                }
+              }
+            }
+          }
+        }
+      },
+      "200GetSymbols": {
+        "description": "Successful symbols array within database",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/SymbolsArray"
+                }
+              }
+            }
+          }
+        }
+      },
+      "200GetDates": {
+        "description": "Successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/DatesArray"
+                }
+              }
+            }
+          }
+        }
+      },
+      "200GetData": {
+        "description": "successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SymbolAndFieldsObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "200BulkDelete": {
+        "description": "successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/BulkDeleteRespRoot"
+                }
+              }
+            },
+            "examples": {
+              "NoFailures": {
+                "value": {
+                  "data": [
+                    {},
+                    {},
+                    {},
+                    [],
+                    []
+                  ]
+                }
+              },
+              "AllFailures": {
+                "value": {
+                  "data": [
+                    {},
+                    {
+                      "PRICE": [
+                        20200101
+                      ]
+                    },
+                    {
+                      "AAPL": {
+                        "WEIGHT": [
+                          20200202
+                        ]
+                      }
+                    },
+                    [
+                      "SHARES"
+                    ],
+                    [
+                      "FDS"
+                    ]
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "201LongRunningResponse": {
+        "description": "Returns when the long running request is completed. The next pickup URL is provided by the Location header.",
+        "headers": {
+          "Location": {
+            "$ref": "#/components/headers/Long-Running-Location"
+          },
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current Status of the job",
+                      "enum": [
+                        "executing",
+                        "created"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "longRunningStatus": {
+            "operationId": "getDatabaseStatusById",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetAudit": {
+            "operationId": "getResourceGetAudit",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetStats": {
+            "operationId": "getResourceGetStats",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetFields": {
+            "operationId": "getResourceGetFields",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultDeleteBulkItems": {
+            "operationId": "getResourceDeleteBulkItems",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetSymbols": {
+            "operationId": "getResourceGetSymbols",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetDates": {
+            "operationId": "getResourceGetDates",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultAddDates": {
+            "operationId": "getResourceAddDates",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetData": {
+            "operationId": "getResourceGetData",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          }
+        }
+      },
+      "202LongRunningResponse": {
+        "description": "Returns when the request is moved to long running mode. The next pickup URL is provided by the Location header.",
+        "headers": {
+          "Location": {
+            "$ref": "#/components/headers/Long-Running-Location"
+          },
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current Status of the job",
+                      "enum": [
+                        "executing",
+                        "created"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "longRunningStatus": {
+            "operationId": "getDatabaseStatusById",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetAudit": {
+            "operationId": "getResourceGetAudit",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetStats": {
+            "operationId": "getResourceGetStats",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetFields": {
+            "operationId": "getResourceGetFields",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultDeleteBulkItems": {
+            "operationId": "getResourceDeleteBulkItems",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetSymbols": {
+            "operationId": "getResourceGetSymbols",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetDates": {
+            "operationId": "getResourceGetDates",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          },
+          "longRunningResultGetData": {
+            "operationId": "getResourceGetData",
+            "parameters": {
+              "jobId": "$response.body#/data/jobId"
+            }
+          }
+        }
+      },
+      "403Response": {
+        "description": "User is forbidden with current credentials",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "An array containing errors",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "404Response": {
+        "description": "Path not found",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "An array containing errors",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "406Response": {
+        "description": "Unsupported Accept header. Header needs to be set to application/json",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "An array containing errors",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "413Response": {
+        "description": "Post body too large",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "An array containing errors",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "429Response": {
+        "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          },
+          "Retry-After": {
+            "$ref": "#/components/headers/Retry-After"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "description": "An array containing errors",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "500Response": {
+        "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        }
+      },
+      "503Response": {
+        "description": "Request timed out. Retry the request in some time",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/ofdb-api"
+  }
+}

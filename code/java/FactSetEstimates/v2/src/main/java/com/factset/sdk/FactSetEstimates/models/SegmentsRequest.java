@@ -73,7 +73,7 @@ public class SegmentsRequest implements Serializable {
   private Periodicity periodicity = Periodicity.ANN;
 
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
-  private Frequency frequency = Frequency.D;
+  private Frequency frequency = Frequency.AM;
 
   public static final String JSON_PROPERTY_SEGMENT_TYPE = "segmentType";
   private SegmentType segmentType = SegmentType.BUS;

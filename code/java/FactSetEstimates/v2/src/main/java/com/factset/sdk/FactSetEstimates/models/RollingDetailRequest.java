@@ -46,7 +46,9 @@ import com.factset.sdk.FactSetEstimates.JSON;
   RollingDetailRequest.JSON_PROPERTY_RELATIVE_FISCAL_END,
   RollingDetailRequest.JSON_PROPERTY_PERIODICITY,
   RollingDetailRequest.JSON_PROPERTY_METRICS,
-  RollingDetailRequest.JSON_PROPERTY_CURRENCY
+  RollingDetailRequest.JSON_PROPERTY_CURRENCY,
+  RollingDetailRequest.JSON_PROPERTY_BROKER_NAMES,
+  RollingDetailRequest.JSON_PROPERTY_UPDATES_ONLY
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -63,7 +65,7 @@ public class RollingDetailRequest implements Serializable {
   private LocalDate endDate;
 
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
-  private Frequency frequency = Frequency.D;
+  private Frequency frequency = Frequency.AM;
 
   public static final String JSON_PROPERTY_INCLUDE_ALL = "includeAll";
   private Boolean includeAll = false;
@@ -82,6 +84,12 @@ public class RollingDetailRequest implements Serializable {
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
+
+  public static final String JSON_PROPERTY_BROKER_NAMES = "brokerNames";
+  private java.util.List<String> brokerNames = null;
+
+  public static final String JSON_PROPERTY_UPDATES_ONLY = "updatesOnly";
+  private Boolean updatesOnly = false;
 
   public RollingDetailRequest() { 
   }
@@ -370,6 +378,66 @@ public class RollingDetailRequest implements Serializable {
   }
 
 
+  public RollingDetailRequest brokerNames(java.util.List<String> brokerNames) {
+    this.brokerNames = brokerNames;
+    return this;
+  }
+
+  public RollingDetailRequest addBrokerNamesItem(String brokerNamesItem) {
+    if (this.brokerNames == null) {
+      this.brokerNames = new java.util.ArrayList<>();
+    }
+    this.brokerNames.add(brokerNamesItem);
+    return this;
+  }
+
+   /**
+   * Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+   * @return brokerNames
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "[\"Morningstar Equity Research\"]", value = "Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).")
+  @JsonProperty(JSON_PROPERTY_BROKER_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<String> getBrokerNames() {
+    return brokerNames;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BROKER_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBrokerNames(java.util.List<String> brokerNames) {
+    this.brokerNames = brokerNames;
+  }
+
+
+  public RollingDetailRequest updatesOnly(Boolean updatesOnly) {
+    this.updatesOnly = updatesOnly;
+    return this;
+  }
+
+   /**
+   * When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default.
+   * @return updatesOnly
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.")
+  @JsonProperty(JSON_PROPERTY_UPDATES_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUpdatesOnly() {
+    return updatesOnly;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UPDATES_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUpdatesOnly(Boolean updatesOnly) {
+    this.updatesOnly = updatesOnly;
+  }
+
+
   /**
    * Return true if this rollingDetailRequest object is equal to o.
    */
@@ -391,12 +459,14 @@ public class RollingDetailRequest implements Serializable {
         Objects.equals(this.relativeFiscalEnd, rollingDetailRequest.relativeFiscalEnd) &&
         Objects.equals(this.periodicity, rollingDetailRequest.periodicity) &&
         Objects.equals(this.metrics, rollingDetailRequest.metrics) &&
-        Objects.equals(this.currency, rollingDetailRequest.currency);
+        Objects.equals(this.currency, rollingDetailRequest.currency) &&
+        Objects.equals(this.brokerNames, rollingDetailRequest.brokerNames) &&
+        Objects.equals(this.updatesOnly, rollingDetailRequest.updatesOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, startDate, endDate, frequency, includeAll, relativeFiscalStart, relativeFiscalEnd, periodicity, metrics, currency);
+    return Objects.hash(ids, startDate, endDate, frequency, includeAll, relativeFiscalStart, relativeFiscalEnd, periodicity, metrics, currency, brokerNames, updatesOnly);
   }
 
   @Override
@@ -413,6 +483,8 @@ public class RollingDetailRequest implements Serializable {
     sb.append("    periodicity: ").append(toIndentedString(periodicity)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    brokerNames: ").append(toIndentedString(brokerNames)).append("\n");
+    sb.append("    updatesOnly: ").append(toIndentedString(updatesOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }

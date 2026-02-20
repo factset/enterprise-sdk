@@ -8,7 +8,7 @@ Elements of create or edit view body object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CreateOrEditViewBodyData**](CreateOrEditViewBodyData.md) |  |  [optional]
+**data** | [**CreateOrEditViewBodyData**](CreateOrEditViewBodyData.md) |  | 
 
 
 ## Implemented Interfaces

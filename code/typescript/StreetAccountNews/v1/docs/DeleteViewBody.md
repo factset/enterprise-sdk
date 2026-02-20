@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**DeleteViewBodyData**](DeleteViewBodyData.md) |  | [optional] 
+**data** | [**DeleteViewBodyData**](DeleteViewBodyData.md) |  | 
 
 

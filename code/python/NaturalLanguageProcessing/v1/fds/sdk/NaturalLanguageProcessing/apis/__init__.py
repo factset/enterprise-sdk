@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.ai_text_summarization_api import AITextSummarizationApi
+#   from .api.ai_themes_api import AIThemesApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,7 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.NaturalLanguageProcessing.api.ai_text_summarization_api import AITextSummarizationApi
 from fds.sdk.NaturalLanguageProcessing.api.ai_themes_api import AIThemesApi
 from fds.sdk.NaturalLanguageProcessing.api.named_entity_recognition_api import NamedEntityRecognitionApi
-from fds.sdk.NaturalLanguageProcessing.api.question__answer_api import QuestionAnswerApi

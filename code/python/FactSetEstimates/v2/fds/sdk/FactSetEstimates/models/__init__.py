@@ -14,6 +14,7 @@ from fds.sdk.FactSetEstimates.model.actuals_request import ActualsRequest
 from fds.sdk.FactSetEstimates.model.actuals_response import ActualsResponse
 from fds.sdk.FactSetEstimates.model.analyst_rating import AnalystRating
 from fds.sdk.FactSetEstimates.model.analyst_rating_response import AnalystRatingResponse
+from fds.sdk.FactSetEstimates.model.broker_names import BrokerNames
 from fds.sdk.FactSetEstimates.model.category import Category
 from fds.sdk.FactSetEstimates.model.company_reports_error_response import CompanyReportsErrorResponse
 from fds.sdk.FactSetEstimates.model.consensus_estimate import ConsensusEstimate

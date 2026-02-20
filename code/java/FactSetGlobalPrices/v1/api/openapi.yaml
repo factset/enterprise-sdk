@@ -74,9 +74,9 @@ paths:
         required: true
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 1
           type: array
         style: form
       - description: |
@@ -217,7 +217,7 @@ paths:
         name: precision
         required: false
         schema:
-          default: 2
+          default: 16
           maximum: 16
           minimum: 1
           type: integer
@@ -491,7 +491,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
+          limit** =  50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -515,6 +515,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 1000
+          minItems: 1
           type: array
         style: form
       - description: |
@@ -946,7 +948,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
+          limit** =  50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -970,6 +972,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 1000
+          minItems: 1
           type: array
         style: form
       - description: Currency code for adjusting prices. Default is Local. For a list
@@ -1228,7 +1232,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
+          limit** =  50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -1252,6 +1256,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 1000
+          minItems: 1
           type: array
         style: form
       - description: |
@@ -1582,7 +1588,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
+          limit** =  50 per non-batch request and 1000 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -1606,6 +1612,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 1000
+          minItems: 1
           type: array
         style: form
       - description: |
@@ -1920,7 +1928,7 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs
-          limit** = 50 per non-batch request and 1000 per batch request*</p> *<p>Make
+          limit** =  50 per non-batch request and 400 per batch request*</p> *<p>Make
           note, GET Method URL request lines are also limited to a total length of
           8192 bytes (8KB). In cases where the service allows for thousands of IDs,
           which may lead to exceeding this request line limit of 8KB, it's advised
@@ -1944,6 +1952,8 @@ paths:
         schema:
           items:
             type: string
+          maxItems: 400
+          minItems: 1
           type: array
         style: form
       - description: "Enables the ability to asynchronously \"batch\" the request,\
@@ -2336,9 +2346,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -2377,9 +2387,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `eventDate`.
@@ -2509,9 +2519,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -2574,9 +2584,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `eventDate`.
@@ -2732,9 +2742,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The requested list of security identifiers. Accepted ID types
@@ -2756,9 +2766,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -2797,9 +2807,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `effectiveDate`.
@@ -2955,9 +2965,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The requested list of security identifiers. Accepted ID types
@@ -2979,9 +2989,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -3020,9 +3030,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `effectiveDate`.
@@ -3173,9 +3183,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The requested list of security identifiers. Accepted ID types
@@ -3197,9 +3207,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -3238,9 +3248,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `effectiveDate`.
@@ -3391,9 +3401,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The requested list of security identifiers. Accepted ID types
@@ -3415,9 +3425,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -3456,9 +3466,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `effectiveDate`.
@@ -3613,9 +3623,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The requested list of security identifiers. Accepted ID types
@@ -3637,9 +3647,9 @@ paths:
         required: false
         schema:
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: The start date requested for a given date range in **YYYY-MM-DD**
@@ -3678,9 +3688,9 @@ paths:
           - NYS
           - NAS
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 0
           type: array
         style: form
       - description: Sorts the field in ascending or descending order of `effectiveDate`.
@@ -5059,9 +5069,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     eventCountStartDateCalendar:
@@ -5103,9 +5113,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     corporateActionsIds:
@@ -5129,9 +5139,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     corporateActionsExchanges:
@@ -5147,9 +5157,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     corporateActionsStartDateCalendar:
@@ -5223,9 +5233,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     dividendsIds:
@@ -5248,9 +5258,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     dividendsExchanges:
@@ -5266,9 +5276,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     dividendsStartDateCalendar:
@@ -5317,9 +5327,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     stockDistributionsIds:
@@ -5342,9 +5352,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     stockDistributionsExchanges:
@@ -5360,9 +5370,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     stockDistributionsStartDateCalendar:
@@ -5411,9 +5421,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     rightsIssuesIds:
@@ -5436,9 +5446,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     rightsIssuesExchanges:
@@ -5454,9 +5464,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     rightsIssuesStartDateCalendar:
@@ -5505,9 +5515,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     spinOffsIds:
@@ -5530,9 +5540,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     spinOffsExchanges:
@@ -5548,9 +5558,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     spinOffsStartDateCalendar:
@@ -5599,9 +5609,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     splitsIds:
@@ -5624,9 +5634,9 @@ components:
       required: false
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     splitsExchanges:
@@ -5642,9 +5652,9 @@ components:
         - NYS
         - NAS
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 0
         type: array
       style: form
     splitsStartDateCalendar:
@@ -5771,7 +5781,7 @@ components:
       name: precision
       required: false
       schema:
-        default: 2
+        default: 16
         maximum: 16
         minimum: 1
         type: integer
@@ -5969,10 +5979,10 @@ components:
         - UNSPLIT
         type: string
       style: form
-    idsBatchMax50:
+    idsBatchMax400:
       description: The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs limit**
-        = 50 per non-batch request and 1000 per batch request*</p> *<p>Make note,
+        =  50 per non-batch request and 400 per batch request*</p> *<p>Make note,
         GET Method URL request lines are also limited to a total length of 8192 bytes
         (8KB). In cases where the service allows for thousands of IDs, which may lead
         to exceeding this request line limit of 8KB, it's advised for any requests
@@ -5995,6 +6005,38 @@ components:
       schema:
         items:
           type: string
+        maxItems: 400
+        minItems: 1
+        type: array
+      style: form
+    idsBatchMax1000:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p>***IDs limit**
+        =  50 per non-batch request and 1000 per batch request*</p> *<p>Make note,
+        GET Method URL request lines are also limited to a total length of 8192 bytes
+        (8KB). In cases where the service allows for thousands of IDs, which may lead
+        to exceeding this request line limit of 8KB, it's advised for any requests
+        with large request lines to be requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - IBM-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        minItems: 1
         type: array
       style: form
     IdsBatchMax2000:
@@ -6025,9 +6067,9 @@ components:
       required: true
       schema:
         items:
-          maxItems: 2000
-          minItems: 0
           type: string
+        maxItems: 2000
+        minItems: 1
         type: array
       style: form
     fieldsPrices:
@@ -7419,9 +7461,9 @@ components:
           example:
           - FDS-US
           items:
-            maxItems: 2000
-            minItems: 0
             type: string
+          maxItems: 2000
+          minItems: 1
           type: array
         fields:
           description: |
@@ -7477,7 +7519,7 @@ components:
         adjust:
           $ref: '#/components/schemas/Adjust'
         precision:
-          default: 2
+          default: 16
           description: Specifies the number of decimal places for price fields in
             the response.
           example: 2
@@ -7715,12 +7757,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 5000 for batch requests.
           example:
           - AAPL-US
           items:
             type: string
-          maxItems: 50
+          maxItems: 5000
           minItems: 1
           title: ids
           type: array
@@ -7876,12 +7918,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 5000 for batch requests.
           example:
           - AAPL-US
           items:
             type: string
-          maxItems: 50
+          maxItems: 5000
           minItems: 1
           title: ids
           type: array
@@ -7971,14 +8013,36 @@ components:
           type: string
       title: Annualized Dividends Object
       type: object
-    IdsMax50:
+    IdsMax400:
       description: |
-        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 400 for batch requests.
       example:
       - AAPL-US
       items:
         type: string
-      maxItems: 50
+      maxItems: 400
+      minItems: 1
+      title: ids
+      type: array
+    IdsMax1000:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 1000 for batch requests.
+      example:
+      - AAPL-US
+      items:
+        type: string
+      maxItems: 1000
+      minItems: 1
+      title: ids
+      type: array
+    IdsMax5000:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 5000 for batch requests.
+      example:
+      - AAPL-US
+      items:
+        type: string
+      maxItems: 5000
       minItems: 1
       title: ids
       type: array
@@ -8011,12 +8075,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 1000 for batch requests.
           example:
           - AAPL-US
           items:
             type: string
-          maxItems: 50
+          maxItems: 1000
           minItems: 1
           title: ids
           type: array
@@ -8216,12 +8280,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 400 for batch requests.
           example:
           - AAPL-US
           items:
             type: string
-          maxItems: 50
+          maxItems: 400
           minItems: 1
           title: ids
           type: array
@@ -8292,12 +8356,12 @@ components:
       example:
       - FDS-US
       items:
-        maxItems: 2000
-        minItems: 0
         type: string
+      maxItems: 2000
+      minItems: 1
       type: array
     Precision:
-      default: 2
+      default: 16
       description: Specifies the number of decimal places for price fields in the
         response.
       example: 2
@@ -8798,12 +8862,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 2000 for batch requests.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs. Requests are limited to 50 IDs for non-batch requests and 1000 for batch requests.
           example:
           - AAPL-US
           items:
             type: string
-          maxItems: 50
+          maxItems: 1000
           minItems: 1
           title: ids
           type: array

@@ -11,6 +11,7 @@ docs/ActualsResponse.md
 docs/AnalystRating.md
 docs/AnalystRatingResponse.md
 docs/BrokerDetailApi.md
+docs/BrokerNames.md
 docs/Category.md
 docs/CompanyReportsErrorResponse.md
 docs/ConsensusApi.md
@@ -104,6 +105,7 @@ fds/sdk/FactSetEstimates/model/actuals_request.py
 fds/sdk/FactSetEstimates/model/actuals_response.py
 fds/sdk/FactSetEstimates/model/analyst_rating.py
 fds/sdk/FactSetEstimates/model/analyst_rating_response.py
+fds/sdk/FactSetEstimates/model/broker_names.py
 fds/sdk/FactSetEstimates/model/category.py
 fds/sdk/FactSetEstimates/model/company_reports_error_response.py
 fds/sdk/FactSetEstimates/model/consensus_estimate.py

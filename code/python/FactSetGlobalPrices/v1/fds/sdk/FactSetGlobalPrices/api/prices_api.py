@@ -193,11 +193,17 @@ class PricesApi(object):
                     'batch',
                 ],
                 'validation': [
+                    'ids',
                     'precision',
                 ]
             },
             root_map={
                 'validations': {
+                    ('ids',): {
+
+                        'max_items': 2000,
+                        'min_items': 1,
+                    },
                     ('precision',): {
 
                         'inclusive_maximum': 16,
@@ -391,7 +397,7 @@ class PricesApi(object):
             calendar (str): Calendar of data returned. SEVENDAY includes weekends.. [optional] if omitted the server will use the default value of "FIVEDAY"
             currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional] if omitted the server will use the default value of "LOCAL"
             adjust (str): Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits and Spinoff Adjusted.   * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.   * **UNSPLIT** = No Adjustments.    . [optional] if omitted the server will use the default value of "SPLIT"
-            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 2
+            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 16
             batch (str): Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.  For single-day requests, the IDs limit is 500 for non-batch and 2000 for batch. For multi-day requests, the limit is 50 IDs for both batch and non-batch.  Limits on query string via GET method still apply. It's advised to submit large lists of IDs via POST method. <B>Please note that the number of unique currencies present in the requested IDs is limited to 50 per request.</B> . [optional] if omitted the server will use the default value of "N"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -450,7 +456,7 @@ class PricesApi(object):
             calendar (str): Calendar of data returned. SEVENDAY includes weekends.. [optional] if omitted the server will use the default value of "FIVEDAY"
             currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional] if omitted the server will use the default value of "LOCAL"
             adjust (str): Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits and Spinoff Adjusted.   * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.   * **UNSPLIT** = No Adjustments.    . [optional] if omitted the server will use the default value of "SPLIT"
-            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 2
+            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 16
             batch (str): Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.  For single-day requests, the IDs limit is 500 for non-batch and 2000 for batch. For multi-day requests, the limit is 50 IDs for both batch and non-batch.  Limits on query string via GET method still apply. It's advised to submit large lists of IDs via POST method. <B>Please note that the number of unique currencies present in the requested IDs is limited to 50 per request.</B> . [optional] if omitted the server will use the default value of "N"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -513,7 +519,7 @@ class PricesApi(object):
             calendar (str): Calendar of data returned. SEVENDAY includes weekends.. [optional] if omitted the server will use the default value of "FIVEDAY"
             currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional] if omitted the server will use the default value of "LOCAL"
             adjust (str): Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits and Spinoff Adjusted.   * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.   * **UNSPLIT** = No Adjustments.    . [optional] if omitted the server will use the default value of "SPLIT"
-            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 2
+            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 16
             batch (str): Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.  For single-day requests, the IDs limit is 500 for non-batch and 2000 for batch. For multi-day requests, the limit is 50 IDs for both batch and non-batch.  Limits on query string via GET method still apply. It's advised to submit large lists of IDs via POST method. <B>Please note that the number of unique currencies present in the requested IDs is limited to 50 per request.</B> . [optional] if omitted the server will use the default value of "N"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
@@ -571,7 +577,7 @@ class PricesApi(object):
             calendar (str): Calendar of data returned. SEVENDAY includes weekends.. [optional] if omitted the server will use the default value of "FIVEDAY"
             currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional] if omitted the server will use the default value of "LOCAL"
             adjust (str): Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits and Spinoff Adjusted.   * **DIV_SPIN_SPLITS** = Dividend adjustments, Spinoff, and Splits combined.   * **UNSPLIT** = No Adjustments.    . [optional] if omitted the server will use the default value of "SPLIT"
-            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 2
+            precision (int): Specifies the number of decimal places for price fields in the response. . [optional] if omitted the server will use the default value of 16
             batch (str): Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.  For single-day requests, the IDs limit is 500 for non-batch and 2000 for batch. For multi-day requests, the limit is 50 IDs for both batch and non-batch.  Limits on query string via GET method still apply. It's advised to submit large lists of IDs via POST method. <B>Please note that the number of unique currencies present in the requested IDs is limited to 50 per request.</B> . [optional] if omitted the server will use the default value of "N"
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.

@@ -32,9 +32,9 @@ from fds.sdk.FactSetGlobalPrices.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.FactSetGlobalPrices.model.batch import Batch
-    from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
+    from fds.sdk.FactSetGlobalPrices.model.ids_max400 import IdsMax400
     globals()['Batch'] = Batch
-    globals()['IdsMax50'] = IdsMax50
+    globals()['IdsMax400'] = IdsMax400
 
 
 class MarketValueRequestBody(ModelNormal):
@@ -90,7 +90,7 @@ class MarketValueRequestBody(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (IdsMax50,),  # noqa: E501
+            'ids': (IdsMax400,),  # noqa: E501
             'batch': (Batch,),  # noqa: E501
         }
 
@@ -115,7 +115,7 @@ class MarketValueRequestBody(ModelNormal):
         """MarketValueRequestBody - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax400):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,7 +201,7 @@ class MarketValueRequestBody(ModelNormal):
         """MarketValueRequestBody - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax400):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

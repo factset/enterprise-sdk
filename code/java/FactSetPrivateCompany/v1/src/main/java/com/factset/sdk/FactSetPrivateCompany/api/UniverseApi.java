@@ -71,7 +71,7 @@ public class UniverseApi {
 
   /**
    * Returns Entity Candidates and Matches for a single name and attributes.
-   * Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. &lt;p&gt;**Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names.&lt;/p&gt;&lt;p&gt; 
+   * Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search.  The &#x60;matchFlag&#x60; indicates whether the &#x60;entityId&#x60; is a FactSet match based on the input name and country. When &#x60;true&#x60;, the FactSet &#x60;entityId&#x60; was confidently matched to the input name and country. When &#x60;false&#x60;, the FactSet &#x60;entityId&#x60; could not be confidently matched to the input name and country.  **Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names. 
    * @param name Name of Entity to match.&lt;br/&gt;  &lt;p&gt;***max length** &#x3D;  200 per request*&lt;/p&gt;  (required)
    * @param country ISO2 country code corresponding to the entity name is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). (optional)
    * @return EntityMatchesResponse
@@ -93,7 +93,7 @@ public class UniverseApi {
 
   /**
    * Returns Entity Candidates and Matches for a single name and attributes.
-   * Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. &lt;p&gt;**Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names.&lt;/p&gt;&lt;p&gt; 
+   * Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search.  The &#x60;matchFlag&#x60; indicates whether the &#x60;entityId&#x60; is a FactSet match based on the input name and country. When &#x60;true&#x60;, the FactSet &#x60;entityId&#x60; was confidently matched to the input name and country. When &#x60;false&#x60;, the FactSet &#x60;entityId&#x60; could not be confidently matched to the input name and country.  **Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names. 
    * @param name Name of Entity to match.&lt;br/&gt;  &lt;p&gt;***max length** &#x3D;  200 per request*&lt;/p&gt;  (required)
    * @param country ISO2 country code corresponding to the entity name is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). (optional)
    * @return ApiResponse&lt;EntityMatchesResponse&gt;

@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Accepted |  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  |
+| **202** | Accepted |  * Location -  <br>  |
 | **400** | The browser (or proxy) sent a request that this server could not understand. |  -  |
 | **401** | The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn&#39;t understand how to supply the credentials required. |  -  |
 | **500** | The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. |  -  |
@@ -204,8 +204,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created |  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  |
-| **202** | Accepted |  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  |
+| **201** | Created |  * Location -  <br>  |
+| **202** | Accepted |  * Location -  <br>  |
 | **404** | description: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. |  -  |
 | **500** | The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. |  -  |
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **202** | Accepted |  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  |
+| **202** | Accepted |  * Location -  <br>  |
 | **404** | description: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. |  -  |
 | **500** | The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. |  -  |
 

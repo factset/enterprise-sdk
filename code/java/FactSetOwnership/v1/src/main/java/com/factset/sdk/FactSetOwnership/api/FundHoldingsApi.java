@@ -72,11 +72,12 @@ public class FundHoldingsApi {
   /**
    * Get underlying holdings information for a requested fund identifer.
    * Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type. 
-   * @param ids List of requested fund identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p&gt; (required)
+   * @param ids List of requested fund identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt; (required)
    * @param date Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
    * @param topn Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional, default to ALL)
    * @param assetType Filter holdings by the following major asset classes -   * **EQ**  &#x3D; Equity   * **FI** &#x3D; Fixed Income   * **ALL** &#x3D; ALL  (optional, default to EQ)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return FundHoldingsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -90,18 +91,19 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public FundHoldingsResponse getOwnershipHoldings(java.util.List<String> ids, String date, String topn, String assetType, String currency) throws ApiException {
-    return getOwnershipHoldingsWithHttpInfo(ids, date, topn, assetType, currency).getData();
+  public FundHoldingsResponse getOwnershipHoldings(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
+    return getOwnershipHoldingsWithHttpInfo(ids, date, topn, assetType, currency, batch).getData();
   }
 
   /**
    * Get underlying holdings information for a requested fund identifer.
    * Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type. 
-   * @param ids List of requested fund identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p&gt; (required)
+   * @param ids List of requested fund identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt; (required)
    * @param date Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
    * @param topn Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional, default to ALL)
    * @param assetType Filter holdings by the following major asset classes -   * **EQ**  &#x3D; Equity   * **FI** &#x3D; Fixed Income   * **ALL** &#x3D; ALL  (optional, default to EQ)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return ApiResponse&lt;FundHoldingsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -115,7 +117,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FundHoldingsResponse> getOwnershipHoldingsWithHttpInfo(java.util.List<String> ids, String date, String topn, String assetType, String currency) throws ApiException {
+  public ApiResponse<FundHoldingsResponse> getOwnershipHoldingsWithHttpInfo(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -124,7 +126,7 @@ public class FundHoldingsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/fund-holdings";
+    String localVarPath = "/fund-holdings";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -137,6 +139,7 @@ public class FundHoldingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "topn", topn));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "assetType", assetType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
 
     
     
@@ -212,7 +215,7 @@ public class FundHoldingsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/fund-holdings";
+    String localVarPath = "/fund-holdings";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

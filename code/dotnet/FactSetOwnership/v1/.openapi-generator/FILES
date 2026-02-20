@@ -5,6 +5,13 @@ LICENSE
 README.md
 appveyor.yml
 docs/AssetType.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -31,6 +38,7 @@ docs/TopNHolders.md
 docs/TransactionType.md
 docs/TransactionsApi.md
 git_push.sh
+src/FactSet.SDK.FactSetOwnership/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/FundHoldingsApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/SecurityHoldersApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/TransactionsApi.cs
@@ -53,6 +61,12 @@ src/FactSet.SDK.FactSetOwnership/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetOwnership/FactSet.SDK.FactSetOwnership.csproj
 src/FactSet.SDK.FactSetOwnership/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.FactSetOwnership/Model/AssetType.cs
+src/FactSet.SDK.FactSetOwnership/Model/Batch.cs
+src/FactSet.SDK.FactSetOwnership/Model/BatchErrorObject.cs
+src/FactSet.SDK.FactSetOwnership/Model/BatchResult.cs
+src/FactSet.SDK.FactSetOwnership/Model/BatchResultResponse.cs
+src/FactSet.SDK.FactSetOwnership/Model/BatchStatus.cs
+src/FactSet.SDK.FactSetOwnership/Model/BatchStatusResponse.cs
 src/FactSet.SDK.FactSetOwnership/Model/ErrorResponse.cs
 src/FactSet.SDK.FactSetOwnership/Model/ErrorResponseSubErrors.cs
 src/FactSet.SDK.FactSetOwnership/Model/Frequency.cs

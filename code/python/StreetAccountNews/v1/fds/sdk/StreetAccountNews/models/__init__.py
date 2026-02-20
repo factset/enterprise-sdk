@@ -57,6 +57,7 @@ from fds.sdk.StreetAccountNews.model.headlines_response_meta_pagination import H
 from fds.sdk.StreetAccountNews.model.quick_alerts_body import QuickAlertsBody
 from fds.sdk.StreetAccountNews.model.quick_alerts_body_data import QuickAlertsBodyData
 from fds.sdk.StreetAccountNews.model.quick_alerts_response import QuickAlertsResponse
+from fds.sdk.StreetAccountNews.model.quick_alerts_response_data import QuickAlertsResponseData
 from fds.sdk.StreetAccountNews.model.search_response_array_object import SearchResponseArrayObject
 from fds.sdk.StreetAccountNews.model.structured_filters import StructuredFilters
 from fds.sdk.StreetAccountNews.model.structured_filters_categories import StructuredFiltersCategories

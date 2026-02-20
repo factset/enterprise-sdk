@@ -54,6 +54,7 @@ docs/HeadlinesResponseMetaPagination.md
 docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
+docs/QuickAlertsResponseData.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -134,6 +135,7 @@ fds/sdk/StreetAccountNews/model/headlines_response_meta_pagination.py
 fds/sdk/StreetAccountNews/model/quick_alerts_body.py
 fds/sdk/StreetAccountNews/model/quick_alerts_body_data.py
 fds/sdk/StreetAccountNews/model/quick_alerts_response.py
+fds/sdk/StreetAccountNews/model/quick_alerts_response_data.py
 fds/sdk/StreetAccountNews/model/search_response_array_object.py
 fds/sdk/StreetAccountNews/model/structured_filters.py
 fds/sdk/StreetAccountNews/model/structured_filters_categories.py

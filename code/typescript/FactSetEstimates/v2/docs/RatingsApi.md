@@ -56,7 +56,7 @@ const ids = ["AAPL-USA"]; // [String] | Security or Entity identifiers. Accepted
 const opts = {
   'startDate': 2019-07-30, // Date | Start date for point in time of estimates expressed in YYYY-MM-DD format.
   'endDate': 2019-08-30, // Date | End date for point in time of estimates expressed in YYYY-MM-DD format.
-  'frequency': D // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  
+  'frequency': D // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. 
 };
 
 // Call api endpoint
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
  **ids** | [**[String]**](String.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
  **startDate** | **Date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **endDate** | **Date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to &#39;AM&#39;]
+ **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.  | [optional] [default to &#39;D&#39;]
 
 ### Return type
 
@@ -222,7 +222,9 @@ const ids = ["AAPL-USA"]; // [String] | Security or Entity identifiers. Accepted
 const opts = {
   'startDate': 2019-07-30, // Date | Start date for point in time of estimates expressed in YYYY-MM-DD format.
   'endDate': 2019-08-30, // Date | End date for point in time of estimates expressed in YYYY-MM-DD format.
-  'includeAll': false // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    
+  'includeAll': false, // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus 
+  'brokerNames': ["Morningstar Equity Research"], // [String] | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+  'updatesOnly': false // Boolean | When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.
 };
 
 // Call api endpoint
@@ -248,7 +250,9 @@ Name | Type | Description  | Notes
  **ids** | [**[String]**](String.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
  **startDate** | **Date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
  **endDate** | **Date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     | [optional] [default to false]
+ **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  | [optional] [default to false]
+ **brokerNames** | [**[String]**](String.md)| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional] 
+ **updatesOnly** | **Boolean**| When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default. | [optional] [default to false]
 
 ### Return type
 

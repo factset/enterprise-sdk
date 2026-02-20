@@ -106,10 +106,10 @@ class Precision(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 2  # noqa: E501
+            args[0] (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 16  # noqa: E501
 
         Keyword Args:
-            value (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 2  # noqa: E501
+            value (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 16  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -150,7 +150,7 @@ class Precision(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = 2
+            value = 16
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -192,10 +192,10 @@ class Precision(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 2  # noqa: E501
+            args[0] (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 16  # noqa: E501
 
         Keyword Args:
-            value (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 2  # noqa: E501
+            value (int): Specifies the number of decimal places for price fields in the response.. if omitted defaults to 16  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -238,7 +238,7 @@ class Precision(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            value = 2
+            value = 16
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)

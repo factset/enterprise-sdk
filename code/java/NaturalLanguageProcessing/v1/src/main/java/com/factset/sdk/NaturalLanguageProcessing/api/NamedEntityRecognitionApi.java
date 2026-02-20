@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.NaturalLanguageProcessing.models.HTTPErrorRoot;
 import com.factset.sdk.NaturalLanguageProcessing.models.NERInputSchema;
 import com.factset.sdk.NaturalLanguageProcessing.models.NERResponseSchema;
 
@@ -30,7 +31,7 @@ public class NamedEntityRecognitionApi {
   private static final Map<Integer, GenericType> nerEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     nerEntitiesResponseTypeMap.put(200, new GenericType<NERResponseSchema>(){});
-    nerEntitiesResponseTypeMap.put(400, new GenericType<NERResponseSchema>(){});
+    nerEntitiesResponseTypeMap.put(400, new GenericType<HTTPErrorRoot>(){});
   }
 
   

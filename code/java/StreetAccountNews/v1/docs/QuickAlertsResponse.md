@@ -8,7 +8,7 @@ Elements of quick alerts response object.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**QuickAlertsBodyData**](QuickAlertsBodyData.md) |  |  [optional]
+**data** | [**QuickAlertsResponseData**](QuickAlertsResponseData.md) |  |  [optional]
 
 
 ## Implemented Interfaces

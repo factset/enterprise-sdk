@@ -44,7 +44,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint. .</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (default to false).</param>
-        public DetailRatingsRequest(List<string> ids,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), bool includeAll = false)
+        /// <param name="brokerNames">Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706)..</param>
+        /// <param name="updatesOnly">When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default. (default to false).</param>
+        public DetailRatingsRequest(List<string> ids,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), bool includeAll = false, List<string> brokerNames = default(List<string>), bool updatesOnly = false)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -54,6 +56,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.IncludeAll = includeAll;
+            this.BrokerNames = brokerNames;
+            this.UpdatesOnly = updatesOnly;
         }
 
         /// <summary>
@@ -87,6 +91,20 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool IncludeAll { get; set; }
 
         /// <summary>
+        /// Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+        /// </summary>
+        /// <value>Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).</value>
+        [DataMember(Name = "brokerNames", EmitDefaultValue = false)]
+        public List<string> BrokerNames { get; set; }
+
+        /// <summary>
+        /// When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default.
+        /// </summary>
+        /// <value>When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default.</value>
+        [DataMember(Name = "updatesOnly", EmitDefaultValue = true)]
+        public bool UpdatesOnly { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +116,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  IncludeAll: ").Append(IncludeAll).Append("\n");
+            sb.Append("  BrokerNames: ").Append(BrokerNames).Append("\n");
+            sb.Append("  UpdatesOnly: ").Append(UpdatesOnly).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +172,16 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 (
                     this.IncludeAll == input.IncludeAll ||
                     this.IncludeAll.Equals(input.IncludeAll)
+                ) && 
+                (
+                    this.BrokerNames == input.BrokerNames ||
+                    this.BrokerNames != null &&
+                    input.BrokerNames != null &&
+                    this.BrokerNames.SequenceEqual(input.BrokerNames)
+                ) && 
+                (
+                    this.UpdatesOnly == input.UpdatesOnly ||
+                    this.UpdatesOnly.Equals(input.UpdatesOnly)
                 );
         }
 
@@ -177,6 +207,11 @@ namespace FactSet.SDK.FactSetEstimates.Model
                     hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IncludeAll.GetHashCode();
+                if (this.BrokerNames != null)
+                {
+                    hashCode = (hashCode * 59) + this.BrokerNames.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UpdatesOnly.GetHashCode();
                 return hashCode;
             }
         }

@@ -31,7 +31,9 @@ from fds.sdk.FactSetEstimates.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.FactSetEstimates.model.broker_names import BrokerNames
     from fds.sdk.FactSetEstimates.model.ids import Ids
+    globals()['BrokerNames'] = BrokerNames
     globals()['Ids'] = Ids
 
 
@@ -92,6 +94,8 @@ class DetailRatingsRequest(ModelNormal):
             'start_date': (date,),  # noqa: E501
             'end_date': (date,),  # noqa: E501
             'include_all': (bool,),  # noqa: E501
+            'broker_names': (BrokerNames,),  # noqa: E501
+            'updates_only': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +108,8 @@ class DetailRatingsRequest(ModelNormal):
         'start_date': 'startDate',  # noqa: E501
         'end_date': 'endDate',  # noqa: E501
         'include_all': 'includeAll',  # noqa: E501
+        'broker_names': 'brokerNames',  # noqa: E501
+        'updates_only': 'updatesOnly',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,6 +159,8 @@ class DetailRatingsRequest(ModelNormal):
             start_date (date): The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint. . [optional]  # noqa: E501
             end_date (date): The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
+            broker_names (BrokerNames): [optional]  # noqa: E501
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,6 +249,8 @@ class DetailRatingsRequest(ModelNormal):
             start_date (date): The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint. . [optional]  # noqa: E501
             end_date (date): The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
+            broker_names (BrokerNames): [optional]  # noqa: E501
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

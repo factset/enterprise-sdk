@@ -65,7 +65,7 @@ public class RollingConsensusRequest implements Serializable {
   private LocalDate endDate;
 
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
-  private Frequency frequency = Frequency.D;
+  private Frequency frequency = Frequency.AM;
 
   public static final String JSON_PROPERTY_RELATIVE_FISCAL_START = "relativeFiscalStart";
   private Integer relativeFiscalStart;

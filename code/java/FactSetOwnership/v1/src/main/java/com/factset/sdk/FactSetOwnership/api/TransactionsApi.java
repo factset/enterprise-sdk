@@ -61,14 +61,14 @@ public class TransactionsApi {
     postOwnershipInsiderTransactionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
-  private static final Map<Integer, GenericType> postOwnershipInstituionalTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> postOwnershipInstitutionalTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    postOwnershipInstituionalTransactionsResponseTypeMap.put(200, new GenericType<InstitutionalTransactionsResponse>(){});
-    postOwnershipInstituionalTransactionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
-    postOwnershipInstituionalTransactionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
-    postOwnershipInstituionalTransactionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
-    postOwnershipInstituionalTransactionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
-    postOwnershipInstituionalTransactionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(200, new GenericType<InstitutionalTransactionsResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   
@@ -95,12 +95,13 @@ public class TransactionsApi {
   /**
    * Get insider transactions details for a list of requested identifiers.
    * Gets insider transaction details for a list of requested identifiers. 
-   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. (required)
+   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param transactionType Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** &#x3D; All Transaction Types - returns all available transaction types.   * **P** &#x3D; Open Market Purchases - shares on the open market.   * **S** &#x3D;  Open Market Sales - selling shares on the open market.   * **PS** &#x3D; Open Market Purchases &amp; Sales - buying and selling shares on the open market.   * **O** &#x3D; Options Exercised - executing stock options to acquire shares.   * **M** &#x3D; Other Transactions - any other types of equity-related actions not covered above.  (optional, default to A)
    * @param rowExclusion Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  (optional, default to DB)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return InsiderTransactionsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -114,19 +115,20 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InsiderTransactionsResponse getOwnershipInsiderTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency) throws ApiException {
-    return getOwnershipInsiderTransactionsWithHttpInfo(ids, startDate, endDate, transactionType, rowExclusion, currency).getData();
+  public InsiderTransactionsResponse getOwnershipInsiderTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
+    return getOwnershipInsiderTransactionsWithHttpInfo(ids, startDate, endDate, transactionType, rowExclusion, currency, batch).getData();
   }
 
   /**
    * Get insider transactions details for a list of requested identifiers.
    * Gets insider transaction details for a list of requested identifiers. 
-   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. (required)
+   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param transactionType Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** &#x3D; All Transaction Types - returns all available transaction types.   * **P** &#x3D; Open Market Purchases - shares on the open market.   * **S** &#x3D;  Open Market Sales - selling shares on the open market.   * **PS** &#x3D; Open Market Purchases &amp; Sales - buying and selling shares on the open market.   * **O** &#x3D; Options Exercised - executing stock options to acquire shares.   * **M** &#x3D; Other Transactions - any other types of equity-related actions not covered above.  (optional, default to A)
    * @param rowExclusion Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  (optional, default to DB)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return ApiResponse&lt;InsiderTransactionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -140,7 +142,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InsiderTransactionsResponse> getOwnershipInsiderTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency) throws ApiException {
+  public ApiResponse<InsiderTransactionsResponse> getOwnershipInsiderTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -159,7 +161,7 @@ public class TransactionsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/transactions/insider";
+    String localVarPath = "/transactions/insider";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -173,6 +175,7 @@ public class TransactionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionType", transactionType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "rowExclusion", rowExclusion));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
 
     
     
@@ -204,7 +207,7 @@ public class TransactionsApi {
   /**
    * Get institutional transaction details for a list of requested identifiers.
    * Get institutional transaction details for a list of requested identifiers. 
-   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. (required)
+   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
@@ -212,6 +215,7 @@ public class TransactionsApi {
    * @param topNHolders Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  (optional, default to 25)
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return InstitutionalTransactionsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -225,14 +229,14 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure) throws ApiException {
-    return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure).getData();
+  public InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
+    return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch).getData();
   }
 
   /**
    * Get institutional transaction details for a list of requested identifiers.
    * Get institutional transaction details for a list of requested identifiers. 
-   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. (required)
+   * @param ids Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
@@ -240,6 +244,7 @@ public class TransactionsApi {
    * @param topNHolders Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  (optional, default to 25)
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
    * @return ApiResponse&lt;InstitutionalTransactionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -253,7 +258,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InstitutionalTransactionsResponse> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure) throws ApiException {
+  public ApiResponse<InstitutionalTransactionsResponse> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -272,7 +277,7 @@ public class TransactionsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/transactions/institutional";
+    String localVarPath = "/transactions/institutional";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -288,6 +293,7 @@ public class TransactionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "topNHolders", topNHolders));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "holderType", holderType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "periodOfMeasure", periodOfMeasure));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
 
     
     
@@ -363,7 +369,7 @@ public class TransactionsApi {
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/transactions/insider";
+    String localVarPath = "/transactions/insider";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -416,8 +422,8 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InstitutionalTransactionsResponse postOwnershipInstituionalTransactions(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
-    return postOwnershipInstituionalTransactionsWithHttpInfo(institutionalTransactionsRequest).getData();
+  public InstitutionalTransactionsResponse postOwnershipInstitutionalTransactions(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
+    return postOwnershipInstitutionalTransactionsWithHttpInfo(institutionalTransactionsRequest).getData();
   }
 
   /**
@@ -437,16 +443,16 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InstitutionalTransactionsResponse> postOwnershipInstituionalTransactionsWithHttpInfo(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
+  public ApiResponse<InstitutionalTransactionsResponse> postOwnershipInstitutionalTransactionsWithHttpInfo(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
     Object localVarPostBody = institutionalTransactionsRequest;
     
     // verify the required parameter 'institutionalTransactionsRequest' is set
     if (institutionalTransactionsRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'institutionalTransactionsRequest' when calling postOwnershipInstituionalTransactions");
+      throw new ApiException(400, "Missing the required parameter 'institutionalTransactionsRequest' when calling postOwnershipInstitutionalTransactions");
     }
     
     // create path and map variables
-    String localVarPath = "/factset-ownership/v1/transactions/institutional";
+    String localVarPath = "/transactions/institutional";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -475,9 +481,9 @@ public class TransactionsApi {
         
         InstitutionalTransactionsResponse
       
-    > apiResponse = apiClient.invokeAPI("TransactionsApi.postOwnershipInstituionalTransactions", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("TransactionsApi.postOwnershipInstitutionalTransactions", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, postOwnershipInstituionalTransactionsResponseTypeMap, false);
+                               localVarAuthNames, postOwnershipInstitutionalTransactionsResponseTypeMap, false);
 
     return apiResponse;
 

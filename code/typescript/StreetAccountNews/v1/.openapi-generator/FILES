@@ -54,6 +54,7 @@ docs/HeadlinesResponseMetaPagination.md
 docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
+docs/QuickAlertsResponseData.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -131,6 +132,7 @@ src/model/HeadlinesResponseMetaPagination.js
 src/model/QuickAlertsBody.js
 src/model/QuickAlertsBodyData.js
 src/model/QuickAlertsResponse.js
+src/model/QuickAlertsResponseData.js
 src/model/SearchResponseArrayObject.js
 src/model/StructuredFilters.js
 src/model/StructuredFiltersCategories.js

@@ -141,9 +141,9 @@ GlobalPricesRequest.prototype['adjust'] = undefined;
 /**
  * Specifies the number of decimal places for price fields in the response.
  * @member {Number} precision
- * @default 2
+ * @default 16
  */
-GlobalPricesRequest.prototype['precision'] = 2;
+GlobalPricesRequest.prototype['precision'] = 16;
 
 /**
  * @member {module:model/Batch} batch

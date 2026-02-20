@@ -83,7 +83,7 @@ public class AiThemesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location -  <br>  </td></tr>
        <tr><td> 400 </td><td> The browser (or proxy) sent a request that this server could not understand. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn&#39;t understand how to supply the credentials required. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
@@ -102,7 +102,7 @@ public class AiThemesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location -  <br>  </td></tr>
        <tr><td> 400 </td><td> The browser (or proxy) sent a request that this server could not understand. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn&#39;t understand how to supply the credentials required. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
@@ -162,8 +162,8 @@ public class AiThemesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location -  <br>  </td></tr>
        <tr><td> 404 </td><td> description: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
@@ -181,8 +181,8 @@ public class AiThemesApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location -  <br>  </td></tr>
        <tr><td> 404 </td><td> description: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
@@ -243,7 +243,7 @@ public class AiThemesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location -  <br>  </td></tr>
        <tr><td> 404 </td><td> description: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>
@@ -262,7 +262,7 @@ public class AiThemesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 202 </td><td> Accepted </td><td>  * Location - The &#x60;Location&#x60; response header indicates the URL to redirect a page to. <br>  </td></tr>
+       <tr><td> 202 </td><td> Accepted </td><td>  * Location -  <br>  </td></tr>
        <tr><td> 404 </td><td> description: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. </td><td>  -  </td></tr>
      </table>

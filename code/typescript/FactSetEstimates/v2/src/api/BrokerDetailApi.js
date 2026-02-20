@@ -45,12 +45,14 @@ export default class BrokerDetailApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {Date} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'AM')
+     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  (default to 'D')
      * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
-     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
+     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus  (default to false)
      * @param {String} opts.fiscalPeriodStart Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.fiscalPeriodEnd Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.currency Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+     * @param {Array.<String>} opts.brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+     * @param {Boolean} opts.updatesOnly When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default. (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DetailResponse} and HTTP response
      */
     getFixedDetailWithHttpInfo(ids, metrics, opts) {
@@ -77,7 +79,9 @@ export default class BrokerDetailApi {
         'includeAll': opts['includeAll'],
         'fiscalPeriodStart': opts['fiscalPeriodStart'],
         'fiscalPeriodEnd': opts['fiscalPeriodEnd'],
-        'currency': opts['currency']
+        'currency': opts['currency'],
+        'brokerNames': this.apiClient.buildCollectionParam(opts['brokerNames'], 'csv'),
+        'updatesOnly': opts['updatesOnly']
       };
       let headerParams = {
       };
@@ -106,12 +110,14 @@ export default class BrokerDetailApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {Date} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'AM')
+     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  (default to 'D')
      * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
-     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
+     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus  (default to false)
      * @param {String} opts.fiscalPeriodStart Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.fiscalPeriodEnd Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.currency Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+     * @param {Array.<String>} opts.brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+     * @param {Boolean} opts.updatesOnly When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default. (default to false)
      * @return { Promise.< module:model/DetailResponse > } a Promise, with data of type {@link module:model/DetailResponse }
      */
     getFixedDetail(ids, metrics, opts) {
@@ -180,12 +186,14 @@ export default class BrokerDetailApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {Date} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'AM')
+     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  (default to 'D')
      * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
-     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
+     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus  (default to false)
      * @param {Number} opts.relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).
      * @param {Number} opts.relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).
      * @param {String} opts.currency Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+     * @param {Array.<String>} opts.brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+     * @param {Boolean} opts.updatesOnly When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default. (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DetailResponse} and HTTP response
      */
     getRollingDetailWithHttpInfo(ids, metrics, opts) {
@@ -212,7 +220,9 @@ export default class BrokerDetailApi {
         'includeAll': opts['includeAll'],
         'relativeFiscalStart': opts['relativeFiscalStart'],
         'relativeFiscalEnd': opts['relativeFiscalEnd'],
-        'currency': opts['currency']
+        'currency': opts['currency'],
+        'brokerNames': this.apiClient.buildCollectionParam(opts['brokerNames'], 'csv'),
+        'updatesOnly': opts['updatesOnly']
       };
       let headerParams = {
       };
@@ -241,12 +251,14 @@ export default class BrokerDetailApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {Date} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'AM')
+     * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  (default to 'D')
      * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
-     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
+     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus  (default to false)
      * @param {Number} opts.relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).
      * @param {Number} opts.relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).
      * @param {String} opts.currency Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+     * @param {Array.<String>} opts.brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+     * @param {Boolean} opts.updatesOnly When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default. (default to false)
      * @return { Promise.< module:model/DetailResponse > } a Promise, with data of type {@link module:model/DetailResponse }
      */
     getRollingDetail(ids, metrics, opts) {

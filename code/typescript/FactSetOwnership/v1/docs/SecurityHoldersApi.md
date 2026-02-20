@@ -1,11 +1,11 @@
 # factsetownership.SecurityHoldersApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSecurityHolders**](SecurityHoldersApi.md#getSecurityHolders) | **GET** /factset-ownership/v1/security-holders | Get security ownership data for requested security identifers.
-[**postSecurityHolders**](SecurityHoldersApi.md#postSecurityHolders) | **POST** /factset-ownership/v1/security-holders | Get security ownership data for a list of requested securities.
+[**getSecurityHolders**](SecurityHoldersApi.md#getSecurityHolders) | **GET** /security-holders | Get security ownership data for requested security identifers.
+[**postSecurityHolders**](SecurityHoldersApi.md#postSecurityHolders) | **POST** /security-holders | Get security ownership data for a list of requested securities.
 
 
 
@@ -50,12 +50,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SecurityHoldersApi();
-const ids = ["FDS-US"]; // [String] | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
+const ids = ["FDS-US"]; // [String] | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>.
 const opts = {
   'holderType': "'F'", // String | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners 
   'topn': 5, // String | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.
   'date': 2019-12-31, // String | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.
-  'currency': USD // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+  'currency': USD, // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+  'batch': "'N'" // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
 };
 
 // Call api endpoint
@@ -78,11 +79,12 @@ apiInstance.getSecurityHolders(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt;. | 
+ **ids** | [**[String]**](String.md)| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt;. | 
  **holderType** | **String**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] [default to &#39;F&#39;]
  **topn** | **String**| Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. | [optional] [default to &#39;ALL&#39;]
  **date** | **String**| Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. | [optional] 
  **currency** | **String**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to &#39;LOCAL&#39;]
+ **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to &#39;N&#39;]
 
 ### Return type
 

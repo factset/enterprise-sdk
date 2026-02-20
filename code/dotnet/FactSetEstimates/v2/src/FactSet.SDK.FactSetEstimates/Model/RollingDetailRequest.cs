@@ -50,7 +50,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="periodicity">periodicity.</param>
         /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). (required).</param>
         /// <param name="currency">Currency code for adjusting the data. Use input as &#39;ESTIMATE&#39; for values in Estimate currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public RollingDetailRequest(List<string> ids, List<string> metrics,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string))
+        /// <param name="brokerNames">Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706)..</param>
+        /// <param name="updatesOnly">When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default. (default to false).</param>
+        public RollingDetailRequest(List<string> ids, List<string> metrics,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string), List<string> brokerNames = default(List<string>), bool updatesOnly = false)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -70,6 +72,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
             this.RelativeFiscalEnd = relativeFiscalEnd;
             this.Periodicity = periodicity;
             this.Currency = currency;
+            this.BrokerNames = brokerNames;
+            this.UpdatesOnly = updatesOnly;
         }
 
         /// <summary>
@@ -143,6 +147,20 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+        /// </summary>
+        /// <value>Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).</value>
+        [DataMember(Name = "brokerNames", EmitDefaultValue = false)]
+        public List<string> BrokerNames { get; set; }
+
+        /// <summary>
+        /// When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default.
+        /// </summary>
+        /// <value>When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default.</value>
+        [DataMember(Name = "updatesOnly", EmitDefaultValue = true)]
+        public bool UpdatesOnly { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -160,6 +178,8 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  Periodicity: ").Append(Periodicity).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  BrokerNames: ").Append(BrokerNames).Append("\n");
+            sb.Append("  UpdatesOnly: ").Append(UpdatesOnly).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +263,16 @@ namespace FactSet.SDK.FactSetEstimates.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.BrokerNames == input.BrokerNames ||
+                    this.BrokerNames != null &&
+                    input.BrokerNames != null &&
+                    this.BrokerNames.SequenceEqual(input.BrokerNames)
+                ) && 
+                (
+                    this.UpdatesOnly == input.UpdatesOnly ||
+                    this.UpdatesOnly.Equals(input.UpdatesOnly)
                 );
         }
 
@@ -286,6 +316,11 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
+                if (this.BrokerNames != null)
+                {
+                    hashCode = (hashCode * 59) + this.BrokerNames.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UpdatesOnly.GetHashCode();
                 return hashCode;
             }
         }

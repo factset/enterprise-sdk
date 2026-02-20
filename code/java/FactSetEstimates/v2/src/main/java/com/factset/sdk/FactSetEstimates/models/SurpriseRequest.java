@@ -65,7 +65,7 @@ public class SurpriseRequest implements Serializable {
   private LocalDate endDate;
 
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
-  private Frequency frequency = Frequency.D;
+  private Frequency frequency = Frequency.AM;
 
   public static final String JSON_PROPERTY_PERIODICITY = "periodicity";
   private PeriodicitySurprise periodicity = PeriodicitySurprise.ANN;

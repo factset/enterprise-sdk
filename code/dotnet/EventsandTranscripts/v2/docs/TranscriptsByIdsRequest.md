@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Categories** | **List&lt;string&gt;** | List of category codes (country, industry, subject). Use &#x60;/meta/categories&#x60; endpoint. Default is all. | [optional] 
 **StartDate** | **DateTime** | Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
 **EndDate** | **DateTime** | End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
-**DateType** | **string** | Enables filtering of transcripts based on their uploadDateTime.  | [optional] 
+**DateType** | **string** | &lt;p&gt;&#39;dateType&#x3D;storyDateTime&#39; Enables filtering of transcripts based on their storyDateTime&lt;/p&gt; &lt;p&gt;&#39;dateType&#x3D;uploadDateTime&#39; Enables filtering of transcripts based on their uploadDateTime&lt;/p&gt;  &lt;p&gt;Default value is set to storyDateTime.&lt;/p&gt;  | [optional] 
 **SearchText** | **string** | Text to search for within the transcript document stories. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

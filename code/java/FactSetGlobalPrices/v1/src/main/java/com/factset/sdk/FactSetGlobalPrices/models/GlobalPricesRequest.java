@@ -79,7 +79,7 @@ public class GlobalPricesRequest implements Serializable {
   private Adjust adjust = Adjust.SPLIT;
 
   public static final String JSON_PROPERTY_PRECISION = "precision";
-  private Integer precision = 2;
+  private Integer precision = 16;
 
   public static final String JSON_PROPERTY_BATCH = "batch";
   private Batch batch = Batch.N;

@@ -98,7 +98,7 @@ public class RatingsApi {
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
+   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.  (optional, default to D)
    * @return ConsensusRatingsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -122,7 +122,7 @@ public class RatingsApi {
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to AM)
+   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.  (optional, default to D)
    * @return ApiResponse&lt;ConsensusRatingsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -274,7 +274,9 @@ public class RatingsApi {
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (optional, default to false)
+   * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
+   * @param updatesOnly When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default. (optional, default to false)
    * @return DetailRatingsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -288,8 +290,8 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailRatingsResponse getDetailRatings(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Boolean includeAll) throws ApiException {
-    return getDetailRatingsWithHttpInfo(ids, startDate, endDate, includeAll).getData();
+  public DetailRatingsResponse getDetailRatings(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Boolean includeAll, java.util.List<String> brokerNames, Boolean updatesOnly) throws ApiException {
+    return getDetailRatingsWithHttpInfo(ids, startDate, endDate, includeAll, brokerNames, updatesOnly).getData();
   }
 
   /**
@@ -298,7 +300,9 @@ public class RatingsApi {
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (optional, default to false)
+   * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
+   * @param updatesOnly When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default. (optional, default to false)
    * @return ApiResponse&lt;DetailRatingsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -312,7 +316,7 @@ public class RatingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailRatingsResponse> getDetailRatingsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Boolean includeAll) throws ApiException {
+  public ApiResponse<DetailRatingsResponse> getDetailRatingsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Boolean includeAll, java.util.List<String> brokerNames, Boolean updatesOnly) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -333,6 +337,8 @@ public class RatingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeAll", includeAll));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "brokerNames", brokerNames));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "updatesOnly", updatesOnly));
 
     
     

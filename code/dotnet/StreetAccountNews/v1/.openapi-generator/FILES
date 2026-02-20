@@ -54,6 +54,7 @@ docs/HeadlinesResponseMetaPagination.md
 docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
+docs/QuickAlertsResponseData.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -145,6 +146,7 @@ src/FactSet.SDK.StreetAccountNews/Model/HeadlinesResponseMetaPagination.cs
 src/FactSet.SDK.StreetAccountNews/Model/QuickAlertsBody.cs
 src/FactSet.SDK.StreetAccountNews/Model/QuickAlertsBodyData.cs
 src/FactSet.SDK.StreetAccountNews/Model/QuickAlertsResponse.cs
+src/FactSet.SDK.StreetAccountNews/Model/QuickAlertsResponseData.cs
 src/FactSet.SDK.StreetAccountNews/Model/SearchResponseArrayObject.cs
 src/FactSet.SDK.StreetAccountNews/Model/StructuredFilters.cs
 src/FactSet.SDK.StreetAccountNews/Model/StructuredFiltersCategories.cs

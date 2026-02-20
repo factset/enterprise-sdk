@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-eventsandtranscripts",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Events and Transcripts client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

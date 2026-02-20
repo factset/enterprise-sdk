@@ -73,6 +73,8 @@ class BrokerDetailApi(object):
                     'fiscal_period_start',
                     'fiscal_period_end',
                     'currency',
+                    'broker_names',
+                    'updates_only',
                 ],
                 'required': [
                     'ids',
@@ -87,6 +89,7 @@ class BrokerDetailApi(object):
                 'validation': [
                     'ids',
                     'metrics',
+                    'broker_names',
                 ]
             },
             root_map={
@@ -97,6 +100,10 @@ class BrokerDetailApi(object):
                         'min_items': 1,
                     },
                     ('metrics',): {
+
+                        'min_items': 1,
+                    },
+                    ('broker_names',): {
 
                         'min_items': 1,
                     },
@@ -138,6 +145,10 @@ class BrokerDetailApi(object):
                         (str,),
                     'currency':
                         (str,),
+                    'broker_names':
+                        ([str],),
+                    'updates_only':
+                        (bool,),
                 },
                 'attribute_map': {
                     'ids': 'ids',
@@ -150,6 +161,8 @@ class BrokerDetailApi(object):
                     'fiscal_period_start': 'fiscalPeriodStart',
                     'fiscal_period_end': 'fiscalPeriodEnd',
                     'currency': 'currency',
+                    'broker_names': 'brokerNames',
+                    'updates_only': 'updatesOnly',
                 },
                 'location_map': {
                     'ids': 'query',
@@ -162,10 +175,13 @@ class BrokerDetailApi(object):
                     'fiscal_period_start': 'query',
                     'fiscal_period_end': 'query',
                     'currency': 'query',
+                    'broker_names': 'query',
+                    'updates_only': 'query',
                 },
                 'collection_format_map': {
                     'ids': 'csv',
                     'metrics': 'csv',
+                    'broker_names': 'csv',
                 }
             },
             headers_map={
@@ -261,6 +277,8 @@ class BrokerDetailApi(object):
                     'relative_fiscal_start',
                     'relative_fiscal_end',
                     'currency',
+                    'broker_names',
+                    'updates_only',
                 ],
                 'required': [
                     'ids',
@@ -277,6 +295,7 @@ class BrokerDetailApi(object):
                     'metrics',
                     'relative_fiscal_start',
                     'relative_fiscal_end',
+                    'broker_names',
                 ]
             },
             root_map={
@@ -299,6 +318,10 @@ class BrokerDetailApi(object):
 
                         'inclusive_maximum': 20,
                         'inclusive_minimum': -20,
+                    },
+                    ('broker_names',): {
+
+                        'min_items': 1,
                     },
                 },
                 'allowed_values': {
@@ -338,6 +361,10 @@ class BrokerDetailApi(object):
                         (int,),
                     'currency':
                         (str,),
+                    'broker_names':
+                        ([str],),
+                    'updates_only':
+                        (bool,),
                 },
                 'attribute_map': {
                     'ids': 'ids',
@@ -350,6 +377,8 @@ class BrokerDetailApi(object):
                     'relative_fiscal_start': 'relativeFiscalStart',
                     'relative_fiscal_end': 'relativeFiscalEnd',
                     'currency': 'currency',
+                    'broker_names': 'brokerNames',
+                    'updates_only': 'updatesOnly',
                 },
                 'location_map': {
                     'ids': 'query',
@@ -362,10 +391,13 @@ class BrokerDetailApi(object):
                     'relative_fiscal_start': 'query',
                     'relative_fiscal_end': 'query',
                     'currency': 'query',
+                    'broker_names': 'query',
+                    'updates_only': 'query',
                 },
                 'collection_format_map': {
                     'ids': 'csv',
                     'metrics': 'csv',
+                    'broker_names': 'csv',
                 }
             },
             headers_map={
@@ -466,12 +498,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             fiscal_period_start (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -525,12 +559,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             fiscal_period_start (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -588,12 +624,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             fiscal_period_start (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -646,12 +684,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             fiscal_period_start (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -896,12 +936,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             relative_fiscal_start (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).. [optional]
             relative_fiscal_end (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).. [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -955,12 +997,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             relative_fiscal_start (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).. [optional]
             relative_fiscal_end (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).. [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1018,12 +1062,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             relative_fiscal_start (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).. [optional]
             relative_fiscal_end (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).. [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -1076,12 +1122,14 @@ class BrokerDetailApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  . [optional] if omitted the server will use the default value of "AM"
+            frequency (str): Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date. . [optional] if omitted the server will use the default value of "D"
             periodicity (str): The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  . [optional] if omitted the server will use the default value of "ANN"
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
             relative_fiscal_start (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).. [optional]
             relative_fiscal_end (int): Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).. [optional]
             currency (str): Currency code for adjusting the data. Use `ESTIMATE` as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
+            updates_only (bool): When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.. [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

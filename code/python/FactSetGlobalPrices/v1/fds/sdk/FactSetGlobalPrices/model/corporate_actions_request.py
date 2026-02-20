@@ -35,12 +35,12 @@ def lazy_import():
     from fds.sdk.FactSetGlobalPrices.model.cancelled_dividend import CancelledDividend
     from fds.sdk.FactSetGlobalPrices.model.event_category import EventCategory
     from fds.sdk.FactSetGlobalPrices.model.fields_corporate_actions import FieldsCorporateActions
-    from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
+    from fds.sdk.FactSetGlobalPrices.model.ids_max5000 import IdsMax5000
     globals()['Batch'] = Batch
     globals()['CancelledDividend'] = CancelledDividend
     globals()['EventCategory'] = EventCategory
     globals()['FieldsCorporateActions'] = FieldsCorporateActions
-    globals()['IdsMax50'] = IdsMax50
+    globals()['IdsMax5000'] = IdsMax5000
 
 
 class CorporateActionsRequest(ModelNormal):
@@ -96,7 +96,7 @@ class CorporateActionsRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (IdsMax50,),  # noqa: E501
+            'ids': (IdsMax5000,),  # noqa: E501
             'event_category': (EventCategory,),  # noqa: E501
             'fields': (FieldsCorporateActions,),  # noqa: E501
             'start_date': (str,),  # noqa: E501
@@ -133,7 +133,7 @@ class CorporateActionsRequest(ModelNormal):
         """CorporateActionsRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax5000):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -225,7 +225,7 @@ class CorporateActionsRequest(ModelNormal):
         """CorporateActionsRequest - a model defined in OpenAPI
 
         Args:
-            ids (IdsMax50):
+            ids (IdsMax5000):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

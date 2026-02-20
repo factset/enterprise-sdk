@@ -3,25 +3,46 @@ info:
   contact:
     email: api@factset.com
     name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: |
     FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**, and **Transactions** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position details held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders. FactSet also provides extensive insider and institutional transactions data for multiple countries including the United States, China, and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around 110 countries. For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Ownership API
-  version: 1.3.0
+  version: 1.2.2
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-ownership-api
 servers:
 - description: Production
-  url: https://api.factset.com/content
+  url: https://api.factset.com/content/factset-ownership/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: Operations for retrieving fund holdings data including underlying securities
+    and their position details for Open-End Mutual Funds, Closed-end Mutual Funds,
+    and Exchange Traded Funds.
+  name: Fund Holdings
+- description: Operations for retrieving security ownership data across holder types
+    including institutions, mutual funds, insiders, and stakeholders.
+  name: Security Holders
+- description: Operations for retrieving insider and institutional transaction details
+    for securities across multiple countries.
+  name: Transactions
+- description: Operations for managing and retrieving results from long-running batch
+    requests.
+  name: Batch Processing
 paths:
-  /factset-ownership/v1/fund-holdings:
+  /fund-holdings:
     get:
       description: |
         Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type.
       operationId: getOwnershipHoldings
       parameters:
       - description: List of requested fund identifiers. <p>***ids limit** =  10 per
-          request*</p>
+          request*</p> <p>***Batch ids limit** =  1000 per request*</p>
         examples:
           singleIdentifer:
             summary: One identifier to know the fund holding details
@@ -57,7 +78,7 @@ paths:
       - description: Limits number of holdings or holders displayed by the top *n*
           securities based on positions Market Value. Default is ALL, otherwise use
           number to limit number.
-        example: 5
+        example: "5"
         explode: true
         in: query
         name: topn
@@ -93,6 +114,25 @@ paths:
         required: false
         schema:
           default: LOCAL
+          type: string
+        style: form
+      - description: "Enables the ability to asynchronously \"batch\" the request,\
+          \ supporting a long-running request for up to 20 minutes. \nWhen `batch=Y`,\
+          \ the service will respond with an HTTP Status Code of 202. \nOnce a batch\
+          \ request is submitted, use batch status to see if the job has been completed.\
+          \ \nOnce completed, retrieve the results of the request via batch-result.\
+          \ When using Batch, ids     limit is increased to \n1000 ids per request,\
+          \ though limits on query string via GET method still apply. \nIt's advised\
+          \ to submit large lists of ids via POST method.\n"
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
           type: string
         style: form
       responses:
@@ -279,14 +319,14 @@ paths:
       - Fund Holdings
       x-contentType: application/json
       x-accepts: application/json
-  /factset-ownership/v1/security-holders:
+  /security-holders:
     get:
       description: |
         Gets security ownership details and activity for the requested security identifiers. The services allows filtering by "Topn" holders and by holder "type", such as Institutions, Insiders, and Stakeholders.
       operationId: getSecurityHolders
       parameters:
       - description: Requested list of security identifiers. <p>***ids limit** =  1
-          per request*</p>.
+          per request*</p> <p>***Batch ids limit** =  1000 per request*</p>.
         examples:
           singleSecurityIdentifer:
             summary: Requesting Holders information for FDS-US
@@ -299,7 +339,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 1
+          maxItems: 1000
           minItems: 1
           type: array
         style: form
@@ -327,7 +367,7 @@ paths:
       - description: Limits number of holdings or holders displayed by the top *n*
           securities based on positions Market Value. Default is ALL, otherwise use
           number to limit number.
-        example: 5
+        example: "5"
         explode: true
         in: query
         name: topn
@@ -355,6 +395,25 @@ paths:
         required: false
         schema:
           default: LOCAL
+          type: string
+        style: form
+      - description: "Enables the ability to asynchronously \"batch\" the request,\
+          \ supporting a long-running request for up to 20 minutes. \nWhen `batch=Y`,\
+          \ the service will respond with an HTTP Status Code of 202. \nOnce a batch\
+          \ request is submitted, use batch status to see if the job has been completed.\
+          \ \nOnce completed, retrieve the results of the request via batch-result.\
+          \ When using Batch, ids     limit is increased to \n1000 ids per request,\
+          \ though limits on query string via GET method still apply. \nIt's advised\
+          \ to submit large lists of ids via POST method.\n"
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
           type: string
         style: form
       responses:
@@ -542,14 +601,14 @@ paths:
       - Security Holders
       x-contentType: application/json
       x-accepts: application/json
-  /factset-ownership/v1/transactions/insider:
+  /transactions/insider:
     get:
       description: |
         Gets insider transaction details for a list of requested identifiers.
       operationId: getOwnershipInsiderTransactions
       parameters:
       - description: Requested list of security identifiers. <p>***ids limit** =  10
-          per request*</p  >.
+          per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
         examples:
           singleIdentifer:
             summary: Single identifier
@@ -568,7 +627,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 10
+          maxItems: 1000
           minItems: 1
           type: array
         style: form
@@ -643,6 +702,25 @@ paths:
         required: false
         schema:
           default: LOCAL
+          type: string
+        style: form
+      - description: "Enables the ability to asynchronously \"batch\" the request,\
+          \ supporting a long-running request for up to 20 minutes. \nWhen `batch=Y`,\
+          \ the service will respond with an HTTP Status Code of 202. \nOnce a batch\
+          \ request is submitted, use batch status to see if the job has been completed.\
+          \ \nOnce completed, retrieve the results of the request via batch-result.\
+          \ When using Batch, ids     limit is increased to \n1000 ids per request,\
+          \ though limits on query string via GET method still apply. \nIt's advised\
+          \ to submit large lists of ids via POST method.\n"
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
           type: string
         style: form
       responses:
@@ -827,14 +905,14 @@ paths:
       - Transactions
       x-contentType: application/json
       x-accepts: application/json
-  /factset-ownership/v1/transactions/institutional:
+  /transactions/institutional:
     get:
       description: |
         Get institutional transaction details for a list of requested identifiers.
       operationId: getOwnershipInstitutionalTransactions
       parameters:
       - description: Requested list of security identifiers. <p>***ids limit** =  10
-          per request*</p  >.
+          per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
         examples:
           singleIdentifer:
             summary: Single identifier
@@ -853,7 +931,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 10
+          maxItems: 1000
           minItems: 1
           type: array
         style: form
@@ -976,6 +1054,25 @@ paths:
           - 12M
           type: string
         style: form
+      - description: "Enables the ability to asynchronously \"batch\" the request,\
+          \ supporting a long-running request for up to 20 minutes. \nWhen `batch=Y`,\
+          \ the service will respond with an HTTP Status Code of 202. \nOnce a batch\
+          \ request is submitted, use batch status to see if the job has been completed.\
+          \ \nOnce completed, retrieve the results of the request via batch-result.\
+          \ When using Batch, ids     limit is increased to \n1000 ids per request,\
+          \ though limits on query string via GET method still apply. \nIt's advised\
+          \ to submit large lists of ids via POST method.\n"
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -1063,7 +1160,7 @@ paths:
     post:
       description: Gets institutional transaction details for a list of requested
         identifiers.
-      operationId: postOwnershipInstituionalTransactions
+      operationId: postOwnershipInstitutionalTransactions
       requestBody:
         content:
           application/json:
@@ -1158,6 +1255,359 @@ paths:
       tags:
       - Transactions
       x-contentType: application/json
+      x-accepts: application/json
+  /batch-status:
+    get:
+      deprecated: false
+      description: Returns the current processing status of the batch request identified
+        by the specified batch Id. Use this endpoint to monitor and track the progress
+        or completion of long-running batch operations.
+      operationId: getBatchStatus
+      parameters:
+      - allowEmptyValue: false
+        description: The Batch Request identifier. This value is returned in the response
+          to a request with `batch=Y`, and is used to check the status and retrieve
+          the results of the request.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request processing is complete and response has been
+            created. The response contains the batch ID, timestamps, status, and error
+            details.
+          headers:
+            RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              example: 10
+              explode: false
+              schema:
+                format: int32
+                maximum: 10
+                minimum: 1
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: The time when the current rate limit period resets, in
+                seconds.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+            Location:
+              description: Path to Batch Request result.
+              example: batch-result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                maxLength: 130
+                pattern: ^[A-Za-z0-9 '-?]+$
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request processing is still in progress and the result
+            is not yet available. The response contains the batch ID, timestamps,
+            status, and error details.
+          headers:
+            RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              example: 10
+              explode: false
+              schema:
+                format: int32
+                maximum: 10
+                minimum: 1
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: The time when the current rate limit period resets, in
+                seconds.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests. This error occurs when the rate limits for
+            requests have been exceeded. Please wait before making more requests.
+          headers:
+            RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              example: 10
+              explode: false
+              schema:
+                format: int32
+                maximum: 10
+                minimum: 1
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: The time when the current rate limit period resets, in
+                seconds.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+            Retry-After:
+              description: The time, in seconds, the user agent should wait before
+                making a follow-up request.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the latest status and metadata for the Batch Request.
+      tags:
+      - Batch Processing
+      x-accepts: application/json
+  /batch-result:
+    get:
+      deprecated: false
+      description: Returns the response data for the specified batch id upon successful
+        completion.
+      operationId: getBatchData
+      parameters:
+      - allowEmptyValue: false
+        description: The Batch Request identifier. This value is returned in the response
+          to a request with `batch=Y`, and is used to check the status and retrieve
+          the results of the request.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Fund Holdings Batch Result:
+                  $ref: '#/components/examples/singleIdentifer'
+                Security Holders Batch Result:
+                  $ref: '#/components/examples/singleSecurityHolder'
+                Insider Transactions Batch Result:
+                  $ref: '#/components/examples/insiderTransactionsSingle'
+                Institutional Transactions Batch Result:
+                  $ref: '#/components/examples/institutionalTransactionsSingle'
+              schema:
+                $ref: '#/components/schemas/BatchResultResponse'
+          description: Returns the request's response object after the batch request
+            has finished processing and the response is created
+          headers:
+            RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              example: 10
+              explode: false
+              schema:
+                format: int32
+                maximum: 10
+                minimum: 1
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: The time when the current rate limit period resets, in
+                seconds.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+          headers:
+            RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              example: 10
+              explode: false
+              schema:
+                format: int32
+                maximum: 10
+                minimum: 1
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: The time when the current rate limit period resets, in
+                seconds.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests. This error occurs when the rate limits for
+            requests have been exceeded. Please wait before making more requests.
+          headers:
+            RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              example: 10
+              explode: false
+              schema:
+                format: int32
+                maximum: 10
+                minimum: 1
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: The time when the current rate limit period resets, in
+                seconds.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+            Retry-After:
+              description: The time, in seconds, the user agent should wait before
+                making a follow-up request.
+              example: 1
+              explode: false
+              schema:
+                format: int32
+                maximum: 1
+                minimum: 1
+                type: integer
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns the response for the Batch Request
+      tags:
+      - Batch Processing
+      x-factset-different-success-responses: true
       x-accepts: application/json
 components:
   examples:
@@ -1421,8 +1871,9 @@ components:
         ids:
         - VTI-US
         date: 2019-12-31
-        topn: 5
+        topn: "5"
         assetType: EQ
+        batch: "N"
     MultipleIdentifiersPostRequest:
       description: The given post request body help to fetch the VTI-US,FDIVX-US top
         5 Equity type fund-holding details till the date 2020-01-01.
@@ -1432,8 +1883,9 @@ components:
         - VTI-US
         - FDIVX-US
         date: 2019-12-31
-        topn: 5
+        topn: "5"
         assetType: EQ
+        batch: "N"
     insiderTop5Holders:
       description: Top 5 Institution holders for FDS-US as of 2020-06-30.
       summary: Top 5 Institution holders for FDS-US as of 2020-06-30.
@@ -1594,9 +2046,10 @@ components:
         ids:
         - FDS-US
         date: 2020-06-30
-        topn: 1
+        topn: "1"
         holderType: F
         currency: USD
+        batch: "N"
     top5InsidersRequest:
       description: Requesting the latest available top 5 insiders and stakeholders
         for TSLA-US
@@ -1605,8 +2058,9 @@ components:
       value:
         ids:
         - TSLA-US
-        topn: 5
+        topn: "5"
         holderType: S
+        batch: "N"
     insiderTransactionsSingle:
       description: 'Returns Insider Transaction Details for the following security:
         TSLA-US'
@@ -2008,6 +2462,7 @@ components:
           transactionType: A
           rowExclusion: DB
           currency: USD
+          batch: "N"
     institutionalTransactionsPostRequest:
       description: Requesting institutional transactions details for TSLA-US.
       summary: Request body for Institutional Transactions.
@@ -2022,6 +2477,7 @@ components:
           periodOfMeasure: 6M
           frequency: MTD
           currency: USD
+          batch: "N"
     institutionalTransactionsSingle:
       description: 'Returns the top 10 Institutional Transactions for the following
         security: TSLA-US'
@@ -2035,6 +2491,8 @@ components:
           posChange: 7722331.47
           marketVal: 8.92815224321E9
           reportDate: 2024-09-30
+          asOfDate: 2024-10-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2044,6 +2502,8 @@ components:
           posChange: 6324398.37
           marketVal: 2.36013608343E9
           reportDate: 2024-09-30
+          asOfDate: 2024-10-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2053,6 +2513,8 @@ components:
           posChange: 6023105.36
           marketVal: 3.66910844254E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2062,6 +2524,8 @@ components:
           posChange: 5494299.3
           marketVal: 7.833303376826E10
           reportDate: 2024-09-30
+          asOfDate: 2024-12-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2071,6 +2535,8 @@ components:
           posChange: 5349999.47
           marketVal: 6.86682289724E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2080,6 +2546,8 @@ components:
           posChange: 4307213.68
           marketVal: 4.23300392717E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2089,6 +2557,8 @@ components:
           posChange: 3831293.12
           marketVal: 1.43607649321E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2098,6 +2568,8 @@ components:
           posChange: 3717257.45
           marketVal: 1.477733093867E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2107,6 +2579,8 @@ components:
           posChange: 3475175.37
           marketVal: 3.20745935824E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2116,6 +2590,8 @@ components:
           posChange: 3289488.57
           marketVal: 1.28049596854E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
     institutionalTransactionsMultiple:
@@ -2131,6 +2607,8 @@ components:
           posChange: 7722331.57
           marketVal: 8.92815224345E9
           reportDate: 2024-09-30
+          asOfDate: 2024-10-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2140,6 +2618,8 @@ components:
           posChange: 6324398.35
           marketVal: 2.36013608354E9
           reportDate: 2024-09-30
+          asOfDate: 2024-10-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2149,6 +2629,8 @@ components:
           posChange: 6023105.92
           marketVal: 3.66910844221E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2158,6 +2640,8 @@ components:
           posChange: 5494299.47
           marketVal: 7.833303376834E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2167,6 +2651,8 @@ components:
           posChange: 5349999.6
           marketVal: 6.86682289724E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2176,6 +2662,8 @@ components:
           posChange: 4307213.38
           marketVal: 4.23300392787E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2185,6 +2673,8 @@ components:
           posChange: 3831293.68
           marketVal: 1.43607649381E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2194,6 +2684,8 @@ components:
           posChange: 3717257.36
           marketVal: 1.477733093835E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2203,6 +2695,8 @@ components:
           posChange: 3475175.56
           marketVal: 3.20745935835E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
         - fsymId: Q2YN1N-R
@@ -2212,108 +2706,169 @@ components:
           posChange: 3289488.34
           marketVal: 1.2804959682E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: Fidelity Management & Research Co. LLC
           pctOS: 2.06702662
           pctChange: 0.45564975
           posChange: 6.53582359E7
           marketVal: 7.41533040131E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: Capital Research & Management Co. (Global Investors)
           pctOS: 0.47254658
           pctChange: 0.26531349
           posChange: 3.96520121E7
           marketVal: 1.695231671867E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: BlackRock Fund Advisors
           pctOS: 4.76310954
           pctChange: 0.30731603
           posChange: 3.672817723E7
           marketVal: 1.2804959682E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: Wellington Management Co. LLP
           pctOS: 0.58557911
           pctChange: 0.22331868
           posChange: 3.296579068E7
           marketVal: 2.100728915823E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: T. Rowe Price Associates, Inc. (IM)
           pctOS: 1.41610479
           pctChange: 0.19653322
           posChange: 2.704578923E7
           marketVal: 5.080188508678E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: Geode Capital Management LLC
           pctOS: 2.20866241
           pctChange: 0.20188527
           posChange: 2.613664876E7
           marketVal: 7.923440047512E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: Capital Research & Management Co. (World Investors)
           pctOS: 0.28673687
           pctChange: 0.16259464
           posChange: 2.430656635E7
           marketVal: 1.028650803934E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: The Vanguard Group, Inc.
           pctOS: 8.46124304
           pctChange: 0.27515047
           posChange: 2.372437476E7
           marketVal: 1.2804959682E9
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: Capital Research & Management Co. (International Investors)
           pctOS: 0.37972311
           pctChange: 0.1374763
           posChange: 2.025194821E7
           marketVal: 1.36223321314E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
-        - fsymId: AAPL-US^
+        - fsymId: AAPL-US
           holderName: JPMorgan Investment Management, Inc.
           pctOS: 0.74817705
           pctChange: 0.10870149
           posChange: 1.503541231E7
           marketVal: 2.684038993267E10
           reportDate: 2024-09-30
+          asOfDate: 2024-11-15
+          periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
+    BatchStatusQueuedResponse:
+      description: Batch Status Queued Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: queued
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusExecutingResponse:
+      description: Batch Status Executing Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: executing
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusDoneResponse:
+      description: Batch Status Done Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: created
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: 2021-06-29T18:34:55.402Z
+          error: null
+    BatchStatusFailedResponse:
+      description: Batch Status Failed Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: failed
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: 2021-06-29T18:34:55.402Z
+          error:
+            id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+            code: GenericError
+            title: the date parameter must be in YYYY-MM-DD format
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
       summary: Bad Request - Date Format
       value:
         status: Bad Request
-        timestamp: 2020-08-03 12:00:31.777
+        timestamp: 2020-08-03T12:00:31.777Z
         path: /factset-ownership/v1/{end-point}
         message: 'The date parameter(s) must be in the following date format: YYYY-MM-DD. '
-        subErrors: null
+        subErrors: {}
     badRequestRequiredParameter:
       description: This error message occurs when the request does not include the
         required parameters. Required parameters are indicated with a red asterisks
@@ -2321,10 +2876,10 @@ components:
       summary: Bad Request - Required Parameter Missing
       value:
         status: Bad Request
-        timestamp: 2020-08-03 12:01:06.553
+        timestamp: 2020-08-03T12:01:06.553Z
         path: /factset-ownership/v1/{end-point}
         message: The parameter 'ids' is required and may not be empty.
-        subErrors: null
+        subErrors: {}
     badRequestFutureDate:
       description: This error message occurs when a future date is requested in the
         date parameters. Please revise your request to include dates as of today's
@@ -2332,11 +2887,11 @@ components:
       summary: Bad Request - Future Date
       value:
         status: Bad Request
-        timestamp: 2020-08-03 12:02:06.097
+        timestamp: 2020-08-03T12:02:06.097Z
         path: /factset-ownership/v1/{end-point}
         message: 'The use of future dates for date parameter(s) is not applicable.
           Please revise your request to include dates up to today''s current date. '
-        subErrors: null
+        subErrors: {}
     badRequestInvalidParameters:
       description: This error message occurs when a request parameter is used in which
         is not recognized by the service. Please revise your request to include only
@@ -2345,31 +2900,31 @@ components:
       summary: Bad Request - Invalid Parameters
       value:
         status: Bad Request
-        timestamp: 2020-08-03 12:02:47.804
+        timestamp: 2020-08-03T12:02:47.804Z
         path: /factset-ownership/v1/{end-point}
         message: 'Invalid Parameter (s): dated. Please modify your request to use
           parameters outlined in the specification for this endpoint.'
-        subErrors: null
+        subErrors: {}
     badRequestMalformedJSON:
       description: This error may be returned when the request body is specified as
         JSON, but is not in proper JSON format.
       summary: Bad Request - Malformed JSON Request
       value:
         status: Bad Request
-        timestamp: 2020-08-03 12:03:34.409
+        timestamp: 2020-08-03T12:03:34.409Z
         path: /factset-ownership/v1/{end-point}
         message: Malformed JSON Request
-        subErrors: null
+        subErrors: {}
     badRequestReadTimeout:
       description: This error may be returned if it takes more than 29 seconds to
         hear back from the data fetch service.
       summary: Bad Request - Read Timeout
       value:
         status: Bad Request
-        timestamp: 2019-11-04 16:18:38.949
+        timestamp: 2019-11-04T16:18:38.949Z
         path: /factset-ownership/v1/{end-point}
         message: The request took too long. Try again with a smaller request.
-        subErrors: null
+        subErrors: {}
     unauthenticated:
       description: This occurs when a user is not properly authenticated or recognized
         by the service. Please double check the USERNAME-SERIAL and API-Key used to
@@ -2378,10 +2933,10 @@ components:
       summary: User Authentication Failed
       value:
         status: User Authentication Failed
-        timestamp: 2019-10-31 16:08:07.945
+        timestamp: 2019-10-31T16:08:07.945Z
         path: /factset-ownership/v1/{endpoint}
         message: User Authentication Failed.
-        subErrors: null
+        subErrors: {}
     forbidden:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
@@ -2389,45 +2944,65 @@ components:
       summary: Forbidden
       value:
         status: Forbidden
-        timestamp: 2020-06-12 16:08:51.731
+        timestamp: 2020-06-12T16:08:51.731Z
         path: /factset-ownership/v1/{endpoint}
         message: USERNAME-SERIAL does not have permission to use /factset-ownership/v1/{endpoint}
-        subErrors: null
+        subErrors: {}
     unsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently the APIs only support 'application/json'.
       summary: Unsupported Media Type
       value:
         status: Unsupported Media Type
-        timestamp: 2019-11-05 09:42:27.237
+        timestamp: 2019-11-05T09:42:27.237Z
         path: /factset-ownership/v1/{endpoint}
         message: text/html media type is not supported. Supported media types are
           application/json
-        subErrors: null
+        subErrors: {}
+    tooManyRequests:
+      description: The request was not processed because the application has exceeded
+        its rate limit for requests. Please wait before making further requests.
+      summary: Too Many Requests
+      value:
+        status: Too Many Requests
+        timestamp: 2019-11-05T09:42:27.237Z
+        path: /factset-ownership/v1/{endpoint}
+        message: Request exceeds the rate limit. Please try again later or contact
+          support for assistance.
+        subErrors: {}
+    notFound:
+      description: The requested item was not found.
+      summary: Not Found
+      value:
+        status: Not Found
+        timestamp: 2020-06-12T16:08:51.731Z
+        path: /batch-status
+        message: The Batch Request was not found. It has probably expired.
+        subErrors: {}
     notWritable:
       description: This error may be returned when the server encounters an error
         writing the JSON response.
       summary: Internal Server Error - Not Writable
       value:
         status: Internal Server Error
-        timestamp: 2019-11-05 09:48:29.18
+        timestamp: 2019-11-05T09:48:29.180Z
         path: /factset-ownership/v1/{endpoint}
         message: Error writing JSON output
-        subErrors: null
+        subErrors: {}
     generalException:
       description: This is the most general error that can be returned to by the service.
         Please `Report Issue` to FactSet.
       summary: Internal Server Error - General Exception
       value:
         status: Internal Server Error
-        timestamp: 2019-11-01 10:36:01.944
+        timestamp: 2019-11-01T10:36:01.944Z
         path: /factset-ownership/v1/{endpoint}
         message: Unexpected error
-        subErrors: null
+        subErrors: {}
   parameters:
     idFundHoldings:
       description: List of requested fund identifiers. <p>***ids limit** =  10 per
-        request*</p>
+        request*</p> <p>***Batch ids limit** =  1000 per request*</p>
       examples:
         singleIdentifer:
           summary: One identifier to know the fund holding details
@@ -2465,7 +3040,7 @@ components:
       description: Limits number of holdings or holders displayed by the top *n* securities
         based on positions Market Value. Default is ALL, otherwise use number to limit
         number.
-      example: 5
+      example: "5"
       explode: true
       in: query
       name: topn
@@ -2495,7 +3070,7 @@ components:
       style: form
     idHolders:
       description: Requested list of security identifiers. <p>***ids limit** =  1
-        per request*</p>.
+        per request*</p> <p>***Batch ids limit** =  1000 per request*</p>.
       examples:
         singleSecurityIdentifer:
           summary: Requesting Holders information for FDS-US
@@ -2508,13 +3083,13 @@ components:
       schema:
         items:
           type: string
-        maxItems: 1
+        maxItems: 1000
         minItems: 1
         type: array
       style: form
     idTransactions:
       description: Requested list of security identifiers. <p>***ids limit** =  10
-        per request*</p  >.
+        per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
       examples:
         singleIdentifer:
           summary: Single identifier
@@ -2533,7 +3108,7 @@ components:
       schema:
         items:
           type: string
-        maxItems: 10
+        maxItems: 1000
         minItems: 1
         type: array
       style: form
@@ -2667,6 +3242,24 @@ components:
         - M
         type: string
       style: form
+    rowExclusion:
+      description: |
+        Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.
+          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
+          * **B** = Blank Transaction Types - excludes only blank transaction types.
+          * **N** =   None - includes all transaction types without exclusion.
+      explode: true
+      in: query
+      name: rowExclusion
+      required: false
+      schema:
+        default: DB
+        enum:
+        - DB
+        - B
+        - "N"
+        type: string
+      style: form
     periodOfMeasure:
       description: |
         Determines the range over which the code calculates change for Percent Ownership and Position Change.
@@ -2687,22 +3280,37 @@ components:
         - 12M
         type: string
       style: form
-    rowExclusion:
-      description: |
-        Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.
-          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
-          * **B** = Blank Transaction Types - excludes only blank transaction types.
-          * **N** =   None - includes all transaction types without exclusion.
+    batch:
+      description: "Enables the ability to asynchronously \"batch\" the request, supporting\
+        \ a long-running request for up to 20 minutes. \nWhen `batch=Y`, the service\
+        \ will respond with an HTTP Status Code of 202. \nOnce a batch request is\
+        \ submitted, use batch status to see if the job has been completed. \nOnce\
+        \ completed, retrieve the results of the request via batch-result. When using\
+        \ Batch, ids     limit is increased to \n1000 ids per request, though limits\
+        \ on query string via GET method still apply. \nIt's advised to submit large\
+        \ lists of ids via POST method.\n"
       explode: true
       in: query
-      name: rowExclusion
+      name: batch
       required: false
       schema:
-        default: DB
+        default: "N"
         enum:
-        - DB
-        - B
+        - "Y"
         - "N"
+        type: string
+      style: form
+    batchId:
+      allowEmptyValue: false
+      description: The Batch Request identifier. This value is returned in the response
+        to a request with `batch=Y`, and is used to check the status and retrieve
+        the results of the request.
+      explode: true
+      in: query
+      name: id
+      required: true
+      schema:
+        format: uuid
         type: string
       style: form
   responses:
@@ -2749,6 +3357,15 @@ components:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
         respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Batch Request Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Resource not found.
     "415":
       content:
         application/json:
@@ -2761,6 +3378,48 @@ components:
         sends a resource in a format that is not accepted by the server. This can
         be fixed by ensuring that Content-Type header is set to the correct value.
         In this instance, "application/json" would be the appropriate value.
+    "429":
+      content:
+        application/json:
+          examples:
+            Too Many Requests:
+              $ref: '#/components/examples/tooManyRequests'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Too Many Requests. This error occurs when the rate limits for requests
+        have been exceeded. Please wait before making more requests.
+      headers:
+        RateLimit-Limit:
+          description: The number of allowed requests in the current period.
+          example: 10
+          explode: false
+          schema:
+            format: int32
+            maximum: 10
+            minimum: 1
+            type: integer
+          style: simple
+        RateLimit-Reset:
+          description: The time when the current rate limit period resets, in seconds.
+          example: 1
+          explode: false
+          schema:
+            format: int32
+            maximum: 1
+            minimum: 1
+            type: integer
+          style: simple
+        Retry-After:
+          description: The time, in seconds, the user agent should wait before making
+            a follow-up request.
+          example: 1
+          explode: false
+          schema:
+            format: int32
+            maximum: 1
+            minimum: 1
+            type: integer
+          style: simple
     "500":
       content:
         application/json:
@@ -2782,7 +3441,7 @@ components:
           - FDIVX-US
           items:
             type: string
-          maxItems: 10
+          maxItems: 1000
           minItems: 1
           type: array
         date:
@@ -2802,6 +3461,8 @@ components:
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD
           type: string
+        batch:
+          $ref: '#/components/schemas/Batch'
       required:
       - ids
       title: Holdings Request
@@ -2815,7 +3476,7 @@ components:
           - FDS-US
           items:
             type: string
-          maxItems: 1
+          maxItems: 1000
           minItems: 1
           type: array
         holderType:
@@ -2835,6 +3496,8 @@ components:
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD
           type: string
+        batch:
+          $ref: '#/components/schemas/Batch'
       required:
       - ids
       title: Security Holders Request
@@ -2870,7 +3533,7 @@ components:
           - FDS-US
           items:
             type: string
-          maxItems: 10
+          maxItems: 1000
           minItems: 1
           type: array
         startDate:
@@ -2896,6 +3559,8 @@ components:
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
           example: USD
           type: string
+        batch:
+          $ref: '#/components/schemas/Batch'
       required:
       - endDate
       - ids
@@ -2933,7 +3598,7 @@ components:
           - FDS-US
           items:
             type: string
-          maxItems: 10
+          maxItems: 1000
           minItems: 1
           type: array
         startDate:
@@ -2954,8 +3619,6 @@ components:
           $ref: '#/components/schemas/topNHolders'
         holderType:
           $ref: '#/components/schemas/holderType'
-        periodOfMeasure:
-          $ref: '#/components/schemas/periodOfMeasure'
         currency:
           description: Currency code for adjusting prices. Default is Local. For a
             list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -2963,6 +3626,10 @@ components:
           type: string
         frequency:
           $ref: '#/components/schemas/frequency'
+        periodOfMeasure:
+          $ref: '#/components/schemas/periodOfMeasure'
+        batch:
+          $ref: '#/components/schemas/Batch'
       required:
       - endDate
       - ids
@@ -2972,7 +3639,7 @@ components:
     fundHolding:
       description: fundHolding response object
       example:
-        date: 2018-06-30T00:00:00.000+0000
+        date: 2018-06-30
         weightClose: 1.6639
         issueType: Equity
         adjMarketValue: 120078159
@@ -3002,7 +3669,6 @@ components:
           description: 'Date of the reported holding in YYYY-MM-DD format. For more
             details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262).'
           example: 2018-06-30
-          format: date
           nullable: true
           type: string
         currency:
@@ -3210,11 +3876,13 @@ components:
         holderName: T. Rowe Price Associates, Inc. (IM)
         pctChange: 0.23686886
         marketVal: 8928152243.21
-        reportDate: 2024-11-15
+        reportDate: 2024-11-15T00:00:00.000+0000
         requestId: TSLA-US
         fsymId: Q2YN1N-R
         currency: USD
         pctOS: 0.80580141
+        periodOfMeasure: 6M
+        asOfDate: 2017-12-30T00:00:00.000+0000
         posChange: 7722331.34
       properties:
         requestId:
@@ -3273,10 +3941,24 @@ components:
           format: double
           nullable: true
           type: number
+        periodOfMeasure:
+          description: Returns the range over which the code calculates change for
+            Percent Ownership and Position Change.
+          example: 6M
+          nullable: true
+          type: string
         reportDate:
           description: Returns the report date for the transactions that occurred
             between the specified start and end dates.
           example: 2024-11-15
+          format: date
+          nullable: true
+          type: string
+        asOfDate:
+          description: Date on which the specified data or information is accurate
+            or relevant.
+          example: 2017-12-30
+          format: date
           nullable: true
           type: string
       title: Institutional Transactions
@@ -3407,7 +4089,7 @@ components:
       description: fundHolding response
       example:
         data:
-        - date: 2018-06-30T00:00:00.000+0000
+        - date: 2018-06-30
           weightClose: 1.6639
           issueType: Equity
           adjMarketValue: 120078159
@@ -3419,7 +4101,7 @@ components:
           currency: USD
           adjHolding: 60036157
           fsymRegionalId: QLGSL2-R
-        - date: 2018-06-30T00:00:00.000+0000
+        - date: 2018-06-30
           weightClose: 1.6639
           issueType: Equity
           adjMarketValue: 120078159
@@ -3492,20 +4174,24 @@ components:
         - holderName: T. Rowe Price Associates, Inc. (IM)
           pctChange: 0.23686886
           marketVal: 8928152243.21
-          reportDate: 2024-11-15
+          reportDate: 2024-11-15T00:00:00.000+0000
           requestId: TSLA-US
           fsymId: Q2YN1N-R
           currency: USD
           pctOS: 0.80580141
+          periodOfMeasure: 6M
+          asOfDate: 2017-12-30T00:00:00.000+0000
           posChange: 7722331.34
         - holderName: T. Rowe Price Associates, Inc. (IM)
           pctChange: 0.23686886
           marketVal: 8928152243.21
-          reportDate: 2024-11-15
+          reportDate: 2024-11-15T00:00:00.000+0000
           requestId: TSLA-US
           fsymId: Q2YN1N-R
           currency: USD
           pctOS: 0.80580141
+          periodOfMeasure: 6M
+          asOfDate: 2017-12-30T00:00:00.000+0000
           posChange: 7722331.34
       properties:
         data:
@@ -3564,6 +4250,7 @@ components:
           type: string
         timestamp:
           description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          example: 2019-11-01T11:09:41.918Z
           format: date-time
           type: string
         path:
@@ -3578,13 +4265,41 @@ components:
           $ref: '#/components/schemas/errorResponse_subErrors'
       title: Error Response
       type: object
+    BatchErrorObject:
+      description: Details of the error that occurred during the batch job execution.
+      example:
+        code: GenericError
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        title: Validation Error
+      nullable: true
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          maxLength: 100
+          pattern: ^[A-Za-z0-9 -]+$
+          type: string
+        code:
+          description: status
+          example: GenericError
+          maxLength: 50
+          pattern: ^[A-Za-z ]+$
+          type: string
+        title:
+          description: The plain text error message
+          example: Validation Error
+          maxLength: 100
+          pattern: ^[A-Za-z -]+$
+          type: string
+      title: Batch Error Object
+      type: object
     idFundHoldings:
       description: List of Fund identifiers.
       example:
       - FDIVX-US
       items:
         type: string
-      maxItems: 10
+      maxItems: 1000
       minItems: 1
       type: array
     idTransactions:
@@ -3593,7 +4308,7 @@ components:
       - FDS-US
       items:
         type: string
-      maxItems: 10
+      maxItems: 1000
       minItems: 1
       type: array
     requestedDate:
@@ -3639,7 +4354,7 @@ components:
       - FDS-US
       items:
         type: string
-      maxItems: 1
+      maxItems: 1000
       minItems: 1
       type: array
     startDate:
@@ -3734,12 +4449,110 @@ components:
         \ Types.\n  * **DB** =  Derivative and Blank Transaction Types - excludes\
         \ both derivative and blank transaction types.\n  * **B** = Blank Transaction\
         \ Types - excludes only blank transaction types.\n  * **N** =   None - includes\
-        \ all transaction types without exclusion.   \n"
+        \ all transaction types without exclusion.   \n  \n"
       enum:
       - DB
       - B
       - "N"
       type: string
+    Batch:
+      default: "N"
+      description: |
+        Enables the ability to asynchronously "batch" the request, supporting a long-running request for     up to 20 minutes. When `batch=Y`, the service will respond back with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to 1000 ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
+      enum:
+      - "Y"
+      - "N"
+      type: string
+    BatchStatusResponse:
+      description: Batch Status Response
+      example:
+        data:
+          startTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          endTime: 2000-01-23T04:56:07.000+00:00
+          error:
+            code: GenericError
+            id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            title: Validation Error
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchStatus'
+      title: Batch Status Response
+      type: object
+    BatchStatus:
+      description: Details the current status of a given batch request.
+      example:
+        startTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        endTime: 2000-01-23T04:56:07.000+00:00
+        error:
+          code: GenericError
+          id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          title: Validation Error
+        status: queued
+      properties:
+        id:
+          description: the id of batch request.
+          format: uuid
+          type: string
+        startTime:
+          description: The time when the batch request was initiated. This is in Eastern
+            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
+            following ISO 8601.
+          format: date-time
+          type: string
+        endTime:
+          description: The time when the batch request was completed. This is in Eastern
+            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
+            following ISO 8601.
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          description: The status signifies the current state of the batch request
+            that can be 'queued', 'executing', 'created', or 'failed'.
+          enum:
+          - queued
+          - executing
+          - created
+          - failed
+          type: string
+        error:
+          $ref: '#/components/schemas/BatchErrorObject'
+      title: Batch Status Object
+      type: object
+    BatchResultResponse:
+      description: Batch Data Response
+      example:
+        data:
+        - null
+        - null
+      properties:
+        data:
+          description: An array of Batch Result items returned in the response.
+          items:
+            $ref: '#/components/schemas/BatchResult'
+          type: array
+      required:
+      - data
+      title: Batch Data Response
+      type: object
+    BatchResult:
+      description: Batch Result Item
+      discriminator:
+        mapping:
+          fundHolding: '#/components/schemas/fundHolding'
+          securityHolders: '#/components/schemas/securityHolders'
+          insiderTransactions: '#/components/schemas/insiderTransactions'
+          institutionalTransactions: '#/components/schemas/institutionalTransactions'
+        propertyName: type
+      oneOf:
+      - $ref: '#/components/schemas/fundHolding'
+      - $ref: '#/components/schemas/securityHolders'
+      - $ref: '#/components/schemas/insiderTransactions'
+      - $ref: '#/components/schemas/institutionalTransactions'
+      title: Batch Result Item
     errorResponse_subErrors:
       description: subErrors related to the error message. Null if not applicable.
       properties:

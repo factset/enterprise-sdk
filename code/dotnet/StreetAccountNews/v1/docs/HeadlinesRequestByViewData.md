@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | View name of the view to return headlines for | [optional] 
+**Name** | **string** | View name of the view to return headlines for | 
 **PredefinedRange** | **string** | see list of valid date ranges. Date range is mutually exlusive to start/end time | [optional] 
 **SearchTime** | [**HeadlinesRequestByViewDataSearchTime**](HeadlinesRequestByViewDataSearchTime.md) |  | [optional] 
 

@@ -57,6 +57,9 @@ class AnalystRating {
             if (data.hasOwnProperty('asOfMonth')) {
                 obj['asOfMonth'] = ApiClient.convertToType(data['asOfMonth'], 'String');
             }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
+            }
             if (data.hasOwnProperty('ratingsCount')) {
                 obj['ratingsCount'] = RatingsCount.constructFromObject(data['ratingsCount']);
             }
@@ -93,6 +96,12 @@ AnalystRating.prototype['requestId'] = undefined;
  * @member {String} asOfMonth
  */
 AnalystRating.prototype['asOfMonth'] = undefined;
+
+/**
+ * The 3 digit ISO code for the currency. ​For a list of currency ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470).
+ * @member {String} currency
+ */
+AnalystRating.prototype['currency'] = undefined;
 
 /**
  * @member {module:model/RatingsCount} ratingsCount

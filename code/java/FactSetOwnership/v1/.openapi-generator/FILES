@@ -6,6 +6,13 @@ README.md
 api/openapi.yaml
 build.gradle
 docs/AssetType.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -50,6 +57,7 @@ src/main/java/com/factset/sdk/FactSetOwnership/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/FactSetOwnership/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetOwnership/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetOwnership/StringUtil.java
+src/main/java/com/factset/sdk/FactSetOwnership/api/BatchProcessingApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/FundHoldingsApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/SecurityHoldersApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/TransactionsApi.java
@@ -62,6 +70,12 @@ src/main/java/com/factset/sdk/FactSetOwnership/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetOwnership/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/AssetType.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/Batch.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/BatchErrorObject.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/BatchResult.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/BatchResultResponse.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/BatchStatus.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/BatchStatusResponse.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/ErrorResponseSubErrors.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/Frequency.java

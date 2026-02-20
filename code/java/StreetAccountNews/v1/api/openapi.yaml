@@ -14,7 +14,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: StreetAccount News API
-  version: 1.2.0
+  version: 1.2.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/streetaccount-news-api
@@ -716,7 +716,7 @@ paths:
                         - name: S&P 500
                           type: Index
                           value: SP50
-                      flattered:
+                      flattened:
                         categories:
                         - name: Dividends
                           value:
@@ -836,7 +836,7 @@ paths:
                           - name: Mergers & Acquisitions
                             value:
                             - SA_FILTERED_MNA
-                      flattered:
+                      flattened:
                         categories:
                         - name: Dividends
                           value:
@@ -940,7 +940,7 @@ paths:
                           - name: Business Model & Innovation
                             value:
                             - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
-                      flattered:
+                      flattened:
                         topics:
                         - name: 13F Summary
                           value:
@@ -1044,7 +1044,7 @@ paths:
                           - name: South Africa
                             value:
                             - "28"
-                      flattered:
+                      flattened:
                         regions:
                         - name: Canada
                           value:
@@ -1147,7 +1147,7 @@ paths:
                           - name: Alternative Energy"
                             value:
                             - 108
-                      flattered:
+                      flattened:
                         sectors:
                         - name: Chemical Manufacturing
                           value:
@@ -1247,7 +1247,7 @@ paths:
                         - name: S&P 500
                           type: Index
                           value: SP50
-                      flattered:
+                      flattened:
                         watchlists:
                         - name: S&P 500
                           type: Index
@@ -1611,6 +1611,8 @@ components:
           $ref: '#/components/schemas/HeadlinesRequestByView_data'
         meta:
           $ref: '#/components/schemas/HeadlinesRequestByView_meta'
+      required:
+      - data
       type: object
     QuickAlertsBody:
       description: Elements of quick alerts body object.
@@ -1620,6 +1622,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/QuickAlertsBody_data'
+      required:
+      - data
       type: object
     QuickAlertsResponse:
       description: Elements of quick alerts response object.
@@ -1628,7 +1632,7 @@ components:
           name: StreetAccount News
       properties:
         data:
-          $ref: '#/components/schemas/QuickAlertsBody_data'
+          $ref: '#/components/schemas/QuickAlertsResponse_data'
       type: object
     HeadlinesResponse:
       description: Properties in results objects are based on return values.
@@ -1775,6 +1779,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/CreateOrEditViewBody_data'
+      required:
+      - data
       type: object
     DeleteViewBody:
       description: Elements of delete view body object.
@@ -1784,6 +1790,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/DeleteViewBody_data'
+      required:
+      - data
       type: object
     CreateOrEditViewTickers:
       description: Elements of create or edit view tickers object.
@@ -3699,6 +3707,8 @@ components:
           type: string
         searchTime:
           $ref: '#/components/schemas/HeadlinesRequestByView_data_searchTime'
+      required:
+      - name
       type: object
     HeadlinesRequestByView_meta:
       description: Elements of meta object.
@@ -3711,6 +3721,17 @@ components:
           $ref: '#/components/schemas/HeadlinesRequest_meta_pagination'
       type: object
     QuickAlertsBody_data:
+      example:
+        name: StreetAccount News
+      properties:
+        name:
+          description: The name of the view associated with quick alerts.
+          example: StreetAccount News
+          type: string
+      required:
+      - name
+      type: object
+    QuickAlertsResponse_data:
       example:
         name: StreetAccount News
       properties:
@@ -3845,6 +3866,8 @@ components:
             A value of 'true' means quick alerts are enabled, while 'false' means they are not.
           example: false
           type: boolean
+      required:
+      - name
       type: object
     DeleteViewBody_data:
       example:
@@ -3854,6 +3877,8 @@ components:
           description: The name of the view to be deleted.
           example: SA News View
           type: string
+      required:
+      - name
       type: object
     CreateViewResponse_data:
       example:

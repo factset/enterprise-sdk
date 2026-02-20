@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-ofdb",
+  "projectVersion": "0.0.3",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "OFDB client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "ofdb",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/OFDB/0.0.3",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

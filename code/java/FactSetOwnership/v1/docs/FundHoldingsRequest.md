@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **topn** | **String** | Limits number of holdings or holders displayed by the top *n* securities. Default is ALL, or use integer to limit number. |  [optional]
 **assetType** | **AssetType** |  |  [optional]
 **currency** | **String** | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). |  [optional]
+**batch** | **Batch** |  |  [optional]
 
 
 ## Implemented Interfaces

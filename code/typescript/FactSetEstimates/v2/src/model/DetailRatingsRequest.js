@@ -61,6 +61,12 @@ class DetailRatingsRequest {
             if (data.hasOwnProperty('includeAll')) {
                 obj['includeAll'] = ApiClient.convertToType(data['includeAll'], 'Boolean');
             }
+            if (data.hasOwnProperty('brokerNames')) {
+                obj['brokerNames'] = ApiClient.convertToType(data['brokerNames'], ['String']);
+            }
+            if (data.hasOwnProperty('updatesOnly')) {
+                obj['updatesOnly'] = ApiClient.convertToType(data['updatesOnly'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -92,6 +98,19 @@ DetailRatingsRequest.prototype['endDate'] = undefined;
  * @default false
  */
 DetailRatingsRequest.prototype['includeAll'] = false;
+
+/**
+ * Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+ * @member {Array.<String>} brokerNames
+ */
+DetailRatingsRequest.prototype['brokerNames'] = undefined;
+
+/**
+ * When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.
+ * @member {Boolean} updatesOnly
+ * @default false
+ */
+DetailRatingsRequest.prototype['updatesOnly'] = false;
 
 
 

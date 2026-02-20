@@ -1,19 +1,19 @@
 # TransactionsApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getOwnershipInsiderTransactions**](TransactionsApi.md#getOwnershipInsiderTransactions) | **GET** /factset-ownership/v1/transactions/insider | Get insider transactions details for a list of requested identifiers.
-[**getOwnershipInstitutionalTransactions**](TransactionsApi.md#getOwnershipInstitutionalTransactions) | **GET** /factset-ownership/v1/transactions/institutional | Get institutional transaction details for a list of requested identifiers.
-[**postOwnershipInsiderTransactions**](TransactionsApi.md#postOwnershipInsiderTransactions) | **POST** /factset-ownership/v1/transactions/insider | Get insider transactions details for a list of requested identifiers.
-[**postOwnershipInstituionalTransactions**](TransactionsApi.md#postOwnershipInstituionalTransactions) | **POST** /factset-ownership/v1/transactions/institutional | Gets institutional transaction details for a list of requested identifiers.
+[**getOwnershipInsiderTransactions**](TransactionsApi.md#getOwnershipInsiderTransactions) | **GET** /transactions/insider | Get insider transactions details for a list of requested identifiers.
+[**getOwnershipInstitutionalTransactions**](TransactionsApi.md#getOwnershipInstitutionalTransactions) | **GET** /transactions/institutional | Get institutional transaction details for a list of requested identifiers.
+[**postOwnershipInsiderTransactions**](TransactionsApi.md#postOwnershipInsiderTransactions) | **POST** /transactions/insider | Get insider transactions details for a list of requested identifiers.
+[**postOwnershipInstitutionalTransactions**](TransactionsApi.md#postOwnershipInstitutionalTransactions) | **POST** /transactions/institutional | Gets institutional transaction details for a list of requested identifiers.
 
 
 
 ## getOwnershipInsiderTransactions
 
-> InsiderTransactionsResponse getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency)
+> InsiderTransactionsResponse getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch)
 
 Get insider transactions details for a list of requested identifiers.
 
@@ -62,14 +62,15 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         TransactionsApi apiInstance = new TransactionsApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  >.
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
         LocalDate startDate = LocalDate.parse("2020-06-30"); // LocalDate | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         LocalDate endDate = LocalDate.parse("2021-06-30"); // LocalDate | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         String transactionType = "A"; // String | Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** = All Transaction Types - returns all available transaction types.   * **P** = Open Market Purchases - shares on the open market.   * **S** =  Open Market Sales - selling shares on the open market.   * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.   * **O** = Options Exercised - executing stock options to acquire shares.   * **M** = Other Transactions - any other types of equity-related actions not covered above. 
         String rowExclusion = "DB"; // String | Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** = Blank Transaction Types - excludes only blank transaction types.   * **N** =   None - includes all transaction types without exclusion. 
         String currency = "LOCAL"; // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            InsiderTransactionsResponse result = apiInstance.getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency);
+            InsiderTransactionsResponse result = apiInstance.getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -88,12 +89,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. |
+ **ids** | **List&lt;String&gt;**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. |
  **startDate** | **LocalDate**| The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **endDate** | **LocalDate**| The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **transactionType** | **String**| Controls the Transaction Type of the data returned. By default, the service will return All Transaction Types.   * **A** &#x3D; All Transaction Types - returns all available transaction types.   * **P** &#x3D; Open Market Purchases - shares on the open market.   * **S** &#x3D;  Open Market Sales - selling shares on the open market.   * **PS** &#x3D; Open Market Purchases &amp; Sales - buying and selling shares on the open market.   * **O** &#x3D; Options Exercised - executing stock options to acquire shares.   * **M** &#x3D; Other Transactions - any other types of equity-related actions not covered above.  | [optional] [default to A] [enum: A, P, S, PS, O, M]
  **rowExclusion** | **String**| Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  | [optional] [default to DB] [enum: DB, B, N]
  **currency** | **String**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to LOCAL]
+ **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N] [enum: Y, N]
 
 ### Return type
 
@@ -121,7 +123,7 @@ Name | Type | Description  | Notes
 
 ## getOwnershipInstitutionalTransactions
 
-> InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure)
+> InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch)
 
 Get institutional transaction details for a list of requested identifiers.
 
@@ -170,7 +172,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         TransactionsApi apiInstance = new TransactionsApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  >.
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested list of security identifiers. <p>***ids limit** =  10 per request*</p  > <p>***Batch ids limit** =  1000 per request*</p  >.
         LocalDate startDate = LocalDate.parse("2020-06-30"); // LocalDate | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         LocalDate endDate = LocalDate.parse("2021-06-30"); // LocalDate | The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
         String currency = "LOCAL"; // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -178,8 +180,9 @@ public class Example {
         String topNHolders = "ALL"; // String | Specifies the number of top holders whose data is returned.   * **ALL** = All holders   * **5** = Top 5 Institutional Holders   * **10** = Top 10 Institutional Holders   * **25** = Top 25 Institutional Holders   * **50** = Top 50 Institutional Holders   * **100** = Top 100 Institutional Holders 
         String holderType = "F"; // String | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners 
         String periodOfMeasure = "1M"; // String | Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** = 1 Month (last 30 days)   * **3M** = 3 Months (last 90 days)   * **6M** = 6 Months (last 180 days)   * **12M** = 12 Months (last 365 days) 
+        String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            InstitutionalTransactionsResponse result = apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure);
+            InstitutionalTransactionsResponse result = apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -198,7 +201,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt;. |
+ **ids** | **List&lt;String&gt;**| Requested list of security identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p  &gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p  &gt;. |
  **startDate** | **LocalDate**| The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **endDate** | **LocalDate**| The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  |
  **currency** | **String**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to LOCAL]
@@ -206,6 +209,7 @@ Name | Type | Description  | Notes
  **topNHolders** | **String**| Specifies the number of top holders whose data is returned.   * **ALL** &#x3D; All holders   * **5** &#x3D; Top 5 Institutional Holders   * **10** &#x3D; Top 10 Institutional Holders   * **25** &#x3D; Top 25 Institutional Holders   * **50** &#x3D; Top 50 Institutional Holders   * **100** &#x3D; Top 100 Institutional Holders  | [optional] [default to 25] [enum: ALL, 5, 10, 25, 50, 100]
  **holderType** | **String**| Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  | [optional] [default to F] [enum: F, M, S, FS, B]
  **periodOfMeasure** | **String**| Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  | [optional] [default to 6M] [enum: 1M, 3M, 6M, 12M]
+ **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N] [enum: Y, N]
 
 ### Return type
 
@@ -327,9 +331,9 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 
-## postOwnershipInstituionalTransactions
+## postOwnershipInstitutionalTransactions
 
-> InstitutionalTransactionsResponse postOwnershipInstituionalTransactions(institutionalTransactionsRequest)
+> InstitutionalTransactionsResponse postOwnershipInstitutionalTransactions(institutionalTransactionsRequest)
 
 Gets institutional transaction details for a list of requested identifiers.
 
@@ -378,11 +382,11 @@ public class Example {
         TransactionsApi apiInstance = new TransactionsApi(defaultClient);
         InstitutionalTransactionsRequest institutionalTransactionsRequest = new InstitutionalTransactionsRequest(); // InstitutionalTransactionsRequest | Requesting Institutional Transaction Details
         try {
-            InstitutionalTransactionsResponse result = apiInstance.postOwnershipInstituionalTransactions(institutionalTransactionsRequest);
+            InstitutionalTransactionsResponse result = apiInstance.postOwnershipInstitutionalTransactions(institutionalTransactionsRequest);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling TransactionsApi#postOwnershipInstituionalTransactions");
+            System.err.println("Exception when calling TransactionsApi#postOwnershipInstitutionalTransactions");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

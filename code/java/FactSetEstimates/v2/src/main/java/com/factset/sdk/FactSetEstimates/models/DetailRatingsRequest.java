@@ -38,7 +38,9 @@ import com.factset.sdk.FactSetEstimates.JSON;
   DetailRatingsRequest.JSON_PROPERTY_IDS,
   DetailRatingsRequest.JSON_PROPERTY_START_DATE,
   DetailRatingsRequest.JSON_PROPERTY_END_DATE,
-  DetailRatingsRequest.JSON_PROPERTY_INCLUDE_ALL
+  DetailRatingsRequest.JSON_PROPERTY_INCLUDE_ALL,
+  DetailRatingsRequest.JSON_PROPERTY_BROKER_NAMES,
+  DetailRatingsRequest.JSON_PROPERTY_UPDATES_ONLY
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -56,6 +58,12 @@ public class DetailRatingsRequest implements Serializable {
 
   public static final String JSON_PROPERTY_INCLUDE_ALL = "includeAll";
   private Boolean includeAll = false;
+
+  public static final String JSON_PROPERTY_BROKER_NAMES = "brokerNames";
+  private java.util.List<String> brokerNames = null;
+
+  public static final String JSON_PROPERTY_UPDATES_ONLY = "updatesOnly";
+  private Boolean updatesOnly = false;
 
   public DetailRatingsRequest() { 
   }
@@ -177,6 +185,66 @@ public class DetailRatingsRequest implements Serializable {
   }
 
 
+  public DetailRatingsRequest brokerNames(java.util.List<String> brokerNames) {
+    this.brokerNames = brokerNames;
+    return this;
+  }
+
+  public DetailRatingsRequest addBrokerNamesItem(String brokerNamesItem) {
+    if (this.brokerNames == null) {
+      this.brokerNames = new java.util.ArrayList<>();
+    }
+    this.brokerNames.add(brokerNamesItem);
+    return this;
+  }
+
+   /**
+   * Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+   * @return brokerNames
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "[\"Morningstar Equity Research\"]", value = "Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).")
+  @JsonProperty(JSON_PROPERTY_BROKER_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<String> getBrokerNames() {
+    return brokerNames;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BROKER_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBrokerNames(java.util.List<String> brokerNames) {
+    this.brokerNames = brokerNames;
+  }
+
+
+  public DetailRatingsRequest updatesOnly(Boolean updatesOnly) {
+    this.updatesOnly = updatesOnly;
+    return this;
+  }
+
+   /**
+   * When set to &#39;true&#39;, the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to &#39;false&#39;, data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as &#39;false&#39; by default.
+   * @return updatesOnly
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "When set to 'true', the endpoint returns the first reported estimates during this period and any subsequent changes reported by the brokers. When set to 'false', data is returned for all dates in the requested date range based on the selected frequency. If unspecified, it is treated as 'false' by default.")
+  @JsonProperty(JSON_PROPERTY_UPDATES_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUpdatesOnly() {
+    return updatesOnly;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UPDATES_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUpdatesOnly(Boolean updatesOnly) {
+    this.updatesOnly = updatesOnly;
+  }
+
+
   /**
    * Return true if this detailRatingsRequest object is equal to o.
    */
@@ -192,12 +260,14 @@ public class DetailRatingsRequest implements Serializable {
     return Objects.equals(this.ids, detailRatingsRequest.ids) &&
         Objects.equals(this.startDate, detailRatingsRequest.startDate) &&
         Objects.equals(this.endDate, detailRatingsRequest.endDate) &&
-        Objects.equals(this.includeAll, detailRatingsRequest.includeAll);
+        Objects.equals(this.includeAll, detailRatingsRequest.includeAll) &&
+        Objects.equals(this.brokerNames, detailRatingsRequest.brokerNames) &&
+        Objects.equals(this.updatesOnly, detailRatingsRequest.updatesOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, startDate, endDate, includeAll);
+    return Objects.hash(ids, startDate, endDate, includeAll, brokerNames, updatesOnly);
   }
 
   @Override
@@ -208,6 +278,8 @@ public class DetailRatingsRequest implements Serializable {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    includeAll: ").append(toIndentedString(includeAll)).append("\n");
+    sb.append("    brokerNames: ").append(toIndentedString(brokerNames)).append("\n");
+    sb.append("    updatesOnly: ").append(toIndentedString(updatesOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }

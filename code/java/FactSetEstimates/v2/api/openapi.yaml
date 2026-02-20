@@ -140,15 +140,16 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -165,7 +166,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -490,15 +491,16 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -515,7 +517,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -837,15 +839,16 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -862,7 +865,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -886,11 +889,11 @@ paths:
           - SEMI
           type: string
         style: form
-      - description: "Include All filter is used to identify included and excluded\
-          \ broker details from the consensus\n  By default the service would return\
-          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
-          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
-          \ only the broker details included in the consensus\n  \n"
+      - description: |
+          Include All filter is used to identify included and excluded broker details from the consensus
+            By default the service would return only the brokers included in the consensus-
+            * **TRUE** = Returns all the brokers included and excluded in the consensus
+            * **FALSE** = Returns only the broker details included in the consensus
         explode: true
         in: query
         name: includeAll
@@ -937,6 +940,36 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: 'Filter to return estimate data from specific brokers only. Accepts
+          broker names as input.  The endpoint returns data from all available brokers
+          if this parameter is not specified. For a list of available brokers, visit
+          [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+        example:
+        - Morningstar Equity Research
+        explode: false
+        in: query
+        name: brokerNames
+        required: false
+        schema:
+          items:
+            type: string
+          minItems: 1
+          type: array
+        style: form
+      - description: When set to 'true', the endpoint returns the first reported estimates
+          during this period and any subsequent changes reported by the brokers. When
+          set to 'false', data is returned for all dates in the requested date range
+          based on the selected frequency. If unspecified, it is treated as 'false'
+          by default.
+        example: false
+        explode: true
+        in: query
+        name: updatesOnly
+        required: false
+        schema:
+          default: false
+          type: boolean
         style: form
       responses:
         "200":
@@ -1189,15 +1222,16 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -1214,7 +1248,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -1238,11 +1272,11 @@ paths:
           - SEMI
           type: string
         style: form
-      - description: "Include All filter is used to identify included and excluded\
-          \ broker details from the consensus\n  By default the service would return\
-          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
-          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
-          \ only the broker details included in the consensus\n  \n"
+      - description: |
+          Include All filter is used to identify included and excluded broker details from the consensus
+            By default the service would return only the brokers included in the consensus-
+            * **TRUE** = Returns all the brokers included and excluded in the consensus
+            * **FALSE** = Returns only the broker details included in the consensus
         explode: true
         in: query
         name: includeAll
@@ -1285,6 +1319,36 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: 'Filter to return estimate data from specific brokers only. Accepts
+          broker names as input.  The endpoint returns data from all available brokers
+          if this parameter is not specified. For a list of available brokers, visit
+          [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+        example:
+        - Morningstar Equity Research
+        explode: false
+        in: query
+        name: brokerNames
+        required: false
+        schema:
+          items:
+            type: string
+          minItems: 1
+          type: array
+        style: form
+      - description: When set to 'true', the endpoint returns the first reported estimates
+          during this period and any subsequent changes reported by the brokers. When
+          set to 'false', data is returned for all dates in the requested date range
+          based on the selected frequency. If unspecified, it is treated as 'false'
+          by default.
+        example: false
+        explode: true
+        in: query
+        name: updatesOnly
+        required: false
+        schema:
+          default: false
+          type: boolean
         style: form
       responses:
         "200":
@@ -1519,15 +1583,16 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -1544,7 +1609,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -1644,7 +1709,7 @@ paths:
         content:
           application/json:
             examples:
-              Consensus Ratings response of FDS-US for frequency 'AM':
+              Consensus Ratings response of FDS-US for frequency 'D':
                 $ref: '#/components/examples/postConsensusRatings'
             schema:
               $ref: '#/components/schemas/consensusRatingsRequest'
@@ -1789,14 +1854,44 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Include All filter is used to identify included and excluded\
-          \ broker details from the consensus\n  By default the service would return\
-          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
-          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
-          \ only the broker details included in the consensus\n  \n"
+      - description: |
+          Include All filter is used to identify included and excluded broker details from the consensus
+            By default the service would return only the brokers included in the consensus-
+            * **TRUE** = Returns all the brokers included and excluded in the consensus
+            * **FALSE** = Returns only the broker details included in the consensus
         explode: true
         in: query
         name: includeAll
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: 'Filter to return estimate data from specific brokers only. Accepts
+          broker names as input.  The endpoint returns data from all available brokers
+          if this parameter is not specified. For a list of available brokers, visit
+          [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+        example:
+        - Morningstar Equity Research
+        explode: false
+        in: query
+        name: brokerNames
+        required: false
+        schema:
+          items:
+            type: string
+          minItems: 1
+          type: array
+        style: form
+      - description: When set to 'true', the endpoint returns the first reported estimates
+          during this period and any subsequent changes reported by the brokers. When
+          set to 'false', data is returned for all dates in the requested date range
+          based on the selected frequency. If unspecified, it is treated as 'false'
+          by default.
+        example: false
+        explode: true
+        in: query
+        name: updatesOnly
         required: false
         schema:
           default: false
@@ -2056,15 +2151,16 @@ paths:
           format: date
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -2081,7 +2177,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -2456,15 +2552,16 @@ paths:
           - LTMA
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -2481,7 +2578,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -4249,15 +4346,16 @@ paths:
           - LTMA
           type: string
         style: form
-      - description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-          \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-          \  * **AM** = Monthly, based on the start date (e.g., if the start date\
-          \ is June 16, data is displayed for June 16, May 16, April 16 etc.).   \
-          \   \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual\
-          \ Annual, based on the start date. \n"
+      - description: |
+          Controls the frequency of the data returned.
+            * **D** = Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** = Quarterly, based on the start date.
+            * **AY** = Actual Annual, based on the start date.
         examples:
           Daily:
-            summary: D - Daily frequency display based on trading calendar
+            summary: D - Daily (Default) - frequency display based on trading calendar
             value: D
           Weekly:
             summary: W - Weekly - based on the last day of the week of the start date
@@ -4274,7 +4372,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: AM
+          default: D
           enum:
           - D
           - W
@@ -4556,6 +4654,7 @@ components:
         - requestId: FDS-US,
           fsymId: SQFMK3-R,
           asOfMonth: 2024-03,
+          currency: USD
           ratingsCount:
             buy: 5
             overWeight: 1
@@ -4573,7 +4672,7 @@ components:
             median: 146.01
     postRollingConsensus:
       description: Rolling Consensus response of FDS-US for SALES metrics with frequency
-        set to 'AM' and periodicity to 'ANN'
+        set to 'D' and periodicity to 'ANN'
       summary: Rolling Consensus response of FDS-US for SALES metrics
       value:
         ids:
@@ -4582,14 +4681,14 @@ components:
         - SALES
         startDate: 2019-01-01
         endDate: 2019-12-31
-        frequency: AM
+        frequency: D
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
         periodicity: ANN
         currency: USD
     postFixedConsensus:
       description: Fixed Consensus response of FDS-US for SALES metrics with frequency
-        set to 'AM' and periodicity to 'ANN'
+        set to 'D' and periodicity to 'ANN'
       summary: Fixed Consensus response of FDS-US for SALES metrics
       value:
         ids:
@@ -4598,21 +4697,21 @@ components:
         - SALES
         startDate: 2019-01-01
         endDate: 2019-12-31
-        frequency: AM
+        frequency: D
         fiscalPeriodStart: "2019"
         fiscalPeriodEnd: "2020"
         periodicity: ANN
         currency: USD
     postRollingDetail:
       description: Rolling Detail response of FDS-US for SALES metrics with frequency
-        set to 'AM' and periodicity to 'ANN'
+        set to 'D' and periodicity to 'ANN'
       summary: Rolling Detail response of FDS-US for SALES metrics
       value:
         ids:
         - FDS-US
         startDate: 2019-01-01
         endDate: 2019-12-31
-        frequency: AM
+        frequency: D
         includeAll: false
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
@@ -4620,9 +4719,12 @@ components:
         metrics:
         - SALES
         currency: USD
+        brokerNames:
+        - Morningstar Equity Research
+        updatesOnly: false
     postFixedDetail:
       description: Fixed Detail response of FDS-US for SALES metrics with frequency
-        set to 'AM' and periodicity to 'ANN'
+        set to 'D' and periodicity to 'ANN'
       summary: Fixed Detail response of FDS-US for SALES metrics
       value:
         ids:
@@ -4631,22 +4733,25 @@ components:
         - SALES
         startDate: 2019-01-01
         endDate: 2019-12-31
-        frequency: AM
+        frequency: D
         includeAll: false
         periodicity: ANN
         fiscalPeriodStart: "2019"
         fiscalPeriodEnd: "2019"
         currency: USD
+        brokerNames:
+        - Morningstar Equity Research
+        updatesOnly: false
     postConsensusRatings:
       description: Consensus Ratings response of FDS-US for SALES metrics with frequency
-        set to 'AM'.
-      summary: Consensus Ratings response of FDS-US for frequency 'AM'
+        set to 'D'.
+      summary: Consensus Ratings response of FDS-US for frequency 'D'
       value:
         ids:
         - FDS-US
         startDate: 2019-01-01
         endDate: 2019-12-31
-        frequency: AM
+        frequency: D
     postDetailRating:
       description: Detail Ratings response of FDS-US with includeAll set to 'false'
       summary: Detail Ratings response of FDS-US
@@ -4656,9 +4761,12 @@ components:
         startDate: 2019-01-01
         endDate: 2019-12-31
         includeAll: false
+        brokerNames:
+        - Morningstar Equity Research
+        updatesOnly: false
     postSurpriseExample:
       description: Surprise response of FDS-US for SALES metrics with frequency set
-        to 'AM', periodicity to 'ANN' and statistic to 'MEDIAN'
+        to 'D', periodicity to 'ANN' and statistic to 'MEDIAN'
       summary: Surprise response of FDS-US for SALES metrics
       value:
         ids:
@@ -4667,13 +4775,13 @@ components:
         - SALES
         startDate: 2019-01-01
         endDate: 2019-12-31
-        frequency: AM
+        frequency: D
         periodicity: ANN
         currency: USD
         statistic: MEDIAN
     postSegments:
       description: Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
-        with frequency set to 'AM' and periodicity to 'ANN'
+        with frequency set to 'D' and periodicity to 'ANN'
       summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
       value:
         ids:
@@ -4683,7 +4791,7 @@ components:
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
         periodicity: ANN
-        frequency: AM
+        frequency: D
         segmentType: BUS
         metrics:
         - SALES
@@ -5008,8 +5116,8 @@ components:
           estimateCurrency: USD
     consensusRatings:
       description: Consensus Ratings response of AAPL-USA for SALES metrics with frequency
-        set to 'AM'.
-      summary: Consensus Ratings response of AAPL-USA for frequency 'AM'
+        set to 'D'.
+      summary: Consensus Ratings response of AAPL-USA for frequency 'D'
       value:
         data:
         - fsymId: MH33D6-R
@@ -5025,7 +5133,7 @@ components:
           requestId: AAPL-USA
     detailRating:
       description: Detail Ratings response of AAPL-USA for SALES metrics with frequency
-        set to 'AM' and periodicity to 'ANN'
+        set to 'D' and periodicity to 'ANN'
       summary: Detail Ratings response of AAPL-USA for SALES metrics
       value:
         data:
@@ -5041,7 +5149,7 @@ components:
           lastModifiedDate: 2019-06-04
     surpriseExample:
       description: Surprise response of AAPL-USA for SALES metrics with frequency
-        set to 'AM', periodicity to 'ANN' and statistic to 'MEAN'
+        set to 'D', periodicity to 'ANN' and statistic to 'MEAN'
       summary: Surprise response of AAPL-USA for SALES metrics
       value:
         data:
@@ -5065,7 +5173,7 @@ components:
           requestId: AAPL-USA
     segments:
       description: Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
-        with frequency set to 'AM' and periodicity to 'ANN'
+        with frequency set to 'D' and periodicity to 'ANN'
       summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
       value:
         data:
@@ -5925,15 +6033,16 @@ components:
         type: string
       style: form
     frequency:
-      description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
-        \  * **W** = Weekly, based on the last day of the week of the start date.\n\
-        \  * **AM** = Monthly, based on the start date (e.g., if the start date is\
-        \ June 16, data is displayed for June 16, May 16, April 16 etc.).      \n\
-        \  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual Annual,\
-        \ based on the start date. \n"
+      description: |
+        Controls the frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **AQ** = Quarterly, based on the start date.
+          * **AY** = Actual Annual, based on the start date.
       examples:
         Daily:
-          summary: D - Daily frequency display based on trading calendar
+          summary: D - Daily (Default) - frequency display based on trading calendar
           value: D
         Weekly:
           summary: W - Weekly - based on the last day of the week of the start date
@@ -5950,7 +6059,7 @@ components:
       name: frequency
       required: false
       schema:
-        default: AM
+        default: D
         enum:
         - D
         - W
@@ -6054,14 +6163,46 @@ components:
         type: string
       style: form
     includeAll:
-      description: "Include All filter is used to identify included and excluded broker\
-        \ details from the consensus\n  By default the service would return only the\
-        \ brokers included in the consensus-\n  * **TRUE** = Returns all the brokers\
-        \ included and excluded in the consensus\n  * **FALSE** = Returns only the\
-        \ broker details included in the consensus\n  \n"
+      description: |
+        Include All filter is used to identify included and excluded broker details from the consensus
+          By default the service would return only the brokers included in the consensus-
+          * **TRUE** = Returns all the brokers included and excluded in the consensus
+          * **FALSE** = Returns only the broker details included in the consensus
       explode: true
       in: query
       name: includeAll
+      required: false
+      schema:
+        default: false
+        type: boolean
+      style: form
+    brokerNames:
+      description: 'Filter to return estimate data from specific brokers only. Accepts
+        broker names as input.  The endpoint returns data from all available brokers
+        if this parameter is not specified. For a list of available brokers, visit
+        [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      example:
+      - Morningstar Equity Research
+      explode: false
+      in: query
+      name: brokerNames
+      required: false
+      schema:
+        items:
+          type: string
+        minItems: 1
+        type: array
+      style: form
+    updatesOnly:
+      description: When set to 'true', the endpoint returns the first reported estimates
+        during this period and any subsequent changes reported by the brokers. When
+        set to 'false', data is returned for all dates in the requested date range
+        based on the selected frequency. If unspecified, it is treated as 'false'
+        by default.
+      example: false
+      explode: true
+      in: query
+      name: updatesOnly
       required: false
       schema:
         default: false
@@ -7318,6 +7459,26 @@ components:
             [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
+        brokerNames:
+          description: 'Filter to return estimate data from specific brokers only.
+            Accepts broker names as input.  The endpoint returns data from all available
+            brokers if this parameter is not specified. For a list of available brokers,
+            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          example:
+          - Morningstar Equity Research
+          items:
+            type: string
+          minItems: 1
+          type: array
+        updatesOnly:
+          default: false
+          description: When set to 'true', the endpoint returns the first reported
+            estimates during this period and any subsequent changes reported by the
+            brokers. When set to 'false', data is returned for all dates in the requested
+            date range based on the selected frequency. If unspecified, it is treated
+            as 'false' by default.
+          example: false
+          type: boolean
       required:
       - ids
       - metrics
@@ -7629,6 +7790,26 @@ components:
             [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
           type: string
+        brokerNames:
+          description: 'Filter to return estimate data from specific brokers only.
+            Accepts broker names as input.  The endpoint returns data from all available
+            brokers if this parameter is not specified. For a list of available brokers,
+            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          example:
+          - Morningstar Equity Research
+          items:
+            type: string
+          minItems: 1
+          type: array
+        updatesOnly:
+          default: false
+          description: When set to 'true', the endpoint returns the first reported
+            estimates during this period and any subsequent changes reported by the
+            brokers. When set to 'false', data is returned for all dates in the requested
+            date range based on the selected frequency. If unspecified, it is treated
+            as 'false' by default.
+          example: false
+          type: boolean
       required:
       - ids
       - metrics
@@ -7827,6 +8008,26 @@ components:
               By default the service would return only the brokers included in the consensus-
               * **TRUE** = Returns all the brokers included and excluded in the consensus
               * **FALSE** = Returns only the broker details included in the consensus
+          example: false
+          type: boolean
+        brokerNames:
+          description: 'Filter to return estimate data from specific brokers only.
+            Accepts broker names as input.  The endpoint returns data from all available
+            brokers if this parameter is not specified. For a list of available brokers,
+            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          example:
+          - Morningstar Equity Research
+          items:
+            type: string
+          minItems: 1
+          type: array
+        updatesOnly:
+          default: false
+          description: When set to 'true', the endpoint returns the first reported
+            estimates during this period and any subsequent changes reported by the
+            brokers. When set to 'false', data is returned for all dates in the requested
+            date range based on the selected frequency. If unspecified, it is treated
+            as 'false' by default.
           example: false
           type: boolean
       required:
@@ -8366,7 +8567,7 @@ components:
       example: MEDIAN
       type: string
     frequency:
-      default: D
+      default: AM
       description: "Controls the display frequency of the data returned.\n  * **D**\
         \ = Daily\n  * **W** = Weekly, based on the last day of the week of the start\
         \ date.\n  * **AM** = Monthly, based on the start date (e.g., if the start\
@@ -8682,6 +8883,26 @@ components:
       - GEO
       example: BUS
       type: string
+    brokerNames:
+      description: 'Filter to return estimate data from specific brokers only. Accepts
+        broker names as input.  The endpoint returns data from all available brokers
+        if this parameter is not specified. For a list of available brokers, visit
+        [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      example:
+      - Morningstar Equity Research
+      items:
+        type: string
+      minItems: 1
+      type: array
+    updatesOnly:
+      default: false
+      description: When set to 'true', the endpoint returns the first reported estimates
+        during this period and any subsequent changes reported by the brokers. When
+        set to 'false', data is returned for all dates in the requested date range
+        based on the selected frequency. If unspecified, it is treated as 'false'
+        by default.
+      example: false
+      type: boolean
     AnalystRatingResponse:
       example:
         data:
@@ -8701,6 +8922,7 @@ components:
             sell: 2
             overWeight: 1
             hold: 10
+          currency: USD
           meanRecommendation: Hold
           meanRecommendationScale: 1.842105
         - targetPrice:
@@ -8719,6 +8941,7 @@ components:
             sell: 2
             overWeight: 1
             hold: 10
+          currency: USD
           meanRecommendation: Hold
           meanRecommendationScale: 1.842105
       properties:
@@ -8747,6 +8970,7 @@ components:
           sell: 2
           overWeight: 1
           hold: 10
+        currency: USD
         meanRecommendation: Hold
         meanRecommendationScale: 1.842105
       properties:
@@ -8768,6 +8992,11 @@ components:
         asOfMonth:
           description: Ending date for the period requested expressed in YYYY-MM format.
           example: 2024-03
+          type: string
+        currency:
+          description: The 3 digit ISO code for the currency. ​For a list of currency
+            ISO codes, visit [Online Assistant Page#1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
           type: string
         ratingsCount:
           $ref: '#/components/schemas/RatingsCount'

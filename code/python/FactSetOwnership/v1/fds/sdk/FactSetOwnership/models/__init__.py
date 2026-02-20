@@ -10,6 +10,12 @@
 # sys.setrecursionlimit(n)
 
 from fds.sdk.FactSetOwnership.model.asset_type import AssetType
+from fds.sdk.FactSetOwnership.model.batch import Batch
+from fds.sdk.FactSetOwnership.model.batch_error_object import BatchErrorObject
+from fds.sdk.FactSetOwnership.model.batch_result import BatchResult
+from fds.sdk.FactSetOwnership.model.batch_result_response import BatchResultResponse
+from fds.sdk.FactSetOwnership.model.batch_status import BatchStatus
+from fds.sdk.FactSetOwnership.model.batch_status_response import BatchStatusResponse
 from fds.sdk.FactSetOwnership.model.error_response import ErrorResponse
 from fds.sdk.FactSetOwnership.model.error_response_sub_errors import ErrorResponseSubErrors
 from fds.sdk.FactSetOwnership.model.frequency import Frequency

@@ -1,17 +1,17 @@
 # FundHoldingsApi
 
-All URIs are relative to *https://api.factset.com/content*
+All URIs are relative to *https://api.factset.com/content/factset-ownership/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getOwnershipHoldings**](FundHoldingsApi.md#getOwnershipHoldings) | **GET** /factset-ownership/v1/fund-holdings | Get underlying holdings information for a requested fund identifer.
-[**postOwnershipHoldings**](FundHoldingsApi.md#postOwnershipHoldings) | **POST** /factset-ownership/v1/fund-holdings | Get holdings for a list of funds.
+[**getOwnershipHoldings**](FundHoldingsApi.md#getOwnershipHoldings) | **GET** /fund-holdings | Get underlying holdings information for a requested fund identifer.
+[**postOwnershipHoldings**](FundHoldingsApi.md#postOwnershipHoldings) | **POST** /fund-holdings | Get holdings for a list of funds.
 
 
 
 ## getOwnershipHoldings
 
-> FundHoldingsResponse getOwnershipHoldings(ids, date, topn, assetType, currency)
+> FundHoldingsResponse getOwnershipHoldings(ids, date, topn, assetType, currency, batch)
 
 Get underlying holdings information for a requested fund identifer.
 
@@ -59,13 +59,14 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FundHoldingsApi apiInstance = new FundHoldingsApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>
         String date = "2019-12-31"; // String | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.
         String topn = "ALL"; // String | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.
         String assetType = "ALL"; // String | Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL 
         String currency = "LOCAL"; // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            FundHoldingsResponse result = apiInstance.getOwnershipHoldings(ids, date, topn, assetType, currency);
+            FundHoldingsResponse result = apiInstance.getOwnershipHoldings(ids, date, topn, assetType, currency, batch);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -84,11 +85,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| List of requested fund identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p&gt; |
+ **ids** | **List&lt;String&gt;**| List of requested fund identifiers. &lt;p&gt;***ids limit** &#x3D;  10 per request*&lt;/p&gt; &lt;p&gt;***Batch ids limit** &#x3D;  1000 per request*&lt;/p&gt; |
  **date** | **String**| Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. | [optional]
  **topn** | **String**| Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. | [optional] [default to ALL]
  **assetType** | **String**| Filter holdings by the following major asset classes -   * **EQ**  &#x3D; Equity   * **FI** &#x3D; Fixed Income   * **ALL** &#x3D; ALL  | [optional] [default to EQ] [enum: ALL, EQ, FI]
  **currency** | **String**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] [default to LOCAL]
+ **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N] [enum: Y, N]
 
 ### Return type
 

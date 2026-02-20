@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Returns Entity Candidates and Matches for a single name and attributes.
 
-Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. <p>**Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names.</p><p> 
+Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search.  The `matchFlag` indicates whether the `entityId` is a FactSet match based on the input name and country. When `true`, the FactSet `entityId` was confidently matched to the input name and country. When `false`, the FactSet `entityId` could not be confidently matched to the input name and country.  **Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names. 
 
 ### Example
 

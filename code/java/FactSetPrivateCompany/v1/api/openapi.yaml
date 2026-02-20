@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Private Company API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-private-company-api
@@ -30,7 +30,11 @@ paths:
   /universe:
     get:
       description: |
-        Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search. <p>**Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names.</p><p>
+        Finds the best candidate entities matching the given entity name. Country code can also be supplied to narrow the search.
+
+        The `matchFlag` indicates whether the `entityId` is a FactSet match based on the input name and country. When `true`, the FactSet `entityId` was confidently matched to the input name and country. When `false`, the FactSet `entityId` could not be confidently matched to the input name and country.
+
+        **Max of 1 Name permitted in a single GET request.** Use the POST method to fetch up to 25 names.
       operationId: getUniverse
       parameters:
       - description: |
@@ -1283,6 +1287,7 @@ components:
           entityName: Alto Pharmacy LLC
           countryCode: US
           entityTypeCode: PVT
+          matchFlag: true
     privateCompanyMetrics:
       description: Array of Private Company Metrics objects for a list of Companies
       summary: Private Company Metrics
@@ -2065,11 +2070,13 @@ components:
       description: Response object for Entity Matches.
       example:
         data:
-        - entityName: Alto Pharmacy LLC
+        - matchFlag: true
+          entityName: Alto Pharmacy LLC
           countryCode: US
           entityTypeCode: PVT
           entityId: 0H3R4Y-E
-        - entityName: Alto Pharmacy LLC
+        - matchFlag: true
+          entityName: Alto Pharmacy LLC
           countryCode: US
           entityTypeCode: PVT
           entityId: 0H3R4Y-E
@@ -2085,6 +2092,7 @@ components:
       description: |
         Entity Match object showing the decision reached for each Entity.
       example:
+        matchFlag: true
         entityName: Alto Pharmacy LLC
         countryCode: US
         entityTypeCode: PVT
@@ -2113,6 +2121,10 @@ components:
           example: PVT
           nullable: true
           type: string
+        matchFlag:
+          description: Flag denoting if the row is a match.
+          example: true
+          type: boolean
       title: Entity Match
       type: object
     FinancialStatementsResponse:
